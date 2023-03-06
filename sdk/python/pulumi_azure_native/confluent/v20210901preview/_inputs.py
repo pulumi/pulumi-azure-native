@@ -11,6 +11,7 @@ from ... import _utilities
 
 __all__ = [
     'OfferDetailArgs',
+    'OrganizationResourcePropertiesArgs',
     'UserDetailArgs',
 ]
 
@@ -95,6 +96,44 @@ class OfferDetailArgs:
     @term_unit.setter
     def term_unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "term_unit", value)
+
+
+@pulumi.input_type
+class OrganizationResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 offer_detail: pulumi.Input['OfferDetailArgs'],
+                 user_detail: pulumi.Input['UserDetailArgs']):
+        """
+        Organization resource property
+        :param pulumi.Input['OfferDetailArgs'] offer_detail: Confluent offer detail
+        :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
+        """
+        pulumi.set(__self__, "offer_detail", offer_detail)
+        pulumi.set(__self__, "user_detail", user_detail)
+
+    @property
+    @pulumi.getter(name="offerDetail")
+    def offer_detail(self) -> pulumi.Input['OfferDetailArgs']:
+        """
+        Confluent offer detail
+        """
+        return pulumi.get(self, "offer_detail")
+
+    @offer_detail.setter
+    def offer_detail(self, value: pulumi.Input['OfferDetailArgs']):
+        pulumi.set(self, "offer_detail", value)
+
+    @property
+    @pulumi.getter(name="userDetail")
+    def user_detail(self) -> pulumi.Input['UserDetailArgs']:
+        """
+        Subscriber detail
+        """
+        return pulumi.get(self, "user_detail")
+
+    @user_detail.setter
+    def user_detail(self, value: pulumi.Input['UserDetailArgs']):
+        pulumi.set(self, "user_detail", value)
 
 
 @pulumi.input_type

@@ -73,18 +73,14 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'options'");
-            }
-            if ((!args || args.resource === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resource'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["location"] = undefined /*out*/;
@@ -113,13 +109,9 @@ export interface DatabaseAccountTableArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+     * Properties to create and update Azure Cosmos DB Table.
      */
-    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The standard JSON format of a Table
-     */
-    resource: pulumi.Input<inputs.documentdb.v20160319.TableResourceArgs>;
+    properties: pulumi.Input<inputs.documentdb.v20160319.TableCreateUpdatePropertiesArgs>;
     /**
      * Name of an Azure resource group.
      */

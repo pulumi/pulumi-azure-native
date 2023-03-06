@@ -47,21 +47,9 @@ export interface GetSimResult {
      */
     readonly createdByType?: string;
     /**
-     * An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
-     */
-    readonly deviceType?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The Integrated Circuit Card ID (ICC Id) for the sim.
-     */
-    readonly integratedCircuitCardIdentifier?: string;
-    /**
-     * The International Mobile Subscriber Identity (IMSI) for the sim.
-     */
-    readonly internationalMobileSubscriberIdentity: string;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -79,29 +67,13 @@ export interface GetSimResult {
      */
     readonly location: string;
     /**
-     * Mobile network that this sim belongs to
-     */
-    readonly mobileNetwork?: outputs.mobilenetwork.v20220301preview.MobileNetworkResourceIdResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the sim resource.
+     * Sim Properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The simPolicy used by this sim.
-     */
-    readonly simPolicy?: outputs.mobilenetwork.v20220301preview.SimPolicyResourceIdResponse;
-    /**
-     * The state of the sim resource.
-     */
-    readonly simState: string;
-    /**
-     * A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-     */
-    readonly staticIpConfiguration?: outputs.mobilenetwork.v20220301preview.SimStaticIpPropertiesResponse[];
+    readonly properties: outputs.mobilenetwork.v20220301preview.SimPropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

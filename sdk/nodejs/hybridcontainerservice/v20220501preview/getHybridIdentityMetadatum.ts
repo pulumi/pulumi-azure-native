@@ -44,25 +44,13 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly id: string;
     /**
-     * The identity of the provisioned cluster.
-     */
-    readonly identity?: outputs.hybridcontainerservice.v20220501preview.ProvisionedClusterIdentityResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * provisioning state of the hybridIdentityMetadata resource.
+     * Resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
-     */
-    readonly publicKey?: string;
-    /**
-     * Unique id of the parent provisioned cluster resource.
-     */
-    readonly resourceUid?: string;
+    readonly properties: outputs.hybridcontainerservice.v20220501preview.HybridIdentityMetadataPropertiesResponse;
     /**
      * The system data.
      */

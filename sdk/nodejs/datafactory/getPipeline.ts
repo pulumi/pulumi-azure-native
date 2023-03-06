@@ -41,29 +41,9 @@ export interface GetPipelineArgs {
  */
 export interface GetPipelineResult {
     /**
-     * List of activities in pipeline.
-     */
-    readonly activities?: (outputs.datafactory.AppendVariableActivityResponse | outputs.datafactory.AzureDataExplorerCommandActivityResponse | outputs.datafactory.AzureFunctionActivityResponse | outputs.datafactory.AzureMLBatchExecutionActivityResponse | outputs.datafactory.AzureMLExecutePipelineActivityResponse | outputs.datafactory.AzureMLUpdateResourceActivityResponse | outputs.datafactory.ControlActivityResponse | outputs.datafactory.CopyActivityResponse | outputs.datafactory.CustomActivityResponse | outputs.datafactory.DataLakeAnalyticsUSQLActivityResponse | outputs.datafactory.DatabricksNotebookActivityResponse | outputs.datafactory.DatabricksSparkJarActivityResponse | outputs.datafactory.DatabricksSparkPythonActivityResponse | outputs.datafactory.DeleteActivityResponse | outputs.datafactory.ExecuteDataFlowActivityResponse | outputs.datafactory.ExecutePipelineActivityResponse | outputs.datafactory.ExecuteSSISPackageActivityResponse | outputs.datafactory.ExecuteWranglingDataflowActivityResponse | outputs.datafactory.ExecutionActivityResponse | outputs.datafactory.FailActivityResponse | outputs.datafactory.FilterActivityResponse | outputs.datafactory.ForEachActivityResponse | outputs.datafactory.GetMetadataActivityResponse | outputs.datafactory.HDInsightHiveActivityResponse | outputs.datafactory.HDInsightMapReduceActivityResponse | outputs.datafactory.HDInsightPigActivityResponse | outputs.datafactory.HDInsightSparkActivityResponse | outputs.datafactory.HDInsightStreamingActivityResponse | outputs.datafactory.IfConditionActivityResponse | outputs.datafactory.LookupActivityResponse | outputs.datafactory.ScriptActivityResponse | outputs.datafactory.SetVariableActivityResponse | outputs.datafactory.SqlServerStoredProcedureActivityResponse | outputs.datafactory.SwitchActivityResponse | outputs.datafactory.SynapseNotebookActivityResponse | outputs.datafactory.SynapseSparkJobDefinitionActivityResponse | outputs.datafactory.UntilActivityResponse | outputs.datafactory.ValidationActivityResponse | outputs.datafactory.WaitActivityResponse | outputs.datafactory.WebActivityResponse | outputs.datafactory.WebHookActivityResponse)[];
-    /**
-     * List of tags that can be used for describing the Pipeline.
-     */
-    readonly annotations?: any[];
-    /**
-     * The max number of concurrent runs for the pipeline.
-     */
-    readonly concurrency?: number;
-    /**
-     * The description of the pipeline.
-     */
-    readonly description?: string;
-    /**
      * Etag identifies change in the resource.
      */
     readonly etag: string;
-    /**
-     * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-     */
-    readonly folder?: outputs.datafactory.PipelineResponseFolder;
     /**
      * The resource identifier.
      */
@@ -73,25 +53,13 @@ export interface GetPipelineResult {
      */
     readonly name: string;
     /**
-     * List of parameters for pipeline.
+     * Properties of the pipeline.
      */
-    readonly parameters?: {[key: string]: outputs.datafactory.ParameterSpecificationResponse};
-    /**
-     * Pipeline Policy.
-     */
-    readonly policy?: outputs.datafactory.PipelinePolicyResponse;
-    /**
-     * Dimensions emitted by Pipeline.
-     */
-    readonly runDimensions?: {[key: string]: any};
+    readonly properties: outputs.datafactory.PipelineResponse;
     /**
      * The resource type.
      */
     readonly type: string;
-    /**
-     * List of variables for pipeline.
-     */
-    readonly variables?: {[key: string]: outputs.datafactory.VariableSpecificationResponse};
 }
 /**
  * Gets a pipeline.

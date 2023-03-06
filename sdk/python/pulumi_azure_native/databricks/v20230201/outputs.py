@@ -27,6 +27,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'SkuResponse',
     'SystemDataResponse',
+    'VirtualNetworkPeeringPropertiesFormatResponse',
     'VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork',
     'VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork',
     'WorkspaceCustomBooleanParameterResponse',
@@ -34,6 +35,7 @@ __all__ = [
     'WorkspaceCustomParametersResponse',
     'WorkspaceCustomStringParameterResponse',
     'WorkspaceEncryptionParameterResponse',
+    'WorkspacePropertiesResponse',
     'WorkspacePropertiesResponseEncryption',
     'WorkspaceProviderAuthorizationResponse',
 ]
@@ -954,6 +956,169 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class VirtualNetworkPeeringPropertiesFormatResponse(dict):
+    """
+    Properties of the virtual network peering.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "peeringState":
+            suggest = "peering_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "remoteVirtualNetwork":
+            suggest = "remote_virtual_network"
+        elif key == "allowForwardedTraffic":
+            suggest = "allow_forwarded_traffic"
+        elif key == "allowGatewayTransit":
+            suggest = "allow_gateway_transit"
+        elif key == "allowVirtualNetworkAccess":
+            suggest = "allow_virtual_network_access"
+        elif key == "databricksAddressSpace":
+            suggest = "databricks_address_space"
+        elif key == "databricksVirtualNetwork":
+            suggest = "databricks_virtual_network"
+        elif key == "remoteAddressSpace":
+            suggest = "remote_address_space"
+        elif key == "useRemoteGateways":
+            suggest = "use_remote_gateways"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPeeringPropertiesFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkPeeringPropertiesFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkPeeringPropertiesFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 peering_state: str,
+                 provisioning_state: str,
+                 remote_virtual_network: 'outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork',
+                 allow_forwarded_traffic: Optional[bool] = None,
+                 allow_gateway_transit: Optional[bool] = None,
+                 allow_virtual_network_access: Optional[bool] = None,
+                 databricks_address_space: Optional['outputs.AddressSpaceResponse'] = None,
+                 databricks_virtual_network: Optional['outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork'] = None,
+                 remote_address_space: Optional['outputs.AddressSpaceResponse'] = None,
+                 use_remote_gateways: Optional[bool] = None):
+        """
+        Properties of the virtual network peering.
+        :param str peering_state: The status of the virtual network peering.
+        :param str provisioning_state: The provisioning state of the virtual network peering resource.
+        :param 'VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork' remote_virtual_network:  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        :param bool allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        :param bool allow_gateway_transit: If gateway links can be used in remote virtual networking to link to this virtual network.
+        :param bool allow_virtual_network_access: Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        :param 'AddressSpaceResponse' databricks_address_space: The reference to the databricks virtual network address space.
+        :param 'VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork' databricks_virtual_network:  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        :param 'AddressSpaceResponse' remote_address_space: The reference to the remote virtual network address space.
+        :param bool use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
+        pulumi.set(__self__, "peering_state", peering_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+        if allow_forwarded_traffic is not None:
+            pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+        if allow_gateway_transit is not None:
+            pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+        if allow_virtual_network_access is not None:
+            pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if databricks_address_space is not None:
+            pulumi.set(__self__, "databricks_address_space", databricks_address_space)
+        if databricks_virtual_network is not None:
+            pulumi.set(__self__, "databricks_virtual_network", databricks_virtual_network)
+        if remote_address_space is not None:
+            pulumi.set(__self__, "remote_address_space", remote_address_space)
+        if use_remote_gateways is not None:
+            pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+
+    @property
+    @pulumi.getter(name="peeringState")
+    def peering_state(self) -> str:
+        """
+        The status of the virtual network peering.
+        """
+        return pulumi.get(self, "peering_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the virtual network peering resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="remoteVirtualNetwork")
+    def remote_virtual_network(self) -> 'outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork':
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        """
+        return pulumi.get(self, "remote_virtual_network")
+
+    @property
+    @pulumi.getter(name="allowForwardedTraffic")
+    def allow_forwarded_traffic(self) -> Optional[bool]:
+        """
+        Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        """
+        return pulumi.get(self, "allow_forwarded_traffic")
+
+    @property
+    @pulumi.getter(name="allowGatewayTransit")
+    def allow_gateway_transit(self) -> Optional[bool]:
+        """
+        If gateway links can be used in remote virtual networking to link to this virtual network.
+        """
+        return pulumi.get(self, "allow_gateway_transit")
+
+    @property
+    @pulumi.getter(name="allowVirtualNetworkAccess")
+    def allow_virtual_network_access(self) -> Optional[bool]:
+        """
+        Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        """
+        return pulumi.get(self, "allow_virtual_network_access")
+
+    @property
+    @pulumi.getter(name="databricksAddressSpace")
+    def databricks_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The reference to the databricks virtual network address space.
+        """
+        return pulumi.get(self, "databricks_address_space")
+
+    @property
+    @pulumi.getter(name="databricksVirtualNetwork")
+    def databricks_virtual_network(self) -> Optional['outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork']:
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        """
+        return pulumi.get(self, "databricks_virtual_network")
+
+    @property
+    @pulumi.getter(name="remoteAddressSpace")
+    def remote_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The reference to the remote virtual network address space.
+        """
+        return pulumi.get(self, "remote_address_space")
+
+    @property
+    @pulumi.getter(name="useRemoteGateways")
+    def use_remote_gateways(self) -> Optional[bool]:
+        """
+        If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
+        return pulumi.get(self, "use_remote_gateways")
+
+
+@pulumi.output_type
 class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict):
     """
      The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
@@ -1377,6 +1542,257 @@ class WorkspaceEncryptionParameterResponse(dict):
         The value which should be used for this field.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkspacePropertiesResponse(dict):
+    """
+    The workspace properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDateTime":
+            suggest = "created_date_time"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "managedResourceGroupId":
+            suggest = "managed_resource_group_id"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+        elif key == "workspaceUrl":
+            suggest = "workspace_url"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "managedDiskIdentity":
+            suggest = "managed_disk_identity"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "requiredNsgRules":
+            suggest = "required_nsg_rules"
+        elif key == "storageAccountIdentity":
+            suggest = "storage_account_identity"
+        elif key == "uiDefinitionUri":
+            suggest = "ui_definition_uri"
+        elif key == "updatedBy":
+            suggest = "updated_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_date_time: str,
+                 disk_encryption_set_id: str,
+                 managed_resource_group_id: str,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 provisioning_state: str,
+                 workspace_id: str,
+                 workspace_url: str,
+                 authorizations: Optional[Sequence['outputs.WorkspaceProviderAuthorizationResponse']] = None,
+                 created_by: Optional['outputs.CreatedByResponse'] = None,
+                 encryption: Optional['outputs.WorkspacePropertiesResponseEncryption'] = None,
+                 managed_disk_identity: Optional['outputs.ManagedIdentityConfigurationResponse'] = None,
+                 parameters: Optional['outputs.WorkspaceCustomParametersResponse'] = None,
+                 public_network_access: Optional[str] = None,
+                 required_nsg_rules: Optional[str] = None,
+                 storage_account_identity: Optional['outputs.ManagedIdentityConfigurationResponse'] = None,
+                 ui_definition_uri: Optional[str] = None,
+                 updated_by: Optional['outputs.CreatedByResponse'] = None):
+        """
+        The workspace properties.
+        :param str created_date_time: Specifies the date and time when the workspace is created.
+        :param str disk_encryption_set_id: The resource Id of the managed disk encryption set.
+        :param str managed_resource_group_id: The managed resource group Id.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Private endpoint connections created on the workspace
+        :param str provisioning_state: The workspace provisioning state.
+        :param str workspace_id: The unique identifier of the databricks workspace in databricks control plane.
+        :param str workspace_url: The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+        :param Sequence['WorkspaceProviderAuthorizationResponse'] authorizations: The workspace provider authorizations.
+        :param 'CreatedByResponse' created_by: Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+        :param 'WorkspacePropertiesResponseEncryption' encryption: Encryption properties for databricks workspace
+        :param 'ManagedIdentityConfigurationResponse' managed_disk_identity: The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        :param 'WorkspaceCustomParametersResponse' parameters: The workspace's custom parameters.
+        :param str public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        :param str required_nsg_rules: Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        :param 'ManagedIdentityConfigurationResponse' storage_account_identity: The details of Managed Identity of Storage Account
+        :param str ui_definition_uri: The blob URI where the UI definition file is located.
+        :param 'CreatedByResponse' updated_by: Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+        """
+        pulumi.set(__self__, "created_date_time", created_date_time)
+        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        pulumi.set(__self__, "workspace_url", workspace_url)
+        if authorizations is not None:
+            pulumi.set(__self__, "authorizations", authorizations)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if managed_disk_identity is not None:
+            pulumi.set(__self__, "managed_disk_identity", managed_disk_identity)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if required_nsg_rules is not None:
+            pulumi.set(__self__, "required_nsg_rules", required_nsg_rules)
+        if storage_account_identity is not None:
+            pulumi.set(__self__, "storage_account_identity", storage_account_identity)
+        if ui_definition_uri is not None:
+            pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
+        if updated_by is not None:
+            pulumi.set(__self__, "updated_by", updated_by)
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> str:
+        """
+        Specifies the date and time when the workspace is created.
+        """
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> str:
+        """
+        The resource Id of the managed disk encryption set.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupId")
+    def managed_resource_group_id(self) -> str:
+        """
+        The managed resource group Id.
+        """
+        return pulumi.get(self, "managed_resource_group_id")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        Private endpoint connections created on the workspace
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The workspace provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The unique identifier of the databricks workspace in databricks control plane.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceUrl")
+    def workspace_url(self) -> str:
+        """
+        The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+        """
+        return pulumi.get(self, "workspace_url")
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Optional[Sequence['outputs.WorkspaceProviderAuthorizationResponse']]:
+        """
+        The workspace provider authorizations.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional['outputs.CreatedByResponse']:
+        """
+        Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.WorkspacePropertiesResponseEncryption']:
+        """
+        Encryption properties for databricks workspace
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="managedDiskIdentity")
+    def managed_disk_identity(self) -> Optional['outputs.ManagedIdentityConfigurationResponse']:
+        """
+        The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        """
+        return pulumi.get(self, "managed_disk_identity")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional['outputs.WorkspaceCustomParametersResponse']:
+        """
+        The workspace's custom parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="requiredNsgRules")
+    def required_nsg_rules(self) -> Optional[str]:
+        """
+        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        """
+        return pulumi.get(self, "required_nsg_rules")
+
+    @property
+    @pulumi.getter(name="storageAccountIdentity")
+    def storage_account_identity(self) -> Optional['outputs.ManagedIdentityConfigurationResponse']:
+        """
+        The details of Managed Identity of Storage Account
+        """
+        return pulumi.get(self, "storage_account_identity")
+
+    @property
+    @pulumi.getter(name="uiDefinitionUri")
+    def ui_definition_uri(self) -> Optional[str]:
+        """
+        The blob URI where the UI definition file is located.
+        """
+        return pulumi.get(self, "ui_definition_uri")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> Optional['outputs.CreatedByResponse']:
+        """
+        Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+        """
+        return pulumi.get(self, "updated_by")
 
 
 @pulumi.output_type

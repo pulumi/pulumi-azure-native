@@ -17,52 +17,39 @@ __all__ = ['PacketCoreControlPlaneArgs', 'PacketCoreControlPlane']
 @pulumi.input_type
 class PacketCoreControlPlaneArgs:
     def __init__(__self__, *,
-                 control_plane_access_interface: pulumi.Input['InterfacePropertiesArgs'],
-                 mobile_network: pulumi.Input['MobileNetworkResourceIdArgs'],
+                 properties: pulumi.Input['PacketCoreControlPlanePropertiesFormatArgs'],
                  resource_group_name: pulumi.Input[str],
-                 core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 custom_location: Optional[pulumi.Input['CustomLocationResourceIdArgs']] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PacketCoreControlPlane resource.
-        :param pulumi.Input['InterfacePropertiesArgs'] control_plane_access_interface: The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-        :param pulumi.Input['MobileNetworkResourceIdArgs'] mobile_network: Mobile network that this packet core control plane belongs to
+        :param pulumi.Input['PacketCoreControlPlanePropertiesFormatArgs'] properties: Packet core control plane Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'CoreNetworkType']] core_network_technology: The core network technology generation.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input['CustomLocationResourceIdArgs'] custom_location: Azure ARC custom location where the packet core is deployed.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] version: The version of the packet core software that is deployed.
         """
-        pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
-        pulumi.set(__self__, "mobile_network", mobile_network)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if core_network_technology is not None:
-            pulumi.set(__self__, "core_network_technology", core_network_technology)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if created_by is not None:
             pulumi.set(__self__, "created_by", created_by)
         if created_by_type is not None:
             pulumi.set(__self__, "created_by_type", created_by_type)
-        if custom_location is not None:
-            pulumi.set(__self__, "custom_location", custom_location)
         if last_modified_at is not None:
             pulumi.set(__self__, "last_modified_at", last_modified_at)
         if last_modified_by is not None:
@@ -75,32 +62,18 @@ class PacketCoreControlPlaneArgs:
             pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="controlPlaneAccessInterface")
-    def control_plane_access_interface(self) -> pulumi.Input['InterfacePropertiesArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PacketCoreControlPlanePropertiesFormatArgs']:
         """
-        The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
+        Packet core control plane Properties.
         """
-        return pulumi.get(self, "control_plane_access_interface")
+        return pulumi.get(self, "properties")
 
-    @control_plane_access_interface.setter
-    def control_plane_access_interface(self, value: pulumi.Input['InterfacePropertiesArgs']):
-        pulumi.set(self, "control_plane_access_interface", value)
-
-    @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> pulumi.Input['MobileNetworkResourceIdArgs']:
-        """
-        Mobile network that this packet core control plane belongs to
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @mobile_network.setter
-    def mobile_network(self, value: pulumi.Input['MobileNetworkResourceIdArgs']):
-        pulumi.set(self, "mobile_network", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['PacketCoreControlPlanePropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -113,18 +86,6 @@ class PacketCoreControlPlaneArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="coreNetworkTechnology")
-    def core_network_technology(self) -> Optional[pulumi.Input[Union[str, 'CoreNetworkType']]]:
-        """
-        The core network technology generation.
-        """
-        return pulumi.get(self, "core_network_technology")
-
-    @core_network_technology.setter
-    def core_network_technology(self, value: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]]):
-        pulumi.set(self, "core_network_technology", value)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -161,18 +122,6 @@ class PacketCoreControlPlaneArgs:
     @created_by_type.setter
     def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
         pulumi.set(self, "created_by_type", value)
-
-    @property
-    @pulumi.getter(name="customLocation")
-    def custom_location(self) -> Optional[pulumi.Input['CustomLocationResourceIdArgs']]:
-        """
-        Azure ARC custom location where the packet core is deployed.
-        """
-        return pulumi.get(self, "custom_location")
-
-    @custom_location.setter
-    def custom_location(self, value: Optional[pulumi.Input['CustomLocationResourceIdArgs']]):
-        pulumi.set(self, "custom_location", value)
 
     @property
     @pulumi.getter(name="lastModifiedAt")
@@ -246,60 +195,40 @@ class PacketCoreControlPlaneArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the packet core software that is deployed.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
-
 
 class PacketCoreControlPlane(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
-                 core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 custom_location: Optional[pulumi.Input[pulumi.InputType['CustomLocationResourceIdArgs']]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PacketCoreControlPlanePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Packet core control plane resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] control_plane_access_interface: The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-        :param pulumi.Input[Union[str, 'CoreNetworkType']] core_network_technology: The core network technology generation.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[pulumi.InputType['CustomLocationResourceIdArgs']] custom_location: Azure ARC custom location where the packet core is deployed.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network that this packet core control plane belongs to
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
+        :param pulumi.Input[pulumi.InputType['PacketCoreControlPlanePropertiesFormatArgs']] properties: Packet core control plane Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] version: The version of the packet core software that is deployed.
         """
         ...
     @overload
@@ -325,21 +254,17 @@ class PacketCoreControlPlane(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
-                 core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 custom_location: Optional[pulumi.Input[pulumi.InputType['CustomLocationResourceIdArgs']]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PacketCoreControlPlanePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,29 +274,22 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PacketCoreControlPlaneArgs.__new__(PacketCoreControlPlaneArgs)
 
-            if control_plane_access_interface is None and not opts.urn:
-                raise TypeError("Missing required property 'control_plane_access_interface'")
-            __props__.__dict__["control_plane_access_interface"] = control_plane_access_interface
-            __props__.__dict__["core_network_technology"] = core_network_technology
             __props__.__dict__["created_at"] = created_at
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["created_by_type"] = created_by_type
-            __props__.__dict__["custom_location"] = custom_location
             __props__.__dict__["last_modified_at"] = last_modified_at
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["location"] = location
-            if mobile_network is None and not opts.urn:
-                raise TypeError("Missing required property 'mobile_network'")
-            __props__.__dict__["mobile_network"] = mobile_network
             __props__.__dict__["packet_core_control_plane_name"] = packet_core_control_plane_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["version"] = version
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:PacketCoreControlPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:PacketCoreControlPlane")])
@@ -398,40 +316,19 @@ class PacketCoreControlPlane(pulumi.CustomResource):
 
         __props__ = PacketCoreControlPlaneArgs.__new__(PacketCoreControlPlaneArgs)
 
-        __props__.__dict__["control_plane_access_interface"] = None
-        __props__.__dict__["core_network_technology"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_by_type"] = None
-        __props__.__dict__["custom_location"] = None
         __props__.__dict__["last_modified_at"] = None
         __props__.__dict__["last_modified_by"] = None
         __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["mobile_network"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["version"] = None
         return PacketCoreControlPlane(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="controlPlaneAccessInterface")
-    def control_plane_access_interface(self) -> pulumi.Output['outputs.InterfacePropertiesResponse']:
-        """
-        The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-        """
-        return pulumi.get(self, "control_plane_access_interface")
-
-    @property
-    @pulumi.getter(name="coreNetworkTechnology")
-    def core_network_technology(self) -> pulumi.Output[Optional[str]]:
-        """
-        The core network technology generation.
-        """
-        return pulumi.get(self, "core_network_technology")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -456,14 +353,6 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="customLocation")
-    def custom_location(self) -> pulumi.Output[Optional['outputs.CustomLocationResourceIdResponse']]:
-        """
-        Azure ARC custom location where the packet core is deployed.
-        """
-        return pulumi.get(self, "custom_location")
 
     @property
     @pulumi.getter(name="lastModifiedAt")
@@ -498,14 +387,6 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> pulumi.Output['outputs.MobileNetworkResourceIdResponse']:
-        """
-        Mobile network that this packet core control plane belongs to
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -514,12 +395,12 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.PacketCoreControlPlanePropertiesFormatResponse']:
         """
-        The provisioning state of the packet core control plane resource.
+        Packet core control plane Properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -544,12 +425,4 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Output[Optional[str]]:
-        """
-        The version of the packet core software that is deployed.
-        """
-        return pulumi.get(self, "version")
 

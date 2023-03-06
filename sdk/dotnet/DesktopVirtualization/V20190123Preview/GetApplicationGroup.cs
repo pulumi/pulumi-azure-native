@@ -71,22 +71,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
     public sealed class GetApplicationGroupResult
     {
         /// <summary>
-        /// Resource Type of ApplicationGroup.
-        /// </summary>
-        public readonly string ApplicationGroupType;
-        /// <summary>
-        /// Description of ApplicationGroup.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// Friendly name of ApplicationGroup.
-        /// </summary>
-        public readonly string? FriendlyName;
-        /// <summary>
-        /// HostPool arm path of ApplicationGroup.
-        /// </summary>
-        public readonly string HostPoolArmPath;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -99,6 +83,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Detailed properties for ApplicationGroup
+        /// </summary>
+        public readonly Outputs.ApplicationGroupPropertiesResponse Properties;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -106,43 +94,27 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Workspace arm path of ApplicationGroup.
-        /// </summary>
-        public readonly string WorkspaceArmPath;
 
         [OutputConstructor]
         private GetApplicationGroupResult(
-            string applicationGroupType,
-
-            string? description,
-
-            string? friendlyName,
-
-            string hostPoolArmPath,
-
             string id,
 
             string location,
 
             string name,
 
+            Outputs.ApplicationGroupPropertiesResponse properties,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string workspaceArmPath)
+            string type)
         {
-            ApplicationGroupType = applicationGroupType;
-            Description = description;
-            FriendlyName = friendlyName;
-            HostPoolArmPath = hostPoolArmPath;
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            WorkspaceArmPath = workspaceArmPath;
         }
     }
 }

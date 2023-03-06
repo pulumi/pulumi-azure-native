@@ -8,45 +8,35 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['AccessControlRecordArgs', 'AccessControlRecord']
 
 @pulumi.input_type
 class AccessControlRecordArgs:
     def __init__(__self__, *,
-                 initiator_name: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
+                 properties: pulumi.Input['AccessControlRecordPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  access_control_record_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None):
         """
         The set of arguments for constructing a AccessControlRecord resource.
-        :param pulumi.Input[str] initiator_name: The iSCSI initiator name (IQN).
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['AccessControlRecordPropertiesArgs'] properties: The properties of access control record.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] access_control_record_name: The name of the access control record.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         """
-        pulumi.set(__self__, "initiator_name", initiator_name)
         pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if access_control_record_name is not None:
             pulumi.set(__self__, "access_control_record_name", access_control_record_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter(name="initiatorName")
-    def initiator_name(self) -> pulumi.Input[str]:
-        """
-        The iSCSI initiator name (IQN).
-        """
-        return pulumi.get(self, "initiator_name")
-
-    @initiator_name.setter
-    def initiator_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "initiator_name", value)
 
     @property
     @pulumi.getter(name="managerName")
@@ -59,6 +49,18 @@ class AccessControlRecordArgs:
     @manager_name.setter
     def manager_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "manager_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['AccessControlRecordPropertiesArgs']:
+        """
+        The properties of access control record.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['AccessControlRecordPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,9 +105,9 @@ class AccessControlRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_record_name: Optional[pulumi.Input[str]] = None,
-                 initiator_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AccessControlRecordPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -114,9 +116,9 @@ class AccessControlRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_control_record_name: The name of the access control record.
-        :param pulumi.Input[str] initiator_name: The iSCSI initiator name (IQN).
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[pulumi.InputType['AccessControlRecordPropertiesArgs']] properties: The properties of access control record.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         ...
@@ -144,9 +146,9 @@ class AccessControlRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_record_name: Optional[pulumi.Input[str]] = None,
-                 initiator_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AccessControlRecordPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -158,19 +160,18 @@ class AccessControlRecord(pulumi.CustomResource):
             __props__ = AccessControlRecordArgs.__new__(AccessControlRecordArgs)
 
             __props__.__dict__["access_control_record_name"] = access_control_record_name
-            if initiator_name is None and not opts.urn:
-                raise TypeError("Missing required property 'initiator_name'")
-            __props__.__dict__["initiator_name"] = initiator_name
             __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["volume_count"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:AccessControlRecord"), pulumi.Alias(type_="azure-native:storsimple/v20161001:AccessControlRecord")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessControlRecord, __self__).__init__(
@@ -195,20 +196,11 @@ class AccessControlRecord(pulumi.CustomResource):
 
         __props__ = AccessControlRecordArgs.__new__(AccessControlRecordArgs)
 
-        __props__.__dict__["initiator_name"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["volume_count"] = None
         return AccessControlRecord(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="initiatorName")
-    def initiator_name(self) -> pulumi.Output[str]:
-        """
-        The iSCSI initiator name (IQN).
-        """
-        return pulumi.get(self, "initiator_name")
 
     @property
     @pulumi.getter
@@ -228,17 +220,17 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.AccessControlRecordPropertiesResponse']:
+        """
+        The properties of access control record.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> pulumi.Output[int]:
-        """
-        The number of volumes using the access control record.
-        """
-        return pulumi.get(self, "volume_count")
 

@@ -39,25 +39,13 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
     }
 
     /**
-     * The identity of the provisioned cluster.
-     */
-    public readonly identity!: pulumi.Output<outputs.hybridcontainerservice.ProvisionedClusterIdentityResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * provisioning state of the hybridIdentityMetadata resource.
+     * Resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
-     */
-    public readonly publicKey!: pulumi.Output<string | undefined>;
-    /**
-     * Unique id of the parent provisioned cluster resource.
-     */
-    public readonly resourceUid!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.hybridcontainerservice.HybridIdentityMetadataPropertiesResponse>;
     /**
      * The system data.
      */
@@ -78,6 +66,9 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.provisionedClustersName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisionedClustersName'");
             }
@@ -85,21 +76,15 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["hybridIdentityMetadataResourceName"] = args ? args.hybridIdentityMetadataResourceName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["provisionedClustersName"] = args ? args.provisionedClustersName : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicKey"] = undefined /*out*/;
-            resourceInputs["resourceUid"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -119,23 +104,15 @@ export interface HybridIdentityMetadatumArgs {
      */
     hybridIdentityMetadataResourceName?: pulumi.Input<string>;
     /**
-     * The identity of the provisioned cluster.
+     * Resource properties.
      */
-    identity?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClusterIdentityArgs>;
+    properties: pulumi.Input<inputs.hybridcontainerservice.HybridIdentityMetadataPropertiesArgs>;
     /**
      * Parameter for the name of the provisioned cluster
      */
     provisionedClustersName: pulumi.Input<string>;
     /**
-     * Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
-     */
-    publicKey?: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Unique id of the parent provisioned cluster resource.
-     */
-    resourceUid?: pulumi.Input<string>;
 }

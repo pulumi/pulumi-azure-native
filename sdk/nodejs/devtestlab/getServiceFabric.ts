@@ -51,18 +51,6 @@ export interface GetServiceFabricArgs {
  */
 export interface GetServiceFabricResult {
     /**
-     * The applicable schedule for the virtual machine.
-     */
-    readonly applicableSchedule: outputs.devtestlab.ApplicableScheduleResponse;
-    /**
-     * The resource id of the environment under which the service fabric resource is present
-     */
-    readonly environmentId?: string;
-    /**
-     * The backing service fabric resource's id
-     */
-    readonly externalServiceFabricId?: string;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
@@ -75,9 +63,9 @@ export interface GetServiceFabricResult {
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.devtestlab.ServiceFabricPropertiesResponse;
     /**
      * The tags of the resource.
      */
@@ -86,10 +74,6 @@ export interface GetServiceFabricResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier: string;
 }
 /**
  * Get service fabric.

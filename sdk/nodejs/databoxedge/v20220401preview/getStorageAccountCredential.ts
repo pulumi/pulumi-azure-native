@@ -40,26 +40,6 @@ export interface GetStorageAccountCredentialArgs {
  */
 export interface GetStorageAccountCredentialResult {
     /**
-     * Encrypted storage key.
-     */
-    readonly accountKey?: outputs.databoxedge.v20220401preview.AsymmetricEncryptedSecretResponse;
-    /**
-     * Type of storage accessed on the storage account.
-     */
-    readonly accountType: string;
-    /**
-     * Alias for the storage account.
-     */
-    readonly alias: string;
-    /**
-     * Blob end point for private clouds.
-     */
-    readonly blobDomainName?: string;
-    /**
-     * Connection string for the storage account. Use this string if username and account key are not specified.
-     */
-    readonly connectionString?: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -68,13 +48,9 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly name: string;
     /**
-     * Signifies whether SSL needs to be enabled or not.
+     * The storage account credential properties.
      */
-    readonly sslStatus: string;
-    /**
-     * Id of the storage account.
-     */
-    readonly storageAccountId?: string;
+    readonly properties: outputs.databoxedge.v20220401preview.StorageAccountCredentialPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of StorageAccountCredential
      */
@@ -83,10 +59,6 @@ export interface GetStorageAccountCredentialResult {
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * Username for the storage account.
-     */
-    readonly userName?: string;
 }
 /**
  * Gets the properties of the specified storage account credential.

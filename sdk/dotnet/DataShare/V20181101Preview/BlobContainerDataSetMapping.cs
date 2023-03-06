@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     public partial class BlobContainerDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// BLOB Container name.
-        /// </summary>
-        [Output("containerName")]
-        public Output<string> ContainerName { get; private set; } = null!;
-
-        /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        [Output("dataSetMappingStatus")]
-        public Output<string> DataSetMappingStatus { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set mapping.
         /// Expected value is 'Container'.
         /// </summary>
@@ -47,28 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Blob container data set mapping properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource group of storage account.
-        /// </summary>
-        [Output("resourceGroup")]
-        public Output<string> ResourceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BlobContainerMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
@@ -143,18 +107,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// BLOB Container name.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Input("dataSetId", required: true)]
-        public Input<string> DataSetId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
         [Input("dataSetMappingName")]
@@ -168,10 +120,10 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account.
+        /// Blob container data set mapping properties.
         /// </summary>
-        [Input("resourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.BlobContainerMappingPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -184,18 +136,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// </summary>
         [Input("shareSubscriptionName", required: true)]
         public Input<string> ShareSubscriptionName { get; set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
 
         public BlobContainerDataSetMappingArgs()
         {

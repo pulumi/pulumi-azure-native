@@ -22,31 +22,25 @@ class GetVirtualNetworkLinkResult:
     """
     Describes a virtual network link.
     """
-    def __init__(__self__, etag=None, id=None, metadata=None, name=None, provisioning_state=None, system_data=None, type=None, virtual_network=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_network and not isinstance(virtual_network, dict):
-            raise TypeError("Expected argument 'virtual_network' to be a dict")
-        pulumi.set(__self__, "virtual_network", virtual_network)
 
     @property
     @pulumi.getter
@@ -66,14 +60,6 @@ class GetVirtualNetworkLinkResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
-        """
-        Metadata attached to the virtual network link.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -81,12 +67,12 @@ class GetVirtualNetworkLinkResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.VirtualNetworkLinkPropertiesResponse':
         """
-        The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
+        Properties of the virtual network link.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -104,14 +90,6 @@ class GetVirtualNetworkLinkResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> 'outputs.SubResourceResponse':
-        """
-        The reference to the virtual network. This cannot be changed after creation.
-        """
-        return pulumi.get(self, "virtual_network")
-
 
 class AwaitableGetVirtualNetworkLinkResult(GetVirtualNetworkLinkResult):
     # pylint: disable=using-constant-test
@@ -121,12 +99,10 @@ class AwaitableGetVirtualNetworkLinkResult(GetVirtualNetworkLinkResult):
         return GetVirtualNetworkLinkResult(
             etag=self.etag,
             id=self.id,
-            metadata=self.metadata,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            virtual_network=self.virtual_network)
+            type=self.type)
 
 
 def get_virtual_network_link(dns_forwarding_ruleset_name: Optional[str] = None,
@@ -151,12 +127,10 @@ def get_virtual_network_link(dns_forwarding_ruleset_name: Optional[str] = None,
     return AwaitableGetVirtualNetworkLinkResult(
         etag=__ret__.etag,
         id=__ret__.id,
-        metadata=__ret__.metadata,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        virtual_network=__ret__.virtual_network)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_virtual_network_link)

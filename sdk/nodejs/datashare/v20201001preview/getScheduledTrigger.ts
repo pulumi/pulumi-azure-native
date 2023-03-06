@@ -45,10 +45,6 @@ export interface GetScheduledTriggerArgs {
  */
 export interface GetScheduledTriggerResult {
     /**
-     * Time at which the trigger was created.
-     */
-    readonly createdAt: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -62,37 +58,17 @@ export interface GetScheduledTriggerResult {
      */
     readonly name: string;
     /**
-     * Gets the provisioning state
+     * Properties of scheduled synchronization
      */
-    readonly provisioningState: string;
-    /**
-     * Recurrence Interval
-     */
-    readonly recurrenceInterval: string;
-    /**
-     * Synchronization mode
-     */
-    readonly synchronizationMode?: string;
-    /**
-     * Synchronization time
-     */
-    readonly synchronizationTime: string;
+    readonly properties: outputs.datashare.v20201001preview.ScheduledTriggerPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */
     readonly systemData: outputs.datashare.v20201001preview.SystemDataResponse;
     /**
-     * Gets the trigger state
-     */
-    readonly triggerStatus: string;
-    /**
      * Type of the azure resource
      */
     readonly type: string;
-    /**
-     * Name of the user who created the trigger.
-     */
-    readonly userName: string;
 }
 /**
  * Get a Trigger in a shareSubscription

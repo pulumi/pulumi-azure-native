@@ -28,34 +28,10 @@ namespace Pulumi.AzureNative.NetApp.V20210201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// UUID v4 used to identify the Pool
+        /// Capacity pool properties
         /// </summary>
-        [Output("poolId")]
-        public Output<string> PoolId { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The qos type of the pool
-        /// </summary>
-        [Output("qosType")]
-        public Output<string?> QosType { get; private set; } = null!;
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Output("serviceLevel")]
-        public Output<string> ServiceLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        /// </summary>
-        [Output("size")]
-        public Output<double> Size { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PoolPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -64,22 +40,10 @@ namespace Pulumi.AzureNative.NetApp.V20210201
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Total throughput of pool in Mibps
-        /// </summary>
-        [Output("totalThroughputMibps")]
-        public Output<double> TotalThroughputMibps { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Utilized throughput of pool in Mibps
-        /// </summary>
-        [Output("utilizedThroughputMibps")]
-        public Output<double> UtilizedThroughputMibps { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,28 +138,16 @@ namespace Pulumi.AzureNative.NetApp.V20210201
         public Input<string>? PoolName { get; set; }
 
         /// <summary>
-        /// The qos type of the pool
+        /// Capacity pool properties
         /// </summary>
-        [Input("qosType")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210201.QosType>? QosType { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.PoolPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Input("serviceLevel", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210201.ServiceLevel> ServiceLevel { get; set; } = null!;
-
-        /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        /// </summary>
-        [Input("size", required: true)]
-        public Input<double> Size { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -211,8 +163,6 @@ namespace Pulumi.AzureNative.NetApp.V20210201
 
         public PoolArgs()
         {
-            QosType = "Auto";
-            ServiceLevel = "Premium";
         }
         public static new PoolArgs Empty => new PoolArgs();
     }

@@ -71,33 +71,9 @@ namespace Pulumi.AzureNative.Insights.V20140401
     public sealed class GetAlertRuleResult
     {
         /// <summary>
-        /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        public readonly Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>? Action;
-        /// <summary>
-        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        public readonly ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> Actions;
-        /// <summary>
-        /// the condition that results in the alert rule being activated.
-        /// </summary>
-        public readonly object Condition;
-        /// <summary>
-        /// the description of the alert rule that will be included in the alert email.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// the flag that indicates whether the alert rule is enabled.
-        /// </summary>
-        public readonly bool IsEnabled;
-        /// <summary>
-        /// Last time the rule was updated in ISO8601 format.
-        /// </summary>
-        public readonly string LastUpdatedTime;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -107,9 +83,9 @@ namespace Pulumi.AzureNative.Insights.V20140401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// the provisioning state.
+        /// The alert rule properties of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly Outputs.AlertRuleResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -121,40 +97,22 @@ namespace Pulumi.AzureNative.Insights.V20140401
 
         [OutputConstructor]
         private GetAlertRuleResult(
-            Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>? action,
-
-            ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> actions,
-
-            object condition,
-
-            string? description,
-
             string id,
-
-            bool isEnabled,
-
-            string lastUpdatedTime,
 
             string location,
 
             string name,
 
-            string? provisioningState,
+            Outputs.AlertRuleResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            Action = action;
-            Actions = actions;
-            Condition = condition;
-            Description = description;
             Id = id;
-            IsEnabled = isEnabled;
-            LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

@@ -82,54 +82,14 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
     public sealed class GetAgentResult
     {
         /// <summary>
-        /// The Agent status.
-        /// </summary>
-        public readonly string AgentStatus;
-        /// <summary>
-        /// The Agent version.
-        /// </summary>
-        public readonly string AgentVersion;
-        /// <summary>
-        /// The fully qualified resource ID of the Hybrid Compute resource for the Agent.
-        /// </summary>
-        public readonly string ArcResourceId;
-        /// <summary>
-        /// The VM UUID of the Hybrid Compute resource for the Agent.
-        /// </summary>
-        public readonly string ArcVmUuid;
-        /// <summary>
-        /// A description for the Agent.
-        /// </summary>
-        public readonly string? Description;
-        public readonly Outputs.AgentPropertiesResponseErrorDetails ErrorDetails;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The last updated time of the Agent status.
-        /// </summary>
-        public readonly string LastStatusUpdate;
-        /// <summary>
-        /// Local IP address reported by the Agent.
-        /// </summary>
-        public readonly string LocalIPAddress;
-        /// <summary>
-        /// Available memory reported by the Agent, in MB.
-        /// </summary>
-        public readonly double MemoryInMB;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Available compute cores reported by the Agent.
-        /// </summary>
-        public readonly double NumberOfCores;
-        /// <summary>
-        /// The provisioning state of this resource.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.AgentPropertiesResponse Properties;
         /// <summary>
         /// Resource system metadata.
         /// </summary>
@@ -138,61 +98,24 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Uptime of the Agent in seconds.
-        /// </summary>
-        public readonly double UptimeInSeconds;
 
         [OutputConstructor]
         private GetAgentResult(
-            string agentStatus,
-
-            string agentVersion,
-
-            string arcResourceId,
-
-            string arcVmUuid,
-
-            string? description,
-
-            Outputs.AgentPropertiesResponseErrorDetails errorDetails,
-
             string id,
-
-            string lastStatusUpdate,
-
-            string localIPAddress,
-
-            double memoryInMB,
 
             string name,
 
-            double numberOfCores,
-
-            string provisioningState,
+            Outputs.AgentPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            double uptimeInSeconds)
+            string type)
         {
-            AgentStatus = agentStatus;
-            AgentVersion = agentVersion;
-            ArcResourceId = arcResourceId;
-            ArcVmUuid = arcVmUuid;
-            Description = description;
-            ErrorDetails = errorDetails;
             Id = id;
-            LastStatusUpdate = lastStatusUpdate;
-            LocalIPAddress = localIPAddress;
-            MemoryInMB = memoryInMB;
             Name = name;
-            NumberOfCores = numberOfCores;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            UptimeInSeconds = uptimeInSeconds;
         }
     }
 }

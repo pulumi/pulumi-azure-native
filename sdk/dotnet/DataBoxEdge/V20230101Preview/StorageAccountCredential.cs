@@ -16,52 +16,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
     public partial class StorageAccountCredential : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Encrypted storage key.
-        /// </summary>
-        [Output("accountKey")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponse?> AccountKey { get; private set; } = null!;
-
-        /// <summary>
-        /// Type of storage accessed on the storage account.
-        /// </summary>
-        [Output("accountType")]
-        public Output<string> AccountType { get; private set; } = null!;
-
-        /// <summary>
-        /// Alias for the storage account.
-        /// </summary>
-        [Output("alias")]
-        public Output<string> Alias { get; private set; } = null!;
-
-        /// <summary>
-        /// Blob end point for private clouds.
-        /// </summary>
-        [Output("blobDomainName")]
-        public Output<string?> BlobDomainName { get; private set; } = null!;
-
-        /// <summary>
-        /// Connection string for the storage account. Use this string if username and account key are not specified.
-        /// </summary>
-        [Output("connectionString")]
-        public Output<string?> ConnectionString { get; private set; } = null!;
-
-        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Signifies whether SSL needs to be enabled or not.
+        /// The storage account credential properties.
         /// </summary>
-        [Output("sslStatus")]
-        public Output<string> SslStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Id of the storage account.
-        /// </summary>
-        [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.StorageAccountCredentialPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of StorageAccountCredential
@@ -74,12 +38,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Username for the storage account.
-        /// </summary>
-        [Output("userName")]
-        public Output<string?> UserName { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,36 +103,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
     public sealed class StorageAccountCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Encrypted storage key.
-        /// </summary>
-        [Input("accountKey")]
-        public Input<Inputs.AsymmetricEncryptedSecretArgs>? AccountKey { get; set; }
-
-        /// <summary>
-        /// Type of storage accessed on the storage account.
-        /// </summary>
-        [Input("accountType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20230101Preview.AccountType> AccountType { get; set; } = null!;
-
-        /// <summary>
-        /// Alias for the storage account.
-        /// </summary>
-        [Input("alias", required: true)]
-        public Input<string> Alias { get; set; } = null!;
-
-        /// <summary>
-        /// Blob end point for private clouds.
-        /// </summary>
-        [Input("blobDomainName")]
-        public Input<string>? BlobDomainName { get; set; }
-
-        /// <summary>
-        /// Connection string for the storage account. Use this string if username and account key are not specified.
-        /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
-
-        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -187,28 +115,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The storage account credential properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.StorageAccountCredentialPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Signifies whether SSL needs to be enabled or not.
-        /// </summary>
-        [Input("sslStatus", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20230101Preview.SSLStatus> SslStatus { get; set; } = null!;
-
-        /// <summary>
-        /// Id of the storage account.
-        /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// Username for the storage account.
-        /// </summary>
-        [Input("userName")]
-        public Input<string>? UserName { get; set; }
 
         public StorageAccountCredentialArgs()
         {

@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class FilterActivityResponse
     {
         /// <summary>
-        /// Condition to be used for filtering the input.
-        /// </summary>
-        public readonly Outputs.ExpressionResponse Condition;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -28,10 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Input array on which filter should be applied.
-        /// </summary>
-        public readonly Outputs.ExpressionResponse Items;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -42,32 +34,33 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Filter activity properties.
+        /// </summary>
+        public readonly Outputs.FilterActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
 
         [OutputConstructor]
         private FilterActivityResponse(
-            Outputs.ExpressionResponse condition,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            Outputs.ExpressionResponse items,
 
             string name,
 
             string type,
 
+            Outputs.FilterActivityTypePropertiesResponse typeProperties,
+
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Condition = condition;
             DependsOn = dependsOn;
             Description = description;
-            Items = items;
             Name = name;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("apiVersion")]
-        public Input<object>? ApiVersion { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,18 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("environmentUrl")]
-        public Input<object>? EnvironmentUrl { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -70,18 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The password for Basic authentication of the Salesforce instance.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The security token is optional to remotely access Salesforce instance.
-        /// </summary>
-        [Input("securityToken")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SecurityToken { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Salesforce'.
         /// </summary>
@@ -89,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        /// Salesforce linked service properties.
         /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SalesforceLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SalesforceLinkedServiceArgs()
         {

@@ -12,8 +12,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AlertRuleResponse',
     'AutoscaleNotificationResponse',
     'AutoscaleProfileResponse',
+    'AutoscaleSettingResponse',
     'EmailNotificationResponse',
     'LocationThresholdRuleConditionResponse',
     'ManagementEventAggregationConditionResponse',
@@ -34,6 +36,130 @@ __all__ = [
     'TimeWindowResponse',
     'WebhookNotificationResponse',
 ]
+
+@pulumi.output_type
+class AlertRuleResponse(dict):
+    """
+    An alert rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: Any,
+                 is_enabled: bool,
+                 last_updated_time: str,
+                 name: str,
+                 action: Optional[Any] = None,
+                 actions: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        An alert rule.
+        :param Union['LocationThresholdRuleConditionResponse', 'ManagementEventRuleConditionResponse', 'ThresholdRuleConditionResponse'] condition: the condition that results in the alert rule being activated.
+        :param bool is_enabled: the flag that indicates whether the alert rule is enabled.
+        :param str last_updated_time: Last time the rule was updated in ISO8601 format.
+        :param str name: the name of the alert rule.
+        :param Union['RuleEmailActionResponse', 'RuleWebhookActionResponse'] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param Sequence[Union['RuleEmailActionResponse', 'RuleWebhookActionResponse']] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param str description: the description of the alert rule that will be included in the alert email.
+        :param str provisioning_state: the provisioning state.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Any:
+        """
+        the condition that results in the alert rule being activated.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        Last time the rule was updated in ISO8601 format.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        the name of the alert rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[Any]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[Any]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
 
 @pulumi.output_type
 class AutoscaleNotificationResponse(dict):
@@ -164,6 +290,109 @@ class AutoscaleProfileResponse(dict):
         the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
         return pulumi.get(self, "recurrence")
+
+
+@pulumi.output_type
+class AutoscaleSettingResponse(dict):
+    """
+    A setting that contains all of the configuration for the automatic scaling of a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetResourceLocation":
+            suggest = "target_resource_location"
+        elif key == "targetResourceUri":
+            suggest = "target_resource_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profiles: Sequence['outputs.AutoscaleProfileResponse'],
+                 enabled: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 notifications: Optional[Sequence['outputs.AutoscaleNotificationResponse']] = None,
+                 target_resource_location: Optional[str] = None,
+                 target_resource_uri: Optional[str] = None):
+        """
+        A setting that contains all of the configuration for the automatic scaling of a resource.
+        :param Sequence['AutoscaleProfileResponse'] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param bool enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        :param str name: the name of the autoscale setting.
+        :param Sequence['AutoscaleNotificationResponse'] notifications: the collection of notifications.
+        :param str target_resource_location: the location of the resource that the autoscale setting should be added to.
+        :param str target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        pulumi.set(__self__, "profiles", profiles)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
+        if target_resource_uri is not None:
+            pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> Sequence['outputs.AutoscaleProfileResponse']:
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        """
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        the name of the autoscale setting.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[Sequence['outputs.AutoscaleNotificationResponse']]:
+        """
+        the collection of notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[str]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[str]:
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_uri")
 
 
 @pulumi.output_type

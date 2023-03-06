@@ -95,17 +95,13 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The properties that define a service in a service topology.
+        /// </summary>
+        public readonly Outputs.ServiceResourceResponseProperties Properties;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The Azure location to which the resources in the service belong to or should be deployed to.
-        /// </summary>
-        public readonly string TargetLocation;
-        /// <summary>
-        /// The subscription to which the resources in the service belong to or should be deployed to.
-        /// </summary>
-        public readonly string TargetSubscriptionId;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -119,20 +115,17 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 
             string name,
 
+            Outputs.ServiceResourceResponseProperties properties,
+
             ImmutableDictionary<string, string>? tags,
-
-            string targetLocation,
-
-            string targetSubscriptionId,
 
             string type)
         {
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
-            TargetLocation = targetLocation;
-            TargetSubscriptionId = targetSubscriptionId;
             Type = type;
         }
     }

@@ -45,22 +45,6 @@ export interface GetADLSGen2FolderDataSetMappingArgs {
  */
 export interface GetADLSGen2FolderDataSetMappingResult {
     /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
-     * File system to which the folder belongs.
-     */
-    readonly fileSystem: string;
-    /**
-     * Folder path within the file system.
-     */
-    readonly folderPath: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -74,21 +58,9 @@ export interface GetADLSGen2FolderDataSetMappingResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the data set mapping.
+     * ADLS Gen2 folder data set mapping properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Resource group of storage account.
-     */
-    readonly resourceGroup: string;
-    /**
-     * Storage account name of the source data set.
-     */
-    readonly storageAccountName: string;
-    /**
-     * Subscription id of storage account.
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.v20210801.ADLSGen2FolderDataSetMappingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

@@ -40,21 +40,9 @@ export interface GetSnapshotPolicyArgs {
  */
 export interface GetSnapshotPolicyResult {
     /**
-     * Schedule for daily snapshots
-     */
-    readonly dailySchedule?: outputs.netapp.v20220101.DailyScheduleResponse;
-    /**
-     * The property to decide policy is enabled or not
-     */
-    readonly enabled?: boolean;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
-    /**
-     * Schedule for hourly snapshots
-     */
-    readonly hourlySchedule?: outputs.netapp.v20220101.HourlyScheduleResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -64,17 +52,13 @@ export interface GetSnapshotPolicyResult {
      */
     readonly location: string;
     /**
-     * Schedule for monthly snapshots
-     */
-    readonly monthlySchedule?: outputs.netapp.v20220101.MonthlyScheduleResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Azure lifecycle management
+     * Snapshot policy Properties
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.netapp.v20220101.SnapshotPolicyPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -87,10 +71,6 @@ export interface GetSnapshotPolicyResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Schedule for weekly snapshots
-     */
-    readonly weeklySchedule?: outputs.netapp.v20220101.WeeklyScheduleResponse;
 }
 /**
  * Get a snapshot Policy

@@ -22,28 +22,13 @@ class GetVCenterResult:
     """
     Defines the vCenter.
     """
-    def __init__(__self__, connection_status=None, credentials=None, custom_resource_name=None, extended_location=None, fqdn=None, id=None, instance_uuid=None, kind=None, location=None, name=None, port=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, version=None):
-        if connection_status and not isinstance(connection_status, str):
-            raise TypeError("Expected argument 'connection_status' to be a str")
-        pulumi.set(__self__, "connection_status", connection_status)
-        if credentials and not isinstance(credentials, dict):
-            raise TypeError("Expected argument 'credentials' to be a dict")
-        pulumi.set(__self__, "credentials", credentials)
-        if custom_resource_name and not isinstance(custom_resource_name, str):
-            raise TypeError("Expected argument 'custom_resource_name' to be a str")
-        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+    def __init__(__self__, extended_location=None, id=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
-        if fqdn and not isinstance(fqdn, str):
-            raise TypeError("Expected argument 'fqdn' to be a str")
-        pulumi.set(__self__, "fqdn", fqdn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if instance_uuid and not isinstance(instance_uuid, str):
-            raise TypeError("Expected argument 'instance_uuid' to be a str")
-        pulumi.set(__self__, "instance_uuid", instance_uuid)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -53,15 +38,9 @@ class GetVCenterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if port and not isinstance(port, int):
-            raise TypeError("Expected argument 'port' to be a int")
-        pulumi.set(__self__, "port", port)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if statuses and not isinstance(statuses, list):
-            raise TypeError("Expected argument 'statuses' to be a list")
-        pulumi.set(__self__, "statuses", statuses)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -71,36 +50,6 @@ class GetVCenterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if uuid and not isinstance(uuid, str):
-            raise TypeError("Expected argument 'uuid' to be a str")
-        pulumi.set(__self__, "uuid", uuid)
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> str:
-        """
-        Gets or sets the connection status to the vCenter.
-        """
-        return pulumi.get(self, "connection_status")
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional['outputs.VICredentialResponse']:
-        """
-        Username / Password Credentials to connect to vcenter.
-        """
-        return pulumi.get(self, "credentials")
-
-    @property
-    @pulumi.getter(name="customResourceName")
-    def custom_resource_name(self) -> str:
-        """
-        Gets the name of the corresponding resource in Kubernetes.
-        """
-        return pulumi.get(self, "custom_resource_name")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -112,27 +61,11 @@ class GetVCenterResult:
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
-        """
-        Gets or sets the FQDN/IPAddress of the vCenter.
-        """
-        return pulumi.get(self, "fqdn")
-
-    @property
-    @pulumi.getter
     def id(self) -> str:
         """
         Gets or sets the Id.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="instanceUuid")
-    def instance_uuid(self) -> str:
-        """
-        Gets or sets the instance UUID of the vCenter.
-        """
-        return pulumi.get(self, "instance_uuid")
 
     @property
     @pulumi.getter
@@ -160,27 +93,11 @@ class GetVCenterResult:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[int]:
+    def properties(self) -> 'outputs.VCenterPropertiesResponse':
         """
-        Gets or sets the port of the vCenter.
+        Resource properties.
         """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Gets or sets the provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
-        """
-        The resource status information.
-        """
-        return pulumi.get(self, "statuses")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -206,22 +123,6 @@ class GetVCenterResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def uuid(self) -> str:
-        """
-        Gets or sets a unique identifier for this resource.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter
-    def version(self) -> str:
-        """
-        Gets or sets the version of the vCenter.
-        """
-        return pulumi.get(self, "version")
-
 
 class AwaitableGetVCenterResult(GetVCenterResult):
     # pylint: disable=using-constant-test
@@ -229,24 +130,15 @@ class AwaitableGetVCenterResult(GetVCenterResult):
         if False:
             yield self
         return GetVCenterResult(
-            connection_status=self.connection_status,
-            credentials=self.credentials,
-            custom_resource_name=self.custom_resource_name,
             extended_location=self.extended_location,
-            fqdn=self.fqdn,
             id=self.id,
-            instance_uuid=self.instance_uuid,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            port=self.port,
-            provisioning_state=self.provisioning_state,
-            statuses=self.statuses,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            uuid=self.uuid,
-            version=self.version)
+            type=self.type)
 
 
 def get_v_center(resource_group_name: Optional[str] = None,
@@ -267,24 +159,15 @@ def get_v_center(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVCenter', __args__, opts=opts, typ=GetVCenterResult).value
 
     return AwaitableGetVCenterResult(
-        connection_status=__ret__.connection_status,
-        credentials=__ret__.credentials,
-        custom_resource_name=__ret__.custom_resource_name,
         extended_location=__ret__.extended_location,
-        fqdn=__ret__.fqdn,
         id=__ret__.id,
-        instance_uuid=__ret__.instance_uuid,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        statuses=__ret__.statuses,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        version=__ret__.version)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_v_center)

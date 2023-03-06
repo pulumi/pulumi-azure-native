@@ -14,8 +14,12 @@ from ._enums import *
 __all__ = [
     'EnvironmentStateDetailsResponse',
     'EnvironmentStatusResponse',
+    'EventHubEventSourceResourcePropertiesResponse',
+    'Gen1EnvironmentResourcePropertiesResponse',
+    'Gen2EnvironmentResourcePropertiesResponse',
     'Gen2StorageConfigurationOutputResponse',
     'IngressEnvironmentStatusResponse',
+    'IoTHubEventSourceResourcePropertiesResponse',
     'LocalTimestampResponse',
     'LocalTimestampResponseTimeZoneOffset',
     'ReferenceDataSetKeyPropertyResponse',
@@ -111,6 +115,434 @@ class EnvironmentStatusResponse(dict):
 
 
 @pulumi.output_type
+class EventHubEventSourceResourcePropertiesResponse(dict):
+    """
+    Properties of the EventHub event source resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupName":
+            suggest = "consumer_group_name"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "eventSourceResourceId":
+            suggest = "event_source_resource_id"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceBusNamespace":
+            suggest = "service_bus_namespace"
+        elif key == "localTimestamp":
+            suggest = "local_timestamp"
+        elif key == "timestampPropertyName":
+            suggest = "timestamp_property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubEventSourceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_name: str,
+                 creation_time: str,
+                 event_hub_name: str,
+                 event_source_resource_id: str,
+                 key_name: str,
+                 provisioning_state: str,
+                 service_bus_namespace: str,
+                 local_timestamp: Optional['outputs.LocalTimestampResponse'] = None,
+                 time: Optional[str] = None,
+                 timestamp_property_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Properties of the EventHub event source resource.
+        :param str consumer_group_name: The name of the event hub's consumer group that holds the partitions from which events will be read.
+        :param str creation_time: The time the resource was created.
+        :param str event_hub_name: The name of the event hub.
+        :param str event_source_resource_id: The resource id of the event source in Azure Resource Manager.
+        :param str key_name: The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param str service_bus_namespace: The name of the service bus that contains the event hub.
+        :param 'LocalTimestampResponse' local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        :param str time: ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        :param str timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        :param str type: The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+        """
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+        if local_timestamp is not None:
+            pulumi.set(__self__, "local_timestamp", local_timestamp)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+        if timestamp_property_name is not None:
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> str:
+        """
+        The name of the event hub's consumer group that holds the partitions from which events will be read.
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the resource was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> str:
+        """
+        The name of the event hub.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="eventSourceResourceId")
+    def event_source_resource_id(self) -> str:
+        """
+        The resource id of the event source in Azure Resource Manager.
+        """
+        return pulumi.get(self, "event_source_resource_id")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceBusNamespace")
+    def service_bus_namespace(self) -> str:
+        """
+        The name of the service bus that contains the event hub.
+        """
+        return pulumi.get(self, "service_bus_namespace")
+
+    @property
+    @pulumi.getter(name="localTimestamp")
+    def local_timestamp(self) -> Optional['outputs.LocalTimestampResponse']:
+        """
+        An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        """
+        return pulumi.get(self, "local_timestamp")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[str]:
+        """
+        ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        """
+        return pulumi.get(self, "time")
+
+    @property
+    @pulumi.getter(name="timestampPropertyName")
+    def timestamp_property_name(self) -> Optional[str]:
+        """
+        The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        return pulumi.get(self, "timestamp_property_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class Gen1EnvironmentResourcePropertiesResponse(dict):
+    """
+    Properties of the Gen1 environment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "dataAccessFqdn":
+            suggest = "data_access_fqdn"
+        elif key == "dataAccessId":
+            suggest = "data_access_id"
+        elif key == "dataRetentionTime":
+            suggest = "data_retention_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "partitionKeyProperties":
+            suggest = "partition_key_properties"
+        elif key == "storageLimitExceededBehavior":
+            suggest = "storage_limit_exceeded_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Gen1EnvironmentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Gen1EnvironmentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Gen1EnvironmentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_time: str,
+                 data_access_fqdn: str,
+                 data_access_id: str,
+                 data_retention_time: str,
+                 provisioning_state: str,
+                 status: 'outputs.EnvironmentStatusResponse',
+                 partition_key_properties: Optional[Sequence['outputs.TimeSeriesIdPropertyResponse']] = None,
+                 storage_limit_exceeded_behavior: Optional[str] = None):
+        """
+        Properties of the Gen1 environment.
+        :param str creation_time: The time the resource was created.
+        :param str data_access_fqdn: The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        :param str data_access_id: An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        :param str data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param 'EnvironmentStatusResponse' status: An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+        :param Sequence['TimeSeriesIdPropertyResponse'] partition_key_properties: The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        :param str storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+        """
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "data_access_fqdn", data_access_fqdn)
+        pulumi.set(__self__, "data_access_id", data_access_id)
+        pulumi.set(__self__, "data_retention_time", data_retention_time)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        if partition_key_properties is not None:
+            pulumi.set(__self__, "partition_key_properties", partition_key_properties)
+        if storage_limit_exceeded_behavior is not None:
+            pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the resource was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="dataAccessFqdn")
+    def data_access_fqdn(self) -> str:
+        """
+        The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        """
+        return pulumi.get(self, "data_access_fqdn")
+
+    @property
+    @pulumi.getter(name="dataAccessId")
+    def data_access_id(self) -> str:
+        """
+        An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        """
+        return pulumi.get(self, "data_access_id")
+
+    @property
+    @pulumi.getter(name="dataRetentionTime")
+    def data_retention_time(self) -> str:
+        """
+        ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        """
+        return pulumi.get(self, "data_retention_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.EnvironmentStatusResponse':
+        """
+        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="partitionKeyProperties")
+    def partition_key_properties(self) -> Optional[Sequence['outputs.TimeSeriesIdPropertyResponse']]:
+        """
+        The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        """
+        return pulumi.get(self, "partition_key_properties")
+
+    @property
+    @pulumi.getter(name="storageLimitExceededBehavior")
+    def storage_limit_exceeded_behavior(self) -> Optional[str]:
+        """
+        The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+        """
+        return pulumi.get(self, "storage_limit_exceeded_behavior")
+
+
+@pulumi.output_type
+class Gen2EnvironmentResourcePropertiesResponse(dict):
+    """
+    Properties of the Gen2 environment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "dataAccessFqdn":
+            suggest = "data_access_fqdn"
+        elif key == "dataAccessId":
+            suggest = "data_access_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "storageConfiguration":
+            suggest = "storage_configuration"
+        elif key == "timeSeriesIdProperties":
+            suggest = "time_series_id_properties"
+        elif key == "warmStoreConfiguration":
+            suggest = "warm_store_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Gen2EnvironmentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Gen2EnvironmentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Gen2EnvironmentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_time: str,
+                 data_access_fqdn: str,
+                 data_access_id: str,
+                 provisioning_state: str,
+                 status: 'outputs.EnvironmentStatusResponse',
+                 storage_configuration: 'outputs.Gen2StorageConfigurationOutputResponse',
+                 time_series_id_properties: Sequence['outputs.TimeSeriesIdPropertyResponse'],
+                 warm_store_configuration: Optional['outputs.WarmStoreConfigurationPropertiesResponse'] = None):
+        """
+        Properties of the Gen2 environment.
+        :param str creation_time: The time the resource was created.
+        :param str data_access_fqdn: The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        :param str data_access_id: An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param 'EnvironmentStatusResponse' status: An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+        :param 'Gen2StorageConfigurationOutputResponse' storage_configuration: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+        :param Sequence['TimeSeriesIdPropertyResponse'] time_series_id_properties: The list of event properties which will be used to define the environment's time series id.
+        :param 'WarmStoreConfigurationPropertiesResponse' warm_store_configuration: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+        """
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "data_access_fqdn", data_access_fqdn)
+        pulumi.set(__self__, "data_access_id", data_access_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "storage_configuration", storage_configuration)
+        pulumi.set(__self__, "time_series_id_properties", time_series_id_properties)
+        if warm_store_configuration is not None:
+            pulumi.set(__self__, "warm_store_configuration", warm_store_configuration)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the resource was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="dataAccessFqdn")
+    def data_access_fqdn(self) -> str:
+        """
+        The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        """
+        return pulumi.get(self, "data_access_fqdn")
+
+    @property
+    @pulumi.getter(name="dataAccessId")
+    def data_access_id(self) -> str:
+        """
+        An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        """
+        return pulumi.get(self, "data_access_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.EnvironmentStatusResponse':
+        """
+        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> 'outputs.Gen2StorageConfigurationOutputResponse':
+        """
+        The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+        """
+        return pulumi.get(self, "storage_configuration")
+
+    @property
+    @pulumi.getter(name="timeSeriesIdProperties")
+    def time_series_id_properties(self) -> Sequence['outputs.TimeSeriesIdPropertyResponse']:
+        """
+        The list of event properties which will be used to define the environment's time series id.
+        """
+        return pulumi.get(self, "time_series_id_properties")
+
+    @property
+    @pulumi.getter(name="warmStoreConfiguration")
+    def warm_store_configuration(self) -> Optional['outputs.WarmStoreConfigurationPropertiesResponse']:
+        """
+        The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+        """
+        return pulumi.get(self, "warm_store_configuration")
+
+
+@pulumi.output_type
 class Gen2StorageConfigurationOutputResponse(dict):
     """
     The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
@@ -198,6 +630,162 @@ class IngressEnvironmentStatusResponse(dict):
         This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class IoTHubEventSourceResourcePropertiesResponse(dict):
+    """
+    Properties of the IoTHub event source resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupName":
+            suggest = "consumer_group_name"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "eventSourceResourceId":
+            suggest = "event_source_resource_id"
+        elif key == "iotHubName":
+            suggest = "iot_hub_name"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "localTimestamp":
+            suggest = "local_timestamp"
+        elif key == "timestampPropertyName":
+            suggest = "timestamp_property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubEventSourceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_name: str,
+                 creation_time: str,
+                 event_source_resource_id: str,
+                 iot_hub_name: str,
+                 key_name: str,
+                 provisioning_state: str,
+                 local_timestamp: Optional['outputs.LocalTimestampResponse'] = None,
+                 time: Optional[str] = None,
+                 timestamp_property_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Properties of the IoTHub event source resource.
+        :param str consumer_group_name: The name of the iot hub's consumer group that holds the partitions from which events will be read.
+        :param str creation_time: The time the resource was created.
+        :param str event_source_resource_id: The resource id of the event source in Azure Resource Manager.
+        :param str iot_hub_name: The name of the iot hub.
+        :param str key_name: The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param 'LocalTimestampResponse' local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        :param str time: ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        :param str timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        :param str type: The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+        """
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+        pulumi.set(__self__, "iot_hub_name", iot_hub_name)
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if local_timestamp is not None:
+            pulumi.set(__self__, "local_timestamp", local_timestamp)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+        if timestamp_property_name is not None:
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> str:
+        """
+        The name of the iot hub's consumer group that holds the partitions from which events will be read.
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the resource was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="eventSourceResourceId")
+    def event_source_resource_id(self) -> str:
+        """
+        The resource id of the event source in Azure Resource Manager.
+        """
+        return pulumi.get(self, "event_source_resource_id")
+
+    @property
+    @pulumi.getter(name="iotHubName")
+    def iot_hub_name(self) -> str:
+        """
+        The name of the iot hub.
+        """
+        return pulumi.get(self, "iot_hub_name")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="localTimestamp")
+    def local_timestamp(self) -> Optional['outputs.LocalTimestampResponse']:
+        """
+        An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        """
+        return pulumi.get(self, "local_timestamp")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[str]:
+        """
+        ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        """
+        return pulumi.get(self, "time")
+
+    @property
+    @pulumi.getter(name="timestampPropertyName")
+    def timestamp_property_name(self) -> Optional[str]:
+        """
+        The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        return pulumi.get(self, "timestamp_property_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

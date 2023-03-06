@@ -86,10 +86,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The iSCSI initiator name (IQN).
-        /// </summary>
-        public readonly string InitiatorName;
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -98,34 +94,31 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The properties of access control record.
+        /// </summary>
+        public readonly Outputs.AccessControlRecordPropertiesResponse Properties;
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The number of volumes using the access control record.
-        /// </summary>
-        public readonly int VolumeCount;
 
         [OutputConstructor]
         private GetAccessControlRecordResult(
             string id,
 
-            string initiatorName,
-
             string? kind,
 
             string name,
 
-            string type,
+            Outputs.AccessControlRecordPropertiesResponse properties,
 
-            int volumeCount)
+            string type)
         {
             Id = id;
-            InitiatorName = initiatorName;
             Kind = kind;
             Name = name;
+            Properties = properties;
             Type = type;
-            VolumeCount = volumeCount;
         }
     }
 }

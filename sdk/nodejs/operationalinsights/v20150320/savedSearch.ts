@@ -41,14 +41,6 @@ export class SavedSearch extends pulumi.CustomResource {
     }
 
     /**
-     * The category of the saved search. This helps the user to find a saved search faster. 
-     */
-    public readonly category!: pulumi.Output<string>;
-    /**
-     * Saved search display name.
-     */
-    public readonly displayName!: pulumi.Output<string>;
-    /**
      * The ETag of the saved search.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
@@ -57,21 +49,13 @@ export class SavedSearch extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+     * The properties of the saved search.
      */
-    public readonly query!: pulumi.Output<string>;
-    /**
-     * The tags attached to the saved search.
-     */
-    public readonly tags!: pulumi.Output<outputs.operationalinsights.v20150320.TagResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20150320.SavedSearchPropertiesResponse>;
     /**
      * The type of the saved search.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The version number of the query language. The current version is 2 and is the default.
-     */
-    public readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a SavedSearch resource with the given unique name, arguments, and options.
@@ -86,14 +70,8 @@ export class SavedSearch extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.category === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'category'");
-            }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
-            }
-            if ((!args || args.query === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'query'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -101,26 +79,18 @@ export class SavedSearch extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["savedSearchId"] = args ? args.savedSearchId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["category"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["query"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }] };
@@ -134,21 +104,13 @@ export class SavedSearch extends pulumi.CustomResource {
  */
 export interface SavedSearchArgs {
     /**
-     * The category of the saved search. This helps the user to find a saved search faster. 
-     */
-    category: pulumi.Input<string>;
-    /**
-     * Saved search display name.
-     */
-    displayName: pulumi.Input<string>;
-    /**
      * The ETag of the saved search.
      */
     eTag?: pulumi.Input<string>;
     /**
-     * The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+     * The properties of the saved search.
      */
-    query: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.operationalinsights.v20150320.SavedSearchPropertiesArgs>;
     /**
      * The Resource Group name.
      */
@@ -157,14 +119,6 @@ export interface SavedSearchArgs {
      * The id of the saved search.
      */
     savedSearchId?: pulumi.Input<string>;
-    /**
-     * The tags attached to the saved search.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20150320.TagArgs>[]>;
-    /**
-     * The version number of the query language. The current version is 2 and is the default.
-     */
-    version?: pulumi.Input<number>;
     /**
      * The Log Analytics Workspace name.
      */

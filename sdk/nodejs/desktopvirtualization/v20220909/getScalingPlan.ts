@@ -35,29 +35,9 @@ export interface GetScalingPlanArgs {
  */
 export interface GetScalingPlanResult {
     /**
-     * Description of scaling plan.
-     */
-    readonly description?: string;
-    /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
     readonly etag: string;
-    /**
-     * Exclusion tag for scaling plan.
-     */
-    readonly exclusionTag?: string;
-    /**
-     * User friendly name of scaling plan.
-     */
-    readonly friendlyName?: string;
-    /**
-     * List of ScalingHostPoolReference definitions.
-     */
-    readonly hostPoolReferences?: outputs.desktopvirtualization.v20220909.ScalingHostPoolReferenceResponse[];
-    /**
-     * HostPool type for desktop.
-     */
-    readonly hostPoolType?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -79,15 +59,11 @@ export interface GetScalingPlanResult {
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * ObjectId of scaling plan. (internal use)
-     */
-    readonly objectId: string;
     readonly plan?: outputs.desktopvirtualization.v20220909.ResourceModelWithAllowedPropertySetResponsePlan;
     /**
-     * List of ScalingPlanPooledSchedule definitions.
+     * Detailed properties for scaling plan.
      */
-    readonly schedules?: outputs.desktopvirtualization.v20220909.ScalingScheduleResponse[];
+    readonly properties: outputs.desktopvirtualization.v20220909.ScalingPlanPropertiesResponse;
     readonly sku?: outputs.desktopvirtualization.v20220909.ResourceModelWithAllowedPropertySetResponseSku;
     /**
      * Metadata pertaining to creation and last modification of the resource.
@@ -97,10 +73,6 @@ export interface GetScalingPlanResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * Timezone of the scaling plan.
-     */
-    readonly timeZone: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

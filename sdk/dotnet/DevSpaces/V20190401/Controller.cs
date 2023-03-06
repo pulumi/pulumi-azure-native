@@ -13,18 +13,6 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
     public partial class Controller : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// DNS name for accessing DataPlane services
-        /// </summary>
-        [Output("dataPlaneFqdn")]
-        public Output<string> DataPlaneFqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-        /// </summary>
-        [Output("hostSuffix")]
-        public Output<string> HostSuffix { get; private set; } = null!;
-
-        /// <summary>
         /// Region where the Azure resource is located.
         /// </summary>
         [Output("location")]
@@ -36,11 +24,8 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Provisioning state of the Azure Dev Spaces Controller.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ControllerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Model representing SKU for Azure Dev Spaces Controller.
@@ -53,18 +38,6 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// DNS of the target container host's API server
-        /// </summary>
-        [Output("targetContainerHostApiServerFqdn")]
-        public Output<string> TargetContainerHostApiServerFqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource ID of the target container host
-        /// </summary>
-        [Output("targetContainerHostResourceId")]
-        public Output<string> TargetContainerHostResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -133,6 +106,9 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("properties", required: true)]
+        public Input<Inputs.ControllerPropertiesArgs> Properties { get; set; } = null!;
+
         /// <summary>
         /// Resource group to which the resource belongs.
         /// </summary>
@@ -156,18 +132,6 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Credentials of the target container host (base64).
-        /// </summary>
-        [Input("targetContainerHostCredentialsBase64", required: true)]
-        public Input<string> TargetContainerHostCredentialsBase64 { get; set; } = null!;
-
-        /// <summary>
-        /// Resource ID of the target container host
-        /// </summary>
-        [Input("targetContainerHostResourceId", required: true)]
-        public Input<string> TargetContainerHostResourceId { get; set; } = null!;
 
         public ControllerArgs()
         {

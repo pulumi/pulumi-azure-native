@@ -82,14 +82,6 @@ namespace Pulumi.AzureNative.NetApp.V20210401
     public sealed class GetPoolResult
     {
         /// <summary>
-        /// If enabled (true) the pool can contain cool Access enabled volumes.
-        /// </summary>
-        public readonly bool? CoolAccess;
-        /// <summary>
-        /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-        /// </summary>
-        public readonly string? EncryptionType;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -106,48 +98,20 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// UUID v4 used to identify the Pool
+        /// Capacity pool properties
         /// </summary>
-        public readonly string PoolId;
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The qos type of the pool
-        /// </summary>
-        public readonly string? QosType;
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        public readonly string ServiceLevel;
-        /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        /// </summary>
-        public readonly double Size;
+        public readonly Outputs.PoolPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Total throughput of pool in Mibps
-        /// </summary>
-        public readonly double TotalThroughputMibps;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Utilized throughput of pool in Mibps
-        /// </summary>
-        public readonly double UtilizedThroughputMibps;
 
         [OutputConstructor]
         private GetPoolResult(
-            bool? coolAccess,
-
-            string? encryptionType,
-
             string etag,
 
             string id,
@@ -156,39 +120,19 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
             string name,
 
-            string poolId,
-
-            string provisioningState,
-
-            string? qosType,
-
-            string serviceLevel,
-
-            double size,
+            Outputs.PoolPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            double totalThroughputMibps,
-
-            string type,
-
-            double utilizedThroughputMibps)
+            string type)
         {
-            CoolAccess = coolAccess;
-            EncryptionType = encryptionType;
             Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            PoolId = poolId;
-            ProvisioningState = provisioningState;
-            QosType = qosType;
-            ServiceLevel = serviceLevel;
-            Size = size;
+            Properties = properties;
             Tags = tags;
-            TotalThroughputMibps = totalThroughputMibps;
             Type = type;
-            UtilizedThroughputMibps = utilizedThroughputMibps;
         }
     }
 }

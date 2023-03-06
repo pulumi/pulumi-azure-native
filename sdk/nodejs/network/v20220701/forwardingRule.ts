@@ -38,37 +38,21 @@ export class ForwardingRule extends pulumi.CustomResource {
     }
 
     /**
-     * The domain name for the forwarding rule.
-     */
-    public readonly domainName!: pulumi.Output<string>;
-    /**
      * ETag of the forwarding rule.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * The state of forwarding rule.
-     */
-    public readonly forwardingRuleState!: pulumi.Output<string | undefined>;
-    /**
-     * Metadata attached to the forwarding rule.
-     */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the forwarding rule.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.network.v20220701.ForwardingRulePropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.network.v20220701.SystemDataResponse>;
-    /**
-     * DNS servers to forward the DNS query to.
-     */
-    public readonly targetDnsServers!: pulumi.Output<outputs.network.v20220701.TargetDnsServerResponse[]>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -88,36 +72,25 @@ export class ForwardingRule extends pulumi.CustomResource {
             if ((!args || args.dnsForwardingRulesetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsForwardingRulesetName'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetDnsServers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetDnsServers'");
-            }
             resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["forwardingRuleName"] = args ? args.forwardingRuleName : undefined;
-            resourceInputs["forwardingRuleState"] = args ? args.forwardingRuleState : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetDnsServers"] = args ? args.targetDnsServers : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["forwardingRuleState"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["targetDnsServers"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -136,27 +109,15 @@ export interface ForwardingRuleArgs {
      */
     dnsForwardingRulesetName: pulumi.Input<string>;
     /**
-     * The domain name for the forwarding rule.
-     */
-    domainName: pulumi.Input<string>;
-    /**
      * The name of the forwarding rule.
      */
     forwardingRuleName?: pulumi.Input<string>;
     /**
-     * The state of forwarding rule.
+     * Properties of the forwarding rule.
      */
-    forwardingRuleState?: pulumi.Input<string | enums.network.v20220701.ForwardingRuleState>;
-    /**
-     * Metadata attached to the forwarding rule.
-     */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties: pulumi.Input<inputs.network.v20220701.ForwardingRulePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * DNS servers to forward the DNS query to.
-     */
-    targetDnsServers: pulumi.Input<pulumi.Input<inputs.network.v20220701.TargetDnsServerArgs>[]>;
 }

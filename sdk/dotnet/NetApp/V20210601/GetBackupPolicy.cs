@@ -82,18 +82,6 @@ namespace Pulumi.AzureNative.NetApp.V20210601
     public sealed class GetBackupPolicyResult
     {
         /// <summary>
-        /// Backup Policy Resource ID
-        /// </summary>
-        public readonly string BackupPolicyId;
-        /// <summary>
-        /// Daily backups count to keep
-        /// </summary>
-        public readonly int? DailyBackupsToKeep;
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -106,17 +94,13 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Monthly backups count to keep
-        /// </summary>
-        public readonly int? MonthlyBackupsToKeep;
-        /// <summary>
-        /// Name of backup policy
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup policy Properties
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.BackupPolicyPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -125,63 +109,30 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// A list of volumes assigned to this policy
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeBackupsResponse> VolumeBackups;
-        /// <summary>
-        /// Volumes using current backup policy
-        /// </summary>
-        public readonly int VolumesAssigned;
-        /// <summary>
-        /// Weekly backups count to keep
-        /// </summary>
-        public readonly int? WeeklyBackupsToKeep;
 
         [OutputConstructor]
         private GetBackupPolicyResult(
-            string backupPolicyId,
-
-            int? dailyBackupsToKeep,
-
-            bool? enabled,
-
             string etag,
 
             string id,
 
             string location,
 
-            int? monthlyBackupsToKeep,
-
             string name,
 
-            string provisioningState,
+            Outputs.BackupPolicyPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<Outputs.VolumeBackupsResponse> volumeBackups,
-
-            int volumesAssigned,
-
-            int? weeklyBackupsToKeep)
+            string type)
         {
-            BackupPolicyId = backupPolicyId;
-            DailyBackupsToKeep = dailyBackupsToKeep;
-            Enabled = enabled;
             Etag = etag;
             Id = id;
             Location = location;
-            MonthlyBackupsToKeep = monthlyBackupsToKeep;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            VolumeBackups = volumeBackups;
-            VolumesAssigned = volumesAssigned;
-            WeeklyBackupsToKeep = weeklyBackupsToKeep;
         }
     }
 }

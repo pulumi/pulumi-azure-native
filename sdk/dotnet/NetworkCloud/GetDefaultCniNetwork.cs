@@ -72,60 +72,13 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetDefaultCniNetworkResult
     {
         /// <summary>
-        /// The resource ID of the Network Cloud cluster this default CNI network is associated with.
-        /// </summary>
-        public readonly string ClusterId;
-        /// <summary>
-        /// The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
-        /// </summary>
-        public readonly double CniAsNumber;
-        public readonly Outputs.CniBgpConfigurationResponse? CniBgpConfiguration;
-        /// <summary>
-        /// The more detailed status of the default CNI network.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The L3 isolation fabric BGP peering connectivity information necessary for BGP peering the Hybrid AKS Cluster with the switch fabric.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.BgpPeerResponse> FabricBgpPeers;
-        /// <summary>
-        /// The list of Hybrid AKS cluster resource ID(s) that are associated with this default CNI network.
-        /// </summary>
-        public readonly ImmutableArray<string> HybridAksClustersAssociatedIds;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the interface that will be present in the virtual machine to represent this network.
-        /// </summary>
-        public readonly string InterfaceName;
-        /// <summary>
-        /// The type of the IP address allocation.
-        /// </summary>
-        public readonly string? IpAllocationType;
-        /// <summary>
-        /// The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-        /// is IPV4 or DualStack.
-        /// </summary>
-        public readonly string? Ipv4ConnectedPrefix;
-        /// <summary>
-        /// The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-        /// is IPV6 or DualStack.
-        /// </summary>
-        public readonly string? Ipv6ConnectedPrefix;
-        /// <summary>
-        /// The resource ID of the Network Fabric l3IsolationDomain.
-        /// </summary>
-        public readonly string L3IsolationDomainId;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -135,9 +88,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the default CNI network.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.DefaultCniNetworkPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -150,76 +103,33 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The VLAN from the l3IsolationDomain that is used for this network.
-        /// </summary>
-        public readonly double Vlan;
 
         [OutputConstructor]
         private GetDefaultCniNetworkResult(
-            string clusterId,
-
-            double cniAsNumber,
-
-            Outputs.CniBgpConfigurationResponse? cniBgpConfiguration,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
-            ImmutableArray<Outputs.BgpPeerResponse> fabricBgpPeers,
-
-            ImmutableArray<string> hybridAksClustersAssociatedIds,
-
             string id,
-
-            string interfaceName,
-
-            string? ipAllocationType,
-
-            string? ipv4ConnectedPrefix,
-
-            string? ipv6ConnectedPrefix,
-
-            string l3IsolationDomainId,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.DefaultCniNetworkPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            double vlan)
+            string type)
         {
-            ClusterId = clusterId;
-            CniAsNumber = cniAsNumber;
-            CniBgpConfiguration = cniBgpConfiguration;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
-            FabricBgpPeers = fabricBgpPeers;
-            HybridAksClustersAssociatedIds = hybridAksClustersAssociatedIds;
             Id = id;
-            InterfaceName = interfaceName;
-            IpAllocationType = ipAllocationType;
-            Ipv4ConnectedPrefix = ipv4ConnectedPrefix;
-            Ipv6ConnectedPrefix = ipv6ConnectedPrefix;
-            L3IsolationDomainId = l3IsolationDomainId;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Vlan = vlan;
         }
     }
 }

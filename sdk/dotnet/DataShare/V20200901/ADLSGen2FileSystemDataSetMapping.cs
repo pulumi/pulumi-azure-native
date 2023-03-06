@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     public partial class ADLSGen2FileSystemDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        [Output("dataSetMappingStatus")]
-        public Output<string> DataSetMappingStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The file system name.
-        /// </summary>
-        [Output("fileSystem")]
-        public Output<string> FileSystem { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set mapping.
         /// Expected value is 'AdlsGen2FileSystem'.
         /// </summary>
@@ -47,28 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// ADLS Gen2 file system data set mapping properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource group of storage account.
-        /// </summary>
-        [Output("resourceGroup")]
-        public Output<string> ResourceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ADLSGen2FileSystemDataSetMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -149,22 +113,10 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Input("dataSetId", required: true)]
-        public Input<string> DataSetId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
         [Input("dataSetMappingName")]
         public Input<string>? DataSetMappingName { get; set; }
-
-        /// <summary>
-        /// The file system name.
-        /// </summary>
-        [Input("fileSystem", required: true)]
-        public Input<string> FileSystem { get; set; } = null!;
 
         /// <summary>
         /// Kind of data set mapping.
@@ -174,10 +126,10 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account.
+        /// ADLS Gen2 file system data set mapping properties.
         /// </summary>
-        [Input("resourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ADLSGen2FileSystemDataSetMappingPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -190,18 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         /// </summary>
         [Input("shareSubscriptionName", required: true)]
         public Input<string> ShareSubscriptionName { get; set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
 
         public ADLSGen2FileSystemDataSetMappingArgs()
         {

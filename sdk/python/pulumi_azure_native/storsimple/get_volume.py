@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetVolumeResult',
@@ -21,70 +22,22 @@ class GetVolumeResult:
     """
     The volume.
     """
-    def __init__(__self__, access_control_record_ids=None, backup_policy_ids=None, backup_status=None, id=None, kind=None, monitoring_status=None, name=None, operation_status=None, size_in_bytes=None, type=None, volume_container_id=None, volume_status=None, volume_type=None):
-        if access_control_record_ids and not isinstance(access_control_record_ids, list):
-            raise TypeError("Expected argument 'access_control_record_ids' to be a list")
-        pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
-        if backup_policy_ids and not isinstance(backup_policy_ids, list):
-            raise TypeError("Expected argument 'backup_policy_ids' to be a list")
-        pulumi.set(__self__, "backup_policy_ids", backup_policy_ids)
-        if backup_status and not isinstance(backup_status, str):
-            raise TypeError("Expected argument 'backup_status' to be a str")
-        pulumi.set(__self__, "backup_status", backup_status)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
-        if monitoring_status and not isinstance(monitoring_status, str):
-            raise TypeError("Expected argument 'monitoring_status' to be a str")
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if operation_status and not isinstance(operation_status, str):
-            raise TypeError("Expected argument 'operation_status' to be a str")
-        pulumi.set(__self__, "operation_status", operation_status)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
-        pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_container_id and not isinstance(volume_container_id, str):
-            raise TypeError("Expected argument 'volume_container_id' to be a str")
-        pulumi.set(__self__, "volume_container_id", volume_container_id)
-        if volume_status and not isinstance(volume_status, str):
-            raise TypeError("Expected argument 'volume_status' to be a str")
-        pulumi.set(__self__, "volume_status", volume_status)
-        if volume_type and not isinstance(volume_type, str):
-            raise TypeError("Expected argument 'volume_type' to be a str")
-        pulumi.set(__self__, "volume_type", volume_type)
-
-    @property
-    @pulumi.getter(name="accessControlRecordIds")
-    def access_control_record_ids(self) -> Sequence[str]:
-        """
-        The IDs of the access control records, associated with the volume.
-        """
-        return pulumi.get(self, "access_control_record_ids")
-
-    @property
-    @pulumi.getter(name="backupPolicyIds")
-    def backup_policy_ids(self) -> Sequence[str]:
-        """
-        The IDs of the backup policies, in which this volume is part of.
-        """
-        return pulumi.get(self, "backup_policy_ids")
-
-    @property
-    @pulumi.getter(name="backupStatus")
-    def backup_status(self) -> str:
-        """
-        The backup status of the volume.
-        """
-        return pulumi.get(self, "backup_status")
 
     @property
     @pulumi.getter
@@ -103,14 +56,6 @@ class GetVolumeResult:
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
-        """
-        The monitoring status of the volume.
-        """
-        return pulumi.get(self, "monitoring_status")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -119,20 +64,12 @@ class GetVolumeResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="operationStatus")
-    def operation_status(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.VolumePropertiesResponse':
         """
-        The operation status on the volume.
+        The properties of the volume.
         """
-        return pulumi.get(self, "operation_status")
-
-    @property
-    @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
-        """
-        The size of the volume in bytes.
-        """
-        return pulumi.get(self, "size_in_bytes")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -142,30 +79,6 @@ class GetVolumeResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="volumeContainerId")
-    def volume_container_id(self) -> str:
-        """
-        The ID of the volume container, in which this volume is created.
-        """
-        return pulumi.get(self, "volume_container_id")
-
-    @property
-    @pulumi.getter(name="volumeStatus")
-    def volume_status(self) -> str:
-        """
-        The volume status.
-        """
-        return pulumi.get(self, "volume_status")
-
-    @property
-    @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
-        """
-        The type of the volume.
-        """
-        return pulumi.get(self, "volume_type")
-
 
 class AwaitableGetVolumeResult(GetVolumeResult):
     # pylint: disable=using-constant-test
@@ -173,19 +86,11 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
-            access_control_record_ids=self.access_control_record_ids,
-            backup_policy_ids=self.backup_policy_ids,
-            backup_status=self.backup_status,
             id=self.id,
             kind=self.kind,
-            monitoring_status=self.monitoring_status,
             name=self.name,
-            operation_status=self.operation_status,
-            size_in_bytes=self.size_in_bytes,
-            type=self.type,
-            volume_container_id=self.volume_container_id,
-            volume_status=self.volume_status,
-            volume_type=self.volume_type)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_volume(device_name: Optional[str] = None,
@@ -215,19 +120,11 @@ def get_volume(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        access_control_record_ids=__ret__.access_control_record_ids,
-        backup_policy_ids=__ret__.backup_policy_ids,
-        backup_status=__ret__.backup_status,
         id=__ret__.id,
         kind=__ret__.kind,
-        monitoring_status=__ret__.monitoring_status,
         name=__ret__.name,
-        operation_status=__ret__.operation_status,
-        size_in_bytes=__ret__.size_in_bytes,
-        type=__ret__.type,
-        volume_container_id=__ret__.volume_container_id,
-        volume_status=__ret__.volume_status,
-        volume_type=__ret__.volume_type)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_volume)

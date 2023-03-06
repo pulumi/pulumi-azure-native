@@ -39,30 +39,18 @@ export class KustoDatabaseDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'KustoDatabase'.
      */
     public readonly kind!: pulumi.Output<"KustoDatabase">;
     /**
-     * Resource id of the kusto database.
-     */
-    public readonly kustoDatabaseResourceId!: pulumi.Output<string>;
-    /**
-     * Location of the kusto cluster.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * Name of the azure resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the kusto database data set.
+     * Kusto database data set properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.KustoDatabaseDataSetPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
@@ -89,8 +77,8 @@ export class KustoDatabaseDataSet extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoDatabaseResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'kustoDatabaseResourceId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -101,22 +89,16 @@ export class KustoDatabaseDataSet extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
             resourceInputs["kind"] = "KustoDatabase";
-            resourceInputs["kustoDatabaseResourceId"] = args ? args.kustoDatabaseResourceId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["kustoDatabaseResourceId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -145,9 +127,9 @@ export interface KustoDatabaseDataSetArgs {
      */
     kind: pulumi.Input<"KustoDatabase">;
     /**
-     * Resource id of the kusto database.
+     * Kusto database data set properties.
      */
-    kustoDatabaseResourceId: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.KustoDatabaseDataSetPropertiesArgs>;
     /**
      * The resource group name.
      */

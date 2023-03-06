@@ -38,18 +38,6 @@ export class LongTermEnvironment extends pulumi.CustomResource {
     }
 
     /**
-     * The time the resource was created.
-     */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
-    /**
-     * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    public /*out*/ readonly dataAccessFqdn!: pulumi.Output<string>;
-    /**
-     * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    public /*out*/ readonly dataAccessId!: pulumi.Output<string>;
-    /**
      * The kind of the environment.
      * Expected value is 'LongTerm'.
      */
@@ -63,37 +51,21 @@ export class LongTermEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the resource.
+     * Properties of the long-term environment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20180815preview.LongTermEnvironmentResourcePropertiesResponse>;
     /**
      * The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     public readonly sku!: pulumi.Output<outputs.timeseriesinsights.v20180815preview.SkuResponse>;
     /**
-     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-     */
-    public /*out*/ readonly status!: pulumi.Output<outputs.timeseriesinsights.v20180815preview.EnvironmentStatusResponse>;
-    /**
-     * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-     */
-    public readonly storageConfiguration!: pulumi.Output<outputs.timeseriesinsights.v20180815preview.LongTermStorageConfigurationOutputResponse>;
-    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The list of event properties which will be used to define the environment's time series id.
-     */
-    public readonly timeSeriesIdProperties!: pulumi.Output<outputs.timeseriesinsights.v20180815preview.TimeSeriesIdPropertyResponse[]>;
-    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-     */
-    public readonly warmStoreConfiguration!: pulumi.Output<outputs.timeseriesinsights.v20180815preview.WarmStoreConfigurationPropertiesResponse | undefined>;
 
     /**
      * Create a LongTermEnvironment resource with the given unique name, arguments, and options.
@@ -109,49 +81,32 @@ export class LongTermEnvironment extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.storageConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageConfiguration'");
-            }
-            if ((!args || args.timeSeriesIdProperties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'timeSeriesIdProperties'");
-            }
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["kind"] = "LongTerm";
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeSeriesIdProperties"] = args ? args.timeSeriesIdProperties : undefined;
-            resourceInputs["warmStoreConfiguration"] = args ? args.warmStoreConfiguration : undefined;
-            resourceInputs["creationTime"] = undefined /*out*/;
-            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
-            resourceInputs["dataAccessId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["creationTime"] = undefined /*out*/;
-            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
-            resourceInputs["dataAccessId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["storageConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["timeSeriesIdProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["warmStoreConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20171115:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20200515:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment" }] };
@@ -178,6 +133,10 @@ export interface LongTermEnvironmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Properties used to create a long-term environment.
+     */
+    properties: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LongTermEnvironmentCreationPropertiesArgs>;
+    /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -186,19 +145,7 @@ export interface LongTermEnvironmentArgs {
      */
     sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
     /**
-     * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-     */
-    storageConfiguration: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LongTermStorageConfigurationInputArgs>;
-    /**
      * Key-value pairs of additional properties for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The list of event properties which will be used to define the environment's time series id.
-     */
-    timeSeriesIdProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20180815preview.TimeSeriesIdPropertyArgs>[]>;
-    /**
-     * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-     */
-    warmStoreConfiguration?: pulumi.Input<inputs.timeseriesinsights.v20180815preview.WarmStoreConfigurationPropertiesArgs>;
 }

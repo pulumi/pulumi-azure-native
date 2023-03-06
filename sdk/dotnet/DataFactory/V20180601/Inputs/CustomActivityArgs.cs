@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class CustomActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
-        /// </summary>
-        [Input("autoUserSpecification")]
-        public Input<object>? AutoUserSpecification { get; set; }
-
-        /// <summary>
-        /// Command for custom activity Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("command", required: true)]
-        public Input<object> Command { get; set; } = null!;
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -44,24 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        [Input("extendedProperties")]
-        private InputMap<object>? _extendedProperties;
-
-        /// <summary>
-        /// User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
-        /// </summary>
-        public InputMap<object> ExtendedProperties
-        {
-            get => _extendedProperties ?? (_extendedProperties = new InputMap<object>());
-            set => _extendedProperties = value;
-        }
-
-        /// <summary>
-        /// Folder path for resource files Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("folderPath")]
-        public Input<object>? FolderPath { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -82,29 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// Reference objects
-        /// </summary>
-        [Input("referenceObjects")]
-        public Input<Inputs.CustomActivityReferenceObjectArgs>? ReferenceObjects { get; set; }
-
-        /// <summary>
-        /// Resource linked service reference.
-        /// </summary>
-        [Input("resourceLinkedService")]
-        public Input<Inputs.LinkedServiceReferenceArgs>? ResourceLinkedService { get; set; }
-
-        /// <summary>
-        /// The retention time for the files submitted for custom activity. Type: double (or Expression with resultType double).
-        /// </summary>
-        [Input("retentionTimeInDays")]
-        public Input<object>? RetentionTimeInDays { get; set; }
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Custom'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Custom activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CustomActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

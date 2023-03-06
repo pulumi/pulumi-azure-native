@@ -16,22 +16,16 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
     public partial class LinkedStorageAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Linked storage accounts type.
-        /// </summary>
-        [Output("dataSourceType")]
-        public Output<string> DataSourceType { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Linked storage accounts resources ids.
+        /// Linked storage accounts properties.
         /// </summary>
-        [Output("storageAccountIds")]
-        public Output<ImmutableArray<string>> StorageAccountIds { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LinkedStorageAccountsPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -97,22 +91,16 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public Input<string>? DataSourceType { get; set; }
 
         /// <summary>
+        /// Linked storage accounts properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LinkedStorageAccountsPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("storageAccountIds")]
-        private InputList<string>? _storageAccountIds;
-
-        /// <summary>
-        /// Linked storage accounts resources ids.
-        /// </summary>
-        public InputList<string> StorageAccountIds
-        {
-            get => _storageAccountIds ?? (_storageAccountIds = new InputList<string>());
-            set => _storageAccountIds = value;
-        }
 
         /// <summary>
         /// The name of the workspace.

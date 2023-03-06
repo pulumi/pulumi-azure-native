@@ -43,13 +43,9 @@ export class LinkedService extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the linked service.
+     * The properties of the linked service.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
-    /**
-     * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-     */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.operationalinsights.LinkedServicePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -58,10 +54,6 @@ export class LinkedService extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-     */
-    public readonly writeAccessResourceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LinkedService resource with the given unique name, arguments, and options.
@@ -74,6 +66,9 @@ export class LinkedService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -81,21 +76,17 @@ export class LinkedService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["writeAccessResourceId"] = args ? args.writeAccessResourceId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["writeAccessResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }] };
@@ -113,17 +104,13 @@ export interface LinkedServiceArgs {
      */
     linkedServiceName?: pulumi.Input<string>;
     /**
-     * The provisioning state of the linked service.
+     * The properties of the linked service.
      */
-    provisioningState?: pulumi.Input<string | enums.operationalinsights.LinkedServiceEntityStatus>;
+    properties: pulumi.Input<inputs.operationalinsights.LinkedServicePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-     */
-    resourceId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
@@ -132,8 +119,4 @@ export interface LinkedServiceArgs {
      * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
-    /**
-     * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-     */
-    writeAccessResourceId?: pulumi.Input<string>;
 }

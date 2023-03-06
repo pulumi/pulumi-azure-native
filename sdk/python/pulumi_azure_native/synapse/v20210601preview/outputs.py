@@ -16,6 +16,7 @@ __all__ = [
     'AutoScalePropertiesResponse',
     'AzureSkuResponse',
     'CmdkeySetupResponse',
+    'CmdkeySetupTypePropertiesResponse',
     'ComponentSetupResponse',
     'CspWorkspaceAdminPropertiesResponse',
     'CustomerManagedKeyDetailsResponse',
@@ -25,6 +26,7 @@ __all__ = [
     'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
+    'EnvironmentVariableSetupTypePropertiesResponse',
     'FollowerDatabaseDefinitionResponse',
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
@@ -38,6 +40,7 @@ __all__ = [
     'LanguageExtensionsListResponse',
     'LibraryInfoResponse',
     'LibraryRequirementsResponse',
+    'LicensedComponentSetupTypePropertiesResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
     'LinkedIntegrationRuntimeResponse',
@@ -47,6 +50,8 @@ __all__ = [
     'ManagedIntegrationRuntimeOperationResultResponse',
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponse',
+    'ManagedIntegrationRuntimeStatusTypePropertiesResponse',
+    'ManagedIntegrationRuntimeTypePropertiesResponse',
     'ManagedVirtualNetworkSettingsResponse',
     'OptimizedAutoscaleResponse',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
@@ -58,6 +63,7 @@ __all__ = [
     'SelfHostedIntegrationRuntimeNodeResponse',
     'SelfHostedIntegrationRuntimeResponse',
     'SelfHostedIntegrationRuntimeStatusResponse',
+    'SelfHostedIntegrationRuntimeStatusTypePropertiesResponse',
     'SkuResponse',
     'SparkConfigPropertiesResponse',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
@@ -248,10 +254,8 @@ class CmdkeySetupResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "targetName":
-            suggest = "target_name"
-        elif key == "userName":
-            suggest = "user_name"
+        if key == "typeProperties":
+            suggest = "type_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CmdkeySetupResponse. Access the value via the '{suggest}' property getter instead.")
@@ -265,21 +269,71 @@ class CmdkeySetupResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password: 'outputs.SecureStringResponse',
-                 target_name: Any,
                  type: str,
-                 user_name: Any):
+                 type_properties: 'outputs.CmdkeySetupTypePropertiesResponse'):
         """
         The custom setup of running cmdkey commands.
-        :param 'SecureStringResponse' password: The password of data source access.
-        :param Any target_name: The server name of data source access.
         :param str type: The type of custom setup.
                Expected value is 'CmdkeySetup'.
+        :param 'CmdkeySetupTypePropertiesResponse' type_properties: Cmdkey command custom setup type properties.
+        """
+        pulumi.set(__self__, "type", 'CmdkeySetup')
+        pulumi.set(__self__, "type_properties", type_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of custom setup.
+        Expected value is 'CmdkeySetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> 'outputs.CmdkeySetupTypePropertiesResponse':
+        """
+        Cmdkey command custom setup type properties.
+        """
+        return pulumi.get(self, "type_properties")
+
+
+@pulumi.output_type
+class CmdkeySetupTypePropertiesResponse(dict):
+    """
+    Cmdkey command custom setup type properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CmdkeySetupTypePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CmdkeySetupTypePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CmdkeySetupTypePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password: 'outputs.SecureStringResponse',
+                 target_name: Any,
+                 user_name: Any):
+        """
+        Cmdkey command custom setup type properties.
+        :param 'SecureStringResponse' password: The password of data source access.
+        :param Any target_name: The server name of data source access.
         :param Any user_name: The user name of data source access.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "target_name", target_name)
-        pulumi.set(__self__, "type", 'CmdkeySetup')
         pulumi.set(__self__, "user_name", user_name)
 
     @property
@@ -299,15 +353,6 @@ class CmdkeySetupResponse(dict):
         return pulumi.get(self, "target_name")
 
     @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of custom setup.
-        Expected value is 'CmdkeySetup'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Any:
         """
@@ -324,10 +369,8 @@ class ComponentSetupResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "componentName":
-            suggest = "component_name"
-        elif key == "licenseKey":
-            suggest = "license_key"
+        if key == "typeProperties":
+            suggest = "type_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ComponentSetupResponse. Access the value via the '{suggest}' property getter instead.")
@@ -341,28 +384,16 @@ class ComponentSetupResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 component_name: str,
                  type: str,
-                 license_key: Optional['outputs.SecureStringResponse'] = None):
+                 type_properties: 'outputs.LicensedComponentSetupTypePropertiesResponse'):
         """
         The custom setup of installing 3rd party components.
-        :param str component_name: The name of the 3rd party component.
         :param str type: The type of custom setup.
                Expected value is 'ComponentSetup'.
-        :param 'SecureStringResponse' license_key: The license key to activate the component.
+        :param 'LicensedComponentSetupTypePropertiesResponse' type_properties: Install 3rd party component type properties.
         """
-        pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "type", 'ComponentSetup')
-        if license_key is not None:
-            pulumi.set(__self__, "license_key", license_key)
-
-    @property
-    @pulumi.getter(name="componentName")
-    def component_name(self) -> str:
-        """
-        The name of the 3rd party component.
-        """
-        return pulumi.get(self, "component_name")
+        pulumi.set(__self__, "type_properties", type_properties)
 
     @property
     @pulumi.getter
@@ -374,12 +405,12 @@ class ComponentSetupResponse(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="licenseKey")
-    def license_key(self) -> Optional['outputs.SecureStringResponse']:
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> 'outputs.LicensedComponentSetupTypePropertiesResponse':
         """
-        The license key to activate the component.
+        Install 3rd party component type properties.
         """
-        return pulumi.get(self, "license_key")
+        return pulumi.get(self, "type_properties")
 
 
 @pulumi.output_type
@@ -765,10 +796,8 @@ class EnvironmentVariableSetupResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "variableName":
-            suggest = "variable_name"
-        elif key == "variableValue":
-            suggest = "variable_value"
+        if key == "typeProperties":
+            suggest = "type_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableSetupResponse. Access the value via the '{suggest}' property getter instead.")
@@ -783,18 +812,15 @@ class EnvironmentVariableSetupResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
-                 variable_name: str,
-                 variable_value: str):
+                 type_properties: 'outputs.EnvironmentVariableSetupTypePropertiesResponse'):
         """
         The custom setup of setting environment variable.
         :param str type: The type of custom setup.
                Expected value is 'EnvironmentVariableSetup'.
-        :param str variable_name: The name of the environment variable.
-        :param str variable_value: The value of the environment variable.
+        :param 'EnvironmentVariableSetupTypePropertiesResponse' type_properties: Add environment variable type properties.
         """
         pulumi.set(__self__, "type", 'EnvironmentVariableSetup')
-        pulumi.set(__self__, "variable_name", variable_name)
-        pulumi.set(__self__, "variable_value", variable_value)
+        pulumi.set(__self__, "type_properties", type_properties)
 
     @property
     @pulumi.getter
@@ -804,6 +830,50 @@ class EnvironmentVariableSetupResponse(dict):
         Expected value is 'EnvironmentVariableSetup'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> 'outputs.EnvironmentVariableSetupTypePropertiesResponse':
+        """
+        Add environment variable type properties.
+        """
+        return pulumi.get(self, "type_properties")
+
+
+@pulumi.output_type
+class EnvironmentVariableSetupTypePropertiesResponse(dict):
+    """
+    Environment variable custom setup type properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variableName":
+            suggest = "variable_name"
+        elif key == "variableValue":
+            suggest = "variable_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableSetupTypePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentVariableSetupTypePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentVariableSetupTypePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 variable_name: str,
+                 variable_value: str):
+        """
+        Environment variable custom setup type properties.
+        :param str variable_name: The name of the environment variable.
+        :param str variable_value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "variable_name", variable_name)
+        pulumi.set(__self__, "variable_value", variable_value)
 
     @property
     @pulumi.getter(name="variableName")
@@ -1723,6 +1793,59 @@ class LibraryRequirementsResponse(dict):
 
 
 @pulumi.output_type
+class LicensedComponentSetupTypePropertiesResponse(dict):
+    """
+    Installation of licensed component setup type properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentName":
+            suggest = "component_name"
+        elif key == "licenseKey":
+            suggest = "license_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicensedComponentSetupTypePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicensedComponentSetupTypePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicensedComponentSetupTypePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_name: str,
+                 license_key: Optional['outputs.SecureStringResponse'] = None):
+        """
+        Installation of licensed component setup type properties.
+        :param str component_name: The name of the 3rd party component.
+        :param 'SecureStringResponse' license_key: The license key to activate the component.
+        """
+        pulumi.set(__self__, "component_name", component_name)
+        if license_key is not None:
+            pulumi.set(__self__, "license_key", license_key)
+
+    @property
+    @pulumi.getter(name="componentName")
+    def component_name(self) -> str:
+        """
+        The name of the 3rd party component.
+        """
+        return pulumi.get(self, "component_name")
+
+    @property
+    @pulumi.getter(name="licenseKey")
+    def license_key(self) -> Optional['outputs.SecureStringResponse']:
+        """
+        The license key to activate the component.
+        """
+        return pulumi.get(self, "license_key")
+
+
+@pulumi.output_type
 class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
     """
     The key authorization type integration runtime.
@@ -2157,12 +2280,10 @@ class ManagedIntegrationRuntimeResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeProperties":
-            suggest = "compute_properties"
+        if key == "typeProperties":
+            suggest = "type_properties"
         elif key == "referenceName":
             suggest = "reference_name"
-        elif key == "ssisProperties":
-            suggest = "ssis_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedIntegrationRuntimeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2178,34 +2299,29 @@ class ManagedIntegrationRuntimeResponse(dict):
     def __init__(__self__, *,
                  state: str,
                  type: str,
-                 compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
+                 type_properties: 'outputs.ManagedIntegrationRuntimeTypePropertiesResponse',
                  description: Optional[str] = None,
                  id: Optional[str] = None,
-                 reference_name: Optional[str] = None,
-                 ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
+                 reference_name: Optional[str] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: The type of integration runtime.
                Expected value is 'Managed'.
-        :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
+        :param 'ManagedIntegrationRuntimeTypePropertiesResponse' type_properties: Managed integration runtime properties.
         :param str description: Integration runtime description.
         :param str id: The id of the managed virtual network.
         :param str reference_name: The reference name of the managed virtual network.
-        :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "type", 'Managed')
-        if compute_properties is not None:
-            pulumi.set(__self__, "compute_properties", compute_properties)
+        pulumi.set(__self__, "type_properties", type_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if reference_name is not None:
             pulumi.set(__self__, "reference_name", reference_name)
-        if ssis_properties is not None:
-            pulumi.set(__self__, "ssis_properties", ssis_properties)
 
     @property
     @pulumi.getter
@@ -2225,12 +2341,12 @@ class ManagedIntegrationRuntimeResponse(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="computeProperties")
-    def compute_properties(self) -> Optional['outputs.IntegrationRuntimeComputePropertiesResponse']:
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> 'outputs.ManagedIntegrationRuntimeTypePropertiesResponse':
         """
-        The compute resource for managed integration runtime.
+        Managed integration runtime properties.
         """
-        return pulumi.get(self, "compute_properties")
+        return pulumi.get(self, "type_properties")
 
     @property
     @pulumi.getter
@@ -2256,14 +2372,6 @@ class ManagedIntegrationRuntimeResponse(dict):
         """
         return pulumi.get(self, "reference_name")
 
-    @property
-    @pulumi.getter(name="ssisProperties")
-    def ssis_properties(self) -> Optional['outputs.IntegrationRuntimeSsisPropertiesResponse']:
-        """
-        SSIS properties for managed integration runtime.
-        """
-        return pulumi.get(self, "ssis_properties")
-
 
 @pulumi.output_type
 class ManagedIntegrationRuntimeStatusResponse(dict):
@@ -2271,39 +2379,22 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
     Managed integration runtime status.
     """
     def __init__(__self__, *,
-                 create_time: str,
                  data_factory_name: str,
-                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponse',
-                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponse'],
-                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponse'],
                  state: str,
-                 type: str):
+                 type: str,
+                 type_properties: 'outputs.ManagedIntegrationRuntimeStatusTypePropertiesResponse'):
         """
         Managed integration runtime status.
-        :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param str data_factory_name: The workspace name which the integration runtime belong to.
-        :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: The type of integration runtime.
                Expected value is 'Managed'.
+        :param 'ManagedIntegrationRuntimeStatusTypePropertiesResponse' type_properties: Managed integration runtime status type properties.
         """
-        pulumi.set(__self__, "create_time", create_time)
         pulumi.set(__self__, "data_factory_name", data_factory_name)
-        pulumi.set(__self__, "last_operation", last_operation)
-        pulumi.set(__self__, "nodes", nodes)
-        pulumi.set(__self__, "other_errors", other_errors)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "type", 'Managed')
-
-    @property
-    @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
-        """
-        The time at which the integration runtime was created, in ISO8601 format.
-        """
-        return pulumi.get(self, "create_time")
+        pulumi.set(__self__, "type_properties", type_properties)
 
     @property
     @pulumi.getter(name="dataFactoryName")
@@ -2312,6 +2403,62 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
         The workspace name which the integration runtime belong to.
         """
         return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of integration runtime.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of integration runtime.
+        Expected value is 'Managed'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> 'outputs.ManagedIntegrationRuntimeStatusTypePropertiesResponse':
+        """
+        Managed integration runtime status type properties.
+        """
+        return pulumi.get(self, "type_properties")
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeStatusTypePropertiesResponse(dict):
+    """
+    Managed integration runtime status type properties.
+    """
+    def __init__(__self__, *,
+                 create_time: str,
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponse',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponse'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']):
+        """
+        Managed integration runtime status type properties.
+        :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
+        :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
+        """
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "last_operation", last_operation)
+        pulumi.set(__self__, "nodes", nodes)
+        pulumi.set(__self__, "other_errors", other_errors)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The time at which the integration runtime was created, in ISO8601 format.
+        """
+        return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter(name="lastOperation")
@@ -2337,22 +2484,59 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
         """
         return pulumi.get(self, "other_errors")
 
-    @property
-    @pulumi.getter
-    def state(self) -> str:
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeTypePropertiesResponse(dict):
+    """
+    Managed integration runtime type properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeProperties":
+            suggest = "compute_properties"
+        elif key == "ssisProperties":
+            suggest = "ssis_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIntegrationRuntimeTypePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIntegrationRuntimeTypePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIntegrationRuntimeTypePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
+                 ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
-        The state of integration runtime.
+        Managed integration runtime type properties.
+        :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
-        return pulumi.get(self, "state")
+        if compute_properties is not None:
+            pulumi.set(__self__, "compute_properties", compute_properties)
+        if ssis_properties is not None:
+            pulumi.set(__self__, "ssis_properties", ssis_properties)
 
     @property
-    @pulumi.getter
-    def type(self) -> str:
+    @pulumi.getter(name="computeProperties")
+    def compute_properties(self) -> Optional['outputs.IntegrationRuntimeComputePropertiesResponse']:
         """
-        The type of integration runtime.
-        Expected value is 'Managed'.
+        The compute resource for managed integration runtime.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "compute_properties")
+
+    @property
+    @pulumi.getter(name="ssisProperties")
+    def ssis_properties(self) -> Optional['outputs.IntegrationRuntimeSsisPropertiesResponse']:
+        """
+        SSIS properties for managed integration runtime.
+        """
+        return pulumi.get(self, "ssis_properties")
 
 
 @pulumi.output_type
@@ -3113,11 +3297,67 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
     Self-hosted integration runtime status.
     """
     def __init__(__self__, *,
+                 data_factory_name: str,
+                 state: str,
+                 type: str,
+                 type_properties: 'outputs.SelfHostedIntegrationRuntimeStatusTypePropertiesResponse'):
+        """
+        Self-hosted integration runtime status.
+        :param str data_factory_name: The workspace name which the integration runtime belong to.
+        :param str state: The state of integration runtime.
+        :param str type: The type of integration runtime.
+               Expected value is 'SelfHosted'.
+        :param 'SelfHostedIntegrationRuntimeStatusTypePropertiesResponse' type_properties: Self-hosted integration runtime status type properties.
+        """
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "type", 'SelfHosted')
+        pulumi.set(__self__, "type_properties", type_properties)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        The workspace name which the integration runtime belong to.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of integration runtime.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of integration runtime.
+        Expected value is 'SelfHosted'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> 'outputs.SelfHostedIntegrationRuntimeStatusTypePropertiesResponse':
+        """
+        Self-hosted integration runtime status type properties.
+        """
+        return pulumi.get(self, "type_properties")
+
+
+@pulumi.output_type
+class SelfHostedIntegrationRuntimeStatusTypePropertiesResponse(dict):
+    """
+    Self-hosted integration runtime status type properties.
+    """
+    def __init__(__self__, *,
                  auto_update: str,
                  auto_update_eta: str,
                  capabilities: Mapping[str, str],
                  create_time: str,
-                 data_factory_name: str,
                  internal_channel_encryption: str,
                  latest_version: str,
                  local_time_zone_offset: str,
@@ -3126,10 +3366,8 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
                  pushed_version: str,
                  scheduled_update_date: str,
                  service_urls: Sequence[str],
-                 state: str,
                  target_framework: int,
                  task_queue_id: str,
-                 type: str,
                  update_delay_offset: str,
                  version: str,
                  version_status: str,
@@ -3138,12 +3376,11 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
                  nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']] = None,
                  service_region: Optional[str] = None):
         """
-        Self-hosted integration runtime status.
+        Self-hosted integration runtime status type properties.
         :param str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
         :param str auto_update_eta: The estimated time when the self-hosted integration runtime will be updated.
         :param Mapping[str, str] capabilities: Object with additional information about integration runtime capabilities.
         :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
-        :param str data_factory_name: The workspace name which the integration runtime belong to.
         :param str internal_channel_encryption: It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
         :param str latest_version: The latest version on download center.
         :param str local_time_zone_offset: The local time zone offset in hours.
@@ -3151,10 +3388,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         :param str pushed_version: The version that the integration runtime is going to update to.
         :param str scheduled_update_date: The date at which the integration runtime will be scheduled to update, in ISO8601 format.
         :param Sequence[str] service_urls: The URLs for the services used in integration runtime backend service.
-        :param str state: The state of integration runtime.
         :param str task_queue_id: The task queue id of the integration runtime.
-        :param str type: The type of integration runtime.
-               Expected value is 'SelfHosted'.
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
         :param str version_status: Status of the integration runtime version.
@@ -3167,7 +3401,6 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         pulumi.set(__self__, "auto_update_eta", auto_update_eta)
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "create_time", create_time)
-        pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "internal_channel_encryption", internal_channel_encryption)
         pulumi.set(__self__, "latest_version", latest_version)
         pulumi.set(__self__, "local_time_zone_offset", local_time_zone_offset)
@@ -3176,10 +3409,8 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         pulumi.set(__self__, "pushed_version", pushed_version)
         pulumi.set(__self__, "scheduled_update_date", scheduled_update_date)
         pulumi.set(__self__, "service_urls", service_urls)
-        pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "target_framework", target_framework)
         pulumi.set(__self__, "task_queue_id", task_queue_id)
-        pulumi.set(__self__, "type", 'SelfHosted')
         pulumi.set(__self__, "update_delay_offset", update_delay_offset)
         pulumi.set(__self__, "version", version)
         pulumi.set(__self__, "version_status", version_status)
@@ -3223,14 +3454,6 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         The time at which the integration runtime was created, in ISO8601 format.
         """
         return pulumi.get(self, "create_time")
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> str:
-        """
-        The workspace name which the integration runtime belong to.
-        """
-        return pulumi.get(self, "data_factory_name")
 
     @property
     @pulumi.getter(name="internalChannelEncryption")
@@ -3294,14 +3517,6 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         return pulumi.get(self, "service_urls")
 
     @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        The state of integration runtime.
-        """
-        return pulumi.get(self, "state")
-
-    @property
     @pulumi.getter(name="targetFramework")
     def target_framework(self) -> int:
         return pulumi.get(self, "target_framework")
@@ -3313,15 +3528,6 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         The task queue id of the integration runtime.
         """
         return pulumi.get(self, "task_queue_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of integration runtime.
-        Expected value is 'SelfHosted'.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updateDelayOffset")

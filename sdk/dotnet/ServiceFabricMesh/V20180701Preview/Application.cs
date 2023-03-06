@@ -17,30 +17,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Internal use.
-        /// </summary>
-        [Output("debugParams")]
-        public Output<string?> DebugParams { get; private set; } = null!;
-
-        /// <summary>
-        /// User readable description of the application.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// Describes the diagnostics definition and usage for an application resource.
-        /// </summary>
-        [Output("diagnostics")]
-        public Output<Outputs.DiagnosticsDescriptionResponse?> Diagnostics { get; private set; } = null!;
-
-        /// <summary>
-        /// Describes the health state of an application resource.
-        /// </summary>
-        [Output("healthState")]
-        public Output<string> HealthState { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -53,34 +29,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the resource.
+        /// This type describes properties of an application resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Names of the services in the application.
-        /// </summary>
-        [Output("serviceNames")]
-        public Output<ImmutableArray<string>> ServiceNames { get; private set; } = null!;
-
-        /// <summary>
-        /// describes the services in the application.
-        /// </summary>
-        [Output("services")]
-        public Output<ImmutableArray<Outputs.ServiceResourceDescriptionResponse>> Services { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of the application resource.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Gives additional information about the current status of the application deployment.
-        /// </summary>
-        [Output("statusDetails")]
-        public Output<string> StatusDetails { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ApplicationResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -93,12 +45,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-        /// </summary>
-        [Output("unhealthyEvaluation")]
-        public Output<string> UnhealthyEvaluation { get; private set; } = null!;
 
 
         /// <summary>
@@ -157,46 +103,22 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
-        /// Internal use.
-        /// </summary>
-        [Input("debugParams")]
-        public Input<string>? DebugParams { get; set; }
-
-        /// <summary>
-        /// User readable description of the application.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Describes the diagnostics definition and usage for an application resource.
-        /// </summary>
-        [Input("diagnostics")]
-        public Input<Inputs.DiagnosticsDescriptionArgs>? Diagnostics { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// This type describes properties of an application resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ApplicationResourcePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Azure resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("services")]
-        private InputList<Inputs.ServiceResourceDescriptionArgs>? _services;
-
-        /// <summary>
-        /// describes the services in the application.
-        /// </summary>
-        public InputList<Inputs.ServiceResourceDescriptionArgs> Services
-        {
-            get => _services ?? (_services = new InputList<Inputs.ServiceResourceDescriptionArgs>());
-            set => _services = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

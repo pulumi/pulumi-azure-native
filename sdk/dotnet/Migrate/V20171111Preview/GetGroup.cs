@@ -83,14 +83,6 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
     public sealed class GetGroupResult
     {
         /// <summary>
-        /// List of References to Assessments created on this group.
-        /// </summary>
-        public readonly ImmutableArray<string> Assessments;
-        /// <summary>
-        /// Time when this project was created. Date-Time represented in ISO-8601 format.
-        /// </summary>
-        public readonly string CreatedTimestamp;
-        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         public readonly string? ETag;
@@ -99,48 +91,35 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of machine names that are part of this group.
-        /// </summary>
-        public readonly ImmutableArray<string> Machines;
-        /// <summary>
         /// Name of the group.
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Properties of the group.
+        /// </summary>
+        public readonly Outputs.GroupPropertiesResponse Properties;
+        /// <summary>
         /// Type of the object = [Microsoft.Migrate/projects/groups].
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-        /// </summary>
-        public readonly string UpdatedTimestamp;
 
         [OutputConstructor]
         private GetGroupResult(
-            ImmutableArray<string> assessments,
-
-            string createdTimestamp,
-
             string? eTag,
 
             string id,
 
-            ImmutableArray<string> machines,
-
             string name,
 
-            string type,
+            Outputs.GroupPropertiesResponse properties,
 
-            string updatedTimestamp)
+            string type)
         {
-            Assessments = assessments;
-            CreatedTimestamp = createdTimestamp;
             ETag = eTag;
             Id = id;
-            Machines = machines;
             Name = name;
+            Properties = properties;
             Type = type;
-            UpdatedTimestamp = updatedTimestamp;
         }
     }
 }

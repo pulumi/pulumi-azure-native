@@ -17,34 +17,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public partial class FileServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The backup policy id.
-        /// </summary>
-        [Output("backupScheduleGroupId")]
-        public Output<string> BackupScheduleGroupId { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the file server
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// Domain of the file server
-        /// </summary>
-        [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
-
-        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The storage domain id.
+        /// The properties.
         /// </summary>
-        [Output("storageDomainId")]
-        public Output<string> StorageDomainId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.FileServerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
@@ -98,28 +80,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class FileServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The backup policy id.
-        /// </summary>
-        [Input("backupScheduleGroupId", required: true)]
-        public Input<string> BackupScheduleGroupId { get; set; } = null!;
-
-        /// <summary>
-        /// The description of the file server
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Domain of the file server
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// The file server name.
@@ -134,16 +98,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.FileServerPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The storage domain id.
-        /// </summary>
-        [Input("storageDomainId", required: true)]
-        public Input<string> StorageDomainId { get; set; } = null!;
 
         public FileServerArgs()
         {

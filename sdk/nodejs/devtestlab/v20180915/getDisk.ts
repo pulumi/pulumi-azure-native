@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -47,57 +50,21 @@ export interface GetDiskArgs {
  */
 export interface GetDiskResult {
     /**
-     * The creation date of the disk.
-     */
-    readonly createdDate: string;
-    /**
-     * When backed by a blob, the name of the VHD blob without extension.
-     */
-    readonly diskBlobName?: string;
-    /**
-     * The size of the disk in Gibibytes.
-     */
-    readonly diskSizeGiB?: number;
-    /**
-     * The storage type for the disk (i.e. Standard, Premium).
-     */
-    readonly diskType?: string;
-    /**
-     * When backed by a blob, the URI of underlying blob.
-     */
-    readonly diskUri?: string;
-    /**
-     * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-     */
-    readonly hostCaching?: string;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
-    /**
-     * The resource ID of the VM to which this disk is leased.
-     */
-    readonly leasedByLabVmId?: string;
     /**
      * The location of the resource.
      */
     readonly location?: string;
     /**
-     * When backed by managed disk, this is the ID of the compute disk resource.
-     */
-    readonly managedDiskId?: string;
-    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    readonly provisioningState: string;
-    /**
-     * When backed by a blob, the storage account where the blob is.
-     */
-    readonly storageAccountId?: string;
+    readonly properties: outputs.devtestlab.v20180915.DiskPropertiesResponse;
     /**
      * The tags of the resource.
      */
@@ -106,10 +73,6 @@ export interface GetDiskResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier: string;
 }
 /**
  * Get disk.

@@ -16,6 +16,7 @@ __all__ = [
     'ConditionArgs',
     'DimensionArgs',
     'ScheduledQueryRuleCriteriaArgs',
+    'ScheduledQueryRulePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -310,5 +311,195 @@ class ScheduledQueryRuleCriteriaArgs:
     @all_of.setter
     def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]):
         pulumi.set(self, "all_of", value)
+
+
+@pulumi.input_type
+class ScheduledQueryRulePropertiesArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input['ScheduledQueryRuleCriteriaArgs'],
+                 enabled: pulumi.Input[bool],
+                 evaluation_frequency: pulumi.Input[str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 severity: pulumi.Input[float],
+                 window_size: pulumi.Input[str],
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActionArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 mute_actions_duration: Optional[pulumi.Input[str]] = None,
+                 override_query_time_range: Optional[pulumi.Input[str]] = None,
+                 target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        scheduled query rule Definition
+        :param pulumi.Input['ScheduledQueryRuleCriteriaArgs'] criteria: The rule criteria that defines the conditions of the scheduled query rule.
+        :param pulumi.Input[bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+        :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
+        :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+        :param pulumi.Input[str] window_size: The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+        :param pulumi.Input[str] description: The description of the scheduled query rule.
+        :param pulumi.Input[str] display_name: The display name of the alert rule
+        :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        :param pulumi.Input[str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "window_size", window_size)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if mute_actions_duration is not None:
+            pulumi.set(__self__, "mute_actions_duration", mute_actions_duration)
+        if override_query_time_range is not None:
+            pulumi.set(__self__, "override_query_time_range", override_query_time_range)
+        if target_resource_types is not None:
+            pulumi.set(__self__, "target_resource_types", target_resource_types)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input['ScheduledQueryRuleCriteriaArgs']:
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input['ScheduledQueryRuleCriteriaArgs']):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> pulumi.Input[str]:
+        """
+        How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @evaluation_frequency.setter
+    def evaluation_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "evaluation_frequency", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of resource id's that this scheduled query rule is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[float]:
+        """
+        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[float]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> pulumi.Input[str]:
+        """
+        The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "window_size", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionArgs']]]]:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the scheduled query rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="muteActionsDuration")
+    def mute_actions_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        """
+        return pulumi.get(self, "mute_actions_duration")
+
+    @mute_actions_duration.setter
+    def mute_actions_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mute_actions_duration", value)
+
+    @property
+    @pulumi.getter(name="overrideQueryTimeRange")
+    def override_query_time_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+        """
+        return pulumi.get(self, "override_query_time_range")
+
+    @override_query_time_range.setter
+    def override_query_time_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_query_time_range", value)
+
+    @property
+    @pulumi.getter(name="targetResourceTypes")
+    def target_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        """
+        return pulumi.get(self, "target_resource_types")
+
+    @target_resource_types.setter
+    def target_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_resource_types", value)
 
 

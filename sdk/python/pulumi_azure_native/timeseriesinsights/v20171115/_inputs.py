@@ -11,10 +11,338 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessPolicyResourcePropertiesArgs',
+    'EnvironmentCreationPropertiesArgs',
+    'EventHubEventSourceCreationPropertiesArgs',
+    'IoTHubEventSourceCreationPropertiesArgs',
     'PartitionKeyPropertyArgs',
+    'ReferenceDataSetCreationPropertiesArgs',
     'ReferenceDataSetKeyPropertyArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class AccessPolicyResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 principal_object_id: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]]] = None):
+        """
+        :param pulumi.Input[str] description: An description of the access policy.
+        :param pulumi.Input[str] principal_object_id: The objectId of the principal in Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]] roles: The list of roles the principal is assigned on the environment.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if principal_object_id is not None:
+            pulumi.set(__self__, "principal_object_id", principal_object_id)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An description of the access policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="principalObjectId")
+    def principal_object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The objectId of the principal in Azure Active Directory.
+        """
+        return pulumi.get(self, "principal_object_id")
+
+    @principal_object_id.setter
+    def principal_object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_object_id", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]]]:
+        """
+        The list of roles the principal is assigned on the environment.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]]]):
+        pulumi.set(self, "roles", value)
+
+
+@pulumi.input_type
+class EnvironmentCreationPropertiesArgs:
+    def __init__(__self__, *,
+                 data_retention_time: pulumi.Input[str],
+                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionKeyPropertyArgs']]]] = None,
+                 storage_limit_exceeded_behavior: Optional[pulumi.Input['StorageLimitExceededBehavior']] = None):
+        """
+        Properties used to create an environment.
+        :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        :param pulumi.Input[Sequence[pulumi.Input['PartitionKeyPropertyArgs']]] partition_key_properties: The list of partition keys according to which the data in the environment will be ordered.
+        :param pulumi.Input['StorageLimitExceededBehavior'] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+        """
+        pulumi.set(__self__, "data_retention_time", data_retention_time)
+        if partition_key_properties is not None:
+            pulumi.set(__self__, "partition_key_properties", partition_key_properties)
+        if storage_limit_exceeded_behavior is not None:
+            pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
+
+    @property
+    @pulumi.getter(name="dataRetentionTime")
+    def data_retention_time(self) -> pulumi.Input[str]:
+        """
+        ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        """
+        return pulumi.get(self, "data_retention_time")
+
+    @data_retention_time.setter
+    def data_retention_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_retention_time", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyProperties")
+    def partition_key_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionKeyPropertyArgs']]]]:
+        """
+        The list of partition keys according to which the data in the environment will be ordered.
+        """
+        return pulumi.get(self, "partition_key_properties")
+
+    @partition_key_properties.setter
+    def partition_key_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionKeyPropertyArgs']]]]):
+        pulumi.set(self, "partition_key_properties", value)
+
+    @property
+    @pulumi.getter(name="storageLimitExceededBehavior")
+    def storage_limit_exceeded_behavior(self) -> Optional[pulumi.Input['StorageLimitExceededBehavior']]:
+        """
+        The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+        """
+        return pulumi.get(self, "storage_limit_exceeded_behavior")
+
+    @storage_limit_exceeded_behavior.setter
+    def storage_limit_exceeded_behavior(self, value: Optional[pulumi.Input['StorageLimitExceededBehavior']]):
+        pulumi.set(self, "storage_limit_exceeded_behavior", value)
+
+
+@pulumi.input_type
+class EventHubEventSourceCreationPropertiesArgs:
+    def __init__(__self__, *,
+                 consumer_group_name: pulumi.Input[str],
+                 event_hub_name: pulumi.Input[str],
+                 event_source_resource_id: pulumi.Input[str],
+                 key_name: pulumi.Input[str],
+                 service_bus_namespace: pulumi.Input[str],
+                 shared_access_key: pulumi.Input[str],
+                 timestamp_property_name: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the EventHub event source that are required on create or update requests.
+        :param pulumi.Input[str] consumer_group_name: The name of the event hub's consumer group that holds the partitions from which events will be read.
+        :param pulumi.Input[str] event_hub_name: The name of the event hub.
+        :param pulumi.Input[str] event_source_resource_id: The resource id of the event source in Azure Resource Manager.
+        :param pulumi.Input[str] key_name: The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
+        :param pulumi.Input[str] service_bus_namespace: The name of the service bus that contains the event hub.
+        :param pulumi.Input[str] shared_access_key: The value of the shared access key that grants the Time Series Insights service read access to the event hub. This property is not shown in event source responses.
+        :param pulumi.Input[str] timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+        pulumi.set(__self__, "shared_access_key", shared_access_key)
+        if timestamp_property_name is not None:
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+
+    @property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the event hub's consumer group that holds the partitions from which events will be read.
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @consumer_group_name.setter
+    def consumer_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_group_name", value)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the event hub.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="eventSourceResourceId")
+    def event_source_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the event source in Azure Resource Manager.
+        """
+        return pulumi.get(self, "event_source_resource_id")
+
+    @event_source_resource_id.setter
+    def event_source_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="serviceBusNamespace")
+    def service_bus_namespace(self) -> pulumi.Input[str]:
+        """
+        The name of the service bus that contains the event hub.
+        """
+        return pulumi.get(self, "service_bus_namespace")
+
+    @service_bus_namespace.setter
+    def service_bus_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_bus_namespace", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessKey")
+    def shared_access_key(self) -> pulumi.Input[str]:
+        """
+        The value of the shared access key that grants the Time Series Insights service read access to the event hub. This property is not shown in event source responses.
+        """
+        return pulumi.get(self, "shared_access_key")
+
+    @shared_access_key.setter
+    def shared_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "shared_access_key", value)
+
+    @property
+    @pulumi.getter(name="timestampPropertyName")
+    def timestamp_property_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        return pulumi.get(self, "timestamp_property_name")
+
+    @timestamp_property_name.setter
+    def timestamp_property_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timestamp_property_name", value)
+
+
+@pulumi.input_type
+class IoTHubEventSourceCreationPropertiesArgs:
+    def __init__(__self__, *,
+                 consumer_group_name: pulumi.Input[str],
+                 event_source_resource_id: pulumi.Input[str],
+                 iot_hub_name: pulumi.Input[str],
+                 key_name: pulumi.Input[str],
+                 shared_access_key: pulumi.Input[str],
+                 timestamp_property_name: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the IoTHub event source that are required on create or update requests.
+        :param pulumi.Input[str] consumer_group_name: The name of the iot hub's consumer group that holds the partitions from which events will be read.
+        :param pulumi.Input[str] event_source_resource_id: The resource id of the event source in Azure Resource Manager.
+        :param pulumi.Input[str] iot_hub_name: The name of the iot hub.
+        :param pulumi.Input[str] key_name: The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+        :param pulumi.Input[str] shared_access_key: The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses.
+        :param pulumi.Input[str] timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+        pulumi.set(__self__, "iot_hub_name", iot_hub_name)
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "shared_access_key", shared_access_key)
+        if timestamp_property_name is not None:
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+
+    @property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the iot hub's consumer group that holds the partitions from which events will be read.
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @consumer_group_name.setter
+    def consumer_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_group_name", value)
+
+    @property
+    @pulumi.getter(name="eventSourceResourceId")
+    def event_source_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the event source in Azure Resource Manager.
+        """
+        return pulumi.get(self, "event_source_resource_id")
+
+    @event_source_resource_id.setter
+    def event_source_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="iotHubName")
+    def iot_hub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the iot hub.
+        """
+        return pulumi.get(self, "iot_hub_name")
+
+    @iot_hub_name.setter
+    def iot_hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iot_hub_name", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessKey")
+    def shared_access_key(self) -> pulumi.Input[str]:
+        """
+        The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses.
+        """
+        return pulumi.get(self, "shared_access_key")
+
+    @shared_access_key.setter
+    def shared_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "shared_access_key", value)
+
+    @property
+    @pulumi.getter(name="timestampPropertyName")
+    def timestamp_property_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        return pulumi.get(self, "timestamp_property_name")
+
+    @timestamp_property_name.setter
+    def timestamp_property_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timestamp_property_name", value)
+
 
 @pulumi.input_type
 class PartitionKeyPropertyArgs:
@@ -54,6 +382,45 @@ class PartitionKeyPropertyArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'PropertyType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ReferenceDataSetCreationPropertiesArgs:
+    def __init__(__self__, *,
+                 key_properties: pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]],
+                 data_string_comparison_behavior: Optional[pulumi.Input['DataStringComparisonBehavior']] = None):
+        """
+        Properties used to create a reference data set.
+        :param pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]] key_properties: The list of key properties for the reference data set.
+        :param pulumi.Input['DataStringComparisonBehavior'] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        """
+        pulumi.set(__self__, "key_properties", key_properties)
+        if data_string_comparison_behavior is not None:
+            pulumi.set(__self__, "data_string_comparison_behavior", data_string_comparison_behavior)
+
+    @property
+    @pulumi.getter(name="keyProperties")
+    def key_properties(self) -> pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]]:
+        """
+        The list of key properties for the reference data set.
+        """
+        return pulumi.get(self, "key_properties")
+
+    @key_properties.setter
+    def key_properties(self, value: pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]]):
+        pulumi.set(self, "key_properties", value)
+
+    @property
+    @pulumi.getter(name="dataStringComparisonBehavior")
+    def data_string_comparison_behavior(self) -> Optional[pulumi.Input['DataStringComparisonBehavior']]:
+        """
+        The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        """
+        return pulumi.get(self, "data_string_comparison_behavior")
+
+    @data_string_comparison_behavior.setter
+    def data_string_comparison_behavior(self, value: Optional[pulumi.Input['DataStringComparisonBehavior']]):
+        pulumi.set(self, "data_string_comparison_behavior", value)
 
 
 @pulumi.input_type

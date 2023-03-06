@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,9 +46,9 @@ export class SecretValue extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * State of the resource.
+     * This type describes properties of a secret value resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.servicefabricmesh.v20180901preview.SecretValueResourcePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -54,10 +57,6 @@ export class SecretValue extends pulumi.CustomResource {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The actual value of the secret.
-     */
-    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecretValue resource with the given unique name, arguments, and options.
@@ -70,6 +69,9 @@ export class SecretValue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -77,21 +79,19 @@ export class SecretValue extends pulumi.CustomResource {
                 throw new Error("Missing required property 'secretResourceName'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["secretResourceName"] = args ? args.secretResourceName : undefined;
             resourceInputs["secretValueResourceName"] = args ? args.secretValueResourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh:SecretValue" }] };
@@ -109,6 +109,10 @@ export interface SecretValueArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * This type describes properties of a secret value resource.
+     */
+    properties: pulumi.Input<inputs.servicefabricmesh.v20180901preview.SecretValueResourcePropertiesArgs>;
+    /**
      * Azure resource group name
      */
     resourceGroupName: pulumi.Input<string>;
@@ -124,8 +128,4 @@ export interface SecretValueArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The actual value of the secret.
-     */
-    value?: pulumi.Input<string>;
 }

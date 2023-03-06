@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['ArcAddonArgs', 'ArcAddon']
 
@@ -17,31 +18,25 @@ class ArcAddonArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['ArcAddonPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 resource_location: pulumi.Input[str],
-                 resource_name: pulumi.Input[str],
                  role_name: pulumi.Input[str],
-                 subscription_id: pulumi.Input[str],
                  addon_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ArcAddon resource.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] kind: Addon type.
                Expected value is 'ArcForKubernetes'.
+        :param pulumi.Input['ArcAddonPropertiesArgs'] properties: Properties specific to Arc addon.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] resource_location: Arc resource location
-        :param pulumi.Input[str] resource_name: Arc resource Name
         :param pulumi.Input[str] role_name: The role name.
-        :param pulumi.Input[str] subscription_id: Arc resource subscription Id
         :param pulumi.Input[str] addon_name: The addon name.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "kind", 'ArcForKubernetes')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_location", resource_location)
-        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "role_name", role_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
         if addon_name is not None:
             pulumi.set(__self__, "addon_name", addon_name)
 
@@ -71,6 +66,18 @@ class ArcAddonArgs:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ArcAddonPropertiesArgs']:
+        """
+        Properties specific to Arc addon.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ArcAddonPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -83,30 +90,6 @@ class ArcAddonArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="resourceLocation")
-    def resource_location(self) -> pulumi.Input[str]:
-        """
-        Arc resource location
-        """
-        return pulumi.get(self, "resource_location")
-
-    @resource_location.setter
-    def resource_location(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_location", value)
-
-    @property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[str]:
-        """
-        Arc resource Name
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_name", value)
-
-    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Input[str]:
         """
@@ -117,18 +100,6 @@ class ArcAddonArgs:
     @role_name.setter
     def role_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_name", value)
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[str]:
-        """
-        Arc resource subscription Id
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subscription_id", value)
 
     @property
     @pulumi.getter(name="addonName")
@@ -151,11 +122,9 @@ class ArcAddon(pulumi.CustomResource):
                  addon_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ArcAddonPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_location: Optional[pulumi.Input[str]] = None,
-                 resource_name_: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Arc Addon.
@@ -166,11 +135,9 @@ class ArcAddon(pulumi.CustomResource):
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] kind: Addon type.
                Expected value is 'ArcForKubernetes'.
+        :param pulumi.Input[pulumi.InputType['ArcAddonPropertiesArgs']] properties: Properties specific to Arc addon.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] resource_location: Arc resource location
-        :param pulumi.Input[str] resource_name_: Arc resource Name
         :param pulumi.Input[str] role_name: The role name.
-        :param pulumi.Input[str] subscription_id: Arc resource subscription Id
         """
         ...
     @overload
@@ -199,11 +166,9 @@ class ArcAddon(pulumi.CustomResource):
                  addon_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ArcAddonPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_location: Optional[pulumi.Input[str]] = None,
-                 resource_name_: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,28 +185,18 @@ class ArcAddon(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'ArcForKubernetes'
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_location is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_location'")
-            __props__.__dict__["resource_location"] = resource_location
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
-            __props__.__dict__["resource_name"] = resource_name_
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
-            if subscription_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subscription_id'")
-            __props__.__dict__["subscription_id"] = subscription_id
-            __props__.__dict__["host_platform"] = None
-            __props__.__dict__["host_platform_type"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:ArcAddon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArcAddon, __self__).__init__(
@@ -266,35 +221,12 @@ class ArcAddon(pulumi.CustomResource):
 
         __props__ = ArcAddonArgs.__new__(ArcAddonArgs)
 
-        __props__.__dict__["host_platform"] = None
-        __props__.__dict__["host_platform_type"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["resource_group_name"] = None
-        __props__.__dict__["resource_location"] = None
-        __props__.__dict__["resource_name"] = None
-        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["version"] = None
         return ArcAddon(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="hostPlatform")
-    def host_platform(self) -> pulumi.Output[str]:
-        """
-        Host OS supported by the Arc addon.
-        """
-        return pulumi.get(self, "host_platform")
-
-    @property
-    @pulumi.getter(name="hostPlatformType")
-    def host_platform_type(self) -> pulumi.Output[str]:
-        """
-        Platform where the runtime is hosted.
-        """
-        return pulumi.get(self, "host_platform_type")
 
     @property
     @pulumi.getter
@@ -314,44 +246,12 @@ class ArcAddon(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ArcAddonPropertiesResponse']:
         """
-        Addon Provisioning State
+        Properties specific to Arc addon.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        Arc resource group name
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter(name="resourceLocation")
-    def resource_location(self) -> pulumi.Output[str]:
-        """
-        Arc resource location
-        """
-        return pulumi.get(self, "resource_location")
-
-    @property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Output[str]:
-        """
-        Arc resource Name
-        """
-        return pulumi.get(self, "resource_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Output[str]:
-        """
-        Arc resource subscription Id
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -368,12 +268,4 @@ class ArcAddon(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
-        """
-        Arc resource version
-        """
-        return pulumi.get(self, "version")
 

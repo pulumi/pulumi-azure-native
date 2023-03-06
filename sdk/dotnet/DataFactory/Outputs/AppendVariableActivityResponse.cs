@@ -34,17 +34,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Append Variable activity properties.
+        /// </summary>
+        public readonly Outputs.AppendVariableActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
-        /// <summary>
-        /// Value to be appended. Could be a static value or Expression
-        /// </summary>
-        public readonly object? Value;
-        /// <summary>
-        /// Name of the variable whose value needs to be appended to.
-        /// </summary>
-        public readonly string? VariableName;
 
         [OutputConstructor]
         private AppendVariableActivityResponse(
@@ -56,19 +52,16 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            ImmutableArray<Outputs.UserPropertyResponse> userProperties,
+            Outputs.AppendVariableActivityTypePropertiesResponse typeProperties,
 
-            object? value,
-
-            string? variableName)
+            ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
             Name = name;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
-            Value = value;
-            VariableName = variableName;
         }
     }
 }

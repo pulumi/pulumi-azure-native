@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.Logic
     public partial class IntegrationAccountSession : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        [Output("changedTime")]
-        public Output<string> ChangedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The session content.
-        /// </summary>
-        [Output("content")]
-        public Output<object?> Content { get; private set; } = null!;
-
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -45,6 +27,12 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account session properties.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.IntegrationAccountSessionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -110,12 +98,6 @@ namespace Pulumi.AzureNative.Logic
     public sealed class IntegrationAccountSessionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The session content.
-        /// </summary>
-        [Input("content")]
-        public Input<object>? Content { get; set; }
-
-        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -126,6 +108,12 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The integration account session properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.IntegrationAccountSessionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

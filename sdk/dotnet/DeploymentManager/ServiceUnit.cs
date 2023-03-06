@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.DeploymentManager
     public partial class ServiceUnit : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The artifacts for the service unit.
-        /// </summary>
-        [Output("artifacts")]
-        public Output<Outputs.ServiceUnitArtifactsResponse?> Artifacts { get; private set; } = null!;
-
-        /// <summary>
-        /// Describes the type of ARM deployment to be performed on the resource.
-        /// </summary>
-        [Output("deploymentMode")]
-        public Output<string> DeploymentMode { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -41,16 +29,16 @@ namespace Pulumi.AzureNative.DeploymentManager
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The properties that define the service unit.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.ServiceUnitResourceResponseProperties> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-        /// </summary>
-        [Output("targetResourceGroup")]
-        public Output<string> TargetResourceGroup { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -109,22 +97,16 @@ namespace Pulumi.AzureNative.DeploymentManager
     public sealed class ServiceUnitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The artifacts for the service unit.
-        /// </summary>
-        [Input("artifacts")]
-        public Input<Inputs.ServiceUnitArtifactsArgs>? Artifacts { get; set; }
-
-        /// <summary>
-        /// Describes the type of ARM deployment to be performed on the resource.
-        /// </summary>
-        [Input("deploymentMode", required: true)]
-        public Input<Pulumi.AzureNative.DeploymentManager.DeploymentMode> DeploymentMode { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The properties that define the service unit.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ServiceUnitResourcePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -161,12 +143,6 @@ namespace Pulumi.AzureNative.DeploymentManager
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-        /// </summary>
-        [Input("targetResourceGroup", required: true)]
-        public Input<string> TargetResourceGroup { get; set; } = null!;
 
         public ServiceUnitArgs()
         {

@@ -25,42 +25,22 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        public readonly Outputs.CredentialReferenceResponse? Credential;
-        /// <summary>
-        /// Database name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Database;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The endpoint of Azure Data Explorer (the engine's endpoint). URL will be in the format https://&lt;clusterName&gt;.&lt;regionName&gt;.kusto.windows.net. Type: string (or Expression with resultType string)
-        /// </summary>
-        public readonly object Endpoint;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ServicePrincipalId;
-        /// <summary>
-        /// The key of the service principal used to authenticate against Kusto.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Tenant;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureDataExplorer'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Data Explorer (Kusto) linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureDataExplorerLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureDataExplorerLinkedServiceResponse(
@@ -68,35 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            Outputs.CredentialReferenceResponse? credential,
-
-            object database,
-
             string? description,
-
-            object endpoint,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? servicePrincipalId,
+            string type,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
-
-            object? tenant,
-
-            string type)
+            Outputs.AzureDataExplorerLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            Credential = credential;
-            Database = database;
             Description = description;
-            Endpoint = endpoint;
             Parameters = parameters;
-            ServicePrincipalId = servicePrincipalId;
-            ServicePrincipalKey = servicePrincipalKey;
-            Tenant = tenant;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

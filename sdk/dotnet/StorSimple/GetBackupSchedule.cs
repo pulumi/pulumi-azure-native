@@ -108,10 +108,6 @@ namespace Pulumi.AzureNative.StorSimple
     public sealed class GetBackupScheduleResult
     {
         /// <summary>
-        /// The type of backup which needs to be taken.
-        /// </summary>
-        public readonly string BackupType;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -120,29 +116,13 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// The last successful backup run which was triggered for the schedule.
-        /// </summary>
-        public readonly string LastSuccessfulRun;
-        /// <summary>
         /// The name of the object.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of backups to be retained.
+        /// The properties of the backup schedule.
         /// </summary>
-        public readonly double RetentionCount;
-        /// <summary>
-        /// The schedule recurrence.
-        /// </summary>
-        public readonly Outputs.ScheduleRecurrenceResponse ScheduleRecurrence;
-        /// <summary>
-        /// The schedule status.
-        /// </summary>
-        public readonly string ScheduleStatus;
-        /// <summary>
-        /// The start time of the schedule.
-        /// </summary>
-        public readonly string StartTime;
+        public readonly Outputs.BackupSchedulePropertiesResponse Properties;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -150,35 +130,20 @@ namespace Pulumi.AzureNative.StorSimple
 
         [OutputConstructor]
         private GetBackupScheduleResult(
-            string backupType,
-
             string id,
 
             string? kind,
 
-            string lastSuccessfulRun,
-
             string name,
 
-            double retentionCount,
-
-            Outputs.ScheduleRecurrenceResponse scheduleRecurrence,
-
-            string scheduleStatus,
-
-            string startTime,
+            Outputs.BackupSchedulePropertiesResponse properties,
 
             string type)
         {
-            BackupType = backupType;
             Id = id;
             Kind = kind;
-            LastSuccessfulRun = lastSuccessfulRun;
             Name = name;
-            RetentionCount = retentionCount;
-            ScheduleRecurrence = scheduleRecurrence;
-            ScheduleStatus = scheduleStatus;
-            StartTime = startTime;
+            Properties = properties;
             Type = type;
         }
     }

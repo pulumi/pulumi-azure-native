@@ -49,11 +49,11 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * Gets or sets the expiry time.
      */
-    public readonly expiryTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly expiryTime!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the value of the enabled flag of the webhook.
      */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the last invoked time.
      */
@@ -73,15 +73,15 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets the name of the hybrid worker group the webhook job will run on.
      */
-    public readonly runOn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly runOn!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the runbook the webhook is associated with.
      */
-    public readonly runbook!: pulumi.Output<outputs.automation.RunbookAssociationPropertyResponse | undefined>;
+    public /*out*/ readonly runbook!: pulumi.Output<outputs.automation.RunbookAssociationPropertyResponse | undefined>;
     /**
      * The type of the resource.
      */
@@ -89,7 +89,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * Gets or sets the webhook uri.
      */
-    public readonly uri!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -108,25 +108,29 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runOn"] = args ? args.runOn : undefined;
-            resourceInputs["runbook"] = args ? args.runbook : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
             resourceInputs["webhookName"] = args ? args.webhookName : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["expiryTime"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["lastInvokedTime"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["runOn"] = undefined /*out*/;
+            resourceInputs["runbook"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -158,37 +162,17 @@ export interface WebhookArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the expiry time.
-     */
-    expiryTime?: pulumi.Input<string>;
-    /**
-     * Gets or sets the value of the enabled flag of webhook.
-     */
-    isEnabled?: pulumi.Input<boolean>;
-    /**
      * Gets or sets the name of the webhook.
      */
     name: pulumi.Input<string>;
     /**
-     * Gets or sets the parameters of the job.
+     * Gets or sets the properties of the webhook.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties: pulumi.Input<inputs.automation.WebhookCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Gets or sets the name of the hybrid worker group the webhook job will run on.
-     */
-    runOn?: pulumi.Input<string>;
-    /**
-     * Gets or sets the runbook.
-     */
-    runbook?: pulumi.Input<inputs.automation.RunbookAssociationPropertyArgs>;
-    /**
-     * Gets or sets the uri.
-     */
-    uri?: pulumi.Input<string>;
     /**
      * The webhook name.
      */

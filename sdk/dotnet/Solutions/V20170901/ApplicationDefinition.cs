@@ -17,64 +17,16 @@ namespace Pulumi.AzureNative.Solutions.V20170901
     public partial class ApplicationDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        /// </summary>
-        [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ApplicationArtifactResponse>> Artifacts { get; private set; } = null!;
-
-        /// <summary>
-        /// The managed application provider authorizations.
-        /// </summary>
-        [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse>> Authorizations { get; private set; } = null!;
-
-        /// <summary>
-        /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-        /// </summary>
-        [Output("createUiDefinition")]
-        public Output<object?> CreateUiDefinition { get; private set; } = null!;
-
-        /// <summary>
-        /// The managed application definition description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The managed application definition display name.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A value indicating whether the package is enabled or not.
-        /// </summary>
-        [Output("isEnabled")]
-        public Output<string?> IsEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The managed application lock level.
-        /// </summary>
-        [Output("lockLevel")]
-        public Output<string> LockLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-        /// </summary>
-        [Output("mainTemplate")]
-        public Output<object?> MainTemplate { get; private set; } = null!;
 
         /// <summary>
         /// ID of the resource that manages this resource.
@@ -89,10 +41,10 @@ namespace Pulumi.AzureNative.Solutions.V20170901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The managed application definition package file Uri. Use this element
+        /// The managed application definition properties.
         /// </summary>
-        [Output("packageFileUri")]
-        public Output<string?> PackageFileUri { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ApplicationDefinitionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
@@ -177,59 +129,11 @@ namespace Pulumi.AzureNative.Solutions.V20170901
         [Input("applicationDefinitionName")]
         public Input<string>? ApplicationDefinitionName { get; set; }
 
-        [Input("artifacts")]
-        private InputList<Inputs.ApplicationArtifactArgs>? _artifacts;
-
-        /// <summary>
-        /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        /// </summary>
-        public InputList<Inputs.ApplicationArtifactArgs> Artifacts
-        {
-            get => _artifacts ?? (_artifacts = new InputList<Inputs.ApplicationArtifactArgs>());
-            set => _artifacts = value;
-        }
-
-        [Input("authorizations", required: true)]
-        private InputList<Inputs.ApplicationProviderAuthorizationArgs>? _authorizations;
-
-        /// <summary>
-        /// The managed application provider authorizations.
-        /// </summary>
-        public InputList<Inputs.ApplicationProviderAuthorizationArgs> Authorizations
-        {
-            get => _authorizations ?? (_authorizations = new InputList<Inputs.ApplicationProviderAuthorizationArgs>());
-            set => _authorizations = value;
-        }
-
-        /// <summary>
-        /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-        /// </summary>
-        [Input("createUiDefinition")]
-        public Input<object>? CreateUiDefinition { get; set; }
-
-        /// <summary>
-        /// The managed application definition description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The managed application definition display name.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
         /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// A value indicating whether the package is enabled or not.
-        /// </summary>
-        [Input("isEnabled")]
-        public Input<string>? IsEnabled { get; set; }
 
         /// <summary>
         /// Resource location
@@ -238,28 +142,16 @@ namespace Pulumi.AzureNative.Solutions.V20170901
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The managed application lock level.
-        /// </summary>
-        [Input("lockLevel", required: true)]
-        public Input<Pulumi.AzureNative.Solutions.V20170901.ApplicationLockLevel> LockLevel { get; set; } = null!;
-
-        /// <summary>
-        /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-        /// </summary>
-        [Input("mainTemplate")]
-        public Input<object>? MainTemplate { get; set; }
-
-        /// <summary>
         /// ID of the resource that manages this resource.
         /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
-        /// The managed application definition package file Uri. Use this element
+        /// The managed application definition properties.
         /// </summary>
-        [Input("packageFileUri")]
-        public Input<string>? PackageFileUri { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ApplicationDefinitionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

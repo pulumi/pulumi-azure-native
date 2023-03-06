@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.Network.V20190701.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The certificate public data.
+        /// Properties of the P2SVpnServerConfiguration VPN client root certificate.
         /// </summary>
-        [Input("publicCertData", required: true)]
-        public Input<string> PublicCertData { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.P2SVpnServerConfigVpnClientRootCertificatePropertiesFormatArgs> Properties { get; set; } = null!;
 
         public P2SVpnServerConfigVpnClientRootCertificateArgs()
         {

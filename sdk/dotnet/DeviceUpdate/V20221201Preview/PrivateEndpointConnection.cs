@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Array of group IDs.
-        /// </summary>
-        [Output("groupIds")]
-        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource of private end point.
+        /// Resource properties.
         /// </summary>
-        [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
-        /// </summary>
-        [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -115,18 +97,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
-        [Input("groupIds")]
-        private InputList<string>? _groupIds;
-
-        /// <summary>
-        /// Array of group IDs.
-        /// </summary>
-        public InputList<string> GroupIds
-        {
-            get => _groupIds ?? (_groupIds = new InputList<string>());
-            set => _groupIds = value;
-        }
-
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
         /// </summary>
@@ -134,10 +104,10 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
+        /// Resource properties.
         /// </summary>
-        [Input("privateLinkServiceConnectionState", required: true)]
-        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

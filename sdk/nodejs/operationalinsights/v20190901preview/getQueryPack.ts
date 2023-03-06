@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -44,25 +47,13 @@ export interface GetQueryPackResult {
      */
     readonly name: string;
     /**
-     * Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+     * Properties that define a Log Analytics QueryPack resource.
      */
-    readonly provisioningState: string;
-    /**
-     * The unique ID of your application. This field cannot be changed.
-     */
-    readonly queryPackId: string;
+    readonly properties: outputs.operationalinsights.v20190901preview.LogAnalyticsQueryPackPropertiesResponse;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-     */
-    readonly timeCreated: string;
-    /**
-     * Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-     */
-    readonly timeModified: string;
     /**
      * Azure resource type
      */

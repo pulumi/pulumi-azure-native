@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Path;
-        /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
         public readonly object? Schema;
@@ -53,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'SapEccResource'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// SAP ECC OData resource dataset properties.
+        /// </summary>
+        public readonly Outputs.SapEccResourceDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapEccResourceDatasetResponse(
@@ -66,23 +66,23 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object path,
-
             object? schema,
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.SapEccResourceDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
-            Path = path;
             Schema = schema;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

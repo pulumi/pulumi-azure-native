@@ -40,7 +40,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Gets or sets the advanced schedule.
      */
-    public readonly advancedSchedule!: pulumi.Output<outputs.automation.v20151031.AdvancedScheduleResponse | undefined>;
+    public /*out*/ readonly advancedSchedule!: pulumi.Output<outputs.automation.v20151031.AdvancedScheduleResponse | undefined>;
     /**
      * Gets or sets the creation time.
      */
@@ -48,11 +48,11 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the end time of the schedule.
      */
-    public readonly expiryTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly expiryTime!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the expiry time's offset in minutes.
      */
@@ -60,11 +60,11 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Gets or sets the frequency of the schedule.
      */
-    public readonly frequency!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly frequency!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the interval of the schedule.
      */
-    public readonly interval!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly interval!: pulumi.Output<any | undefined>;
     /**
      * Gets or sets a value indicating whether this schedule is enabled.
      */
@@ -88,7 +88,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Gets or sets the start time of the schedule.
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly startTime!: pulumi.Output<string | undefined>;
     /**
      * Gets the start time's offset in minutes.
      */
@@ -96,7 +96,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Gets or sets the time zone of the schedule.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly timeZone!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -116,36 +116,34 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'frequency'");
-            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'startTime'");
-            }
-            resourceInputs["advancedSchedule"] = args ? args.advancedSchedule : undefined;
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["advancedSchedule"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["expiryTime"] = undefined /*out*/;
             resourceInputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["frequency"] = undefined /*out*/;
+            resourceInputs["interval"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["nextRun"] = undefined /*out*/;
             resourceInputs["nextRunOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["startTimeOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["advancedSchedule"] = undefined /*out*/;
@@ -177,33 +175,17 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleArgs {
     /**
-     * Gets or sets the AdvancedSchedule.
-     */
-    advancedSchedule?: pulumi.Input<inputs.automation.v20151031.AdvancedScheduleArgs>;
-    /**
      * The name of the automation account.
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the description of the schedule.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Gets or sets the end time of the schedule.
-     */
-    expiryTime?: pulumi.Input<string>;
-    /**
-     * Gets or sets the frequency of the schedule.
-     */
-    frequency: pulumi.Input<string | enums.automation.v20151031.ScheduleFrequency>;
-    /**
-     * Gets or sets the interval of the schedule.
-     */
-    interval?: any;
-    /**
      * Gets or sets the name of the Schedule.
      */
     name: pulumi.Input<string>;
+    /**
+     * Gets or sets the list of schedule properties.
+     */
+    properties: pulumi.Input<inputs.automation.v20151031.ScheduleCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
@@ -212,12 +194,4 @@ export interface ScheduleArgs {
      * The schedule name.
      */
     scheduleName?: pulumi.Input<string>;
-    /**
-     * Gets or sets the start time of the schedule.
-     */
-    startTime: pulumi.Input<string>;
-    /**
-     * Gets or sets the time zone of the schedule.
-     */
-    timeZone?: pulumi.Input<string>;
 }

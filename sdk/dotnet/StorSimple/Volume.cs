@@ -17,34 +17,10 @@ namespace Pulumi.AzureNative.StorSimple
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The IDs of the access control records, associated with the volume.
-        /// </summary>
-        [Output("accessControlRecordIds")]
-        public Output<ImmutableArray<string>> AccessControlRecordIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The IDs of the backup policies, in which this volume is part of.
-        /// </summary>
-        [Output("backupPolicyIds")]
-        public Output<ImmutableArray<string>> BackupPolicyIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The backup status of the volume.
-        /// </summary>
-        [Output("backupStatus")]
-        public Output<string> BackupStatus { get; private set; } = null!;
-
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// The monitoring status of the volume.
-        /// </summary>
-        [Output("monitoringStatus")]
-        public Output<string> MonitoringStatus { get; private set; } = null!;
 
         /// <summary>
         /// The name of the object.
@@ -53,40 +29,16 @@ namespace Pulumi.AzureNative.StorSimple
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The operation status on the volume.
+        /// The properties of the volume.
         /// </summary>
-        [Output("operationStatus")]
-        public Output<string> OperationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The size of the volume in bytes.
-        /// </summary>
-        [Output("sizeInBytes")]
-        public Output<double> SizeInBytes { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VolumePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID of the volume container, in which this volume is created.
-        /// </summary>
-        [Output("volumeContainerId")]
-        public Output<string> VolumeContainerId { get; private set; } = null!;
-
-        /// <summary>
-        /// The volume status.
-        /// </summary>
-        [Output("volumeStatus")]
-        public Output<string> VolumeStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the volume.
-        /// </summary>
-        [Output("volumeType")]
-        public Output<string> VolumeType { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,18 +89,6 @@ namespace Pulumi.AzureNative.StorSimple
 
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accessControlRecordIds", required: true)]
-        private InputList<string>? _accessControlRecordIds;
-
-        /// <summary>
-        /// The IDs of the access control records, associated with the volume.
-        /// </summary>
-        public InputList<string> AccessControlRecordIds
-        {
-            get => _accessControlRecordIds ?? (_accessControlRecordIds = new InputList<string>());
-            set => _accessControlRecordIds = value;
-        }
-
         /// <summary>
         /// The device name
         /// </summary>
@@ -168,22 +108,16 @@ namespace Pulumi.AzureNative.StorSimple
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The monitoring status of the volume.
+        /// The properties of the volume.
         /// </summary>
-        [Input("monitoringStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.MonitoringStatus> MonitoringStatus { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.VolumePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The size of the volume in bytes.
-        /// </summary>
-        [Input("sizeInBytes", required: true)]
-        public Input<double> SizeInBytes { get; set; } = null!;
 
         /// <summary>
         /// The volume container name.
@@ -196,18 +130,6 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         [Input("volumeName")]
         public Input<string>? VolumeName { get; set; }
-
-        /// <summary>
-        /// The volume status.
-        /// </summary>
-        [Input("volumeStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.VolumeStatus> VolumeStatus { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the volume.
-        /// </summary>
-        [Input("volumeType", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.VolumeType> VolumeType { get; set; } = null!;
 
         public VolumeArgs()
         {

@@ -70,17 +70,9 @@ export class MobileNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the mobile network resource.
+     * Mobile network properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-     */
-    public readonly publicLandMobileNetworkIdentifier!: pulumi.Output<outputs.mobilenetwork.v20220401preview.PlmnIdResponse>;
-    /**
-     * The mobile network resource identifier
-     */
-    public /*out*/ readonly serviceKey!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.v20220401preview.MobileNetworkPropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -105,8 +97,8 @@ export class MobileNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publicLandMobileNetworkIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'publicLandMobileNetworkIdentifier'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -119,12 +111,10 @@ export class MobileNetwork extends pulumi.CustomResource {
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
-            resourceInputs["publicLandMobileNetworkIdentifier"] = args ? args.publicLandMobileNetworkIdentifier : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serviceKey"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -136,9 +126,7 @@ export class MobileNetwork extends pulumi.CustomResource {
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicLandMobileNetworkIdentifier"] = undefined /*out*/;
-            resourceInputs["serviceKey"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -187,9 +175,9 @@ export interface MobileNetworkArgs {
      */
     mobileNetworkName?: pulumi.Input<string>;
     /**
-     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+     * Mobile network properties.
      */
-    publicLandMobileNetworkIdentifier: pulumi.Input<inputs.mobilenetwork.v20220401preview.PlmnIdArgs>;
+    properties: pulumi.Input<inputs.mobilenetwork.v20220401preview.MobileNetworkPropertiesFormatArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

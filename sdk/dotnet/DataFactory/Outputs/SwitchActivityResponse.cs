@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SwitchActivityResponse
     {
         /// <summary>
-        /// List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SwitchCaseResponse> Cases;
-        /// <summary>
-        /// List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
-        /// </summary>
-        public readonly ImmutableArray<object> DefaultActivities;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -37,14 +29,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// An expression that would evaluate to a string or integer. This is used to determine the block of activities in cases that will be executed.
-        /// </summary>
-        public readonly Outputs.ExpressionResponse On;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Switch'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Switch activity properties.
+        /// </summary>
+        public readonly Outputs.SwitchActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -52,29 +44,23 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SwitchActivityResponse(
-            ImmutableArray<Outputs.SwitchCaseResponse> cases,
-
-            ImmutableArray<object> defaultActivities,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
             string name,
 
-            Outputs.ExpressionResponse on,
-
             string type,
+
+            Outputs.SwitchActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Cases = cases;
-            DefaultActivities = defaultActivities;
             DependsOn = dependsOn;
             Description = description;
             Name = name;
-            On = on;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

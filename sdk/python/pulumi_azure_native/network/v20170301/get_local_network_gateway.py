@@ -24,48 +24,28 @@ class GetLocalNetworkGatewayResult:
     """
     A common class for general resource information
     """
-    def __init__(__self__, bgp_settings=None, etag=None, gateway_ip_address=None, id=None, local_network_address_space=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
-        if bgp_settings and not isinstance(bgp_settings, dict):
-            raise TypeError("Expected argument 'bgp_settings' to be a dict")
-        pulumi.set(__self__, "bgp_settings", bgp_settings)
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if gateway_ip_address and not isinstance(gateway_ip_address, str):
-            raise TypeError("Expected argument 'gateway_ip_address' to be a str")
-        pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if local_network_address_space and not isinstance(local_network_address_space, dict):
-            raise TypeError("Expected argument 'local_network_address_space' to be a dict")
-        pulumi.set(__self__, "local_network_address_space", local_network_address_space)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        pulumi.set(__self__, "resource_guid", resource_guid)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
-        """
-        Local network gateway's BGP speaker settings.
-        """
-        return pulumi.get(self, "bgp_settings")
 
     @property
     @pulumi.getter
@@ -76,28 +56,12 @@ class GetLocalNetworkGatewayResult:
         return pulumi.get(self, "etag")
 
     @property
-    @pulumi.getter(name="gatewayIpAddress")
-    def gateway_ip_address(self) -> Optional[str]:
-        """
-        IP address of local network gateway.
-        """
-        return pulumi.get(self, "gateway_ip_address")
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="localNetworkAddressSpace")
-    def local_network_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
-        """
-        Local network site address space.
-        """
-        return pulumi.get(self, "local_network_address_space")
 
     @property
     @pulumi.getter
@@ -116,20 +80,12 @@ class GetLocalNetworkGatewayResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.LocalNetworkGatewayPropertiesFormatResponse':
         """
-        The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        LocalNetworkGateway properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> Optional[str]:
-        """
-        The resource GUID property of the LocalNetworkGateway resource.
-        """
-        return pulumi.get(self, "resource_guid")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -154,15 +110,11 @@ class AwaitableGetLocalNetworkGatewayResult(GetLocalNetworkGatewayResult):
         if False:
             yield self
         return GetLocalNetworkGatewayResult(
-            bgp_settings=self.bgp_settings,
             etag=self.etag,
-            gateway_ip_address=self.gateway_ip_address,
             id=self.id,
-            local_network_address_space=self.local_network_address_space,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            resource_guid=self.resource_guid,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -185,15 +137,11 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20170301:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult).value
 
     return AwaitableGetLocalNetworkGatewayResult(
-        bgp_settings=__ret__.bgp_settings,
         etag=__ret__.etag,
-        gateway_ip_address=__ret__.gateway_ip_address,
         id=__ret__.id,
-        local_network_address_space=__ret__.local_network_address_space,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

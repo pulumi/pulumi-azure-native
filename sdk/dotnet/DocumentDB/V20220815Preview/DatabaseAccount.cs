@@ -368,172 +368,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20220815Preview
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Analytical storage specific properties.
-        /// </summary>
-        [Input("analyticalStorageConfiguration")]
-        public Input<Inputs.AnalyticalStorageConfigurationArgs>? AnalyticalStorageConfiguration { get; set; }
-
-        /// <summary>
-        /// API specific properties. Currently, supported only for MongoDB API.
-        /// </summary>
-        [Input("apiProperties")]
-        public Input<Inputs.ApiPropertiesArgs>? ApiProperties { get; set; }
-
-        /// <summary>
-        /// The object representing the policy for taking backups on an account.
-        /// </summary>
-        [Input("backupPolicy")]
-        public InputUnion<Inputs.ContinuousModeBackupPolicyArgs, Inputs.PeriodicModeBackupPolicyArgs>? BackupPolicy { get; set; }
-
-        [Input("capabilities")]
-        private InputList<Inputs.CapabilityArgs>? _capabilities;
-
-        /// <summary>
-        /// List of Cosmos DB capabilities for the account
-        /// </summary>
-        public InputList<Inputs.CapabilityArgs> Capabilities
-        {
-            get => _capabilities ?? (_capabilities = new InputList<Inputs.CapabilityArgs>());
-            set => _capabilities = value;
-        }
-
-        /// <summary>
-        /// The object that represents all properties related to capacity enforcement on an account.
-        /// </summary>
-        [Input("capacity")]
-        public Input<Inputs.CapacityArgs>? Capacity { get; set; }
-
-        /// <summary>
-        /// The cassandra connector offer type for the Cosmos DB database C* account.
-        /// </summary>
-        [Input("connectorOffer")]
-        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20220815Preview.ConnectorOffer>? ConnectorOffer { get; set; }
-
-        /// <summary>
-        /// The consistency policy for the Cosmos DB account.
-        /// </summary>
-        [Input("consistencyPolicy")]
-        public Input<Inputs.ConsistencyPolicyArgs>? ConsistencyPolicy { get; set; }
-
-        [Input("cors")]
-        private InputList<Inputs.CorsPolicyArgs>? _cors;
-
-        /// <summary>
-        /// The CORS policy for the Cosmos DB database account.
-        /// </summary>
-        public InputList<Inputs.CorsPolicyArgs> Cors
-        {
-            get => _cors ?? (_cors = new InputList<Inputs.CorsPolicyArgs>());
-            set => _cors = value;
-        }
-
-        /// <summary>
-        /// Enum to indicate the mode of account creation.
-        /// </summary>
-        [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20220815Preview.CreateMode>? CreateMode { get; set; }
-
-        /// <summary>
-        /// The offer type for the database
-        /// </summary>
-        [Input("databaseAccountOfferType", required: true)]
-        public Input<Pulumi.AzureNative.DocumentDB.V20220815Preview.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
-
-        /// <summary>
-        /// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
-        /// </summary>
-        [Input("defaultIdentity")]
-        public Input<string>? DefaultIdentity { get; set; }
-
-        /// <summary>
-        /// The Object representing the different Diagnostic log settings for the Cosmos DB Account.
-        /// </summary>
-        [Input("diagnosticLogSettings")]
-        public Input<Inputs.DiagnosticLogSettingsArgs>? DiagnosticLogSettings { get; set; }
-
-        /// <summary>
-        /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
-        /// </summary>
-        [Input("disableKeyBasedMetadataWriteAccess")]
-        public Input<bool>? DisableKeyBasedMetadataWriteAccess { get; set; }
-
-        /// <summary>
-        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
-        /// </summary>
-        [Input("disableLocalAuth")]
-        public Input<bool>? DisableLocalAuth { get; set; }
-
-        /// <summary>
-        /// Flag to indicate whether to enable storage analytics.
-        /// </summary>
-        [Input("enableAnalyticalStorage")]
-        public Input<bool>? EnableAnalyticalStorage { get; set; }
-
-        /// <summary>
-        /// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        /// </summary>
-        [Input("enableAutomaticFailover")]
-        public Input<bool>? EnableAutomaticFailover { get; set; }
-
-        /// <summary>
-        /// Enables the cassandra connector on the Cosmos DB C* account
-        /// </summary>
-        [Input("enableCassandraConnector")]
-        public Input<bool>? EnableCassandraConnector { get; set; }
-
-        /// <summary>
-        /// Flag to indicate whether Free Tier is enabled.
-        /// </summary>
-        [Input("enableFreeTier")]
-        public Input<bool>? EnableFreeTier { get; set; }
-
-        /// <summary>
-        /// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
-        /// </summary>
-        [Input("enableMaterializedViews")]
-        public Input<bool>? EnableMaterializedViews { get; set; }
-
-        /// <summary>
-        /// Enables the account to write in multiple locations
-        /// </summary>
-        [Input("enableMultipleWriteLocations")]
-        public Input<bool>? EnableMultipleWriteLocations { get; set; }
-
-        /// <summary>
-        /// Flag to indicate enabling/disabling of Partition Merge feature on the account
-        /// </summary>
-        [Input("enablePartitionMerge")]
-        public Input<bool>? EnablePartitionMerge { get; set; }
-
-        /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
-
-        [Input("ipRules")]
-        private InputList<Inputs.IpAddressOrRangeArgs>? _ipRules;
-
-        /// <summary>
-        /// List of IpRules.
-        /// </summary>
-        public InputList<Inputs.IpAddressOrRangeArgs> IpRules
-        {
-            get => _ipRules ?? (_ipRules = new InputList<Inputs.IpAddressOrRangeArgs>());
-            set => _ipRules = value;
-        }
-
-        /// <summary>
-        /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
-        /// </summary>
-        [Input("isVirtualNetworkFilterEnabled")]
-        public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
-
-        /// <summary>
-        /// The URI of the key vault
-        /// </summary>
-        [Input("keyVaultKeyUri")]
-        public Input<string>? KeyVaultKeyUri { get; set; }
 
         /// <summary>
         /// Indicates the type of database account. This can only be set at database account creation.
@@ -547,53 +385,17 @@ namespace Pulumi.AzureNative.DocumentDB.V20220815Preview
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("locations", required: true)]
-        private InputList<Inputs.LocationArgs>? _locations;
-
         /// <summary>
-        /// An array that contains the georeplication locations enabled for the Cosmos DB account.
+        /// Properties to create and update Azure Cosmos DB database accounts.
         /// </summary>
-        public InputList<Inputs.LocationArgs> Locations
-        {
-            get => _locations ?? (_locations = new InputList<Inputs.LocationArgs>());
-            set => _locations = value;
-        }
-
-        /// <summary>
-        /// Indicates what services are allowed to bypass firewall checks.
-        /// </summary>
-        [Input("networkAclBypass")]
-        public Input<Pulumi.AzureNative.DocumentDB.V20220815Preview.NetworkAclBypass>? NetworkAclBypass { get; set; }
-
-        [Input("networkAclBypassResourceIds")]
-        private InputList<string>? _networkAclBypassResourceIds;
-
-        /// <summary>
-        /// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
-        /// </summary>
-        public InputList<string> NetworkAclBypassResourceIds
-        {
-            get => _networkAclBypassResourceIds ?? (_networkAclBypassResourceIds = new InputList<string>());
-            set => _networkAclBypassResourceIds = value;
-        }
-
-        /// <summary>
-        /// Whether requests from Public Network are allowed
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20220815Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.DatabaseAccountCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Parameters to indicate the information about the restore.
-        /// </summary>
-        [Input("restoreParameters")]
-        public Input<Inputs.RestoreParametersArgs>? RestoreParameters { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -607,21 +409,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20220815Preview
             set => _tags = value;
         }
 
-        [Input("virtualNetworkRules")]
-        private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
-
-        /// <summary>
-        /// List of Virtual Network ACL rules configured for the Cosmos DB account.
-        /// </summary>
-        public InputList<Inputs.VirtualNetworkRuleArgs> VirtualNetworkRules
-        {
-            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.VirtualNetworkRuleArgs>());
-            set => _virtualNetworkRules = value;
-        }
-
         public DatabaseAccountArgs()
         {
-            CreateMode = "Default";
             Kind = "GlobalDocumentDB";
         }
         public static new DatabaseAccountArgs Empty => new DatabaseAccountArgs();

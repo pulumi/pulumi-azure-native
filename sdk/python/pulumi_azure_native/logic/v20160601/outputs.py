@@ -47,7 +47,14 @@ __all__ = [
     'EdifactValidationSettingsResponse',
     'ExpressionResponse',
     'ExpressionRootResponse',
+    'IntegrationAccountAgreementPropertiesResponse',
+    'IntegrationAccountCertificatePropertiesResponse',
+    'IntegrationAccountMapPropertiesResponse',
     'IntegrationAccountMapPropertiesResponseParametersSchema',
+    'IntegrationAccountPartnerPropertiesResponse',
+    'IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse',
+    'IntegrationAccountSchemaPropertiesResponse',
+    'IntegrationAccountSessionPropertiesResponse',
     'IntegrationAccountSkuResponse',
     'KeyVaultKeyReferenceResponse',
     'KeyVaultKeyReferenceResponseKeyVault',
@@ -3996,6 +4003,366 @@ class ExpressionRootResponse(dict):
 
 
 @pulumi.output_type
+class IntegrationAccountAgreementPropertiesResponse(dict):
+    """
+    The integration account agreement properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agreementType":
+            suggest = "agreement_type"
+        elif key == "changedTime":
+            suggest = "changed_time"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "guestIdentity":
+            suggest = "guest_identity"
+        elif key == "guestPartner":
+            suggest = "guest_partner"
+        elif key == "hostIdentity":
+            suggest = "host_identity"
+        elif key == "hostPartner":
+            suggest = "host_partner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountAgreementPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountAgreementPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountAgreementPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agreement_type: str,
+                 changed_time: str,
+                 content: 'outputs.AgreementContentResponse',
+                 created_time: str,
+                 guest_identity: 'outputs.BusinessIdentityResponse',
+                 guest_partner: str,
+                 host_identity: 'outputs.BusinessIdentityResponse',
+                 host_partner: str,
+                 metadata: Optional[Any] = None):
+        """
+        The integration account agreement properties.
+        :param str agreement_type: The agreement type.
+        :param str changed_time: The changed time.
+        :param 'AgreementContentResponse' content: The agreement content.
+        :param str created_time: The created time.
+        :param 'BusinessIdentityResponse' guest_identity: The business identity of the guest partner.
+        :param str guest_partner: The integration account partner that is set as guest partner for this agreement.
+        :param 'BusinessIdentityResponse' host_identity: The business identity of the host partner.
+        :param str host_partner: The integration account partner that is set as host partner for this agreement.
+        :param Any metadata: The metadata.
+        """
+        pulumi.set(__self__, "agreement_type", agreement_type)
+        pulumi.set(__self__, "changed_time", changed_time)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "guest_identity", guest_identity)
+        pulumi.set(__self__, "guest_partner", guest_partner)
+        pulumi.set(__self__, "host_identity", host_identity)
+        pulumi.set(__self__, "host_partner", host_partner)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="agreementType")
+    def agreement_type(self) -> str:
+        """
+        The agreement type.
+        """
+        return pulumi.get(self, "agreement_type")
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> 'outputs.AgreementContentResponse':
+        """
+        The agreement content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="guestIdentity")
+    def guest_identity(self) -> 'outputs.BusinessIdentityResponse':
+        """
+        The business identity of the guest partner.
+        """
+        return pulumi.get(self, "guest_identity")
+
+    @property
+    @pulumi.getter(name="guestPartner")
+    def guest_partner(self) -> str:
+        """
+        The integration account partner that is set as guest partner for this agreement.
+        """
+        return pulumi.get(self, "guest_partner")
+
+    @property
+    @pulumi.getter(name="hostIdentity")
+    def host_identity(self) -> 'outputs.BusinessIdentityResponse':
+        """
+        The business identity of the host partner.
+        """
+        return pulumi.get(self, "host_identity")
+
+    @property
+    @pulumi.getter(name="hostPartner")
+    def host_partner(self) -> str:
+        """
+        The integration account partner that is set as host partner for this agreement.
+        """
+        return pulumi.get(self, "host_partner")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class IntegrationAccountCertificatePropertiesResponse(dict):
+    """
+    The integration account certificate properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changedTime":
+            suggest = "changed_time"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "publicCertificate":
+            suggest = "public_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountCertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountCertificatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountCertificatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 changed_time: str,
+                 created_time: str,
+                 key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None,
+                 metadata: Optional[Any] = None,
+                 public_certificate: Optional[str] = None):
+        """
+        The integration account certificate properties.
+        :param str changed_time: The changed time.
+        :param str created_time: The created time.
+        :param 'KeyVaultKeyReferenceResponse' key: The key details in the key vault.
+        :param Any metadata: The metadata.
+        :param str public_certificate: The public certificate.
+        """
+        pulumi.set(__self__, "changed_time", changed_time)
+        pulumi.set(__self__, "created_time", created_time)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if public_certificate is not None:
+            pulumi.set(__self__, "public_certificate", public_certificate)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
+        """
+        The key details in the key vault.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="publicCertificate")
+    def public_certificate(self) -> Optional[str]:
+        """
+        The public certificate.
+        """
+        return pulumi.get(self, "public_certificate")
+
+
+@pulumi.output_type
+class IntegrationAccountMapPropertiesResponse(dict):
+    """
+    The integration account map.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changedTime":
+            suggest = "changed_time"
+        elif key == "contentLink":
+            suggest = "content_link"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "mapType":
+            suggest = "map_type"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "parametersSchema":
+            suggest = "parameters_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountMapPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountMapPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountMapPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 changed_time: str,
+                 content_link: 'outputs.ContentLinkResponse',
+                 created_time: str,
+                 map_type: str,
+                 content: Optional[str] = None,
+                 content_type: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 parameters_schema: Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema'] = None):
+        """
+        The integration account map.
+        :param str changed_time: The changed time.
+        :param 'ContentLinkResponse' content_link: The content link.
+        :param str created_time: The created time.
+        :param str map_type: The map type.
+        :param str content: The content.
+        :param str content_type: The content type.
+        :param Any metadata: The metadata.
+        :param 'IntegrationAccountMapPropertiesResponseParametersSchema' parameters_schema: The parameters schema of integration account map.
+        """
+        pulumi.set(__self__, "changed_time", changed_time)
+        pulumi.set(__self__, "content_link", content_link)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "map_type", map_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if parameters_schema is not None:
+            pulumi.set(__self__, "parameters_schema", parameters_schema)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> 'outputs.ContentLinkResponse':
+        """
+        The content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="mapType")
+    def map_type(self) -> str:
+        """
+        The map type.
+        """
+        return pulumi.get(self, "map_type")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="parametersSchema")
+    def parameters_schema(self) -> Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema']:
+        """
+        The parameters schema of integration account map.
+        """
+        return pulumi.get(self, "parameters_schema")
+
+
+@pulumi.output_type
 class IntegrationAccountMapPropertiesResponseParametersSchema(dict):
     """
     The parameters schema of integration account map.
@@ -4016,6 +4383,470 @@ class IntegrationAccountMapPropertiesResponseParametersSchema(dict):
         The reference name.
         """
         return pulumi.get(self, "ref")
+
+
+@pulumi.output_type
+class IntegrationAccountPartnerPropertiesResponse(dict):
+    """
+    The integration account partner properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changedTime":
+            suggest = "changed_time"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "partnerType":
+            suggest = "partner_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountPartnerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountPartnerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountPartnerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 changed_time: str,
+                 content: 'outputs.PartnerContentResponse',
+                 created_time: str,
+                 partner_type: str,
+                 metadata: Optional[Any] = None):
+        """
+        The integration account partner properties.
+        :param str changed_time: The changed time.
+        :param 'PartnerContentResponse' content: The partner content.
+        :param str created_time: The created time.
+        :param str partner_type: The partner type.
+        :param Any metadata: The metadata.
+        """
+        pulumi.set(__self__, "changed_time", changed_time)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "partner_type", partner_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> 'outputs.PartnerContentResponse':
+        """
+        The partner content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="partnerType")
+    def partner_type(self) -> str:
+        """
+        The partner type.
+        """
+        return pulumi.get(self, "partner_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse(dict):
+    """
+    The integration account RosettaNet process configuration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activitySettings":
+            suggest = "activity_settings"
+        elif key == "changedTime":
+            suggest = "changed_time"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "initiatorRoleSettings":
+            suggest = "initiator_role_settings"
+        elif key == "processCode":
+            suggest = "process_code"
+        elif key == "processName":
+            suggest = "process_name"
+        elif key == "processVersion":
+            suggest = "process_version"
+        elif key == "responderRoleSettings":
+            suggest = "responder_role_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activity_settings: 'outputs.RosettaNetPipActivitySettingsResponse',
+                 changed_time: str,
+                 created_time: str,
+                 initiator_role_settings: 'outputs.RosettaNetPipRoleSettingsResponse',
+                 process_code: str,
+                 process_name: str,
+                 process_version: str,
+                 responder_role_settings: 'outputs.RosettaNetPipRoleSettingsResponse',
+                 description: Optional[str] = None,
+                 metadata: Optional[Mapping[str, str]] = None):
+        """
+        The integration account RosettaNet process configuration properties.
+        :param 'RosettaNetPipActivitySettingsResponse' activity_settings: The RosettaNet process configuration activity settings.
+        :param str changed_time: The changed time.
+        :param str created_time: The created time.
+        :param 'RosettaNetPipRoleSettingsResponse' initiator_role_settings: The RosettaNet initiator role settings.
+        :param str process_code: The integration account RosettaNet process code.
+        :param str process_name: The integration account RosettaNet process name.
+        :param str process_version: The integration account RosettaNet process version.
+        :param 'RosettaNetPipRoleSettingsResponse' responder_role_settings: The RosettaNet responder role settings.
+        :param str description: The integration account RosettaNet ProcessConfiguration properties.
+        :param Mapping[str, str] metadata: The metadata.
+        """
+        pulumi.set(__self__, "activity_settings", activity_settings)
+        pulumi.set(__self__, "changed_time", changed_time)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "initiator_role_settings", initiator_role_settings)
+        pulumi.set(__self__, "process_code", process_code)
+        pulumi.set(__self__, "process_name", process_name)
+        pulumi.set(__self__, "process_version", process_version)
+        pulumi.set(__self__, "responder_role_settings", responder_role_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="activitySettings")
+    def activity_settings(self) -> 'outputs.RosettaNetPipActivitySettingsResponse':
+        """
+        The RosettaNet process configuration activity settings.
+        """
+        return pulumi.get(self, "activity_settings")
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="initiatorRoleSettings")
+    def initiator_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+        """
+        The RosettaNet initiator role settings.
+        """
+        return pulumi.get(self, "initiator_role_settings")
+
+    @property
+    @pulumi.getter(name="processCode")
+    def process_code(self) -> str:
+        """
+        The integration account RosettaNet process code.
+        """
+        return pulumi.get(self, "process_code")
+
+    @property
+    @pulumi.getter(name="processName")
+    def process_name(self) -> str:
+        """
+        The integration account RosettaNet process name.
+        """
+        return pulumi.get(self, "process_name")
+
+    @property
+    @pulumi.getter(name="processVersion")
+    def process_version(self) -> str:
+        """
+        The integration account RosettaNet process version.
+        """
+        return pulumi.get(self, "process_version")
+
+    @property
+    @pulumi.getter(name="responderRoleSettings")
+    def responder_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+        """
+        The RosettaNet responder role settings.
+        """
+        return pulumi.get(self, "responder_role_settings")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The integration account RosettaNet ProcessConfiguration properties.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class IntegrationAccountSchemaPropertiesResponse(dict):
+    """
+    The integration account schema properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changedTime":
+            suggest = "changed_time"
+        elif key == "contentLink":
+            suggest = "content_link"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "schemaType":
+            suggest = "schema_type"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "documentName":
+            suggest = "document_name"
+        elif key == "fileName":
+            suggest = "file_name"
+        elif key == "targetNamespace":
+            suggest = "target_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountSchemaPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountSchemaPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountSchemaPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 changed_time: str,
+                 content_link: 'outputs.ContentLinkResponse',
+                 created_time: str,
+                 schema_type: str,
+                 content: Optional[str] = None,
+                 content_type: Optional[str] = None,
+                 document_name: Optional[str] = None,
+                 file_name: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 target_namespace: Optional[str] = None):
+        """
+        The integration account schema properties.
+        :param str changed_time: The changed time.
+        :param 'ContentLinkResponse' content_link: The content link.
+        :param str created_time: The created time.
+        :param str schema_type: The schema type.
+        :param str content: The content.
+        :param str content_type: The content type.
+        :param str document_name: The document name.
+        :param str file_name: The file name.
+        :param Any metadata: The metadata.
+        :param str target_namespace: The target namespace of the schema.
+        """
+        pulumi.set(__self__, "changed_time", changed_time)
+        pulumi.set(__self__, "content_link", content_link)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "schema_type", schema_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if document_name is not None:
+            pulumi.set(__self__, "document_name", document_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if target_namespace is not None:
+            pulumi.set(__self__, "target_namespace", target_namespace)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> 'outputs.ContentLinkResponse':
+        """
+        The content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> str:
+        """
+        The schema type.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> Optional[str]:
+        """
+        The document name.
+        """
+        return pulumi.get(self, "document_name")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
+        """
+        The file name.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> Optional[str]:
+        """
+        The target namespace of the schema.
+        """
+        return pulumi.get(self, "target_namespace")
+
+
+@pulumi.output_type
+class IntegrationAccountSessionPropertiesResponse(dict):
+    """
+    The integration account session properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changedTime":
+            suggest = "changed_time"
+        elif key == "createdTime":
+            suggest = "created_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountSessionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountSessionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountSessionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 changed_time: str,
+                 created_time: str,
+                 content: Optional[Any] = None):
+        """
+        The integration account session properties.
+        :param str changed_time: The changed time.
+        :param str created_time: The created time.
+        :param Any content: The session content.
+        """
+        pulumi.set(__self__, "changed_time", changed_time)
+        pulumi.set(__self__, "created_time", created_time)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> str:
+        """
+        The changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The created time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[Any]:
+        """
+        The session content.
+        """
+        return pulumi.get(self, "content")
 
 
 @pulumi.output_type

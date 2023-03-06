@@ -37,14 +37,6 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * This type describes a volume provided by an Azure Files file share.
-     */
-    readonly azureFileParameters?: outputs.servicefabricmesh.v20180701preview.VolumeProviderParametersAzureFileResponse;
-    /**
-     * User readable description of the volume.
-     */
-    readonly description?: string;
-    /**
      * Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -57,13 +49,9 @@ export interface GetVolumeResult {
      */
     readonly name: string;
     /**
-     * Provider of the volume.
+     * Describes properties of a volume resource.
      */
-    readonly provider: string;
-    /**
-     * State of the resource.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.servicefabricmesh.v20180701preview.VolumeResourcePropertiesResponse;
     /**
      * Resource tags.
      */

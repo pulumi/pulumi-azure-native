@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The name of the Azure Search Index. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object IndexName;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
@@ -45,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'AzureSearchIndex'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Properties specific to this dataset type.
+        /// </summary>
+        public readonly Outputs.AzureSearchIndexDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureSearchIndexDatasetResponse(
@@ -52,23 +52,23 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            object indexName,
-
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.AzureSearchIndexDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
-            IndexName = indexName;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

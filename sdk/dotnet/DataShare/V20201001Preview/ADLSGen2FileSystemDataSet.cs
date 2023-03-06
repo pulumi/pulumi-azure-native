@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public partial class ADLSGen2FileSystemDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// The file system name.
-        /// </summary>
-        [Output("fileSystem")]
-        public Output<string> FileSystem { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'AdlsGen2FileSystem'.
         /// </summary>
@@ -41,22 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account
+        /// ADLS Gen 2 file system data set properties.
         /// </summary>
-        [Output("resourceGroup")]
-        public Output<string> ResourceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ADLSGen2FileSystemPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -143,12 +119,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string>? DataSetName { get; set; }
 
         /// <summary>
-        /// The file system name.
-        /// </summary>
-        [Input("fileSystem", required: true)]
-        public Input<string> FileSystem { get; set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'AdlsGen2FileSystem'.
         /// </summary>
@@ -156,10 +126,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account
+        /// ADLS Gen 2 file system data set properties.
         /// </summary>
-        [Input("resourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ADLSGen2FileSystemPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -172,18 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
 
         public ADLSGen2FileSystemDataSetArgs()
         {

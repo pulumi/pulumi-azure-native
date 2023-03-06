@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,10 +42,6 @@ export interface GetRedisFirewallRuleArgs {
  */
 export interface GetRedisFirewallRuleResult {
     /**
-     * highest IP address included in the range
-     */
-    readonly endIP: string;
-    /**
      * resource ID (of the firewall rule)
      */
     readonly id: string;
@@ -51,9 +50,9 @@ export interface GetRedisFirewallRuleResult {
      */
     readonly name: string;
     /**
-     * lowest IP address included in the range
+     * redis cache firewall rule properties
      */
-    readonly startIP: string;
+    readonly properties: outputs.cache.v20160401.RedisFirewallRulePropertiesResponse;
     /**
      * type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
      */

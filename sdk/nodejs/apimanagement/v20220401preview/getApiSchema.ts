@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,17 +45,13 @@ export interface GetApiSchemaArgs {
  */
 export interface GetApiSchemaResult {
     /**
-     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
-     */
-    readonly components?: any;
-    /**
      * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
      */
     readonly contentType: string;
     /**
-     * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
+     * Create or update Properties of the API Schema Document.
      */
-    readonly definitions?: any;
+    readonly document: outputs.apimanagement.v20220401preview.SchemaDocumentPropertiesResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -65,10 +64,6 @@ export interface GetApiSchemaResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-     */
-    readonly value?: string;
 }
 /**
  * Get the schema configuration at the API level.

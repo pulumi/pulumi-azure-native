@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,10 +45,6 @@ export interface GetScheduledTriggerArgs {
  */
 export interface GetScheduledTriggerResult {
     /**
-     * Time at which the trigger was created.
-     */
-    readonly createdAt: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -59,33 +58,13 @@ export interface GetScheduledTriggerResult {
      */
     readonly name: string;
     /**
-     * Gets the provisioning state
+     * Properties of scheduled synchronization
      */
-    readonly provisioningState: string;
-    /**
-     * Recurrence Interval
-     */
-    readonly recurrenceInterval: string;
-    /**
-     * Synchronization mode
-     */
-    readonly synchronizationMode?: string;
-    /**
-     * Synchronization time
-     */
-    readonly synchronizationTime: string;
-    /**
-     * Gets the trigger state
-     */
-    readonly triggerStatus: string;
+    readonly properties: outputs.datashare.v20181101preview.ScheduledTriggerPropertiesResponse;
     /**
      * Type of the azure resource
      */
     readonly type: string;
-    /**
-     * Name of the user who created the trigger.
-     */
-    readonly userName: string;
 }
 /**
  * Get a Trigger in a shareSubscription

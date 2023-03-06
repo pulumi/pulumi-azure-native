@@ -40,11 +40,11 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    public readonly condition!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly condition!: pulumi.Output<string | undefined>;
     /**
      * Version of the condition. Currently the only accepted value is '2.0'
      */
-    public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly conditionVersion!: pulumi.Output<string | undefined>;
     /**
      * Id of the user who created the assignment
      */
@@ -56,11 +56,11 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * Id of the delegated managed identity resource
      */
-    public readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * Description of role assignment
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * The role assignment name.
      */
@@ -68,15 +68,15 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The principal ID.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    public /*out*/ readonly principalId!: pulumi.Output<string>;
     /**
      * The principal type of the assigned principal ID.
      */
-    public readonly principalType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly principalType!: pulumi.Output<string | undefined>;
     /**
      * The role definition ID.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    public /*out*/ readonly roleDefinitionId!: pulumi.Output<string>;
     /**
      * The role assignment scope.
      */
@@ -105,27 +105,25 @@ export class RoleAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.principalId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'principalId'");
-            }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleDefinitionId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            resourceInputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalType"] = (args ? args.principalType : undefined) ?? "User";
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.authorization.v20220401.roleAssignmentPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["condition"] = undefined /*out*/;
+            resourceInputs["conditionVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["delegatedManagedIdentityResourceId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["roleDefinitionId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;
             resourceInputs["updatedOn"] = undefined /*out*/;
@@ -157,37 +155,13 @@ export class RoleAssignment extends pulumi.CustomResource {
  */
 export interface RoleAssignmentArgs {
     /**
-     * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+     * Role assignment properties.
      */
-    condition?: pulumi.Input<string>;
-    /**
-     * Version of the condition. Currently the only accepted value is '2.0'
-     */
-    conditionVersion?: pulumi.Input<string>;
-    /**
-     * Id of the delegated managed identity resource
-     */
-    delegatedManagedIdentityResourceId?: pulumi.Input<string>;
-    /**
-     * Description of role assignment
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The principal ID.
-     */
-    principalId: pulumi.Input<string>;
-    /**
-     * The principal type of the assigned principal ID.
-     */
-    principalType?: pulumi.Input<string | enums.authorization.v20220401.PrincipalType>;
+    properties: pulumi.Input<inputs.authorization.v20220401.RoleAssignmentPropertiesArgs>;
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
     roleAssignmentName?: pulumi.Input<string>;
-    /**
-     * The role definition ID.
-     */
-    roleDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

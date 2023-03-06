@@ -19,23 +19,20 @@ class DatabaseAccountSqlContainerArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
-                 options: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 resource: pulumi.Input['SqlContainerResourceArgs'],
+                 properties: pulumi.Input['SqlContainerCreateUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  container_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatabaseAccountSqlContainer resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input['SqlContainerResourceArgs'] resource: The standard JSON format of a container
+        :param pulumi.Input['SqlContainerCreateUpdatePropertiesArgs'] properties: Properties to create and update Azure Cosmos DB container.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] container_name: Cosmos DB container name.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -66,27 +63,15 @@ class DatabaseAccountSqlContainerArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+    def properties(self) -> pulumi.Input['SqlContainerCreateUpdatePropertiesArgs']:
         """
-        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        Properties to create and update Azure Cosmos DB container.
         """
-        return pulumi.get(self, "options")
+        return pulumi.get(self, "properties")
 
-    @options.setter
-    def options(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> pulumi.Input['SqlContainerResourceArgs']:
-        """
-        The standard JSON format of a container
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: pulumi.Input['SqlContainerResourceArgs']):
-        pulumi.set(self, "resource", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['SqlContainerCreateUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -126,8 +111,7 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SqlContainerCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -138,8 +122,7 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] container_name: Cosmos DB container name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']] resource: The standard JSON format of a container
+        :param pulumi.Input[pulumi.InputType['SqlContainerCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB container.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         """
         ...
@@ -169,8 +152,7 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SqlContainerCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""DatabaseAccountSqlContainer is deprecated: Version 2015-11-06 will be removed in v2 of the provider.""")
@@ -189,12 +171,9 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
-            if options is None and not opts.urn:
-                raise TypeError("Missing required property 'options'")
-            __props__.__dict__["options"] = options
-            if resource is None and not opts.urn:
-                raise TypeError("Missing required property 'resource'")
-            __props__.__dict__["resource"] = resource
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name

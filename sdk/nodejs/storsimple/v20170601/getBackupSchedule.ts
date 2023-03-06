@@ -50,10 +50,6 @@ export interface GetBackupScheduleArgs {
  */
 export interface GetBackupScheduleResult {
     /**
-     * The type of backup which needs to be taken.
-     */
-    readonly backupType: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -62,29 +58,13 @@ export interface GetBackupScheduleResult {
      */
     readonly kind?: string;
     /**
-     * The last successful backup run which was triggered for the schedule.
-     */
-    readonly lastSuccessfulRun: string;
-    /**
      * The name of the object.
      */
     readonly name: string;
     /**
-     * The number of backups to be retained.
+     * The properties of the backup schedule.
      */
-    readonly retentionCount: number;
-    /**
-     * The schedule recurrence.
-     */
-    readonly scheduleRecurrence: outputs.storsimple.v20170601.ScheduleRecurrenceResponse;
-    /**
-     * The schedule status.
-     */
-    readonly scheduleStatus: string;
-    /**
-     * The start time of the schedule.
-     */
-    readonly startTime: string;
+    readonly properties: outputs.storsimple.v20170601.BackupSchedulePropertiesResponse;
     /**
      * The hierarchical type of the object.
      */

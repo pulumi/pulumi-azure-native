@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class ZohoLinkedServiceResponse
     {
         /// <summary>
-        /// The access token for Zoho authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? AccessToken;
-        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -29,21 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// Properties used to connect to Zoho. It is mutually exclusive with any other properties in the linked service. Type: object.
-        /// </summary>
-        public readonly object? ConnectionProperties;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
-        /// </summary>
-        public readonly object? Endpoint;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -54,56 +38,30 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Zoho server linked service properties.
         /// </summary>
-        public readonly object? UseEncryptedEndpoints;
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UseHostVerification;
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UsePeerVerification;
+        public readonly Outputs.ZohoLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ZohoLinkedServiceResponse(
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? accessToken,
-
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? connectionProperties,
-
             string? description,
-
-            object? encryptedCredential,
-
-            object? endpoint,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type,
 
-            object? useEncryptedEndpoints,
-
-            object? useHostVerification,
-
-            object? usePeerVerification)
+            Outputs.ZohoLinkedServiceTypePropertiesResponse typeProperties)
         {
-            AccessToken = accessToken;
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionProperties = connectionProperties;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            Endpoint = endpoint;
             Parameters = parameters;
             Type = type;
-            UseEncryptedEndpoints = useEncryptedEndpoints;
-            UseHostVerification = useHostVerification;
-            UsePeerVerification = usePeerVerification;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name of the Snowflake database. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Table;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'SnowflakeTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Snowflake dataset properties.
+        /// </summary>
+        public readonly Outputs.SnowflakeDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SnowflakeDatasetResponse(
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? structure,
 
-            object? table,
+            string type,
 
-            string type)
+            Outputs.SnowflakeDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
@@ -81,8 +81,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Schema = schema;
             Structure = structure;
-            Table = table;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

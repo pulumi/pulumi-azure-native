@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Network.V20220701
     public sealed class GetDnsResolverResult
     {
         /// <summary>
-        /// The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
-        /// </summary>
-        public readonly string DnsResolverState;
-        /// <summary>
         /// ETag of the DNS resolver.
         /// </summary>
         public readonly string Etag;
@@ -90,13 +86,9 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the DNS resolver.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resourceGuid property of the DNS resolver resource.
-        /// </summary>
-        public readonly string ResourceGuid;
+        public readonly Outputs.DnsResolverPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -109,15 +101,9 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The reference to the virtual network. This cannot be changed after creation.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse VirtualNetwork;
 
         [OutputConstructor]
         private GetDnsResolverResult(
-            string dnsResolverState,
-
             string etag,
 
             string id,
@@ -126,29 +112,22 @@ namespace Pulumi.AzureNative.Network.V20220701
 
             string name,
 
-            string provisioningState,
-
-            string resourceGuid,
+            Outputs.DnsResolverPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.SubResourceResponse virtualNetwork)
+            string type)
         {
-            DnsResolverState = dnsResolverState;
             Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VirtualNetwork = virtualNetwork;
         }
     }
 }

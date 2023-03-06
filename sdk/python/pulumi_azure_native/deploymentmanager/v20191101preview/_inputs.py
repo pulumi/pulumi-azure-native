@@ -21,8 +21,12 @@ __all__ = [
     'RestResponseRegexArgs',
     'RestResponseArgs',
     'RolloutIdentityAuthenticationArgs',
+    'RolloutRequestPropertiesArgs',
     'SasAuthenticationArgs',
+    'ServiceResourcePropertiesArgs',
+    'ServiceTopologyResourcePropertiesArgs',
     'ServiceUnitArtifactsArgs',
+    'ServiceUnitResourcePropertiesArgs',
     'StepGroupArgs',
     'WaitStepAttributesArgs',
     'WaitStepPropertiesArgs',
@@ -499,6 +503,75 @@ class RolloutIdentityAuthenticationArgs:
 
 
 @pulumi.input_type
+class RolloutRequestPropertiesArgs:
+    def __init__(__self__, *,
+                 build_version: pulumi.Input[str],
+                 step_groups: pulumi.Input[Sequence[pulumi.Input['StepGroupArgs']]],
+                 target_service_topology_id: pulumi.Input[str],
+                 artifact_source_id: Optional[pulumi.Input[str]] = None):
+        """
+        The properties for defining a rollout.
+        :param pulumi.Input[str] build_version: The version of the build being deployed.
+        :param pulumi.Input[Sequence[pulumi.Input['StepGroupArgs']]] step_groups: The list of step groups that define the orchestration.
+        :param pulumi.Input[str] target_service_topology_id: The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
+        :param pulumi.Input[str] artifact_source_id: The reference to the artifact source resource Id where the payload is located.
+        """
+        pulumi.set(__self__, "build_version", build_version)
+        pulumi.set(__self__, "step_groups", step_groups)
+        pulumi.set(__self__, "target_service_topology_id", target_service_topology_id)
+        if artifact_source_id is not None:
+            pulumi.set(__self__, "artifact_source_id", artifact_source_id)
+
+    @property
+    @pulumi.getter(name="buildVersion")
+    def build_version(self) -> pulumi.Input[str]:
+        """
+        The version of the build being deployed.
+        """
+        return pulumi.get(self, "build_version")
+
+    @build_version.setter
+    def build_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "build_version", value)
+
+    @property
+    @pulumi.getter(name="stepGroups")
+    def step_groups(self) -> pulumi.Input[Sequence[pulumi.Input['StepGroupArgs']]]:
+        """
+        The list of step groups that define the orchestration.
+        """
+        return pulumi.get(self, "step_groups")
+
+    @step_groups.setter
+    def step_groups(self, value: pulumi.Input[Sequence[pulumi.Input['StepGroupArgs']]]):
+        pulumi.set(self, "step_groups", value)
+
+    @property
+    @pulumi.getter(name="targetServiceTopologyId")
+    def target_service_topology_id(self) -> pulumi.Input[str]:
+        """
+        The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
+        """
+        return pulumi.get(self, "target_service_topology_id")
+
+    @target_service_topology_id.setter
+    def target_service_topology_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_service_topology_id", value)
+
+    @property
+    @pulumi.getter(name="artifactSourceId")
+    def artifact_source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reference to the artifact source resource Id where the payload is located.
+        """
+        return pulumi.get(self, "artifact_source_id")
+
+    @artifact_source_id.setter
+    def artifact_source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_source_id", value)
+
+
+@pulumi.input_type
 class SasAuthenticationArgs:
     def __init__(__self__, *,
                  sas_uri: pulumi.Input[str],
@@ -536,6 +609,68 @@ class SasAuthenticationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ServiceResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 target_location: pulumi.Input[str],
+                 target_subscription_id: pulumi.Input[str]):
+        """
+        The properties that define a service in a service topology.
+        :param pulumi.Input[str] target_location: The Azure location to which the resources in the service belong to or should be deployed to.
+        :param pulumi.Input[str] target_subscription_id: The subscription to which the resources in the service belong to or should be deployed to.
+        """
+        pulumi.set(__self__, "target_location", target_location)
+        pulumi.set(__self__, "target_subscription_id", target_subscription_id)
+
+    @property
+    @pulumi.getter(name="targetLocation")
+    def target_location(self) -> pulumi.Input[str]:
+        """
+        The Azure location to which the resources in the service belong to or should be deployed to.
+        """
+        return pulumi.get(self, "target_location")
+
+    @target_location.setter
+    def target_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_location", value)
+
+    @property
+    @pulumi.getter(name="targetSubscriptionId")
+    def target_subscription_id(self) -> pulumi.Input[str]:
+        """
+        The subscription to which the resources in the service belong to or should be deployed to.
+        """
+        return pulumi.get(self, "target_subscription_id")
+
+    @target_subscription_id.setter
+    def target_subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_subscription_id", value)
+
+
+@pulumi.input_type
+class ServiceTopologyResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 artifact_source_id: Optional[pulumi.Input[str]] = None):
+        """
+        The properties that define the service topology.
+        :param pulumi.Input[str] artifact_source_id: The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
+        """
+        if artifact_source_id is not None:
+            pulumi.set(__self__, "artifact_source_id", artifact_source_id)
+
+    @property
+    @pulumi.getter(name="artifactSourceId")
+    def artifact_source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
+        """
+        return pulumi.get(self, "artifact_source_id")
+
+    @artifact_source_id.setter
+    def artifact_source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_source_id", value)
 
 
 @pulumi.input_type
@@ -608,6 +743,60 @@ class ServiceUnitArtifactsArgs:
     @template_uri.setter
     def template_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_uri", value)
+
+
+@pulumi.input_type
+class ServiceUnitResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 deployment_mode: pulumi.Input['DeploymentMode'],
+                 target_resource_group: pulumi.Input[str],
+                 artifacts: Optional[pulumi.Input['ServiceUnitArtifactsArgs']] = None):
+        """
+        The properties that define the service unit.
+        :param pulumi.Input['DeploymentMode'] deployment_mode: Describes the type of ARM deployment to be performed on the resource.
+        :param pulumi.Input[str] target_resource_group: The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+        :param pulumi.Input['ServiceUnitArtifactsArgs'] artifacts: The artifacts for the service unit.
+        """
+        pulumi.set(__self__, "deployment_mode", deployment_mode)
+        pulumi.set(__self__, "target_resource_group", target_resource_group)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> pulumi.Input['DeploymentMode']:
+        """
+        Describes the type of ARM deployment to be performed on the resource.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: pulumi.Input['DeploymentMode']):
+        pulumi.set(self, "deployment_mode", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroup")
+    def target_resource_group(self) -> pulumi.Input[str]:
+        """
+        The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+        """
+        return pulumi.get(self, "target_resource_group")
+
+    @target_resource_group.setter
+    def target_resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_resource_group", value)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input['ServiceUnitArtifactsArgs']]:
+        """
+        The artifacts for the service unit.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input['ServiceUnitArtifactsArgs']]):
+        pulumi.set(self, "artifacts", value)
 
 
 @pulumi.input_type

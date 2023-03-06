@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// Type of authentication used to connect to the OData service.
-        /// </summary>
-        [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.ODataAuthenticationType>? AuthenticationType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -64,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// Password of the OData service.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'OData'.
         /// </summary>
@@ -77,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
+        /// OData linked service properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
-
-        /// <summary>
-        /// User name of the OData service. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ODataLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ODataLinkedServiceArgs()
         {

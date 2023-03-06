@@ -22,25 +22,16 @@ class GetWebPubSubCustomCertificateResult:
     """
     A custom certificate.
     """
-    def __init__(__self__, id=None, key_vault_base_uri=None, key_vault_secret_name=None, key_vault_secret_version=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if key_vault_base_uri and not isinstance(key_vault_base_uri, str):
-            raise TypeError("Expected argument 'key_vault_base_uri' to be a str")
-        pulumi.set(__self__, "key_vault_base_uri", key_vault_base_uri)
-        if key_vault_secret_name and not isinstance(key_vault_secret_name, str):
-            raise TypeError("Expected argument 'key_vault_secret_name' to be a str")
-        pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
-        if key_vault_secret_version and not isinstance(key_vault_secret_version, str):
-            raise TypeError("Expected argument 'key_vault_secret_version' to be a str")
-        pulumi.set(__self__, "key_vault_secret_version", key_vault_secret_version)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -57,30 +48,6 @@ class GetWebPubSubCustomCertificateResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="keyVaultBaseUri")
-    def key_vault_base_uri(self) -> str:
-        """
-        Base uri of the KeyVault that stores certificate.
-        """
-        return pulumi.get(self, "key_vault_base_uri")
-
-    @property
-    @pulumi.getter(name="keyVaultSecretName")
-    def key_vault_secret_name(self) -> str:
-        """
-        Certificate secret name.
-        """
-        return pulumi.get(self, "key_vault_secret_name")
-
-    @property
-    @pulumi.getter(name="keyVaultSecretVersion")
-    def key_vault_secret_version(self) -> Optional[str]:
-        """
-        Certificate secret version.
-        """
-        return pulumi.get(self, "key_vault_secret_version")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -89,12 +56,12 @@ class GetWebPubSubCustomCertificateResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.CustomCertificatePropertiesResponse':
         """
-        Provisioning state of the resource.
+        Custom certificate properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -120,11 +87,8 @@ class AwaitableGetWebPubSubCustomCertificateResult(GetWebPubSubCustomCertificate
             yield self
         return GetWebPubSubCustomCertificateResult(
             id=self.id,
-            key_vault_base_uri=self.key_vault_base_uri,
-            key_vault_secret_name=self.key_vault_secret_name,
-            key_vault_secret_version=self.key_vault_secret_version,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -150,11 +114,8 @@ def get_web_pub_sub_custom_certificate(certificate_name: Optional[str] = None,
 
     return AwaitableGetWebPubSubCustomCertificateResult(
         id=__ret__.id,
-        key_vault_base_uri=__ret__.key_vault_base_uri,
-        key_vault_secret_name=__ret__.key_vault_secret_name,
-        key_vault_secret_version=__ret__.key_vault_secret_version,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

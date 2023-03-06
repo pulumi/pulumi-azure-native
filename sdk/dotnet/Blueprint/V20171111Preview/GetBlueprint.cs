@@ -71,85 +71,36 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public sealed class GetBlueprintResult
     {
         /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Layout view of the blueprint, for UI reference.
-        /// </summary>
-        public readonly object? Layout;
         /// <summary>
         /// Name of this resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters required by this Blueprint definition.
+        /// Detailed properties for blueprint
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? Parameters;
-        /// <summary>
-        /// Resource group placeholders defined by this Blueprint definition.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? ResourceGroups;
-        /// <summary>
-        /// Status of the Blueprint. This field is readonly.
-        /// </summary>
-        public readonly Outputs.BlueprintStatusResponse Status;
-        /// <summary>
-        /// The scope where this Blueprint can be applied.
-        /// </summary>
-        public readonly string TargetScope;
+        public readonly Outputs.BlueprintPropertiesResponse Properties;
         /// <summary>
         /// Type of this resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Published versions of this blueprint.
-        /// </summary>
-        public readonly object? Versions;
 
         [OutputConstructor]
         private GetBlueprintResult(
-            string? description,
-
-            string? displayName,
-
             string id,
-
-            object? layout,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? parameters,
+            Outputs.BlueprintPropertiesResponse properties,
 
-            ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? resourceGroups,
-
-            Outputs.BlueprintStatusResponse status,
-
-            string targetScope,
-
-            string type,
-
-            object? versions)
+            string type)
         {
-            Description = description;
-            DisplayName = displayName;
             Id = id;
-            Layout = layout;
             Name = name;
-            Parameters = parameters;
-            ResourceGroups = resourceGroups;
-            Status = status;
-            TargetScope = targetScope;
+            Properties = properties;
             Type = type;
-            Versions = versions;
         }
     }
 }

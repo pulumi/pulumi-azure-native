@@ -72,22 +72,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetRackResult
     {
         /// <summary>
-        /// The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
-        /// </summary>
-        public readonly string AvailabilityZone;
-        /// <summary>
-        /// The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
-        /// </summary>
-        public readonly string ClusterId;
-        /// <summary>
-        /// The more detailed status of the rack.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -104,21 +88,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the rack resource.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
-        /// </summary>
-        public readonly string RackLocation;
-        /// <summary>
-        /// The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
-        /// </summary>
-        public readonly string RackSerialNumber;
-        /// <summary>
-        /// The SKU for the rack.
-        /// </summary>
-        public readonly string RackSkuId;
+        public readonly Outputs.RackPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -134,14 +106,6 @@ namespace Pulumi.AzureNative.NetworkCloud
 
         [OutputConstructor]
         private GetRackResult(
-            string availabilityZone,
-
-            string clusterId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -150,13 +114,7 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string name,
 
-            string provisioningState,
-
-            string rackLocation,
-
-            string rackSerialNumber,
-
-            string rackSkuId,
+            Outputs.RackPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -164,18 +122,11 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string type)
         {
-            AvailabilityZone = availabilityZone;
-            ClusterId = clusterId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            RackLocation = rackLocation;
-            RackSerialNumber = rackSerialNumber;
-            RackSkuId = rackSkuId;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

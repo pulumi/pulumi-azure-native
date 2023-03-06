@@ -38,41 +38,13 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
-    /**
      * Gets or sets the extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.ExtendedLocationResponse | undefined>;
     /**
-     * Firmware type
-     */
-    public readonly firmwareType!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets the folder path of the vm.
-     */
-    public /*out*/ readonly folderPath!: pulumi.Output<string>;
-    /**
-     * Guest agent status properties.
-     */
-    public /*out*/ readonly guestAgentProfile!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.GuestAgentProfileResponse | undefined>;
-    /**
-     * Hardware properties.
-     */
-    public readonly hardwareProfile!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.HardwareProfileResponse | undefined>;
-    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.IdentityResponse | undefined>;
-    /**
-     * Gets or sets the instance uuid of the vm.
-     */
-    public /*out*/ readonly instanceUuid!: pulumi.Output<string>;
-    /**
-     * Gets or sets the inventory Item ID for the virtual machine.
-     */
-    public readonly inventoryItemId!: pulumi.Output<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -82,58 +54,13 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Gets or sets the vCenter Managed Object name for the virtual machine.
-     */
-    public /*out*/ readonly moName!: pulumi.Output<string>;
-    /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
-     */
-    public readonly moRefId!: pulumi.Output<string | undefined>;
-    /**
      * Gets or sets the name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network properties.
+     * Resource properties.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.NetworkProfileResponse | undefined>;
-    /**
-     * OS properties.
-     */
-    public readonly osProfile!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.OsProfileResponse | undefined>;
-    /**
-     * Placement properties.
-     */
-    public readonly placementProfile!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.PlacementProfileResponse | undefined>;
-    /**
-     * Gets the power state of the virtual machine.
-     */
-    public /*out*/ readonly powerState!: pulumi.Output<string>;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
-     * deploy.
-     */
-    public readonly resourcePoolId!: pulumi.Output<string | undefined>;
-    /**
-     * Gets the security profile.
-     */
-    public readonly securityProfile!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.SecurityProfileResponse | undefined>;
-    /**
-     * Gets or sets the SMBIOS UUID of the vm.
-     */
-    public readonly smbiosUuid!: pulumi.Output<string | undefined>;
-    /**
-     * The resource status information.
-     */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.ResourceStatusResponse[]>;
-    /**
-     * Storage properties.
-     */
-    public readonly storageProfile!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.StorageProfileResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.connectedvmwarevsphere.v20220110preview.VirtualMachinePropertiesResponse>;
     /**
      * The system data.
      */
@@ -143,25 +70,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Gets or sets the ARM Id of the template resource to deploy the virtual machine.
-     */
-    public readonly templateId!: pulumi.Output<string | undefined>;
-    /**
      * Gets or sets the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-     */
-    public readonly vCenterId!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets a unique identifier for the vm resource.
-     */
-    public /*out*/ readonly vmId!: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -174,74 +85,33 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["firmwareType"] = args ? args.firmwareType : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["placementProfile"] = args ? args.placementProfile : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourcePoolId"] = args ? args.resourcePoolId : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["smbiosUuid"] = args ? args.smbiosUuid : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["customResourceName"] = undefined /*out*/;
-            resourceInputs["folderPath"] = undefined /*out*/;
-            resourceInputs["guestAgentProfile"] = undefined /*out*/;
-            resourceInputs["instanceUuid"] = undefined /*out*/;
-            resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["powerState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["vmId"] = undefined /*out*/;
         } else {
-            resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["firmwareType"] = undefined /*out*/;
-            resourceInputs["folderPath"] = undefined /*out*/;
-            resourceInputs["guestAgentProfile"] = undefined /*out*/;
-            resourceInputs["hardwareProfile"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["instanceUuid"] = undefined /*out*/;
-            resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["moName"] = undefined /*out*/;
-            resourceInputs["moRefId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkProfile"] = undefined /*out*/;
-            resourceInputs["osProfile"] = undefined /*out*/;
-            resourceInputs["placementProfile"] = undefined /*out*/;
-            resourceInputs["powerState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourcePoolId"] = undefined /*out*/;
-            resourceInputs["securityProfile"] = undefined /*out*/;
-            resourceInputs["smbiosUuid"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
-            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["templateId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["vCenterId"] = undefined /*out*/;
-            resourceInputs["vmId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:VirtualMachine" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachine" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine" }] };
@@ -259,21 +129,9 @@ export interface VirtualMachineArgs {
      */
     extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.ExtendedLocationArgs>;
     /**
-     * Firmware type
-     */
-    firmwareType?: pulumi.Input<string | enums.connectedvmwarevsphere.v20220110preview.FirmwareType>;
-    /**
-     * Hardware properties.
-     */
-    hardwareProfile?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.HardwareProfileArgs>;
-    /**
      * The identity of the resource.
      */
     identity?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.IdentityArgs>;
-    /**
-     * Gets or sets the inventory Item ID for the virtual machine.
-     */
-    inventoryItemId?: pulumi.Input<string>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -283,54 +141,17 @@ export interface VirtualMachineArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+     * Resource properties.
      */
-    moRefId?: pulumi.Input<string>;
-    /**
-     * Network properties.
-     */
-    networkProfile?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.NetworkProfileArgs>;
-    /**
-     * OS properties.
-     */
-    osProfile?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.OsProfileArgs>;
-    /**
-     * Placement properties.
-     */
-    placementProfile?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.PlacementProfileArgs>;
+    properties: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.VirtualMachinePropertiesArgs>;
     /**
      * The Resource Group Name.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
-     * deploy.
-     */
-    resourcePoolId?: pulumi.Input<string>;
-    /**
-     * Gets the security profile.
-     */
-    securityProfile?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.SecurityProfileArgs>;
-    /**
-     * Gets or sets the SMBIOS UUID of the vm.
-     */
-    smbiosUuid?: pulumi.Input<string>;
-    /**
-     * Storage properties.
-     */
-    storageProfile?: pulumi.Input<inputs.connectedvmwarevsphere.v20220110preview.StorageProfileArgs>;
-    /**
      * Gets or sets the Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Gets or sets the ARM Id of the template resource to deploy the virtual machine.
-     */
-    templateId?: pulumi.Input<string>;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-     */
-    vCenterId?: pulumi.Input<string>;
     /**
      * Name of the virtual machine resource.
      */

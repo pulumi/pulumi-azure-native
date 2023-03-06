@@ -98,17 +98,9 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the outbound endpoint.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resourceGuid property of the outbound endpoint resource.
-        /// </summary>
-        public readonly string ResourceGuid;
-        /// <summary>
-        /// The reference to the subnet used for the outbound endpoint.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse Subnet;
+        public readonly Outputs.OutboundEndpointPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -132,11 +124,7 @@ namespace Pulumi.AzureNative.Network.V20220701
 
             string name,
 
-            string provisioningState,
-
-            string resourceGuid,
-
-            Outputs.SubResourceResponse subnet,
+            Outputs.OutboundEndpointPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -148,9 +136,7 @@ namespace Pulumi.AzureNative.Network.V20220701
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
-            Subnet = subnet;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

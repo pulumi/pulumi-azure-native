@@ -45,22 +45,6 @@ export interface GetBlobStorageAccountDataSetMappingArgs {
  */
 export interface GetBlobStorageAccountDataSetMappingResult {
     /**
-     * Gets or sets the container name.
-     */
-    readonly containerName: string;
-    /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
-     * Gets or sets the path to folder within the container.
-     */
-    readonly folder: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -70,25 +54,13 @@ export interface GetBlobStorageAccountDataSetMappingResult {
      */
     readonly kind: "BlobStorageAccount";
     /**
-     * Location of the sink storage account.
-     */
-    readonly location: string;
-    /**
-     * Gets or sets the mount path on the consumer side where the dataset is to be mapped.
-     */
-    readonly mountPath?: string;
-    /**
      * Name of the azure resource
      */
     readonly name: string;
     /**
-     * Provisioning state of the data set mapping.
+     * Blob Storage account data set mapping properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Resource id of the sink storage account
-     */
-    readonly storageAccountResourceId: string;
+    readonly properties: outputs.datashare.v20201001preview.BlobStorageAccountDataSetMappingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

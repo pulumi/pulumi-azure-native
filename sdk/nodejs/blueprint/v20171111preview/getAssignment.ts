@@ -37,18 +37,6 @@ export interface GetAssignmentArgs {
  */
 export interface GetAssignmentResult {
     /**
-     * ID of the Blueprint definition resource.
-     */
-    readonly blueprintId?: string;
-    /**
-     * Multi-line explain this resource.
-     */
-    readonly description?: string;
-    /**
-     * One-liner string explain this resource.
-     */
-    readonly displayName?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -61,29 +49,13 @@ export interface GetAssignmentResult {
      */
     readonly location: string;
     /**
-     * Defines how Blueprint-managed resources will be locked.
-     */
-    readonly locks?: outputs.blueprint.v20171111preview.AssignmentLockSettingsResponse;
-    /**
      * Name of this resource.
      */
     readonly name: string;
     /**
-     * Blueprint parameter values.
+     * Properties for Assignment object.
      */
-    readonly parameters: {[key: string]: outputs.blueprint.v20171111preview.ParameterValueBaseResponse};
-    /**
-     * State of the assignment.
-     */
-    readonly provisioningState: string;
-    /**
-     * Names and locations of resource group placeholders.
-     */
-    readonly resourceGroups: {[key: string]: outputs.blueprint.v20171111preview.ResourceGroupValueResponse};
-    /**
-     * Status of Blueprint assignment. This field is readonly.
-     */
-    readonly status: outputs.blueprint.v20171111preview.AssignmentStatusResponse;
+    readonly properties: outputs.blueprint.v20171111preview.AssignmentPropertiesResponse;
     /**
      * Type of this resource.
      */

@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public partial class Formula : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The author of the formula.
-        /// </summary>
-        [Output("author")]
-        public Output<string> Author { get; private set; } = null!;
-
-        /// <summary>
-        /// The creation date of the formula.
-        /// </summary>
-        [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the formula.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The content of the formula.
-        /// </summary>
-        [Output("formulaContent")]
-        public Output<Outputs.LabVirtualMachineCreationParameterResponse?> FormulaContent { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -52,16 +28,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The OS type of the formula.
+        /// The properties of the resource.
         /// </summary>
-        [Output("osType")]
-        public Output<string?> OsType { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning status of the resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.FormulaPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -74,18 +44,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// Information about a VM from which a formula is to be created.
-        /// </summary>
-        [Output("vm")]
-        public Output<Outputs.FormulaPropertiesFromVmResponse?> Vm { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,18 +97,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public sealed class FormulaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the formula.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The content of the formula.
-        /// </summary>
-        [Input("formulaContent")]
-        public Input<Inputs.LabVirtualMachineCreationParameterArgs>? FormulaContent { get; set; }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -169,10 +115,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The OS type of the formula.
+        /// The properties of the resource.
         /// </summary>
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.FormulaPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -191,12 +137,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Information about a VM from which a formula is to be created.
-        /// </summary>
-        [Input("vm")]
-        public Input<Inputs.FormulaPropertiesFromVmArgs>? Vm { get; set; }
 
         public FormulaArgs()
         {

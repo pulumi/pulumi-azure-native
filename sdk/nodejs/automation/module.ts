@@ -45,7 +45,7 @@ export class Module extends pulumi.CustomResource {
     /**
      * Gets or sets the contentLink of the module.
      */
-    public readonly contentLink!: pulumi.Output<outputs.automation.ContentLinkResponse | undefined>;
+    public /*out*/ readonly contentLink!: pulumi.Output<outputs.automation.ContentLinkResponse | undefined>;
     /**
      * Gets or sets the creation time.
      */
@@ -117,20 +117,21 @@ export class Module extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentLink === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'contentLink'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["contentLink"] = args ? args.contentLink : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["moduleName"] = args ? args.moduleName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activityCount"] = undefined /*out*/;
+            resourceInputs["contentLink"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;
@@ -176,10 +177,6 @@ export interface ModuleArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the module content link.
-     */
-    contentLink: pulumi.Input<inputs.automation.ContentLinkArgs>;
-    /**
      * Gets or sets the location of the resource.
      */
     location?: pulumi.Input<string>;
@@ -191,6 +188,10 @@ export interface ModuleArgs {
      * Gets or sets name of the resource.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Gets or sets the module create properties.
+     */
+    properties: pulumi.Input<inputs.automation.ModuleCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */

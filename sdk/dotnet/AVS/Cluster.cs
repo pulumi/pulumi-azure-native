@@ -17,34 +17,16 @@ namespace Pulumi.AzureNative.AVS
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identity
-        /// </summary>
-        [Output("clusterId")]
-        public Output<int> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The cluster size
-        /// </summary>
-        [Output("clusterSize")]
-        public Output<int> ClusterSize { get; private set; } = null!;
-
-        /// <summary>
-        /// The hosts
-        /// </summary>
-        [Output("hosts")]
-        public Output<ImmutableArray<string>> Hosts { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the cluster provisioning
+        /// The properties of a cluster resource
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The cluster SKU
@@ -119,16 +101,16 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// The cluster size
-        /// </summary>
-        [Input("clusterSize", required: true)]
-        public Input<int> ClusterSize { get; set; } = null!;
-
-        /// <summary>
         /// The name of the private cloud.
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The properties of a cluster resource
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ClusterPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

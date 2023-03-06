@@ -17,70 +17,22 @@ namespace Pulumi.AzureNative.Logic
     public partial class IntegrationAccountAgreement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The agreement type.
-        /// </summary>
-        [Output("agreementType")]
-        public Output<string> AgreementType { get; private set; } = null!;
-
-        /// <summary>
-        /// The changed time.
-        /// </summary>
-        [Output("changedTime")]
-        public Output<string> ChangedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The agreement content.
-        /// </summary>
-        [Output("content")]
-        public Output<Outputs.AgreementContentResponse> Content { get; private set; } = null!;
-
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The business identity of the guest partner.
-        /// </summary>
-        [Output("guestIdentity")]
-        public Output<Outputs.BusinessIdentityResponse> GuestIdentity { get; private set; } = null!;
-
-        /// <summary>
-        /// The integration account partner that is set as guest partner for this agreement.
-        /// </summary>
-        [Output("guestPartner")]
-        public Output<string> GuestPartner { get; private set; } = null!;
-
-        /// <summary>
-        /// The business identity of the host partner.
-        /// </summary>
-        [Output("hostIdentity")]
-        public Output<Outputs.BusinessIdentityResponse> HostIdentity { get; private set; } = null!;
-
-        /// <summary>
-        /// The integration account partner that is set as host partner for this agreement.
-        /// </summary>
-        [Output("hostPartner")]
-        public Output<string> HostPartner { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Output("metadata")]
-        public Output<object?> Metadata { get; private set; } = null!;
-
-        /// <summary>
         /// Gets the resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account agreement properties.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.IntegrationAccountAgreementPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -153,42 +105,6 @@ namespace Pulumi.AzureNative.Logic
         public Input<string>? AgreementName { get; set; }
 
         /// <summary>
-        /// The agreement type.
-        /// </summary>
-        [Input("agreementType", required: true)]
-        public Input<Pulumi.AzureNative.Logic.AgreementType> AgreementType { get; set; } = null!;
-
-        /// <summary>
-        /// The agreement content.
-        /// </summary>
-        [Input("content", required: true)]
-        public Input<Inputs.AgreementContentArgs> Content { get; set; } = null!;
-
-        /// <summary>
-        /// The business identity of the guest partner.
-        /// </summary>
-        [Input("guestIdentity", required: true)]
-        public Input<Inputs.BusinessIdentityArgs> GuestIdentity { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account partner that is set as guest partner for this agreement.
-        /// </summary>
-        [Input("guestPartner", required: true)]
-        public Input<string> GuestPartner { get; set; } = null!;
-
-        /// <summary>
-        /// The business identity of the host partner.
-        /// </summary>
-        [Input("hostIdentity", required: true)]
-        public Input<Inputs.BusinessIdentityArgs> HostIdentity { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account partner that is set as host partner for this agreement.
-        /// </summary>
-        [Input("hostPartner", required: true)]
-        public Input<string> HostPartner { get; set; } = null!;
-
-        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -201,10 +117,10 @@ namespace Pulumi.AzureNative.Logic
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The metadata.
+        /// The integration account agreement properties.
         /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.IntegrationAccountAgreementPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

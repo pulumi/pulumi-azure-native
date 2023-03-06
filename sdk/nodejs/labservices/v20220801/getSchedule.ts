@@ -48,33 +48,13 @@ export interface GetScheduleResult {
      */
     readonly name: string;
     /**
-     * Notes for this schedule.
+     * Schedule resource properties
      */
-    readonly notes?: string;
-    /**
-     * Current provisioning state of the schedule.
-     */
-    readonly provisioningState: string;
-    /**
-     * The recurrence pattern of the scheduled actions.
-     */
-    readonly recurrencePattern?: outputs.labservices.v20220801.RecurrencePatternResponse;
-    /**
-     * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-     */
-    readonly startAt?: string;
-    /**
-     * When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-     */
-    readonly stopAt: string;
+    readonly properties: outputs.labservices.v20220801.SchedulePropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the schedule.
      */
     readonly systemData: outputs.labservices.v20220801.SystemDataResponse;
-    /**
-     * The IANA timezone id for the schedule.
-     */
-    readonly timeZoneId: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

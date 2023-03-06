@@ -46,14 +46,6 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs {
  */
 export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingResult {
     /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -67,13 +59,9 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the data set mapping.
+     * A Synapse Workspace Sql Pool Table data set mapping properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Resource id of the Synapse Workspace SQL Pool Table
-     */
-    readonly synapseWorkspaceSqlPoolTableResourceId: string;
+    readonly properties: outputs.datashare.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

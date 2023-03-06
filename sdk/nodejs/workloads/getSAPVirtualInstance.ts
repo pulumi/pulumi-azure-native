@@ -36,22 +36,6 @@ export interface GetSAPVirtualInstanceArgs {
  */
 export interface GetSAPVirtualInstanceResult {
     /**
-     * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-     */
-    readonly configuration: outputs.workloads.DeploymentConfigurationResponse | outputs.workloads.DeploymentWithOSConfigurationResponse | outputs.workloads.DiscoveryConfigurationResponse;
-    /**
-     * Defines the environment type - Production/Non Production.
-     */
-    readonly environment: string;
-    /**
-     * Indicates any errors on the Virtual Instance for SAP solutions resource.
-     */
-    readonly errors: outputs.workloads.SAPVirtualInstanceErrorResponse;
-    /**
-     * Defines the health of SAP Instances.
-     */
-    readonly health: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -64,29 +48,13 @@ export interface GetSAPVirtualInstanceResult {
      */
     readonly location: string;
     /**
-     * Managed resource group configuration
-     */
-    readonly managedResourceGroupConfiguration?: outputs.workloads.ManagedRGConfigurationResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Defines the provisioning states.
+     * Defines the Virtual Instance for SAP solutions resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Defines the SAP Product type.
-     */
-    readonly sapProduct: string;
-    /**
-     * Defines the Virtual Instance for SAP state.
-     */
-    readonly state: string;
-    /**
-     * Defines the SAP Instance status.
-     */
-    readonly status: string;
+    readonly properties: outputs.workloads.SAPVirtualInstancePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

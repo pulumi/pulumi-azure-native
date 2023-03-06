@@ -47,10 +47,6 @@ export interface GetSimGroupResult {
      */
     readonly createdByType?: string;
     /**
-     * A key to encrypt the SIM data that belongs to this SIM group.
-     */
-    readonly encryptionKey?: outputs.mobilenetwork.v20220401preview.KeyVaultKeyResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -75,17 +71,13 @@ export interface GetSimGroupResult {
      */
     readonly location: string;
     /**
-     * Mobile network that this SIM belongs to
-     */
-    readonly mobileNetwork?: outputs.mobilenetwork.v20220401preview.MobileNetworkResourceIdResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the SIM group resource.
+     * SIM group Properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.mobilenetwork.v20220401preview.SimGroupPropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

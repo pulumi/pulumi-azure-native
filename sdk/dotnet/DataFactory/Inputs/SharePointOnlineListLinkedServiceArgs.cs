@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -58,35 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId", required: true)]
-        public Input<object> ServicePrincipalId { get; set; } = null!;
-
-        /// <summary>
-        /// The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalKey", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ServicePrincipalKey { get; set; } = null!;
-
-        /// <summary>
-        /// The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("siteUrl", required: true)]
-        public Input<object> SiteUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<object> TenantId { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'SharePointOnlineList'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// SharePoint Online List linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SharePointOnlineListLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SharePointOnlineListLinkedServiceArgs()
         {

@@ -96,10 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetSynapseWorkspaceSqlPoolTableDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -113,9 +109,9 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource id of the Synapse Workspace SQL Pool Table
+        /// Synapse Workspace Sql Pool Table data set properties.
         /// </summary>
-        public readonly string SynapseWorkspaceSqlPoolTableResourceId;
+        public readonly Outputs.SynapseWorkspaceSqlPoolTableDataSetPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -127,25 +123,22 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetSynapseWorkspaceSqlPoolTableDataSetResult(
-            string dataSetId,
-
             string id,
 
             string kind,
 
             string name,
 
-            string synapseWorkspaceSqlPoolTableResourceId,
+            Outputs.SynapseWorkspaceSqlPoolTableDataSetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
             Name = name;
-            SynapseWorkspaceSqlPoolTableResourceId = synapseWorkspaceSqlPoolTableResourceId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

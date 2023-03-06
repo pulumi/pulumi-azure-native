@@ -45,9 +45,9 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+     * Properties of BackupScheduleGroup
      */
-    public readonly startTime!: pulumi.Output<outputs.storsimple.v20161001.TimeResponse>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.BackupScheduleGroupPropertiesResponse>;
     /**
      * The type.
      */
@@ -72,22 +72,22 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'startTime'");
-            }
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleGroupName"] = args ? args.scheduleGroupName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -108,6 +108,10 @@ export interface BackupScheduleGroupArgs {
      */
     managerName: pulumi.Input<string>;
     /**
+     * Properties of BackupScheduleGroup
+     */
+    properties: pulumi.Input<inputs.storsimple.v20161001.BackupScheduleGroupPropertiesArgs>;
+    /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
@@ -115,8 +119,4 @@ export interface BackupScheduleGroupArgs {
      * The name of the schedule group.
      */
     scheduleGroupName?: pulumi.Input<string>;
-    /**
-     * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-     */
-    startTime: pulumi.Input<inputs.storsimple.v20161001.TimeArgs>;
 }

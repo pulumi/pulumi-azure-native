@@ -41,61 +41,17 @@ export class HostPool extends pulumi.CustomResource {
     }
 
     /**
-     * List of applicationGroup links.
-     */
-    public /*out*/ readonly applicationGroupReferences!: pulumi.Output<string[]>;
-    /**
-     * Custom rdp property of HostPool.
-     */
-    public readonly customRdpProperty!: pulumi.Output<string | undefined>;
-    /**
-     * Description of HostPool.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Friendly name of HostPool.
-     */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
-    /**
-     * HostPool type for desktop.
-     */
-    public readonly hostPoolType!: pulumi.Output<string>;
-    /**
-     * The type of the load balancer.
-     */
-    public readonly loadBalancerType!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * The max session limit of HostPool.
-     */
-    public readonly maxSessionLimit!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * PersonalDesktopAssignment type for HostPool.
+     * Detailed properties for HostPool
      */
-    public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
-    /**
-     * The type of preferred application group type, default to Desktop Application Group
-     */
-    public readonly preferredAppGroupType!: pulumi.Output<string>;
-    /**
-     * The registration info of HostPool.
-     */
-    public readonly registrationInfo!: pulumi.Output<outputs.desktopvirtualization.v20190123preview.RegistrationInfoResponse | undefined>;
-    /**
-     * The ring number of HostPool.
-     */
-    public readonly ring!: pulumi.Output<number | undefined>;
-    /**
-     * Path to keyvault containing ssoContext secret.
-     */
-    public readonly ssoContext!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.desktopvirtualization.v20190123preview.HostPoolPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -104,14 +60,6 @@ export class HostPool extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Is validation environment.
-     */
-    public readonly validationEnvironment!: pulumi.Output<boolean | undefined>;
-    /**
-     * VM template for sessionhosts configuration within hostpool.
-     */
-    public readonly vmTemplate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostPool resource with the given unique name, arguments, and options.
@@ -126,57 +74,25 @@ export class HostPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostPoolType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'hostPoolType'");
-            }
-            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'loadBalancerType'");
-            }
-            if ((!args || args.preferredAppGroupType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'preferredAppGroupType'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["hostPoolName"] = args ? args.hostPoolName : undefined;
-            resourceInputs["hostPoolType"] = args ? args.hostPoolType : undefined;
-            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxSessionLimit"] = args ? args.maxSessionLimit : undefined;
-            resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
-            resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
-            resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ring"] = args ? args.ring : undefined;
-            resourceInputs["ssoContext"] = args ? args.ssoContext : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validationEnvironment"] = args ? args.validationEnvironment : undefined;
-            resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
-            resourceInputs["applicationGroupReferences"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["applicationGroupReferences"] = undefined /*out*/;
-            resourceInputs["customRdpProperty"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["friendlyName"] = undefined /*out*/;
-            resourceInputs["hostPoolType"] = undefined /*out*/;
-            resourceInputs["loadBalancerType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["maxSessionLimit"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["personalDesktopAssignmentType"] = undefined /*out*/;
-            resourceInputs["preferredAppGroupType"] = undefined /*out*/;
-            resourceInputs["registrationInfo"] = undefined /*out*/;
-            resourceInputs["ring"] = undefined /*out*/;
-            resourceInputs["ssoContext"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["validationEnvironment"] = undefined /*out*/;
-            resourceInputs["vmTemplate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:HostPool" }, { type: "azure-native:desktopvirtualization/v20190924preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20191210preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201019preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201102preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201110preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210201preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210309preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210401preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210712:HostPool" }, { type: "azure-native:desktopvirtualization/v20210903preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220210preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220401preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220909:HostPool" }, { type: "azure-native:desktopvirtualization/v20221014preview:HostPool" }] };
@@ -190,71 +106,23 @@ export class HostPool extends pulumi.CustomResource {
  */
 export interface HostPoolArgs {
     /**
-     * Custom rdp property of HostPool.
-     */
-    customRdpProperty?: pulumi.Input<string>;
-    /**
-     * Description of HostPool.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Friendly name of HostPool.
-     */
-    friendlyName?: pulumi.Input<string>;
-    /**
      * The name of the host pool within the specified resource group
      */
     hostPoolName?: pulumi.Input<string>;
-    /**
-     * HostPool type for desktop.
-     */
-    hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20190123preview.HostPoolType>;
-    /**
-     * The type of the load balancer.
-     */
-    loadBalancerType: pulumi.Input<string | enums.desktopvirtualization.v20190123preview.LoadBalancerType>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The max session limit of HostPool.
+     * Detailed properties for HostPool
      */
-    maxSessionLimit?: pulumi.Input<number>;
-    /**
-     * PersonalDesktopAssignment type for HostPool.
-     */
-    personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20190123preview.PersonalDesktopAssignmentType>;
-    /**
-     * The type of preferred application group type, default to Desktop Application Group
-     */
-    preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.v20190123preview.PreferredAppGroupType>;
-    /**
-     * The registration info of HostPool.
-     */
-    registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20190123preview.RegistrationInfoArgs>;
+    properties: pulumi.Input<inputs.desktopvirtualization.v20190123preview.HostPoolPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The ring number of HostPool.
-     */
-    ring?: pulumi.Input<number>;
-    /**
-     * Path to keyvault containing ssoContext secret.
-     */
-    ssoContext?: pulumi.Input<string>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Is validation environment.
-     */
-    validationEnvironment?: pulumi.Input<boolean>;
-    /**
-     * VM template for sessionhosts configuration within hostpool.
-     */
-    vmTemplate?: pulumi.Input<string>;
 }

@@ -40,7 +40,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * An description of the access policy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -48,11 +48,11 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The objectId of the principal in Azure Active Directory.
      */
-    public readonly principalObjectId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly principalObjectId!: pulumi.Output<string | undefined>;
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly roles!: pulumi.Output<string[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -72,16 +72,20 @@ export class AccessPolicy extends pulumi.CustomResource {
             if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["principalObjectId"] = args ? args.principalObjectId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalObjectId"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -106,23 +110,12 @@ export interface AccessPolicyArgs {
      */
     accessPolicyName?: pulumi.Input<string>;
     /**
-     * An description of the access policy.
-     */
-    description?: pulumi.Input<string>;
-    /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
     environmentName: pulumi.Input<string>;
-    /**
-     * The objectId of the principal in Azure Active Directory.
-     */
-    principalObjectId?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.timeseriesinsights.v20210331preview.AccessPolicyResourcePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The list of roles the principal is assigned on the environment.
-     */
-    roles?: pulumi.Input<pulumi.Input<string | enums.timeseriesinsights.v20210331preview.AccessPolicyRole>[]>;
 }

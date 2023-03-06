@@ -43,17 +43,9 @@ export class TrustedAccessRoleBinding extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The current provisioning state of trusted access role binding.
+     * Properties for trusted access role binding
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
-     */
-    public readonly roles!: pulumi.Output<string[]>;
-    /**
-     * The ARM resource ID of source resource that trusted access is configured for.
-     */
-    public readonly sourceResourceId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.containerservice.TrustedAccessRoleBindingPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -74,32 +66,25 @@ export class TrustedAccessRoleBinding extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.roles === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roles'");
-            }
-            if ((!args || args.sourceResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceResourceId'");
-            }
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["trustedAccessRoleBindingName"] = args ? args.trustedAccessRoleBindingName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["roles"] = undefined /*out*/;
-            resourceInputs["sourceResourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -115,6 +100,10 @@ export class TrustedAccessRoleBinding extends pulumi.CustomResource {
  */
 export interface TrustedAccessRoleBindingArgs {
     /**
+     * Properties for trusted access role binding
+     */
+    properties: pulumi.Input<inputs.containerservice.TrustedAccessRoleBindingPropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -122,14 +111,6 @@ export interface TrustedAccessRoleBindingArgs {
      * The name of the managed cluster resource.
      */
     resourceName: pulumi.Input<string>;
-    /**
-     * A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
-     */
-    roles: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ARM resource ID of source resource that trusted access is configured for.
-     */
-    sourceResourceId: pulumi.Input<string>;
     /**
      * The name of trusted access role binding.
      */

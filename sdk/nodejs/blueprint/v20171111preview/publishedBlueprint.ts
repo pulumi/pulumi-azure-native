@@ -41,41 +41,13 @@ export class PublishedBlueprint extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Blueprint definition.
-     */
-    public readonly blueprintName!: pulumi.Output<string | undefined>;
-    /**
-     * Version-specific change notes
-     */
-    public /*out*/ readonly changeNotes!: pulumi.Output<string | undefined>;
-    /**
-     * Multi-line explain this resource.
-     */
-    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * One-liner string explain this resource.
-     */
-    public /*out*/ readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * Name of this resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Parameters required by this Blueprint definition.
+     * Detailed properties for published Blueprint
      */
-    public /*out*/ readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ParameterDefinitionResponse} | undefined>;
-    /**
-     * Resource group placeholders defined by this Blueprint definition.
-     */
-    public /*out*/ readonly resourceGroups!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ResourceGroupDefinitionResponse} | undefined>;
-    /**
-     * Status of the Blueprint. This field is readonly.
-     */
-    public /*out*/ readonly status!: pulumi.Output<outputs.blueprint.v20171111preview.BlueprintStatusResponse>;
-    /**
-     * The scope where this Blueprint can be applied.
-     */
-    public /*out*/ readonly targetScope!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.blueprint.v20171111preview.PublishedBlueprintPropertiesResponse>;
     /**
      * Type of this resource.
      */
@@ -103,25 +75,12 @@ export class PublishedBlueprint extends pulumi.CustomResource {
             resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
             resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
             resourceInputs["versionId"] = args ? args.versionId : undefined;
-            resourceInputs["changeNotes"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
-            resourceInputs["resourceGroups"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["targetScope"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["blueprintName"] = undefined /*out*/;
-            resourceInputs["changeNotes"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
-            resourceInputs["resourceGroups"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["targetScope"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

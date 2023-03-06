@@ -88,29 +88,17 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets the Managed Object name in VMM for the inventory item.
-        /// </summary>
-        public readonly string InventoryItemName;
-        /// <summary>
-        /// They inventory type.
-        /// </summary>
-        public readonly string InventoryType;
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         public readonly string? Kind;
-        /// <summary>
-        /// Gets the tracked resource id corresponding to the inventory resource.
-        /// </summary>
-        public readonly string ManagedResourceId;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly object Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -119,43 +107,27 @@ namespace Pulumi.AzureNative.ScVmm
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets the UUID (which is assigned by VMM) for the inventory item.
-        /// </summary>
-        public readonly string Uuid;
 
         [OutputConstructor]
         private GetInventoryItemResult(
             string id,
 
-            string inventoryItemName,
-
-            string inventoryType,
-
             string? kind,
-
-            string managedResourceId,
 
             string name,
 
-            string provisioningState,
+            object properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string uuid)
+            string type)
         {
             Id = id;
-            InventoryItemName = inventoryItemName;
-            InventoryType = inventoryType;
             Kind = kind;
-            ManagedResourceId = managedResourceId;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            Uuid = uuid;
         }
     }
 }

@@ -12,9 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdministratorPropertiesResponse',
     'AuthConfigResponse',
     'BackupResponse',
     'DataEncryptionResponse',
+    'FirewallRulePropertiesResponse',
     'HighAvailabilityResponse',
     'MaintenanceWindowResponse',
     'NetworkResponse',
@@ -24,6 +26,88 @@ __all__ = [
     'UserAssignedIdentityResponse',
     'UserIdentityResponse',
 ]
+
+@pulumi.output_type
+class AdministratorPropertiesResponse(dict):
+    """
+    The properties of an Active Directory administrator.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "principalName":
+            suggest = "principal_name"
+        elif key == "principalType":
+            suggest = "principal_type"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdministratorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdministratorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdministratorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_id: Optional[str] = None,
+                 principal_name: Optional[str] = None,
+                 principal_type: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        The properties of an Active Directory administrator.
+        :param str object_id: The objectId of the Active Directory administrator.
+        :param str principal_name: Active Directory administrator principal name.
+        :param str principal_type: The principal type used to represent the type of Active Directory Administrator.
+        :param str tenant_id: The tenantId of the Active Directory administrator.
+        """
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if principal_name is not None:
+            pulumi.set(__self__, "principal_name", principal_name)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The objectId of the Active Directory administrator.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="principalName")
+    def principal_name(self) -> Optional[str]:
+        """
+        Active Directory administrator principal name.
+        """
+        return pulumi.get(self, "principal_name")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[str]:
+        """
+        The principal type used to represent the type of Active Directory Administrator.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenantId of the Active Directory administrator.
+        """
+        return pulumi.get(self, "tenant_id")
+
 
 @pulumi.output_type
 class AuthConfigResponse(dict):
@@ -232,6 +316,58 @@ class DataEncryptionResponse(dict):
         Data encryption type to depict if it is System assigned vs Azure Key vault.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FirewallRulePropertiesResponse(dict):
+    """
+    The properties of a server firewall rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIpAddress":
+            suggest = "end_ip_address"
+        elif key == "startIpAddress":
+            suggest = "start_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip_address: str,
+                 start_ip_address: str):
+        """
+        The properties of a server firewall rule.
+        :param str end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
+        :param str start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
+        """
+        The end IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
+        """
+        The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "start_ip_address")
 
 
 @pulumi.output_type

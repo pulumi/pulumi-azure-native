@@ -39,10 +39,6 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
     }
 
     /**
-     * A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-     */
-    public readonly customContextTag!: pulumi.Output<string | undefined>;
-    /**
      * Trigger Kind.
      * Expected value is 'PeriodicTimerEvent'.
      */
@@ -52,13 +48,9 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Role Sink information.
+     * Periodic timer trigger properties.
      */
-    public readonly sinkInfo!: pulumi.Output<outputs.databoxedge.RoleSinkInfoResponse>;
-    /**
-     * Periodic timer details.
-     */
-    public readonly sourceInfo!: pulumi.Output<outputs.databoxedge.PeriodicTimerSourceInfoResponse>;
+    public readonly properties!: pulumi.Output<outputs.databoxedge.PeriodicTimerPropertiesResponse>;
     /**
      * Trigger in DataBoxEdge Resource
      */
@@ -85,30 +77,23 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sinkInfo === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sinkInfo'");
-            }
-            if ((!args || args.sourceInfo === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceInfo'");
-            }
-            resourceInputs["customContextTag"] = args ? args.customContextTag : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["kind"] = "PeriodicTimerEvent";
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sinkInfo"] = args ? args.sinkInfo : undefined;
-            resourceInputs["sourceInfo"] = args ? args.sourceInfo : undefined;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["customContextTag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["sinkInfo"] = undefined /*out*/;
-            resourceInputs["sourceInfo"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -124,10 +109,6 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
  */
 export interface PeriodicTimerEventTriggerArgs {
     /**
-     * A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-     */
-    customContextTag?: pulumi.Input<string>;
-    /**
      * Creates or updates a trigger
      */
     deviceName: pulumi.Input<string>;
@@ -141,15 +122,11 @@ export interface PeriodicTimerEventTriggerArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Periodic timer trigger properties.
+     */
+    properties: pulumi.Input<inputs.databoxedge.PeriodicTimerPropertiesArgs>;
+    /**
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Role Sink information.
-     */
-    sinkInfo: pulumi.Input<inputs.databoxedge.RoleSinkInfoArgs>;
-    /**
-     * Periodic timer details.
-     */
-    sourceInfo: pulumi.Input<inputs.databoxedge.PeriodicTimerSourceInfoArgs>;
 }

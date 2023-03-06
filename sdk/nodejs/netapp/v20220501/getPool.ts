@@ -40,14 +40,6 @@ export interface GetPoolArgs {
  */
 export interface GetPoolResult {
     /**
-     * If enabled (true) the pool can contain cool Access enabled volumes.
-     */
-    readonly coolAccess?: boolean;
-    /**
-     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-     */
-    readonly encryptionType?: string;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -64,25 +56,9 @@ export interface GetPoolResult {
      */
     readonly name: string;
     /**
-     * UUID v4 used to identify the Pool
+     * Capacity pool properties
      */
-    readonly poolId: string;
-    /**
-     * Azure lifecycle management
-     */
-    readonly provisioningState: string;
-    /**
-     * The qos type of the pool
-     */
-    readonly qosType?: string;
-    /**
-     * The service level of the file system
-     */
-    readonly serviceLevel: string;
-    /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiply of 4398046511104).
-     */
-    readonly size: number;
+    readonly properties: outputs.netapp.v20220501.PoolPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -92,17 +68,9 @@ export interface GetPoolResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Total throughput of pool in MiB/s
-     */
-    readonly totalThroughputMibps: number;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Utilized throughput of pool in MiB/s
-     */
-    readonly utilizedThroughputMibps: number;
 }
 /**
  * Get details of the specified capacity pool

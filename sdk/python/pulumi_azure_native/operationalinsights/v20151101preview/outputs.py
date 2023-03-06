@@ -11,9 +11,49 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'LinkedServicePropertiesResponse',
     'MachineReferenceWithHintsResponse',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class LinkedServicePropertiesResponse(dict):
+    """
+    Linked service properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServicePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServicePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str):
+        """
+        Linked service properties.
+        :param str resource_id: The resource id of the resource that will be linked to the workspace.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource id of the resource that will be linked to the workspace.
+        """
+        return pulumi.get(self, "resource_id")
+
 
 @pulumi.output_type
 class MachineReferenceWithHintsResponse(dict):

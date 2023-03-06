@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The collection name of the MongoDB database. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Collection;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
@@ -53,12 +49,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'MongoDbV2Collection'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// MongoDB database dataset properties.
+        /// </summary>
+        public readonly Outputs.MongoDbV2CollectionDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private MongoDbV2CollectionDatasetResponse(
             ImmutableArray<object> annotations,
-
-            object collection,
 
             string? description,
 
@@ -72,10 +70,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.MongoDbV2CollectionDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            Collection = collection;
             Description = description;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
@@ -83,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Schema = schema;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

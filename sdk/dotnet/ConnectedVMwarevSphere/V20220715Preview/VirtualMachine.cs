@@ -16,58 +16,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        [Output("customResourceName")]
-        public Output<string> CustomResourceName { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Firmware type
-        /// </summary>
-        [Output("firmwareType")]
-        public Output<string?> FirmwareType { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the folder path of the vm.
-        /// </summary>
-        [Output("folderPath")]
-        public Output<string> FolderPath { get; private set; } = null!;
-
-        /// <summary>
-        /// Guest agent status properties.
-        /// </summary>
-        [Output("guestAgentProfile")]
-        public Output<Outputs.GuestAgentProfileResponse?> GuestAgentProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Hardware properties.
-        /// </summary>
-        [Output("hardwareProfile")]
-        public Output<Outputs.HardwareProfileResponse?> HardwareProfile { get; private set; } = null!;
-
-        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the instance uuid of the vm.
-        /// </summary>
-        [Output("instanceUuid")]
-        public Output<string> InstanceUuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the virtual machine.
-        /// </summary>
-        [Output("inventoryItemId")]
-        public Output<string?> InventoryItemId { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -82,83 +40,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the virtual machine.
-        /// </summary>
-        [Output("moName")]
-        public Output<string> MoName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
-        /// </summary>
-        [Output("moRefId")]
-        public Output<string?> MoRefId { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network properties.
+        /// Resource properties.
         /// </summary>
-        [Output("networkProfile")]
-        public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// OS properties.
-        /// </summary>
-        [Output("osProfile")]
-        public Output<Outputs.OsProfileResponse?> OsProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Placement properties.
-        /// </summary>
-        [Output("placementProfile")]
-        public Output<Outputs.PlacementProfileResponse?> PlacementProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the power state of the virtual machine.
-        /// </summary>
-        [Output("powerState")]
-        public Output<string> PowerState { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
-        /// deploy.
-        /// </summary>
-        [Output("resourcePoolId")]
-        public Output<string?> ResourcePoolId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the security profile.
-        /// </summary>
-        [Output("securityProfile")]
-        public Output<Outputs.SecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the SMBIOS UUID of the vm.
-        /// </summary>
-        [Output("smbiosUuid")]
-        public Output<string?> SmbiosUuid { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        [Output("statuses")]
-        public Output<ImmutableArray<Outputs.ResourceStatusResponse>> Statuses { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage properties.
-        /// </summary>
-        [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VirtualMachinePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -173,34 +64,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the ARM Id of the template resource to deploy the virtual machine.
-        /// </summary>
-        [Output("templateId")]
-        public Output<string?> TemplateId { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        /// </summary>
-        [Output("vCenterId")]
-        public Output<string?> VCenterId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a unique identifier for the vm resource.
-        /// </summary>
-        [Output("vmId")]
-        public Output<string> VmId { get; private set; } = null!;
 
 
         /// <summary>
@@ -260,34 +127,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
-        /// Firmware type
-        /// </summary>
-        [Input("firmwareType")]
-        public InputUnion<string, Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview.FirmwareType>? FirmwareType { get; set; }
-
-        /// <summary>
-        /// Guest agent status properties.
-        /// </summary>
-        [Input("guestAgentProfile")]
-        public Input<Inputs.GuestAgentProfileArgs>? GuestAgentProfile { get; set; }
-
-        /// <summary>
-        /// Hardware properties.
-        /// </summary>
-        [Input("hardwareProfile")]
-        public Input<Inputs.HardwareProfileArgs>? HardwareProfile { get; set; }
-
-        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the virtual machine.
-        /// </summary>
-        [Input("inventoryItemId")]
-        public Input<string>? InventoryItemId { get; set; }
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -302,59 +145,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+        /// Resource properties.
         /// </summary>
-        [Input("moRefId")]
-        public Input<string>? MoRefId { get; set; }
-
-        /// <summary>
-        /// Network properties.
-        /// </summary>
-        [Input("networkProfile")]
-        public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
-
-        /// <summary>
-        /// OS properties.
-        /// </summary>
-        [Input("osProfile")]
-        public Input<Inputs.OsProfileArgs>? OsProfile { get; set; }
-
-        /// <summary>
-        /// Placement properties.
-        /// </summary>
-        [Input("placementProfile")]
-        public Input<Inputs.PlacementProfileArgs>? PlacementProfile { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.VirtualMachinePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
-        /// deploy.
-        /// </summary>
-        [Input("resourcePoolId")]
-        public Input<string>? ResourcePoolId { get; set; }
-
-        /// <summary>
-        /// Gets the security profile.
-        /// </summary>
-        [Input("securityProfile")]
-        public Input<Inputs.SecurityProfileArgs>? SecurityProfile { get; set; }
-
-        /// <summary>
-        /// Gets or sets the SMBIOS UUID of the vm.
-        /// </summary>
-        [Input("smbiosUuid")]
-        public Input<string>? SmbiosUuid { get; set; }
-
-        /// <summary>
-        /// Storage properties.
-        /// </summary>
-        [Input("storageProfile")]
-        public Input<Inputs.StorageProfileArgs>? StorageProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -367,18 +167,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the template resource to deploy the virtual machine.
-        /// </summary>
-        [Input("templateId")]
-        public Input<string>? TemplateId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        /// </summary>
-        [Input("vCenterId")]
-        public Input<string>? VCenterId { get; set; }
 
         /// <summary>
         /// Name of the virtual machine resource.

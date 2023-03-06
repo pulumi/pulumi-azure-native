@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class DataLakeAnalyticsUSQLActivityResponse
     {
         /// <summary>
-        /// Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? CompilationMode;
-        /// <summary>
-        /// The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
-        /// </summary>
-        public readonly object? DegreeOfParallelism;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -41,34 +33,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters for U-SQL job request.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
-        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
-        /// <summary>
-        /// Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
-        /// </summary>
-        public readonly object? Priority;
-        /// <summary>
-        /// Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? RuntimeVersion;
-        /// <summary>
-        /// Script linked service reference.
-        /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse ScriptLinkedService;
-        /// <summary>
-        /// Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object ScriptPath;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'DataLakeAnalyticsU-SQL'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Data Lake Analytics U-SQL activity properties.
+        /// </summary>
+        public readonly Outputs.DataLakeAnalyticsUSQLActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -76,10 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DataLakeAnalyticsUSQLActivityResponse(
-            object? compilationMode,
-
-            object? degreeOfParallelism,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
@@ -88,35 +60,21 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string name,
 
-            ImmutableDictionary<string, object>? parameters,
-
             Outputs.ActivityPolicyResponse? policy,
-
-            object? priority,
-
-            object? runtimeVersion,
-
-            Outputs.LinkedServiceReferenceResponse scriptLinkedService,
-
-            object scriptPath,
 
             string type,
 
+            Outputs.DataLakeAnalyticsUSQLActivityTypePropertiesResponse typeProperties,
+
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            CompilationMode = compilationMode;
-            DegreeOfParallelism = degreeOfParallelism;
             DependsOn = dependsOn;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Name = name;
-            Parameters = parameters;
             Policy = policy;
-            Priority = priority;
-            RuntimeVersion = runtimeVersion;
-            ScriptLinkedService = scriptLinkedService;
-            ScriptPath = scriptPath;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

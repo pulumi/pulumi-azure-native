@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class AzureDatabricksDeltaLakeLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("accessToken")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccessToken { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -34,40 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("clusterId")]
-        public Input<object>? ClusterId { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        [Input("credential")]
-        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// &lt;REGION&gt;.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("domain", required: true)]
-        public Input<object> Domain { get; set; } = null!;
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -89,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        /// Azure Databricks Delta Lake linked service properties.
         /// </summary>
-        [Input("workspaceResourceId")]
-        public Input<object>? WorkspaceResourceId { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureDatabricksDetltaLakeLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureDatabricksDeltaLakeLinkedServiceArgs()
         {

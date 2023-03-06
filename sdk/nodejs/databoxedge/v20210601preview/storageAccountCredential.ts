@@ -38,37 +38,13 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     }
 
     /**
-     * Encrypted storage key.
-     */
-    public readonly accountKey!: pulumi.Output<outputs.databoxedge.v20210601preview.AsymmetricEncryptedSecretResponse | undefined>;
-    /**
-     * Type of storage accessed on the storage account.
-     */
-    public readonly accountType!: pulumi.Output<string>;
-    /**
-     * Alias for the storage account.
-     */
-    public readonly alias!: pulumi.Output<string>;
-    /**
-     * Blob end point for private clouds.
-     */
-    public readonly blobDomainName!: pulumi.Output<string | undefined>;
-    /**
-     * Connection string for the storage account. Use this string if username and account key are not specified.
-     */
-    public readonly connectionString!: pulumi.Output<string | undefined>;
-    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Signifies whether SSL needs to be enabled or not.
+     * The storage account credential properties.
      */
-    public readonly sslStatus!: pulumi.Output<string>;
-    /**
-     * Id of the storage account.
-     */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.databoxedge.v20210601preview.StorageAccountCredentialPropertiesResponse>;
     /**
      * StorageAccountCredential object
      */
@@ -77,10 +53,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Username for the storage account.
-     */
-    public readonly userName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StorageAccountCredential resource with the given unique name, arguments, and options.
@@ -93,46 +65,26 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accountType'");
-            }
-            if ((!args || args.alias === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'alias'");
-            }
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sslStatus === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sslStatus'");
-            }
-            resourceInputs["accountKey"] = args ? args.accountKey : undefined;
-            resourceInputs["accountType"] = args ? args.accountType : undefined;
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["blobDomainName"] = args ? args.blobDomainName : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sslStatus"] = args ? args.sslStatus : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["accountKey"] = undefined /*out*/;
-            resourceInputs["accountType"] = undefined /*out*/;
-            resourceInputs["alias"] = undefined /*out*/;
-            resourceInputs["blobDomainName"] = undefined /*out*/;
-            resourceInputs["connectionString"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["sslStatus"] = undefined /*out*/;
-            resourceInputs["storageAccountId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20190301:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20190701:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20190801:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200901:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20201201:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20210201:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20210601:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20220301:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20220401preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20221201preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20230101preview:StorageAccountCredential" }] };
@@ -146,26 +98,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
  */
 export interface StorageAccountCredentialArgs {
     /**
-     * Encrypted storage key.
-     */
-    accountKey?: pulumi.Input<inputs.databoxedge.v20210601preview.AsymmetricEncryptedSecretArgs>;
-    /**
-     * Type of storage accessed on the storage account.
-     */
-    accountType: pulumi.Input<string | enums.databoxedge.v20210601preview.AccountType>;
-    /**
-     * Alias for the storage account.
-     */
-    alias: pulumi.Input<string>;
-    /**
-     * Blob end point for private clouds.
-     */
-    blobDomainName?: pulumi.Input<string>;
-    /**
-     * Connection string for the storage account. Use this string if username and account key are not specified.
-     */
-    connectionString?: pulumi.Input<string>;
-    /**
      * The device name.
      */
     deviceName: pulumi.Input<string>;
@@ -174,19 +106,11 @@ export interface StorageAccountCredentialArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The storage account credential properties.
+     */
+    properties: pulumi.Input<inputs.databoxedge.v20210601preview.StorageAccountCredentialPropertiesArgs>;
+    /**
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Signifies whether SSL needs to be enabled or not.
-     */
-    sslStatus: pulumi.Input<string | enums.databoxedge.v20210601preview.SSLStatus>;
-    /**
-     * Id of the storage account.
-     */
-    storageAccountId?: pulumi.Input<string>;
-    /**
-     * Username for the storage account.
-     */
-    userName?: pulumi.Input<string>;
 }

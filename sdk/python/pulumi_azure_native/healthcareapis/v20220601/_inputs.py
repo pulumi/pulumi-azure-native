@@ -19,6 +19,7 @@ __all__ = [
     'FhirServiceExportConfigurationArgs',
     'FhirServiceImportConfigurationArgs',
     'IotEventHubIngestionEndpointConfigurationArgs',
+    'IotFhirDestinationPropertiesArgs',
     'IotMappingPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
@@ -465,6 +466,59 @@ class IotEventHubIngestionEndpointConfigurationArgs:
     @fully_qualified_event_hub_namespace.setter
     def fully_qualified_event_hub_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fully_qualified_event_hub_namespace", value)
+
+
+@pulumi.input_type
+class IotFhirDestinationPropertiesArgs:
+    def __init__(__self__, *,
+                 fhir_mapping: pulumi.Input['IotMappingPropertiesArgs'],
+                 fhir_service_resource_id: pulumi.Input[str],
+                 resource_identity_resolution_type: pulumi.Input[Union[str, 'IotIdentityResolutionType']]):
+        """
+        IoT Connector destination properties for an Azure FHIR service.
+        :param pulumi.Input['IotMappingPropertiesArgs'] fhir_mapping: FHIR Mappings
+        :param pulumi.Input[str] fhir_service_resource_id: Fully qualified resource id of the FHIR service to connect to.
+        :param pulumi.Input[Union[str, 'IotIdentityResolutionType']] resource_identity_resolution_type: Determines how resource identity is resolved on the destination.
+        """
+        pulumi.set(__self__, "fhir_mapping", fhir_mapping)
+        pulumi.set(__self__, "fhir_service_resource_id", fhir_service_resource_id)
+        pulumi.set(__self__, "resource_identity_resolution_type", resource_identity_resolution_type)
+
+    @property
+    @pulumi.getter(name="fhirMapping")
+    def fhir_mapping(self) -> pulumi.Input['IotMappingPropertiesArgs']:
+        """
+        FHIR Mappings
+        """
+        return pulumi.get(self, "fhir_mapping")
+
+    @fhir_mapping.setter
+    def fhir_mapping(self, value: pulumi.Input['IotMappingPropertiesArgs']):
+        pulumi.set(self, "fhir_mapping", value)
+
+    @property
+    @pulumi.getter(name="fhirServiceResourceId")
+    def fhir_service_resource_id(self) -> pulumi.Input[str]:
+        """
+        Fully qualified resource id of the FHIR service to connect to.
+        """
+        return pulumi.get(self, "fhir_service_resource_id")
+
+    @fhir_service_resource_id.setter
+    def fhir_service_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fhir_service_resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceIdentityResolutionType")
+    def resource_identity_resolution_type(self) -> pulumi.Input[Union[str, 'IotIdentityResolutionType']]:
+        """
+        Determines how resource identity is resolved on the destination.
+        """
+        return pulumi.get(self, "resource_identity_resolution_type")
+
+    @resource_identity_resolution_type.setter
+    def resource_identity_resolution_type(self, value: pulumi.Input[Union[str, 'IotIdentityResolutionType']]):
+        pulumi.set(self, "resource_identity_resolution_type", value)
 
 
 @pulumi.input_type

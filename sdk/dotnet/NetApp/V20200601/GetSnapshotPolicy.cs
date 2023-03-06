@@ -83,18 +83,6 @@ namespace Pulumi.AzureNative.NetApp.V20200601
     public sealed class GetSnapshotPolicyResult
     {
         /// <summary>
-        /// Schedule for daily snapshots
-        /// </summary>
-        public readonly Outputs.DailyScheduleResponse? DailySchedule;
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Schedule for hourly snapshots
-        /// </summary>
-        public readonly Outputs.HourlyScheduleResponse? HourlySchedule;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -103,17 +91,13 @@ namespace Pulumi.AzureNative.NetApp.V20200601
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Schedule for monthly snapshots
-        /// </summary>
-        public readonly Outputs.MonthlyScheduleResponse? MonthlySchedule;
-        /// <summary>
-        /// Snapshot policy name
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Snapshot policy Properties
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.SnapshotPolicyPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -122,46 +106,27 @@ namespace Pulumi.AzureNative.NetApp.V20200601
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Schedule for weekly snapshots
-        /// </summary>
-        public readonly Outputs.WeeklyScheduleResponse? WeeklySchedule;
 
         [OutputConstructor]
         private GetSnapshotPolicyResult(
-            Outputs.DailyScheduleResponse? dailySchedule,
-
-            bool? enabled,
-
-            Outputs.HourlyScheduleResponse? hourlySchedule,
-
             string id,
 
             string location,
 
-            Outputs.MonthlyScheduleResponse? monthlySchedule,
-
             string name,
 
-            string provisioningState,
+            Outputs.SnapshotPolicyPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.WeeklyScheduleResponse? weeklySchedule)
+            string type)
         {
-            DailySchedule = dailySchedule;
-            Enabled = enabled;
-            HourlySchedule = hourlySchedule;
             Id = id;
             Location = location;
-            MonthlySchedule = monthlySchedule;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            WeeklySchedule = weeklySchedule;
         }
     }
 }

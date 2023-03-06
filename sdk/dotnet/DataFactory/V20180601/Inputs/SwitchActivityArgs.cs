@@ -15,30 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class SwitchActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cases")]
-        private InputList<Inputs.SwitchCaseArgs>? _cases;
-
-        /// <summary>
-        /// List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        /// </summary>
-        public InputList<Inputs.SwitchCaseArgs> Cases
-        {
-            get => _cases ?? (_cases = new InputList<Inputs.SwitchCaseArgs>());
-            set => _cases = value;
-        }
-
-        [Input("defaultActivities")]
-        private InputList<object>? _defaultActivities;
-
-        /// <summary>
-        /// List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
-        /// </summary>
-        public InputList<object> DefaultActivities
-        {
-            get => _defaultActivities ?? (_defaultActivities = new InputList<object>());
-            set => _defaultActivities = value;
-        }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -64,17 +40,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// An expression that would evaluate to a string or integer. This is used to determine the block of activities in cases that will be executed.
-        /// </summary>
-        [Input("on", required: true)]
-        public Input<Inputs.ExpressionArgs> On { get; set; } = null!;
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Switch'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Switch activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SwitchActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

@@ -10,24 +10,25 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['RegistrationArgs', 'Registration']
 
 @pulumi.input_type
 class RegistrationArgs:
     def __init__(__self__, *,
-                 registration_token: pulumi.Input[str],
+                 properties: pulumi.Input['RegistrationParameterPropertiesArgs'],
                  resource_group: pulumi.Input[str],
                  location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Registration resource.
-        :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
+        :param pulumi.Input['RegistrationParameterPropertiesArgs'] properties: Properties of the Azure Stack registration resource
         :param pulumi.Input[str] resource_group: Name of the resource group.
         :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         """
-        pulumi.set(__self__, "registration_token", registration_token)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group", resource_group)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -35,16 +36,16 @@ class RegistrationArgs:
             pulumi.set(__self__, "registration_name", registration_name)
 
     @property
-    @pulumi.getter(name="registrationToken")
-    def registration_token(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RegistrationParameterPropertiesArgs']:
         """
-        The token identifying registered Azure Stack
+        Properties of the Azure Stack registration resource
         """
-        return pulumi.get(self, "registration_token")
+        return pulumi.get(self, "properties")
 
-    @registration_token.setter
-    def registration_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "registration_token", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['RegistrationParameterPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -89,8 +90,8 @@ class Registration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationParameterPropertiesArgs']]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None,
-                 registration_token: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -99,8 +100,8 @@ class Registration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
+        :param pulumi.Input[pulumi.InputType['RegistrationParameterPropertiesArgs']] properties: Properties of the Azure Stack registration resource
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
-        :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
         :param pulumi.Input[str] resource_group: Name of the resource group.
         """
         ...
@@ -128,8 +129,8 @@ class Registration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationParameterPropertiesArgs']]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None,
-                 registration_token: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -141,10 +142,10 @@ class Registration(pulumi.CustomResource):
             __props__ = RegistrationArgs.__new__(RegistrationArgs)
 
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["registration_name"] = registration_name
-            if registration_token is None and not opts.urn:
-                raise TypeError("Missing required property 'registration_token'")
-            __props__.__dict__["registration_token"] = registration_token
             if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
             __props__.__dict__["resource_group"] = resource_group

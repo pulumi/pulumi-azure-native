@@ -8,39 +8,50 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ServiceArgs', 'Service']
 
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['ServiceResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  service_topology_name: pulumi.Input[str],
-                 target_location: pulumi.Input[str],
-                 target_subscription_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
+        :param pulumi.Input['ServiceResourcePropertiesArgs'] properties: The properties that define a service in a service topology.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_topology_name: The name of the service topology .
-        :param pulumi.Input[str] target_location: The Azure location to which the resources in the service belong to or should be deployed to.
-        :param pulumi.Input[str] target_subscription_id: The subscription to which the resources in the service belong to or should be deployed to.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] service_name: The name of the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_topology_name", service_topology_name)
-        pulumi.set(__self__, "target_location", target_location)
-        pulumi.set(__self__, "target_subscription_id", target_subscription_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ServiceResourcePropertiesArgs']:
+        """
+        The properties that define a service in a service topology.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ServiceResourcePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -65,30 +76,6 @@ class ServiceArgs:
     @service_topology_name.setter
     def service_topology_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_topology_name", value)
-
-    @property
-    @pulumi.getter(name="targetLocation")
-    def target_location(self) -> pulumi.Input[str]:
-        """
-        The Azure location to which the resources in the service belong to or should be deployed to.
-        """
-        return pulumi.get(self, "target_location")
-
-    @target_location.setter
-    def target_location(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_location", value)
-
-    @property
-    @pulumi.getter(name="targetSubscriptionId")
-    def target_subscription_id(self) -> pulumi.Input[str]:
-        """
-        The subscription to which the resources in the service belong to or should be deployed to.
-        """
-        return pulumi.get(self, "target_subscription_id")
-
-    @target_subscription_id.setter
-    def target_subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_subscription_id", value)
 
     @property
     @pulumi.getter
@@ -133,12 +120,11 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ServiceResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_topology_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_location: Optional[pulumi.Input[str]] = None,
-                 target_subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The resource representation of a service in a service topology.
@@ -146,12 +132,11 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['ServiceResourcePropertiesArgs']] properties: The properties that define a service in a service topology.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the service resource.
         :param pulumi.Input[str] service_topology_name: The name of the service topology .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] target_location: The Azure location to which the resources in the service belong to or should be deployed to.
-        :param pulumi.Input[str] target_subscription_id: The subscription to which the resources in the service belong to or should be deployed to.
         """
         ...
     @overload
@@ -178,12 +163,11 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ServiceResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_topology_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_location: Optional[pulumi.Input[str]] = None,
-                 target_subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -194,6 +178,9 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -202,12 +189,6 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_topology_name'")
             __props__.__dict__["service_topology_name"] = service_topology_name
             __props__.__dict__["tags"] = tags
-            if target_location is None and not opts.urn:
-                raise TypeError("Missing required property 'target_location'")
-            __props__.__dict__["target_location"] = target_location
-            if target_subscription_id is None and not opts.urn:
-                raise TypeError("Missing required property 'target_subscription_id'")
-            __props__.__dict__["target_subscription_id"] = target_subscription_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deploymentmanager:Service"), pulumi.Alias(type_="azure-native:deploymentmanager/v20180901preview:Service")])
@@ -236,9 +217,8 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["target_location"] = None
-        __props__.__dict__["target_subscription_id"] = None
         __props__.__dict__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
@@ -260,27 +240,19 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ServiceResourceResponseProperties']:
+        """
+        The properties that define a service in a service topology.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="targetLocation")
-    def target_location(self) -> pulumi.Output[str]:
-        """
-        The Azure location to which the resources in the service belong to or should be deployed to.
-        """
-        return pulumi.get(self, "target_location")
-
-    @property
-    @pulumi.getter(name="targetSubscriptionId")
-    def target_subscription_id(self) -> pulumi.Output[str]:
-        """
-        The subscription to which the resources in the service belong to or should be deployed to.
-        """
-        return pulumi.get(self, "target_subscription_id")
 
     @property
     @pulumi.getter

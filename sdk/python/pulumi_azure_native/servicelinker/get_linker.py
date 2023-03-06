@@ -22,53 +22,22 @@ class GetLinkerResult:
     """
     Linker of source and target resource
     """
-    def __init__(__self__, auth_info=None, client_type=None, id=None, name=None, provisioning_state=None, secret_store=None, system_data=None, target_id=None, type=None, v_net_solution=None):
-        if auth_info and not isinstance(auth_info, dict):
-            raise TypeError("Expected argument 'auth_info' to be a dict")
-        pulumi.set(__self__, "auth_info", auth_info)
-        if client_type and not isinstance(client_type, str):
-            raise TypeError("Expected argument 'client_type' to be a str")
-        pulumi.set(__self__, "client_type", client_type)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if secret_store and not isinstance(secret_store, dict):
-            raise TypeError("Expected argument 'secret_store' to be a dict")
-        pulumi.set(__self__, "secret_store", secret_store)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if target_id and not isinstance(target_id, str):
-            raise TypeError("Expected argument 'target_id' to be a str")
-        pulumi.set(__self__, "target_id", target_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if v_net_solution and not isinstance(v_net_solution, dict):
-            raise TypeError("Expected argument 'v_net_solution' to be a dict")
-        pulumi.set(__self__, "v_net_solution", v_net_solution)
-
-    @property
-    @pulumi.getter(name="authInfo")
-    def auth_info(self) -> Optional[Any]:
-        """
-        The authentication type.
-        """
-        return pulumi.get(self, "auth_info")
-
-    @property
-    @pulumi.getter(name="clientType")
-    def client_type(self) -> Optional[str]:
-        """
-        The application client type
-        """
-        return pulumi.get(self, "client_type")
 
     @property
     @pulumi.getter
@@ -87,20 +56,12 @@ class GetLinkerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.LinkerPropertiesResponse':
         """
-        The provisioning state. 
+        The properties of the linker.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional['outputs.SecretStoreResponse']:
-        """
-        An option to store secret value in secure place
-        """
-        return pulumi.get(self, "secret_store")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -111,28 +72,12 @@ class GetLinkerResult:
         return pulumi.get(self, "system_data")
 
     @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[str]:
-        """
-        The resource Id of target service.
-        """
-        return pulumi.get(self, "target_id")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vNetSolution")
-    def v_net_solution(self) -> Optional['outputs.VNetSolutionResponse']:
-        """
-        The VNet solution.
-        """
-        return pulumi.get(self, "v_net_solution")
 
 
 class AwaitableGetLinkerResult(GetLinkerResult):
@@ -141,16 +86,11 @@ class AwaitableGetLinkerResult(GetLinkerResult):
         if False:
             yield self
         return GetLinkerResult(
-            auth_info=self.auth_info,
-            client_type=self.client_type,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            secret_store=self.secret_store,
+            properties=self.properties,
             system_data=self.system_data,
-            target_id=self.target_id,
-            type=self.type,
-            v_net_solution=self.v_net_solution)
+            type=self.type)
 
 
 def get_linker(linker_name: Optional[str] = None,
@@ -171,16 +111,11 @@ def get_linker(linker_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicelinker:getLinker', __args__, opts=opts, typ=GetLinkerResult).value
 
     return AwaitableGetLinkerResult(
-        auth_info=__ret__.auth_info,
-        client_type=__ret__.client_type,
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        secret_store=__ret__.secret_store,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        target_id=__ret__.target_id,
-        type=__ret__.type,
-        v_net_solution=__ret__.v_net_solution)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_linker)

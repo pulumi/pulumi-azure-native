@@ -17,34 +17,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public partial class ManagerExtendedInfo : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-        /// </summary>
-        [Output("algorithm")]
-        public Output<string> Algorithm { get; private set; } = null!;
-
-        /// <summary>
-        /// Represents the CEK of the resource
-        /// </summary>
-        [Output("encryptionKey")]
-        public Output<string?> EncryptionKey { get; private set; } = null!;
-
-        /// <summary>
-        /// Represents the Cert thumbprint that was used to encrypt the CEK
-        /// </summary>
-        [Output("encryptionKeyThumbprint")]
-        public Output<string?> EncryptionKeyThumbprint { get; private set; } = null!;
-
-        /// <summary>
         /// ETag of the Resource
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Represents the CIK of the resource
-        /// </summary>
-        [Output("integrityKey")]
-        public Output<string> IntegrityKey { get; private set; } = null!;
 
         /// <summary>
         /// The name.
@@ -53,22 +29,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+        /// The extended info properties.
         /// </summary>
-        [Output("portalCertificateThumbprint")]
-        public Output<string?> PortalCertificateThumbprint { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ManagerExtendedInfoPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Represents the version of the ExtendedInfo object being persisted
-        /// </summary>
-        [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,52 +91,22 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class ManagerExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-        /// </summary>
-        [Input("algorithm", required: true)]
-        public Input<string> Algorithm { get; set; } = null!;
-
-        /// <summary>
-        /// Represents the CEK of the resource
-        /// </summary>
-        [Input("encryptionKey")]
-        public Input<string>? EncryptionKey { get; set; }
-
-        /// <summary>
-        /// Represents the Cert thumbprint that was used to encrypt the CEK
-        /// </summary>
-        [Input("encryptionKeyThumbprint")]
-        public Input<string>? EncryptionKeyThumbprint { get; set; }
-
-        /// <summary>
-        /// Represents the CIK of the resource
-        /// </summary>
-        [Input("integrityKey", required: true)]
-        public Input<string> IntegrityKey { get; set; } = null!;
-
-        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+        /// The extended info properties.
         /// </summary>
-        [Input("portalCertificateThumbprint")]
-        public Input<string>? PortalCertificateThumbprint { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ManagerExtendedInfoPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Represents the version of the ExtendedInfo object being persisted
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
 
         public ManagerExtendedInfoArgs()
         {

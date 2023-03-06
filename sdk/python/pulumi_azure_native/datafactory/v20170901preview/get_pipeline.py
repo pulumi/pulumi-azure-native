@@ -24,19 +24,7 @@ class GetPipelineResult:
     """
     Pipeline resource type.
     """
-    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, id=None, name=None, parameters=None, type=None):
-        if activities and not isinstance(activities, list):
-            raise TypeError("Expected argument 'activities' to be a list")
-        pulumi.set(__self__, "activities", activities)
-        if annotations and not isinstance(annotations, list):
-            raise TypeError("Expected argument 'annotations' to be a list")
-        pulumi.set(__self__, "annotations", annotations)
-        if concurrency and not isinstance(concurrency, int):
-            raise TypeError("Expected argument 'concurrency' to be a int")
-        pulumi.set(__self__, "concurrency", concurrency)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -46,44 +34,12 @@ class GetPipelineResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        pulumi.set(__self__, "parameters", parameters)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def activities(self) -> Optional[Sequence[Any]]:
-        """
-        List of activities in pipeline.
-        """
-        return pulumi.get(self, "activities")
-
-    @property
-    @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Any]]:
-        """
-        List of tags that can be used for describing the Pipeline.
-        """
-        return pulumi.get(self, "annotations")
-
-    @property
-    @pulumi.getter
-    def concurrency(self) -> Optional[int]:
-        """
-        The max number of concurrent runs for the pipeline.
-        """
-        return pulumi.get(self, "concurrency")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the pipeline.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -111,11 +67,11 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+    def properties(self) -> 'outputs.PipelineResponse':
         """
-        List of parameters for pipeline.
+        Properties of the pipeline.
         """
-        return pulumi.get(self, "parameters")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -132,14 +88,10 @@ class AwaitableGetPipelineResult(GetPipelineResult):
         if False:
             yield self
         return GetPipelineResult(
-            activities=self.activities,
-            annotations=self.annotations,
-            concurrency=self.concurrency,
-            description=self.description,
             etag=self.etag,
             id=self.id,
             name=self.name,
-            parameters=self.parameters,
+            properties=self.properties,
             type=self.type)
 
 
@@ -164,14 +116,10 @@ def get_pipeline(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory/v20170901preview:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        activities=__ret__.activities,
-        annotations=__ret__.annotations,
-        concurrency=__ret__.concurrency,
-        description=__ret__.description,
         etag=__ret__.etag,
         id=__ret__.id,
         name=__ret__.name,
-        parameters=__ret__.parameters,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

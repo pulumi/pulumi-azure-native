@@ -22,56 +22,22 @@ class GetSavedSearchResult:
     """
     Value object for saved search results.
     """
-    def __init__(__self__, category=None, display_name=None, etag=None, function_alias=None, function_parameters=None, id=None, name=None, query=None, tags=None, type=None, version=None):
-        if category and not isinstance(category, str):
-            raise TypeError("Expected argument 'category' to be a str")
-        pulumi.set(__self__, "category", category)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if function_alias and not isinstance(function_alias, str):
-            raise TypeError("Expected argument 'function_alias' to be a str")
-        pulumi.set(__self__, "function_alias", function_alias)
-        if function_parameters and not isinstance(function_parameters, str):
-            raise TypeError("Expected argument 'function_parameters' to be a str")
-        pulumi.set(__self__, "function_parameters", function_parameters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if query and not isinstance(query, str):
-            raise TypeError("Expected argument 'query' to be a str")
-        pulumi.set(__self__, "query", query)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if version and not isinstance(version, float):
-            raise TypeError("Expected argument 'version' to be a float")
-        pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def category(self) -> str:
-        """
-        The category of the saved search. This helps the user to find a saved search faster. 
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
-        """
-        Saved search display name.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -80,22 +46,6 @@ class GetSavedSearchResult:
         The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[str]:
-        """
-        The function alias if query serves as a function.
-        """
-        return pulumi.get(self, "function_alias")
-
-    @property
-    @pulumi.getter(name="functionParameters")
-    def function_parameters(self) -> Optional[str]:
-        """
-        The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
-        """
-        return pulumi.get(self, "function_parameters")
 
     @property
     @pulumi.getter
@@ -115,19 +65,11 @@ class GetSavedSearchResult:
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def properties(self) -> 'outputs.SavedSearchPropertiesResponse':
         """
-        The query expression for the saved search.
+        The properties of the saved search.
         """
-        return pulumi.get(self, "query")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.TagResponse']]:
-        """
-        The tags attached to the saved search.
-        """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -137,14 +79,6 @@ class GetSavedSearchResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[float]:
-        """
-        The version number of the query language. The current version is 2 and is the default.
-        """
-        return pulumi.get(self, "version")
-
 
 class AwaitableGetSavedSearchResult(GetSavedSearchResult):
     # pylint: disable=using-constant-test
@@ -152,17 +86,11 @@ class AwaitableGetSavedSearchResult(GetSavedSearchResult):
         if False:
             yield self
         return GetSavedSearchResult(
-            category=self.category,
-            display_name=self.display_name,
             etag=self.etag,
-            function_alias=self.function_alias,
-            function_parameters=self.function_parameters,
             id=self.id,
             name=self.name,
-            query=self.query,
-            tags=self.tags,
-            type=self.type,
-            version=self.version)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_saved_search(resource_group_name: Optional[str] = None,
@@ -185,17 +113,11 @@ def get_saved_search(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20200801:getSavedSearch', __args__, opts=opts, typ=GetSavedSearchResult).value
 
     return AwaitableGetSavedSearchResult(
-        category=__ret__.category,
-        display_name=__ret__.display_name,
         etag=__ret__.etag,
-        function_alias=__ret__.function_alias,
-        function_parameters=__ret__.function_parameters,
         id=__ret__.id,
         name=__ret__.name,
-        query=__ret__.query,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_saved_search)

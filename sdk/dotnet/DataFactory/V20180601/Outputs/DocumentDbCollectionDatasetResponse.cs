@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// Document Database collection name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object CollectionName;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
@@ -53,12 +49,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'DocumentDbCollection'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// DocumentDB Collection dataset properties.
+        /// </summary>
+        public readonly Outputs.DocumentDbCollectionDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private DocumentDbCollectionDatasetResponse(
             ImmutableArray<object> annotations,
-
-            object collectionName,
 
             string? description,
 
@@ -72,10 +70,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.DocumentDbCollectionDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            CollectionName = collectionName;
             Description = description;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
@@ -83,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Schema = schema;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

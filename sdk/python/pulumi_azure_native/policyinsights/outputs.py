@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AttestationEvidenceResponse',
+    'AttestationPropertiesResponse',
     'ErrorDefinitionResponse',
     'RemediationDeploymentResponse',
     'RemediationDeploymentSummaryResponse',
@@ -71,6 +72,149 @@ class AttestationEvidenceResponse(dict):
         The URI location of the evidence.
         """
         return pulumi.get(self, "source_uri")
+
+
+@pulumi.output_type
+class AttestationPropertiesResponse(dict):
+    """
+    The properties of an attestation resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastComplianceStateChangeAt":
+            suggest = "last_compliance_state_change_at"
+        elif key == "policyAssignmentId":
+            suggest = "policy_assignment_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "complianceState":
+            suggest = "compliance_state"
+        elif key == "expiresOn":
+            suggest = "expires_on"
+        elif key == "policyDefinitionReferenceId":
+            suggest = "policy_definition_reference_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttestationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttestationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttestationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_compliance_state_change_at: str,
+                 policy_assignment_id: str,
+                 provisioning_state: str,
+                 comments: Optional[str] = None,
+                 compliance_state: Optional[str] = None,
+                 evidence: Optional[Sequence['outputs.AttestationEvidenceResponse']] = None,
+                 expires_on: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 policy_definition_reference_id: Optional[str] = None):
+        """
+        The properties of an attestation resource.
+        :param str last_compliance_state_change_at: The time the compliance state was last changed in this attestation.
+        :param str policy_assignment_id: The resource ID of the policy assignment that the attestation is setting the state for.
+        :param str provisioning_state: The status of the attestation.
+        :param str comments: Comments describing why this attestation was created.
+        :param str compliance_state: The compliance state that should be set on the resource.
+        :param Sequence['AttestationEvidenceResponse'] evidence: The evidence supporting the compliance state set in this attestation.
+        :param str expires_on: The time the compliance state should expire.
+        :param str owner: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+        :param str policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
+        """
+        pulumi.set(__self__, "last_compliance_state_change_at", last_compliance_state_change_at)
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if compliance_state is not None:
+            pulumi.set(__self__, "compliance_state", compliance_state)
+        if evidence is not None:
+            pulumi.set(__self__, "evidence", evidence)
+        if expires_on is not None:
+            pulumi.set(__self__, "expires_on", expires_on)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter(name="lastComplianceStateChangeAt")
+    def last_compliance_state_change_at(self) -> str:
+        """
+        The time the compliance state was last changed in this attestation.
+        """
+        return pulumi.get(self, "last_compliance_state_change_at")
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> str:
+        """
+        The resource ID of the policy assignment that the attestation is setting the state for.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the attestation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[str]:
+        """
+        Comments describing why this attestation was created.
+        """
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter(name="complianceState")
+    def compliance_state(self) -> Optional[str]:
+        """
+        The compliance state that should be set on the resource.
+        """
+        return pulumi.get(self, "compliance_state")
+
+    @property
+    @pulumi.getter
+    def evidence(self) -> Optional[Sequence['outputs.AttestationEvidenceResponse']]:
+        """
+        The evidence supporting the compliance state set in this attestation.
+        """
+        return pulumi.get(self, "evidence")
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> Optional[str]:
+        """
+        The time the compliance state should expire.
+        """
+        return pulumi.get(self, "expires_on")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        """
+        The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[str]:
+        """
+        The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
 
 
 @pulumi.output_type

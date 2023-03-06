@@ -35,25 +35,9 @@ export interface GetLabArgs {
  */
 export interface GetLabResult {
     /**
-     * The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
-     */
-    readonly autoShutdownProfile: outputs.labservices.v20211115preview.AutoShutdownProfileResponse;
-    /**
-     * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
-     */
-    readonly connectionProfile: outputs.labservices.v20211115preview.ConnectionProfileResponse;
-    /**
-     * The description of the lab.
-     */
-    readonly description?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
-     */
-    readonly labPlanId?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -63,25 +47,9 @@ export interface GetLabResult {
      */
     readonly name: string;
     /**
-     * The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+     * Lab resource properties
      */
-    readonly networkProfile?: outputs.labservices.v20211115preview.LabNetworkProfileResponse;
-    /**
-     * Current provisioning state of the lab.
-     */
-    readonly provisioningState: string;
-    /**
-     * The lab user list management profile.
-     */
-    readonly rosterProfile?: outputs.labservices.v20211115preview.RosterProfileResponse;
-    /**
-     * The lab security profile.
-     */
-    readonly securityProfile: outputs.labservices.v20211115preview.SecurityProfileResponse;
-    /**
-     * The lab state.
-     */
-    readonly state: string;
+    readonly properties: outputs.labservices.v20211115preview.LabPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the lab.
      */
@@ -91,17 +59,9 @@ export interface GetLabResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The title of the lab.
-     */
-    readonly title?: string;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The profile used for creating lab virtual machines.
-     */
-    readonly virtualMachineProfile: outputs.labservices.v20211115preview.VirtualMachineProfileResponse;
 }
 /**
  * Returns the properties of a lab resource.

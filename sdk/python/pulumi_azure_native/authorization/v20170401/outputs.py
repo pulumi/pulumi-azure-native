@@ -8,10 +8,12 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ManagementLockOwnerResponse',
+    'ManagementLockPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -52,5 +54,51 @@ class ManagementLockOwnerResponse(dict):
         The application ID of the lock owner.
         """
         return pulumi.get(self, "application_id")
+
+
+@pulumi.output_type
+class ManagementLockPropertiesResponse(dict):
+    """
+    The lock properties.
+    """
+    def __init__(__self__, *,
+                 level: str,
+                 notes: Optional[str] = None,
+                 owners: Optional[Sequence['outputs.ManagementLockOwnerResponse']] = None):
+        """
+        The lock properties.
+        :param str level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        :param str notes: Notes about the lock. Maximum of 512 characters.
+        :param Sequence['ManagementLockOwnerResponse'] owners: The owners of the lock.
+        """
+        pulumi.set(__self__, "level", level)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if owners is not None:
+            pulumi.set(__self__, "owners", owners)
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        """
+        The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        Notes about the lock. Maximum of 512 characters.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def owners(self) -> Optional[Sequence['outputs.ManagementLockOwnerResponse']]:
+        """
+        The owners of the lock.
+        """
+        return pulumi.get(self, "owners")
 
 

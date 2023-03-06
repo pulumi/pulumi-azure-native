@@ -36,25 +36,6 @@ export interface GetResourcePoolArgs {
  */
 export interface GetResourcePoolResult {
     /**
-     * Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
-     * Utilization will not exceed this limit even if there are available resources.
-     */
-    readonly cpuLimitMHz: number;
-    /**
-     * Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
-     * to be available.
-     */
-    readonly cpuReservationMHz: number;
-    /**
-     * Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
-     * This property is used in relative allocation between resource consumers.
-     */
-    readonly cpuSharesLevel: string;
-    /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    readonly customResourceName: string;
-    /**
      * Gets or sets the extended location.
      */
     readonly extendedLocation?: outputs.connectedvmwarevsphere.ExtendedLocationResponse;
@@ -62,10 +43,6 @@ export interface GetResourcePoolResult {
      * Gets or sets the Id.
      */
     readonly id: string;
-    /**
-     * Gets or sets the inventory Item ID for the resource pool.
-     */
-    readonly inventoryItemId?: string;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -75,40 +52,13 @@ export interface GetResourcePoolResult {
      */
     readonly location: string;
     /**
-     * Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
-     * Utilization will not exceed the specified limit even if there are available resources.
-     */
-    readonly memLimitMB: number;
-    /**
-     * Gets or sets MemReservationMB which specifies the guaranteed available memory in
-     * megabytes.
-     */
-    readonly memReservationMB: number;
-    /**
-     * Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
-     * This property is used in relative allocation between resource consumers.
-     */
-    readonly memSharesLevel: string;
-    /**
-     * Gets or sets the vCenter Managed Object name for the resource pool.
-     */
-    readonly moName: string;
-    /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
-     */
-    readonly moRefId?: string;
-    /**
      * Gets or sets the name.
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The resource status information.
-     */
-    readonly statuses: outputs.connectedvmwarevsphere.ResourceStatusResponse[];
+    readonly properties: outputs.connectedvmwarevsphere.ResourcePoolPropertiesResponse;
     /**
      * The system data.
      */
@@ -121,14 +71,6 @@ export interface GetResourcePoolResult {
      * Gets or sets the type of the resource.
      */
     readonly type: string;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    readonly uuid: string;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-     */
-    readonly vCenterId?: string;
 }
 /**
  * Implements resourcePool GET method.

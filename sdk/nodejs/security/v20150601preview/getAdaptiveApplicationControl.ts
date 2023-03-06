@@ -34,18 +34,9 @@ export interface GetAdaptiveApplicationControlArgs {
 
 export interface GetAdaptiveApplicationControlResult {
     /**
-     * The configuration status of the VM/server group or machine or rule on the machine
-     */
-    readonly configurationStatus?: string;
-    /**
-     * The application control policy enforcement/protection mode of the VM/server group
-     */
-    readonly enforcementMode?: string;
-    /**
      * Resource Id
      */
     readonly id: string;
-    readonly issues?: outputs.security.v20150601preview.AppWhitelistingIssueSummaryResponse[];
     /**
      * Location where the resource is stored
      */
@@ -54,24 +45,14 @@ export interface GetAdaptiveApplicationControlResult {
      * Resource name
      */
     readonly name: string;
-    readonly pathRecommendations?: outputs.security.v20150601preview.PathRecommendationResponse[];
     /**
-     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+     * Represents a VM/server group and set of rules that are Recommended by Microsoft Defender for Cloud to be allowed
      */
-    readonly protectionMode?: outputs.security.v20150601preview.ProtectionModeResponse;
-    /**
-     * The recommendation status of the VM/server group or VM/server
-     */
-    readonly recommendationStatus?: string;
-    /**
-     * The source type of the VM/server group
-     */
-    readonly sourceSystem?: string;
+    readonly properties: outputs.security.v20150601preview.AppWhitelistingGroupDataResponse;
     /**
      * Resource type
      */
     readonly type: string;
-    readonly vmRecommendations?: outputs.security.v20150601preview.VmRecommendationResponse[];
 }
 /**
  * Gets an application control VM/server group.

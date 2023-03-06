@@ -14,19 +14,24 @@ from ._enums import *
 __all__ = [
     'AccountEncryptionResponse',
     'ActiveDirectoryResponse',
+    'BackupPolicyPropertiesResponse',
+    'BackupPropertiesResponse',
     'DailyScheduleResponse',
     'ExportPolicyRuleResponse',
     'HourlyScheduleResponse',
     'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
     'PlacementKeyValuePairsResponse',
+    'PoolPropertiesResponse',
     'ReplicationObjectResponse',
     'ReplicationResponse',
+    'SnapshotPolicyPropertiesResponse',
     'SystemDataResponse',
     'VolumeBackupPropertiesResponse',
     'VolumeBackupsResponse',
     'VolumeGroupMetaDataResponse',
     'VolumeGroupVolumePropertiesResponse',
+    'VolumePropertiesResponse',
     'VolumePropertiesResponseDataProtection',
     'VolumePropertiesResponseExportPolicy',
     'VolumeSnapshotPropertiesResponse',
@@ -351,6 +356,279 @@ class ActiveDirectoryResponse(dict):
         A domain user account with permission to create machine accounts
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class BackupPolicyPropertiesResponse(dict):
+    """
+    Backup policy properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dailyBackupsToKeep":
+            suggest = "daily_backups_to_keep"
+        elif key == "monthlyBackupsToKeep":
+            suggest = "monthly_backups_to_keep"
+        elif key == "volumeBackups":
+            suggest = "volume_backups"
+        elif key == "volumesAssigned":
+            suggest = "volumes_assigned"
+        elif key == "weeklyBackupsToKeep":
+            suggest = "weekly_backups_to_keep"
+        elif key == "yearlyBackupsToKeep":
+            suggest = "yearly_backups_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 provisioning_state: str,
+                 daily_backups_to_keep: Optional[int] = None,
+                 enabled: Optional[bool] = None,
+                 monthly_backups_to_keep: Optional[int] = None,
+                 volume_backups: Optional[Sequence['outputs.VolumeBackupsResponse']] = None,
+                 volumes_assigned: Optional[int] = None,
+                 weekly_backups_to_keep: Optional[int] = None,
+                 yearly_backups_to_keep: Optional[int] = None):
+        """
+        Backup policy properties
+        :param str name: Name of backup policy
+        :param str provisioning_state: Azure lifecycle management
+        :param int daily_backups_to_keep: Daily backups count to keep
+        :param bool enabled: The property to decide policy is enabled or not
+        :param int monthly_backups_to_keep: Monthly backups count to keep
+        :param Sequence['VolumeBackupsResponse'] volume_backups: A list of volumes assigned to this policy
+        :param int volumes_assigned: Volumes using current backup policy
+        :param int weekly_backups_to_keep: Weekly backups count to keep
+        :param int yearly_backups_to_keep: Yearly backups count to keep
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if daily_backups_to_keep is not None:
+            pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if monthly_backups_to_keep is not None:
+            pulumi.set(__self__, "monthly_backups_to_keep", monthly_backups_to_keep)
+        if volume_backups is not None:
+            pulumi.set(__self__, "volume_backups", volume_backups)
+        if volumes_assigned is not None:
+            pulumi.set(__self__, "volumes_assigned", volumes_assigned)
+        if weekly_backups_to_keep is not None:
+            pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
+        if yearly_backups_to_keep is not None:
+            pulumi.set(__self__, "yearly_backups_to_keep", yearly_backups_to_keep)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of backup policy
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="dailyBackupsToKeep")
+    def daily_backups_to_keep(self) -> Optional[int]:
+        """
+        Daily backups count to keep
+        """
+        return pulumi.get(self, "daily_backups_to_keep")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        The property to decide policy is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="monthlyBackupsToKeep")
+    def monthly_backups_to_keep(self) -> Optional[int]:
+        """
+        Monthly backups count to keep
+        """
+        return pulumi.get(self, "monthly_backups_to_keep")
+
+    @property
+    @pulumi.getter(name="volumeBackups")
+    def volume_backups(self) -> Optional[Sequence['outputs.VolumeBackupsResponse']]:
+        """
+        A list of volumes assigned to this policy
+        """
+        return pulumi.get(self, "volume_backups")
+
+    @property
+    @pulumi.getter(name="volumesAssigned")
+    def volumes_assigned(self) -> Optional[int]:
+        """
+        Volumes using current backup policy
+        """
+        return pulumi.get(self, "volumes_assigned")
+
+    @property
+    @pulumi.getter(name="weeklyBackupsToKeep")
+    def weekly_backups_to_keep(self) -> Optional[int]:
+        """
+        Weekly backups count to keep
+        """
+        return pulumi.get(self, "weekly_backups_to_keep")
+
+    @property
+    @pulumi.getter(name="yearlyBackupsToKeep")
+    def yearly_backups_to_keep(self) -> Optional[int]:
+        """
+        Yearly backups count to keep
+        """
+        return pulumi.get(self, "yearly_backups_to_keep")
+
+
+@pulumi.output_type
+class BackupPropertiesResponse(dict):
+    """
+    Backup properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupId":
+            suggest = "backup_id"
+        elif key == "backupType":
+            suggest = "backup_type"
+        elif key == "creationDate":
+            suggest = "creation_date"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_id: str,
+                 backup_type: str,
+                 creation_date: str,
+                 failure_reason: str,
+                 provisioning_state: str,
+                 size: float,
+                 volume_name: str,
+                 label: Optional[str] = None):
+        """
+        Backup properties
+        :param str backup_id: UUID v4 used to identify the Backup
+        :param str backup_type: Type of backup Manual or Scheduled
+        :param str creation_date: The creation date of the backup
+        :param str failure_reason: Failure reason
+        :param str provisioning_state: Azure lifecycle management
+        :param float size: Size of backup
+        :param str volume_name: Volume name
+        :param str label: Label for backup
+        """
+        pulumi.set(__self__, "backup_id", backup_id)
+        pulumi.set(__self__, "backup_type", backup_type)
+        pulumi.set(__self__, "creation_date", creation_date)
+        pulumi.set(__self__, "failure_reason", failure_reason)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "volume_name", volume_name)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> str:
+        """
+        UUID v4 used to identify the Backup
+        """
+        return pulumi.get(self, "backup_id")
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> str:
+        """
+        Type of backup Manual or Scheduled
+        """
+        return pulumi.get(self, "backup_type")
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The creation date of the backup
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> str:
+        """
+        Failure reason
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def size(self) -> float:
+        """
+        Size of backup
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> str:
+        """
+        Volume name
+        """
+        return pulumi.get(self, "volume_name")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Label for backup
+        """
+        return pulumi.get(self, "label")
 
 
 @pulumi.output_type
@@ -948,6 +1226,126 @@ class PlacementKeyValuePairsResponse(dict):
 
 
 @pulumi.output_type
+class PoolPropertiesResponse(dict):
+    """
+    Pool properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "poolId":
+            suggest = "pool_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceLevel":
+            suggest = "service_level"
+        elif key == "totalThroughputMibps":
+            suggest = "total_throughput_mibps"
+        elif key == "utilizedThroughputMibps":
+            suggest = "utilized_throughput_mibps"
+        elif key == "qosType":
+            suggest = "qos_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pool_id: str,
+                 provisioning_state: str,
+                 service_level: str,
+                 size: float,
+                 total_throughput_mibps: float,
+                 utilized_throughput_mibps: float,
+                 qos_type: Optional[str] = None):
+        """
+        Pool properties
+        :param str pool_id: UUID v4 used to identify the Pool
+        :param str provisioning_state: Azure lifecycle management
+        :param str service_level: The service level of the file system
+        :param float size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        :param float total_throughput_mibps: Total throughput of pool in Mibps
+        :param float utilized_throughput_mibps: Utilized throughput of pool in Mibps
+        :param str qos_type: The qos type of the pool
+        """
+        pulumi.set(__self__, "pool_id", pool_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_level is None:
+            service_level = 'Premium'
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "total_throughput_mibps", total_throughput_mibps)
+        pulumi.set(__self__, "utilized_throughput_mibps", utilized_throughput_mibps)
+        if qos_type is None:
+            qos_type = 'Auto'
+        if qos_type is not None:
+            pulumi.set(__self__, "qos_type", qos_type)
+
+    @property
+    @pulumi.getter(name="poolId")
+    def pool_id(self) -> str:
+        """
+        UUID v4 used to identify the Pool
+        """
+        return pulumi.get(self, "pool_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> str:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter
+    def size(self) -> float:
+        """
+        Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="totalThroughputMibps")
+    def total_throughput_mibps(self) -> float:
+        """
+        Total throughput of pool in Mibps
+        """
+        return pulumi.get(self, "total_throughput_mibps")
+
+    @property
+    @pulumi.getter(name="utilizedThroughputMibps")
+    def utilized_throughput_mibps(self) -> float:
+        """
+        Utilized throughput of pool in Mibps
+        """
+        return pulumi.get(self, "utilized_throughput_mibps")
+
+    @property
+    @pulumi.getter(name="qosType")
+    def qos_type(self) -> Optional[str]:
+        """
+        The qos type of the pool
+        """
+        return pulumi.get(self, "qos_type")
+
+
+@pulumi.output_type
 class ReplicationObjectResponse(dict):
     """
     Replication properties
@@ -1098,6 +1496,113 @@ class ReplicationResponse(dict):
         Schedule
         """
         return pulumi.get(self, "replication_schedule")
+
+
+@pulumi.output_type
+class SnapshotPolicyPropertiesResponse(dict):
+    """
+    Snapshot policy properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dailySchedule":
+            suggest = "daily_schedule"
+        elif key == "hourlySchedule":
+            suggest = "hourly_schedule"
+        elif key == "monthlySchedule":
+            suggest = "monthly_schedule"
+        elif key == "weeklySchedule":
+            suggest = "weekly_schedule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 daily_schedule: Optional['outputs.DailyScheduleResponse'] = None,
+                 enabled: Optional[bool] = None,
+                 hourly_schedule: Optional['outputs.HourlyScheduleResponse'] = None,
+                 monthly_schedule: Optional['outputs.MonthlyScheduleResponse'] = None,
+                 weekly_schedule: Optional['outputs.WeeklyScheduleResponse'] = None):
+        """
+        Snapshot policy properties
+        :param str provisioning_state: Azure lifecycle management
+        :param 'DailyScheduleResponse' daily_schedule: Schedule for daily snapshots
+        :param bool enabled: The property to decide policy is enabled or not
+        :param 'HourlyScheduleResponse' hourly_schedule: Schedule for hourly snapshots
+        :param 'MonthlyScheduleResponse' monthly_schedule: Schedule for monthly snapshots
+        :param 'WeeklyScheduleResponse' weekly_schedule: Schedule for weekly snapshots
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if monthly_schedule is not None:
+            pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional['outputs.DailyScheduleResponse']:
+        """
+        Schedule for daily snapshots
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        The property to decide policy is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional['outputs.HourlyScheduleResponse']:
+        """
+        Schedule for hourly snapshots
+        """
+        return pulumi.get(self, "hourly_schedule")
+
+    @property
+    @pulumi.getter(name="monthlySchedule")
+    def monthly_schedule(self) -> Optional['outputs.MonthlyScheduleResponse']:
+        """
+        Schedule for monthly snapshots
+        """
+        return pulumi.get(self, "monthly_schedule")
+
+    @property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional['outputs.WeeklyScheduleResponse']:
+        """
+        Schedule for weekly snapshots
+        """
+        return pulumi.get(self, "weekly_schedule")
 
 
 @pulumi.output_type
@@ -1474,6 +1979,74 @@ class VolumeGroupVolumePropertiesResponse(dict):
     """
     Volume resource
     """
+    def __init__(__self__, *,
+                 id: str,
+                 properties: 'outputs.VolumePropertiesResponse',
+                 type: str,
+                 name: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Volume resource
+        :param str id: Resource Id
+        :param 'VolumePropertiesResponse' properties: Volume properties
+        :param str type: Resource type
+        :param str name: Resource name
+        :param Mapping[str, str] tags: Resource tags
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.VolumePropertiesResponse':
+        """
+        Volume properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class VolumePropertiesResponse(dict):
+    """
+    Volume properties
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1563,14 +2136,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "volume_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VolumeGroupVolumePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VolumePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VolumeGroupVolumePropertiesResponse.__key_warning(key)
+        VolumePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VolumeGroupVolumePropertiesResponse.__key_warning(key)
+        VolumePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1578,7 +2151,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  clone_progress: int,
                  creation_token: str,
                  file_system_id: str,
-                 id: str,
                  maximum_number_of_files: float,
                  mount_targets: Sequence['outputs.MountTargetPropertiesResponse'],
                  network_sibling_set_id: str,
@@ -1586,7 +2158,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  storage_to_network_proximity: str,
                  subnet_id: str,
                  t2_network: str,
-                 type: str,
                  usage_threshold: float,
                  volume_group_name: str,
                  avs_data_store: Optional[str] = None,
@@ -1604,7 +2175,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  is_restoring: Optional[bool] = None,
                  kerberos_enabled: Optional[bool] = None,
                  ldap_enabled: Optional[bool] = None,
-                 name: Optional[str] = None,
                  network_features: Optional[str] = None,
                  placement_rules: Optional[Sequence['outputs.PlacementKeyValuePairsResponse']] = None,
                  protocol_types: Optional[Sequence[str]] = None,
@@ -1615,18 +2185,16 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  smb_encryption: Optional[bool] = None,
                  snapshot_directory_visible: Optional[bool] = None,
                  snapshot_id: Optional[str] = None,
-                 tags: Optional[Mapping[str, str]] = None,
                  throughput_mibps: Optional[float] = None,
                  unix_permissions: Optional[str] = None,
                  volume_spec_name: Optional[str] = None,
                  volume_type: Optional[str] = None):
         """
-        Volume resource
+        Volume properties
         :param str baremetal_tenant_id: Unique Baremetal Tenant Identifier.
         :param int clone_progress: When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
         :param str creation_token: A unique file path for the volume. Used when creating mount targets
         :param str file_system_id: Unique FileSystem Identifier.
-        :param str id: Resource Id
         :param float maximum_number_of_files: Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
         :param Sequence['MountTargetPropertiesResponse'] mount_targets: List of mount targets
         :param str network_sibling_set_id: Network Sibling Set ID for the the group of volumes sharing networking resources.
@@ -1634,7 +2202,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param str storage_to_network_proximity: Provides storage to network proximity information for the volume.
         :param str subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param str t2_network: T2 network information
-        :param str type: Resource type
         :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param str volume_group_name: Volume Group Name
         :param str avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
@@ -1652,7 +2219,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param bool is_restoring: Restoring
         :param bool kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param bool ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
-        :param str name: Resource name
         :param str network_features: Basic network, or Standard features available to the volume.
         :param Sequence['PlacementKeyValuePairsResponse'] placement_rules: Application specific placement rules for the particular volume
         :param Sequence[str] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
@@ -1663,7 +2229,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param bool smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param bool snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         :param str snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
-        :param Mapping[str, str] tags: Resource tags
         :param str unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param str volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param str volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
@@ -1672,7 +2237,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         pulumi.set(__self__, "clone_progress", clone_progress)
         pulumi.set(__self__, "creation_token", creation_token)
         pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "maximum_number_of_files", maximum_number_of_files)
         pulumi.set(__self__, "mount_targets", mount_targets)
         pulumi.set(__self__, "network_sibling_set_id", network_sibling_set_id)
@@ -1680,7 +2244,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         pulumi.set(__self__, "storage_to_network_proximity", storage_to_network_proximity)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "t2_network", t2_network)
-        pulumi.set(__self__, "type", type)
         if usage_threshold is None:
             usage_threshold = 107374182400
         pulumi.set(__self__, "usage_threshold", usage_threshold)
@@ -1731,8 +2294,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
             ldap_enabled = False
         if ldap_enabled is not None:
             pulumi.set(__self__, "ldap_enabled", ldap_enabled)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if network_features is None:
             network_features = 'Basic'
         if network_features is not None:
@@ -1763,8 +2324,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
             pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
         if unix_permissions is None:
@@ -1807,14 +2366,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         Unique FileSystem Identifier.
         """
         return pulumi.get(self, "file_system_id")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maximumNumberOfFiles")
@@ -1871,14 +2422,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         T2 network information
         """
         return pulumi.get(self, "t2_network")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="usageThreshold")
@@ -2017,14 +2560,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         return pulumi.get(self, "ldap_enabled")
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Resource name
-        """
-        return pulumi.get(self, "name")
-
-    @property
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> Optional[str]:
         """
@@ -2103,14 +2638,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
         UUID v4 or resource identifier used to identify the Snapshot.
         """
         return pulumi.get(self, "snapshot_id")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="throughputMibps")

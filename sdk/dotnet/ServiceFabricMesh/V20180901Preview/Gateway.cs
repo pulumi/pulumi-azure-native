@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public partial class Gateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// User readable description of the gateway.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// Network that the Application is using.
-        /// </summary>
-        [Output("destinationNetwork")]
-        public Output<Outputs.NetworkRefResponse> DestinationNetwork { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration for http connectivity for this gateway.
-        /// </summary>
-        [Output("http")]
-        public Output<ImmutableArray<Outputs.HttpConfigResponse>> Http { get; private set; } = null!;
-
-        /// <summary>
-        /// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
-        /// </summary>
-        [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -52,40 +28,16 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the resource.
+        /// This type describes properties of a gateway resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Network the gateway should listen on for requests.
-        /// </summary>
-        [Output("sourceNetwork")]
-        public Output<Outputs.NetworkRefResponse> SourceNetwork { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of the resource.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Gives additional information about the current status of the gateway.
-        /// </summary>
-        [Output("statusDetails")]
-        public Output<string> StatusDetails { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.GatewayResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration for tcp connectivity for this gateway.
-        /// </summary>
-        [Output("tcp")]
-        public Output<ImmutableArray<Outputs.TcpConfigResponse>> Tcp { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -143,34 +95,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public sealed class GatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// User readable description of the gateway.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Network that the Application is using.
-        /// </summary>
-        [Input("destinationNetwork", required: true)]
-        public Input<Inputs.NetworkRefArgs> DestinationNetwork { get; set; } = null!;
-
-        /// <summary>
         /// The identity of the gateway.
         /// </summary>
         [Input("gatewayResourceName")]
         public Input<string>? GatewayResourceName { get; set; }
-
-        [Input("http")]
-        private InputList<Inputs.HttpConfigArgs>? _http;
-
-        /// <summary>
-        /// Configuration for http connectivity for this gateway.
-        /// </summary>
-        public InputList<Inputs.HttpConfigArgs> Http
-        {
-            get => _http ?? (_http = new InputList<Inputs.HttpConfigArgs>());
-            set => _http = value;
-        }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -179,16 +107,16 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// This type describes properties of a gateway resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.GatewayResourcePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Azure resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Network the gateway should listen on for requests.
-        /// </summary>
-        [Input("sourceNetwork", required: true)]
-        public Input<Inputs.NetworkRefArgs> SourceNetwork { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -200,18 +128,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tcp")]
-        private InputList<Inputs.TcpConfigArgs>? _tcp;
-
-        /// <summary>
-        /// Configuration for tcp connectivity for this gateway.
-        /// </summary>
-        public InputList<Inputs.TcpConfigArgs> Tcp
-        {
-            get => _tcp ?? (_tcp = new InputList<Inputs.TcpConfigArgs>());
-            set => _tcp = value;
         }
 
         public GatewayArgs()

@@ -35,12 +35,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string?> CreatedByType { get; private set; } = null!;
 
         /// <summary>
-        /// A key to encrypt the SIM data that belongs to this SIM group.
-        /// </summary>
-        [Output("encryptionKey")]
-        public Output<Outputs.KeyVaultKeyResponse?> EncryptionKey { get; private set; } = null!;
-
-        /// <summary>
         /// The identity used to retrieve the encryption key from Azure key vault.
         /// </summary>
         [Output("identity")]
@@ -71,22 +65,16 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Mobile network that this SIM belongs to
-        /// </summary>
-        [Output("mobileNetwork")]
-        public Output<Outputs.MobileNetworkResourceIdResponse?> MobileNetwork { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the SIM group resource.
+        /// SIM group Properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SimGroupPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -175,12 +163,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
 
         /// <summary>
-        /// A key to encrypt the SIM data that belongs to this SIM group.
-        /// </summary>
-        [Input("encryptionKey")]
-        public Input<Inputs.KeyVaultKeyArgs>? EncryptionKey { get; set; }
-
-        /// <summary>
         /// The identity used to retrieve the encryption key from Azure key vault.
         /// </summary>
         [Input("identity")]
@@ -211,10 +193,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Mobile network that this SIM belongs to
+        /// SIM group Properties.
         /// </summary>
-        [Input("mobileNetwork")]
-        public Input<Inputs.MobileNetworkResourceIdArgs>? MobileNetwork { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SimGroupPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

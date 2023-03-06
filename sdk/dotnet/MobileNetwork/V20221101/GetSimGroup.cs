@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public sealed class GetSimGroupResult
     {
         /// <summary>
-        /// A key to encrypt the SIM data that belongs to this SIM group.
-        /// </summary>
-        public readonly Outputs.KeyVaultKeyResponse? EncryptionKey;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -86,17 +82,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
-        /// </summary>
-        public readonly Outputs.MobileNetworkResourceIdResponse? MobileNetwork;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the SIM group resource.
+        /// SIM group Properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.SimGroupPropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -112,19 +104,15 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
 
         [OutputConstructor]
         private GetSimGroupResult(
-            Outputs.KeyVaultKeyResponse? encryptionKey,
-
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
-            Outputs.MobileNetworkResourceIdResponse? mobileNetwork,
-
             string name,
 
-            string provisioningState,
+            Outputs.SimGroupPropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -132,13 +120,11 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
 
             string type)
         {
-            EncryptionKey = encryptionKey;
             Id = id;
             Identity = identity;
             Location = location;
-            MobileNetwork = mobileNetwork;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

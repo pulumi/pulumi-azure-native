@@ -8,27 +8,30 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SecretValueArgs', 'SecretValue']
 
 @pulumi.input_type
 class SecretValueArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['SecretValueResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  secret_resource_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  secret_value_resource_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SecretValue resource.
+        :param pulumi.Input['SecretValueResourcePropertiesArgs'] properties: This type describes properties of a secret value resource.
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[str] secret_resource_name: The name of the secret resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] value: The actual value of the secret.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "secret_resource_name", secret_resource_name)
         if location is not None:
@@ -37,8 +40,18 @@ class SecretValueArgs:
             pulumi.set(__self__, "secret_value_resource_name", secret_value_resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SecretValueResourcePropertiesArgs']:
+        """
+        This type describes properties of a secret value resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SecretValueResourcePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,18 +113,6 @@ class SecretValueArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The actual value of the secret.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
 
 class SecretValue(pulumi.CustomResource):
     @overload
@@ -119,11 +120,11 @@ class SecretValue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SecretValueResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret_resource_name: Optional[pulumi.Input[str]] = None,
                  secret_value_resource_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
@@ -132,11 +133,11 @@ class SecretValue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['SecretValueResourcePropertiesArgs']] properties: This type describes properties of a secret value resource.
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[str] secret_resource_name: The name of the secret resource.
         :param pulumi.Input[str] secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] value: The actual value of the secret.
         """
         ...
     @overload
@@ -164,11 +165,11 @@ class SecretValue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SecretValueResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret_resource_name: Optional[pulumi.Input[str]] = None,
                  secret_value_resource_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -179,6 +180,9 @@ class SecretValue(pulumi.CustomResource):
             __props__ = SecretValueArgs.__new__(SecretValueArgs)
 
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -187,9 +191,7 @@ class SecretValue(pulumi.CustomResource):
             __props__.__dict__["secret_resource_name"] = secret_resource_name
             __props__.__dict__["secret_value_resource_name"] = secret_value_resource_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabricmesh/v20180901preview:SecretValue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -217,10 +219,9 @@ class SecretValue(pulumi.CustomResource):
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["value"] = None
         return SecretValue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -240,12 +241,12 @@ class SecretValue(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SecretValueResourcePropertiesResponse']:
         """
-        State of the resource.
+        This type describes properties of a secret value resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -262,12 +263,4 @@ class SecretValue(pulumi.CustomResource):
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Output[Optional[str]]:
-        """
-        The actual value of the secret.
-        """
-        return pulumi.get(self, "value")
 

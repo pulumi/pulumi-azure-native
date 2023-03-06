@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -52,17 +55,13 @@ export interface GetBlobContainerImmutabilityPolicyResult {
      */
     readonly id: string;
     /**
-     * The immutability period for the blobs in the container since the policy creation, in days.
-     */
-    readonly immutabilityPeriodSinceCreationInDays: number;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+     * The properties of an ImmutabilityPolicy of a blob container.
      */
-    readonly state: string;
+    readonly properties: outputs.storage.v20181101.ImmutabilityPolicyPropertyResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

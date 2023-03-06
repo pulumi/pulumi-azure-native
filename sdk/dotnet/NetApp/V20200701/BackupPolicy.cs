@@ -17,40 +17,22 @@ namespace Pulumi.AzureNative.NetApp.V20200701
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Daily backups count to keep
-        /// </summary>
-        [Output("dailyBackupsToKeep")]
-        public Output<int?> DailyBackupsToKeep { get; private set; } = null!;
-
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Monthly backups count to keep
-        /// </summary>
-        [Output("monthlyBackupsToKeep")]
-        public Output<int?> MonthlyBackupsToKeep { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of backup policy
+        /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup policy Properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupPolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -63,30 +45,6 @@ namespace Pulumi.AzureNative.NetApp.V20200701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of volumes assigned to this policy
-        /// </summary>
-        [Output("volumeBackups")]
-        public Output<ImmutableArray<Outputs.VolumeBackupsResponse>> VolumeBackups { get; private set; } = null!;
-
-        /// <summary>
-        /// Volumes using current backup policy
-        /// </summary>
-        [Output("volumesAssigned")]
-        public Output<int?> VolumesAssigned { get; private set; } = null!;
-
-        /// <summary>
-        /// Weekly backups count to keep
-        /// </summary>
-        [Output("weeklyBackupsToKeep")]
-        public Output<int?> WeeklyBackupsToKeep { get; private set; } = null!;
-
-        /// <summary>
-        /// Yearly backups count to keep
-        /// </summary>
-        [Output("yearlyBackupsToKeep")]
-        public Output<int?> YearlyBackupsToKeep { get; private set; } = null!;
 
 
         /// <summary>
@@ -166,28 +124,16 @@ namespace Pulumi.AzureNative.NetApp.V20200701
         public Input<string>? BackupPolicyName { get; set; }
 
         /// <summary>
-        /// Daily backups count to keep
-        /// </summary>
-        [Input("dailyBackupsToKeep")]
-        public Input<int>? DailyBackupsToKeep { get; set; }
-
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Monthly backups count to keep
+        /// Backup policy Properties
         /// </summary>
-        [Input("monthlyBackupsToKeep")]
-        public Input<int>? MonthlyBackupsToKeep { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.BackupPolicyPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -206,36 +152,6 @@ namespace Pulumi.AzureNative.NetApp.V20200701
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        [Input("volumeBackups")]
-        private InputList<Inputs.VolumeBackupsArgs>? _volumeBackups;
-
-        /// <summary>
-        /// A list of volumes assigned to this policy
-        /// </summary>
-        public InputList<Inputs.VolumeBackupsArgs> VolumeBackups
-        {
-            get => _volumeBackups ?? (_volumeBackups = new InputList<Inputs.VolumeBackupsArgs>());
-            set => _volumeBackups = value;
-        }
-
-        /// <summary>
-        /// Volumes using current backup policy
-        /// </summary>
-        [Input("volumesAssigned")]
-        public Input<int>? VolumesAssigned { get; set; }
-
-        /// <summary>
-        /// Weekly backups count to keep
-        /// </summary>
-        [Input("weeklyBackupsToKeep")]
-        public Input<int>? WeeklyBackupsToKeep { get; set; }
-
-        /// <summary>
-        /// Yearly backups count to keep
-        /// </summary>
-        [Input("yearlyBackupsToKeep")]
-        public Input<int>? YearlyBackupsToKeep { get; set; }
 
         public BackupPolicyArgs()
         {

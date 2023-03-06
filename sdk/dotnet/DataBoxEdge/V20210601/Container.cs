@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
     public partial class Container : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Current status of the container.
-        /// </summary>
-        [Output("containerStatus")]
-        public Output<string> ContainerStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The UTC time when container got created.
-        /// </summary>
-        [Output("createdDateTime")]
-        public Output<string> CreatedDateTime { get; private set; } = null!;
-
-        /// <summary>
-        /// DataFormat for Container
-        /// </summary>
-        [Output("dataFormat")]
-        public Output<string> DataFormat { get; private set; } = null!;
-
-        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Details of the refresh job on this container.
+        /// The container properties.
         /// </summary>
-        [Output("refreshDetails")]
-        public Output<Outputs.RefreshDetailsResponse> RefreshDetails { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ContainerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Container in DataBoxEdge Resource
@@ -125,16 +107,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
-        /// DataFormat for Container
-        /// </summary>
-        [Input("dataFormat", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20210601.AzureContainerDataFormat> DataFormat { get; set; } = null!;
-
-        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The container properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ContainerPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

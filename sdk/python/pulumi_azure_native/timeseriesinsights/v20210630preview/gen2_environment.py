@@ -18,40 +18,33 @@ __all__ = ['Gen2EnvironmentArgs', 'Gen2Environment']
 class Gen2EnvironmentArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['Gen2EnvironmentCreationPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
-                 storage_configuration: pulumi.Input['Gen2StorageConfigurationInputArgs'],
-                 time_series_id_properties: pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]],
                  environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 warm_store_configuration: Optional[pulumi.Input['WarmStoreConfigurationPropertiesArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Gen2Environment resource.
         :param pulumi.Input[str] kind: The kind of the environment.
                Expected value is 'Gen2'.
+        :param pulumi.Input['Gen2EnvironmentCreationPropertiesArgs'] properties: Properties used to create a Gen2 environment.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['SkuArgs'] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-        :param pulumi.Input['Gen2StorageConfigurationInputArgs'] storage_configuration: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        :param pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]] time_series_id_properties: The list of event properties which will be used to define the environment's time series id.
         :param pulumi.Input[str] environment_name: Name of the environment
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
-        :param pulumi.Input['WarmStoreConfigurationPropertiesArgs'] warm_store_configuration: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
         """
         pulumi.set(__self__, "kind", 'Gen2')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "storage_configuration", storage_configuration)
-        pulumi.set(__self__, "time_series_id_properties", time_series_id_properties)
         if environment_name is not None:
             pulumi.set(__self__, "environment_name", environment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if warm_store_configuration is not None:
-            pulumi.set(__self__, "warm_store_configuration", warm_store_configuration)
 
     @property
     @pulumi.getter
@@ -65,6 +58,18 @@ class Gen2EnvironmentArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['Gen2EnvironmentCreationPropertiesArgs']:
+        """
+        Properties used to create a Gen2 environment.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['Gen2EnvironmentCreationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -89,30 +94,6 @@ class Gen2EnvironmentArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> pulumi.Input['Gen2StorageConfigurationInputArgs']:
-        """
-        The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        """
-        return pulumi.get(self, "storage_configuration")
-
-    @storage_configuration.setter
-    def storage_configuration(self, value: pulumi.Input['Gen2StorageConfigurationInputArgs']):
-        pulumi.set(self, "storage_configuration", value)
-
-    @property
-    @pulumi.getter(name="timeSeriesIdProperties")
-    def time_series_id_properties(self) -> pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]:
-        """
-        The list of event properties which will be used to define the environment's time series id.
-        """
-        return pulumi.get(self, "time_series_id_properties")
-
-    @time_series_id_properties.setter
-    def time_series_id_properties(self, value: pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]):
-        pulumi.set(self, "time_series_id_properties", value)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -150,18 +131,6 @@ class Gen2EnvironmentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="warmStoreConfiguration")
-    def warm_store_configuration(self) -> Optional[pulumi.Input['WarmStoreConfigurationPropertiesArgs']]:
-        """
-        The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        """
-        return pulumi.get(self, "warm_store_configuration")
-
-    @warm_store_configuration.setter
-    def warm_store_configuration(self, value: Optional[pulumi.Input['WarmStoreConfigurationPropertiesArgs']]):
-        pulumi.set(self, "warm_store_configuration", value)
-
 
 class Gen2Environment(pulumi.CustomResource):
     @overload
@@ -171,12 +140,10 @@ class Gen2Environment(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['Gen2EnvironmentCreationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['Gen2StorageConfigurationInputArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 time_series_id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
-                 warm_store_configuration: Optional[pulumi.Input[pulumi.InputType['WarmStoreConfigurationPropertiesArgs']]] = None,
                  __props__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
@@ -187,12 +154,10 @@ class Gen2Environment(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The kind of the environment.
                Expected value is 'Gen2'.
         :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[pulumi.InputType['Gen2EnvironmentCreationPropertiesArgs']] properties: Properties used to create a Gen2 environment.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-        :param pulumi.Input[pulumi.InputType['Gen2StorageConfigurationInputArgs']] storage_configuration: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]] time_series_id_properties: The list of event properties which will be used to define the environment's time series id.
-        :param pulumi.Input[pulumi.InputType['WarmStoreConfigurationPropertiesArgs']] warm_store_configuration: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
         """
         ...
     @overload
@@ -221,12 +186,10 @@ class Gen2Environment(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['Gen2EnvironmentCreationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['Gen2StorageConfigurationInputArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 time_series_id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
-                 warm_store_configuration: Optional[pulumi.Input[pulumi.InputType['WarmStoreConfigurationPropertiesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -241,27 +204,17 @@ class Gen2Environment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Gen2'
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            if storage_configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_configuration'")
-            __props__.__dict__["storage_configuration"] = storage_configuration
             __props__.__dict__["tags"] = tags
-            if time_series_id_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'time_series_id_properties'")
-            __props__.__dict__["time_series_id_properties"] = time_series_id_properties
-            __props__.__dict__["warm_store_configuration"] = warm_store_configuration
-            __props__.__dict__["creation_time"] = None
-            __props__.__dict__["data_access_fqdn"] = None
-            __props__.__dict__["data_access_id"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["status"] = None
-            __props__.__dict__["supports_customer_managed_key"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:Gen2Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -287,46 +240,14 @@ class Gen2Environment(pulumi.CustomResource):
 
         __props__ = Gen2EnvironmentArgs.__new__(Gen2EnvironmentArgs)
 
-        __props__.__dict__["creation_time"] = None
-        __props__.__dict__["data_access_fqdn"] = None
-        __props__.__dict__["data_access_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["storage_configuration"] = None
-        __props__.__dict__["supports_customer_managed_key"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["time_series_id_properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["warm_store_configuration"] = None
         return Gen2Environment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
-        """
-        The time the resource was created.
-        """
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="dataAccessFqdn")
-    def data_access_fqdn(self) -> pulumi.Output[str]:
-        """
-        The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_fqdn")
-
-    @property
-    @pulumi.getter(name="dataAccessId")
-    def data_access_id(self) -> pulumi.Output[str]:
-        """
-        An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_id")
 
     @property
     @pulumi.getter
@@ -354,12 +275,12 @@ class Gen2Environment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.Gen2EnvironmentResourcePropertiesResponse']:
         """
-        Provisioning state of the resource.
+        Properties of the Gen2 environment.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -371,43 +292,11 @@ class Gen2Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output['outputs.EnvironmentStatusResponse']:
-        """
-        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> pulumi.Output['outputs.Gen2StorageConfigurationOutputResponse']:
-        """
-        The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        """
-        return pulumi.get(self, "storage_configuration")
-
-    @property
-    @pulumi.getter(name="supportsCustomerManagedKey")
-    def supports_customer_managed_key(self) -> pulumi.Output[bool]:
-        """
-        Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
-        """
-        return pulumi.get(self, "supports_customer_managed_key")
-
-    @property
-    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="timeSeriesIdProperties")
-    def time_series_id_properties(self) -> pulumi.Output[Sequence['outputs.TimeSeriesIdPropertyResponse']]:
-        """
-        The list of event properties which will be used to define the environment's time series id.
-        """
-        return pulumi.get(self, "time_series_id_properties")
 
     @property
     @pulumi.getter
@@ -416,12 +305,4 @@ class Gen2Environment(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="warmStoreConfiguration")
-    def warm_store_configuration(self) -> pulumi.Output[Optional['outputs.WarmStoreConfigurationPropertiesResponse']]:
-        """
-        The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        """
-        return pulumi.get(self, "warm_store_configuration")
 

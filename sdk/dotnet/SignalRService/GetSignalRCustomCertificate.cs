@@ -88,25 +88,13 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Base uri of the KeyVault that stores certificate.
-        /// </summary>
-        public readonly string KeyVaultBaseUri;
-        /// <summary>
-        /// Certificate secret name.
-        /// </summary>
-        public readonly string KeyVaultSecretName;
-        /// <summary>
-        /// Certificate secret version.
-        /// </summary>
-        public readonly string? KeyVaultSecretVersion;
-        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Custom certificate properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.CustomCertificatePropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -120,26 +108,17 @@ namespace Pulumi.AzureNative.SignalRService
         private GetSignalRCustomCertificateResult(
             string id,
 
-            string keyVaultBaseUri,
-
-            string keyVaultSecretName,
-
-            string? keyVaultSecretVersion,
-
             string name,
 
-            string provisioningState,
+            Outputs.CustomCertificatePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
-            KeyVaultBaseUri = keyVaultBaseUri;
-            KeyVaultSecretName = keyVaultSecretName;
-            KeyVaultSecretVersion = keyVaultSecretVersion;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

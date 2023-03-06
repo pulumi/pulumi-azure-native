@@ -28,16 +28,10 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of private endpoint connections.
+        /// Properties that define a Azure Monitor PrivateLinkScope resource.
         /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
-
-        /// <summary>
-        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AzureMonitorPrivateLinkScopePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -106,6 +100,12 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties that define a Azure Monitor PrivateLinkScope resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.AzureMonitorPrivateLinkScopePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -38,14 +38,6 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
     }
 
     /**
-     * The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-     */
-    public readonly controlPlaneAccessInterface!: pulumi.Output<outputs.mobilenetwork.v20220301preview.InterfacePropertiesResponse>;
-    /**
-     * The core network technology generation.
-     */
-    public readonly coreNetworkTechnology!: pulumi.Output<string | undefined>;
-    /**
      * The timestamp of resource creation (UTC).
      */
     public readonly createdAt!: pulumi.Output<string | undefined>;
@@ -57,10 +49,6 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      * The type of identity that created the resource.
      */
     public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
-     * Azure ARC custom location where the packet core is deployed.
-     */
-    public readonly customLocation!: pulumi.Output<outputs.mobilenetwork.v20220301preview.CustomLocationResourceIdResponse | undefined>;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -78,17 +66,13 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Mobile network that this packet core control plane belongs to
-     */
-    public readonly mobileNetwork!: pulumi.Output<outputs.mobilenetwork.v20220301preview.MobileNetworkResourceIdResponse>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the packet core control plane resource.
+     * Packet core control plane Properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.v20220301preview.PacketCoreControlPlanePropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -101,10 +85,6 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The version of the packet core software that is deployed.
-     */
-    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PacketCoreControlPlane resource with the given unique name, arguments, and options.
@@ -117,52 +97,39 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controlPlaneAccessInterface === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'controlPlaneAccessInterface'");
-            }
-            if ((!args || args.mobileNetwork === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'mobileNetwork'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["controlPlaneAccessInterface"] = args ? args.controlPlaneAccessInterface : undefined;
-            resourceInputs["coreNetworkTechnology"] = args ? args.coreNetworkTechnology : undefined;
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["customLocation"] = args ? args.customLocation : undefined;
             resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetwork"] = args ? args.mobileNetwork : undefined;
             resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["controlPlaneAccessInterface"] = undefined /*out*/;
-            resourceInputs["coreNetworkTechnology"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;
-            resourceInputs["customLocation"] = undefined /*out*/;
             resourceInputs["lastModifiedAt"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mobileNetwork"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20221101:PacketCoreControlPlane" }] };
@@ -176,14 +143,6 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
  */
 export interface PacketCoreControlPlaneArgs {
     /**
-     * The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-     */
-    controlPlaneAccessInterface: pulumi.Input<inputs.mobilenetwork.v20220301preview.InterfacePropertiesArgs>;
-    /**
-     * The core network technology generation.
-     */
-    coreNetworkTechnology?: pulumi.Input<string | enums.mobilenetwork.v20220301preview.CoreNetworkType>;
-    /**
      * The timestamp of resource creation (UTC).
      */
     createdAt?: pulumi.Input<string>;
@@ -195,10 +154,6 @@ export interface PacketCoreControlPlaneArgs {
      * The type of identity that created the resource.
      */
     createdByType?: pulumi.Input<string | enums.mobilenetwork.v20220301preview.CreatedByType>;
-    /**
-     * Azure ARC custom location where the packet core is deployed.
-     */
-    customLocation?: pulumi.Input<inputs.mobilenetwork.v20220301preview.CustomLocationResourceIdArgs>;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -216,13 +171,13 @@ export interface PacketCoreControlPlaneArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Mobile network that this packet core control plane belongs to
-     */
-    mobileNetwork: pulumi.Input<inputs.mobilenetwork.v20220301preview.MobileNetworkResourceIdArgs>;
-    /**
      * The name of the packet core control plane.
      */
     packetCoreControlPlaneName?: pulumi.Input<string>;
+    /**
+     * Packet core control plane Properties.
+     */
+    properties: pulumi.Input<inputs.mobilenetwork.v20220301preview.PacketCoreControlPlanePropertiesFormatArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -231,8 +186,4 @@ export interface PacketCoreControlPlaneArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The version of the packet core software that is deployed.
-     */
-    version?: pulumi.Input<string>;
 }

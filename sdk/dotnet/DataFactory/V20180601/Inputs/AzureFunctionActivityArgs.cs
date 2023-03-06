@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class AzureFunctionActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("body")]
-        public Input<object>? Body { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -40,28 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the Function that the Azure Function Activity will call. Type: string (or Expression with resultType string)
-        /// </summary>
-        [Input("functionName", required: true)]
-        public Input<object> FunctionName { get; set; } = null!;
-
-        /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("headers")]
-        public Input<object>? Headers { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName")]
         public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
-
-        /// <summary>
-        /// Rest API method for target endpoint.
-        /// </summary>
-        [Input("method", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.AzureFunctionActivityMethod> Method { get; set; } = null!;
 
         /// <summary>
         /// Activity name.
@@ -81,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Function activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureFunctionActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

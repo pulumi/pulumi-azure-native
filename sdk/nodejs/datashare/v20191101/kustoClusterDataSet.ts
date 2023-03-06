@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,30 +38,18 @@ export class KustoClusterDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'KustoCluster'.
      */
     public readonly kind!: pulumi.Output<"KustoCluster">;
     /**
-     * Resource id of the kusto cluster.
-     */
-    public readonly kustoClusterResourceId!: pulumi.Output<string>;
-    /**
-     * Location of the kusto cluster.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * Name of the azure resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the kusto cluster data set.
+     * Kusto cluster data set properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20191101.KustoClusterDataSetPropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -81,8 +72,8 @@ export class KustoClusterDataSet extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoClusterResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'kustoClusterResourceId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -93,21 +84,15 @@ export class KustoClusterDataSet extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
             resourceInputs["kind"] = "KustoCluster";
-            resourceInputs["kustoClusterResourceId"] = args ? args.kustoClusterResourceId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["kustoClusterResourceId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -135,9 +120,9 @@ export interface KustoClusterDataSetArgs {
      */
     kind: pulumi.Input<"KustoCluster">;
     /**
-     * Resource id of the kusto cluster.
+     * Kusto cluster data set properties.
      */
-    kustoClusterResourceId: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.v20191101.KustoClusterDataSetPropertiesArgs>;
     /**
      * The resource group name.
      */

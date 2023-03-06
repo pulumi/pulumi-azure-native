@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the Azure Search Index. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("indexName", required: true)]
-        public Input<object> IndexName { get; set; } = null!;
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName", required: true)]
@@ -69,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Properties specific to this dataset type.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureSearchIndexDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureSearchIndexDatasetArgs()
         {

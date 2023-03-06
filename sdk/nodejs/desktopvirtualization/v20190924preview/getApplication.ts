@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,42 +42,6 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
-     * Command Line Arguments for Application.
-     */
-    readonly commandLineArguments?: string;
-    /**
-     * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-     */
-    readonly commandLineSetting: string;
-    /**
-     * Description of Application.
-     */
-    readonly description?: string;
-    /**
-     * Specifies a path for the executable file for the application.
-     */
-    readonly filePath?: string;
-    /**
-     * Friendly name of Application.
-     */
-    readonly friendlyName?: string;
-    /**
-     * the icon a 64 bit string as a byte array.
-     */
-    readonly iconContent: string;
-    /**
-     * Hash of the icon.
-     */
-    readonly iconHash: string;
-    /**
-     * Index of the icon.
-     */
-    readonly iconIndex?: number;
-    /**
-     * Path to icon.
-     */
-    readonly iconPath?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -83,9 +50,9 @@ export interface GetApplicationResult {
      */
     readonly name: string;
     /**
-     * Specifies whether to show the RemoteApp program in the RD Web Access server.
+     * Detailed properties for Application
      */
-    readonly showInPortal?: boolean;
+    readonly properties: outputs.desktopvirtualization.v20190924preview.ApplicationPropertiesResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

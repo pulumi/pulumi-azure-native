@@ -35,45 +35,9 @@ export interface GetHybridAksClusterArgs {
  */
 export interface GetHybridAksClusterResult {
     /**
-     * The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
-     */
-    readonly associatedNetworkIds: string[];
-    /**
-     * The resource ID of the associated cloud services network.
-     */
-    readonly cloudServicesNetworkId: string;
-    /**
-     * The resource ID of the Network Cloud cluster hosting the Hybrid AKS cluster.
-     */
-    readonly clusterId: string;
-    /**
-     * The number of control plane node VMs.
-     */
-    readonly controlPlaneCount: number;
-    /**
-     * The list of node configurations detailing associated VMs that are part of the control plane nodes of this Hybrid AKS cluster.
-     */
-    readonly controlPlaneNodes: outputs.networkcloud.v20221212preview.NodeConfigurationResponse[];
-    /**
-     * The resource ID of the associated default CNI network.
-     */
-    readonly defaultCniNetworkId: string;
-    /**
-     * The more detailed status of this Hybrid AKS cluster.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
-    /**
-     * The resource ID of the Hybrid AKS cluster that this additional information is for.
-     */
-    readonly hybridAksProvisionedClusterId: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -87,9 +51,9 @@ export interface GetHybridAksClusterResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the Hybrid AKS cluster resource.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.networkcloud.v20221212preview.HybridAksClusterPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -102,18 +66,6 @@ export interface GetHybridAksClusterResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The resource IDs of volumes that are attached to the Hybrid AKS cluster.
-     */
-    readonly volumes: string[];
-    /**
-     * The number of worker node VMs.
-     */
-    readonly workerCount: number;
-    /**
-     * The list of node configurations detailing associated VMs that are part of the worker nodes of this Hybrid AKS cluster.
-     */
-    readonly workerNodes: outputs.networkcloud.v20221212preview.NodeConfigurationResponse[];
 }
 /**
  * Get the additional details related to the provided Hybrid AKS provisioned cluster.

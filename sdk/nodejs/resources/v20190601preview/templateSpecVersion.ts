@@ -38,14 +38,6 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
     }
 
     /**
-     * An array of Template Spec artifacts.
-     */
-    public readonly artifacts!: pulumi.Output<outputs.resources.v20190601preview.TemplateSpecTemplateArtifactResponse[] | undefined>;
-    /**
-     * Template Spec version description.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
     public readonly location!: pulumi.Output<string>;
@@ -54,6 +46,10 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Template Spec Version properties.
+     */
+    public readonly properties!: pulumi.Output<outputs.resources.v20190601preview.TemplateSpecVersionPropertiesResponse>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.resources.v20190601preview.SystemDataResponse>;
@@ -61,10 +57,6 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The Azure Resource Manager template content.
-     */
-    public readonly template!: pulumi.Output<any | undefined>;
     /**
      * Type of this resource.
      */
@@ -81,31 +73,30 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.templateSpecName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateSpecName'");
             }
-            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
             resourceInputs["templateSpecName"] = args ? args.templateSpecName : undefined;
             resourceInputs["templateSpecVersion"] = args ? args.templateSpecVersion : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["artifacts"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["template"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,17 +111,13 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
  */
 export interface TemplateSpecVersionArgs {
     /**
-     * An array of Template Spec artifacts.
-     */
-    artifacts?: pulumi.Input<pulumi.Input<inputs.resources.v20190601preview.TemplateSpecTemplateArtifactArgs>[]>;
-    /**
-     * Template Spec version description.
-     */
-    description?: pulumi.Input<string>;
-    /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Template Spec Version properties.
+     */
+    properties: pulumi.Input<inputs.resources.v20190601preview.TemplateSpecVersionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -139,10 +126,6 @@ export interface TemplateSpecVersionArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Azure Resource Manager template content.
-     */
-    template?: any;
     /**
      * Name of the Template Spec.
      */

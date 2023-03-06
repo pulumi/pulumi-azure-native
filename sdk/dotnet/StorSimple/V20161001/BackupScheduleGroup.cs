@@ -23,10 +23,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+        /// Properties of BackupScheduleGroup
         /// </summary>
-        [Output("startTime")]
-        public Output<Outputs.TimeResponse> StartTime { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupScheduleGroupPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
@@ -92,6 +92,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// Properties of BackupScheduleGroup
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.BackupScheduleGroupPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -102,12 +108,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         [Input("scheduleGroupName")]
         public Input<string>? ScheduleGroupName { get; set; }
-
-        /// <summary>
-        /// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-        /// </summary>
-        [Input("startTime", required: true)]
-        public Input<Inputs.TimeArgs> StartTime { get; set; } = null!;
 
         public BackupScheduleGroupArgs()
         {

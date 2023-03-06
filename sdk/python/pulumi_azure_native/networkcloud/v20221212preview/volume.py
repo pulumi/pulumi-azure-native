@@ -17,23 +17,23 @@ __all__ = ['VolumeArgs', 'Volume']
 class VolumeArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 properties: pulumi.Input['VolumePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 size_mi_b: pulumi.Input[float],
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input['VolumePropertiesArgs'] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[float] size_mi_b: The size of the allocation for this volume in Mebibytes.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] volume_name: The name of the volume.
         """
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "size_mi_b", size_mi_b)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -54,6 +54,18 @@ class VolumeArgs:
         pulumi.set(self, "extended_location", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VolumePropertiesArgs']:
+        """
+        The list of the resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VolumePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -64,18 +76,6 @@ class VolumeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sizeMiB")
-    def size_mi_b(self) -> pulumi.Input[float]:
-        """
-        The size of the allocation for this volume in Mebibytes.
-        """
-        return pulumi.get(self, "size_mi_b")
-
-    @size_mi_b.setter
-    def size_mi_b(self, value: pulumi.Input[float]):
-        pulumi.set(self, "size_mi_b", value)
 
     @property
     @pulumi.getter
@@ -121,8 +121,8 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 size_mi_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -132,8 +132,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['VolumePropertiesArgs']] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[float] size_mi_b: The size of the allocation for this volume in Mebibytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] volume_name: The name of the volume.
         """
@@ -162,8 +162,8 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 size_mi_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -179,20 +179,15 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if size_mi_b is None and not opts.urn:
-                raise TypeError("Missing required property 'size_mi_b'")
-            __props__.__dict__["size_mi_b"] = size_mi_b
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volume_name"] = volume_name
-            __props__.__dict__["attached_to"] = None
-            __props__.__dict__["detailed_status"] = None
-            __props__.__dict__["detailed_status_message"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["serial_number"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud:Volume")])
@@ -219,43 +214,14 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
-        __props__.__dict__["attached_to"] = None
-        __props__.__dict__["detailed_status"] = None
-        __props__.__dict__["detailed_status_message"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["serial_number"] = None
-        __props__.__dict__["size_mi_b"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="attachedTo")
-    def attached_to(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
-        """
-        return pulumi.get(self, "attached_to")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> pulumi.Output[str]:
-        """
-        The more detailed status of the volume.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> pulumi.Output[str]:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -282,28 +248,12 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.VolumePropertiesResponse']:
         """
-        The provisioning state of the volume.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> pulumi.Output[str]:
-        """
-        The unique identifier of the volume.
-        """
-        return pulumi.get(self, "serial_number")
-
-    @property
-    @pulumi.getter(name="sizeMiB")
-    def size_mi_b(self) -> pulumi.Output[float]:
-        """
-        The size of the allocation for this volume in Mebibytes.
-        """
-        return pulumi.get(self, "size_mi_b")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

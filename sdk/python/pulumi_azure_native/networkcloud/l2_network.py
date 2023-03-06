@@ -18,33 +18,23 @@ __all__ = ['L2NetworkArgs', 'L2Network']
 class L2NetworkArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
-                 l2_isolation_domain_id: pulumi.Input[str],
+                 properties: pulumi.Input['L2NetworkPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
-                 interface_name: Optional[pulumi.Input[str]] = None,
                  l2_network_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a L2Network resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
-        :param pulumi.Input[str] l2_isolation_domain_id: The resource ID of the Network Fabric l2IsolationDomain.
+        :param pulumi.Input['L2NetworkPropertiesArgs'] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
-        :param pulumi.Input[str] interface_name: The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         :param pulumi.Input[str] l2_network_name: The name of the L2 network.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "l2_isolation_domain_id", l2_isolation_domain_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if hybrid_aks_plugin_type is None:
-            hybrid_aks_plugin_type = 'SRIOV'
-        if hybrid_aks_plugin_type is not None:
-            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
-        if interface_name is not None:
-            pulumi.set(__self__, "interface_name", interface_name)
         if l2_network_name is not None:
             pulumi.set(__self__, "l2_network_name", l2_network_name)
         if location is not None:
@@ -65,16 +55,16 @@ class L2NetworkArgs:
         pulumi.set(self, "extended_location", value)
 
     @property
-    @pulumi.getter(name="l2IsolationDomainId")
-    def l2_isolation_domain_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['L2NetworkPropertiesArgs']:
         """
-        The resource ID of the Network Fabric l2IsolationDomain.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "l2_isolation_domain_id")
+        return pulumi.get(self, "properties")
 
-    @l2_isolation_domain_id.setter
-    def l2_isolation_domain_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "l2_isolation_domain_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['L2NetworkPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -87,30 +77,6 @@ class L2NetworkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="hybridAksPluginType")
-    def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]:
-        """
-        The network plugin type for Hybrid AKS.
-        """
-        return pulumi.get(self, "hybrid_aks_plugin_type")
-
-    @hybrid_aks_plugin_type.setter
-    def hybrid_aks_plugin_type(self, value: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]):
-        pulumi.set(self, "hybrid_aks_plugin_type", value)
-
-    @property
-    @pulumi.getter(name="interfaceName")
-    def interface_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        """
-        return pulumi.get(self, "interface_name")
-
-    @interface_name.setter
-    def interface_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "interface_name", value)
 
     @property
     @pulumi.getter(name="l2NetworkName")
@@ -155,11 +121,9 @@ class L2Network(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
-                 interface_name: Optional[pulumi.Input[str]] = None,
-                 l2_isolation_domain_id: Optional[pulumi.Input[str]] = None,
                  l2_network_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['L2NetworkPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -169,11 +133,9 @@ class L2Network(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
-        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
-        :param pulumi.Input[str] interface_name: The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        :param pulumi.Input[str] l2_isolation_domain_id: The resource ID of the Network Fabric l2IsolationDomain.
         :param pulumi.Input[str] l2_network_name: The name of the L2 network.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['L2NetworkPropertiesArgs']] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -202,11 +164,9 @@ class L2Network(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
-                 interface_name: Optional[pulumi.Input[str]] = None,
-                 l2_isolation_domain_id: Optional[pulumi.Input[str]] = None,
                  l2_network_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['L2NetworkPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -221,28 +181,18 @@ class L2Network(pulumi.CustomResource):
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
-            if hybrid_aks_plugin_type is None:
-                hybrid_aks_plugin_type = 'SRIOV'
-            __props__.__dict__["hybrid_aks_plugin_type"] = hybrid_aks_plugin_type
-            __props__.__dict__["interface_name"] = interface_name
-            if l2_isolation_domain_id is None and not opts.urn:
-                raise TypeError("Missing required property 'l2_isolation_domain_id'")
-            __props__.__dict__["l2_isolation_domain_id"] = l2_isolation_domain_id
             __props__.__dict__["l2_network_name"] = l2_network_name
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["cluster_id"] = None
-            __props__.__dict__["detailed_status"] = None
-            __props__.__dict__["detailed_status_message"] = None
-            __props__.__dict__["hybrid_aks_clusters_associated_ids"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["virtual_machines_associated_ids"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:L2Network")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L2Network, __self__).__init__(
@@ -267,46 +217,14 @@ class L2Network(pulumi.CustomResource):
 
         __props__ = L2NetworkArgs.__new__(L2NetworkArgs)
 
-        __props__.__dict__["cluster_id"] = None
-        __props__.__dict__["detailed_status"] = None
-        __props__.__dict__["detailed_status_message"] = None
         __props__.__dict__["extended_location"] = None
-        __props__.__dict__["hybrid_aks_clusters_associated_ids"] = None
-        __props__.__dict__["hybrid_aks_plugin_type"] = None
-        __props__.__dict__["interface_name"] = None
-        __props__.__dict__["l2_isolation_domain_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_machines_associated_ids"] = None
         return L2Network(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Output[str]:
-        """
-        The resource ID of the Network Cloud cluster this L2 network is associated with.
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> pulumi.Output[str]:
-        """
-        The more detailed status of the L2 network.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> pulumi.Output[str]:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -315,38 +233,6 @@ class L2Network(pulumi.CustomResource):
         The extended location of the cluster associated with the resource.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="hybridAksClustersAssociatedIds")
-    def hybrid_aks_clusters_associated_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
-        """
-        return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
-
-    @property
-    @pulumi.getter(name="hybridAksPluginType")
-    def hybrid_aks_plugin_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The network plugin type for Hybrid AKS.
-        """
-        return pulumi.get(self, "hybrid_aks_plugin_type")
-
-    @property
-    @pulumi.getter(name="interfaceName")
-    def interface_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        """
-        return pulumi.get(self, "interface_name")
-
-    @property
-    @pulumi.getter(name="l2IsolationDomainId")
-    def l2_isolation_domain_id(self) -> pulumi.Output[str]:
-        """
-        The resource ID of the Network Fabric l2IsolationDomain.
-        """
-        return pulumi.get(self, "l2_isolation_domain_id")
 
     @property
     @pulumi.getter
@@ -365,12 +251,12 @@ class L2Network(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.L2NetworkPropertiesResponse']:
         """
-        The provisioning state of the L2 network.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -395,12 +281,4 @@ class L2Network(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualMachinesAssociatedIds")
-    def virtual_machines_associated_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
-        """
-        return pulumi.get(self, "virtual_machines_associated_ids")
 

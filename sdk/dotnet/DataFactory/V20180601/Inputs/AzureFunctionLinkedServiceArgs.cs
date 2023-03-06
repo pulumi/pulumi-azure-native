@@ -28,46 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Type of authentication (Required to specify MSI) used to connect to AzureFunction. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("authentication")]
-        public Input<object>? Authentication { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        [Input("credential")]
-        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The endpoint of the Azure Function App. URL will be in the format https://&lt;accountName&gt;.azurewebsites.net.
-        /// </summary>
-        [Input("functionAppUrl", required: true)]
-        public Input<object> FunctionAppUrl { get; set; } = null!;
-
-        /// <summary>
-        /// Function or Host key for Azure Function App.
-        /// </summary>
-        [Input("functionKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? FunctionKey { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -82,17 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Allowed token audiences for azure function.
-        /// </summary>
-        [Input("resourceId")]
-        public Input<object>? ResourceId { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureFunction'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Function linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureFunctionLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureFunctionLinkedServiceArgs()
         {

@@ -33,10 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Path;
-        /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
         public readonly object? Structure;
@@ -45,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'SapCloudForCustomerResource'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// SAP Cloud For Customer OData resource dataset properties.
+        /// </summary>
+        public readonly Outputs.SapCloudForCustomerResourceDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapCloudForCustomerResourceDatasetResponse(
@@ -56,19 +56,19 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object path,
-
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.SapCloudForCustomerResourceDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
-            Path = path;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

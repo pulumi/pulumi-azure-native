@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("globalParameters")]
-        private InputMap<object>? _globalParameters;
-
-        /// <summary>
-        /// Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
-        /// </summary>
-        public InputMap<object> GlobalParameters
-        {
-            get => _globalParameters ?? (_globalParameters = new InputMap<object>());
-            set => _globalParameters = value;
-        }
-
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -70,29 +58,11 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("webServiceInputs")]
-        private InputMap<Inputs.AzureMLWebServiceFileArgs>? _webServiceInputs;
-
         /// <summary>
-        /// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
+        /// Azure ML Batch Execution activity properties.
         /// </summary>
-        public InputMap<Inputs.AzureMLWebServiceFileArgs> WebServiceInputs
-        {
-            get => _webServiceInputs ?? (_webServiceInputs = new InputMap<Inputs.AzureMLWebServiceFileArgs>());
-            set => _webServiceInputs = value;
-        }
-
-        [Input("webServiceOutputs")]
-        private InputMap<Inputs.AzureMLWebServiceFileArgs>? _webServiceOutputs;
-
-        /// <summary>
-        /// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
-        /// </summary>
-        public InputMap<Inputs.AzureMLWebServiceFileArgs> WebServiceOutputs
-        {
-            get => _webServiceOutputs ?? (_webServiceOutputs = new InputMap<Inputs.AzureMLWebServiceFileArgs>());
-            set => _webServiceOutputs = value;
-        }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureMLBatchExecutionActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureMLBatchExecutionActivityArgs()
         {

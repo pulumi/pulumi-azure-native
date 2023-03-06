@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,18 +38,6 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
-     * File path within the file system.
-     */
-    public readonly filePath!: pulumi.Output<string>;
-    /**
-     * File system to which the file belongs.
-     */
-    public readonly fileSystem!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'AdlsGen2File'.
      */
@@ -56,17 +47,9 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource group of storage account
+     * ADLS Gen 2 file data set properties.
      */
-    public readonly resourceGroup!: pulumi.Output<string>;
-    /**
-     * Storage account name of the source data set
-     */
-    public readonly storageAccountName!: pulumi.Output<string>;
-    /**
-     * Subscription id of storage account
-     */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20181101preview.ADLSGen2FilePropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -86,17 +69,11 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.filePath === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'filePath'");
-            }
-            if ((!args || args.fileSystem === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fileSystem'");
-            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroup'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -104,34 +81,18 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["fileSystem"] = args ? args.fileSystem : undefined;
             resourceInputs["kind"] = "AdlsGen2File";
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["filePath"] = undefined /*out*/;
-            resourceInputs["fileSystem"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["resourceGroup"] = undefined /*out*/;
-            resourceInputs["storageAccountName"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -154,22 +115,14 @@ export interface ADLSGen2FileDataSetArgs {
      */
     dataSetName?: pulumi.Input<string>;
     /**
-     * File path within the file system.
-     */
-    filePath: pulumi.Input<string>;
-    /**
-     * File system to which the file belongs.
-     */
-    fileSystem: pulumi.Input<string>;
-    /**
      * Kind of data set.
      * Expected value is 'AdlsGen2File'.
      */
     kind: pulumi.Input<"AdlsGen2File">;
     /**
-     * Resource group of storage account
+     * ADLS Gen 2 file data set properties.
      */
-    resourceGroup: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.v20181101preview.ADLSGen2FilePropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -178,12 +131,4 @@ export interface ADLSGen2FileDataSetArgs {
      * The name of the share to add the data set to.
      */
     shareName: pulumi.Input<string>;
-    /**
-     * Storage account name of the source data set
-     */
-    storageAccountName: pulumi.Input<string>;
-    /**
-     * Subscription id of storage account
-     */
-    subscriptionId: pulumi.Input<string>;
 }

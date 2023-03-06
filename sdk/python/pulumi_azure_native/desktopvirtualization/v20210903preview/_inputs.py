@@ -11,6 +11,10 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationGroupPropertiesArgs',
+    'ApplicationPropertiesArgs',
+    'HostPoolPropertiesArgs',
+    'MSIXPackagePropertiesArgs',
     'MigrationRequestPropertiesArgs',
     'MsixPackageApplicationsArgs',
     'MsixPackageDependenciesArgs',
@@ -23,6 +27,768 @@ __all__ = [
     'ScalingScheduleArgs',
     'TimeArgs',
 ]
+
+@pulumi.input_type
+class ApplicationGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 application_group_type: pulumi.Input[Union[str, 'ApplicationGroupType']],
+                 host_pool_arm_path: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 migration_request: Optional[pulumi.Input['MigrationRequestPropertiesArgs']] = None):
+        """
+        Schema for ApplicationGroup properties.
+        :param pulumi.Input[Union[str, 'ApplicationGroupType']] application_group_type: Resource Type of ApplicationGroup.
+        :param pulumi.Input[str] host_pool_arm_path: HostPool arm path of ApplicationGroup.
+        :param pulumi.Input[str] description: Description of ApplicationGroup.
+        :param pulumi.Input[str] friendly_name: Friendly name of ApplicationGroup.
+        :param pulumi.Input['MigrationRequestPropertiesArgs'] migration_request: The registration info of HostPool.
+        """
+        pulumi.set(__self__, "application_group_type", application_group_type)
+        pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if migration_request is not None:
+            pulumi.set(__self__, "migration_request", migration_request)
+
+    @property
+    @pulumi.getter(name="applicationGroupType")
+    def application_group_type(self) -> pulumi.Input[Union[str, 'ApplicationGroupType']]:
+        """
+        Resource Type of ApplicationGroup.
+        """
+        return pulumi.get(self, "application_group_type")
+
+    @application_group_type.setter
+    def application_group_type(self, value: pulumi.Input[Union[str, 'ApplicationGroupType']]):
+        pulumi.set(self, "application_group_type", value)
+
+    @property
+    @pulumi.getter(name="hostPoolArmPath")
+    def host_pool_arm_path(self) -> pulumi.Input[str]:
+        """
+        HostPool arm path of ApplicationGroup.
+        """
+        return pulumi.get(self, "host_pool_arm_path")
+
+    @host_pool_arm_path.setter
+    def host_pool_arm_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_pool_arm_path", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of ApplicationGroup.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of ApplicationGroup.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="migrationRequest")
+    def migration_request(self) -> Optional[pulumi.Input['MigrationRequestPropertiesArgs']]:
+        """
+        The registration info of HostPool.
+        """
+        return pulumi.get(self, "migration_request")
+
+    @migration_request.setter
+    def migration_request(self, value: Optional[pulumi.Input['MigrationRequestPropertiesArgs']]):
+        pulumi.set(self, "migration_request", value)
+
+
+@pulumi.input_type
+class ApplicationPropertiesArgs:
+    def __init__(__self__, *,
+                 command_line_setting: pulumi.Input[Union[str, 'CommandLineSetting']],
+                 application_type: Optional[pulumi.Input[Union[str, 'RemoteApplicationType']]] = None,
+                 command_line_arguments: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 file_path: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 icon_index: Optional[pulumi.Input[int]] = None,
+                 icon_path: Optional[pulumi.Input[str]] = None,
+                 msix_package_application_id: Optional[pulumi.Input[str]] = None,
+                 msix_package_family_name: Optional[pulumi.Input[str]] = None,
+                 show_in_portal: Optional[pulumi.Input[bool]] = None):
+        """
+        Schema for Application properties.
+        :param pulumi.Input[Union[str, 'CommandLineSetting']] command_line_setting: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+        :param pulumi.Input[Union[str, 'RemoteApplicationType']] application_type: Resource Type of Application.
+        :param pulumi.Input[str] command_line_arguments: Command Line Arguments for Application.
+        :param pulumi.Input[str] description: Description of Application.
+        :param pulumi.Input[str] file_path: Specifies a path for the executable file for the application.
+        :param pulumi.Input[str] friendly_name: Friendly name of Application.
+        :param pulumi.Input[int] icon_index: Index of the icon.
+        :param pulumi.Input[str] icon_path: Path to icon.
+        :param pulumi.Input[str] msix_package_application_id: Specifies the package application Id for MSIX applications
+        :param pulumi.Input[str] msix_package_family_name: Specifies the package family name for MSIX applications
+        :param pulumi.Input[bool] show_in_portal: Specifies whether to show the RemoteApp program in the RD Web Access server.
+        """
+        pulumi.set(__self__, "command_line_setting", command_line_setting)
+        if application_type is not None:
+            pulumi.set(__self__, "application_type", application_type)
+        if command_line_arguments is not None:
+            pulumi.set(__self__, "command_line_arguments", command_line_arguments)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if icon_index is not None:
+            pulumi.set(__self__, "icon_index", icon_index)
+        if icon_path is not None:
+            pulumi.set(__self__, "icon_path", icon_path)
+        if msix_package_application_id is not None:
+            pulumi.set(__self__, "msix_package_application_id", msix_package_application_id)
+        if msix_package_family_name is not None:
+            pulumi.set(__self__, "msix_package_family_name", msix_package_family_name)
+        if show_in_portal is not None:
+            pulumi.set(__self__, "show_in_portal", show_in_portal)
+
+    @property
+    @pulumi.getter(name="commandLineSetting")
+    def command_line_setting(self) -> pulumi.Input[Union[str, 'CommandLineSetting']]:
+        """
+        Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+        """
+        return pulumi.get(self, "command_line_setting")
+
+    @command_line_setting.setter
+    def command_line_setting(self, value: pulumi.Input[Union[str, 'CommandLineSetting']]):
+        pulumi.set(self, "command_line_setting", value)
+
+    @property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> Optional[pulumi.Input[Union[str, 'RemoteApplicationType']]]:
+        """
+        Resource Type of Application.
+        """
+        return pulumi.get(self, "application_type")
+
+    @application_type.setter
+    def application_type(self, value: Optional[pulumi.Input[Union[str, 'RemoteApplicationType']]]):
+        pulumi.set(self, "application_type", value)
+
+    @property
+    @pulumi.getter(name="commandLineArguments")
+    def command_line_arguments(self) -> Optional[pulumi.Input[str]]:
+        """
+        Command Line Arguments for Application.
+        """
+        return pulumi.get(self, "command_line_arguments")
+
+    @command_line_arguments.setter
+    def command_line_arguments(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "command_line_arguments", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of Application.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a path for the executable file for the application.
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of Application.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="iconIndex")
+    def icon_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        Index of the icon.
+        """
+        return pulumi.get(self, "icon_index")
+
+    @icon_index.setter
+    def icon_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "icon_index", value)
+
+    @property
+    @pulumi.getter(name="iconPath")
+    def icon_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to icon.
+        """
+        return pulumi.get(self, "icon_path")
+
+    @icon_path.setter
+    def icon_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_path", value)
+
+    @property
+    @pulumi.getter(name="msixPackageApplicationId")
+    def msix_package_application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the package application Id for MSIX applications
+        """
+        return pulumi.get(self, "msix_package_application_id")
+
+    @msix_package_application_id.setter
+    def msix_package_application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msix_package_application_id", value)
+
+    @property
+    @pulumi.getter(name="msixPackageFamilyName")
+    def msix_package_family_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the package family name for MSIX applications
+        """
+        return pulumi.get(self, "msix_package_family_name")
+
+    @msix_package_family_name.setter
+    def msix_package_family_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msix_package_family_name", value)
+
+    @property
+    @pulumi.getter(name="showInPortal")
+    def show_in_portal(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to show the RemoteApp program in the RD Web Access server.
+        """
+        return pulumi.get(self, "show_in_portal")
+
+    @show_in_portal.setter
+    def show_in_portal(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_in_portal", value)
+
+
+@pulumi.input_type
+class HostPoolPropertiesArgs:
+    def __init__(__self__, *,
+                 host_pool_type: pulumi.Input[Union[str, 'HostPoolType']],
+                 load_balancer_type: pulumi.Input[Union[str, 'LoadBalancerType']],
+                 preferred_app_group_type: pulumi.Input[Union[str, 'PreferredAppGroupType']],
+                 custom_rdp_property: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 max_session_limit: Optional[pulumi.Input[int]] = None,
+                 migration_request: Optional[pulumi.Input['MigrationRequestPropertiesArgs']] = None,
+                 personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
+                 ring: Optional[pulumi.Input[int]] = None,
+                 sso_client_id: Optional[pulumi.Input[str]] = None,
+                 sso_client_secret_key_vault_path: Optional[pulumi.Input[str]] = None,
+                 sso_secret_type: Optional[pulumi.Input[Union[str, 'SSOSecretType']]] = None,
+                 ssoadfs_authority: Optional[pulumi.Input[str]] = None,
+                 start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
+                 validation_environment: Optional[pulumi.Input[bool]] = None,
+                 vm_template: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of HostPool.
+        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
+        :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
+        :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
+        :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
+        :param pulumi.Input[str] description: Description of HostPool.
+        :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
+        :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
+        :param pulumi.Input['MigrationRequestPropertiesArgs'] migration_request: The registration info of HostPool.
+        :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        :param pulumi.Input['RegistrationInfoArgs'] registration_info: The registration info of HostPool.
+        :param pulumi.Input[int] ring: The ring number of HostPool.
+        :param pulumi.Input[str] sso_client_id: ClientId for the registered Relying Party used to issue WVD SSO certificates.
+        :param pulumi.Input[str] sso_client_secret_key_vault_path: Path to Azure KeyVault storing the secret used for communication to ADFS.
+        :param pulumi.Input[Union[str, 'SSOSecretType']] sso_secret_type: The type of single sign on Secret Type.
+        :param pulumi.Input[str] ssoadfs_authority: URL to customer ADFS server for signing WVD SSO certificates.
+        :param pulumi.Input[bool] start_vm_on_connect: The flag to turn on/off StartVMOnConnect feature.
+        :param pulumi.Input[bool] validation_environment: Is validation environment.
+        :param pulumi.Input[str] vm_template: VM template for sessionhosts configuration within hostpool.
+        """
+        pulumi.set(__self__, "host_pool_type", host_pool_type)
+        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
+        if custom_rdp_property is not None:
+            pulumi.set(__self__, "custom_rdp_property", custom_rdp_property)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if max_session_limit is not None:
+            pulumi.set(__self__, "max_session_limit", max_session_limit)
+        if migration_request is not None:
+            pulumi.set(__self__, "migration_request", migration_request)
+        if personal_desktop_assignment_type is not None:
+            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if registration_info is not None:
+            pulumi.set(__self__, "registration_info", registration_info)
+        if ring is not None:
+            pulumi.set(__self__, "ring", ring)
+        if sso_client_id is not None:
+            pulumi.set(__self__, "sso_client_id", sso_client_id)
+        if sso_client_secret_key_vault_path is not None:
+            pulumi.set(__self__, "sso_client_secret_key_vault_path", sso_client_secret_key_vault_path)
+        if sso_secret_type is not None:
+            pulumi.set(__self__, "sso_secret_type", sso_secret_type)
+        if ssoadfs_authority is not None:
+            pulumi.set(__self__, "ssoadfs_authority", ssoadfs_authority)
+        if start_vm_on_connect is not None:
+            pulumi.set(__self__, "start_vm_on_connect", start_vm_on_connect)
+        if validation_environment is not None:
+            pulumi.set(__self__, "validation_environment", validation_environment)
+        if vm_template is not None:
+            pulumi.set(__self__, "vm_template", vm_template)
+
+    @property
+    @pulumi.getter(name="hostPoolType")
+    def host_pool_type(self) -> pulumi.Input[Union[str, 'HostPoolType']]:
+        """
+        HostPool type for desktop.
+        """
+        return pulumi.get(self, "host_pool_type")
+
+    @host_pool_type.setter
+    def host_pool_type(self, value: pulumi.Input[Union[str, 'HostPoolType']]):
+        pulumi.set(self, "host_pool_type", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerType")
+    def load_balancer_type(self) -> pulumi.Input[Union[str, 'LoadBalancerType']]:
+        """
+        The type of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_type")
+
+    @load_balancer_type.setter
+    def load_balancer_type(self, value: pulumi.Input[Union[str, 'LoadBalancerType']]):
+        pulumi.set(self, "load_balancer_type", value)
+
+    @property
+    @pulumi.getter(name="preferredAppGroupType")
+    def preferred_app_group_type(self) -> pulumi.Input[Union[str, 'PreferredAppGroupType']]:
+        """
+        The type of preferred application group type, default to Desktop Application Group
+        """
+        return pulumi.get(self, "preferred_app_group_type")
+
+    @preferred_app_group_type.setter
+    def preferred_app_group_type(self, value: pulumi.Input[Union[str, 'PreferredAppGroupType']]):
+        pulumi.set(self, "preferred_app_group_type", value)
+
+    @property
+    @pulumi.getter(name="customRdpProperty")
+    def custom_rdp_property(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom rdp property of HostPool.
+        """
+        return pulumi.get(self, "custom_rdp_property")
+
+    @custom_rdp_property.setter
+    def custom_rdp_property(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_rdp_property", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of HostPool.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of HostPool.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="maxSessionLimit")
+    def max_session_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max session limit of HostPool.
+        """
+        return pulumi.get(self, "max_session_limit")
+
+    @max_session_limit.setter
+    def max_session_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_session_limit", value)
+
+    @property
+    @pulumi.getter(name="migrationRequest")
+    def migration_request(self) -> Optional[pulumi.Input['MigrationRequestPropertiesArgs']]:
+        """
+        The registration info of HostPool.
+        """
+        return pulumi.get(self, "migration_request")
+
+    @migration_request.setter
+    def migration_request(self, value: Optional[pulumi.Input['MigrationRequestPropertiesArgs']]):
+        pulumi.set(self, "migration_request", value)
+
+    @property
+    @pulumi.getter(name="personalDesktopAssignmentType")
+    def personal_desktop_assignment_type(self) -> Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]]:
+        """
+        PersonalDesktopAssignment type for HostPool.
+        """
+        return pulumi.get(self, "personal_desktop_assignment_type")
+
+    @personal_desktop_assignment_type.setter
+    def personal_desktop_assignment_type(self, value: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]]):
+        pulumi.set(self, "personal_desktop_assignment_type", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="registrationInfo")
+    def registration_info(self) -> Optional[pulumi.Input['RegistrationInfoArgs']]:
+        """
+        The registration info of HostPool.
+        """
+        return pulumi.get(self, "registration_info")
+
+    @registration_info.setter
+    def registration_info(self, value: Optional[pulumi.Input['RegistrationInfoArgs']]):
+        pulumi.set(self, "registration_info", value)
+
+    @property
+    @pulumi.getter
+    def ring(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ring number of HostPool.
+        """
+        return pulumi.get(self, "ring")
+
+    @ring.setter
+    def ring(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ring", value)
+
+    @property
+    @pulumi.getter(name="ssoClientId")
+    def sso_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ClientId for the registered Relying Party used to issue WVD SSO certificates.
+        """
+        return pulumi.get(self, "sso_client_id")
+
+    @sso_client_id.setter
+    def sso_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sso_client_id", value)
+
+    @property
+    @pulumi.getter(name="ssoClientSecretKeyVaultPath")
+    def sso_client_secret_key_vault_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to Azure KeyVault storing the secret used for communication to ADFS.
+        """
+        return pulumi.get(self, "sso_client_secret_key_vault_path")
+
+    @sso_client_secret_key_vault_path.setter
+    def sso_client_secret_key_vault_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sso_client_secret_key_vault_path", value)
+
+    @property
+    @pulumi.getter(name="ssoSecretType")
+    def sso_secret_type(self) -> Optional[pulumi.Input[Union[str, 'SSOSecretType']]]:
+        """
+        The type of single sign on Secret Type.
+        """
+        return pulumi.get(self, "sso_secret_type")
+
+    @sso_secret_type.setter
+    def sso_secret_type(self, value: Optional[pulumi.Input[Union[str, 'SSOSecretType']]]):
+        pulumi.set(self, "sso_secret_type", value)
+
+    @property
+    @pulumi.getter(name="ssoadfsAuthority")
+    def ssoadfs_authority(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL to customer ADFS server for signing WVD SSO certificates.
+        """
+        return pulumi.get(self, "ssoadfs_authority")
+
+    @ssoadfs_authority.setter
+    def ssoadfs_authority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssoadfs_authority", value)
+
+    @property
+    @pulumi.getter(name="startVMOnConnect")
+    def start_vm_on_connect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag to turn on/off StartVMOnConnect feature.
+        """
+        return pulumi.get(self, "start_vm_on_connect")
+
+    @start_vm_on_connect.setter
+    def start_vm_on_connect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_vm_on_connect", value)
+
+    @property
+    @pulumi.getter(name="validationEnvironment")
+    def validation_environment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is validation environment.
+        """
+        return pulumi.get(self, "validation_environment")
+
+    @validation_environment.setter
+    def validation_environment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validation_environment", value)
+
+    @property
+    @pulumi.getter(name="vmTemplate")
+    def vm_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        VM template for sessionhosts configuration within hostpool.
+        """
+        return pulumi.get(self, "vm_template")
+
+    @vm_template.setter
+    def vm_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_template", value)
+
+
+@pulumi.input_type
+class MSIXPackagePropertiesArgs:
+    def __init__(__self__, *,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 image_path: Optional[pulumi.Input[str]] = None,
+                 is_active: Optional[pulumi.Input[bool]] = None,
+                 is_regular_registration: Optional[pulumi.Input[bool]] = None,
+                 last_updated: Optional[pulumi.Input[str]] = None,
+                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]] = None,
+                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]] = None,
+                 package_family_name: Optional[pulumi.Input[str]] = None,
+                 package_name: Optional[pulumi.Input[str]] = None,
+                 package_relative_path: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Schema for MSIX Package properties.
+        :param pulumi.Input[str] display_name: User friendly Name to be displayed in the portal. 
+        :param pulumi.Input[str] image_path: VHD/CIM image path on Network Share.
+        :param pulumi.Input[bool] is_active: Make this version of the package the active one across the hostpool. 
+        :param pulumi.Input[bool] is_regular_registration: Specifies how to register Package in feed.
+        :param pulumi.Input[str] last_updated: Date Package was last updated, found in the appxmanifest.xml. 
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications. 
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies. 
+        :param pulumi.Input[str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
+        :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
+        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if image_path is not None:
+            pulumi.set(__self__, "image_path", image_path)
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+        if is_regular_registration is not None:
+            pulumi.set(__self__, "is_regular_registration", is_regular_registration)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
+        if package_applications is not None:
+            pulumi.set(__self__, "package_applications", package_applications)
+        if package_dependencies is not None:
+            pulumi.set(__self__, "package_dependencies", package_dependencies)
+        if package_family_name is not None:
+            pulumi.set(__self__, "package_family_name", package_family_name)
+        if package_name is not None:
+            pulumi.set(__self__, "package_name", package_name)
+        if package_relative_path is not None:
+            pulumi.set(__self__, "package_relative_path", package_relative_path)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User friendly Name to be displayed in the portal. 
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="imagePath")
+    def image_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        VHD/CIM image path on Network Share.
+        """
+        return pulumi.get(self, "image_path")
+
+    @image_path.setter
+    def image_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_path", value)
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Make this version of the package the active one across the hostpool. 
+        """
+        return pulumi.get(self, "is_active")
+
+    @is_active.setter
+    def is_active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_active", value)
+
+    @property
+    @pulumi.getter(name="isRegularRegistration")
+    def is_regular_registration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies how to register Package in feed.
+        """
+        return pulumi.get(self, "is_regular_registration")
+
+    @is_regular_registration.setter
+    def is_regular_registration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_regular_registration", value)
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date Package was last updated, found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "last_updated")
+
+    @last_updated.setter
+    def last_updated(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated", value)
+
+    @property
+    @pulumi.getter(name="packageApplications")
+    def package_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]:
+        """
+        List of package applications. 
+        """
+        return pulumi.get(self, "package_applications")
+
+    @package_applications.setter
+    def package_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]):
+        pulumi.set(self, "package_applications", value)
+
+    @property
+    @pulumi.getter(name="packageDependencies")
+    def package_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]:
+        """
+        List of package dependencies. 
+        """
+        return pulumi.get(self, "package_dependencies")
+
+    @package_dependencies.setter
+    def package_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]):
+        pulumi.set(self, "package_dependencies", value)
+
+    @property
+    @pulumi.getter(name="packageFamilyName")
+    def package_family_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        """
+        return pulumi.get(self, "package_family_name")
+
+    @package_family_name.setter
+    def package_family_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_family_name", value)
+
+    @property
+    @pulumi.getter(name="packageName")
+    def package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Name from appxmanifest.xml. 
+        """
+        return pulumi.get(self, "package_name")
+
+    @package_name.setter
+    def package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_name", value)
+
+    @property
+    @pulumi.getter(name="packageRelativePath")
+    def package_relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Relative Path to the package inside the image. 
+        """
+        return pulumi.get(self, "package_relative_path")
+
+    @package_relative_path.setter
+    def package_relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_relative_path", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Version found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
 
 @pulumi.input_type
 class MigrationRequestPropertiesArgs:

@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The authentication type to be used to connect to the SAP HANA server.
-        /// </summary>
-        [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.SapHanaAuthenticationType>? AuthenticationType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -64,18 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// Password to access the SAP HANA server.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("server", required: true)]
-        public Input<object> Server { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapHana'.
         /// </summary>
@@ -83,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
+        /// Properties specific to this linked service type.
         /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapHanaLinkedServicePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapHanaLinkedServiceArgs()
         {

@@ -8,23 +8,28 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['QueryPackArgs', 'QueryPack']
 
 @pulumi.input_type
 class QueryPackArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['LogAnalyticsQueryPackPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  query_pack_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a QueryPack resource.
+        :param pulumi.Input['LogAnalyticsQueryPackPropertiesArgs'] properties: Properties that define a Log Analytics QueryPack resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -32,6 +37,18 @@ class QueryPackArgs:
             pulumi.set(__self__, "query_pack_name", query_pack_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LogAnalyticsQueryPackPropertiesArgs']:
+        """
+        Properties that define a Log Analytics QueryPack resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LogAnalyticsQueryPackPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +105,7 @@ class QueryPack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackPropertiesArgs']]] = None,
                  query_pack_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -98,6 +116,7 @@ class QueryPack(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackPropertiesArgs']] properties: Properties that define a Log Analytics QueryPack resource.
         :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -127,6 +146,7 @@ class QueryPack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackPropertiesArgs']]] = None,
                  query_pack_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -140,16 +160,15 @@ class QueryPack(pulumi.CustomResource):
             __props__ = QueryPackArgs.__new__(QueryPackArgs)
 
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["query_pack_name"] = query_pack_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["query_pack_id"] = None
-            __props__.__dict__["time_created"] = None
-            __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901:QueryPack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -177,11 +196,8 @@ class QueryPack(pulumi.CustomResource):
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["query_pack_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["time_created"] = None
-        __props__.__dict__["time_modified"] = None
         __props__.__dict__["type"] = None
         return QueryPack(resource_name, opts=opts, __props__=__props__)
 
@@ -202,20 +218,12 @@ class QueryPack(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.LogAnalyticsQueryPackPropertiesResponse']:
         """
-        Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        Properties that define a Log Analytics QueryPack resource.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="queryPackId")
-    def query_pack_id(self) -> pulumi.Output[str]:
-        """
-        The unique ID of your application. This field cannot be changed.
-        """
-        return pulumi.get(self, "query_pack_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -224,22 +232,6 @@ class QueryPack(pulumi.CustomResource):
         Resource tags
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="timeCreated")
-    def time_created(self) -> pulumi.Output[str]:
-        """
-        Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-        """
-        return pulumi.get(self, "time_created")
-
-    @property
-    @pulumi.getter(name="timeModified")
-    def time_modified(self) -> pulumi.Output[str]:
-        """
-        Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-        """
-        return pulumi.get(self, "time_modified")
 
     @property
     @pulumi.getter

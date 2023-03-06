@@ -16,46 +16,10 @@ namespace Pulumi.AzureNative.Cache.V20201201
     public partial class Redis : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
-        /// </summary>
-        [Output("accessKeys")]
-        public Output<Outputs.RedisAccessKeysResponse> AccessKeys { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the non-ssl Redis server port (6379) is enabled.
-        /// </summary>
-        [Output("enableNonSslPort")]
-        public Output<bool?> EnableNonSslPort { get; private set; } = null!;
-
-        /// <summary>
-        /// Redis host name.
-        /// </summary>
-        [Output("hostName")]
-        public Output<string> HostName { get; private set; } = null!;
-
-        /// <summary>
-        /// List of the Redis instances associated with the cache
-        /// </summary>
-        [Output("instances")]
-        public Output<ImmutableArray<Outputs.RedisInstanceDetailsResponse>> Instances { get; private set; } = null!;
-
-        /// <summary>
-        /// List of the linked servers associated with the cache
-        /// </summary>
-        [Output("linkedServers")]
-        public Output<ImmutableArray<Outputs.RedisLinkedServerResponse>> LinkedServers { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-        /// </summary>
-        [Output("minimumTlsVersion")]
-        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -64,94 +28,16 @@ namespace Pulumi.AzureNative.Cache.V20201201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Redis non-SSL port.
+        /// Redis cache properties.
         /// </summary>
-        [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
-
-        /// <summary>
-        /// List of private endpoint connection associated with the specified redis cache
-        /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
-
-        /// <summary>
-        /// Redis instance provisioning status.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        /// </summary>
-        [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
-
-        /// <summary>
-        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        /// </summary>
-        [Output("redisConfiguration")]
-        public Output<Outputs.RedisCommonPropertiesResponseRedisConfiguration?> RedisConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
-        /// </summary>
-        [Output("redisVersion")]
-        public Output<string?> RedisVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of replicas to be created per primary.
-        /// </summary>
-        [Output("replicasPerMaster")]
-        public Output<int?> ReplicasPerMaster { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of replicas to be created per primary.
-        /// </summary>
-        [Output("replicasPerPrimary")]
-        public Output<int?> ReplicasPerPrimary { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of shards to be created on a Premium Cluster Cache.
-        /// </summary>
-        [Output("shardCount")]
-        public Output<int?> ShardCount { get; private set; } = null!;
-
-        /// <summary>
-        /// The SKU of the Redis cache to deploy.
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Redis SSL port.
-        /// </summary>
-        [Output("sslPort")]
-        public Output<int> SslPort { get; private set; } = null!;
-
-        /// <summary>
-        /// Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
-        /// </summary>
-        [Output("staticIP")]
-        public Output<string?> StaticIP { get; private set; } = null!;
-
-        /// <summary>
-        /// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-        /// </summary>
-        [Output("subnetId")]
-        public Output<string?> SubnetId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.RedisPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// A dictionary of tenant settings
-        /// </summary>
-        [Output("tenantSettings")]
-        public Output<ImmutableDictionary<string, string>?> TenantSettings { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -225,22 +111,10 @@ namespace Pulumi.AzureNative.Cache.V20201201
     public sealed class RedisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the non-ssl Redis server port (6379) is enabled.
-        /// </summary>
-        [Input("enableNonSslPort")]
-        public Input<bool>? EnableNonSslPort { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-        /// </summary>
-        [Input("minimumTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNative.Cache.V20201201.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.
@@ -249,64 +123,16 @@ namespace Pulumi.AzureNative.Cache.V20201201
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// Redis cache properties.
         /// </summary>
-        [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.Cache.V20201201.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
-
-        /// <summary>
-        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        /// </summary>
-        [Input("redisConfiguration")]
-        public Input<Inputs.RedisCommonPropertiesRedisConfigurationArgs>? RedisConfiguration { get; set; }
-
-        /// <summary>
-        /// Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
-        /// </summary>
-        [Input("redisVersion")]
-        public Input<string>? RedisVersion { get; set; }
-
-        /// <summary>
-        /// The number of replicas to be created per primary.
-        /// </summary>
-        [Input("replicasPerMaster")]
-        public Input<int>? ReplicasPerMaster { get; set; }
-
-        /// <summary>
-        /// The number of replicas to be created per primary.
-        /// </summary>
-        [Input("replicasPerPrimary")]
-        public Input<int>? ReplicasPerPrimary { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.RedisCreatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The number of shards to be created on a Premium Cluster Cache.
-        /// </summary>
-        [Input("shardCount")]
-        public Input<int>? ShardCount { get; set; }
-
-        /// <summary>
-        /// The SKU of the Redis cache to deploy.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
-        /// </summary>
-        [Input("staticIP")]
-        public Input<string>? StaticIP { get; set; }
-
-        /// <summary>
-        /// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -318,18 +144,6 @@ namespace Pulumi.AzureNative.Cache.V20201201
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tenantSettings")]
-        private InputMap<string>? _tenantSettings;
-
-        /// <summary>
-        /// A dictionary of tenant settings
-        /// </summary>
-        public InputMap<string> TenantSettings
-        {
-            get => _tenantSettings ?? (_tenantSettings = new InputMap<string>());
-            set => _tenantSettings = value;
         }
 
         [Input("zones")]
@@ -346,8 +160,6 @@ namespace Pulumi.AzureNative.Cache.V20201201
 
         public RedisArgs()
         {
-            EnableNonSslPort = false;
-            PublicNetworkAccess = "Enabled";
         }
         public static new RedisArgs Empty => new RedisArgs();
     }

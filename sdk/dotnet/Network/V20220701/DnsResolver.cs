@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Network.V20220701
     public partial class DnsResolver : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
-        /// </summary>
-        [Output("dnsResolverState")]
-        public Output<string> DnsResolverState { get; private set; } = null!;
-
-        /// <summary>
         /// ETag of the DNS resolver.
         /// </summary>
         [Output("etag")]
@@ -40,16 +34,10 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the DNS resolver.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resourceGuid property of the DNS resolver resource.
-        /// </summary>
-        [Output("resourceGuid")]
-        public Output<string> ResourceGuid { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DnsResolverPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -68,12 +56,6 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The reference to the virtual network. This cannot be changed after creation.
-        /// </summary>
-        [Output("virtualNetwork")]
-        public Output<Outputs.SubResourceResponse> VirtualNetwork { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,6 +120,12 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Properties of the DNS resolver.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.DnsResolverPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -154,12 +142,6 @@ namespace Pulumi.AzureNative.Network.V20220701
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The reference to the virtual network. This cannot be changed after creation.
-        /// </summary>
-        [Input("virtualNetwork", required: true)]
-        public Input<Inputs.SubResourceArgs> VirtualNetwork { get; set; } = null!;
 
         public DnsResolverArgs()
         {

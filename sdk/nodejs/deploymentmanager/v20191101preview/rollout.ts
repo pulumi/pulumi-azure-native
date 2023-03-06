@@ -38,14 +38,6 @@ export class Rollout extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to the artifact source resource Id where the payload is located.
-     */
-    public readonly artifactSourceId!: pulumi.Output<string | undefined>;
-    /**
-     * The version of the build being deployed.
-     */
-    public readonly buildVersion!: pulumi.Output<string>;
-    /**
      * Identity for the resource.
      */
     public readonly identity!: pulumi.Output<outputs.deploymentmanager.v20191101preview.IdentityResponse>;
@@ -58,17 +50,13 @@ export class Rollout extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The list of step groups that define the orchestration.
+     * Defines the properties that make up a rollout request.
      */
-    public readonly stepGroups!: pulumi.Output<outputs.deploymentmanager.v20191101preview.StepGroupResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.deploymentmanager.v20191101preview.RolloutRequestPropertiesResponse>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-     */
-    public readonly targetServiceTopologyId!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -85,41 +73,29 @@ export class Rollout extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.buildVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'buildVersion'");
-            }
             if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stepGroups === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'stepGroups'");
-            }
-            if ((!args || args.targetServiceTopologyId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetServiceTopologyId'");
-            }
-            resourceInputs["artifactSourceId"] = args ? args.artifactSourceId : undefined;
-            resourceInputs["buildVersion"] = args ? args.buildVersion : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rolloutName"] = args ? args.rolloutName : undefined;
-            resourceInputs["stepGroups"] = args ? args.stepGroups : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetServiceTopologyId"] = args ? args.targetServiceTopologyId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["artifactSourceId"] = undefined /*out*/;
-            resourceInputs["buildVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["stepGroups"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["targetServiceTopologyId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,14 +110,6 @@ export class Rollout extends pulumi.CustomResource {
  */
 export interface RolloutArgs {
     /**
-     * The reference to the artifact source resource Id where the payload is located.
-     */
-    artifactSourceId?: pulumi.Input<string>;
-    /**
-     * The version of the build being deployed.
-     */
-    buildVersion: pulumi.Input<string>;
-    /**
      * Identity for the resource.
      */
     identity: pulumi.Input<inputs.deploymentmanager.v20191101preview.IdentityArgs>;
@@ -149,6 +117,10 @@ export interface RolloutArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Defines the properties that make up a rollout request.
+     */
+    properties: pulumi.Input<inputs.deploymentmanager.v20191101preview.RolloutRequestPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,15 +130,7 @@ export interface RolloutArgs {
      */
     rolloutName?: pulumi.Input<string>;
     /**
-     * The list of step groups that define the orchestration.
-     */
-    stepGroups: pulumi.Input<pulumi.Input<inputs.deploymentmanager.v20191101preview.StepGroupArgs>[]>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-     */
-    targetServiceTopologyId: pulumi.Input<string>;
 }

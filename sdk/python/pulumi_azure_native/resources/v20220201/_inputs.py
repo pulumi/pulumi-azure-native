@@ -11,6 +11,7 @@ from ... import _utilities
 
 __all__ = [
     'LinkedTemplateArtifactArgs',
+    'TemplateSpecVersionPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -49,5 +50,93 @@ class LinkedTemplateArtifactArgs:
     @template.setter
     def template(self, value: Any):
         pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class TemplateSpecVersionPropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]] = None,
+                 main_template: Optional[Any] = None,
+                 metadata: Optional[Any] = None,
+                 ui_form_definition: Optional[Any] = None):
+        """
+        Template Spec Version properties.
+        :param pulumi.Input[str] description: Template Spec version description.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]] linked_templates: An array of linked template artifacts.
+        :param Any main_template: The main Azure Resource Manager template content.
+        :param Any metadata: The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        :param Any ui_form_definition: The Azure Resource Manager template UI definition content.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_templates is not None:
+            pulumi.set(__self__, "linked_templates", linked_templates)
+        if main_template is not None:
+            pulumi.set(__self__, "main_template", main_template)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if ui_form_definition is not None:
+            pulumi.set(__self__, "ui_form_definition", ui_form_definition)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Template Spec version description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="linkedTemplates")
+    def linked_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]:
+        """
+        An array of linked template artifacts.
+        """
+        return pulumi.get(self, "linked_templates")
+
+    @linked_templates.setter
+    def linked_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]):
+        pulumi.set(self, "linked_templates", value)
+
+    @property
+    @pulumi.getter(name="mainTemplate")
+    def main_template(self) -> Optional[Any]:
+        """
+        The main Azure Resource Manager template content.
+        """
+        return pulumi.get(self, "main_template")
+
+    @main_template.setter
+    def main_template(self, value: Optional[Any]):
+        pulumi.set(self, "main_template", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="uiFormDefinition")
+    def ui_form_definition(self) -> Optional[Any]:
+        """
+        The Azure Resource Manager template UI definition content.
+        """
+        return pulumi.get(self, "ui_form_definition")
+
+    @ui_form_definition.setter
+    def ui_form_definition(self, value: Optional[Any]):
+        pulumi.set(self, "ui_form_definition", value)
 
 

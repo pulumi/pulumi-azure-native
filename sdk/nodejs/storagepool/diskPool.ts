@@ -39,18 +39,6 @@ export class DiskPool extends pulumi.CustomResource {
     }
 
     /**
-     * List of additional capabilities for Disk pool.
-     */
-    public readonly additionalCapabilities!: pulumi.Output<string[] | undefined>;
-    /**
-     * Logical zone for Disk pool resource; example: ["1"].
-     */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
-    /**
-     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
-     */
-    public readonly disks!: pulumi.Output<outputs.storagepool.DiskResponse[] | undefined>;
-    /**
      * The geo-location where the resource lives.
      */
     public readonly location!: pulumi.Output<string>;
@@ -59,17 +47,9 @@ export class DiskPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * State of the operation on the resource.
+     * Properties of Disk pool.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Operational status of the Disk pool.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Azure Resource ID of a Subnet for the Disk pool.
-     */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.storagepool.DiskPoolPropertiesResponse>;
     /**
      * Resource metadata required by ARM RPC
      */
@@ -78,10 +58,6 @@ export class DiskPool extends pulumi.CustomResource {
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Determines the SKU of VM deployed for Disk pool
-     */
-    public readonly tier!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -98,44 +74,26 @@ export class DiskPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'availabilityZones'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnetId'");
-            }
-            if ((!args || args.tier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'tier'");
-            }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["diskPoolName"] = args ? args.diskPoolName : undefined;
-            resourceInputs["disks"] = args ? args.disks : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["additionalCapabilities"] = undefined /*out*/;
-            resourceInputs["availabilityZones"] = undefined /*out*/;
-            resourceInputs["disks"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["tier"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,39 +108,23 @@ export class DiskPool extends pulumi.CustomResource {
  */
 export interface DiskPoolArgs {
     /**
-     * List of additional capabilities for a Disk pool.
-     */
-    additionalCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Logical zone for Disk pool resource; example: ["1"].
-     */
-    availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The name of the Disk pool.
      */
     diskPoolName?: pulumi.Input<string>;
-    /**
-     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
-     */
-    disks?: pulumi.Input<pulumi.Input<inputs.storagepool.DiskArgs>[]>;
     /**
      * The geo-location where the resource lives.
      */
     location?: pulumi.Input<string>;
     /**
+     * Properties for Disk pool create request.
+     */
+    properties: pulumi.Input<inputs.storagepool.DiskPoolCreatePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Azure Resource ID of a Subnet for the Disk pool.
-     */
-    subnetId: pulumi.Input<string>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Determines the SKU of VM deployed for Disk pool
-     */
-    tier: pulumi.Input<string | enums.storagepool.DiskPoolTier>;
 }

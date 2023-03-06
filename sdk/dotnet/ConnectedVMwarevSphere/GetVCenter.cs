@@ -72,33 +72,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetVCenterResult
     {
         /// <summary>
-        /// Gets or sets the connection status to the vCenter.
-        /// </summary>
-        public readonly string ConnectionStatus;
-        /// <summary>
-        /// Username / Password Credentials to connect to vcenter.
-        /// </summary>
-        public readonly Outputs.VICredentialResponse? Credentials;
-        /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        public readonly string CustomResourceName;
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Gets or sets the FQDN/IPAddress of the vCenter.
-        /// </summary>
-        public readonly string Fqdn;
-        /// <summary>
         /// Gets or sets the Id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Gets or sets the instance UUID of the vCenter.
-        /// </summary>
-        public readonly string InstanceUuid;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -112,17 +92,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the port of the vCenter.
+        /// Resource properties.
         /// </summary>
-        public readonly int? Port;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
+        public readonly Outputs.VCenterPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -135,30 +107,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Gets or sets the type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        public readonly string Uuid;
-        /// <summary>
-        /// Gets or sets the version of the vCenter.
-        /// </summary>
-        public readonly string Version;
 
         [OutputConstructor]
         private GetVCenterResult(
-            string connectionStatus,
-
-            Outputs.VICredentialResponse? credentials,
-
-            string customResourceName,
-
             Outputs.ExtendedLocationResponse? extendedLocation,
 
-            string fqdn,
-
             string id,
-
-            string instanceUuid,
 
             string? kind,
 
@@ -166,40 +120,23 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string name,
 
-            int? port,
-
-            string provisioningState,
-
-            ImmutableArray<Outputs.ResourceStatusResponse> statuses,
+            Outputs.VCenterPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uuid,
-
-            string version)
+            string type)
         {
-            ConnectionStatus = connectionStatus;
-            Credentials = credentials;
-            CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;
-            Fqdn = fqdn;
             Id = id;
-            InstanceUuid = instanceUuid;
             Kind = kind;
             Location = location;
             Name = name;
-            Port = port;
-            ProvisioningState = provisioningState;
-            Statuses = statuses;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            Version = version;
         }
     }
 }

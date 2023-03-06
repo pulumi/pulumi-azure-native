@@ -51,7 +51,7 @@ export class PatchSchedule extends pulumi.CustomResource {
     /**
      * List of patch schedules for a Redis cache.
      */
-    public readonly scheduleEntries!: pulumi.Output<outputs.cache.v20170201.ScheduleEntryResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.cache.v20170201.ScheduleEntriesResponse>;
     /**
      * Resource type.
      */
@@ -73,21 +73,21 @@ export class PatchSchedule extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleEntries === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scheduleEntries'");
-            }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["scheduleEntries"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -106,11 +106,11 @@ export interface PatchScheduleArgs {
      */
     name: pulumi.Input<string>;
     /**
+     * List of patch schedules for a Redis cache.
+     */
+    properties: pulumi.Input<inputs.cache.v20170201.ScheduleEntriesArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * List of patch schedules for a Redis cache.
-     */
-    scheduleEntries: pulumi.Input<pulumi.Input<inputs.cache.v20170201.ScheduleEntryArgs>[]>;
 }

@@ -35,10 +35,6 @@ export interface GetDnsForwardingRulesetArgs {
  */
 export interface GetDnsForwardingRulesetResult {
     /**
-     * The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-     */
-    readonly dnsResolverOutboundEndpoints: outputs.network.v20220701.SubResourceResponse[];
-    /**
      * ETag of the DNS forwarding ruleset.
      */
     readonly etag: string;
@@ -55,13 +51,9 @@ export interface GetDnsForwardingRulesetResult {
      */
     readonly name: string;
     /**
-     * The current provisioning state of the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the DNS forwarding ruleset.
      */
-    readonly provisioningState: string;
-    /**
-     * The resourceGuid for the DNS forwarding ruleset.
-     */
-    readonly resourceGuid: string;
+    readonly properties: outputs.network.v20220701.DnsForwardingRulesetPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

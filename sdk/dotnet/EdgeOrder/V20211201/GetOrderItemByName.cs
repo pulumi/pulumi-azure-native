@@ -82,10 +82,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
     public sealed class GetOrderItemByNameResult
     {
         /// <summary>
-        /// Represents shipping and return address for order item
-        /// </summary>
-        public readonly Outputs.AddressDetailsResponse AddressDetails;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -98,17 +94,9 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Id of the order to which order item belongs to
+        /// Order item properties
         /// </summary>
-        public readonly string OrderId;
-        /// <summary>
-        /// Represents order item details.
-        /// </summary>
-        public readonly Outputs.OrderItemDetailsResponse OrderItemDetails;
-        /// <summary>
-        /// Start time of order item
-        /// </summary>
-        public readonly string StartTime;
+        public readonly Outputs.OrderItemPropertiesResponse Properties;
         /// <summary>
         /// Represents resource creation and update time
         /// </summary>
@@ -124,19 +112,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
 
         [OutputConstructor]
         private GetOrderItemByNameResult(
-            Outputs.AddressDetailsResponse addressDetails,
-
             string id,
 
             string location,
 
             string name,
 
-            string orderId,
-
-            Outputs.OrderItemDetailsResponse orderItemDetails,
-
-            string startTime,
+            Outputs.OrderItemPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -144,13 +126,10 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
 
             string type)
         {
-            AddressDetails = addressDetails;
             Id = id;
             Location = location;
             Name = name;
-            OrderId = orderId;
-            OrderItemDetails = orderItemDetails;
-            StartTime = startTime;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

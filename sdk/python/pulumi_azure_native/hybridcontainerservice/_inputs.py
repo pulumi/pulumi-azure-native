@@ -24,6 +24,7 @@ __all__ = [
     'ControlPlaneEndpointProfileControlPlaneEndpointArgs',
     'ControlPlaneProfileArgs',
     'HttpProxyConfigArgs',
+    'HybridIdentityMetadataPropertiesArgs',
     'LinuxProfilePropertiesPublicKeysArgs',
     'LinuxProfilePropertiesSshArgs',
     'LinuxProfilePropertiesArgs',
@@ -938,6 +939,62 @@ class HttpProxyConfigArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class HybridIdentityMetadataPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']] = None,
+                 public_key: Optional[pulumi.Input[str]] = None,
+                 resource_uid: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input['ProvisionedClusterIdentityArgs'] identity: The identity of the provisioned cluster.
+        :param pulumi.Input[str] public_key: Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
+        :param pulumi.Input[str] resource_uid: Unique id of the parent provisioned cluster resource.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if resource_uid is not None:
+            pulumi.set(__self__, "resource_uid", resource_uid)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ProvisionedClusterIdentityArgs']]:
+        """
+        The identity of the provisioned cluster.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
+        """
+        return pulumi.get(self, "public_key")
+
+    @public_key.setter
+    def public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key", value)
+
+    @property
+    @pulumi.getter(name="resourceUid")
+    def resource_uid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique id of the parent provisioned cluster resource.
+        """
+        return pulumi.get(self, "resource_uid")
+
+    @resource_uid.setter
+    def resource_uid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_uid", value)
 
 
 @pulumi.input_type

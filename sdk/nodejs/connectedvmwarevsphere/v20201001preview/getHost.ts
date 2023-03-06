@@ -35,10 +35,6 @@ export interface GetHostArgs {
  */
 export interface GetHostResult {
     /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    readonly customResourceName: string;
-    /**
      * Gets or sets the extended location.
      */
     readonly extendedLocation?: outputs.connectedvmwarevsphere.v20201001preview.ExtendedLocationResponse;
@@ -46,10 +42,6 @@ export interface GetHostResult {
      * Gets or sets the Id.
      */
     readonly id: string;
-    /**
-     * Gets or sets the inventory Item ID for the host.
-     */
-    readonly inventoryItemId?: string;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -59,25 +51,13 @@ export interface GetHostResult {
      */
     readonly location: string;
     /**
-     * Gets or sets the vCenter Managed Object name for the host.
-     */
-    readonly moName: string;
-    /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
-     */
-    readonly moRefId?: string;
-    /**
      * Gets or sets the name.
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The resource status information.
-     */
-    readonly statuses: outputs.connectedvmwarevsphere.v20201001preview.ResourceStatusResponse[];
+    readonly properties: outputs.connectedvmwarevsphere.v20201001preview.HostPropertiesResponse;
     /**
      * The system data.
      */
@@ -90,14 +70,6 @@ export interface GetHostResult {
      * Gets or sets the type of the resource.
      */
     readonly type: string;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    readonly uuid: string;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this host resides.
-     */
-    readonly vCenterId?: string;
 }
 /**
  * Implements host GET method.

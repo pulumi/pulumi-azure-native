@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from ._inputs import *
 
 __all__ = ['CredentialArgs', 'Credential']
 
@@ -16,30 +17,23 @@ class CredentialArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 password: pulumi.Input[str],
+                 properties: pulumi.Input['CredentialCreateOrUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 user_name: pulumi.Input[str],
-                 credential_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 credential_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Credential resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] name: Gets or sets the name of the credential.
-        :param pulumi.Input[str] password: Gets or sets the password of the credential.
+        :param pulumi.Input['CredentialCreateOrUpdatePropertiesArgs'] properties: Gets or sets the properties of the credential.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
         :param pulumi.Input[str] credential_name: The parameters supplied to the create or update credential operation.
-        :param pulumi.Input[str] description: Gets or sets the description of the credential.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_name", user_name)
         if credential_name is not None:
             pulumi.set(__self__, "credential_name", credential_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -67,15 +61,15 @@ class CredentialArgs:
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
+    def properties(self) -> pulumi.Input['CredentialCreateOrUpdatePropertiesArgs']:
         """
-        Gets or sets the password of the credential.
+        Gets or sets the properties of the credential.
         """
-        return pulumi.get(self, "password")
+        return pulumi.get(self, "properties")
 
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CredentialCreateOrUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -90,18 +84,6 @@ class CredentialArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[str]:
-        """
-        Gets or sets the user name of the credential.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_name", value)
-
-    @property
     @pulumi.getter(name="credentialName")
     def credential_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -113,18 +95,6 @@ class CredentialArgs:
     def credential_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "credential_name", value)
 
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the description of the credential.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
 
 class Credential(pulumi.CustomResource):
     @overload
@@ -133,11 +103,9 @@ class Credential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CredentialCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Definition of the credential.
@@ -146,11 +114,9 @@ class Credential(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] credential_name: The parameters supplied to the create or update credential operation.
-        :param pulumi.Input[str] description: Gets or sets the description of the credential.
         :param pulumi.Input[str] name: Gets or sets the name of the credential.
-        :param pulumi.Input[str] password: Gets or sets the password of the credential.
+        :param pulumi.Input[pulumi.InputType['CredentialCreateOrUpdatePropertiesArgs']] properties: Gets or sets the properties of the credential.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
         """
         ...
     @overload
@@ -178,11 +144,9 @@ class Credential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CredentialCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -196,22 +160,20 @@ class Credential(pulumi.CustomResource):
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["credential_name"] = credential_name
-            __props__.__dict__["description"] = description
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_name'")
-            __props__.__dict__["user_name"] = user_name
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["description"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["user_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Credential"), pulumi.Alias(type_="azure-native:automation/v20151031:Credential"), pulumi.Alias(type_="azure-native:automation/v20190601:Credential"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Credential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Credential, __self__).__init__(

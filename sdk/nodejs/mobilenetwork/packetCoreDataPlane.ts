@@ -71,9 +71,9 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the packet core data plane resource.
+     * Packet core data plane Properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.PacketCoreDataPlanePropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -86,10 +86,6 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-     */
-    public readonly userPlaneAccessInterface!: pulumi.Output<outputs.mobilenetwork.InterfacePropertiesResponse>;
 
     /**
      * Create a PacketCoreDataPlane resource with the given unique name, arguments, and options.
@@ -105,11 +101,11 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.userPlaneAccessInterface === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userPlaneAccessInterface'");
             }
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
@@ -120,11 +116,10 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
             resourceInputs["packetCoreDataPlaneName"] = args ? args.packetCoreDataPlaneName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userPlaneAccessInterface"] = args ? args.userPlaneAccessInterface : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -136,11 +131,10 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userPlaneAccessInterface"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20221101:PacketCoreDataPlane" }] };
@@ -190,6 +184,10 @@ export interface PacketCoreDataPlaneArgs {
      */
     packetCoreDataPlaneName?: pulumi.Input<string>;
     /**
+     * Packet core data plane Properties.
+     */
+    properties: pulumi.Input<inputs.mobilenetwork.PacketCoreDataPlanePropertiesFormatArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -197,8 +195,4 @@ export interface PacketCoreDataPlaneArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-     */
-    userPlaneAccessInterface: pulumi.Input<inputs.mobilenetwork.InterfacePropertiesArgs>;
 }

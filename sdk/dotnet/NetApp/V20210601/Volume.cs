@@ -16,112 +16,10 @@ namespace Pulumi.AzureNative.NetApp.V20210601
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
-        /// </summary>
-        [Output("avsDataStore")]
-        public Output<string?> AvsDataStore { get; private set; } = null!;
-
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
-        /// </summary>
-        [Output("backupId")]
-        public Output<string?> BackupId { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique Baremetal Tenant Identifier.
-        /// </summary>
-        [Output("baremetalTenantId")]
-        public Output<string> BaremetalTenantId { get; private set; } = null!;
-
-        /// <summary>
-        /// When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
-        /// </summary>
-        [Output("cloneProgress")]
-        public Output<int> CloneProgress { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether Cool Access(tiering) is enabled for the volume.
-        /// </summary>
-        [Output("coolAccess")]
-        public Output<bool?> CoolAccess { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the number of days after which data that is not accessed by clients will be tiered.
-        /// </summary>
-        [Output("coolnessPeriod")]
-        public Output<int?> CoolnessPeriod { get; private set; } = null!;
-
-        /// <summary>
-        /// A unique file path for the volume. Used when creating mount targets
-        /// </summary>
-        [Output("creationToken")]
-        public Output<string> CreationToken { get; private set; } = null!;
-
-        /// <summary>
-        /// DataProtection type volumes include an object containing details of the replication
-        /// </summary>
-        [Output("dataProtection")]
-        public Output<Outputs.VolumePropertiesResponseDataProtection?> DataProtection { get; private set; } = null!;
-
-        /// <summary>
-        /// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
-        /// </summary>
-        [Output("defaultGroupQuotaInKiBs")]
-        public Output<double?> DefaultGroupQuotaInKiBs { get; private set; } = null!;
-
-        /// <summary>
-        /// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
-        /// </summary>
-        [Output("defaultUserQuotaInKiBs")]
-        public Output<double?> DefaultUserQuotaInKiBs { get; private set; } = null!;
-
-        /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-        /// </summary>
-        [Output("encryptionKeySource")]
-        public Output<string?> EncryptionKeySource { get; private set; } = null!;
-
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Set of export policy rules
-        /// </summary>
-        [Output("exportPolicy")]
-        public Output<Outputs.VolumePropertiesResponseExportPolicy?> ExportPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique FileSystem Identifier.
-        /// </summary>
-        [Output("fileSystemId")]
-        public Output<string> FileSystemId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies if default quota is enabled for the volume.
-        /// </summary>
-        [Output("isDefaultQuotaEnabled")]
-        public Output<bool?> IsDefaultQuotaEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Restoring
-        /// </summary>
-        [Output("isRestoring")]
-        public Output<bool?> IsRestoring { get; private set; } = null!;
-
-        /// <summary>
-        /// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        [Output("kerberosEnabled")]
-        public Output<bool?> KerberosEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether LDAP is enabled or not for a given NFS volume.
-        /// </summary>
-        [Output("ldapEnabled")]
-        public Output<bool?> LdapEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -130,88 +28,16 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// List of mount targets
-        /// </summary>
-        [Output("mountTargets")]
-        public Output<ImmutableArray<Outputs.MountTargetPropertiesResponse>> MountTargets { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Basic network, or Standard features available to the volume.
+        /// Volume properties
         /// </summary>
-        [Output("networkFeatures")]
-        public Output<string?> NetworkFeatures { get; private set; } = null!;
-
-        /// <summary>
-        /// Network Sibling Set ID for the the group of volumes sharing networking resources.
-        /// </summary>
-        [Output("networkSiblingSetId")]
-        public Output<string> NetworkSiblingSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
-        /// </summary>
-        [Output("protocolTypes")]
-        public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-        /// </summary>
-        [Output("securityStyle")]
-        public Output<string?> SecurityStyle { get; private set; } = null!;
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Output("serviceLevel")]
-        public Output<string?> ServiceLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
-        /// </summary>
-        [Output("smbContinuouslyAvailable")]
-        public Output<bool?> SmbContinuouslyAvailable { get; private set; } = null!;
-
-        /// <summary>
-        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        /// </summary>
-        [Output("smbEncryption")]
-        public Output<bool?> SmbEncryption { get; private set; } = null!;
-
-        /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
-        /// </summary>
-        [Output("snapshotDirectoryVisible")]
-        public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
-
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
-        /// </summary>
-        [Output("snapshotId")]
-        public Output<string?> SnapshotId { get; private set; } = null!;
-
-        /// <summary>
-        /// Provides storage to network proximity information for the volume.
-        /// </summary>
-        [Output("storageToNetworkProximity")]
-        public Output<string> StorageToNetworkProximity { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        /// </summary>
-        [Output("subnetId")]
-        public Output<string> SubnetId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VolumePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -219,32 +45,11 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        [Output("throughputMibps")]
-        public Output<double?> ThroughputMibps { get; private set; } = null!;
-
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-        /// </summary>
-        [Output("unixPermissions")]
-        public Output<string?> UnixPermissions { get; private set; } = null!;
-
-        /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        /// </summary>
-        [Output("usageThreshold")]
-        public Output<double> UsageThreshold { get; private set; } = null!;
-
-        /// <summary>
-        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
-        /// </summary>
-        [Output("volumeType")]
-        public Output<string?> VolumeType { get; private set; } = null!;
 
 
         /// <summary>
@@ -327,100 +132,10 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
-        /// </summary>
-        [Input("avsDataStore")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210601.AvsDataStore>? AvsDataStore { get; set; }
-
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
-        /// </summary>
-        [Input("backupId")]
-        public Input<string>? BackupId { get; set; }
-
-        /// <summary>
-        /// Specifies whether Cool Access(tiering) is enabled for the volume.
-        /// </summary>
-        [Input("coolAccess")]
-        public Input<bool>? CoolAccess { get; set; }
-
-        /// <summary>
-        /// Specifies the number of days after which data that is not accessed by clients will be tiered.
-        /// </summary>
-        [Input("coolnessPeriod")]
-        public Input<int>? CoolnessPeriod { get; set; }
-
-        /// <summary>
-        /// A unique file path for the volume. Used when creating mount targets
-        /// </summary>
-        [Input("creationToken", required: true)]
-        public Input<string> CreationToken { get; set; } = null!;
-
-        /// <summary>
-        /// DataProtection type volumes include an object containing details of the replication
-        /// </summary>
-        [Input("dataProtection")]
-        public Input<Inputs.VolumePropertiesDataProtectionArgs>? DataProtection { get; set; }
-
-        /// <summary>
-        /// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
-        /// </summary>
-        [Input("defaultGroupQuotaInKiBs")]
-        public Input<double>? DefaultGroupQuotaInKiBs { get; set; }
-
-        /// <summary>
-        /// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
-        /// </summary>
-        [Input("defaultUserQuotaInKiBs")]
-        public Input<double>? DefaultUserQuotaInKiBs { get; set; }
-
-        /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-        /// </summary>
-        [Input("encryptionKeySource")]
-        public Input<string>? EncryptionKeySource { get; set; }
-
-        /// <summary>
-        /// Set of export policy rules
-        /// </summary>
-        [Input("exportPolicy")]
-        public Input<Inputs.VolumePropertiesExportPolicyArgs>? ExportPolicy { get; set; }
-
-        /// <summary>
-        /// Specifies if default quota is enabled for the volume.
-        /// </summary>
-        [Input("isDefaultQuotaEnabled")]
-        public Input<bool>? IsDefaultQuotaEnabled { get; set; }
-
-        /// <summary>
-        /// Restoring
-        /// </summary>
-        [Input("isRestoring")]
-        public Input<bool>? IsRestoring { get; set; }
-
-        /// <summary>
-        /// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        [Input("kerberosEnabled")]
-        public Input<bool>? KerberosEnabled { get; set; }
-
-        /// <summary>
-        /// Specifies whether LDAP is enabled or not for a given NFS volume.
-        /// </summary>
-        [Input("ldapEnabled")]
-        public Input<bool>? LdapEnabled { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Basic network, or Standard features available to the volume.
-        /// </summary>
-        [Input("networkFeatures")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210601.NetworkFeatures>? NetworkFeatures { get; set; }
 
         /// <summary>
         /// The name of the capacity pool
@@ -428,65 +143,17 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
 
-        [Input("protocolTypes")]
-        private InputList<string>? _protocolTypes;
-
         /// <summary>
-        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
+        /// Volume properties
         /// </summary>
-        public InputList<string> ProtocolTypes
-        {
-            get => _protocolTypes ?? (_protocolTypes = new InputList<string>());
-            set => _protocolTypes = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.VolumePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-        /// </summary>
-        [Input("securityStyle")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210601.SecurityStyle>? SecurityStyle { get; set; }
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Input("serviceLevel")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210601.ServiceLevel>? ServiceLevel { get; set; }
-
-        /// <summary>
-        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
-        /// </summary>
-        [Input("smbContinuouslyAvailable")]
-        public Input<bool>? SmbContinuouslyAvailable { get; set; }
-
-        /// <summary>
-        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        /// </summary>
-        [Input("smbEncryption")]
-        public Input<bool>? SmbEncryption { get; set; }
-
-        /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
-        /// </summary>
-        [Input("snapshotDirectoryVisible")]
-        public Input<bool>? SnapshotDirectoryVisible { get; set; }
-
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        /// <summary>
-        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -500,49 +167,14 @@ namespace Pulumi.AzureNative.NetApp.V20210601
             set => _tags = value;
         }
 
-        [Input("throughputMibps")]
-        public Input<double>? ThroughputMibps { get; set; }
-
-        /// <summary>
-        /// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-        /// </summary>
-        [Input("unixPermissions")]
-        public Input<string>? UnixPermissions { get; set; }
-
-        /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        /// </summary>
-        [Input("usageThreshold", required: true)]
-        public Input<double> UsageThreshold { get; set; } = null!;
-
         /// <summary>
         /// The name of the volume
         /// </summary>
         [Input("volumeName")]
         public Input<string>? VolumeName { get; set; }
 
-        /// <summary>
-        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
         public VolumeArgs()
         {
-            AvsDataStore = "Disabled";
-            CoolAccess = false;
-            DefaultGroupQuotaInKiBs = 0;
-            DefaultUserQuotaInKiBs = 0;
-            IsDefaultQuotaEnabled = false;
-            KerberosEnabled = false;
-            LdapEnabled = false;
-            NetworkFeatures = "Basic";
-            SecurityStyle = "unix";
-            SmbContinuouslyAvailable = false;
-            SmbEncryption = false;
-            SnapshotDirectoryVisible = true;
-            UnixPermissions = "0770";
-            UsageThreshold = 107374182400;
         }
         public static new VolumeArgs Empty => new VolumeArgs();
     }

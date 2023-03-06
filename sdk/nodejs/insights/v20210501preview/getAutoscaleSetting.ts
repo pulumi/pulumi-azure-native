@@ -35,10 +35,6 @@ export interface GetAutoscaleSettingArgs {
  */
 export interface GetAutoscaleSettingResult {
     /**
-     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
-     */
-    readonly enabled?: boolean;
-    /**
      * Azure resource Id
      */
     readonly id: string;
@@ -47,21 +43,13 @@ export interface GetAutoscaleSettingResult {
      */
     readonly location: string;
     /**
-     * the name of the autoscale setting.
+     * Azure resource name
      */
     readonly name: string;
     /**
-     * the collection of notifications.
+     * The autoscale setting of the resource.
      */
-    readonly notifications?: outputs.insights.v20210501preview.AutoscaleNotificationResponse[];
-    /**
-     * the predictive autoscale policy mode.
-     */
-    readonly predictiveAutoscalePolicy?: outputs.insights.v20210501preview.PredictiveAutoscalePolicyResponse;
-    /**
-     * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-     */
-    readonly profiles: outputs.insights.v20210501preview.AutoscaleProfileResponse[];
+    readonly properties: outputs.insights.v20210501preview.AutoscaleSettingResponse;
     /**
      * The system metadata related to the response.
      */
@@ -70,14 +58,6 @@ export interface GetAutoscaleSettingResult {
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * the location of the resource that the autoscale setting should be added to.
-     */
-    readonly targetResourceLocation?: string;
-    /**
-     * the resource identifier of the resource that the autoscale setting should be added to.
-     */
-    readonly targetResourceUri?: string;
     /**
      * Azure resource type
      */

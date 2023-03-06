@@ -21,82 +21,47 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// AuthenticationType to be used for connection.
-        /// </summary>
-        public readonly string? AuthenticationType;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
-        /// <summary>
-        /// Database name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Database;
         /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Password for authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
-        /// <summary>
-        /// Server name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Server;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Db2'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Username for authentication. Type: string (or Expression with resultType string).
+        /// DB2 linked service properties.
         /// </summary>
-        public readonly object? Username;
+        public readonly Outputs.Db2LinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private Db2LinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            string? authenticationType,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
-
-            object database,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
-            object server,
 
             string type,
 
-            object? username)
+            Outputs.Db2LinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            AuthenticationType = authenticationType;
             ConnectVia = connectVia;
-            Database = database;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
-            Server = server;
             Type = type;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

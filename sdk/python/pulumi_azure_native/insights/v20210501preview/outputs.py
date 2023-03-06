@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'AutoscaleNotificationResponse',
     'AutoscaleProfileResponse',
+    'AutoscaleSettingResponse',
     'EmailNotificationResponse',
     'LogSettingsResponse',
     'ManagementGroupLogSettingsResponse',
@@ -162,6 +163,123 @@ class AutoscaleProfileResponse(dict):
         the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
         return pulumi.get(self, "recurrence")
+
+
+@pulumi.output_type
+class AutoscaleSettingResponse(dict):
+    """
+    A setting that contains all of the configuration for the automatic scaling of a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predictiveAutoscalePolicy":
+            suggest = "predictive_autoscale_policy"
+        elif key == "targetResourceLocation":
+            suggest = "target_resource_location"
+        elif key == "targetResourceUri":
+            suggest = "target_resource_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profiles: Sequence['outputs.AutoscaleProfileResponse'],
+                 enabled: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 notifications: Optional[Sequence['outputs.AutoscaleNotificationResponse']] = None,
+                 predictive_autoscale_policy: Optional['outputs.PredictiveAutoscalePolicyResponse'] = None,
+                 target_resource_location: Optional[str] = None,
+                 target_resource_uri: Optional[str] = None):
+        """
+        A setting that contains all of the configuration for the automatic scaling of a resource.
+        :param Sequence['AutoscaleProfileResponse'] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param bool enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        :param str name: the name of the autoscale setting.
+        :param Sequence['AutoscaleNotificationResponse'] notifications: the collection of notifications.
+        :param 'PredictiveAutoscalePolicyResponse' predictive_autoscale_policy: the predictive autoscale policy mode.
+        :param str target_resource_location: the location of the resource that the autoscale setting should be added to.
+        :param str target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        pulumi.set(__self__, "profiles", profiles)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if predictive_autoscale_policy is not None:
+            pulumi.set(__self__, "predictive_autoscale_policy", predictive_autoscale_policy)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
+        if target_resource_uri is not None:
+            pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> Sequence['outputs.AutoscaleProfileResponse']:
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        """
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        the name of the autoscale setting.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[Sequence['outputs.AutoscaleNotificationResponse']]:
+        """
+        the collection of notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter(name="predictiveAutoscalePolicy")
+    def predictive_autoscale_policy(self) -> Optional['outputs.PredictiveAutoscalePolicyResponse']:
+        """
+        the predictive autoscale policy mode.
+        """
+        return pulumi.get(self, "predictive_autoscale_policy")
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[str]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[str]:
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_uri")
 
 
 @pulumi.output_type

@@ -42,61 +42,21 @@ export interface GetMSIXPackageArgs {
  */
 export interface GetMSIXPackageResult {
     /**
-     * User friendly Name to be displayed in the portal. 
-     */
-    readonly displayName?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * VHD/CIM image path on Network Share.
-     */
-    readonly imagePath?: string;
-    /**
-     * Make this version of the package the active one across the hostpool. 
-     */
-    readonly isActive?: boolean;
-    /**
-     * Specifies how to register Package in feed.
-     */
-    readonly isRegularRegistration?: boolean;
-    /**
-     * Date Package was last updated, found in the appxmanifest.xml. 
-     */
-    readonly lastUpdated?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * List of package applications. 
+     * Detailed properties for MSIX Package
      */
-    readonly packageApplications?: outputs.desktopvirtualization.v20201102preview.MsixPackageApplicationsResponse[];
-    /**
-     * List of package dependencies. 
-     */
-    readonly packageDependencies?: outputs.desktopvirtualization.v20201102preview.MsixPackageDependenciesResponse[];
-    /**
-     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
-     */
-    readonly packageFamilyName?: string;
-    /**
-     * Package Name from appxmanifest.xml. 
-     */
-    readonly packageName?: string;
-    /**
-     * Relative Path to the package inside the image. 
-     */
-    readonly packageRelativePath?: string;
+    readonly properties: outputs.desktopvirtualization.v20201102preview.MSIXPackagePropertiesResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Package Version found in the appxmanifest.xml. 
-     */
-    readonly version?: string;
 }
 /**
  * Get a msixpackage.

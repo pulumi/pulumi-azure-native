@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
     public partial class TemplateSpecVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An array of Template Spec artifacts.
-        /// </summary>
-        [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse>> Artifacts { get; private set; } = null!;
-
-        /// <summary>
-        /// Template Spec version description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
         [Output("location")]
@@ -40,6 +28,12 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Template Spec Version properties.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.TemplateSpecVersionPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -50,12 +44,6 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure Resource Manager template content.
-        /// </summary>
-        [Output("template")]
-        public Output<object?> Template { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
@@ -115,29 +103,17 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
 
     public sealed class TemplateSpecVersionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("artifacts")]
-        private InputList<Inputs.TemplateSpecTemplateArtifactArgs>? _artifacts;
-
-        /// <summary>
-        /// An array of Template Spec artifacts.
-        /// </summary>
-        public InputList<Inputs.TemplateSpecTemplateArtifactArgs> Artifacts
-        {
-            get => _artifacts ?? (_artifacts = new InputList<Inputs.TemplateSpecTemplateArtifactArgs>());
-            set => _artifacts = value;
-        }
-
-        /// <summary>
-        /// Template Spec version description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
         /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Template Spec Version properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.TemplateSpecVersionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -156,12 +132,6 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The Azure Resource Manager template content.
-        /// </summary>
-        [Input("template")]
-        public Input<object>? Template { get; set; }
 
         /// <summary>
         /// Name of the Template Spec.

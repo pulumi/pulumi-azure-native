@@ -47,7 +47,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * If the value is true, then the non-SLL Redis server port (6379) will be enabled.
      */
-    public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
     /**
      * Redis host name.
      */
@@ -71,19 +71,19 @@ export class Redis extends pulumi.CustomResource {
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
-    public readonly redisConfiguration!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly redisConfiguration!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
      */
-    public readonly redisVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly redisVersion!: pulumi.Output<string | undefined>;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
-    public readonly shardCount!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly shardCount!: pulumi.Output<number | undefined>;
     /**
      * What SKU of Redis cache to deploy.
      */
-    public readonly sku!: pulumi.Output<outputs.cache.v20150801.SkuResponse>;
+    public /*out*/ readonly sku!: pulumi.Output<outputs.cache.v20150801.SkuResponse>;
     /**
      * Redis SSL port.
      */
@@ -91,11 +91,11 @@ export class Redis extends pulumi.CustomResource {
     /**
      * Required when deploying a Redis cache inside an existing Azure Virtual Network.
      */
-    public readonly staticIP!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly staticIP!: pulumi.Output<string | undefined>;
     /**
      * Required when deploying a Redis cache inside an existing Azure Virtual Network.
      */
-    public readonly subnet!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly subnet!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -103,7 +103,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * tenantSettings
      */
-    public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -111,7 +111,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
      */
-    public readonly virtualNetwork!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly virtualNetwork!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Redis resource with the given unique name, arguments, and options.
@@ -126,31 +126,32 @@ export class Redis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sku'");
-            }
-            resourceInputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
-            resourceInputs["redisVersion"] = args ? args.redisVersion : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["staticIP"] = args ? args.staticIP : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantSettings"] = args ? args.tenantSettings : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
             resourceInputs["accessKeys"] = undefined /*out*/;
+            resourceInputs["enableNonSslPort"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["redisConfiguration"] = undefined /*out*/;
+            resourceInputs["redisVersion"] = undefined /*out*/;
+            resourceInputs["shardCount"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["sslPort"] = undefined /*out*/;
+            resourceInputs["staticIP"] = undefined /*out*/;
+            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["tenantSettings"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
         } else {
             resourceInputs["accessKeys"] = undefined /*out*/;
             resourceInputs["enableNonSslPort"] = undefined /*out*/;
@@ -183,10 +184,6 @@ export class Redis extends pulumi.CustomResource {
  */
 export interface RedisArgs {
     /**
-     * If the value is true, then the non-SLL Redis server port (6379) will be enabled.
-     */
-    enableNonSslPort?: pulumi.Input<boolean>;
-    /**
      * Resource location.
      */
     location?: pulumi.Input<string>;
@@ -195,43 +192,15 @@ export interface RedisArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+     * Redis cache properties.
      */
-    redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
-     */
-    redisVersion?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.cache.v20150801.RedisPropertiesArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The number of shards to be created on a Premium Cluster Cache.
-     */
-    shardCount?: pulumi.Input<number>;
-    /**
-     * What SKU of Redis cache to deploy.
-     */
-    sku: pulumi.Input<inputs.cache.v20150801.SkuArgs>;
-    /**
-     * Required when deploying a Redis cache inside an existing Azure Virtual Network.
-     */
-    staticIP?: pulumi.Input<string>;
-    /**
-     * Required when deploying a Redis cache inside an existing Azure Virtual Network.
-     */
-    subnet?: pulumi.Input<string>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * tenantSettings
-     */
-    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
-     */
-    virtualNetwork?: pulumi.Input<string>;
 }

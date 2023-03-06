@@ -17,42 +17,6 @@ namespace Pulumi.AzureNative.Insights
     public partial class AlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        [Output("action")]
-        public Output<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>?> Action { get; private set; } = null!;
-
-        /// <summary>
-        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        [Output("actions")]
-        public Output<ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>>> Actions { get; private set; } = null!;
-
-        /// <summary>
-        /// the condition that results in the alert rule being activated.
-        /// </summary>
-        [Output("condition")]
-        public Output<object> Condition { get; private set; } = null!;
-
-        /// <summary>
-        /// the description of the alert rule that will be included in the alert email.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// the flag that indicates whether the alert rule is enabled.
-        /// </summary>
-        [Output("isEnabled")]
-        public Output<bool> IsEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Last time the rule was updated in ISO8601 format.
-        /// </summary>
-        [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -65,10 +29,10 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// the provisioning state.
+        /// The alert rule properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AlertRuleResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -133,58 +97,16 @@ namespace Pulumi.AzureNative.Insights
     public sealed class AlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        [Input("action")]
-        public InputUnion<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>? Action { get; set; }
-
-        [Input("actions")]
-        private InputList<Union<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>>? _actions;
-
-        /// <summary>
-        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        public InputList<Union<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>> Actions
-        {
-            get => _actions ?? (_actions = new InputList<Union<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>>());
-            set => _actions = value;
-        }
-
-        /// <summary>
-        /// the condition that results in the alert rule being activated.
-        /// </summary>
-        [Input("condition", required: true)]
-        public object Condition { get; set; } = null!;
-
-        /// <summary>
-        /// the description of the alert rule that will be included in the alert email.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// the flag that indicates whether the alert rule is enabled.
-        /// </summary>
-        [Input("isEnabled", required: true)]
-        public Input<bool> IsEnabled { get; set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// the name of the alert rule.
+        /// The alert rule properties of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// the provisioning state.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.AlertRuleArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

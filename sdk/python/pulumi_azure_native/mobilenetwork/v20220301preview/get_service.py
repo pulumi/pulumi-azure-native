@@ -22,7 +22,7 @@ class GetServiceResult:
     """
     Service resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, pcc_rules=None, provisioning_state=None, service_precedence=None, service_qos_policy=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -50,18 +50,9 @@ class GetServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if pcc_rules and not isinstance(pcc_rules, list):
-            raise TypeError("Expected argument 'pcc_rules' to be a list")
-        pulumi.set(__self__, "pcc_rules", pcc_rules)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if service_precedence and not isinstance(service_precedence, int):
-            raise TypeError("Expected argument 'service_precedence' to be a int")
-        pulumi.set(__self__, "service_precedence", service_precedence)
-        if service_qos_policy and not isinstance(service_qos_policy, dict):
-            raise TypeError("Expected argument 'service_qos_policy' to be a dict")
-        pulumi.set(__self__, "service_qos_policy", service_qos_policy)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -145,36 +136,12 @@ class GetServiceResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="pccRules")
-    def pcc_rules(self) -> Sequence['outputs.PccRuleConfigurationResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ServicePropertiesFormatResponse':
         """
-        The set of PCC Rules that make up this service.
+        Service Properties.
         """
-        return pulumi.get(self, "pcc_rules")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the service resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="servicePrecedence")
-    def service_precedence(self) -> int:
-        """
-        A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
-        """
-        return pulumi.get(self, "service_precedence")
-
-    @property
-    @pulumi.getter(name="serviceQosPolicy")
-    def service_qos_policy(self) -> Optional['outputs.QosPolicyResponse']:
-        """
-        The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
-        """
-        return pulumi.get(self, "service_qos_policy")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -216,10 +183,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
-            pcc_rules=self.pcc_rules,
-            provisioning_state=self.provisioning_state,
-            service_precedence=self.service_precedence,
-            service_qos_policy=self.service_qos_policy,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -254,10 +218,7 @@ def get_service(mobile_network_name: Optional[str] = None,
         last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
-        pcc_rules=__ret__.pcc_rules,
-        provisioning_state=__ret__.provisioning_state,
-        service_precedence=__ret__.service_precedence,
-        service_qos_policy=__ret__.service_qos_policy,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

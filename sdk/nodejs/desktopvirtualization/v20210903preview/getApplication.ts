@@ -40,69 +40,17 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
-     * Resource Type of Application.
-     */
-    readonly applicationType?: string;
-    /**
-     * Command Line Arguments for Application.
-     */
-    readonly commandLineArguments?: string;
-    /**
-     * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-     */
-    readonly commandLineSetting: string;
-    /**
-     * Description of Application.
-     */
-    readonly description?: string;
-    /**
-     * Specifies a path for the executable file for the application.
-     */
-    readonly filePath?: string;
-    /**
-     * Friendly name of Application.
-     */
-    readonly friendlyName?: string;
-    /**
-     * the icon a 64 bit string as a byte array.
-     */
-    readonly iconContent: string;
-    /**
-     * Hash of the icon.
-     */
-    readonly iconHash: string;
-    /**
-     * Index of the icon.
-     */
-    readonly iconIndex?: number;
-    /**
-     * Path to icon.
-     */
-    readonly iconPath?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Specifies the package application Id for MSIX applications
-     */
-    readonly msixPackageApplicationId?: string;
-    /**
-     * Specifies the package family name for MSIX applications
-     */
-    readonly msixPackageFamilyName?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * ObjectId of Application. (internal use)
+     * Detailed properties for Application
      */
-    readonly objectId: string;
-    /**
-     * Specifies whether to show the RemoteApp program in the RD Web Access server.
-     */
-    readonly showInPortal?: boolean;
+    readonly properties: outputs.desktopvirtualization.v20210903preview.ApplicationPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

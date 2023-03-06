@@ -17,18 +17,18 @@ __all__ = ['VariableValueAtManagementGroupArgs', 'VariableValueAtManagementGroup
 class VariableValueAtManagementGroupArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]],
+                 properties: pulumi.Input['PolicyVariableValuePropertiesArgs'],
                  variable_name: pulumi.Input[str],
                  variable_value_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VariableValueAtManagementGroup resource.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]] values: Variable value column value array.
+        :param pulumi.Input['PolicyVariableValuePropertiesArgs'] properties: Properties for the variable value.
         :param pulumi.Input[str] variable_name: The name of the variable to operate on.
         :param pulumi.Input[str] variable_value_name: The name of the variable value to operate on.
         """
         pulumi.set(__self__, "management_group_id", management_group_id)
-        pulumi.set(__self__, "values", values)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "variable_name", variable_name)
         if variable_value_name is not None:
             pulumi.set(__self__, "variable_value_name", variable_value_name)
@@ -47,15 +47,15 @@ class VariableValueAtManagementGroupArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]]:
+    def properties(self) -> pulumi.Input['PolicyVariableValuePropertiesArgs']:
         """
-        Variable value column value array.
+        Properties for the variable value.
         """
-        return pulumi.get(self, "values")
+        return pulumi.get(self, "properties")
 
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]]):
-        pulumi.set(self, "values", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['PolicyVariableValuePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="variableName")
@@ -88,7 +88,7 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PolicyVariableValuePropertiesArgs']]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  variable_value_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -98,7 +98,7 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]] values: Variable value column value array.
+        :param pulumi.Input[pulumi.InputType['PolicyVariableValuePropertiesArgs']] properties: Properties for the variable value.
         :param pulumi.Input[str] variable_name: The name of the variable to operate on.
         :param pulumi.Input[str] variable_value_name: The name of the variable value to operate on.
         """
@@ -127,7 +127,7 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PolicyVariableValuePropertiesArgs']]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  variable_value_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -142,9 +142,9 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__.__dict__["management_group_id"] = management_group_id
-            if values is None and not opts.urn:
-                raise TypeError("Missing required property 'values'")
-            __props__.__dict__["values"] = values
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if variable_name is None and not opts.urn:
                 raise TypeError("Missing required property 'variable_name'")
             __props__.__dict__["variable_name"] = variable_name
@@ -175,9 +175,9 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
         __props__ = VariableValueAtManagementGroupArgs.__new__(VariableValueAtManagementGroupArgs)
 
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["values"] = None
         return VariableValueAtManagementGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -187,6 +187,14 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
         The name of the variable.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.PolicyVariableValuePropertiesResponse']:
+        """
+        Properties for the variable value.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -203,12 +211,4 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
         The type of the resource (Microsoft.Authorization/variables/values).
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Output[Sequence['outputs.PolicyVariableValueColumnValueResponse']]:
-        """
-        Variable value column value array.
-        """
-        return pulumi.get(self, "values")
 

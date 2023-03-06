@@ -10,4 +10,5 @@ from .get_role_assignment import *
 from .get_role_management_policy_assignment import *
 from .role_assignment import *
 from .role_management_policy_assignment import *
+from ._inputs import *
 from . import outputs

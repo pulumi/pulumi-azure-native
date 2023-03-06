@@ -71,18 +71,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public sealed class GetAssignmentResult
     {
         /// <summary>
-        /// ID of the Blueprint definition resource.
-        /// </summary>
-        public readonly string? BlueprintId;
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
@@ -95,29 +83,13 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Defines how Blueprint-managed resources will be locked.
-        /// </summary>
-        public readonly Outputs.AssignmentLockSettingsResponse? Locks;
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Blueprint parameter values.
+        /// Properties for Assignment object.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterValueBaseResponse> Parameters;
-        /// <summary>
-        /// State of the assignment.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Names and locations of resource group placeholders.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ResourceGroupValueResponse> ResourceGroups;
-        /// <summary>
-        /// Status of Blueprint assignment. This field is readonly.
-        /// </summary>
-        public readonly Outputs.AssignmentStatusResponse Status;
+        public readonly Outputs.AssignmentPropertiesResponse Properties;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -125,44 +97,23 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 
         [OutputConstructor]
         private GetAssignmentResult(
-            string? blueprintId,
-
-            string? description,
-
-            string? displayName,
-
             string id,
 
             Outputs.ManagedServiceIdentityResponse identity,
 
             string location,
 
-            Outputs.AssignmentLockSettingsResponse? locks,
-
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterValueBaseResponse> parameters,
-
-            string provisioningState,
-
-            ImmutableDictionary<string, Outputs.ResourceGroupValueResponse> resourceGroups,
-
-            Outputs.AssignmentStatusResponse status,
+            Outputs.AssignmentPropertiesResponse properties,
 
             string type)
         {
-            BlueprintId = blueprintId;
-            Description = description;
-            DisplayName = displayName;
             Id = id;
             Identity = identity;
             Location = location;
-            Locks = locks;
             Name = name;
-            Parameters = parameters;
-            ProvisioningState = provisioningState;
-            ResourceGroups = resourceGroups;
-            Status = status;
+            Properties = properties;
             Type = type;
         }
     }

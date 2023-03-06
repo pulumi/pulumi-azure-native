@@ -40,26 +40,6 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     /**
-     * Reason for cancellation.
-     */
-    readonly cancellationReason: string;
-    /**
-     * Delivery Info of Job.
-     */
-    readonly deliveryInfo?: outputs.databox.v20221201.JobDeliveryInfoResponse;
-    /**
-     * Delivery type of Job.
-     */
-    readonly deliveryType?: string;
-    /**
-     * Details of a job run. This field will only be sent for expand details filter.
-     */
-    readonly details?: outputs.databox.v20221201.DataBoxCustomerDiskJobDetailsResponse | outputs.databox.v20221201.DataBoxDiskJobDetailsResponse | outputs.databox.v20221201.DataBoxHeavyJobDetailsResponse | outputs.databox.v20221201.DataBoxJobDetailsResponse;
-    /**
-     * Top level error for the job.
-     */
-    readonly error: outputs.databox.v20221201.CloudErrorResponse;
-    /**
      * Id of the object.
      */
     readonly id: string;
@@ -67,26 +47,6 @@ export interface GetJobResult {
      * Msi identity of the resource
      */
     readonly identity?: outputs.databox.v20221201.ResourceIdentityResponse;
-    /**
-     * Describes whether the job is cancellable or not.
-     */
-    readonly isCancellable: boolean;
-    /**
-     * Flag to indicate cancellation of scheduled job.
-     */
-    readonly isCancellableWithoutFee: boolean;
-    /**
-     * Describes whether the job is deletable or not.
-     */
-    readonly isDeletable: boolean;
-    /**
-     * Is Prepare To Ship Enabled on this job
-     */
-    readonly isPrepareToShipEnabled: boolean;
-    /**
-     * Describes whether the shipping address is editable or not.
-     */
-    readonly isShippingAddressEditable: boolean;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */
@@ -96,25 +56,13 @@ export interface GetJobResult {
      */
     readonly name: string;
     /**
-     * The Editable status for Reverse Shipping Address and Contact Info
+     * Properties of a job.
      */
-    readonly reverseShippingDetailsUpdate: string;
-    /**
-     * The Editable status for Reverse Transport preferences
-     */
-    readonly reverseTransportPreferenceUpdate: string;
+    readonly properties: outputs.databox.v20221201.JobPropertiesResponse;
     /**
      * The sku type.
      */
     readonly sku: outputs.databox.v20221201.SkuResponse;
-    /**
-     * Time at which the job was started in UTC ISO 8601 format.
-     */
-    readonly startTime: string;
-    /**
-     * Name of the stage which is in progress.
-     */
-    readonly status: string;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -123,10 +71,6 @@ export interface GetJobResult {
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * Type of the data transfer.
-     */
-    readonly transferType: string;
     /**
      * Type of the object.
      */

@@ -35,56 +35,9 @@ export class DefaultCniNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID of the Network Cloud cluster this default CNI network is associated with.
-     */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
-    /**
-     * The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
-     */
-    public /*out*/ readonly cniAsNumber!: pulumi.Output<number>;
-    public readonly cniBgpConfiguration!: pulumi.Output<outputs.networkcloud.v20221212preview.CniBgpConfigurationResponse | undefined>;
-    /**
-     * The more detailed status of the default CNI network.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.v20221212preview.ExtendedLocationResponse>;
-    /**
-     * The L3 isolation fabric BGP peering connectivity information necessary for BGP peering the Hybrid AKS Cluster with the switch fabric.
-     */
-    public /*out*/ readonly fabricBgpPeers!: pulumi.Output<outputs.networkcloud.v20221212preview.BgpPeerResponse[]>;
-    /**
-     * The list of Hybrid AKS cluster resource ID(s) that are associated with this default CNI network.
-     */
-    public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
-    /**
-     * The name of the interface that will be present in the virtual machine to represent this network.
-     */
-    public /*out*/ readonly interfaceName!: pulumi.Output<string>;
-    /**
-     * The type of the IP address allocation.
-     */
-    public readonly ipAllocationType!: pulumi.Output<string | undefined>;
-    /**
-     * The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-     * is IPV4 or DualStack.
-     */
-    public readonly ipv4ConnectedPrefix!: pulumi.Output<string | undefined>;
-    /**
-     * The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-     * is IPV6 or DualStack.
-     */
-    public readonly ipv6ConnectedPrefix!: pulumi.Output<string | undefined>;
-    /**
-     * The resource ID of the Network Fabric l3IsolationDomain.
-     */
-    public readonly l3IsolationDomainId!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -94,9 +47,9 @@ export class DefaultCniNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the default CNI network.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.v20221212preview.DefaultCniNetworkPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -109,10 +62,6 @@ export class DefaultCniNetwork extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The VLAN from the l3IsolationDomain that is used for this network.
-     */
-    public readonly vlan!: pulumi.Output<number>;
 
     /**
      * Create a DefaultCniNetwork resource with the given unique name, arguments, and options.
@@ -128,58 +77,29 @@ export class DefaultCniNetwork extends pulumi.CustomResource {
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.l3IsolationDomainId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'l3IsolationDomainId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlan === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vlan'");
-            }
-            resourceInputs["cniBgpConfiguration"] = args ? args.cniBgpConfiguration : undefined;
             resourceInputs["defaultCniNetworkName"] = args ? args.defaultCniNetworkName : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["ipAllocationType"] = (args ? args.ipAllocationType : undefined) ?? "DualStack";
-            resourceInputs["ipv4ConnectedPrefix"] = args ? args.ipv4ConnectedPrefix : undefined;
-            resourceInputs["ipv6ConnectedPrefix"] = args ? args.ipv6ConnectedPrefix : undefined;
-            resourceInputs["l3IsolationDomainId"] = args ? args.l3IsolationDomainId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.networkcloud.v20221212preview.defaultCniNetworkPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vlan"] = args ? args.vlan : undefined;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["cniAsNumber"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["fabricBgpPeers"] = undefined /*out*/;
-            resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
-            resourceInputs["interfaceName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["cniAsNumber"] = undefined /*out*/;
-            resourceInputs["cniBgpConfiguration"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["fabricBgpPeers"] = undefined /*out*/;
-            resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
-            resourceInputs["interfaceName"] = undefined /*out*/;
-            resourceInputs["ipAllocationType"] = undefined /*out*/;
-            resourceInputs["ipv4ConnectedPrefix"] = undefined /*out*/;
-            resourceInputs["ipv6ConnectedPrefix"] = undefined /*out*/;
-            resourceInputs["l3IsolationDomainId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vlan"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:DefaultCniNetwork" }] };
@@ -192,7 +112,6 @@ export class DefaultCniNetwork extends pulumi.CustomResource {
  * The set of arguments for constructing a DefaultCniNetwork resource.
  */
 export interface DefaultCniNetworkArgs {
-    cniBgpConfiguration?: pulumi.Input<inputs.networkcloud.v20221212preview.CniBgpConfigurationArgs>;
     /**
      * The name of the default CNI network.
      */
@@ -202,27 +121,13 @@ export interface DefaultCniNetworkArgs {
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.v20221212preview.ExtendedLocationArgs>;
     /**
-     * The type of the IP address allocation.
-     */
-    ipAllocationType?: pulumi.Input<string | enums.networkcloud.v20221212preview.IpAllocationType>;
-    /**
-     * The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-     * is IPV4 or DualStack.
-     */
-    ipv4ConnectedPrefix?: pulumi.Input<string>;
-    /**
-     * The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-     * is IPV6 or DualStack.
-     */
-    ipv6ConnectedPrefix?: pulumi.Input<string>;
-    /**
-     * The resource ID of the Network Fabric l3IsolationDomain.
-     */
-    l3IsolationDomainId: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The list of the resource properties.
+     */
+    properties: pulumi.Input<inputs.networkcloud.v20221212preview.DefaultCniNetworkPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -231,8 +136,4 @@ export interface DefaultCniNetworkArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VLAN from the l3IsolationDomain that is used for this network.
-     */
-    vlan: pulumi.Input<number>;
 }

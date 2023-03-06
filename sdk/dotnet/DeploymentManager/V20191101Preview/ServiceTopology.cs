@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
     public partial class ServiceTopology : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-        /// </summary>
-        [Output("artifactSourceId")]
-        public Output<string?> ArtifactSourceId { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -32,6 +26,12 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties that define the service topology.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.ServiceTopologyResourceResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -96,16 +96,16 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
     public sealed class ServiceTopologyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-        /// </summary>
-        [Input("artifactSourceId")]
-        public Input<string>? ArtifactSourceId { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The properties that define the service topology.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ServiceTopologyResourcePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

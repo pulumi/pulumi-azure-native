@@ -16,46 +16,39 @@ __all__ = ['PrometheusRuleGroupArgs', 'PrometheusRuleGroup']
 @pulumi.input_type
 class PrometheusRuleGroupArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['PrometheusRuleGroupPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 rules: pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]],
-                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 cluster_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 interval: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PrometheusRuleGroup resource.
+        :param pulumi.Input['PrometheusRuleGroupPropertiesArgs'] properties: The Prometheus rule group properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]] rules: defines the rules in the Prometheus rule group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this rule group is scoped to.
-        :param pulumi.Input[str] cluster_name: the cluster name of the rule group evaluation.
-        :param pulumi.Input[str] description: the description of the Prometheus rule group that will be included in the alert email.
-        :param pulumi.Input[bool] enabled: the flag that indicates whether the Prometheus rule group is enabled.
-        :param pulumi.Input[str] interval: the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] rule_group_name: The name of the rule group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rules", rules)
-        pulumi.set(__self__, "scopes", scopes)
-        if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if rule_group_name is not None:
             pulumi.set(__self__, "rule_group_name", rule_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PrometheusRuleGroupPropertiesArgs']:
+        """
+        The Prometheus rule group properties of the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['PrometheusRuleGroupPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -68,78 +61,6 @@ class PrometheusRuleGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]]:
-        """
-        defines the rules in the Prometheus rule group.
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]]):
-        pulumi.set(self, "rules", value)
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        the list of resource id's that this rule group is scoped to.
-        """
-        return pulumi.get(self, "scopes")
-
-    @scopes.setter
-    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "scopes", value)
-
-    @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        the cluster name of the rule group evaluation.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cluster_name", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        the description of the Prometheus rule group that will be included in the alert email.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        the flag that indicates whether the Prometheus rule group is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[str]]:
-        """
-        the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-        """
-        return pulumi.get(self, "interval")
-
-    @interval.setter
-    def interval(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "interval", value)
 
     @property
     @pulumi.getter
@@ -183,15 +104,10 @@ class PrometheusRuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 interval: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrometheusRuleGroupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrometheusRuleArgs']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -199,15 +115,10 @@ class PrometheusRuleGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: the cluster name of the rule group evaluation.
-        :param pulumi.Input[str] description: the description of the Prometheus rule group that will be included in the alert email.
-        :param pulumi.Input[bool] enabled: the flag that indicates whether the Prometheus rule group is enabled.
-        :param pulumi.Input[str] interval: the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['PrometheusRuleGroupPropertiesArgs']] properties: The Prometheus rule group properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_group_name: The name of the rule group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrometheusRuleArgs']]]] rules: defines the rules in the Prometheus rule group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this rule group is scoped to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -234,15 +145,10 @@ class PrometheusRuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 interval: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrometheusRuleGroupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrometheusRuleArgs']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -253,21 +159,14 @@ class PrometheusRuleGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrometheusRuleGroupArgs.__new__(PrometheusRuleGroupArgs)
 
-            __props__.__dict__["cluster_name"] = cluster_name
-            __props__.__dict__["description"] = description
-            __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["interval"] = interval
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_group_name"] = rule_group_name
-            if rules is None and not opts.urn:
-                raise TypeError("Missing required property 'rules'")
-            __props__.__dict__["rules"] = rules
-            if scopes is None and not opts.urn:
-                raise TypeError("Missing required property 'scopes'")
-            __props__.__dict__["scopes"] = scopes
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -294,50 +193,13 @@ class PrometheusRuleGroup(pulumi.CustomResource):
 
         __props__ = PrometheusRuleGroupArgs.__new__(PrometheusRuleGroupArgs)
 
-        __props__.__dict__["cluster_name"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["enabled"] = None
-        __props__.__dict__["interval"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["rules"] = None
-        __props__.__dict__["scopes"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PrometheusRuleGroup(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        the cluster name of the rule group evaluation.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        the description of the Prometheus rule group that will be included in the alert email.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        the flag that indicates whether the Prometheus rule group is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> pulumi.Output[Optional[str]]:
-        """
-        the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-        """
-        return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter
@@ -357,19 +219,11 @@ class PrometheusRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Sequence['outputs.PrometheusRuleResponse']]:
+    def properties(self) -> pulumi.Output['outputs.PrometheusRuleGroupPropertiesResponse']:
         """
-        defines the rules in the Prometheus rule group.
+        The Prometheus rule group properties of the resource.
         """
-        return pulumi.get(self, "rules")
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> pulumi.Output[Sequence[str]]:
-        """
-        the list of resource id's that this rule group is scoped to.
-        """
-        return pulumi.get(self, "scopes")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

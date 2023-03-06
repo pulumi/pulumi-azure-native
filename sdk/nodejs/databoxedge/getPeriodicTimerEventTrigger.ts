@@ -41,10 +41,6 @@ export interface GetPeriodicTimerEventTriggerArgs {
  */
 export interface GetPeriodicTimerEventTriggerResult {
     /**
-     * A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-     */
-    readonly customContextTag?: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -58,13 +54,9 @@ export interface GetPeriodicTimerEventTriggerResult {
      */
     readonly name: string;
     /**
-     * Role Sink information.
+     * Periodic timer trigger properties.
      */
-    readonly sinkInfo: outputs.databoxedge.RoleSinkInfoResponse;
-    /**
-     * Periodic timer details.
-     */
-    readonly sourceInfo: outputs.databoxedge.PeriodicTimerSourceInfoResponse;
+    readonly properties: outputs.databoxedge.PeriodicTimerPropertiesResponse;
     /**
      * Trigger in DataBoxEdge Resource
      */

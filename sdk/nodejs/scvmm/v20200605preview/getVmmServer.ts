@@ -35,25 +35,9 @@ export interface GetVmmServerArgs {
  */
 export interface GetVmmServerResult {
     /**
-     * Gets or sets the connection status to the vmmServer.
-     */
-    readonly connectionStatus: string;
-    /**
-     * Credentials to connect to VMMServer.
-     */
-    readonly credentials?: outputs.scvmm.v20200605preview.VMMServerPropertiesResponseCredentials;
-    /**
-     * Gets or sets any error message if connection to vmmServer is having any issue.
-     */
-    readonly errorMessage: string;
-    /**
      * The extended location.
      */
     readonly extendedLocation: outputs.scvmm.v20200605preview.ExtendedLocationResponse;
-    /**
-     * Fqdn is the hostname/ip of the vmmServer.
-     */
-    readonly fqdn: string;
     /**
      * Resource Id
      */
@@ -67,13 +51,9 @@ export interface GetVmmServerResult {
      */
     readonly name: string;
     /**
-     * Port is the port on which the vmmServer is listening.
+     * Resource properties.
      */
-    readonly port?: number;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.scvmm.v20200605preview.VMMServerPropertiesResponse;
     /**
      * The system data.
      */
@@ -86,14 +66,6 @@ export interface GetVmmServerResult {
      * Resource Type
      */
     readonly type: string;
-    /**
-     * Unique ID of vmmServer.
-     */
-    readonly uuid: string;
-    /**
-     * Version is the version of the vmmSever.
-     */
-    readonly version: string;
 }
 /**
  * Implements VMMServer GET method.

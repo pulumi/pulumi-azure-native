@@ -12,10 +12,67 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccountPropertiesResponse',
     'ActiveDirectoryResponse',
     'ExportPolicyRuleResponse',
+    'PoolPropertiesResponse',
+    'SnapshotPropertiesResponse',
+    'VolumePropertiesResponse',
     'VolumePropertiesResponseExportPolicy',
 ]
+
+@pulumi.output_type
+class AccountPropertiesResponse(dict):
+    """
+    NetApp account properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "activeDirectories":
+            suggest = "active_directories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 active_directories: Optional[Sequence['outputs.ActiveDirectoryResponse']] = None):
+        """
+        NetApp account properties
+        :param str provisioning_state: Azure lifecycle management
+        :param Sequence['ActiveDirectoryResponse'] active_directories: Active Directories
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if active_directories is not None:
+            pulumi.set(__self__, "active_directories", active_directories)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="activeDirectories")
+    def active_directories(self) -> Optional[Sequence['outputs.ActiveDirectoryResponse']]:
+        """
+        Active Directories
+        """
+        return pulumi.get(self, "active_directories")
+
 
 @pulumi.output_type
 class ActiveDirectoryResponse(dict):
@@ -263,6 +320,290 @@ class ExportPolicyRuleResponse(dict):
         Read and write access
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class PoolPropertiesResponse(dict):
+    """
+    Pool properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "poolId":
+            suggest = "pool_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceLevel":
+            suggest = "service_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pool_id: str,
+                 provisioning_state: str,
+                 service_level: Optional[str] = None,
+                 size: Optional[float] = None):
+        """
+        Pool properties
+        :param str pool_id: UUID v4 used to identify the Pool
+        :param str provisioning_state: Azure lifecycle management
+        :param str service_level: The service level of the file system
+        :param float size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        pulumi.set(__self__, "pool_id", pool_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_level is None:
+            service_level = 'Premium'
+        if service_level is not None:
+            pulumi.set(__self__, "service_level", service_level)
+        if size is None:
+            size = 4398046511104
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter(name="poolId")
+    def pool_id(self) -> str:
+        """
+        UUID v4 used to identify the Pool
+        """
+        return pulumi.get(self, "pool_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> Optional[str]:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[float]:
+        """
+        Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
+class SnapshotPropertiesResponse(dict):
+    """
+    Snapshot properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date: str,
+                 file_system_id: str,
+                 provisioning_state: str,
+                 snapshot_id: str):
+        """
+        Snapshot properties
+        :param str creation_date: The creation date of the snapshot
+        :param str file_system_id: UUID v4 used to identify the FileSystem
+        :param str provisioning_state: Azure lifecycle management
+        :param str snapshot_id: UUID v4 used to identify the Snapshot
+        """
+        pulumi.set(__self__, "creation_date", creation_date)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "snapshot_id", snapshot_id)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The creation date of the snapshot
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        UUID v4 used to identify the FileSystem
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> str:
+        """
+        UUID v4 used to identify the Snapshot
+        """
+        return pulumi.get(self, "snapshot_id")
+
+
+@pulumi.output_type
+class VolumePropertiesResponse(dict):
+    """
+    Volume properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationToken":
+            suggest = "creation_token"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceLevel":
+            suggest = "service_level"
+        elif key == "exportPolicy":
+            suggest = "export_policy"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "usageThreshold":
+            suggest = "usage_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_token: str,
+                 file_system_id: str,
+                 provisioning_state: str,
+                 service_level: str,
+                 export_policy: Optional['outputs.VolumePropertiesResponseExportPolicy'] = None,
+                 subnet_id: Optional[str] = None,
+                 usage_threshold: Optional[float] = None):
+        """
+        Volume properties
+        :param str creation_token: A unique file path for the volume. Used when creating mount targets
+        :param str file_system_id: Unique FileSystem Identifier.
+        :param str provisioning_state: Azure lifecycle management
+        :param str service_level: The service level of the file system
+        :param 'VolumePropertiesResponseExportPolicy' export_policy: Export policy rule
+        :param str subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
+        """
+        pulumi.set(__self__, "creation_token", creation_token)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_level is None:
+            service_level = 'Premium'
+        pulumi.set(__self__, "service_level", service_level)
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if usage_threshold is None:
+            usage_threshold = 107374182400
+        if usage_threshold is not None:
+            pulumi.set(__self__, "usage_threshold", usage_threshold)
+
+    @property
+    @pulumi.getter(name="creationToken")
+    def creation_token(self) -> str:
+        """
+        A unique file path for the volume. Used when creating mount targets
+        """
+        return pulumi.get(self, "creation_token")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        Unique FileSystem Identifier.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> str:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+        """
+        Export policy rule
+        """
+        return pulumi.get(self, "export_policy")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="usageThreshold")
+    def usage_threshold(self) -> Optional[float]:
+        """
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
+        """
+        return pulumi.get(self, "usage_threshold")
 
 
 @pulumi.output_type

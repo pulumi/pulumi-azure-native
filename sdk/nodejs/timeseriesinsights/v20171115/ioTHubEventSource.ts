@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,26 +38,6 @@ export class IoTHubEventSource extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the iot hub's consumer group that holds the partitions from which events will be read.
-     */
-    public readonly consumerGroupName!: pulumi.Output<string>;
-    /**
-     * The time the resource was created.
-     */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
-    /**
-     * The resource id of the event source in Azure Resource Manager.
-     */
-    public readonly eventSourceResourceId!: pulumi.Output<string>;
-    /**
-     * The name of the iot hub.
-     */
-    public readonly iotHubName!: pulumi.Output<string>;
-    /**
-     * The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-     */
-    public readonly keyName!: pulumi.Output<string>;
-    /**
      * The kind of the event source.
      * Expected value is 'Microsoft.IotHub'.
      */
@@ -68,17 +51,13 @@ export class IoTHubEventSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the resource.
+     * Properties of the IoTHub event source resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20171115.IoTHubEventSourceResourcePropertiesResponse>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-     */
-    public readonly timestampPropertyName!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
@@ -95,58 +74,33 @@ export class IoTHubEventSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumerGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'consumerGroupName'");
-            }
             if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
-            }
-            if ((!args || args.eventSourceResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'eventSourceResourceId'");
-            }
-            if ((!args || args.iotHubName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'iotHubName'");
-            }
-            if ((!args || args.keyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyName'");
             }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sharedAccessKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sharedAccessKey'");
-            }
-            resourceInputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            resourceInputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
-            resourceInputs["iotHubName"] = args ? args.iotHubName : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["kind"] = "Microsoft.IoTHub";
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
-            resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["consumerGroupName"] = undefined /*out*/;
-            resourceInputs["creationTime"] = undefined /*out*/;
-            resourceInputs["eventSourceResourceId"] = undefined /*out*/;
-            resourceInputs["iotHubName"] = undefined /*out*/;
-            resourceInputs["keyName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["timestampPropertyName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -161,10 +115,6 @@ export class IoTHubEventSource extends pulumi.CustomResource {
  */
 export interface IoTHubEventSourceArgs {
     /**
-     * The name of the iot hub's consumer group that holds the partitions from which events will be read.
-     */
-    consumerGroupName: pulumi.Input<string>;
-    /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
     environmentName: pulumi.Input<string>;
@@ -172,18 +122,6 @@ export interface IoTHubEventSourceArgs {
      * Name of the event source.
      */
     eventSourceName?: pulumi.Input<string>;
-    /**
-     * The resource id of the event source in Azure Resource Manager.
-     */
-    eventSourceResourceId: pulumi.Input<string>;
-    /**
-     * The name of the iot hub.
-     */
-    iotHubName: pulumi.Input<string>;
-    /**
-     * The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-     */
-    keyName: pulumi.Input<string>;
     /**
      * The kind of the event source.
      * Expected value is 'Microsoft.IoTHub'.
@@ -194,19 +132,15 @@ export interface IoTHubEventSourceArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Properties of the IoTHub event source that are required on create or update requests.
+     */
+    properties: pulumi.Input<inputs.timeseriesinsights.v20171115.IoTHubEventSourceCreationPropertiesArgs>;
+    /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses.
-     */
-    sharedAccessKey: pulumi.Input<string>;
-    /**
      * Key-value pairs of additional properties for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-     */
-    timestampPropertyName?: pulumi.Input<string>;
 }

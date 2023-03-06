@@ -18,27 +18,24 @@ __all__ = ['IoTAddonArgs', 'IoTAddon']
 class IoTAddonArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
-                 io_t_device_details: pulumi.Input['IoTDeviceInfoArgs'],
-                 io_t_edge_device_details: pulumi.Input['IoTDeviceInfoArgs'],
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['IoTAddonPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  role_name: pulumi.Input[str],
                  addon_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IoTAddon resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input['IoTDeviceInfoArgs'] io_t_device_details: IoT device metadata to which appliance needs to be connected.
-        :param pulumi.Input['IoTDeviceInfoArgs'] io_t_edge_device_details: IoT edge device to which the IoT Addon needs to be configured.
         :param pulumi.Input[str] kind: Addon type.
                Expected value is 'IotEdge'.
+        :param pulumi.Input['IoTAddonPropertiesArgs'] properties: Properties specific to IOT addon.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         :param pulumi.Input[str] addon_name: The addon name.
         """
         pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "io_t_device_details", io_t_device_details)
-        pulumi.set(__self__, "io_t_edge_device_details", io_t_edge_device_details)
         pulumi.set(__self__, "kind", 'IotEdge')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role_name", role_name)
         if addon_name is not None:
@@ -57,30 +54,6 @@ class IoTAddonArgs:
         pulumi.set(self, "device_name", value)
 
     @property
-    @pulumi.getter(name="ioTDeviceDetails")
-    def io_t_device_details(self) -> pulumi.Input['IoTDeviceInfoArgs']:
-        """
-        IoT device metadata to which appliance needs to be connected.
-        """
-        return pulumi.get(self, "io_t_device_details")
-
-    @io_t_device_details.setter
-    def io_t_device_details(self, value: pulumi.Input['IoTDeviceInfoArgs']):
-        pulumi.set(self, "io_t_device_details", value)
-
-    @property
-    @pulumi.getter(name="ioTEdgeDeviceDetails")
-    def io_t_edge_device_details(self) -> pulumi.Input['IoTDeviceInfoArgs']:
-        """
-        IoT edge device to which the IoT Addon needs to be configured.
-        """
-        return pulumi.get(self, "io_t_edge_device_details")
-
-    @io_t_edge_device_details.setter
-    def io_t_edge_device_details(self, value: pulumi.Input['IoTDeviceInfoArgs']):
-        pulumi.set(self, "io_t_edge_device_details", value)
-
-    @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
@@ -92,6 +65,18 @@ class IoTAddonArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['IoTAddonPropertiesArgs']:
+        """
+        Properties specific to IOT addon.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['IoTAddonPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -137,9 +122,8 @@ class IoTAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 io_t_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IoTAddonPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -150,10 +134,9 @@ class IoTAddon(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_name: The addon name.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']] io_t_device_details: IoT device metadata to which appliance needs to be connected.
-        :param pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']] io_t_edge_device_details: IoT edge device to which the IoT Addon needs to be configured.
         :param pulumi.Input[str] kind: Addon type.
                Expected value is 'IotEdge'.
+        :param pulumi.Input[pulumi.InputType['IoTAddonPropertiesArgs']] properties: Properties specific to IOT addon.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
@@ -183,9 +166,8 @@ class IoTAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 io_t_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IoTAddonPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -201,28 +183,21 @@ class IoTAddon(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
-            if io_t_device_details is None and not opts.urn:
-                raise TypeError("Missing required property 'io_t_device_details'")
-            __props__.__dict__["io_t_device_details"] = io_t_device_details
-            if io_t_edge_device_details is None and not opts.urn:
-                raise TypeError("Missing required property 'io_t_edge_device_details'")
-            __props__.__dict__["io_t_edge_device_details"] = io_t_edge_device_details
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'IotEdge'
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
-            __props__.__dict__["host_platform"] = None
-            __props__.__dict__["host_platform_type"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:IoTAddon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTAddon, __self__).__init__(
@@ -247,49 +222,12 @@ class IoTAddon(pulumi.CustomResource):
 
         __props__ = IoTAddonArgs.__new__(IoTAddonArgs)
 
-        __props__.__dict__["host_platform"] = None
-        __props__.__dict__["host_platform_type"] = None
-        __props__.__dict__["io_t_device_details"] = None
-        __props__.__dict__["io_t_edge_device_details"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["version"] = None
         return IoTAddon(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="hostPlatform")
-    def host_platform(self) -> pulumi.Output[str]:
-        """
-        Host OS supported by the IoT addon.
-        """
-        return pulumi.get(self, "host_platform")
-
-    @property
-    @pulumi.getter(name="hostPlatformType")
-    def host_platform_type(self) -> pulumi.Output[str]:
-        """
-        Platform where the runtime is hosted.
-        """
-        return pulumi.get(self, "host_platform_type")
-
-    @property
-    @pulumi.getter(name="ioTDeviceDetails")
-    def io_t_device_details(self) -> pulumi.Output['outputs.IoTDeviceInfoResponse']:
-        """
-        IoT device metadata to which appliance needs to be connected.
-        """
-        return pulumi.get(self, "io_t_device_details")
-
-    @property
-    @pulumi.getter(name="ioTEdgeDeviceDetails")
-    def io_t_edge_device_details(self) -> pulumi.Output['outputs.IoTDeviceInfoResponse']:
-        """
-        IoT edge device to which the IoT Addon needs to be configured.
-        """
-        return pulumi.get(self, "io_t_edge_device_details")
 
     @property
     @pulumi.getter
@@ -309,12 +247,12 @@ class IoTAddon(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.IoTAddonPropertiesResponse']:
         """
-        Addon Provisioning State
+        Properties specific to IOT addon.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -331,12 +269,4 @@ class IoTAddon(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
-        """
-        Version of IoT running on the appliance.
-        """
-        return pulumi.get(self, "version")
 

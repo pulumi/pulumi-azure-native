@@ -41,22 +41,6 @@ export interface GetPublishedBlueprintArgs {
  */
 export interface GetPublishedBlueprintResult {
     /**
-     * Name of the published blueprint definition.
-     */
-    readonly blueprintName?: string;
-    /**
-     * Version-specific change notes.
-     */
-    readonly changeNotes?: string;
-    /**
-     * Multi-line explain this resource.
-     */
-    readonly description?: string;
-    /**
-     * One-liner string explain this resource.
-     */
-    readonly displayName?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -65,21 +49,9 @@ export interface GetPublishedBlueprintResult {
      */
     readonly name: string;
     /**
-     * Parameters required by this blueprint definition.
+     * Detailed properties for published blueprint.
      */
-    readonly parameters?: {[key: string]: outputs.blueprint.ParameterDefinitionResponse};
-    /**
-     * Resource group placeholders defined by this blueprint definition.
-     */
-    readonly resourceGroups?: {[key: string]: outputs.blueprint.ResourceGroupDefinitionResponse};
-    /**
-     * Status of the blueprint. This field is readonly.
-     */
-    readonly status: outputs.blueprint.BlueprintStatusResponse;
-    /**
-     * The scope where this blueprint definition can be assigned.
-     */
-    readonly targetScope?: string;
+    readonly properties: outputs.blueprint.PublishedBlueprintPropertiesResponse;
     /**
      * Type of this resource.
      */

@@ -37,45 +37,13 @@ export interface GetApplicationDefinitionArgs {
  */
 export interface GetApplicationDefinitionResult {
     /**
-     * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-     */
-    readonly artifacts?: outputs.solutions.v20180601.ApplicationDefinitionArtifactResponse[];
-    /**
-     * The managed application provider authorizations.
-     */
-    readonly authorizations?: outputs.solutions.v20180601.ApplicationAuthorizationResponse[];
-    /**
-     * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-     */
-    readonly createUiDefinition?: any;
-    /**
-     * The managed application definition description.
-     */
-    readonly description?: string;
-    /**
-     * The managed application definition display name.
-     */
-    readonly displayName?: string;
-    /**
      * Resource ID
      */
     readonly id: string;
     /**
-     * A value indicating whether the package is enabled or not.
-     */
-    readonly isEnabled?: boolean;
-    /**
      * Resource location
      */
     readonly location?: string;
-    /**
-     * The managed application lock level.
-     */
-    readonly lockLevel: string;
-    /**
-     * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-     */
-    readonly mainTemplate?: any;
     /**
      * ID of the resource that manages this resource.
      */
@@ -85,13 +53,9 @@ export interface GetApplicationDefinitionResult {
      */
     readonly name: string;
     /**
-     * The managed application definition package file Uri. Use this element
+     * The managed application definition properties.
      */
-    readonly packageFileUri?: string;
-    /**
-     * The managed application provider policies.
-     */
-    readonly policies?: outputs.solutions.v20180601.ApplicationPolicyResponse[];
+    readonly properties: outputs.solutions.v20180601.ApplicationDefinitionPropertiesResponse;
     /**
      * The SKU of the resource.
      */

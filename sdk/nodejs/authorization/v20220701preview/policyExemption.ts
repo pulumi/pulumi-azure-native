@@ -38,45 +38,13 @@ export class PolicyExemption extends pulumi.CustomResource {
     }
 
     /**
-     * The option whether validate the exemption is at or under the assignment scope.
-     */
-    public readonly assignmentScopeValidation!: pulumi.Output<string | undefined>;
-    /**
-     * The description of the policy exemption.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The display name of the policy exemption.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * The policy exemption category. Possible values are Waiver and Mitigated.
-     */
-    public readonly exemptionCategory!: pulumi.Output<string>;
-    /**
-     * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-     */
-    public readonly expiresOn!: pulumi.Output<string | undefined>;
-    /**
-     * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-     */
-    public readonly metadata!: pulumi.Output<any | undefined>;
-    /**
      * The name of the policy exemption.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the policy assignment that is being exempted.
+     * Properties for the policy exemption.
      */
-    public readonly policyAssignmentId!: pulumi.Output<string>;
-    /**
-     * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
-     */
-    public readonly policyDefinitionReferenceIds!: pulumi.Output<string[] | undefined>;
-    /**
-     * The resource selector list to filter policies by resource properties.
-     */
-    public readonly resourceSelectors!: pulumi.Output<outputs.authorization.v20220701preview.ResourceSelectorResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.authorization.v20220701preview.PolicyExemptionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -97,40 +65,21 @@ export class PolicyExemption extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.exemptionCategory === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'exemptionCategory'");
-            }
-            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyAssignmentId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignmentScopeValidation"] = (args ? args.assignmentScopeValidation : undefined) ?? "Default";
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["exemptionCategory"] = args ? args.exemptionCategory : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
             resourceInputs["policyExemptionName"] = args ? args.policyExemptionName : undefined;
-            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.authorization.v20220701preview.policyExemptionPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["assignmentScopeValidation"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["exemptionCategory"] = undefined /*out*/;
-            resourceInputs["expiresOn"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["policyAssignmentId"] = undefined /*out*/;
-            resourceInputs["policyDefinitionReferenceIds"] = undefined /*out*/;
-            resourceInputs["resourceSelectors"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -146,45 +95,13 @@ export class PolicyExemption extends pulumi.CustomResource {
  */
 export interface PolicyExemptionArgs {
     /**
-     * The option whether validate the exemption is at or under the assignment scope.
-     */
-    assignmentScopeValidation?: pulumi.Input<string | enums.authorization.v20220701preview.AssignmentScopeValidation>;
-    /**
-     * The description of the policy exemption.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The display name of the policy exemption.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * The policy exemption category. Possible values are Waiver and Mitigated.
-     */
-    exemptionCategory: pulumi.Input<string | enums.authorization.v20220701preview.ExemptionCategory>;
-    /**
-     * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-     */
-    expiresOn?: pulumi.Input<string>;
-    /**
-     * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-     */
-    metadata?: any;
-    /**
-     * The ID of the policy assignment that is being exempted.
-     */
-    policyAssignmentId: pulumi.Input<string>;
-    /**
-     * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
-     */
-    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The name of the policy exemption to delete.
      */
     policyExemptionName?: pulumi.Input<string>;
     /**
-     * The resource selector list to filter policies by resource properties.
+     * Properties for the policy exemption.
      */
-    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.authorization.v20220701preview.ResourceSelectorArgs>[]>;
+    properties: pulumi.Input<inputs.authorization.v20220701preview.PolicyExemptionPropertiesArgs>;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

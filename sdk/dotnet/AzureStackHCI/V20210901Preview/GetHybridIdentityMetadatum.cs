@@ -86,25 +86,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Identity for the resource.
-        /// </summary>
-        public readonly Outputs.IdentityResponse Identity;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The Public Key.
-        /// </summary>
-        public readonly string? PublicKey;
-        /// <summary>
-        /// The unique identifier for the resource.
-        /// </summary>
-        public readonly string? ResourceUid;
+        public readonly Outputs.HybridIdentityMetadataPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -118,26 +106,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         private GetHybridIdentityMetadatumResult(
             string id,
 
-            Outputs.IdentityResponse identity,
-
             string name,
 
-            string provisioningState,
-
-            string? publicKey,
-
-            string? resourceUid,
+            Outputs.HybridIdentityMetadataPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
-            Identity = identity;
             Name = name;
-            ProvisioningState = provisioningState;
-            PublicKey = publicKey;
-            ResourceUid = resourceUid;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

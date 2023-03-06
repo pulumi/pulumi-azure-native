@@ -84,22 +84,6 @@ namespace Pulumi.AzureNative.Blueprint
     public sealed class GetPublishedBlueprintResult
     {
         /// <summary>
-        /// Name of the published blueprint definition.
-        /// </summary>
-        public readonly string? BlueprintName;
-        /// <summary>
-        /// Version-specific change notes.
-        /// </summary>
-        public readonly string? ChangeNotes;
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
@@ -108,21 +92,9 @@ namespace Pulumi.AzureNative.Blueprint
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters required by this blueprint definition.
+        /// Detailed properties for published blueprint.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? Parameters;
-        /// <summary>
-        /// Resource group placeholders defined by this blueprint definition.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? ResourceGroups;
-        /// <summary>
-        /// Status of the blueprint. This field is readonly.
-        /// </summary>
-        public readonly Outputs.BlueprintStatusResponse Status;
-        /// <summary>
-        /// The scope where this blueprint definition can be assigned.
-        /// </summary>
-        public readonly string? TargetScope;
+        public readonly Outputs.PublishedBlueprintPropertiesResponse Properties;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -130,38 +102,17 @@ namespace Pulumi.AzureNative.Blueprint
 
         [OutputConstructor]
         private GetPublishedBlueprintResult(
-            string? blueprintName,
-
-            string? changeNotes,
-
-            string? description,
-
-            string? displayName,
-
             string id,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? parameters,
-
-            ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? resourceGroups,
-
-            Outputs.BlueprintStatusResponse status,
-
-            string? targetScope,
+            Outputs.PublishedBlueprintPropertiesResponse properties,
 
             string type)
         {
-            BlueprintName = blueprintName;
-            ChangeNotes = changeNotes;
-            Description = description;
-            DisplayName = displayName;
             Id = id;
             Name = name;
-            Parameters = parameters;
-            ResourceGroups = resourceGroups;
-            Status = status;
-            TargetScope = targetScope;
+            Properties = properties;
             Type = type;
         }
     }

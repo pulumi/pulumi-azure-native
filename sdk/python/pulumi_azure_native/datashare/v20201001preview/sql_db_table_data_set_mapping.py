@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['SqlDBTableDataSetMappingArgs', 'SqlDBTableDataSetMapping']
 
@@ -16,38 +17,26 @@ __all__ = ['SqlDBTableDataSetMappingArgs', 'SqlDBTableDataSetMapping']
 class SqlDBTableDataSetMappingArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 data_set_id: pulumi.Input[str],
-                 database_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['SqlDBTableDataSetMappingPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 schema_name: pulumi.Input[str],
                  share_subscription_name: pulumi.Input[str],
-                 sql_server_resource_id: pulumi.Input[str],
-                 table_name: pulumi.Input[str],
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SqlDBTableDataSetMapping resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] data_set_id: The id of the source data set.
-        :param pulumi.Input[str] database_name: DatabaseName name of the sink data set
         :param pulumi.Input[str] kind: Kind of data set mapping.
                Expected value is 'SqlDBTable'.
+        :param pulumi.Input['SqlDBTableDataSetMappingPropertiesArgs'] properties: Sql DB data set mapping properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] schema_name: Schema of the table. Default value is dbo.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
-        :param pulumi.Input[str] sql_server_resource_id: Resource id of SQL server
-        :param pulumi.Input[str] table_name: SQL DB table name.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "kind", 'SqlDBTable')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
-        pulumi.set(__self__, "table_name", table_name)
         if data_set_mapping_name is not None:
             pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
 
@@ -64,30 +53,6 @@ class SqlDBTableDataSetMappingArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Input[str]:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @data_set_id.setter
-    def data_set_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_set_id", value)
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[str]:
-        """
-        DatabaseName name of the sink data set
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "database_name", value)
-
-    @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
@@ -99,6 +64,18 @@ class SqlDBTableDataSetMappingArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SqlDBTableDataSetMappingPropertiesArgs']:
+        """
+        Sql DB data set mapping properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SqlDBTableDataSetMappingPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -113,18 +90,6 @@ class SqlDBTableDataSetMappingArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Input[str]:
-        """
-        Schema of the table. Default value is dbo.
-        """
-        return pulumi.get(self, "schema_name")
-
-    @schema_name.setter
-    def schema_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schema_name", value)
-
-    @property
     @pulumi.getter(name="shareSubscriptionName")
     def share_subscription_name(self) -> pulumi.Input[str]:
         """
@@ -135,30 +100,6 @@ class SqlDBTableDataSetMappingArgs:
     @share_subscription_name.setter
     def share_subscription_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "share_subscription_name", value)
-
-    @property
-    @pulumi.getter(name="sqlServerResourceId")
-    def sql_server_resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource id of SQL server
-        """
-        return pulumi.get(self, "sql_server_resource_id")
-
-    @sql_server_resource_id.setter
-    def sql_server_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sql_server_resource_id", value)
-
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[str]:
-        """
-        SQL DB table name.
-        """
-        return pulumi.get(self, "table_name")
-
-    @table_name.setter
-    def table_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "table_name", value)
 
     @property
     @pulumi.getter(name="dataSetMappingName")
@@ -179,15 +120,11 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 data_set_id: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
-                 database_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SqlDBTableDataSetMappingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schema_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 sql_server_resource_id: Optional[pulumi.Input[str]] = None,
-                 table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A SQL DB Table data set mapping.
@@ -195,16 +132,12 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] data_set_id: The id of the source data set.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
-        :param pulumi.Input[str] database_name: DatabaseName name of the sink data set
         :param pulumi.Input[str] kind: Kind of data set mapping.
                Expected value is 'SqlDBTable'.
+        :param pulumi.Input[pulumi.InputType['SqlDBTableDataSetMappingPropertiesArgs']] properties: Sql DB data set mapping properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] schema_name: Schema of the table. Default value is dbo.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
-        :param pulumi.Input[str] sql_server_resource_id: Resource id of SQL server
-        :param pulumi.Input[str] table_name: SQL DB table name.
         """
         ...
     @overload
@@ -231,15 +164,11 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 data_set_id: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
-                 database_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SqlDBTableDataSetMappingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schema_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 sql_server_resource_id: Optional[pulumi.Input[str]] = None,
-                 table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,34 +181,20 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if data_set_id is None and not opts.urn:
-                raise TypeError("Missing required property 'data_set_id'")
-            __props__.__dict__["data_set_id"] = data_set_id
             __props__.__dict__["data_set_mapping_name"] = data_set_mapping_name
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
-            __props__.__dict__["database_name"] = database_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'SqlDBTable'
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_name'")
-            __props__.__dict__["schema_name"] = schema_name
             if share_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_subscription_name'")
             __props__.__dict__["share_subscription_name"] = share_subscription_name
-            if sql_server_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_server_resource_id'")
-            __props__.__dict__["sql_server_resource_id"] = sql_server_resource_id
-            if table_name is None and not opts.urn:
-                raise TypeError("Missing required property 'table_name'")
-            __props__.__dict__["table_name"] = table_name
-            __props__.__dict__["data_set_mapping_status"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDBTableDataSetMapping")])
@@ -306,42 +221,12 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
 
         __props__ = SqlDBTableDataSetMappingArgs.__new__(SqlDBTableDataSetMappingArgs)
 
-        __props__.__dict__["data_set_id"] = None
-        __props__.__dict__["data_set_mapping_status"] = None
-        __props__.__dict__["database_name"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["schema_name"] = None
-        __props__.__dict__["sql_server_resource_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
         return SqlDBTableDataSetMapping(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="dataSetMappingStatus")
-    def data_set_mapping_status(self) -> pulumi.Output[str]:
-        """
-        Gets the status of the data set mapping.
-        """
-        return pulumi.get(self, "data_set_mapping_status")
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Output[str]:
-        """
-        DatabaseName name of the sink data set
-        """
-        return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter
@@ -361,28 +246,12 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SqlDBTableDataSetMappingPropertiesResponse']:
         """
-        Provisioning state of the data set mapping.
+        Sql DB data set mapping properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Output[str]:
-        """
-        Schema of the table. Default value is dbo.
-        """
-        return pulumi.get(self, "schema_name")
-
-    @property
-    @pulumi.getter(name="sqlServerResourceId")
-    def sql_server_resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource id of SQL server
-        """
-        return pulumi.get(self, "sql_server_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -391,14 +260,6 @@ class SqlDBTableDataSetMapping(pulumi.CustomResource):
         System Data of the Azure resource.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Output[str]:
-        """
-        SQL DB table name.
-        """
-        return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter

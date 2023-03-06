@@ -22,7 +22,7 @@ class GetMobileNetworkResult:
     """
     Mobile network resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, public_land_mobile_network_identifier=None, service_key=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -50,15 +50,9 @@ class GetMobileNetworkResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_land_mobile_network_identifier and not isinstance(public_land_mobile_network_identifier, dict):
-            raise TypeError("Expected argument 'public_land_mobile_network_identifier' to be a dict")
-        pulumi.set(__self__, "public_land_mobile_network_identifier", public_land_mobile_network_identifier)
-        if service_key and not isinstance(service_key, str):
-            raise TypeError("Expected argument 'service_key' to be a str")
-        pulumi.set(__self__, "service_key", service_key)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -142,28 +136,12 @@ class GetMobileNetworkResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.MobileNetworkPropertiesFormatResponse':
         """
-        The provisioning state of the mobile network resource.
+        Mobile network properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicLandMobileNetworkIdentifier")
-    def public_land_mobile_network_identifier(self) -> 'outputs.PlmnIdResponse':
-        """
-        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-        """
-        return pulumi.get(self, "public_land_mobile_network_identifier")
-
-    @property
-    @pulumi.getter(name="serviceKey")
-    def service_key(self) -> str:
-        """
-        The mobile network resource identifier
-        """
-        return pulumi.get(self, "service_key")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -205,9 +183,7 @@ class AwaitableGetMobileNetworkResult(GetMobileNetworkResult):
             last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            public_land_mobile_network_identifier=self.public_land_mobile_network_identifier,
-            service_key=self.service_key,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -239,9 +215,7 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
         last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_land_mobile_network_identifier=__ret__.public_land_mobile_network_identifier,
-        service_key=__ret__.service_key,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

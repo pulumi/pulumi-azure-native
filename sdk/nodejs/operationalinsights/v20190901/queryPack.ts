@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,25 +46,13 @@ export class QueryPack extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+     * Properties that define a Log Analytics QueryPack resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The unique ID of your application. This field cannot be changed.
-     */
-    public /*out*/ readonly queryPackId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20190901.LogAnalyticsQueryPackPropertiesResponse>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-     */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
-    /**
-     * Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-     */
-    public /*out*/ readonly timeModified!: pulumi.Output<string>;
     /**
      * Azure resource type
      */
@@ -78,27 +69,24 @@ export class QueryPack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["queryPackName"] = args ? args.queryPackName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["queryPackId"] = undefined /*out*/;
-            resourceInputs["timeCreated"] = undefined /*out*/;
-            resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["queryPackId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["timeCreated"] = undefined /*out*/;
-            resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +104,10 @@ export interface QueryPackArgs {
      * Resource location
      */
     location?: pulumi.Input<string>;
+    /**
+     * Properties that define a Log Analytics QueryPack resource.
+     */
+    properties: pulumi.Input<inputs.operationalinsights.v20190901.LogAnalyticsQueryPackPropertiesArgs>;
     /**
      * The name of the Log Analytics QueryPack resource.
      */

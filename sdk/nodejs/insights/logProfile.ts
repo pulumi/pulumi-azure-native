@@ -39,33 +39,17 @@ export class LogProfile extends pulumi.CustomResource {
     }
 
     /**
-     * the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-     */
-    public readonly categories!: pulumi.Output<string[]>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-     */
-    public readonly locations!: pulumi.Output<string[]>;
     /**
      * Azure resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * the retention policy for the events in the log.
+     * The log profile properties of the resource.
      */
-    public readonly retentionPolicy!: pulumi.Output<outputs.insights.RetentionPolicyResponse>;
-    /**
-     * The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-     */
-    public readonly serviceBusRuleId!: pulumi.Output<string | undefined>;
-    /**
-     * the resource id of the storage account to which you would like to send the Activity Log.
-     */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.insights.LogProfilePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -86,33 +70,19 @@ export class LogProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.categories === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'categories'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.locations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'locations'");
-            }
-            if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'retentionPolicy'");
-            }
-            resourceInputs["categories"] = args ? args.categories : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
             resourceInputs["logProfileName"] = args ? args.logProfileName : undefined;
-            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["categories"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["retentionPolicy"] = undefined /*out*/;
-            resourceInputs["serviceBusRuleId"] = undefined /*out*/;
-            resourceInputs["storageAccountId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -128,33 +98,17 @@ export class LogProfile extends pulumi.CustomResource {
  */
 export interface LogProfileArgs {
     /**
-     * the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-     */
-    categories: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
-    /**
-     * List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-     */
-    locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the log profile.
      */
     logProfileName?: pulumi.Input<string>;
     /**
-     * the retention policy for the events in the log.
+     * The log profile properties of the resource.
      */
-    retentionPolicy: pulumi.Input<inputs.insights.RetentionPolicyArgs>;
-    /**
-     * The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-     */
-    serviceBusRuleId?: pulumi.Input<string>;
-    /**
-     * the resource id of the storage account to which you would like to send the Activity Log.
-     */
-    storageAccountId?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.insights.LogProfilePropertiesArgs>;
     /**
      * Resource tags
      */

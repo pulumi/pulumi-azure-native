@@ -41,14 +41,6 @@ export interface GetSignalRCustomDomainArgs {
  */
 export interface GetSignalRCustomDomainResult {
     /**
-     * Reference to a resource.
-     */
-    readonly customCertificate: outputs.signalrservice.ResourceReferenceResponse;
-    /**
-     * The custom domain name.
-     */
-    readonly domainName: string;
-    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
@@ -57,9 +49,9 @@ export interface GetSignalRCustomDomainResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Properties of a custom domain.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.signalrservice.CustomDomainPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

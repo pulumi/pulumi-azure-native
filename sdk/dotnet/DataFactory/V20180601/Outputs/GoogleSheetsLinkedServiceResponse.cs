@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The api token for the GoogleSheets source.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> ApiToken;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -32,10 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -45,30 +37,31 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'GoogleSheets'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// GoogleSheets linked service properties.
+        /// </summary>
+        public readonly Outputs.GoogleSheetsLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private GoogleSheetsLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> apiToken,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            Outputs.GoogleSheetsLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            ApiToken = apiToken;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

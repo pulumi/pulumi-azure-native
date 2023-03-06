@@ -22,43 +22,19 @@ class GetKeyResult:
     """
     The key resource.
     """
-    def __init__(__self__, attributes=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, release_policy=None, rotation_policy=None, tags=None, type=None):
-        if attributes and not isinstance(attributes, dict):
-            raise TypeError("Expected argument 'attributes' to be a dict")
-        pulumi.set(__self__, "attributes", attributes)
-        if curve_name and not isinstance(curve_name, str):
-            raise TypeError("Expected argument 'curve_name' to be a str")
-        pulumi.set(__self__, "curve_name", curve_name)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if key_ops and not isinstance(key_ops, list):
-            raise TypeError("Expected argument 'key_ops' to be a list")
-        pulumi.set(__self__, "key_ops", key_ops)
-        if key_size and not isinstance(key_size, int):
-            raise TypeError("Expected argument 'key_size' to be a int")
-        pulumi.set(__self__, "key_size", key_size)
-        if key_uri and not isinstance(key_uri, str):
-            raise TypeError("Expected argument 'key_uri' to be a str")
-        pulumi.set(__self__, "key_uri", key_uri)
-        if key_uri_with_version and not isinstance(key_uri_with_version, str):
-            raise TypeError("Expected argument 'key_uri_with_version' to be a str")
-        pulumi.set(__self__, "key_uri_with_version", key_uri_with_version)
-        if kty and not isinstance(kty, str):
-            raise TypeError("Expected argument 'kty' to be a str")
-        pulumi.set(__self__, "kty", kty)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if release_policy and not isinstance(release_policy, dict):
-            raise TypeError("Expected argument 'release_policy' to be a dict")
-        pulumi.set(__self__, "release_policy", release_policy)
-        if rotation_policy and not isinstance(rotation_policy, dict):
-            raise TypeError("Expected argument 'rotation_policy' to be a dict")
-        pulumi.set(__self__, "rotation_policy", rotation_policy)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -68,64 +44,11 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional['outputs.KeyAttributesResponse']:
-        """
-        The attributes of the key.
-        """
-        return pulumi.get(self, "attributes")
-
-    @property
-    @pulumi.getter(name="curveName")
-    def curve_name(self) -> Optional[str]:
-        """
-        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-        """
-        return pulumi.get(self, "curve_name")
-
-    @property
-    @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified identifier of the key vault resource.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="keyOps")
-    def key_ops(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "key_ops")
-
-    @property
-    @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[int]:
-        """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-        """
-        return pulumi.get(self, "key_size")
-
-    @property
-    @pulumi.getter(name="keyUri")
-    def key_uri(self) -> str:
-        """
-        The URI to retrieve the current version of the key.
-        """
-        return pulumi.get(self, "key_uri")
-
-    @property
-    @pulumi.getter(name="keyUriWithVersion")
-    def key_uri_with_version(self) -> str:
-        """
-        The URI to retrieve the specific version of the key.
-        """
-        return pulumi.get(self, "key_uri_with_version")
-
-    @property
-    @pulumi.getter
-    def kty(self) -> Optional[str]:
-        """
-        The type of the key. For valid values, see JsonWebKeyType.
-        """
-        return pulumi.get(self, "kty")
 
     @property
     @pulumi.getter
@@ -144,20 +67,12 @@ class GetKeyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="releasePolicy")
-    def release_policy(self) -> Optional['outputs.KeyReleasePolicyResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.KeyPropertiesResponse':
         """
-        Key release policy in response. It will be used for both output and input. Omitted if empty
+        The properties of the key.
         """
-        return pulumi.get(self, "release_policy")
-
-    @property
-    @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> Optional['outputs.RotationPolicyResponse']:
-        """
-        Key rotation policy in response. It will be used for both output and input. Omitted if empty
-        """
-        return pulumi.get(self, "rotation_policy")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -182,18 +97,10 @@ class AwaitableGetKeyResult(GetKeyResult):
         if False:
             yield self
         return GetKeyResult(
-            attributes=self.attributes,
-            curve_name=self.curve_name,
             id=self.id,
-            key_ops=self.key_ops,
-            key_size=self.key_size,
-            key_uri=self.key_uri,
-            key_uri_with_version=self.key_uri_with_version,
-            kty=self.kty,
             location=self.location,
             name=self.name,
-            release_policy=self.release_policy,
-            rotation_policy=self.rotation_policy,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -218,18 +125,10 @@ def get_key(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:keyvault/v20220701:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        attributes=__ret__.attributes,
-        curve_name=__ret__.curve_name,
         id=__ret__.id,
-        key_ops=__ret__.key_ops,
-        key_size=__ret__.key_size,
-        key_uri=__ret__.key_uri,
-        key_uri_with_version=__ret__.key_uri_with_version,
-        kty=__ret__.kty,
         location=__ret__.location,
         name=__ret__.name,
-        release_policy=__ret__.release_policy,
-        rotation_policy=__ret__.rotation_policy,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

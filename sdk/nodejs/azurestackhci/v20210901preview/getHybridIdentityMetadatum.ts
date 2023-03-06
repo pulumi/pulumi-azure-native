@@ -44,25 +44,13 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly id: string;
     /**
-     * Identity for the resource.
-     */
-    readonly identity: outputs.azurestackhci.v20210901preview.IdentityResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state.
+     * Resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The Public Key.
-     */
-    readonly publicKey?: string;
-    /**
-     * The unique identifier for the resource.
-     */
-    readonly resourceUid?: string;
+    readonly properties: outputs.azurestackhci.v20210901preview.HybridIdentityMetadataPropertiesResponse;
     /**
      * The system data.
      */

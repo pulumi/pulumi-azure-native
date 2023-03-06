@@ -82,25 +82,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     public sealed class GetSavedSearchResult
     {
         /// <summary>
-        /// The category of the saved search. This helps the user to find a saved search faster. 
-        /// </summary>
-        public readonly string Category;
-        /// <summary>
-        /// Saved search display name.
-        /// </summary>
-        public readonly string DisplayName;
-        /// <summary>
         /// The ETag of the saved search.
         /// </summary>
         public readonly string? Etag;
-        /// <summary>
-        /// The function alias if query serves as a function.
-        /// </summary>
-        public readonly string? FunctionAlias;
-        /// <summary>
-        /// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
-        /// </summary>
-        public readonly string? FunctionParameters;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -110,57 +94,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The query expression for the saved search.
+        /// The properties of the saved search.
         /// </summary>
-        public readonly string Query;
-        /// <summary>
-        /// The tags attached to the saved search.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TagResponse> Tags;
+        public readonly Outputs.SavedSearchPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The version number of the query language. The current version is 2 and is the default.
-        /// </summary>
-        public readonly double? Version;
 
         [OutputConstructor]
         private GetSavedSearchResult(
-            string category,
-
-            string displayName,
-
             string? etag,
-
-            string? functionAlias,
-
-            string? functionParameters,
 
             string id,
 
             string name,
 
-            string query,
+            Outputs.SavedSearchPropertiesResponse properties,
 
-            ImmutableArray<Outputs.TagResponse> tags,
-
-            string type,
-
-            double? version)
+            string type)
         {
-            Category = category;
-            DisplayName = displayName;
             Etag = etag;
-            FunctionAlias = functionAlias;
-            FunctionParameters = functionParameters;
             Id = id;
             Name = name;
-            Query = query;
-            Tags = tags;
+            Properties = properties;
             Type = type;
-            Version = version;
         }
     }
 }

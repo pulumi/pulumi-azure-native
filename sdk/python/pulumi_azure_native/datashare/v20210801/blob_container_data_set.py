@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['BlobContainerDataSetArgs', 'BlobContainerDataSet']
 
@@ -16,35 +17,26 @@ __all__ = ['BlobContainerDataSetArgs', 'BlobContainerDataSet']
 class BlobContainerDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 container_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 resource_group: pulumi.Input[str],
+                 properties: pulumi.Input['BlobContainerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
-                 storage_account_name: pulumi.Input[str],
-                 subscription_id: pulumi.Input[str],
                  data_set_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BlobContainerDataSet resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] container_name: BLOB Container name.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'Container'.
-        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input['BlobContainerPropertiesArgs'] properties: Blob container data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
-        :param pulumi.Input[str] subscription_id: Subscription id of storage account
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "kind", 'Container')
-        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
         if data_set_name is not None:
             pulumi.set(__self__, "data_set_name", data_set_name)
 
@@ -61,18 +53,6 @@ class BlobContainerDataSetArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[str]:
-        """
-        BLOB Container name.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "container_name", value)
-
-    @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
@@ -86,16 +66,16 @@ class BlobContainerDataSetArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BlobContainerPropertiesArgs']:
         """
-        Resource group of storage account
+        Blob container data set properties.
         """
-        return pulumi.get(self, "resource_group")
+        return pulumi.get(self, "properties")
 
-    @resource_group.setter
-    def resource_group(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['BlobContainerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -122,30 +102,6 @@ class BlobContainerDataSetArgs:
         pulumi.set(self, "share_name", value)
 
     @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[str]:
-        """
-        Storage account name of the source data set
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[str]:
-        """
-        Subscription id of storage account
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subscription_id", value)
-
-    @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -164,14 +120,11 @@ class BlobContainerDataSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 container_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BlobContainerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An Azure storage blob container data set.
@@ -179,15 +132,12 @@ class BlobContainerDataSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] container_name: BLOB Container name.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'Container'.
-        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[pulumi.InputType['BlobContainerPropertiesArgs']] properties: Blob container data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
-        :param pulumi.Input[str] subscription_id: Subscription id of storage account
         """
         ...
     @overload
@@ -214,14 +164,11 @@ class BlobContainerDataSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 container_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BlobContainerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,29 +181,19 @@ class BlobContainerDataSet(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_name'")
-            __props__.__dict__["container_name"] = container_name
             __props__.__dict__["data_set_name"] = data_set_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Container'
-            if resource_group is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group'")
-            __props__.__dict__["resource_group"] = resource_group
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
-            __props__.__dict__["storage_account_name"] = storage_account_name
-            if subscription_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subscription_id'")
-            __props__.__dict__["subscription_id"] = subscription_id
-            __props__.__dict__["data_set_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -284,32 +221,12 @@ class BlobContainerDataSet(pulumi.CustomResource):
 
         __props__ = BlobContainerDataSetArgs.__new__(BlobContainerDataSetArgs)
 
-        __props__.__dict__["container_name"] = None
-        __props__.__dict__["data_set_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["resource_group"] = None
-        __props__.__dict__["storage_account_name"] = None
-        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return BlobContainerDataSet(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Output[str]:
-        """
-        BLOB Container name.
-        """
-        return pulumi.get(self, "container_name")
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -329,28 +246,12 @@ class BlobContainerDataSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BlobContainerPropertiesResponse']:
         """
-        Resource group of storage account
+        Blob container data set properties.
         """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Output[str]:
-        """
-        Storage account name of the source data set
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Output[str]:
-        """
-        Subscription id of storage account
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

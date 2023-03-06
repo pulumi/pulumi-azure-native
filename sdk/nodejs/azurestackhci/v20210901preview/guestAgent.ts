@@ -38,29 +38,13 @@ export class GuestAgent extends pulumi.CustomResource {
     }
 
     /**
-     * Username / Password Credentials to provision guest agent.
-     */
-    public readonly credentials!: pulumi.Output<outputs.azurestackhci.v20210901preview.GuestCredentialResponse | undefined>;
-    /**
-     * HTTP Proxy configuration for the VM.
-     */
-    public readonly httpProxyConfig!: pulumi.Output<outputs.azurestackhci.v20210901preview.HttpProxyConfigurationResponse | undefined>;
-    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The guest agent provisioning action.
+     * Resource properties.
      */
-    public readonly provisioningAction!: pulumi.Output<string | undefined>;
-    /**
-     * The provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The guest agent status.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.azurestackhci.v20210901preview.GuestAgentPropertiesResponse>;
     /**
      * The system data.
      */
@@ -81,29 +65,24 @@ export class GuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["credentials"] = undefined /*out*/;
-            resourceInputs["httpProxyConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningAction"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -117,21 +96,13 @@ export class GuestAgent extends pulumi.CustomResource {
  */
 export interface GuestAgentArgs {
     /**
-     * Username / Password Credentials to provision guest agent.
-     */
-    credentials?: pulumi.Input<inputs.azurestackhci.v20210901preview.GuestCredentialArgs>;
-    /**
-     * HTTP Proxy configuration for the VM.
-     */
-    httpProxyConfig?: pulumi.Input<inputs.azurestackhci.v20210901preview.HttpProxyConfigurationArgs>;
-    /**
      * Name of the guestAgents.
      */
     name?: pulumi.Input<string>;
     /**
-     * The guest agent provisioning action.
+     * Resource properties.
      */
-    provisioningAction?: pulumi.Input<string | enums.azurestackhci.v20210901preview.ProvisioningAction>;
+    properties: pulumi.Input<inputs.azurestackhci.v20210901preview.GuestAgentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -29,30 +29,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password for Basic authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapCloudForCustomer'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
+        /// SAP Cloud for Customer linked service properties.
         /// </summary>
-        public readonly object Url;
-        /// <summary>
-        /// The username for Basic authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Username;
+        public readonly Outputs.SapCloudForCustomerLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapCloudForCustomerLinkedServiceResponse(
@@ -62,27 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            object url,
-
-            object? username)
+            Outputs.SapCloudForCustomerLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            Url = url;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

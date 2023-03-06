@@ -38,41 +38,9 @@ export class ContainerGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The containers within the container group.
-     */
-    public readonly containers!: pulumi.Output<outputs.containerinstance.v20210901.ContainerResponse[]>;
-    /**
-     * The diagnostic information for a container group.
-     */
-    public readonly diagnostics!: pulumi.Output<outputs.containerinstance.v20210901.ContainerGroupDiagnosticsResponse | undefined>;
-    /**
-     * The DNS config information for a container group.
-     */
-    public readonly dnsConfig!: pulumi.Output<outputs.containerinstance.v20210901.DnsConfigurationResponse | undefined>;
-    /**
-     * The encryption properties for a container group.
-     */
-    public readonly encryptionProperties!: pulumi.Output<outputs.containerinstance.v20210901.EncryptionPropertiesResponse | undefined>;
-    /**
      * The identity of the container group, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.containerinstance.v20210901.ContainerGroupIdentityResponse | undefined>;
-    /**
-     * The image registry credentials by which the container group is created from.
-     */
-    public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerinstance.v20210901.ImageRegistryCredentialResponse[] | undefined>;
-    /**
-     * The init containers for a container group.
-     */
-    public readonly initContainers!: pulumi.Output<outputs.containerinstance.v20210901.InitContainerDefinitionResponse[] | undefined>;
-    /**
-     * The instance view of the container group. Only valid in response.
-     */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.v20210901.ContainerGroupPropertiesResponseInstanceView>;
-    /**
-     * The IP address type of the container group.
-     */
-    public readonly ipAddress!: pulumi.Output<outputs.containerinstance.v20210901.IpAddressResponse | undefined>;
     /**
      * The resource location.
      */
@@ -82,28 +50,9 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The operating system type required by the containers in the container group.
+     * The container group properties
      */
-    public readonly osType!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the container group. This only appears in the response.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Restart policy for all containers within the container group. 
-     * - `Always` Always restart
-     * - `OnFailure` Restart on failure
-     * - `Never` Never restart
-     */
-    public readonly restartPolicy!: pulumi.Output<string | undefined>;
-    /**
-     * The SKU for a container group.
-     */
-    public readonly sku!: pulumi.Output<string | undefined>;
-    /**
-     * The subnet resource IDs for a container group.
-     */
-    public readonly subnetIds!: pulumi.Output<outputs.containerinstance.v20210901.ContainerGroupSubnetIdResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.containerinstance.v20210901.ContainerGroupPropertiesResponseProperties>;
     /**
      * The resource tags.
      */
@@ -112,10 +61,6 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The list of volumes that can be mounted by containers in this container group.
-     */
-    public readonly volumes!: pulumi.Output<outputs.containerinstance.v20210901.VolumeResponse[] | undefined>;
     /**
      * The zones for the container group.
      */
@@ -132,57 +77,28 @@ export class ContainerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'containers'");
-            }
-            if ((!args || args.osType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'osType'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["containerGroupName"] = args ? args.containerGroupName : undefined;
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
-            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
-            resourceInputs["initContainers"] = args ? args.initContainers : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
-            resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["containers"] = undefined /*out*/;
-            resourceInputs["diagnostics"] = undefined /*out*/;
-            resourceInputs["dnsConfig"] = undefined /*out*/;
-            resourceInputs["encryptionProperties"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["imageRegistryCredentials"] = undefined /*out*/;
-            resourceInputs["initContainers"] = undefined /*out*/;
-            resourceInputs["instanceView"] = undefined /*out*/;
-            resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["restartPolicy"] = undefined /*out*/;
-            resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumes"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -201,72 +117,25 @@ export interface ContainerGroupArgs {
      */
     containerGroupName?: pulumi.Input<string>;
     /**
-     * The containers within the container group.
-     */
-    containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20210901.ContainerArgs>[]>;
-    /**
-     * The diagnostic information for a container group.
-     */
-    diagnostics?: pulumi.Input<inputs.containerinstance.v20210901.ContainerGroupDiagnosticsArgs>;
-    /**
-     * The DNS config information for a container group.
-     */
-    dnsConfig?: pulumi.Input<inputs.containerinstance.v20210901.DnsConfigurationArgs>;
-    /**
-     * The encryption properties for a container group.
-     */
-    encryptionProperties?: pulumi.Input<inputs.containerinstance.v20210901.EncryptionPropertiesArgs>;
-    /**
      * The identity of the container group, if configured.
      */
     identity?: pulumi.Input<inputs.containerinstance.v20210901.ContainerGroupIdentityArgs>;
-    /**
-     * The image registry credentials by which the container group is created from.
-     */
-    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20210901.ImageRegistryCredentialArgs>[]>;
-    /**
-     * The init containers for a container group.
-     */
-    initContainers?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20210901.InitContainerDefinitionArgs>[]>;
-    /**
-     * The IP address type of the container group.
-     */
-    ipAddress?: pulumi.Input<inputs.containerinstance.v20210901.IpAddressArgs>;
     /**
      * The resource location.
      */
     location?: pulumi.Input<string>;
     /**
-     * The operating system type required by the containers in the container group.
+     * The container group properties
      */
-    osType: pulumi.Input<string | enums.containerinstance.v20210901.OperatingSystemTypes>;
+    properties: pulumi.Input<inputs.containerinstance.v20210901.ContainerGroupPropertiesPropertiesArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Restart policy for all containers within the container group. 
-     * - `Always` Always restart
-     * - `OnFailure` Restart on failure
-     * - `Never` Never restart
-     */
-    restartPolicy?: pulumi.Input<string | enums.containerinstance.v20210901.ContainerGroupRestartPolicy>;
-    /**
-     * The SKU for a container group.
-     */
-    sku?: pulumi.Input<string | enums.containerinstance.v20210901.ContainerGroupSku>;
-    /**
-     * The subnet resource IDs for a container group.
-     */
-    subnetIds?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20210901.ContainerGroupSubnetIdArgs>[]>;
-    /**
      * The resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The list of volumes that can be mounted by containers in this container group.
-     */
-    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20210901.VolumeArgs>[]>;
     /**
      * The zones for the container group.
      */

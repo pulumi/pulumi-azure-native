@@ -47,7 +47,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The list of compute policies associated with this account.
      */
-    public readonly computePolicies!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.ComputePolicyResponse[]>;
+    public /*out*/ readonly computePolicies!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.ComputePolicyResponse[]>;
     /**
      * The account creation time.
      */
@@ -59,7 +59,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The list of Data Lake Store accounts associated with this account.
      */
-    public readonly dataLakeStoreAccounts!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.DataLakeStoreAccountInformationResponse[] | undefined>;
+    public /*out*/ readonly dataLakeStoreAccounts!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.DataLakeStoreAccountInformationResponse[] | undefined>;
     /**
      * The current state of the DebugDataAccessLevel for this account.
      */
@@ -67,7 +67,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The default Data Lake Store account associated with this account.
      */
-    public readonly defaultDataLakeStoreAccount!: pulumi.Output<string>;
+    public /*out*/ readonly defaultDataLakeStoreAccount!: pulumi.Output<string>;
     /**
      * The full CName endpoint for this account.
      */
@@ -75,15 +75,15 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    public readonly firewallAllowAzureIps!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly firewallAllowAzureIps!: pulumi.Output<string | undefined>;
     /**
      * The list of firewall rules associated with this account.
      */
-    public readonly firewallRules!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.FirewallRuleResponse[]>;
+    public /*out*/ readonly firewallRules!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.FirewallRuleResponse[]>;
     /**
      * The current state of the IP address firewall for this account.
      */
-    public readonly firewallState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly firewallState!: pulumi.Output<string | undefined>;
     /**
      * The hierarchical queue state associated with this account.
      */
@@ -103,19 +103,19 @@ export class Account extends pulumi.CustomResource {
     /**
      * The maximum supported degree of parallelism for this account.
      */
-    public readonly maxDegreeOfParallelism!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly maxDegreeOfParallelism!: pulumi.Output<number | undefined>;
     /**
      * The maximum supported degree of parallelism per job for this account.
      */
-    public readonly maxDegreeOfParallelismPerJob!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly maxDegreeOfParallelismPerJob!: pulumi.Output<number | undefined>;
     /**
      * The maximum supported jobs running under the account at the same time.
      */
-    public readonly maxJobCount!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly maxJobCount!: pulumi.Output<number | undefined>;
     /**
      * The minimum supported priority per job for this account.
      */
-    public readonly minPriorityPerJob!: pulumi.Output<number>;
+    public /*out*/ readonly minPriorityPerJob!: pulumi.Output<number>;
     /**
      * The resource name.
      */
@@ -123,7 +123,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The commitment tier for the next month.
      */
-    public readonly newTier!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly newTier!: pulumi.Output<string | undefined>;
     /**
      * The provisioning status of the Data Lake Analytics account.
      */
@@ -135,7 +135,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The number of days that job metadata is retained.
      */
-    public readonly queryStoreRetention!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly queryStoreRetention!: pulumi.Output<number | undefined>;
     /**
      * The state of the Data Lake Analytics account.
      */
@@ -143,7 +143,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The list of Azure Blob Storage accounts associated with this account.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.StorageAccountInformationResponse[]>;
+    public /*out*/ readonly storageAccounts!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.StorageAccountInformationResponse[]>;
     /**
      * The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
      */
@@ -178,44 +178,42 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataLakeStoreAccounts === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataLakeStoreAccounts'");
-            }
-            if ((!args || args.defaultDataLakeStoreAccount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'defaultDataLakeStoreAccount'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["computePolicies"] = args ? args.computePolicies : undefined;
-            resourceInputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
-            resourceInputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
-            resourceInputs["firewallAllowAzureIps"] = (args ? args.firewallAllowAzureIps : undefined) ?? "Disabled";
-            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
-            resourceInputs["firewallState"] = (args ? args.firewallState : undefined) ?? "Disabled";
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxDegreeOfParallelism"] = args ? args.maxDegreeOfParallelism : undefined;
-            resourceInputs["maxDegreeOfParallelismPerJob"] = (args ? args.maxDegreeOfParallelismPerJob : undefined) ?? 32;
-            resourceInputs["maxJobCount"] = (args ? args.maxJobCount : undefined) ?? 20;
-            resourceInputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            resourceInputs["newTier"] = (args ? args.newTier : undefined) ?? "Consumption";
-            resourceInputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.datalakeanalytics.v20151001preview.createDataLakeAnalyticsAccountPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["computePolicies"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentTier"] = undefined /*out*/;
+            resourceInputs["dataLakeStoreAccounts"] = undefined /*out*/;
             resourceInputs["debugDataAccessLevel"] = undefined /*out*/;
+            resourceInputs["defaultDataLakeStoreAccount"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["firewallAllowAzureIps"] = undefined /*out*/;
+            resourceInputs["firewallRules"] = undefined /*out*/;
+            resourceInputs["firewallState"] = undefined /*out*/;
             resourceInputs["hierarchicalQueueState"] = undefined /*out*/;
             resourceInputs["hiveMetastores"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["maxDegreeOfParallelism"] = undefined /*out*/;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
+            resourceInputs["maxJobCount"] = undefined /*out*/;
+            resourceInputs["minPriorityPerJob"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["newTier"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
+            resourceInputs["queryStoreRetention"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageAccounts"] = undefined /*out*/;
             resourceInputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
             resourceInputs["systemMaxJobCount"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -269,65 +267,17 @@ export interface AccountArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * The list of compute policies associated with this account.
-     */
-    computePolicies?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20151001preview.CreateComputePolicyWithAccountParametersArgs>[]>;
-    /**
-     * The list of Data Lake Store accounts associated with this account.
-     */
-    dataLakeStoreAccounts: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20151001preview.AddDataLakeStoreWithAccountParametersArgs>[]>;
-    /**
-     * The default Data Lake Store account associated with this account.
-     */
-    defaultDataLakeStoreAccount: pulumi.Input<string>;
-    /**
-     * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-     */
-    firewallAllowAzureIps?: pulumi.Input<enums.datalakeanalytics.v20151001preview.FirewallAllowAzureIpsState>;
-    /**
-     * The list of firewall rules associated with this account.
-     */
-    firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20151001preview.CreateFirewallRuleWithAccountParametersArgs>[]>;
-    /**
-     * The current state of the IP address firewall for this account.
-     */
-    firewallState?: pulumi.Input<enums.datalakeanalytics.v20151001preview.FirewallState>;
-    /**
      * The resource location.
      */
     location?: pulumi.Input<string>;
     /**
-     * The maximum supported degree of parallelism for this account.
+     * The Data Lake Analytics account properties to use for creating.
      */
-    maxDegreeOfParallelism?: pulumi.Input<number>;
-    /**
-     * The maximum supported degree of parallelism per job for this account.
-     */
-    maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
-    /**
-     * The maximum supported jobs running under the account at the same time.
-     */
-    maxJobCount?: pulumi.Input<number>;
-    /**
-     * The minimum supported priority per job for this account.
-     */
-    minPriorityPerJob?: pulumi.Input<number>;
-    /**
-     * The commitment tier for the next month.
-     */
-    newTier?: pulumi.Input<enums.datalakeanalytics.v20151001preview.TierType>;
-    /**
-     * The number of days that job metadata is retained.
-     */
-    queryStoreRetention?: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.datalakeanalytics.v20151001preview.CreateDataLakeAnalyticsAccountPropertiesArgs>;
     /**
      * The name of the Azure resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The list of Azure Blob Storage accounts associated with this account.
-     */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20151001preview.AddStorageAccountWithAccountParametersArgs>[]>;
     /**
      * The resource tags.
      */

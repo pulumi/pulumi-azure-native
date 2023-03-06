@@ -16,39 +16,42 @@ __all__ = ['TemplateSpecVersionArgs', 'TemplateSpecVersion']
 @pulumi.input_type
 class TemplateSpecVersionArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['TemplateSpecVersionPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  template_spec_name: pulumi.Input[str],
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[Any] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TemplateSpecVersion resource.
+        :param pulumi.Input['TemplateSpecVersionPropertiesArgs'] properties: Template Spec Version properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] template_spec_name: Name of the Template Spec.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]] artifacts: An array of Template Spec artifacts.
-        :param pulumi.Input[str] description: Template Spec version description.
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param Any template: The Azure Resource Manager template content.
         :param pulumi.Input[str] template_spec_version: The version of the Template Spec.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "template_spec_name", template_spec_name)
-        if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if template is not None:
-            pulumi.set(__self__, "template", template)
         if template_spec_version is not None:
             pulumi.set(__self__, "template_spec_version", template_spec_version)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['TemplateSpecVersionPropertiesArgs']:
+        """
+        Template Spec Version properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['TemplateSpecVersionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -76,30 +79,6 @@ class TemplateSpecVersionArgs:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]]]:
-        """
-        An array of Template Spec artifacts.
-        """
-        return pulumi.get(self, "artifacts")
-
-    @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]]]):
-        pulumi.set(self, "artifacts", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Template Spec version description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The location of the Template Spec Version. It must match the location of the parent Template Spec.
@@ -123,18 +102,6 @@ class TemplateSpecVersionArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter
-    def template(self) -> Optional[Any]:
-        """
-        The Azure Resource Manager template content.
-        """
-        return pulumi.get(self, "template")
-
-    @template.setter
-    def template(self, value: Optional[Any]):
-        pulumi.set(self, "template", value)
-
-    @property
     @pulumi.getter(name="templateSpecVersion")
     def template_spec_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -152,12 +119,10 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['TemplateSpecVersionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[Any] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -166,12 +131,10 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]] artifacts: An array of Template Spec artifacts.
-        :param pulumi.Input[str] description: Template Spec version description.
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
+        :param pulumi.Input[pulumi.InputType['TemplateSpecVersionPropertiesArgs']] properties: Template Spec Version properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param Any template: The Azure Resource Manager template content.
         :param pulumi.Input[str] template_spec_name: Name of the Template Spec.
         :param pulumi.Input[str] template_spec_version: The version of the Template Spec.
         """
@@ -199,12 +162,10 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['TemplateSpecVersionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[Any] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -216,14 +177,14 @@ class TemplateSpecVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TemplateSpecVersionArgs.__new__(TemplateSpecVersionArgs)
 
-            __props__.__dict__["artifacts"] = artifacts
-            __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["template"] = template
             if template_spec_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_spec_name'")
             __props__.__dict__["template_spec_name"] = template_spec_name
@@ -255,31 +216,13 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         __props__ = TemplateSpecVersionArgs.__new__(TemplateSpecVersionArgs)
 
-        __props__.__dict__["artifacts"] = None
-        __props__.__dict__["description"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["template"] = None
         __props__.__dict__["type"] = None
         return TemplateSpecVersion(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateSpecTemplateArtifactResponse']]]:
-        """
-        An array of Template Spec artifacts.
-        """
-        return pulumi.get(self, "artifacts")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Template Spec version description.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -298,6 +241,14 @@ class TemplateSpecVersion(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.TemplateSpecVersionPropertiesResponse']:
+        """
+        Template Spec Version properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
@@ -312,14 +263,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
         Resource tags.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
-    def template(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The Azure Resource Manager template content.
-        """
-        return pulumi.get(self, "template")
 
     @property
     @pulumi.getter

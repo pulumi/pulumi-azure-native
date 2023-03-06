@@ -12,7 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AlertRuleResponse',
     'LocationThresholdRuleConditionResponse',
+    'LogProfilePropertiesResponse',
     'ManagementEventAggregationConditionResponse',
     'ManagementEventRuleConditionResponse',
     'RetentionPolicyResponse',
@@ -23,6 +25,130 @@ __all__ = [
     'RuleWebhookActionResponse',
     'ThresholdRuleConditionResponse',
 ]
+
+@pulumi.output_type
+class AlertRuleResponse(dict):
+    """
+    An alert rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: Any,
+                 is_enabled: bool,
+                 last_updated_time: str,
+                 name: str,
+                 action: Optional[Any] = None,
+                 actions: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        An alert rule.
+        :param Union['LocationThresholdRuleConditionResponse', 'ManagementEventRuleConditionResponse', 'ThresholdRuleConditionResponse'] condition: the condition that results in the alert rule being activated.
+        :param bool is_enabled: the flag that indicates whether the alert rule is enabled.
+        :param str last_updated_time: Last time the rule was updated in ISO8601 format.
+        :param str name: the name of the alert rule.
+        :param Union['RuleEmailActionResponse', 'RuleWebhookActionResponse'] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param Sequence[Union['RuleEmailActionResponse', 'RuleWebhookActionResponse']] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param str description: the description of the alert rule that will be included in the alert email.
+        :param str provisioning_state: the provisioning state.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Any:
+        """
+        the condition that results in the alert rule being activated.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        Last time the rule was updated in ISO8601 format.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        the name of the alert rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[Any]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[Any]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
 
 @pulumi.output_type
 class LocationThresholdRuleConditionResponse(dict):
@@ -104,6 +230,95 @@ class LocationThresholdRuleConditionResponse(dict):
         the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
         return pulumi.get(self, "window_size")
+
+
+@pulumi.output_type
+class LogProfilePropertiesResponse(dict):
+    """
+    The log profile properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicy":
+            suggest = "retention_policy"
+        elif key == "serviceBusRuleId":
+            suggest = "service_bus_rule_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogProfilePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogProfilePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 categories: Sequence[str],
+                 locations: Sequence[str],
+                 retention_policy: 'outputs.RetentionPolicyResponse',
+                 service_bus_rule_id: Optional[str] = None,
+                 storage_account_id: Optional[str] = None):
+        """
+        The log profile properties.
+        :param Sequence[str] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        :param Sequence[str] locations: List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for the events in the log.
+        :param str service_bus_rule_id: The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        :param str storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        pulumi.set(__self__, "categories", categories)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "retention_policy", retention_policy)
+        if service_bus_rule_id is not None:
+            pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Sequence[str]:
+        """
+        the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        """
+        return pulumi.get(self, "categories")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Sequence[str]:
+        """
+        List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> 'outputs.RetentionPolicyResponse':
+        """
+        the retention policy for the events in the log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="serviceBusRuleId")
+    def service_bus_rule_id(self) -> Optional[str]:
+        """
+        The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        """
+        return pulumi.get(self, "service_bus_rule_id")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        """
+        the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type

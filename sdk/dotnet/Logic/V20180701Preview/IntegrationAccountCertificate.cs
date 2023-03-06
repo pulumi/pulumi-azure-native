@@ -16,34 +16,10 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     public partial class IntegrationAccountCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        [Output("changedTime")]
-        public Output<string> ChangedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The key details in the key vault.
-        /// </summary>
-        [Output("key")]
-        public Output<Outputs.KeyVaultKeyReferenceResponse?> Key { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Output("metadata")]
-        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -52,10 +28,10 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The public certificate.
+        /// The integration account certificate properties.
         /// </summary>
-        [Output("publicCertificate")]
-        public Output<string?> PublicCertificate { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IntegrationAccountCertificatePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -134,28 +110,16 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public Input<string> IntegrationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The key details in the key vault.
-        /// </summary>
-        [Input("key")]
-        public Input<Inputs.KeyVaultKeyReferenceArgs>? Key { get; set; }
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The metadata.
+        /// The integration account certificate properties.
         /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
-
-        /// <summary>
-        /// The public certificate.
-        /// </summary>
-        [Input("publicCertificate")]
-        public Input<string>? PublicCertificate { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.IntegrationAccountCertificatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

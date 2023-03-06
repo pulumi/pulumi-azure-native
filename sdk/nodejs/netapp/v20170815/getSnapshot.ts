@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -49,14 +52,6 @@ export interface GetSnapshotArgs {
  */
 export interface GetSnapshotResult {
     /**
-     * The creation date of the snapshot
-     */
-    readonly creationDate: string;
-    /**
-     * UUID v4 used to identify the FileSystem
-     */
-    readonly fileSystemId: string;
-    /**
      * Resource Id
      */
     readonly id: string;
@@ -69,13 +64,9 @@ export interface GetSnapshotResult {
      */
     readonly name: string;
     /**
-     * Azure lifecycle management
+     * Snapshot Properties
      */
-    readonly provisioningState: string;
-    /**
-     * UUID v4 used to identify the Snapshot
-     */
-    readonly snapshotId: string;
+    readonly properties: outputs.netapp.v20170815.SnapshotPropertiesResponse;
     /**
      * Resource type
      */

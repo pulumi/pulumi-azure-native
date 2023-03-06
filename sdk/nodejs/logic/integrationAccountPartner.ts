@@ -39,33 +39,17 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
     }
 
     /**
-     * The changed time.
-     */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
-    /**
-     * The partner content.
-     */
-    public readonly content!: pulumi.Output<outputs.logic.PartnerContentResponse>;
-    /**
-     * The created time.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The metadata.
-     */
-    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * Gets the resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The partner type.
+     * The integration account partner properties.
      */
-    public readonly partnerType!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.logic.IntegrationAccountPartnerPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -86,38 +70,27 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'content'");
-            }
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.partnerType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'partnerType'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["partnerName"] = args ? args.partnerName : undefined;
-            resourceInputs["partnerType"] = args ? args.partnerType : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["content"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["partnerType"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -133,10 +106,6 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
  */
 export interface IntegrationAccountPartnerArgs {
     /**
-     * The partner content.
-     */
-    content: pulumi.Input<inputs.logic.PartnerContentArgs>;
-    /**
      * The integration account name.
      */
     integrationAccountName: pulumi.Input<string>;
@@ -145,17 +114,13 @@ export interface IntegrationAccountPartnerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The metadata.
-     */
-    metadata?: any;
-    /**
      * The integration account partner name.
      */
     partnerName?: pulumi.Input<string>;
     /**
-     * The partner type.
+     * The integration account partner properties.
      */
-    partnerType: pulumi.Input<string | enums.logic.PartnerType>;
+    properties: pulumi.Input<inputs.logic.IntegrationAccountPartnerPropertiesArgs>;
     /**
      * The resource group name.
      */

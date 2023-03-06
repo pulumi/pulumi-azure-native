@@ -10,9 +10,88 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
+    'LogAnalyticsQueryPackPropertiesResponse',
     'LogAnalyticsQueryPackQueryPropertiesResponseRelated',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class LogAnalyticsQueryPackPropertiesResponse(dict):
+    """
+    Properties that define a Log Analytics QueryPack resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "queryPackId":
+            suggest = "query_pack_id"
+        elif key == "timeCreated":
+            suggest = "time_created"
+        elif key == "timeModified":
+            suggest = "time_modified"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogAnalyticsQueryPackPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogAnalyticsQueryPackPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogAnalyticsQueryPackPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 query_pack_id: str,
+                 time_created: str,
+                 time_modified: str):
+        """
+        Properties that define a Log Analytics QueryPack resource.
+        :param str provisioning_state: Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        :param str query_pack_id: The unique ID of your application. This field cannot be changed.
+        :param str time_created: Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
+        :param str time_modified: Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "query_pack_id", query_pack_id)
+        pulumi.set(__self__, "time_created", time_created)
+        pulumi.set(__self__, "time_modified", time_modified)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryPackId")
+    def query_pack_id(self) -> str:
+        """
+        The unique ID of your application. This field cannot be changed.
+        """
+        return pulumi.get(self, "query_pack_id")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter(name="timeModified")
+    def time_modified(self) -> str:
+        """
+        Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
+        """
+        return pulumi.get(self, "time_modified")
+
 
 @pulumi.output_type
 class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):

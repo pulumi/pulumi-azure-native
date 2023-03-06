@@ -18,38 +18,23 @@ __all__ = ['IncidentTaskArgs', 'IncidentTask']
 class IncidentTaskArgs:
     def __init__(__self__, *,
                  incident_id: pulumi.Input[str],
+                 properties: pulumi.Input['IncidentTaskPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 status: pulumi.Input[Union[str, 'IncidentTaskStatus']],
-                 title: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 created_by: Optional[pulumi.Input['ClientInfoArgs']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 incident_task_id: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input['ClientInfoArgs']] = None):
+                 incident_task_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IncidentTask resource.
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] title: The title of the task
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input['ClientInfoArgs'] created_by: Information on the client (user or application) that made some action
-        :param pulumi.Input[str] description: The description of the task
         :param pulumi.Input[str] incident_task_id: Incident task ID
-        :param pulumi.Input['ClientInfoArgs'] last_modified_by: Information on the client (user or application) that made some action
         """
         pulumi.set(__self__, "incident_id", incident_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if incident_task_id is not None:
             pulumi.set(__self__, "incident_task_id", incident_task_id)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
 
     @property
     @pulumi.getter(name="incidentId")
@@ -64,6 +49,15 @@ class IncidentTaskArgs:
         pulumi.set(self, "incident_id", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['IncidentTaskPropertiesArgs']:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['IncidentTaskPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -74,27 +68,6 @@ class IncidentTaskArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Input[Union[str, 'IncidentTaskStatus']]:
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[Union[str, 'IncidentTaskStatus']]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter
-    def title(self) -> pulumi.Input[str]:
-        """
-        The title of the task
-        """
-        return pulumi.get(self, "title")
-
-    @title.setter
-    def title(self, value: pulumi.Input[str]):
-        pulumi.set(self, "title", value)
 
     @property
     @pulumi.getter(name="workspaceName")
@@ -109,30 +82,6 @@ class IncidentTaskArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input['ClientInfoArgs']]:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input['ClientInfoArgs']]):
-        pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the task
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
     @pulumi.getter(name="incidentTaskId")
     def incident_task_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -144,45 +93,25 @@ class IncidentTaskArgs:
     def incident_task_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "incident_task_id", value)
 
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input['ClientInfoArgs']]:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input['ClientInfoArgs']]):
-        pulumi.set(self, "last_modified_by", value)
-
 
 class IncidentTask(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  incident_task_id: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IncidentTaskPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'IncidentTaskStatus']]] = None,
-                 title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a IncidentTask resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClientInfoArgs']] created_by: Information on the client (user or application) that made some action
-        :param pulumi.Input[str] description: The description of the task
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] incident_task_id: Incident task ID
-        :param pulumi.Input[pulumi.InputType['ClientInfoArgs']] last_modified_by: Information on the client (user or application) that made some action
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] title: The title of the task
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -208,14 +137,10 @@ class IncidentTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  incident_task_id: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IncidentTaskPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'IncidentTaskStatus']]] = None,
-                 title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -226,28 +151,20 @@ class IncidentTask(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IncidentTaskArgs.__new__(IncidentTaskArgs)
 
-            __props__.__dict__["created_by"] = created_by
-            __props__.__dict__["description"] = description
             if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")
             __props__.__dict__["incident_id"] = incident_id
             __props__.__dict__["incident_task_id"] = incident_task_id
-            __props__.__dict__["last_modified_by"] = last_modified_by
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if status is None and not opts.urn:
-                raise TypeError("Missing required property 'status'")
-            __props__.__dict__["status"] = status
-            if title is None and not opts.urn:
-                raise TypeError("Missing required property 'title'")
-            __props__.__dict__["title"] = title
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
-            __props__.__dict__["created_time_utc"] = None
             __props__.__dict__["etag"] = None
-            __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -275,42 +192,12 @@ class IncidentTask(pulumi.CustomResource):
 
         __props__ = IncidentTaskArgs.__new__(IncidentTaskArgs)
 
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_time_utc"] = None
-        __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
-        __props__.__dict__["last_modified_by"] = None
-        __props__.__dict__["last_modified_time_utc"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["title"] = None
         __props__.__dict__["type"] = None
         return IncidentTask(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional['outputs.ClientInfoResponse']]:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdTimeUtc")
-    def created_time_utc(self) -> pulumi.Output[str]:
-        """
-        The time the task was created
-        """
-        return pulumi.get(self, "created_time_utc")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the task
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -319,22 +206,6 @@ class IncidentTask(pulumi.CustomResource):
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[Optional['outputs.ClientInfoResponse']]:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedTimeUtc")
-    def last_modified_time_utc(self) -> pulumi.Output[str]:
-        """
-        The last time the task was updated
-        """
-        return pulumi.get(self, "last_modified_time_utc")
 
     @property
     @pulumi.getter
@@ -346,8 +217,8 @@ class IncidentTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "status")
+    def properties(self) -> pulumi.Output['outputs.IncidentTaskPropertiesResponse']:
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -356,14 +227,6 @@ class IncidentTask(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter
-    def title(self) -> pulumi.Output[str]:
-        """
-        The title of the task
-        """
-        return pulumi.get(self, "title")
 
     @property
     @pulumi.getter

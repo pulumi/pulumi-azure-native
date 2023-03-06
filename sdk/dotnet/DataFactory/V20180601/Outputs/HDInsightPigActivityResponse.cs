@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class HDInsightPigActivityResponse
     {
         /// <summary>
-        /// User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array).
-        /// </summary>
-        public readonly object? Arguments;
-        /// <summary>
-        /// Allows user to specify defines for Pig job request.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Defines;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -32,10 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Debug info option.
-        /// </summary>
-        public readonly string? GetDebugInfo;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -49,22 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// Script linked service reference.
-        /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse? ScriptLinkedService;
-        /// <summary>
-        /// Script path. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ScriptPath;
-        /// <summary>
-        /// Storage linked service references.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LinkedServiceReferenceResponse> StorageLinkedServices;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'HDInsightPig'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// HDInsight Pig activity properties.
+        /// </summary>
+        public readonly Outputs.HDInsightPigActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -72,15 +52,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private HDInsightPigActivityResponse(
-            object? arguments,
-
-            ImmutableDictionary<string, object>? defines,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            string? getDebugInfo,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -88,28 +62,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            Outputs.LinkedServiceReferenceResponse? scriptLinkedService,
-
-            object? scriptPath,
-
-            ImmutableArray<Outputs.LinkedServiceReferenceResponse> storageLinkedServices,
-
             string type,
+
+            Outputs.HDInsightPigActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Arguments = arguments;
-            Defines = defines;
             DependsOn = dependsOn;
             Description = description;
-            GetDebugInfo = getDebugInfo;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            ScriptLinkedService = scriptLinkedService;
-            ScriptPath = scriptPath;
-            StorageLinkedServices = storageLinkedServices;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['BackupPolicyArgs', 'BackupPolicy']
 
@@ -16,42 +17,29 @@ __all__ = ['BackupPolicyArgs', 'BackupPolicy']
 class BackupPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
+                 properties: pulumi.Input['BackupPolicyPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
-                 daily_backups_to_keep: Optional[pulumi.Input[int]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monthly_backups_to_keep: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 weekly_backups_to_keep: Optional[pulumi.Input[int]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
+        :param pulumi.Input['BackupPolicyPropertiesArgs'] properties: Backup policy Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] backup_policy_name: Backup policy Name which uniquely identify backup policy.
-        :param pulumi.Input[int] daily_backups_to_keep: Daily backups count to keep
-        :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[int] monthly_backups_to_keep: Monthly backups count to keep
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backup_policy_name is not None:
             pulumi.set(__self__, "backup_policy_name", backup_policy_name)
-        if daily_backups_to_keep is not None:
-            pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if monthly_backups_to_keep is not None:
-            pulumi.set(__self__, "monthly_backups_to_keep", monthly_backups_to_keep)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if weekly_backups_to_keep is not None:
-            pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
 
     @property
     @pulumi.getter(name="accountName")
@@ -64,6 +52,18 @@ class BackupPolicyArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BackupPolicyPropertiesArgs']:
+        """
+        Backup policy Properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['BackupPolicyPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -90,30 +90,6 @@ class BackupPolicyArgs:
         pulumi.set(self, "backup_policy_name", value)
 
     @property
-    @pulumi.getter(name="dailyBackupsToKeep")
-    def daily_backups_to_keep(self) -> Optional[pulumi.Input[int]]:
-        """
-        Daily backups count to keep
-        """
-        return pulumi.get(self, "daily_backups_to_keep")
-
-    @daily_backups_to_keep.setter
-    def daily_backups_to_keep(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "daily_backups_to_keep", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        The property to decide policy is enabled or not
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -124,18 +100,6 @@ class BackupPolicyArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="monthlyBackupsToKeep")
-    def monthly_backups_to_keep(self) -> Optional[pulumi.Input[int]]:
-        """
-        Monthly backups count to keep
-        """
-        return pulumi.get(self, "monthly_backups_to_keep")
-
-    @monthly_backups_to_keep.setter
-    def monthly_backups_to_keep(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "monthly_backups_to_keep", value)
 
     @property
     @pulumi.getter
@@ -149,18 +113,6 @@ class BackupPolicyArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="weeklyBackupsToKeep")
-    def weekly_backups_to_keep(self) -> Optional[pulumi.Input[int]]:
-        """
-        Weekly backups count to keep
-        """
-        return pulumi.get(self, "weekly_backups_to_keep")
-
-    @weekly_backups_to_keep.setter
-    def weekly_backups_to_keep(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "weekly_backups_to_keep", value)
-
 
 class BackupPolicy(pulumi.CustomResource):
     @overload
@@ -169,13 +121,10 @@ class BackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
-                 daily_backups_to_keep: Optional[pulumi.Input[int]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monthly_backups_to_keep: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 weekly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Backup policy information
@@ -184,13 +133,10 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] backup_policy_name: Backup policy Name which uniquely identify backup policy.
-        :param pulumi.Input[int] daily_backups_to_keep: Daily backups count to keep
-        :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[int] monthly_backups_to_keep: Monthly backups count to keep
+        :param pulumi.Input[pulumi.InputType['BackupPolicyPropertiesArgs']] properties: Backup policy Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
         """
         ...
     @overload
@@ -218,13 +164,10 @@ class BackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
-                 daily_backups_to_keep: Optional[pulumi.Input[int]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monthly_backups_to_keep: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 weekly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -238,22 +181,17 @@ class BackupPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["backup_policy_name"] = backup_policy_name
-            __props__.__dict__["daily_backups_to_keep"] = daily_backups_to_keep
-            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["location"] = location
-            __props__.__dict__["monthly_backups_to_keep"] = monthly_backups_to_keep
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["weekly_backups_to_keep"] = weekly_backups_to_keep
-            __props__.__dict__["backup_policy_id"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["volume_backups"] = None
-            __props__.__dict__["volumes_assigned"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20211001:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220301:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220901:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
@@ -278,44 +216,13 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-        __props__.__dict__["backup_policy_id"] = None
-        __props__.__dict__["daily_backups_to_keep"] = None
-        __props__.__dict__["enabled"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["monthly_backups_to_keep"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["volume_backups"] = None
-        __props__.__dict__["volumes_assigned"] = None
-        __props__.__dict__["weekly_backups_to_keep"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> pulumi.Output[str]:
-        """
-        Backup Policy Resource ID
-        """
-        return pulumi.get(self, "backup_policy_id")
-
-    @property
-    @pulumi.getter(name="dailyBackupsToKeep")
-    def daily_backups_to_keep(self) -> pulumi.Output[Optional[int]]:
-        """
-        Daily backups count to keep
-        """
-        return pulumi.get(self, "daily_backups_to_keep")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        The property to decide policy is enabled or not
-        """
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
@@ -334,28 +241,20 @@ class BackupPolicy(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="monthlyBackupsToKeep")
-    def monthly_backups_to_keep(self) -> pulumi.Output[Optional[int]]:
-        """
-        Monthly backups count to keep
-        """
-        return pulumi.get(self, "monthly_backups_to_keep")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of backup policy
+        Resource name
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BackupPolicyPropertiesResponse']:
         """
-        Azure lifecycle management
+        Backup policy Properties
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -372,28 +271,4 @@ class BackupPolicy(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeBackups")
-    def volume_backups(self) -> pulumi.Output[Sequence['outputs.VolumeBackupsResponse']]:
-        """
-        A list of volumes assigned to this policy
-        """
-        return pulumi.get(self, "volume_backups")
-
-    @property
-    @pulumi.getter(name="volumesAssigned")
-    def volumes_assigned(self) -> pulumi.Output[int]:
-        """
-        Volumes using current backup policy
-        """
-        return pulumi.get(self, "volumes_assigned")
-
-    @property
-    @pulumi.getter(name="weeklyBackupsToKeep")
-    def weekly_backups_to_keep(self) -> pulumi.Output[Optional[int]]:
-        """
-        Weekly backups count to keep
-        """
-        return pulumi.get(self, "weekly_backups_to_keep")
 

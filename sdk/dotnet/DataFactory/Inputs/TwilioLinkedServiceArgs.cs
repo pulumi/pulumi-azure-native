@@ -52,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The auth token of Twilio service.
-        /// </summary>
-        [Input("password", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> Password { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Twilio'.
         /// </summary>
@@ -65,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The Account SID of Twilio service.
+        /// Twilio linked service properties.
         /// </summary>
-        [Input("userName", required: true)]
-        public Input<object> UserName { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.TwilioLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public TwilioLinkedServiceArgs()
         {

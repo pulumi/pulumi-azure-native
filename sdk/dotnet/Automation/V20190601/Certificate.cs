@@ -122,28 +122,10 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the base64 encoded value of the certificate.
-        /// </summary>
-        [Input("base64Value", required: true)]
-        public Input<string> Base64Value { get; set; } = null!;
-
-        /// <summary>
         /// The parameters supplied to the create or update certificate operation.
         /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the description of the certificate.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the is exportable flag of the certificate.
-        /// </summary>
-        [Input("isExportable")]
-        public Input<bool>? IsExportable { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the certificate.
@@ -152,16 +134,16 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets the properties of the certificate.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.CertificateCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the thumbprint of the certificate.
-        /// </summary>
-        [Input("thumbprint")]
-        public Input<string>? Thumbprint { get; set; }
 
         public CertificateArgs()
         {

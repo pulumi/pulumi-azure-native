@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetApplicationGroupResult',
@@ -23,19 +24,7 @@ class GetApplicationGroupResult:
     """
     Represents a ApplicationGroup definition.
     """
-    def __init__(__self__, application_group_type=None, description=None, friendly_name=None, host_pool_arm_path=None, id=None, location=None, name=None, tags=None, type=None, workspace_arm_path=None):
-        if application_group_type and not isinstance(application_group_type, str):
-            raise TypeError("Expected argument 'application_group_type' to be a str")
-        pulumi.set(__self__, "application_group_type", application_group_type)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if friendly_name and not isinstance(friendly_name, str):
-            raise TypeError("Expected argument 'friendly_name' to be a str")
-        pulumi.set(__self__, "friendly_name", friendly_name)
-        if host_pool_arm_path and not isinstance(host_pool_arm_path, str):
-            raise TypeError("Expected argument 'host_pool_arm_path' to be a str")
-        pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,47 +34,15 @@ class GetApplicationGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if workspace_arm_path and not isinstance(workspace_arm_path, str):
-            raise TypeError("Expected argument 'workspace_arm_path' to be a str")
-        pulumi.set(__self__, "workspace_arm_path", workspace_arm_path)
-
-    @property
-    @pulumi.getter(name="applicationGroupType")
-    def application_group_type(self) -> str:
-        """
-        Resource Type of ApplicationGroup.
-        """
-        return pulumi.get(self, "application_group_type")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Description of ApplicationGroup.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
-        """
-        Friendly name of ApplicationGroup.
-        """
-        return pulumi.get(self, "friendly_name")
-
-    @property
-    @pulumi.getter(name="hostPoolArmPath")
-    def host_pool_arm_path(self) -> str:
-        """
-        HostPool arm path of ApplicationGroup.
-        """
-        return pulumi.get(self, "host_pool_arm_path")
 
     @property
     @pulumi.getter
@@ -113,6 +70,14 @@ class GetApplicationGroupResult:
 
     @property
     @pulumi.getter
+    def properties(self) -> 'outputs.ApplicationGroupPropertiesResponse':
+        """
+        Detailed properties for ApplicationGroup
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
@@ -127,14 +92,6 @@ class GetApplicationGroupResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="workspaceArmPath")
-    def workspace_arm_path(self) -> str:
-        """
-        Workspace arm path of ApplicationGroup.
-        """
-        return pulumi.get(self, "workspace_arm_path")
-
 
 class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
     # pylint: disable=using-constant-test
@@ -142,16 +99,12 @@ class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
         if False:
             yield self
         return GetApplicationGroupResult(
-            application_group_type=self.application_group_type,
-            description=self.description,
-            friendly_name=self.friendly_name,
-            host_pool_arm_path=self.host_pool_arm_path,
             id=self.id,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             tags=self.tags,
-            type=self.type,
-            workspace_arm_path=self.workspace_arm_path)
+            type=self.type)
 
 
 def get_application_group(application_group_name: Optional[str] = None,
@@ -172,16 +125,12 @@ def get_application_group(application_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization/v20190924preview:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult).value
 
     return AwaitableGetApplicationGroupResult(
-        application_group_type=__ret__.application_group_type,
-        description=__ret__.description,
-        friendly_name=__ret__.friendly_name,
-        host_pool_arm_path=__ret__.host_pool_arm_path,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        type=__ret__.type,
-        workspace_arm_path=__ret__.workspace_arm_path)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_application_group)

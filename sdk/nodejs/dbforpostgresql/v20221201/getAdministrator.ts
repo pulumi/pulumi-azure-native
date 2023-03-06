@@ -48,25 +48,13 @@ export interface GetAdministratorResult {
      */
     readonly name: string;
     /**
-     * The objectId of the Active Directory administrator.
+     * Properties of the active directory administrator.
      */
-    readonly objectId?: string;
-    /**
-     * Active Directory administrator principal name.
-     */
-    readonly principalName?: string;
-    /**
-     * The principal type used to represent the type of Active Directory Administrator.
-     */
-    readonly principalType?: string;
+    readonly properties: outputs.dbforpostgresql.v20221201.AdministratorPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.dbforpostgresql.v20221201.SystemDataResponse;
-    /**
-     * The tenantId of the Active Directory administrator.
-     */
-    readonly tenantId?: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

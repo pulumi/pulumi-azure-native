@@ -17,29 +17,21 @@ __all__ = ['NetworkArgs', 'Network']
 @pulumi.input_type
 class NetworkArgs:
     def __init__(__self__, *,
-                 address_prefix: pulumi.Input[str],
+                 properties: pulumi.Input['NetworkResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 ingress_config: Optional[pulumi.Input['IngressConfigArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Network resource.
-        :param pulumi.Input[str] address_prefix: the address prefix for this network.
+        :param pulumi.Input['NetworkResourcePropertiesArgs'] properties: Describes properties of a network resource.
         :param pulumi.Input[str] resource_group_name: Azure resource group name
-        :param pulumi.Input[str] description: User readable description of the network.
-        :param pulumi.Input['IngressConfigArgs'] ingress_config: Configuration for public connectivity for this network.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] network_name: The identity of the network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if ingress_config is not None:
-            pulumi.set(__self__, "ingress_config", ingress_config)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if network_name is not None:
@@ -48,16 +40,16 @@ class NetworkArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['NetworkResourcePropertiesArgs']:
         """
-        the address prefix for this network.
+        Describes properties of a network resource.
         """
-        return pulumi.get(self, "address_prefix")
+        return pulumi.get(self, "properties")
 
-    @address_prefix.setter
-    def address_prefix(self, value: pulumi.Input[str]):
-        pulumi.set(self, "address_prefix", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['NetworkResourcePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -70,30 +62,6 @@ class NetworkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        User readable description of the network.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="ingressConfig")
-    def ingress_config(self) -> Optional[pulumi.Input['IngressConfigArgs']]:
-        """
-        Configuration for public connectivity for this network.
-        """
-        return pulumi.get(self, "ingress_config")
-
-    @ingress_config.setter
-    def ingress_config(self, value: Optional[pulumi.Input['IngressConfigArgs']]):
-        pulumi.set(self, "ingress_config", value)
 
     @property
     @pulumi.getter
@@ -142,11 +110,9 @@ class Network(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 ingress_config: Optional[pulumi.Input[pulumi.InputType['IngressConfigArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['NetworkResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -155,11 +121,9 @@ class Network(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address_prefix: the address prefix for this network.
-        :param pulumi.Input[str] description: User readable description of the network.
-        :param pulumi.Input[pulumi.InputType['IngressConfigArgs']] ingress_config: Configuration for public connectivity for this network.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] network_name: The identity of the network.
+        :param pulumi.Input[pulumi.InputType['NetworkResourcePropertiesArgs']] properties: Describes properties of a network resource.
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -187,11 +151,9 @@ class Network(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 ingress_config: Optional[pulumi.Input[pulumi.InputType['IngressConfigArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['NetworkResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -204,19 +166,16 @@ class Network(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkArgs.__new__(NetworkArgs)
 
-            if address_prefix is None and not opts.urn:
-                raise TypeError("Missing required property 'address_prefix'")
-            __props__.__dict__["address_prefix"] = address_prefix
-            __props__.__dict__["description"] = description
-            __props__.__dict__["ingress_config"] = ingress_config
             __props__.__dict__["location"] = location
             __props__.__dict__["network_name"] = network_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabricmesh:Network"), pulumi.Alias(type_="azure-native:servicefabricmesh/v20180901preview:Network")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -242,39 +201,12 @@ class Network(pulumi.CustomResource):
 
         __props__ = NetworkArgs.__new__(NetworkArgs)
 
-        __props__.__dict__["address_prefix"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["ingress_config"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Network(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> pulumi.Output[str]:
-        """
-        the address prefix for this network.
-        """
-        return pulumi.get(self, "address_prefix")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        User readable description of the network.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="ingressConfig")
-    def ingress_config(self) -> pulumi.Output[Optional['outputs.IngressConfigResponse']]:
-        """
-        Configuration for public connectivity for this network.
-        """
-        return pulumi.get(self, "ingress_config")
 
     @property
     @pulumi.getter
@@ -293,12 +225,12 @@ class Network(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.NetworkResourcePropertiesResponse']:
         """
-        State of the resource.
+        Describes properties of a network resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

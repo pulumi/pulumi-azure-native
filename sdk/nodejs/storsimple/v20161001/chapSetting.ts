@@ -45,9 +45,9 @@ export class ChapSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The chap password.
+     * Chap properties
      */
-    public readonly password!: pulumi.Output<outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ChapPropertiesResponse>;
     /**
      * The type.
      */
@@ -72,8 +72,8 @@ export class ChapSetting extends pulumi.CustomResource {
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -81,13 +81,13 @@ export class ChapSetting extends pulumi.CustomResource {
             resourceInputs["chapUserName"] = args ? args.chapUserName : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,9 +112,9 @@ export interface ChapSettingArgs {
      */
     managerName: pulumi.Input<string>;
     /**
-     * The chap password.
+     * Chap properties
      */
-    password: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
+    properties: pulumi.Input<inputs.storsimple.v20161001.ChapPropertiesArgs>;
     /**
      * The resource group name
      */

@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
     public sealed class GetPacketCoreControlPlaneResult
     {
         /// <summary>
-        /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
-        /// </summary>
-        public readonly Outputs.InterfacePropertiesResponse ControlPlaneAccessInterface;
-        /// <summary>
-        /// The core network technology generation (5G core or EPC / 4G core).
-        /// </summary>
-        public readonly string? CoreNetworkTechnology;
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
@@ -98,10 +90,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
-        /// Settings to allow interoperability with third party components e.g. RANs and UEs.
-        /// </summary>
-        public readonly object? InteropSettings;
-        /// <summary>
         /// The timestamp of resource last modification (UTC)
         /// </summary>
         public readonly string? LastModifiedAt;
@@ -114,33 +102,17 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// </summary>
         public readonly string? LastModifiedByType;
         /// <summary>
-        /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-        /// </summary>
-        public readonly Outputs.LocalDiagnosticsAccessConfigurationResponse? LocalDiagnosticsAccess;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// Mobile network in which this packet core control plane is deployed.
-        /// </summary>
-        public readonly Outputs.MobileNetworkResourceIdResponse MobileNetwork;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The platform where the packet core is deployed.
+        /// Packet core control plane Properties.
         /// </summary>
-        public readonly Outputs.PlatformConfigurationResponse? Platform;
-        /// <summary>
-        /// The provisioning state of the packet core control plane resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
-        /// </summary>
-        public readonly string Sku;
+        public readonly Outputs.PacketCoreControlPlanePropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -153,17 +125,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The version of the packet core software that is deployed.
-        /// </summary>
-        public readonly string? Version;
 
         [OutputConstructor]
         private GetPacketCoreControlPlaneResult(
-            Outputs.InterfacePropertiesResponse controlPlaneAccessInterface,
-
-            string? coreNetworkTechnology,
-
             string? createdAt,
 
             string? createdBy,
@@ -174,58 +138,38 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 
             Outputs.ManagedServiceIdentityResponse? identity,
 
-            object? interopSettings,
-
             string? lastModifiedAt,
 
             string? lastModifiedBy,
 
             string? lastModifiedByType,
 
-            Outputs.LocalDiagnosticsAccessConfigurationResponse? localDiagnosticsAccess,
-
             string location,
-
-            Outputs.MobileNetworkResourceIdResponse mobileNetwork,
 
             string name,
 
-            Outputs.PlatformConfigurationResponse? platform,
-
-            string provisioningState,
-
-            string sku,
+            Outputs.PacketCoreControlPlanePropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? version)
+            string type)
         {
-            ControlPlaneAccessInterface = controlPlaneAccessInterface;
-            CoreNetworkTechnology = coreNetworkTechnology;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;
             Id = id;
             Identity = identity;
-            InteropSettings = interopSettings;
             LastModifiedAt = lastModifiedAt;
             LastModifiedBy = lastModifiedBy;
             LastModifiedByType = lastModifiedByType;
-            LocalDiagnosticsAccess = localDiagnosticsAccess;
             Location = location;
-            MobileNetwork = mobileNetwork;
             Name = name;
-            Platform = platform;
-            ProvisioningState = provisioningState;
-            Sku = sku;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Version = version;
         }
     }
 }

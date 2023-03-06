@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['StorageAccountArgs', 'StorageAccount']
 
@@ -16,34 +18,21 @@ __all__ = ['StorageAccountArgs', 'StorageAccount']
 class StorageAccountArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
+                 properties: pulumi.Input['StorageAccountPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 storage_account_credential_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_status: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]] = None):
+                 storage_account_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StorageAccount resource.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input['StorageAccountPropertiesArgs'] properties: The Storage Account properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the storage Account.
-        :param pulumi.Input[str] description: Description for the storage Account.
-        :param pulumi.Input[str] storage_account_credential_id: Storage Account Credential Id
         :param pulumi.Input[str] storage_account_name: The StorageAccount name.
-        :param pulumi.Input[Union[str, 'StorageAccountStatus']] storage_account_status: Current status of the storage account
         """
         pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_policy is not None:
-            pulumi.set(__self__, "data_policy", data_policy)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if storage_account_credential_id is not None:
-            pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if storage_account_status is not None:
-            pulumi.set(__self__, "storage_account_status", storage_account_status)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -58,6 +47,18 @@ class StorageAccountArgs:
         pulumi.set(self, "device_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['StorageAccountPropertiesArgs']:
+        """
+        The Storage Account properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['StorageAccountPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -68,42 +69,6 @@ class StorageAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> Optional[pulumi.Input[Union[str, 'DataPolicy']]]:
-        """
-        Data policy of the storage Account.
-        """
-        return pulumi.get(self, "data_policy")
-
-    @data_policy.setter
-    def data_policy(self, value: Optional[pulumi.Input[Union[str, 'DataPolicy']]]):
-        pulumi.set(self, "data_policy", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the storage Account.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="storageAccountCredentialId")
-    def storage_account_credential_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Storage Account Credential Id
-        """
-        return pulumi.get(self, "storage_account_credential_id")
-
-    @storage_account_credential_id.setter
-    def storage_account_credential_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_credential_id", value)
 
     @property
     @pulumi.getter(name="storageAccountName")
@@ -117,18 +82,6 @@ class StorageAccountArgs:
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
 
-    @property
-    @pulumi.getter(name="storageAccountStatus")
-    def storage_account_status(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]]:
-        """
-        Current status of the storage account
-        """
-        return pulumi.get(self, "storage_account_status")
-
-    @storage_account_status.setter
-    def storage_account_status(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]]):
-        pulumi.set(self, "storage_account_status", value)
-
 
 warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -140,26 +93,20 @@ class StorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_credential_id: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_status: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]] = None,
                  __props__=None):
         """
         Represents a Storage Account on the  Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the storage Account.
-        :param pulumi.Input[str] description: Description for the storage Account.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']] properties: The Storage Account properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] storage_account_credential_id: Storage Account Credential Id
         :param pulumi.Input[str] storage_account_name: The StorageAccount name.
-        :param pulumi.Input[Union[str, 'StorageAccountStatus']] storage_account_status: Current status of the storage account
         """
         ...
     @overload
@@ -185,13 +132,10 @@ class StorageAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_credential_id: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_status: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]] = None,
                  __props__=None):
         pulumi.log.warn("""StorageAccount is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -202,19 +146,16 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageAccountArgs.__new__(StorageAccountArgs)
 
-            __props__.__dict__["data_policy"] = data_policy
-            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["storage_account_credential_id"] = storage_account_credential_id
             __props__.__dict__["storage_account_name"] = storage_account_name
-            __props__.__dict__["storage_account_status"] = storage_account_status
-            __props__.__dict__["blob_endpoint"] = None
-            __props__.__dict__["container_count"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:StorageAccount")])
@@ -241,47 +182,10 @@ class StorageAccount(pulumi.CustomResource):
 
         __props__ = StorageAccountArgs.__new__(StorageAccountArgs)
 
-        __props__.__dict__["blob_endpoint"] = None
-        __props__.__dict__["container_count"] = None
-        __props__.__dict__["data_policy"] = None
-        __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["storage_account_credential_id"] = None
-        __props__.__dict__["storage_account_status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="blobEndpoint")
-    def blob_endpoint(self) -> pulumi.Output[str]:
-        """
-        BlobEndpoint of Storage Account
-        """
-        return pulumi.get(self, "blob_endpoint")
-
-    @property
-    @pulumi.getter(name="containerCount")
-    def container_count(self) -> pulumi.Output[int]:
-        """
-        The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-        """
-        return pulumi.get(self, "container_count")
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        Data policy of the storage Account.
-        """
-        return pulumi.get(self, "data_policy")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description for the storage Account.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -292,20 +196,12 @@ class StorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="storageAccountCredentialId")
-    def storage_account_credential_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.StorageAccountPropertiesResponse']:
         """
-        Storage Account Credential Id
+        The Storage Account properties.
         """
-        return pulumi.get(self, "storage_account_credential_id")
-
-    @property
-    @pulumi.getter(name="storageAccountStatus")
-    def storage_account_status(self) -> pulumi.Output[Optional[str]]:
-        """
-        Current status of the storage account
-        """
-        return pulumi.get(self, "storage_account_status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

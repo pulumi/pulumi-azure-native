@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Outputs
         /// Azure active directory application.
         /// </summary>
         public readonly Outputs.AADAppResponse AadApp;
+        /// <summary>
+        /// Server admin credentials.
+        /// </summary>
+        public readonly Outputs.AdminCredentialsResponse AdminCredentials;
 
         [OutputConstructor]
-        private MigrationSecretParametersResponse(Outputs.AADAppResponse aadApp)
+        private MigrationSecretParametersResponse(
+            Outputs.AADAppResponse aadApp,
+
+            Outputs.AdminCredentialsResponse adminCredentials)
         {
             AadApp = aadApp;
+            AdminCredentials = adminCredentials;
         }
     }
 }

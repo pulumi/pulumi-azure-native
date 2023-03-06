@@ -82,22 +82,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     public sealed class GetAutomationRuleResult
     {
         /// <summary>
-        /// The actions to execute when the automation rule is triggered.
-        /// </summary>
-        public readonly ImmutableArray<object> Actions;
-        /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        public readonly Outputs.ClientInfoResponse CreatedBy;
-        /// <summary>
-        /// The time the automation rule was created.
-        /// </summary>
-        public readonly string CreatedTimeUtc;
-        /// <summary>
-        /// The display name of the automation rule.
-        /// </summary>
-        public readonly string DisplayName;
-        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
@@ -106,29 +90,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        public readonly Outputs.ClientInfoResponse LastModifiedBy;
-        /// <summary>
-        /// The last time the automation rule was updated.
-        /// </summary>
-        public readonly string LastModifiedTimeUtc;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The order of execution of the automation rule.
+        /// Automation rule properties
         /// </summary>
-        public readonly int Order;
+        public readonly Outputs.AutomationRulePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// Describes automation rule triggering logic.
-        /// </summary>
-        public readonly Outputs.AutomationRuleTriggeringLogicResponse TriggeringLogic;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -136,44 +108,23 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
 
         [OutputConstructor]
         private GetAutomationRuleResult(
-            ImmutableArray<object> actions,
-
-            Outputs.ClientInfoResponse createdBy,
-
-            string createdTimeUtc,
-
-            string displayName,
-
             string? etag,
 
             string id,
 
-            Outputs.ClientInfoResponse lastModifiedBy,
-
-            string lastModifiedTimeUtc,
-
             string name,
 
-            int order,
+            Outputs.AutomationRulePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            Outputs.AutomationRuleTriggeringLogicResponse triggeringLogic,
-
             string type)
         {
-            Actions = actions;
-            CreatedBy = createdBy;
-            CreatedTimeUtc = createdTimeUtc;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedTimeUtc = lastModifiedTimeUtc;
             Name = name;
-            Order = order;
+            Properties = properties;
             SystemData = systemData;
-            TriggeringLogic = triggeringLogic;
             Type = type;
         }
     }

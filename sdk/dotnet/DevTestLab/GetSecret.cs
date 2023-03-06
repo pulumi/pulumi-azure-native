@@ -120,9 +120,9 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.SecretPropertiesResponse Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -131,14 +131,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        public readonly string UniqueIdentifier;
-        /// <summary>
-        /// The value of the secret for secret creation.
-        /// </summary>
-        public readonly string? Value;
 
         [OutputConstructor]
         private GetSecretResult(
@@ -148,24 +140,18 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string name,
 
-            string provisioningState,
+            Outputs.SecretPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uniqueIdentifier,
-
-            string? value)
+            string type)
         {
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
-            Value = value;
         }
     }
 }

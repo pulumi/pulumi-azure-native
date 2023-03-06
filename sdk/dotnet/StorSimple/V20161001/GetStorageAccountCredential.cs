@@ -83,37 +83,17 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class GetStorageAccountCredentialResult
     {
         /// <summary>
-        /// The details of the storage account password
-        /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? AccessKey;
-        /// <summary>
-        /// The cloud service provider
-        /// </summary>
-        public readonly string CloudType;
-        /// <summary>
-        /// SSL needs to be enabled or not
-        /// </summary>
-        public readonly string EnableSSL;
-        /// <summary>
-        /// The storage endpoint
-        /// </summary>
-        public readonly string EndPoint;
-        /// <summary>
         /// The identifier.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The storage account's geo location
-        /// </summary>
-        public readonly string? Location;
-        /// <summary>
-        /// The storage account login
-        /// </summary>
-        public readonly string Login;
-        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Credential properties
+        /// </summary>
+        public readonly Outputs.StorageAccountCredentialPropertiesResponse Properties;
         /// <summary>
         /// The type.
         /// </summary>
@@ -121,32 +101,17 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
-            Outputs.AsymmetricEncryptedSecretResponse? accessKey,
-
-            string cloudType,
-
-            string enableSSL,
-
-            string endPoint,
-
             string id,
-
-            string? location,
-
-            string login,
 
             string name,
 
+            Outputs.StorageAccountCredentialPropertiesResponse properties,
+
             string type)
         {
-            AccessKey = accessKey;
-            CloudType = cloudType;
-            EnableSSL = enableSSL;
-            EndPoint = endPoint;
             Id = id;
-            Location = location;
-            Login = login;
             Name = name;
+            Properties = properties;
             Type = type;
         }
     }

@@ -41,45 +41,17 @@ export class Blueprint extends pulumi.CustomResource {
     }
 
     /**
-     * Multi-line explain this resource.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * One-liner string explain this resource.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * Layout view of the blueprint, for UI reference.
-     */
-    public readonly layout!: pulumi.Output<any | undefined>;
-    /**
      * Name of this resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Parameters required by this Blueprint definition.
+     * Detailed properties for blueprint
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ParameterDefinitionResponse} | undefined>;
-    /**
-     * Resource group placeholders defined by this Blueprint definition.
-     */
-    public readonly resourceGroups!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ResourceGroupDefinitionResponse} | undefined>;
-    /**
-     * Status of the Blueprint. This field is readonly.
-     */
-    public /*out*/ readonly status!: pulumi.Output<outputs.blueprint.v20171111preview.BlueprintStatusResponse>;
-    /**
-     * The scope where this Blueprint can be applied.
-     */
-    public readonly targetScope!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.blueprint.v20171111preview.BlueprintPropertiesResponse>;
     /**
      * Type of this resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Published versions of this blueprint.
-     */
-    public readonly versions!: pulumi.Output<any | undefined>;
 
     /**
      * Create a Blueprint resource with the given unique name, arguments, and options.
@@ -97,32 +69,18 @@ export class Blueprint extends pulumi.CustomResource {
             if ((!args || args.managementGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if ((!args || args.targetScope === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetScope'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["layout"] = args ? args.layout : undefined;
             resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            resourceInputs["targetScope"] = args ? args.targetScope : undefined;
-            resourceInputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["layout"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
-            resourceInputs["resourceGroups"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["targetScope"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["versions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Blueprint.__pulumiType, name, resourceInputs, opts);
@@ -138,35 +96,11 @@ export interface BlueprintArgs {
      */
     blueprintName?: pulumi.Input<string>;
     /**
-     * Multi-line explain this resource.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * One-liner string explain this resource.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * Layout view of the blueprint, for UI reference.
-     */
-    layout?: any;
-    /**
      * ManagementGroup where blueprint stores.
      */
     managementGroupName: pulumi.Input<string>;
     /**
-     * Parameters required by this Blueprint definition.
+     * Detailed properties for blueprint
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterDefinitionArgs>}>;
-    /**
-     * Resource group placeholders defined by this Blueprint definition.
-     */
-    resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupDefinitionArgs>}>;
-    /**
-     * The scope where this Blueprint can be applied.
-     */
-    targetScope: pulumi.Input<string | enums.blueprint.v20171111preview.BlueprintTargetScope>;
-    /**
-     * Published versions of this blueprint.
-     */
-    versions?: any;
+    properties: pulumi.Input<inputs.blueprint.v20171111preview.BlueprintPropertiesArgs>;
 }

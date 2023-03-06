@@ -40,33 +40,21 @@ export interface GetTemplateSpecVersionArgs {
  */
 export interface GetTemplateSpecVersionResult {
     /**
-     * Template Spec version description.
-     */
-    readonly description?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
-    /**
-     * An array of linked template artifacts.
-     */
-    readonly linkedTemplates?: outputs.resources.v20220201.LinkedTemplateArtifactResponse[];
     /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
     readonly location: string;
     /**
-     * The main Azure Resource Manager template content.
-     */
-    readonly mainTemplate?: any;
-    /**
-     * The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-     */
-    readonly metadata?: any;
-    /**
      * Name of this resource.
      */
     readonly name: string;
+    /**
+     * Template Spec Version properties.
+     */
+    readonly properties: outputs.resources.v20220201.TemplateSpecVersionPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -79,10 +67,6 @@ export interface GetTemplateSpecVersionResult {
      * Type of this resource.
      */
     readonly type: string;
-    /**
-     * The Azure Resource Manager template UI definition content.
-     */
-    readonly uiFormDefinition?: any;
 }
 /**
  * Gets a Template Spec version from a specific Template Spec.

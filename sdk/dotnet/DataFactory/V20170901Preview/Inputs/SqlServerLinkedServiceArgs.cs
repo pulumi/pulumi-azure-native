@@ -34,22 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<object> ConnectionString { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -64,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The on-premises Windows authentication password.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'SqlServer'.
         /// </summary>
@@ -77,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        /// SQL Server linked service properties.
         /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SqlServerLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SqlServerLinkedServiceArgs()
         {

@@ -22,22 +22,16 @@ class GetTrustedAccessRoleBindingResult:
     """
     Defines binding between a resource and role
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, roles=None, source_resource_id=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if roles and not isinstance(roles, list):
-            raise TypeError("Expected argument 'roles' to be a list")
-        pulumi.set(__self__, "roles", roles)
-        if source_resource_id and not isinstance(source_resource_id, str):
-            raise TypeError("Expected argument 'source_resource_id' to be a str")
-        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -62,28 +56,12 @@ class GetTrustedAccessRoleBindingResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The current provisioning state of trusted access role binding.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def roles(self) -> Sequence[str]:
+    def properties(self) -> 'outputs.TrustedAccessRoleBindingPropertiesResponse':
         """
-        A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
+        Properties for trusted access role binding
         """
-        return pulumi.get(self, "roles")
-
-    @property
-    @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> str:
-        """
-        The ARM resource ID of source resource that trusted access is configured for.
-        """
-        return pulumi.get(self, "source_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -110,9 +88,7 @@ class AwaitableGetTrustedAccessRoleBindingResult(GetTrustedAccessRoleBindingResu
         return GetTrustedAccessRoleBindingResult(
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            roles=self.roles,
-            source_resource_id=self.source_resource_id,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -140,9 +116,7 @@ def get_trusted_access_role_binding(resource_group_name: Optional[str] = None,
     return AwaitableGetTrustedAccessRoleBindingResult(
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        roles=__ret__.roles,
-        source_resource_id=__ret__.source_resource_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

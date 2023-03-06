@@ -42,33 +42,17 @@ export class DedicatedHsm extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the management network interfaces of the dedicated hsm.
-     */
-    public readonly managementNetworkProfile!: pulumi.Output<outputs.hardwaresecuritymodules.v20211130.NetworkProfileResponse | undefined>;
-    /**
      * The name of the dedicated HSM.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the network interfaces of the dedicated hsm.
+     * Properties of the dedicated HSM
      */
-    public readonly networkProfile!: pulumi.Output<outputs.hardwaresecuritymodules.v20211130.NetworkProfileResponse | undefined>;
-    /**
-     * Provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hardwaresecuritymodules.v20211130.DedicatedHsmPropertiesResponse>;
     /**
      * SKU details
      */
     public readonly sku!: pulumi.Output<outputs.hardwaresecuritymodules.v20211130.SkuResponse>;
-    /**
-     * This field will be used when RP does not support Availability zones.
-     */
-    public readonly stampId!: pulumi.Output<string | undefined>;
-    /**
-     * Resource Status Message.
-     */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
@@ -97,6 +81,9 @@ export class DedicatedHsm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -104,27 +91,19 @@ export class DedicatedHsm extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementNetworkProfile"] = args ? args.managementNetworkProfile : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["stampId"] = args ? args.stampId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["managementNetworkProfile"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkProfile"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["stampId"] = undefined /*out*/;
-            resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -146,17 +125,13 @@ export interface DedicatedHsmArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the management network interfaces of the dedicated hsm.
-     */
-    managementNetworkProfile?: pulumi.Input<inputs.hardwaresecuritymodules.v20211130.NetworkProfileArgs>;
-    /**
      * Name of the dedicated Hsm
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the network interfaces of the dedicated hsm.
+     * Properties of the dedicated HSM
      */
-    networkProfile?: pulumi.Input<inputs.hardwaresecuritymodules.v20211130.NetworkProfileArgs>;
+    properties: pulumi.Input<inputs.hardwaresecuritymodules.v20211130.DedicatedHsmPropertiesArgs>;
     /**
      * The name of the Resource Group to which the resource belongs.
      */
@@ -165,10 +140,6 @@ export interface DedicatedHsmArgs {
      * SKU details
      */
     sku: pulumi.Input<inputs.hardwaresecuritymodules.v20211130.SkuArgs>;
-    /**
-     * This field will be used when RP does not support Availability zones.
-     */
-    stampId?: pulumi.Input<string>;
     /**
      * Resource tags
      */

@@ -12,14 +12,18 @@ from ._enums import *
 
 __all__ = [
     'AddressArgs',
+    'ArcAddonPropertiesArgs',
     'AsymmetricEncryptedSecretArgs',
     'AuthenticationArgs',
     'AzureContainerInfoArgs',
+    'BandwidthSchedulePropertiesArgs',
     'ClientAccessRightArgs',
     'ComputeResourceArgs',
     'ContactDetailsArgs',
+    'ContainerPropertiesArgs',
     'DataResidencyArgs',
     'FileSourceInfoArgs',
+    'FileTriggerPropertiesArgs',
     'ImageRepositoryCredentialArgs',
     'IoTDeviceInfoArgs',
     'IoTEdgeAgentInfoArgs',
@@ -31,14 +35,20 @@ __all__ = [
     'MetricCounterSetArgs',
     'MetricCounterArgs',
     'MetricDimensionArgs',
+    'MonitoringMetricConfigurationPropertiesArgs',
     'MountPointMapArgs',
+    'PeriodicTimerPropertiesArgs',
     'PeriodicTimerSourceInfoArgs',
     'RefreshDetailsArgs',
     'ResourceIdentityArgs',
     'RoleSinkInfoArgs',
+    'SharePropertiesArgs',
     'SkuArgs',
+    'StorageAccountCredentialPropertiesArgs',
+    'StorageAccountPropertiesArgs',
     'SymmetricKeyArgs',
     'UserAccessRightArgs',
+    'UserPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -158,6 +168,74 @@ class AddressArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class ArcAddonPropertiesArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 resource_location: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Arc addon properties.
+        :param pulumi.Input[str] resource_group_name: Arc resource group name
+        :param pulumi.Input[str] resource_location: Arc resource location
+        :param pulumi.Input[str] resource_name: Arc resource Name
+        :param pulumi.Input[str] subscription_id: Arc resource subscription Id
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_location", resource_location)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Arc resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceLocation")
+    def resource_location(self) -> pulumi.Input[str]:
+        """
+        Arc resource location
+        """
+        return pulumi.get(self, "resource_location")
+
+    @resource_location.setter
+    def resource_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_location", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        Arc resource Name
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Arc resource subscription Id
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
 
 
 @pulumi.input_type
@@ -289,6 +367,74 @@ class AzureContainerInfoArgs:
     @storage_account_credential_id.setter
     def storage_account_credential_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_account_credential_id", value)
+
+
+@pulumi.input_type
+class BandwidthSchedulePropertiesArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]],
+                 rate_in_mbps: pulumi.Input[int],
+                 start: pulumi.Input[str],
+                 stop: pulumi.Input[str]):
+        """
+        The properties of the bandwidth schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days: The days of the week when this schedule is applicable.
+        :param pulumi.Input[int] rate_in_mbps: The bandwidth rate in Mbps.
+        :param pulumi.Input[str] start: The start time of the schedule in UTC.
+        :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
+        pulumi.set(__self__, "start", start)
+        pulumi.set(__self__, "stop", stop)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]:
+        """
+        The days of the week when this schedule is applicable.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="rateInMbps")
+    def rate_in_mbps(self) -> pulumi.Input[int]:
+        """
+        The bandwidth rate in Mbps.
+        """
+        return pulumi.get(self, "rate_in_mbps")
+
+    @rate_in_mbps.setter
+    def rate_in_mbps(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rate_in_mbps", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> pulumi.Input[str]:
+        """
+        The start time of the schedule in UTC.
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start", value)
+
+    @property
+    @pulumi.getter
+    def stop(self) -> pulumi.Input[str]:
+        """
+        The stop time of the schedule in UTC.
+        """
+        return pulumi.get(self, "stop")
+
+    @stop.setter
+    def stop(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stop", value)
 
 
 @pulumi.input_type
@@ -436,6 +582,29 @@ class ContactDetailsArgs:
 
 
 @pulumi.input_type
+class ContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 data_format: pulumi.Input[Union[str, 'AzureContainerDataFormat']]):
+        """
+        The container properties.
+        :param pulumi.Input[Union[str, 'AzureContainerDataFormat']] data_format: DataFormat for Container
+        """
+        pulumi.set(__self__, "data_format", data_format)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> pulumi.Input[Union[str, 'AzureContainerDataFormat']]:
+        """
+        DataFormat for Container
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: pulumi.Input[Union[str, 'AzureContainerDataFormat']]):
+        pulumi.set(self, "data_format", value)
+
+
+@pulumi.input_type
 class DataResidencyArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'DataResidencyType']]] = None):
@@ -480,6 +649,60 @@ class FileSourceInfoArgs:
     @share_id.setter
     def share_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "share_id", value)
+
+
+@pulumi.input_type
+class FileTriggerPropertiesArgs:
+    def __init__(__self__, *,
+                 sink_info: pulumi.Input['RoleSinkInfoArgs'],
+                 source_info: pulumi.Input['FileSourceInfoArgs'],
+                 custom_context_tag: Optional[pulumi.Input[str]] = None):
+        """
+        File trigger properties.
+        :param pulumi.Input['RoleSinkInfoArgs'] sink_info: Role sink info.
+        :param pulumi.Input['FileSourceInfoArgs'] source_info: File event source details.
+        :param pulumi.Input[str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        pulumi.set(__self__, "sink_info", sink_info)
+        pulumi.set(__self__, "source_info", source_info)
+        if custom_context_tag is not None:
+            pulumi.set(__self__, "custom_context_tag", custom_context_tag)
+
+    @property
+    @pulumi.getter(name="sinkInfo")
+    def sink_info(self) -> pulumi.Input['RoleSinkInfoArgs']:
+        """
+        Role sink info.
+        """
+        return pulumi.get(self, "sink_info")
+
+    @sink_info.setter
+    def sink_info(self, value: pulumi.Input['RoleSinkInfoArgs']):
+        pulumi.set(self, "sink_info", value)
+
+    @property
+    @pulumi.getter(name="sourceInfo")
+    def source_info(self) -> pulumi.Input['FileSourceInfoArgs']:
+        """
+        File event source details.
+        """
+        return pulumi.get(self, "source_info")
+
+    @source_info.setter
+    def source_info(self, value: pulumi.Input['FileSourceInfoArgs']):
+        pulumi.set(self, "source_info", value)
+
+    @property
+    @pulumi.getter(name="customContextTag")
+    def custom_context_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        return pulumi.get(self, "custom_context_tag")
+
+    @custom_context_tag.setter
+    def custom_context_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_context_tag", value)
 
 
 @pulumi.input_type
@@ -972,6 +1195,29 @@ class MetricDimensionArgs:
 
 
 @pulumi.input_type
+class MonitoringMetricConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 metric_configurations: pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]]):
+        """
+        Metrics properties
+        :param pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]] metric_configurations: The metrics configuration details
+        """
+        pulumi.set(__self__, "metric_configurations", metric_configurations)
+
+    @property
+    @pulumi.getter(name="metricConfigurations")
+    def metric_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]]:
+        """
+        The metrics configuration details
+        """
+        return pulumi.get(self, "metric_configurations")
+
+    @metric_configurations.setter
+    def metric_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]]):
+        pulumi.set(self, "metric_configurations", value)
+
+
+@pulumi.input_type
 class MountPointMapArgs:
     def __init__(__self__, *,
                  share_id: pulumi.Input[str]):
@@ -992,6 +1238,60 @@ class MountPointMapArgs:
     @share_id.setter
     def share_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "share_id", value)
+
+
+@pulumi.input_type
+class PeriodicTimerPropertiesArgs:
+    def __init__(__self__, *,
+                 sink_info: pulumi.Input['RoleSinkInfoArgs'],
+                 source_info: pulumi.Input['PeriodicTimerSourceInfoArgs'],
+                 custom_context_tag: Optional[pulumi.Input[str]] = None):
+        """
+        Periodic timer trigger properties.
+        :param pulumi.Input['RoleSinkInfoArgs'] sink_info: Role Sink information.
+        :param pulumi.Input['PeriodicTimerSourceInfoArgs'] source_info: Periodic timer details.
+        :param pulumi.Input[str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        pulumi.set(__self__, "sink_info", sink_info)
+        pulumi.set(__self__, "source_info", source_info)
+        if custom_context_tag is not None:
+            pulumi.set(__self__, "custom_context_tag", custom_context_tag)
+
+    @property
+    @pulumi.getter(name="sinkInfo")
+    def sink_info(self) -> pulumi.Input['RoleSinkInfoArgs']:
+        """
+        Role Sink information.
+        """
+        return pulumi.get(self, "sink_info")
+
+    @sink_info.setter
+    def sink_info(self, value: pulumi.Input['RoleSinkInfoArgs']):
+        pulumi.set(self, "sink_info", value)
+
+    @property
+    @pulumi.getter(name="sourceInfo")
+    def source_info(self) -> pulumi.Input['PeriodicTimerSourceInfoArgs']:
+        """
+        Periodic timer details.
+        """
+        return pulumi.get(self, "source_info")
+
+    @source_info.setter
+    def source_info(self, value: pulumi.Input['PeriodicTimerSourceInfoArgs']):
+        pulumi.set(self, "source_info", value)
+
+    @property
+    @pulumi.getter(name="customContextTag")
+    def custom_context_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        return pulumi.get(self, "custom_context_tag")
+
+    @custom_context_tag.setter
+    def custom_context_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_context_tag", value)
 
 
 @pulumi.input_type
@@ -1168,6 +1468,155 @@ class RoleSinkInfoArgs:
 
 
 @pulumi.input_type
+class SharePropertiesArgs:
+    def __init__(__self__, *,
+                 access_protocol: pulumi.Input[Union[str, 'ShareAccessProtocol']],
+                 monitoring_status: pulumi.Input[Union[str, 'MonitoringStatus']],
+                 share_status: pulumi.Input[Union[str, 'ShareStatus']],
+                 azure_container_info: Optional[pulumi.Input['AzureContainerInfoArgs']] = None,
+                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]]] = None,
+                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 refresh_details: Optional[pulumi.Input['RefreshDetailsArgs']] = None,
+                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]]] = None):
+        """
+        The share properties.
+        :param pulumi.Input[Union[str, 'ShareAccessProtocol']] access_protocol: Access protocol to be used by the share.
+        :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Current monitoring status of the share.
+        :param pulumi.Input[Union[str, 'ShareStatus']] share_status: Current status of the share.
+        :param pulumi.Input['AzureContainerInfoArgs'] azure_container_info: Azure container mapping for the share.
+        :param pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the share.
+        :param pulumi.Input[str] description: Description for the share.
+        :param pulumi.Input['RefreshDetailsArgs'] refresh_details: Details of the refresh job on this share.
+        :param pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        """
+        pulumi.set(__self__, "access_protocol", access_protocol)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "share_status", share_status)
+        if azure_container_info is not None:
+            pulumi.set(__self__, "azure_container_info", azure_container_info)
+        if client_access_rights is not None:
+            pulumi.set(__self__, "client_access_rights", client_access_rights)
+        if data_policy is not None:
+            pulumi.set(__self__, "data_policy", data_policy)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if refresh_details is not None:
+            pulumi.set(__self__, "refresh_details", refresh_details)
+        if user_access_rights is not None:
+            pulumi.set(__self__, "user_access_rights", user_access_rights)
+
+    @property
+    @pulumi.getter(name="accessProtocol")
+    def access_protocol(self) -> pulumi.Input[Union[str, 'ShareAccessProtocol']]:
+        """
+        Access protocol to be used by the share.
+        """
+        return pulumi.get(self, "access_protocol")
+
+    @access_protocol.setter
+    def access_protocol(self, value: pulumi.Input[Union[str, 'ShareAccessProtocol']]):
+        pulumi.set(self, "access_protocol", value)
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> pulumi.Input[Union[str, 'MonitoringStatus']]:
+        """
+        Current monitoring status of the share.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @monitoring_status.setter
+    def monitoring_status(self, value: pulumi.Input[Union[str, 'MonitoringStatus']]):
+        pulumi.set(self, "monitoring_status", value)
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> pulumi.Input[Union[str, 'ShareStatus']]:
+        """
+        Current status of the share.
+        """
+        return pulumi.get(self, "share_status")
+
+    @share_status.setter
+    def share_status(self, value: pulumi.Input[Union[str, 'ShareStatus']]):
+        pulumi.set(self, "share_status", value)
+
+    @property
+    @pulumi.getter(name="azureContainerInfo")
+    def azure_container_info(self) -> Optional[pulumi.Input['AzureContainerInfoArgs']]:
+        """
+        Azure container mapping for the share.
+        """
+        return pulumi.get(self, "azure_container_info")
+
+    @azure_container_info.setter
+    def azure_container_info(self, value: Optional[pulumi.Input['AzureContainerInfoArgs']]):
+        pulumi.set(self, "azure_container_info", value)
+
+    @property
+    @pulumi.getter(name="clientAccessRights")
+    def client_access_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]]]:
+        """
+        List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        """
+        return pulumi.get(self, "client_access_rights")
+
+    @client_access_rights.setter
+    def client_access_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]]]):
+        pulumi.set(self, "client_access_rights", value)
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> Optional[pulumi.Input[Union[str, 'DataPolicy']]]:
+        """
+        Data policy of the share.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @data_policy.setter
+    def data_policy(self, value: Optional[pulumi.Input[Union[str, 'DataPolicy']]]):
+        pulumi.set(self, "data_policy", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the share.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="refreshDetails")
+    def refresh_details(self) -> Optional[pulumi.Input['RefreshDetailsArgs']]:
+        """
+        Details of the refresh job on this share.
+        """
+        return pulumi.get(self, "refresh_details")
+
+    @refresh_details.setter
+    def refresh_details(self, value: Optional[pulumi.Input['RefreshDetailsArgs']]):
+        pulumi.set(self, "refresh_details", value)
+
+    @property
+    @pulumi.getter(name="userAccessRights")
+    def user_access_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]]]:
+        """
+        Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        """
+        return pulumi.get(self, "user_access_rights")
+
+    @user_access_rights.setter
+    def user_access_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]]]):
+        pulumi.set(self, "user_access_rights", value)
+
+
+@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
@@ -1205,6 +1654,210 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class StorageAccountCredentialPropertiesArgs:
+    def __init__(__self__, *,
+                 account_type: pulumi.Input[Union[str, 'AccountType']],
+                 alias: pulumi.Input[str],
+                 ssl_status: pulumi.Input[Union[str, 'SSLStatus']],
+                 account_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+                 blob_domain_name: Optional[pulumi.Input[str]] = None,
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
+        """
+        The storage account credential properties.
+        :param pulumi.Input[Union[str, 'AccountType']] account_type: Type of storage accessed on the storage account.
+        :param pulumi.Input[str] alias: Alias for the storage account.
+        :param pulumi.Input[Union[str, 'SSLStatus']] ssl_status: Signifies whether SSL needs to be enabled or not.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] account_key: Encrypted storage key.
+        :param pulumi.Input[str] blob_domain_name: Blob end point for private clouds.
+        :param pulumi.Input[str] connection_string: Connection string for the storage account. Use this string if username and account key are not specified.
+        :param pulumi.Input[str] storage_account_id: Id of the storage account.
+        :param pulumi.Input[str] user_name: Username for the storage account.
+        """
+        pulumi.set(__self__, "account_type", account_type)
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "ssl_status", ssl_status)
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if blob_domain_name is not None:
+            pulumi.set(__self__, "blob_domain_name", blob_domain_name)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> pulumi.Input[Union[str, 'AccountType']]:
+        """
+        Type of storage accessed on the storage account.
+        """
+        return pulumi.get(self, "account_type")
+
+    @account_type.setter
+    def account_type(self, value: pulumi.Input[Union[str, 'AccountType']]):
+        pulumi.set(self, "account_type", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> pulumi.Input[str]:
+        """
+        Alias for the storage account.
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="sslStatus")
+    def ssl_status(self) -> pulumi.Input[Union[str, 'SSLStatus']]:
+        """
+        Signifies whether SSL needs to be enabled or not.
+        """
+        return pulumi.get(self, "ssl_status")
+
+    @ssl_status.setter
+    def ssl_status(self, value: pulumi.Input[Union[str, 'SSLStatus']]):
+        pulumi.set(self, "ssl_status", value)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        Encrypted storage key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @account_key.setter
+    def account_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="blobDomainName")
+    def blob_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Blob end point for private clouds.
+        """
+        return pulumi.get(self, "blob_domain_name")
+
+    @blob_domain_name.setter
+    def blob_domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_domain_name", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connection string for the storage account. Use this string if username and account key are not specified.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the storage account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username for the storage account.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class StorageAccountPropertiesArgs:
+    def __init__(__self__, *,
+                 data_policy: pulumi.Input[Union[str, 'DataPolicy']],
+                 description: Optional[pulumi.Input[str]] = None,
+                 storage_account_credential_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_status: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]] = None):
+        """
+        The storage account properties.
+        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the storage Account.
+        :param pulumi.Input[str] description: Description for the storage Account.
+        :param pulumi.Input[str] storage_account_credential_id: Storage Account Credential Id
+        :param pulumi.Input[Union[str, 'StorageAccountStatus']] storage_account_status: Current status of the storage account
+        """
+        pulumi.set(__self__, "data_policy", data_policy)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if storage_account_credential_id is not None:
+            pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        if storage_account_status is not None:
+            pulumi.set(__self__, "storage_account_status", storage_account_status)
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> pulumi.Input[Union[str, 'DataPolicy']]:
+        """
+        Data policy of the storage Account.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @data_policy.setter
+    def data_policy(self, value: pulumi.Input[Union[str, 'DataPolicy']]):
+        pulumi.set(self, "data_policy", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the storage Account.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Storage Account Credential Id
+        """
+        return pulumi.get(self, "storage_account_credential_id")
+
+    @storage_account_credential_id.setter
+    def storage_account_credential_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_credential_id", value)
+
+    @property
+    @pulumi.getter(name="storageAccountStatus")
+    def storage_account_status(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]]:
+        """
+        Current status of the storage account
+        """
+        return pulumi.get(self, "storage_account_status")
+
+    @storage_account_status.setter
+    def storage_account_status(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]]):
+        pulumi.set(self, "storage_account_status", value)
 
 
 @pulumi.input_type
@@ -1267,5 +1920,44 @@ class UserAccessRightArgs:
     @user_id.setter
     def user_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_id", value)
+
+
+@pulumi.input_type
+class UserPropertiesArgs:
+    def __init__(__self__, *,
+                 user_type: pulumi.Input[Union[str, 'UserType']],
+                 encrypted_password: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
+        """
+        The user properties.
+        :param pulumi.Input[Union[str, 'UserType']] user_type: Type of the user.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encrypted_password: The password details.
+        """
+        pulumi.set(__self__, "user_type", user_type)
+        if encrypted_password is not None:
+            pulumi.set(__self__, "encrypted_password", encrypted_password)
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> pulumi.Input[Union[str, 'UserType']]:
+        """
+        Type of the user.
+        """
+        return pulumi.get(self, "user_type")
+
+    @user_type.setter
+    def user_type(self, value: pulumi.Input[Union[str, 'UserType']]):
+        pulumi.set(self, "user_type", value)
+
+    @property
+    @pulumi.getter(name="encryptedPassword")
+    def encrypted_password(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        The password details.
+        """
+        return pulumi.get(self, "encrypted_password")
+
+    @encrypted_password.setter
+    def encrypted_password(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "encrypted_password", value)
 
 

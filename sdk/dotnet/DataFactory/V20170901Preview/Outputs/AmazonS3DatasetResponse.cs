@@ -21,25 +21,9 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object BucketName;
-        /// <summary>
-        /// The data compression method used for the Amazon S3 object.
-        /// </summary>
-        public readonly object? Compression;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The format of files.
-        /// </summary>
-        public readonly object? Format;
-        /// <summary>
-        /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Key;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -48,10 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Parameters for dataset.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Prefix;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
@@ -62,48 +42,33 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The version for the S3 object. Type: string (or Expression with resultType string).
+        /// Amazon S3 dataset properties.
         /// </summary>
-        public readonly object? Version;
+        public readonly Outputs.AmazonS3DatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AmazonS3DatasetResponse(
             ImmutableArray<object> annotations,
 
-            object bucketName,
-
-            object? compression,
-
             string? description,
-
-            object? format,
-
-            object? key,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? prefix,
-
             object? structure,
 
             string type,
 
-            object? version)
+            Outputs.AmazonS3DatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            BucketName = bucketName;
-            Compression = compression;
             Description = description;
-            Format = format;
-            Key = key;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
-            Prefix = prefix;
             Structure = structure;
             Type = type;
-            Version = version;
+            TypeProperties = typeProperties;
         }
     }
 }

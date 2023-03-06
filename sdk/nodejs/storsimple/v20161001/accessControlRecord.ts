@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -38,13 +41,13 @@ export class AccessControlRecord extends pulumi.CustomResource {
     }
 
     /**
-     * The Iscsi initiator name (IQN)
-     */
-    public readonly initiatorName!: pulumi.Output<string>;
-    /**
      * The name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Properties of AccessControlRecord
+     */
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.AccessControlRecordPropertiesResponse>;
     /**
      * The type.
      */
@@ -63,24 +66,24 @@ export class AccessControlRecord extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.initiatorName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'initiatorName'");
-            }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accessControlRecordName"] = args ? args.accessControlRecordName : undefined;
-            resourceInputs["initiatorName"] = args ? args.initiatorName : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["initiatorName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,13 +102,13 @@ export interface AccessControlRecordArgs {
      */
     accessControlRecordName?: pulumi.Input<string>;
     /**
-     * The Iscsi initiator name (IQN)
-     */
-    initiatorName: pulumi.Input<string>;
-    /**
      * The manager name
      */
     managerName: pulumi.Input<string>;
+    /**
+     * Properties of AccessControlRecord
+     */
+    properties: pulumi.Input<inputs.storsimple.v20161001.AccessControlRecordPropertiesArgs>;
     /**
      * The resource group name
      */

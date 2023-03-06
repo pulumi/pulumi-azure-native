@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'ApplicationArtifactArgs',
+    'ApplicationDefinitionPropertiesArgs',
+    'ApplicationPropertiesArgs',
     'ApplicationProviderAuthorizationArgs',
     'IdentityArgs',
     'PlanArgs',
@@ -72,6 +74,227 @@ class ApplicationArtifactArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class ApplicationDefinitionPropertiesArgs:
+    def __init__(__self__, *,
+                 authorizations: pulumi.Input[Sequence[pulumi.Input['ApplicationProviderAuthorizationArgs']]],
+                 lock_level: pulumi.Input['ApplicationLockLevel'],
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationArtifactArgs']]]] = None,
+                 create_ui_definition: Optional[Any] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[str]] = None,
+                 main_template: Optional[Any] = None,
+                 package_file_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The managed application definition properties.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationProviderAuthorizationArgs']]] authorizations: The managed application provider authorizations.
+        :param pulumi.Input['ApplicationLockLevel'] lock_level: The managed application lock level.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationArtifactArgs']]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        :param Any create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        :param pulumi.Input[str] description: The managed application definition description.
+        :param pulumi.Input[str] display_name: The managed application definition display name.
+        :param pulumi.Input[str] is_enabled: A value indicating whether the package is enabled or not.
+        :param Any main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
+        """
+        pulumi.set(__self__, "authorizations", authorizations)
+        pulumi.set(__self__, "lock_level", lock_level)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if create_ui_definition is not None:
+            pulumi.set(__self__, "create_ui_definition", create_ui_definition)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if main_template is not None:
+            pulumi.set(__self__, "main_template", main_template)
+        if package_file_uri is not None:
+            pulumi.set(__self__, "package_file_uri", package_file_uri)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationProviderAuthorizationArgs']]]:
+        """
+        The managed application provider authorizations.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @authorizations.setter
+    def authorizations(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationProviderAuthorizationArgs']]]):
+        pulumi.set(self, "authorizations", value)
+
+    @property
+    @pulumi.getter(name="lockLevel")
+    def lock_level(self) -> pulumi.Input['ApplicationLockLevel']:
+        """
+        The managed application lock level.
+        """
+        return pulumi.get(self, "lock_level")
+
+    @lock_level.setter
+    def lock_level(self, value: pulumi.Input['ApplicationLockLevel']):
+        pulumi.set(self, "lock_level", value)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationArtifactArgs']]]]:
+        """
+        The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationArtifactArgs']]]]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter(name="createUiDefinition")
+    def create_ui_definition(self) -> Optional[Any]:
+        """
+        The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        """
+        return pulumi.get(self, "create_ui_definition")
+
+    @create_ui_definition.setter
+    def create_ui_definition(self, value: Optional[Any]):
+        pulumi.set(self, "create_ui_definition", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed application definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed application definition display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        A value indicating whether the package is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="mainTemplate")
+    def main_template(self) -> Optional[Any]:
+        """
+        The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        """
+        return pulumi.get(self, "main_template")
+
+    @main_template.setter
+    def main_template(self, value: Optional[Any]):
+        pulumi.set(self, "main_template", value)
+
+    @property
+    @pulumi.getter(name="packageFileUri")
+    def package_file_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed application definition package file Uri. Use this element
+        """
+        return pulumi.get(self, "package_file_uri")
+
+    @package_file_uri.setter
+    def package_file_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_file_uri", value)
+
+
+@pulumi.input_type
+class ApplicationPropertiesArgs:
+    def __init__(__self__, *,
+                 managed_resource_group_id: pulumi.Input[str],
+                 application_definition_id: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[Any] = None,
+                 ui_definition_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The managed application properties.
+        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
+        :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
+        :param Any parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
+        """
+        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+        if application_definition_id is not None:
+            pulumi.set(__self__, "application_definition_id", application_definition_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if ui_definition_uri is not None:
+            pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupId")
+    def managed_resource_group_id(self) -> pulumi.Input[str]:
+        """
+        The managed resource group Id.
+        """
+        return pulumi.get(self, "managed_resource_group_id")
+
+    @managed_resource_group_id.setter
+    def managed_resource_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_resource_group_id", value)
+
+    @property
+    @pulumi.getter(name="applicationDefinitionId")
+    def application_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified path of managed application definition Id.
+        """
+        return pulumi.get(self, "application_definition_id")
+
+    @application_definition_id.setter
+    def application_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="uiDefinitionUri")
+    def ui_definition_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blob URI where the UI definition file is located.
+        """
+        return pulumi.get(self, "ui_definition_uri")
+
+    @ui_definition_uri.setter
+    def ui_definition_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ui_definition_uri", value)
 
 
 @pulumi.input_type

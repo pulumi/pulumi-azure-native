@@ -38,18 +38,6 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
     }
 
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    public readonly dependsOn!: pulumi.Output<string[] | undefined>;
-    /**
-     * Multi-line explain this resource.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * One-liner string explain this resource.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'policyAssignment'.
      */
@@ -59,17 +47,9 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Parameter values for the policy definition.
+     * properties for policyAssignment Artifact
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ParameterValueBaseResponse}>;
-    /**
-     * Azure resource ID of the policy definition.
-     */
-    public readonly policyDefinitionId!: pulumi.Output<string>;
-    /**
-     * Name of the resource group placeholder to which the policy will be assigned.
-     */
-    public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.blueprint.v20171111preview.PolicyAssignmentArtifactPropertiesResponse>;
     /**
      * Type of this resource.
      */
@@ -95,33 +75,20 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
             if ((!args || args.managementGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'parameters'");
-            }
-            if ((!args || args.policyDefinitionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyDefinitionId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             resourceInputs["artifactName"] = args ? args.artifactName : undefined;
             resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["dependsOn"] = args ? args.dependsOn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["kind"] = "policyAssignment";
             resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dependsOn"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
-            resourceInputs["policyDefinitionId"] = undefined /*out*/;
-            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -142,18 +109,6 @@ export interface PolicyAssignmentArtifactArgs {
      */
     blueprintName: pulumi.Input<string>;
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Multi-line explain this resource.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * One-liner string explain this resource.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'policyAssignment'.
      */
@@ -163,15 +118,7 @@ export interface PolicyAssignmentArtifactArgs {
      */
     managementGroupName: pulumi.Input<string>;
     /**
-     * Parameter values for the policy definition.
+     * properties for policyAssignment Artifact
      */
-    parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
-    /**
-     * Azure resource ID of the policy definition.
-     */
-    policyDefinitionId: pulumi.Input<string>;
-    /**
-     * Name of the resource group placeholder to which the policy will be assigned.
-     */
-    resourceGroup?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.blueprint.v20171111preview.PolicyAssignmentArtifactPropertiesArgs>;
 }

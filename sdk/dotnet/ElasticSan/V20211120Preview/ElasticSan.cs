@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     public partial class ElasticSan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Logical zone for Elastic San resource; example: ["1"].
-        /// </summary>
-        [Output("availabilityZones")]
-        public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
-
-        /// <summary>
-        /// Base size of the Elastic San appliance in TiB.
-        /// </summary>
-        [Output("baseSizeTiB")]
-        public Output<double> BaseSizeTiB { get; private set; } = null!;
-
-        /// <summary>
-        /// Extended size of the Elastic San appliance in TiB.
-        /// </summary>
-        [Output("extendedCapacitySizeTiB")]
-        public Output<double> ExtendedCapacitySizeTiB { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives.
         /// </summary>
         [Output("location")]
@@ -46,16 +28,10 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the operation on the resource.
+        /// Properties of ElasticSan.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// resource sku
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ElasticSanPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource metadata required by ARM RPC
@@ -70,40 +46,10 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Total Provisioned IOPS of the Elastic San appliance.
-        /// </summary>
-        [Output("totalIops")]
-        public Output<double> TotalIops { get; private set; } = null!;
-
-        /// <summary>
-        /// Total Provisioned MBps Elastic San appliance.
-        /// </summary>
-        [Output("totalMBps")]
-        public Output<double> TotalMBps { get; private set; } = null!;
-
-        /// <summary>
-        /// Total size of the Elastic San appliance in TB.
-        /// </summary>
-        [Output("totalSizeTiB")]
-        public Output<double> TotalSizeTiB { get; private set; } = null!;
-
-        /// <summary>
-        /// Total size of the provisioned Volumes in GiB.
-        /// </summary>
-        [Output("totalVolumeSizeGiB")]
-        public Output<double> TotalVolumeSizeGiB { get; private set; } = null!;
-
-        /// <summary>
         /// Azure resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Total number of volume groups in this Elastic San appliance.
-        /// </summary>
-        [Output("volumeGroupCount")]
-        public Output<double> VolumeGroupCount { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,35 +100,11 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
 
     public sealed class ElasticSanArgs : global::Pulumi.ResourceArgs
     {
-        [Input("availabilityZones")]
-        private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// Logical zone for Elastic San resource; example: ["1"].
-        /// </summary>
-        public InputList<string> AvailabilityZones
-        {
-            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
-            set => _availabilityZones = value;
-        }
-
-        /// <summary>
-        /// Base size of the Elastic San appliance in TiB.
-        /// </summary>
-        [Input("baseSizeTiB", required: true)]
-        public Input<double> BaseSizeTiB { get; set; } = null!;
-
         /// <summary>
         /// The name of the ElasticSan.
         /// </summary>
         [Input("elasticSanName")]
         public Input<string>? ElasticSanName { get; set; }
-
-        /// <summary>
-        /// Extended size of the Elastic San appliance in TiB.
-        /// </summary>
-        [Input("extendedCapacitySizeTiB", required: true)]
-        public Input<double> ExtendedCapacitySizeTiB { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives.
@@ -191,16 +113,16 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Properties of ElasticSan.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ElasticSanPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// resource sku
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

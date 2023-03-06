@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public partial class NotificationChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The creation date of the notification channel.
-        /// </summary>
-        [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
-
-        /// <summary>
-        /// Description of notification.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-        /// </summary>
-        [Output("emailRecipient")]
-        public Output<string?> EmailRecipient { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of event for which this notification is enabled.
-        /// </summary>
-        [Output("events")]
-        public Output<ImmutableArray<Outputs.EventResponse>> Events { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -52,16 +28,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The locale to use when sending a notification (fallback for unsupported languages is EN).
+        /// The properties of the resource.
         /// </summary>
-        [Output("notificationLocale")]
-        public Output<string?> NotificationLocale { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning status of the resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.NotificationChannelPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -74,18 +44,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// The webhook URL to send notifications to.
-        /// </summary>
-        [Output("webHookUrl")]
-        public Output<string?> WebHookUrl { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,30 +96,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of notification.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-        /// </summary>
-        [Input("emailRecipient")]
-        public Input<string>? EmailRecipient { get; set; }
-
-        [Input("events")]
-        private InputList<Inputs.EventArgs>? _events;
-
-        /// <summary>
-        /// The list of event for which this notification is enabled.
-        /// </summary>
-        public InputList<Inputs.EventArgs> Events
-        {
-            get => _events ?? (_events = new InputList<Inputs.EventArgs>());
-            set => _events = value;
-        }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -180,10 +114,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The locale to use when sending a notification (fallback for unsupported languages is EN).
+        /// The properties of the resource.
         /// </summary>
-        [Input("notificationLocale")]
-        public Input<string>? NotificationLocale { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.NotificationChannelPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -202,12 +136,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The webhook URL to send notifications to.
-        /// </summary>
-        [Input("webHookUrl")]
-        public Input<string>? WebHookUrl { get; set; }
 
         public NotificationChannelArgs()
         {

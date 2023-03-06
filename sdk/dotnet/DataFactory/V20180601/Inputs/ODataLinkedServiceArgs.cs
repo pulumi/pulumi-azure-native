@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class ODataLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("aadResourceId")]
-        public Input<object>? AadResourceId { get; set; }
-
-        /// <summary>
-        /// Specify the credential type (key or cert) is used for service principal.
-        /// </summary>
-        [Input("aadServicePrincipalCredentialType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ODataAadServicePrincipalCredentialType>? AadServicePrincipalCredentialType { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,24 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
-        /// </summary>
-        [Input("authHeaders")]
-        public Input<object>? AuthHeaders { get; set; }
-
-        /// <summary>
-        /// Type of authentication used to connect to the OData service.
-        /// </summary>
-        [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ODataAuthenticationType>? AuthenticationType { get; set; }
-
-        /// <summary>
-        /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("azureCloudType")]
-        public Input<object>? AzureCloudType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -68,12 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -88,42 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Password of the OData service.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalEmbeddedCert")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalEmbeddedCert { get; set; }
-
-        /// <summary>
-        /// Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalEmbeddedCertPassword")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalEmbeddedCertPassword { get; set; }
-
-        /// <summary>
-        /// Specify the application id of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId")]
-        public Input<object>? ServicePrincipalId { get; set; }
-
-        /// <summary>
-        /// Specify the secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
-
-        /// <summary>
-        /// Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tenant")]
-        public Input<object>? Tenant { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'OData'.
         /// </summary>
@@ -131,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
+        /// OData linked service properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
-
-        /// <summary>
-        /// User name of the OData service. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ODataLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ODataLinkedServiceArgs()
         {

@@ -19,67 +19,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetIncidentTaskResult:
-    def __init__(__self__, created_by=None, created_time_utc=None, description=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, status=None, system_data=None, title=None, type=None):
-        if created_by and not isinstance(created_by, dict):
-            raise TypeError("Expected argument 'created_by' to be a dict")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_time_utc and not isinstance(created_time_utc, str):
-            raise TypeError("Expected argument 'created_time_utc' to be a str")
-        pulumi.set(__self__, "created_time_utc", created_time_utc)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_by and not isinstance(last_modified_by, dict):
-            raise TypeError("Expected argument 'last_modified_by' to be a dict")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_time_utc and not isinstance(last_modified_time_utc, str):
-            raise TypeError("Expected argument 'last_modified_time_utc' to be a str")
-        pulumi.set(__self__, "last_modified_time_utc", last_modified_time_utc)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if title and not isinstance(title, str):
-            raise TypeError("Expected argument 'title' to be a str")
-        pulumi.set(__self__, "title", title)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional['outputs.ClientInfoResponse']:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdTimeUtc")
-    def created_time_utc(self) -> str:
-        """
-        The time the task was created
-        """
-        return pulumi.get(self, "created_time_utc")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the task
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -98,22 +56,6 @@ class GetIncidentTaskResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional['outputs.ClientInfoResponse']:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedTimeUtc")
-    def last_modified_time_utc(self) -> str:
-        """
-        The last time the task was updated
-        """
-        return pulumi.get(self, "last_modified_time_utc")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -123,8 +65,8 @@ class GetIncidentTaskResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
-        return pulumi.get(self, "status")
+    def properties(self) -> 'outputs.IncidentTaskPropertiesResponse':
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -133,14 +75,6 @@ class GetIncidentTaskResult:
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter
-    def title(self) -> str:
-        """
-        The title of the task
-        """
-        return pulumi.get(self, "title")
 
     @property
     @pulumi.getter
@@ -157,17 +91,11 @@ class AwaitableGetIncidentTaskResult(GetIncidentTaskResult):
         if False:
             yield self
         return GetIncidentTaskResult(
-            created_by=self.created_by,
-            created_time_utc=self.created_time_utc,
-            description=self.description,
             etag=self.etag,
             id=self.id,
-            last_modified_by=self.last_modified_by,
-            last_modified_time_utc=self.last_modified_time_utc,
             name=self.name,
-            status=self.status,
+            properties=self.properties,
             system_data=self.system_data,
-            title=self.title,
             type=self.type)
 
 
@@ -194,17 +122,11 @@ def get_incident_task(incident_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20221201preview:getIncidentTask', __args__, opts=opts, typ=GetIncidentTaskResult).value
 
     return AwaitableGetIncidentTaskResult(
-        created_by=__ret__.created_by,
-        created_time_utc=__ret__.created_time_utc,
-        description=__ret__.description,
         etag=__ret__.etag,
         id=__ret__.id,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_time_utc=__ret__.last_modified_time_utc,
         name=__ret__.name,
-        status=__ret__.status,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        title=__ret__.title,
         type=__ret__.type)
 
 

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['HybridRunbookWorkerArgs', 'HybridRunbookWorker']
 
@@ -17,28 +18,27 @@ class HybridRunbookWorkerArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  hybrid_runbook_worker_group_name: pulumi.Input[str],
+                 properties: pulumi.Input['HybridRunbookWorkerCreateOrUpdateParametersArgs'],
                  resource_group_name: pulumi.Input[str],
                  hybrid_runbook_worker_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HybridRunbookWorker resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
+        :param pulumi.Input['HybridRunbookWorkerCreateOrUpdateParametersArgs'] properties: Gets or sets hybrid runbook worker group create or update properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] hybrid_runbook_worker_id: The hybrid runbook worker id
         :param pulumi.Input[str] name: Gets or sets the name of the resource.
-        :param pulumi.Input[str] vm_resource_id: Azure Resource Manager Id for a virtual machine.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "hybrid_runbook_worker_group_name", hybrid_runbook_worker_group_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if hybrid_runbook_worker_id is not None:
             pulumi.set(__self__, "hybrid_runbook_worker_id", hybrid_runbook_worker_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if vm_resource_id is not None:
-            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -63,6 +63,18 @@ class HybridRunbookWorkerArgs:
     @hybrid_runbook_worker_group_name.setter
     def hybrid_runbook_worker_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "hybrid_runbook_worker_group_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['HybridRunbookWorkerCreateOrUpdateParametersArgs']:
+        """
+        Gets or sets hybrid runbook worker group create or update properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['HybridRunbookWorkerCreateOrUpdateParametersArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,18 +112,6 @@ class HybridRunbookWorkerArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="vmResourceId")
-    def vm_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Resource Manager Id for a virtual machine.
-        """
-        return pulumi.get(self, "vm_resource_id")
-
-    @vm_resource_id.setter
-    def vm_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_resource_id", value)
-
 
 class HybridRunbookWorker(pulumi.CustomResource):
     @overload
@@ -122,8 +122,8 @@ class HybridRunbookWorker(pulumi.CustomResource):
                  hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                  hybrid_runbook_worker_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['HybridRunbookWorkerCreateOrUpdateParametersArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Definition of hybrid runbook worker.
@@ -135,8 +135,8 @@ class HybridRunbookWorker(pulumi.CustomResource):
         :param pulumi.Input[str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
         :param pulumi.Input[str] hybrid_runbook_worker_id: The hybrid runbook worker id
         :param pulumi.Input[str] name: Gets or sets the name of the resource.
+        :param pulumi.Input[pulumi.InputType['HybridRunbookWorkerCreateOrUpdateParametersArgs']] properties: Gets or sets hybrid runbook worker group create or update properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[str] vm_resource_id: Azure Resource Manager Id for a virtual machine.
         """
         ...
     @overload
@@ -167,8 +167,8 @@ class HybridRunbookWorker(pulumi.CustomResource):
                  hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                  hybrid_runbook_worker_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['HybridRunbookWorkerCreateOrUpdateParametersArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,15 +186,18 @@ class HybridRunbookWorker(pulumi.CustomResource):
             __props__.__dict__["hybrid_runbook_worker_group_name"] = hybrid_runbook_worker_group_name
             __props__.__dict__["hybrid_runbook_worker_id"] = hybrid_runbook_worker_id
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["vm_resource_id"] = vm_resource_id
             __props__.__dict__["ip"] = None
             __props__.__dict__["last_seen_date_time"] = None
             __props__.__dict__["registered_date_time"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["vm_resource_id"] = None
             __props__.__dict__["worker_name"] = None
             __props__.__dict__["worker_type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20210622:HybridRunbookWorker"), pulumi.Alias(type_="azure-native:automation/v20220808:HybridRunbookWorker")])

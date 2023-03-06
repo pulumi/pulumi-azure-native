@@ -38,30 +38,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     }
 
     /**
-     * ActiveActive flag.
-     */
-    public readonly activeActive!: pulumi.Output<boolean | undefined>;
-    /**
-     * Virtual network gateway's BGP speaker settings.
-     */
-    public readonly bgpSettings!: pulumi.Output<outputs.network.v20201101.BgpSettingsResponse | undefined>;
-    /**
-     * The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
-     */
-    public readonly customRoutes!: pulumi.Output<outputs.network.v20201101.AddressSpaceResponse | undefined>;
-    /**
-     * Whether BGP is enabled for this virtual network gateway or not.
-     */
-    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether dns forwarding is enabled or not.
-     */
-    public readonly enableDnsForwarding!: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether private IP needs to be enabled on this gateway for connections or not.
-     */
-    public readonly enablePrivateIpAddress!: pulumi.Output<boolean | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -69,22 +45,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * The extended location of type local virtual network gateway.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.network.v20201101.ExtendedLocationResponse | undefined>;
-    /**
-     * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-     */
-    public readonly gatewayDefaultSite!: pulumi.Output<outputs.network.v20201101.SubResourceResponse | undefined>;
-    /**
-     * The type of this virtual network gateway.
-     */
-    public readonly gatewayType!: pulumi.Output<string | undefined>;
-    /**
-     * The IP address allocated by the gateway to which dns requests can be sent.
-     */
-    public /*out*/ readonly inboundDnsForwardingEndpoint!: pulumi.Output<string>;
-    /**
-     * IP configurations for virtual network gateway.
-     */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20201101.VirtualNetworkGatewayIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -94,17 +54,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the virtual network gateway resource.
+     * Properties of the virtual network gateway.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resource GUID property of the virtual network gateway resource.
-     */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
-    /**
-     * The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-     */
-    public readonly sku!: pulumi.Output<outputs.network.v20201101.VirtualNetworkGatewaySkuResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.network.v20201101.VirtualNetworkGatewayPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -113,22 +65,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-     */
-    public readonly vNetExtendedLocationResourceId!: pulumi.Output<string | undefined>;
-    /**
-     * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-     */
-    public readonly vpnClientConfiguration!: pulumi.Output<outputs.network.v20201101.VpnClientConfigurationResponse | undefined>;
-    /**
-     * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
-     */
-    public readonly vpnGatewayGeneration!: pulumi.Output<string | undefined>;
-    /**
-     * The type of this virtual network gateway.
-     */
-    public readonly vpnType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualNetworkGateway resource with the given unique name, arguments, and options.
@@ -141,59 +77,30 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activeActive"] = args ? args.activeActive : undefined;
-            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            resourceInputs["customRoutes"] = args ? args.customRoutes : undefined;
-            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["enableDnsForwarding"] = args ? args.enableDnsForwarding : undefined;
-            resourceInputs["enablePrivateIpAddress"] = args ? args.enablePrivateIpAddress : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["gatewayDefaultSite"] = args ? args.gatewayDefaultSite : undefined;
-            resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vNetExtendedLocationResourceId"] = args ? args.vNetExtendedLocationResourceId : undefined;
             resourceInputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
-            resourceInputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
-            resourceInputs["vpnGatewayGeneration"] = args ? args.vpnGatewayGeneration : undefined;
-            resourceInputs["vpnType"] = args ? args.vpnType : undefined;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["inboundDnsForwardingEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["activeActive"] = undefined /*out*/;
-            resourceInputs["bgpSettings"] = undefined /*out*/;
-            resourceInputs["customRoutes"] = undefined /*out*/;
-            resourceInputs["enableBgp"] = undefined /*out*/;
-            resourceInputs["enableDnsForwarding"] = undefined /*out*/;
-            resourceInputs["enablePrivateIpAddress"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["gatewayDefaultSite"] = undefined /*out*/;
-            resourceInputs["gatewayType"] = undefined /*out*/;
-            resourceInputs["inboundDnsForwardingEndpoint"] = undefined /*out*/;
-            resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
-            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vNetExtendedLocationResourceId"] = undefined /*out*/;
-            resourceInputs["vpnClientConfiguration"] = undefined /*out*/;
-            resourceInputs["vpnGatewayGeneration"] = undefined /*out*/;
-            resourceInputs["vpnType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetworkGateway" }, { type: "azure-native:network/v20150615:VirtualNetworkGateway" }, { type: "azure-native:network/v20160330:VirtualNetworkGateway" }, { type: "azure-native:network/v20160601:VirtualNetworkGateway" }, { type: "azure-native:network/v20160901:VirtualNetworkGateway" }, { type: "azure-native:network/v20161201:VirtualNetworkGateway" }, { type: "azure-native:network/v20170301:VirtualNetworkGateway" }, { type: "azure-native:network/v20170601:VirtualNetworkGateway" }, { type: "azure-native:network/v20170801:VirtualNetworkGateway" }, { type: "azure-native:network/v20170901:VirtualNetworkGateway" }, { type: "azure-native:network/v20171001:VirtualNetworkGateway" }, { type: "azure-native:network/v20171101:VirtualNetworkGateway" }, { type: "azure-native:network/v20180101:VirtualNetworkGateway" }, { type: "azure-native:network/v20180201:VirtualNetworkGateway" }, { type: "azure-native:network/v20180401:VirtualNetworkGateway" }, { type: "azure-native:network/v20180601:VirtualNetworkGateway" }, { type: "azure-native:network/v20180701:VirtualNetworkGateway" }, { type: "azure-native:network/v20180801:VirtualNetworkGateway" }, { type: "azure-native:network/v20181001:VirtualNetworkGateway" }, { type: "azure-native:network/v20181101:VirtualNetworkGateway" }, { type: "azure-native:network/v20181201:VirtualNetworkGateway" }, { type: "azure-native:network/v20190201:VirtualNetworkGateway" }, { type: "azure-native:network/v20190401:VirtualNetworkGateway" }, { type: "azure-native:network/v20190601:VirtualNetworkGateway" }, { type: "azure-native:network/v20190701:VirtualNetworkGateway" }, { type: "azure-native:network/v20190801:VirtualNetworkGateway" }, { type: "azure-native:network/v20190901:VirtualNetworkGateway" }, { type: "azure-native:network/v20191101:VirtualNetworkGateway" }, { type: "azure-native:network/v20191201:VirtualNetworkGateway" }, { type: "azure-native:network/v20200301:VirtualNetworkGateway" }, { type: "azure-native:network/v20200401:VirtualNetworkGateway" }, { type: "azure-native:network/v20200501:VirtualNetworkGateway" }, { type: "azure-native:network/v20200601:VirtualNetworkGateway" }, { type: "azure-native:network/v20200701:VirtualNetworkGateway" }, { type: "azure-native:network/v20200801:VirtualNetworkGateway" }, { type: "azure-native:network/v20210201:VirtualNetworkGateway" }, { type: "azure-native:network/v20210301:VirtualNetworkGateway" }, { type: "azure-native:network/v20210501:VirtualNetworkGateway" }, { type: "azure-native:network/v20210801:VirtualNetworkGateway" }, { type: "azure-native:network/v20220101:VirtualNetworkGateway" }, { type: "azure-native:network/v20220501:VirtualNetworkGateway" }, { type: "azure-native:network/v20220701:VirtualNetworkGateway" }, { type: "azure-native:network/v20220901:VirtualNetworkGateway" }] };
@@ -207,83 +114,31 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
  */
 export interface VirtualNetworkGatewayArgs {
     /**
-     * ActiveActive flag.
-     */
-    activeActive?: pulumi.Input<boolean>;
-    /**
-     * Virtual network gateway's BGP speaker settings.
-     */
-    bgpSettings?: pulumi.Input<inputs.network.v20201101.BgpSettingsArgs>;
-    /**
-     * The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
-     */
-    customRoutes?: pulumi.Input<inputs.network.v20201101.AddressSpaceArgs>;
-    /**
-     * Whether BGP is enabled for this virtual network gateway or not.
-     */
-    enableBgp?: pulumi.Input<boolean>;
-    /**
-     * Whether dns forwarding is enabled or not.
-     */
-    enableDnsForwarding?: pulumi.Input<boolean>;
-    /**
-     * Whether private IP needs to be enabled on this gateway for connections or not.
-     */
-    enablePrivateIpAddress?: pulumi.Input<boolean>;
-    /**
      * The extended location of type local virtual network gateway.
      */
     extendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocationArgs>;
-    /**
-     * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-     */
-    gatewayDefaultSite?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
-    /**
-     * The type of this virtual network gateway.
-     */
-    gatewayType?: pulumi.Input<string | enums.network.v20201101.VirtualNetworkGatewayType>;
     /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
     /**
-     * IP configurations for virtual network gateway.
-     */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20201101.VirtualNetworkGatewayIPConfigurationArgs>[]>;
-    /**
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Properties of the virtual network gateway.
+     */
+    properties: pulumi.Input<inputs.network.v20201101.VirtualNetworkGatewayPropertiesFormatArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-     */
-    sku?: pulumi.Input<inputs.network.v20201101.VirtualNetworkGatewaySkuArgs>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-     */
-    vNetExtendedLocationResourceId?: pulumi.Input<string>;
-    /**
      * The name of the virtual network gateway.
      */
     virtualNetworkGatewayName?: pulumi.Input<string>;
-    /**
-     * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-     */
-    vpnClientConfiguration?: pulumi.Input<inputs.network.v20201101.VpnClientConfigurationArgs>;
-    /**
-     * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
-     */
-    vpnGatewayGeneration?: pulumi.Input<string | enums.network.v20201101.VpnGatewayGeneration>;
-    /**
-     * The type of this virtual network gateway.
-     */
-    vpnType?: pulumi.Input<string | enums.network.v20201101.VpnType>;
 }

@@ -11,7 +11,9 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AlertRuleArgs',
     'LocationThresholdRuleConditionArgs',
+    'LogProfilePropertiesArgs',
     'ManagementEventAggregationConditionArgs',
     'ManagementEventRuleConditionArgs',
     'RetentionPolicyArgs',
@@ -22,6 +24,123 @@ __all__ = [
     'RuleWebhookActionArgs',
     'ThresholdRuleConditionArgs',
 ]
+
+@pulumi.input_type
+class AlertRuleArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']],
+                 is_enabled: pulumi.Input[bool],
+                 name: pulumi.Input[str],
+                 action: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None):
+        """
+        An alert rule.
+        :param pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']] condition: the condition that results in the alert rule being activated.
+        :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
+        :param pulumi.Input[str] name: the name of the alert rule.
+        :param pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
+        :param pulumi.Input[str] provisioning_state: the provisioning state.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]:
+        """
+        the condition that results in the alert rule being activated.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        the name of the alert rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
 
 @pulumi.input_type
 class LocationThresholdRuleConditionArgs:
@@ -93,6 +212,91 @@ class LocationThresholdRuleConditionArgs:
     @window_size.setter
     def window_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "window_size", value)
+
+
+@pulumi.input_type
+class LogProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 categories: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 locations: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 retention_policy: pulumi.Input['RetentionPolicyArgs'],
+                 service_bus_rule_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        The log profile properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for the events in the log.
+        :param pulumi.Input[str] service_bus_rule_id: The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        :param pulumi.Input[str] storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        pulumi.set(__self__, "categories", categories)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "retention_policy", retention_policy)
+        if service_bus_rule_id is not None:
+            pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "categories", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> pulumi.Input['RetentionPolicyArgs']:
+        """
+        the retention policy for the events in the log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: pulumi.Input['RetentionPolicyArgs']):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter(name="serviceBusRuleId")
+    def service_bus_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        """
+        return pulumi.get(self, "service_bus_rule_id")
+
+    @service_bus_rule_id.setter
+    def service_bus_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_bus_rule_id", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
 
 
 @pulumi.input_type

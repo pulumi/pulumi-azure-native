@@ -82,41 +82,25 @@ namespace Pulumi.AzureNative.Network.V20220701
     public sealed class GetForwardingRuleResult
     {
         /// <summary>
-        /// The domain name for the forwarding rule.
-        /// </summary>
-        public readonly string DomainName;
-        /// <summary>
         /// ETag of the forwarding rule.
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// The state of forwarding rule.
-        /// </summary>
-        public readonly string? ForwardingRuleState;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Metadata attached to the forwarding rule.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the forwarding rule.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.ForwardingRulePropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// DNS servers to forward the DNS query to.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TargetDnsServerResponse> TargetDnsServers;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -124,35 +108,23 @@ namespace Pulumi.AzureNative.Network.V20220701
 
         [OutputConstructor]
         private GetForwardingRuleResult(
-            string domainName,
-
             string etag,
-
-            string? forwardingRuleState,
 
             string id,
 
-            ImmutableDictionary<string, string>? metadata,
-
             string name,
 
-            string provisioningState,
+            Outputs.ForwardingRulePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            ImmutableArray<Outputs.TargetDnsServerResponse> targetDnsServers,
-
             string type)
         {
-            DomainName = domainName;
             Etag = etag;
-            ForwardingRuleState = forwardingRuleState;
             Id = id;
-            Metadata = metadata;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
-            TargetDnsServers = targetDnsServers;
             Type = type;
         }
     }

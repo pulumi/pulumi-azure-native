@@ -84,10 +84,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetScalingPlanPooledScheduleResult
     {
         /// <summary>
-        /// Set of days of the week on which this schedule is active.
-        /// </summary>
-        public readonly ImmutableArray<string> DaysOfWeek;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -96,69 +92,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Load balancing algorithm for off-peak period.
+        /// Detailed properties for ScalingPlanPooledSchedule
         /// </summary>
-        public readonly string? OffPeakLoadBalancingAlgorithm;
-        /// <summary>
-        /// Starting time for off-peak period.
-        /// </summary>
-        public readonly Outputs.TimeResponse? OffPeakStartTime;
-        /// <summary>
-        /// Load balancing algorithm for peak period.
-        /// </summary>
-        public readonly string? PeakLoadBalancingAlgorithm;
-        /// <summary>
-        /// Starting time for peak period.
-        /// </summary>
-        public readonly Outputs.TimeResponse? PeakStartTime;
-        /// <summary>
-        /// Capacity threshold for ramp down period.
-        /// </summary>
-        public readonly int? RampDownCapacityThresholdPct;
-        /// <summary>
-        /// Should users be logged off forcefully from hosts.
-        /// </summary>
-        public readonly bool? RampDownForceLogoffUsers;
-        /// <summary>
-        /// Load balancing algorithm for ramp down period.
-        /// </summary>
-        public readonly string? RampDownLoadBalancingAlgorithm;
-        /// <summary>
-        /// Minimum host percentage for ramp down period.
-        /// </summary>
-        public readonly int? RampDownMinimumHostsPct;
-        /// <summary>
-        /// Notification message for users during ramp down period.
-        /// </summary>
-        public readonly string? RampDownNotificationMessage;
-        /// <summary>
-        /// Starting time for ramp down period.
-        /// </summary>
-        public readonly Outputs.TimeResponse? RampDownStartTime;
-        /// <summary>
-        /// Specifies when to stop hosts during ramp down period.
-        /// </summary>
-        public readonly string? RampDownStopHostsWhen;
-        /// <summary>
-        /// Number of minutes to wait to stop hosts during ramp down period.
-        /// </summary>
-        public readonly int? RampDownWaitTimeMinutes;
-        /// <summary>
-        /// Capacity threshold for ramp up period.
-        /// </summary>
-        public readonly int? RampUpCapacityThresholdPct;
-        /// <summary>
-        /// Load balancing algorithm for ramp up period.
-        /// </summary>
-        public readonly string? RampUpLoadBalancingAlgorithm;
-        /// <summary>
-        /// Minimum host percentage for ramp up period.
-        /// </summary>
-        public readonly int? RampUpMinimumHostsPct;
-        /// <summary>
-        /// Starting time for ramp up period.
-        /// </summary>
-        public readonly Outputs.TimeResponse? RampUpStartTime;
+        public readonly Outputs.ScalingPlanPooledSchedulePropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -170,67 +106,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [OutputConstructor]
         private GetScalingPlanPooledScheduleResult(
-            ImmutableArray<string> daysOfWeek,
-
             string id,
 
             string name,
 
-            string? offPeakLoadBalancingAlgorithm,
-
-            Outputs.TimeResponse? offPeakStartTime,
-
-            string? peakLoadBalancingAlgorithm,
-
-            Outputs.TimeResponse? peakStartTime,
-
-            int? rampDownCapacityThresholdPct,
-
-            bool? rampDownForceLogoffUsers,
-
-            string? rampDownLoadBalancingAlgorithm,
-
-            int? rampDownMinimumHostsPct,
-
-            string? rampDownNotificationMessage,
-
-            Outputs.TimeResponse? rampDownStartTime,
-
-            string? rampDownStopHostsWhen,
-
-            int? rampDownWaitTimeMinutes,
-
-            int? rampUpCapacityThresholdPct,
-
-            string? rampUpLoadBalancingAlgorithm,
-
-            int? rampUpMinimumHostsPct,
-
-            Outputs.TimeResponse? rampUpStartTime,
+            Outputs.ScalingPlanPooledSchedulePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DaysOfWeek = daysOfWeek;
             Id = id;
             Name = name;
-            OffPeakLoadBalancingAlgorithm = offPeakLoadBalancingAlgorithm;
-            OffPeakStartTime = offPeakStartTime;
-            PeakLoadBalancingAlgorithm = peakLoadBalancingAlgorithm;
-            PeakStartTime = peakStartTime;
-            RampDownCapacityThresholdPct = rampDownCapacityThresholdPct;
-            RampDownForceLogoffUsers = rampDownForceLogoffUsers;
-            RampDownLoadBalancingAlgorithm = rampDownLoadBalancingAlgorithm;
-            RampDownMinimumHostsPct = rampDownMinimumHostsPct;
-            RampDownNotificationMessage = rampDownNotificationMessage;
-            RampDownStartTime = rampDownStartTime;
-            RampDownStopHostsWhen = rampDownStopHostsWhen;
-            RampDownWaitTimeMinutes = rampDownWaitTimeMinutes;
-            RampUpCapacityThresholdPct = rampUpCapacityThresholdPct;
-            RampUpLoadBalancingAlgorithm = rampUpLoadBalancingAlgorithm;
-            RampUpMinimumHostsPct = rampUpMinimumHostsPct;
-            RampUpStartTime = rampUpStartTime;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

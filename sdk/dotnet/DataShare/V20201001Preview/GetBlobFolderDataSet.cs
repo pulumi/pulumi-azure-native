@@ -94,14 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public sealed class GetBlobFolderDataSetResult
     {
         /// <summary>
-        /// Container that has the file path.
-        /// </summary>
-        public readonly string ContainerName;
-        /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -115,21 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Prefix for blob folder
+        /// Blob folder data set properties.
         /// </summary>
-        public readonly string Prefix;
-        /// <summary>
-        /// Resource group of storage account
-        /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.BlobFolderPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -141,37 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 
         [OutputConstructor]
         private GetBlobFolderDataSetResult(
-            string containerName,
-
-            string dataSetId,
-
             string id,
 
             string kind,
 
             string name,
 
-            string prefix,
-
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.BlobFolderPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ContainerName = containerName;
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
             Name = name;
-            Prefix = prefix;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

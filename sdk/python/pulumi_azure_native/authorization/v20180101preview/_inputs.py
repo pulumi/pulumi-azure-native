@@ -11,6 +11,7 @@ from ... import _utilities
 
 __all__ = [
     'PermissionArgs',
+    'RoleAssignmentPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -83,5 +84,59 @@ class PermissionArgs:
     @not_data_actions.setter
     def not_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "not_data_actions", value)
+
+
+@pulumi.input_type
+class RoleAssignmentPropertiesArgs:
+    def __init__(__self__, *,
+                 principal_id: pulumi.Input[str],
+                 role_definition_id: pulumi.Input[str],
+                 can_delegate: Optional[pulumi.Input[bool]] = None):
+        """
+        Role assignment properties.
+        :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
+        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if can_delegate is not None:
+            pulumi.set(__self__, "can_delegate", can_delegate)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Input[str]:
+        """
+        The role definition ID used in the role assignment.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="canDelegate")
+    def can_delegate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The delegation flag used for creating a role assignment
+        """
+        return pulumi.get(self, "can_delegate")
+
+    @can_delegate.setter
+    def can_delegate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "can_delegate", value)
 
 

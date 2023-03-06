@@ -37,65 +37,21 @@ export interface GetHostPoolArgs {
  */
 export interface GetHostPoolResult {
     /**
-     * List of applicationGroup links.
-     */
-    readonly applicationGroupReferences: string[];
-    /**
-     * Custom rdp property of HostPool.
-     */
-    readonly customRdpProperty?: string;
-    /**
-     * Description of HostPool.
-     */
-    readonly description?: string;
-    /**
-     * Friendly name of HostPool.
-     */
-    readonly friendlyName?: string;
-    /**
-     * HostPool type for desktop.
-     */
-    readonly hostPoolType: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The type of the load balancer.
-     */
-    readonly loadBalancerType: string;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The max session limit of HostPool.
-     */
-    readonly maxSessionLimit?: number;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * PersonalDesktopAssignment type for HostPool.
+     * Detailed properties for HostPool
      */
-    readonly personalDesktopAssignmentType?: string;
-    /**
-     * The type of preferred application group type, default to Desktop Application Group
-     */
-    readonly preferredAppGroupType: string;
-    /**
-     * The registration info of HostPool.
-     */
-    readonly registrationInfo?: outputs.desktopvirtualization.v20190123preview.RegistrationInfoResponse;
-    /**
-     * The ring number of HostPool.
-     */
-    readonly ring?: number;
-    /**
-     * Path to keyvault containing ssoContext secret.
-     */
-    readonly ssoContext?: string;
+    readonly properties: outputs.desktopvirtualization.v20190123preview.HostPoolPropertiesResponse;
     /**
      * Resource tags.
      */
@@ -104,14 +60,6 @@ export interface GetHostPoolResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Is validation environment.
-     */
-    readonly validationEnvironment?: boolean;
-    /**
-     * VM template for sessionhosts configuration within hostpool.
-     */
-    readonly vmTemplate?: string;
 }
 /**
  * Get a host pool.

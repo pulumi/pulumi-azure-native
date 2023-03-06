@@ -16,40 +16,16 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If the schedule will occur once each day of the week, specify the daily recurrence.
-        /// </summary>
-        [Input("dailyRecurrence")]
-        public Input<Inputs.DayDetailsArgs>? DailyRecurrence { get; set; }
-
-        /// <summary>
-        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
-        /// </summary>
-        [Input("hourlyRecurrence")]
-        public Input<Inputs.HourDetailsArgs>? HourlyRecurrence { get; set; }
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Notification settings.
+        /// The properties of the resource.
         /// </summary>
-        [Input("notificationSettings")]
-        public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
-
-        /// <summary>
-        /// The provisioning status of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// The status of the schedule (i.e. Enabled, Disabled)
-        /// </summary>
-        [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20160515.EnableStatus>? Status { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SchedulePropertiesArgs> Properties { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -62,36 +38,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515.Inputs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The resource ID to which the schedule belongs
-        /// </summary>
-        [Input("targetResourceId")]
-        public Input<string>? TargetResourceId { get; set; }
-
-        /// <summary>
-        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        /// </summary>
-        [Input("taskType")]
-        public Input<string>? TaskType { get; set; }
-
-        /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
-        /// </summary>
-        [Input("timeZoneId")]
-        public Input<string>? TimeZoneId { get; set; }
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Input("uniqueIdentifier")]
-        public Input<string>? UniqueIdentifier { get; set; }
-
-        /// <summary>
-        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
-        /// </summary>
-        [Input("weeklyRecurrence")]
-        public Input<Inputs.WeekDetailsArgs>? WeeklyRecurrence { get; set; }
 
         public ScheduleArgs()
         {

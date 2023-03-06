@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
     public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Parent Device Update Account name which Instance belongs to.
-        /// </summary>
-        [Output("accountName")]
-        public Output<string> AccountName { get; private set; } = null!;
-
-        /// <summary>
-        /// Customer-initiated diagnostic log collection storage properties
-        /// </summary>
-        [Output("diagnosticStorageProperties")]
-        public Output<Outputs.DiagnosticStoragePropertiesResponse?> DiagnosticStorageProperties { get; private set; } = null!;
-
-        /// <summary>
-        /// Enables or Disables the diagnostic logs collection
-        /// </summary>
-        [Output("enableDiagnostics")]
-        public Output<bool?> EnableDiagnostics { get; private set; } = null!;
-
-        /// <summary>
-        /// List of IoT Hubs associated with the account.
-        /// </summary>
-        [Output("iotHubs")]
-        public Output<ImmutableArray<Outputs.IotHubSettingsResponse>> IotHubs { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -52,10 +28,10 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state.
+        /// Device Update instance properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.InstanceResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -134,40 +110,22 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Customer-initiated diagnostic log collection storage properties
-        /// </summary>
-        [Input("diagnosticStorageProperties")]
-        public Input<Inputs.DiagnosticStoragePropertiesArgs>? DiagnosticStorageProperties { get; set; }
-
-        /// <summary>
-        /// Enables or Disables the diagnostic logs collection
-        /// </summary>
-        [Input("enableDiagnostics")]
-        public Input<bool>? EnableDiagnostics { get; set; }
-
-        /// <summary>
         /// Instance name.
         /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
-
-        [Input("iotHubs")]
-        private InputList<Inputs.IotHubSettingsArgs>? _iotHubs;
-
-        /// <summary>
-        /// List of IoT Hubs associated with the account.
-        /// </summary>
-        public InputList<Inputs.IotHubSettingsArgs> IotHubs
-        {
-            get => _iotHubs ?? (_iotHubs = new InputList<Inputs.IotHubSettingsArgs>());
-            set => _iotHubs = value;
-        }
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Device Update instance properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.InstancePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

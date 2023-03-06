@@ -87,13 +87,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Iscsi initiator name (IQN)
-        /// </summary>
-        public readonly string InitiatorName;
-        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Properties of AccessControlRecord
+        /// </summary>
+        public readonly Outputs.AccessControlRecordPropertiesResponse Properties;
         /// <summary>
         /// The type.
         /// </summary>
@@ -103,15 +103,15 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         private GetAccessControlRecordResult(
             string id,
 
-            string initiatorName,
-
             string name,
+
+            Outputs.AccessControlRecordPropertiesResponse properties,
 
             string type)
         {
             Id = id;
-            InitiatorName = initiatorName;
             Name = name;
+            Properties = properties;
             Type = type;
         }
     }

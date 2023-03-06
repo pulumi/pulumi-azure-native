@@ -82,25 +82,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        /// Properties that define a Log Analytics QueryPack resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The unique ID of your application. This field cannot be changed.
-        /// </summary>
-        public readonly string QueryPackId;
+        public readonly Outputs.LogAnalyticsQueryPackPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-        /// </summary>
-        public readonly string TimeCreated;
-        /// <summary>
-        /// Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-        /// </summary>
-        public readonly string TimeModified;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -114,26 +102,17 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
 
             string name,
 
-            string provisioningState,
-
-            string queryPackId,
+            Outputs.LogAnalyticsQueryPackPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
-
-            string timeCreated,
-
-            string timeModified,
 
             string type)
         {
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            QueryPackId = queryPackId;
+            Properties = properties;
             Tags = tags;
-            TimeCreated = timeCreated;
-            TimeModified = timeModified;
             Type = type;
         }
     }

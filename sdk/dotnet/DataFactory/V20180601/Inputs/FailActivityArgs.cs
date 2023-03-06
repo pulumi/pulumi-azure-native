@@ -34,18 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("errorCode", required: true)]
-        public Input<object> ErrorCode { get; set; } = null!;
-
-        /// <summary>
-        /// The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("message", required: true)]
-        public Input<object> Message { get; set; } = null!;
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
@@ -57,6 +45,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Fail activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.FailActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

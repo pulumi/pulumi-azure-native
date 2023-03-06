@@ -118,23 +118,17 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
 
-        [Input("keyProperties", required: true)]
-        private InputList<Inputs.ReferenceDataSetKeyPropertyArgs>? _keyProperties;
-
-        /// <summary>
-        /// The list of key properties for the reference data set.
-        /// </summary>
-        public InputList<Inputs.ReferenceDataSetKeyPropertyArgs> KeyProperties
-        {
-            get => _keyProperties ?? (_keyProperties = new InputList<Inputs.ReferenceDataSetKeyPropertyArgs>());
-            set => _keyProperties = value;
-        }
-
         /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties used to create a reference data set.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ReferenceDataSetCreationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of the reference data set.

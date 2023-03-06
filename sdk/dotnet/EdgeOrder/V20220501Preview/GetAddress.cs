@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
     public sealed class GetAddressResult
     {
         /// <summary>
-        /// Status of address validation.
-        /// </summary>
-        public readonly string AddressValidationStatus;
-        /// <summary>
-        /// Contact details for the address.
-        /// </summary>
-        public readonly Outputs.ContactDetailsResponse ContactDetails;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -90,9 +82,9 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Shipping details for the address.
+        /// Properties of an address.
         /// </summary>
-        public readonly Outputs.ShippingAddressResponse? ShippingAddress;
+        public readonly Outputs.AddressPropertiesResponse Properties;
         /// <summary>
         /// Represents resource creation and update time.
         /// </summary>
@@ -108,17 +100,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
 
         [OutputConstructor]
         private GetAddressResult(
-            string addressValidationStatus,
-
-            Outputs.ContactDetailsResponse contactDetails,
-
             string id,
 
             string location,
 
             string name,
 
-            Outputs.ShippingAddressResponse? shippingAddress,
+            Outputs.AddressPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -126,12 +114,10 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
 
             string type)
         {
-            AddressValidationStatus = addressValidationStatus;
-            ContactDetails = contactDetails;
             Id = id;
             Location = location;
             Name = name;
-            ShippingAddress = shippingAddress;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -39,45 +39,9 @@ export class HybridAksCluster extends pulumi.CustomResource {
     }
 
     /**
-     * The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
-     */
-    public readonly associatedNetworkIds!: pulumi.Output<string[]>;
-    /**
-     * The resource ID of the associated cloud services network.
-     */
-    public /*out*/ readonly cloudServicesNetworkId!: pulumi.Output<string>;
-    /**
-     * The resource ID of the Network Cloud cluster hosting the Hybrid AKS cluster.
-     */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
-    /**
-     * The number of control plane node VMs.
-     */
-    public readonly controlPlaneCount!: pulumi.Output<number>;
-    /**
-     * The list of node configurations detailing associated VMs that are part of the control plane nodes of this Hybrid AKS cluster.
-     */
-    public /*out*/ readonly controlPlaneNodes!: pulumi.Output<outputs.networkcloud.NodeConfigurationResponse[]>;
-    /**
-     * The resource ID of the associated default CNI network.
-     */
-    public /*out*/ readonly defaultCniNetworkId!: pulumi.Output<string>;
-    /**
-     * The more detailed status of this Hybrid AKS cluster.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
-    /**
-     * The resource ID of the Hybrid AKS cluster that this additional information is for.
-     */
-    public readonly hybridAksProvisionedClusterId!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -87,9 +51,9 @@ export class HybridAksCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the Hybrid AKS cluster resource.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.HybridAksClusterPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -102,18 +66,6 @@ export class HybridAksCluster extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The resource IDs of volumes that are attached to the Hybrid AKS cluster.
-     */
-    public /*out*/ readonly volumes!: pulumi.Output<string[]>;
-    /**
-     * The number of worker node VMs.
-     */
-    public readonly workerCount!: pulumi.Output<number>;
-    /**
-     * The list of node configurations detailing associated VMs that are part of the worker nodes of this Hybrid AKS cluster.
-     */
-    public /*out*/ readonly workerNodes!: pulumi.Output<outputs.networkcloud.NodeConfigurationResponse[]>;
 
     /**
      * Create a HybridAksCluster resource with the given unique name, arguments, and options.
@@ -126,65 +78,32 @@ export class HybridAksCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.associatedNetworkIds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'associatedNetworkIds'");
-            }
-            if ((!args || args.controlPlaneCount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'controlPlaneCount'");
-            }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.hybridAksProvisionedClusterId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'hybridAksProvisionedClusterId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workerCount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'workerCount'");
-            }
-            resourceInputs["associatedNetworkIds"] = args ? args.associatedNetworkIds : undefined;
-            resourceInputs["controlPlaneCount"] = args ? args.controlPlaneCount : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hybridAksClusterName"] = args ? args.hybridAksClusterName : undefined;
-            resourceInputs["hybridAksProvisionedClusterId"] = args ? args.hybridAksProvisionedClusterId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workerCount"] = args ? args.workerCount : undefined;
-            resourceInputs["cloudServicesNetworkId"] = undefined /*out*/;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["controlPlaneNodes"] = undefined /*out*/;
-            resourceInputs["defaultCniNetworkId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumes"] = undefined /*out*/;
-            resourceInputs["workerNodes"] = undefined /*out*/;
         } else {
-            resourceInputs["associatedNetworkIds"] = undefined /*out*/;
-            resourceInputs["cloudServicesNetworkId"] = undefined /*out*/;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["controlPlaneCount"] = undefined /*out*/;
-            resourceInputs["controlPlaneNodes"] = undefined /*out*/;
-            resourceInputs["defaultCniNetworkId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["hybridAksProvisionedClusterId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumes"] = undefined /*out*/;
-            resourceInputs["workerCount"] = undefined /*out*/;
-            resourceInputs["workerNodes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:HybridAksCluster" }] };
@@ -198,14 +117,6 @@ export class HybridAksCluster extends pulumi.CustomResource {
  */
 export interface HybridAksClusterArgs {
     /**
-     * The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
-     */
-    associatedNetworkIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The number of control plane node VMs.
-     */
-    controlPlaneCount: pulumi.Input<number>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
@@ -214,13 +125,13 @@ export interface HybridAksClusterArgs {
      */
     hybridAksClusterName?: pulumi.Input<string>;
     /**
-     * The resource ID of the Hybrid AKS cluster that this additional information is for.
-     */
-    hybridAksProvisionedClusterId: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The list of the resource properties.
+     */
+    properties: pulumi.Input<inputs.networkcloud.HybridAksClusterPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -229,8 +140,4 @@ export interface HybridAksClusterArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The number of worker node VMs.
-     */
-    workerCount: pulumi.Input<number>;
 }

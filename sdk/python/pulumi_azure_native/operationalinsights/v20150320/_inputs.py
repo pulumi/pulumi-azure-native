@@ -10,9 +10,95 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
+    'SavedSearchPropertiesArgs',
     'StorageAccountArgs',
     'TagArgs',
 ]
+
+@pulumi.input_type
+class SavedSearchPropertiesArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[str],
+                 display_name: pulumi.Input[str],
+                 query: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]] = None,
+                 version: Optional[pulumi.Input[float]] = None):
+        """
+        Value object for saved search results.
+        :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
+        :param pulumi.Input[str] display_name: Saved search display name.
+        :param pulumi.Input[str] query: The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        :param pulumi.Input[Sequence[pulumi.Input['TagArgs']]] tags: The tags attached to the saved search.
+        :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "query", query)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[str]:
+        """
+        The category of the saved search. This helps the user to find a saved search faster. 
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[str]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        Saved search display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        """
+        The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]:
+        """
+        The tags attached to the saved search.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[float]]:
+        """
+        The version number of the query language. The current version is 2 and is the default.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "version", value)
+
 
 @pulumi.input_type
 class StorageAccountArgs:

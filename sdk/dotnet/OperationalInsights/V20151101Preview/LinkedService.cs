@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of the resource that will be linked to the workspace.
+        /// The properties of the linked service.
         /// </summary>
-        [Output("resourceId")]
-        public Output<string> ResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LinkedServicePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -92,16 +92,16 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
+        /// The properties of the linked service.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LinkedServicePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group to get. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace.
-        /// </summary>
-        [Input("resourceId", required: true)]
-        public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
         /// Name of the Log Analytics Workspace that will contain the linkedServices resource

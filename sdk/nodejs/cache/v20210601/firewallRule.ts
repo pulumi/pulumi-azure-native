@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,17 +38,13 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
-     * highest IP address included in the range
-     */
-    public readonly endIP!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * lowest IP address included in the range
+     * redis cache firewall rule properties
      */
-    public readonly startIP!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.cache.v20210601.RedisFirewallRulePropertiesResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -65,26 +64,21 @@ export class FirewallRule extends pulumi.CustomResource {
             if ((!args || args.cacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.endIP === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'endIP'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIP === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'startIP'");
-            }
             resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["endIP"] = args ? args.endIP : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["startIP"] = args ? args.startIP : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["endIP"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["startIP"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -103,9 +97,9 @@ export interface FirewallRuleArgs {
      */
     cacheName: pulumi.Input<string>;
     /**
-     * highest IP address included in the range
+     * redis cache firewall rule properties
      */
-    endIP: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.cache.v20210601.RedisFirewallRulePropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -114,8 +108,4 @@ export interface FirewallRuleArgs {
      * The name of the firewall rule.
      */
     ruleName?: pulumi.Input<string>;
-    /**
-     * lowest IP address included in the range
-     */
-    startIP: pulumi.Input<string>;
 }

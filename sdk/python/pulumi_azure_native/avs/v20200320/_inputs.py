@@ -11,10 +11,35 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterPropertiesArgs',
     'IdentitySourceArgs',
     'ManagementClusterArgs',
+    'PrivateCloudPropertiesArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class ClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 cluster_size: pulumi.Input[int]):
+        """
+        The properties of a cluster
+        :param pulumi.Input[int] cluster_size: The cluster size
+        """
+        pulumi.set(__self__, "cluster_size", cluster_size)
+
+    @property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> pulumi.Input[int]:
+        """
+        The cluster size
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @cluster_size.setter
+    def cluster_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "cluster_size", value)
+
 
 @pulumi.input_type
 class IdentitySourceArgs:
@@ -205,6 +230,110 @@ class ManagementClusterArgs:
     @cluster_size.setter
     def cluster_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "cluster_size", value)
+
+
+@pulumi.input_type
+class PrivateCloudPropertiesArgs:
+    def __init__(__self__, *,
+                 management_cluster: pulumi.Input['ManagementClusterArgs'],
+                 network_block: pulumi.Input[str],
+                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
+                 internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
+                 nsxt_password: Optional[pulumi.Input[str]] = None,
+                 vcenter_password: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of a private cloud resource
+        :param pulumi.Input['ManagementClusterArgs'] management_cluster: The default cluster used for management
+        :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]] identity_sources: vCenter Single Sign On Identity Sources
+        :param pulumi.Input[Union[str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
+        :param pulumi.Input[str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
+        :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
+        """
+        pulumi.set(__self__, "management_cluster", management_cluster)
+        pulumi.set(__self__, "network_block", network_block)
+        if identity_sources is not None:
+            pulumi.set(__self__, "identity_sources", identity_sources)
+        if internet is None:
+            internet = 'Disabled'
+        if internet is not None:
+            pulumi.set(__self__, "internet", internet)
+        if nsxt_password is not None:
+            pulumi.set(__self__, "nsxt_password", nsxt_password)
+        if vcenter_password is not None:
+            pulumi.set(__self__, "vcenter_password", vcenter_password)
+
+    @property
+    @pulumi.getter(name="managementCluster")
+    def management_cluster(self) -> pulumi.Input['ManagementClusterArgs']:
+        """
+        The default cluster used for management
+        """
+        return pulumi.get(self, "management_cluster")
+
+    @management_cluster.setter
+    def management_cluster(self, value: pulumi.Input['ManagementClusterArgs']):
+        pulumi.set(self, "management_cluster", value)
+
+    @property
+    @pulumi.getter(name="networkBlock")
+    def network_block(self) -> pulumi.Input[str]:
+        """
+        The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        """
+        return pulumi.get(self, "network_block")
+
+    @network_block.setter
+    def network_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_block", value)
+
+    @property
+    @pulumi.getter(name="identitySources")
+    def identity_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]]:
+        """
+        vCenter Single Sign On Identity Sources
+        """
+        return pulumi.get(self, "identity_sources")
+
+    @identity_sources.setter
+    def identity_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]]):
+        pulumi.set(self, "identity_sources", value)
+
+    @property
+    @pulumi.getter
+    def internet(self) -> Optional[pulumi.Input[Union[str, 'InternetEnum']]]:
+        """
+        Connectivity to internet is enabled or disabled
+        """
+        return pulumi.get(self, "internet")
+
+    @internet.setter
+    def internet(self, value: Optional[pulumi.Input[Union[str, 'InternetEnum']]]):
+        pulumi.set(self, "internet", value)
+
+    @property
+    @pulumi.getter(name="nsxtPassword")
+    def nsxt_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optionally, set the NSX-T Manager password when the private cloud is created
+        """
+        return pulumi.get(self, "nsxt_password")
+
+    @nsxt_password.setter
+    def nsxt_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nsxt_password", value)
+
+    @property
+    @pulumi.getter(name="vcenterPassword")
+    def vcenter_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optionally, set the vCenter admin password when the private cloud is created
+        """
+        return pulumi.get(self, "vcenter_password")
+
+    @vcenter_password.setter
+    def vcenter_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vcenter_password", value)
 
 
 @pulumi.input_type

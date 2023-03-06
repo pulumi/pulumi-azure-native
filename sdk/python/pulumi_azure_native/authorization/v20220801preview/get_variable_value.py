@@ -22,22 +22,22 @@ class GetVariableValueResult:
     """
     The variable value.
     """
-    def __init__(__self__, id=None, name=None, system_data=None, type=None, values=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if values and not isinstance(values, list):
-            raise TypeError("Expected argument 'values' to be a list")
-        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -56,6 +56,14 @@ class GetVariableValueResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PolicyVariableValuePropertiesResponse':
+        """
+        Properties for the variable value.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -71,14 +79,6 @@ class GetVariableValueResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence['outputs.PolicyVariableValueColumnValueResponse']:
-        """
-        Variable value column value array.
-        """
-        return pulumi.get(self, "values")
-
 
 class AwaitableGetVariableValueResult(GetVariableValueResult):
     # pylint: disable=using-constant-test
@@ -88,9 +88,9 @@ class AwaitableGetVariableValueResult(GetVariableValueResult):
         return GetVariableValueResult(
             id=self.id,
             name=self.name,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            values=self.values)
+            type=self.type)
 
 
 def get_variable_value(variable_name: Optional[str] = None,
@@ -112,9 +112,9 @@ def get_variable_value(variable_name: Optional[str] = None,
     return AwaitableGetVariableValueResult(
         id=__ret__.id,
         name=__ret__.name,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        values=__ret__.values)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_variable_value)

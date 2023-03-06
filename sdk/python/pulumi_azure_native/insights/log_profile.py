@@ -16,74 +16,36 @@ __all__ = ['LogProfileArgs', 'LogProfile']
 @pulumi.input_type
 class LogProfileArgs:
     def __init__(__self__, *,
-                 categories: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 retention_policy: pulumi.Input['RetentionPolicyArgs'],
+                 properties: pulumi.Input['LogProfilePropertiesArgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  log_profile_name: Optional[pulumi.Input[str]] = None,
-                 service_bus_rule_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LogProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for the events in the log.
+        :param pulumi.Input['LogProfilePropertiesArgs'] properties: The log profile properties of the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] log_profile_name: The name of the log profile.
-        :param pulumi.Input[str] service_bus_rule_id: The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-        :param pulumi.Input[str] storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "categories", categories)
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "retention_policy", retention_policy)
+        pulumi.set(__self__, "properties", properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if log_profile_name is not None:
             pulumi.set(__self__, "log_profile_name", log_profile_name)
-        if service_bus_rule_id is not None:
-            pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
-        if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
-    def categories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def properties(self) -> pulumi.Input['LogProfilePropertiesArgs']:
         """
-        the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        The log profile properties of the resource.
         """
-        return pulumi.get(self, "categories")
+        return pulumi.get(self, "properties")
 
-    @categories.setter
-    def categories(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "categories", value)
-
-    @property
-    @pulumi.getter
-    def locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-        """
-        return pulumi.get(self, "locations")
-
-    @locations.setter
-    def locations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "locations", value)
-
-    @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> pulumi.Input['RetentionPolicyArgs']:
-        """
-        the retention policy for the events in the log.
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input['RetentionPolicyArgs']):
-        pulumi.set(self, "retention_policy", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['LogProfilePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -110,30 +72,6 @@ class LogProfileArgs:
         pulumi.set(self, "log_profile_name", value)
 
     @property
-    @pulumi.getter(name="serviceBusRuleId")
-    def service_bus_rule_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-        """
-        return pulumi.get(self, "service_bus_rule_id")
-
-    @service_bus_rule_id.setter
-    def service_bus_rule_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "service_bus_rule_id", value)
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        the resource id of the storage account to which you would like to send the Activity Log.
-        """
-        return pulumi.get(self, "storage_account_id")
-
-    @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_id", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -151,13 +89,9 @@ class LogProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  log_profile_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[pulumi.InputType['RetentionPolicyArgs']]] = None,
-                 service_bus_rule_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LogProfilePropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -166,13 +100,9 @@ class LogProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
         :param pulumi.Input[str] log_profile_name: The name of the log profile.
-        :param pulumi.Input[pulumi.InputType['RetentionPolicyArgs']] retention_policy: the retention policy for the events in the log.
-        :param pulumi.Input[str] service_bus_rule_id: The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-        :param pulumi.Input[str] storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
+        :param pulumi.Input[pulumi.InputType['LogProfilePropertiesArgs']] properties: The log profile properties of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -200,13 +130,9 @@ class LogProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  log_profile_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[pulumi.InputType['RetentionPolicyArgs']]] = None,
-                 service_bus_rule_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LogProfilePropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -217,19 +143,11 @@ class LogProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogProfileArgs.__new__(LogProfileArgs)
 
-            if categories is None and not opts.urn:
-                raise TypeError("Missing required property 'categories'")
-            __props__.__dict__["categories"] = categories
             __props__.__dict__["location"] = location
-            if locations is None and not opts.urn:
-                raise TypeError("Missing required property 'locations'")
-            __props__.__dict__["locations"] = locations
             __props__.__dict__["log_profile_name"] = log_profile_name
-            if retention_policy is None and not opts.urn:
-                raise TypeError("Missing required property 'retention_policy'")
-            __props__.__dict__["retention_policy"] = retention_policy
-            __props__.__dict__["service_bus_rule_id"] = service_bus_rule_id
-            __props__.__dict__["storage_account_id"] = storage_account_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -257,24 +175,12 @@ class LogProfile(pulumi.CustomResource):
 
         __props__ = LogProfileArgs.__new__(LogProfileArgs)
 
-        __props__.__dict__["categories"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["locations"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["retention_policy"] = None
-        __props__.__dict__["service_bus_rule_id"] = None
-        __props__.__dict__["storage_account_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return LogProfile(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def categories(self) -> pulumi.Output[Sequence[str]]:
-        """
-        the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-        """
-        return pulumi.get(self, "categories")
 
     @property
     @pulumi.getter
@@ -286,14 +192,6 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-        """
-        return pulumi.get(self, "locations")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
@@ -301,28 +199,12 @@ class LogProfile(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> pulumi.Output['outputs.RetentionPolicyResponse']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.LogProfilePropertiesResponse']:
         """
-        the retention policy for the events in the log.
+        The log profile properties of the resource.
         """
-        return pulumi.get(self, "retention_policy")
-
-    @property
-    @pulumi.getter(name="serviceBusRuleId")
-    def service_bus_rule_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-        """
-        return pulumi.get(self, "service_bus_rule_id")
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        the resource id of the storage account to which you would like to send the Activity Log.
-        """
-        return pulumi.get(self, "storage_account_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

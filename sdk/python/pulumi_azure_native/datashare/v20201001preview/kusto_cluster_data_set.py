@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['KustoClusterDataSetArgs', 'KustoClusterDataSet']
 
@@ -17,7 +18,7 @@ class KustoClusterDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 kusto_cluster_resource_id: pulumi.Input[str],
+                 properties: pulumi.Input['KustoClusterDataSetPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
                  data_set_name: Optional[pulumi.Input[str]] = None):
@@ -26,14 +27,14 @@ class KustoClusterDataSetArgs:
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'KustoCluster'.
-        :param pulumi.Input[str] kusto_cluster_resource_id: Resource id of the kusto cluster.
+        :param pulumi.Input['KustoClusterDataSetPropertiesArgs'] properties: Kusto cluster data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", 'KustoCluster')
-        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
         if data_set_name is not None:
@@ -65,16 +66,16 @@ class KustoClusterDataSetArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="kustoClusterResourceId")
-    def kusto_cluster_resource_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['KustoClusterDataSetPropertiesArgs']:
         """
-        Resource id of the kusto cluster.
+        Kusto cluster data set properties.
         """
-        return pulumi.get(self, "kusto_cluster_resource_id")
+        return pulumi.get(self, "properties")
 
-    @kusto_cluster_resource_id.setter
-    def kusto_cluster_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kusto_cluster_resource_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['KustoClusterDataSetPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -121,7 +122,7 @@ class KustoClusterDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kusto_cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['KustoClusterDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -134,7 +135,7 @@ class KustoClusterDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'KustoCluster'.
-        :param pulumi.Input[str] kusto_cluster_resource_id: Resource id of the kusto cluster.
+        :param pulumi.Input[pulumi.InputType['KustoClusterDataSetPropertiesArgs']] properties: Kusto cluster data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
         """
@@ -165,7 +166,7 @@ class KustoClusterDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kusto_cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['KustoClusterDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -184,19 +185,16 @@ class KustoClusterDataSet(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'KustoCluster'
-            if kusto_cluster_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'kusto_cluster_resource_id'")
-            __props__.__dict__["kusto_cluster_resource_id"] = kusto_cluster_resource_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            __props__.__dict__["data_set_id"] = None
-            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:KustoClusterDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoClusterDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoClusterDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoClusterDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoClusterDataSet")])
@@ -223,23 +221,12 @@ class KustoClusterDataSet(pulumi.CustomResource):
 
         __props__ = KustoClusterDataSetArgs.__new__(KustoClusterDataSetArgs)
 
-        __props__.__dict__["data_set_id"] = None
         __props__.__dict__["kind"] = None
-        __props__.__dict__["kusto_cluster_resource_id"] = None
-        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return KustoClusterDataSet(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -251,22 +238,6 @@ class KustoClusterDataSet(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="kustoClusterResourceId")
-    def kusto_cluster_resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource id of the kusto cluster.
-        """
-        return pulumi.get(self, "kusto_cluster_resource_id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Location of the kusto cluster.
-        """
-        return pulumi.get(self, "location")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -275,12 +246,12 @@ class KustoClusterDataSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.KustoClusterDataSetPropertiesResponse']:
         """
-        Provisioning state of the kusto cluster data set.
+        Kusto cluster data set properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

@@ -32,69 +32,10 @@ export interface GetClusterArgs {
 }
 
 export interface GetClusterResult {
-    readonly aggregatorOrSingleRackDefinition: outputs.networkcloud.RackDefinitionResponse;
-    /**
-     * The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
-     */
-    readonly analyticsWorkspaceId: string;
-    /**
-     * The list of cluster runtime version upgrades available for this cluster.
-     */
-    readonly availableUpgradeVersions: outputs.networkcloud.ClusterAvailableUpgradeVersionResponse[];
-    readonly clusterCapacity?: outputs.networkcloud.ClusterCapacityResponse;
-    /**
-     * The latest heartbeat status between the cluster manager and the cluster.
-     */
-    readonly clusterConnectionStatus: string;
-    /**
-     * The extended location (custom location) that represents the cluster's control plane location.
-     * This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
-     */
-    readonly clusterExtendedLocation: outputs.networkcloud.ExtendedLocationResponse;
-    /**
-     * The customer-provided location information to identify where the cluster resides.
-     */
-    readonly clusterLocation?: string;
-    /**
-     * The latest connectivity status between cluster manager and the cluster.
-     */
-    readonly clusterManagerConnectionStatus: string;
-    /**
-     * The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
-     */
-    readonly clusterManagerId: string;
-    readonly clusterServicePrincipal?: outputs.networkcloud.ServicePrincipalInformationResponse;
-    /**
-     * The type of rack configuration for the cluster.
-     */
-    readonly clusterType: string;
-    /**
-     * The current runtime version of the cluster.
-     */
-    readonly clusterVersion: string;
-    readonly computeDeploymentThreshold?: outputs.networkcloud.ValidationThresholdResponse;
-    /**
-     * The list of rack definitions for the compute racks in a multi-rack
-     * cluster, or an empty list in a single-rack cluster.
-     */
-    readonly computeRackDefinitions?: outputs.networkcloud.RackDefinitionResponse[];
-    /**
-     * The current detailed status of the cluster.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the detailed status.
-     */
-    readonly detailedStatusMessage: string;
     /**
      * The extended location of the cluster manager associated with the cluster.
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
-    /**
-     * The extended location (custom location) that represents the Hybrid AKS control plane location.
-     * This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
-     */
-    readonly hybridAksExtendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -104,29 +45,13 @@ export interface GetClusterResult {
      */
     readonly location: string;
     /**
-     * The configuration of the managed resource group associated with the resource.
-     */
-    readonly managedResourceGroupConfiguration?: outputs.networkcloud.ManagedResourceGroupConfigurationResponse;
-    /**
-     * The count of Manual Action Taken (MAT) events that have not been validated.
-     */
-    readonly manualActionCount: number;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The resource ID of the Network Fabric associated with the cluster.
+     * The list of the resource properties.
      */
-    readonly networkFabricId: string;
-    /**
-     * The provisioning state of the cluster.
-     */
-    readonly provisioningState: string;
-    /**
-     * The support end date of the runtime version of the cluster.
-     */
-    readonly supportExpiryDate: string;
+    readonly properties: outputs.networkcloud.ClusterPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -139,10 +64,6 @@ export interface GetClusterResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The list of workload resource IDs that are hosted within this cluster.
-     */
-    readonly workloadResourceIds: string[];
 }
 /**
  * Get properties of the provided cluster.

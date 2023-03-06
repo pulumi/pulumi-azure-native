@@ -29,14 +29,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// Admin Key for Azure Search service
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Key;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -46,9 +38,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// URL for Azure Search service. Type: string (or Expression with resultType string).
+        /// Windows Azure Search Service linked service properties.
         /// </summary>
-        public readonly object Url;
+        public readonly Outputs.AzureSearchLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureSearchLinkedServiceResponse(
@@ -58,24 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            object? encryptedCredential,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? key,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type,
 
-            object url)
+            Outputs.AzureSearchLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            Key = key;
             Parameters = parameters;
             Type = type;
-            Url = url;
+            TypeProperties = typeProperties;
         }
     }
 }

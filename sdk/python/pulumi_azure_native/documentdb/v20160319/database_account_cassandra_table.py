@@ -18,23 +18,20 @@ class DatabaseAccountCassandraTableArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  keyspace_name: pulumi.Input[str],
-                 options: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 resource: pulumi.Input['CassandraTableResourceArgs'],
+                 properties: pulumi.Input['CassandraTableCreateUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatabaseAccountCassandraTable resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] keyspace_name: Cosmos DB keyspace name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input['CassandraTableResourceArgs'] resource: The standard JSON format of a Cassandra table
+        :param pulumi.Input['CassandraTableCreateUpdatePropertiesArgs'] properties: Properties to create and update Azure Cosmos DB Cassandra table.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] table_name: Cosmos DB table name.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "keyspace_name", keyspace_name)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
@@ -65,27 +62,15 @@ class DatabaseAccountCassandraTableArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+    def properties(self) -> pulumi.Input['CassandraTableCreateUpdatePropertiesArgs']:
         """
-        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        Properties to create and update Azure Cosmos DB Cassandra table.
         """
-        return pulumi.get(self, "options")
+        return pulumi.get(self, "properties")
 
-    @options.setter
-    def options(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> pulumi.Input['CassandraTableResourceArgs']:
-        """
-        The standard JSON format of a Cassandra table
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: pulumi.Input['CassandraTableResourceArgs']):
-        pulumi.set(self, "resource", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CassandraTableCreateUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -124,8 +109,7 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CassandraTableCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -136,8 +120,7 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] keyspace_name: Cosmos DB keyspace name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']] resource: The standard JSON format of a Cassandra table
+        :param pulumi.Input[pulumi.InputType['CassandraTableCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB Cassandra table.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] table_name: Cosmos DB table name.
         """
@@ -167,8 +150,7 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CassandraTableCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -187,12 +169,9 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
             if keyspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'keyspace_name'")
             __props__.__dict__["keyspace_name"] = keyspace_name
-            if options is None and not opts.urn:
-                raise TypeError("Missing required property 'options'")
-            __props__.__dict__["options"] = options
-            if resource is None and not opts.urn:
-                raise TypeError("Missing required property 'resource'")
-            __props__.__dict__["resource"] = resource
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name

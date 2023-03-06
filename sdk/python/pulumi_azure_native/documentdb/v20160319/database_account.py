@@ -17,62 +17,25 @@ __all__ = ['DatabaseAccountArgs', 'DatabaseAccount']
 @pulumi.input_type
 class DatabaseAccountArgs:
     def __init__(__self__, *,
-                 database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
-                 locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
+                 properties: pulumi.Input['DatabaseAccountCreateUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
-                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
-                 consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-                 ip_range_filter: Optional[pulumi.Input[str]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DatabaseAccount resource.
-        :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
-        :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input['DatabaseAccountCreateUpdatePropertiesArgs'] properties: Properties to create and update Azure Cosmos DB database accounts.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
-        :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
-        :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
-        :param pulumi.Input[str] ip_range_filter: Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[Union[str, 'DatabaseAccountKind']] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
-        pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
-        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
-        if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
-        if connector_offer is not None:
-            pulumi.set(__self__, "connector_offer", connector_offer)
-        if consistency_policy is not None:
-            pulumi.set(__self__, "consistency_policy", consistency_policy)
-        if enable_automatic_failover is not None:
-            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
-        if enable_cassandra_connector is not None:
-            pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
-        if enable_multiple_write_locations is not None:
-            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
-        if ip_range_filter is not None:
-            pulumi.set(__self__, "ip_range_filter", ip_range_filter)
-        if is_virtual_network_filter_enabled is not None:
-            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if kind is None:
             kind = 'GlobalDocumentDB'
         if kind is not None:
@@ -81,32 +44,18 @@ class DatabaseAccountArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
-
-    @property
-    @pulumi.getter(name="databaseAccountOfferType")
-    def database_account_offer_type(self) -> pulumi.Input['DatabaseAccountOfferType']:
-        """
-        The offer type for the database
-        """
-        return pulumi.get(self, "database_account_offer_type")
-
-    @database_account_offer_type.setter
-    def database_account_offer_type(self, value: pulumi.Input['DatabaseAccountOfferType']):
-        pulumi.set(self, "database_account_offer_type", value)
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]:
+    def properties(self) -> pulumi.Input['DatabaseAccountCreateUpdatePropertiesArgs']:
         """
-        An array that contains the georeplication locations enabled for the Cosmos DB account.
+        Properties to create and update Azure Cosmos DB database accounts.
         """
-        return pulumi.get(self, "locations")
+        return pulumi.get(self, "properties")
 
-    @locations.setter
-    def locations(self, value: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]):
-        pulumi.set(self, "locations", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['DatabaseAccountCreateUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -131,102 +80,6 @@ class DatabaseAccountArgs:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
-
-    @property
-    @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
-        """
-        List of Cosmos DB capabilities for the account
-        """
-        return pulumi.get(self, "capabilities")
-
-    @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
-        pulumi.set(self, "capabilities", value)
-
-    @property
-    @pulumi.getter(name="connectorOffer")
-    def connector_offer(self) -> Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]:
-        """
-        The cassandra connector offer type for the Cosmos DB database C* account.
-        """
-        return pulumi.get(self, "connector_offer")
-
-    @connector_offer.setter
-    def connector_offer(self, value: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]):
-        pulumi.set(self, "connector_offer", value)
-
-    @property
-    @pulumi.getter(name="consistencyPolicy")
-    def consistency_policy(self) -> Optional[pulumi.Input['ConsistencyPolicyArgs']]:
-        """
-        The consistency policy for the Cosmos DB account.
-        """
-        return pulumi.get(self, "consistency_policy")
-
-    @consistency_policy.setter
-    def consistency_policy(self, value: Optional[pulumi.Input['ConsistencyPolicyArgs']]):
-        pulumi.set(self, "consistency_policy", value)
-
-    @property
-    @pulumi.getter(name="enableAutomaticFailover")
-    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        """
-        return pulumi.get(self, "enable_automatic_failover")
-
-    @enable_automatic_failover.setter
-    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_automatic_failover", value)
-
-    @property
-    @pulumi.getter(name="enableCassandraConnector")
-    def enable_cassandra_connector(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables the cassandra connector on the Cosmos DB C* account
-        """
-        return pulumi.get(self, "enable_cassandra_connector")
-
-    @enable_cassandra_connector.setter
-    def enable_cassandra_connector(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_cassandra_connector", value)
-
-    @property
-    @pulumi.getter(name="enableMultipleWriteLocations")
-    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables the account to write in multiple locations
-        """
-        return pulumi.get(self, "enable_multiple_write_locations")
-
-    @enable_multiple_write_locations.setter
-    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_multiple_write_locations", value)
-
-    @property
-    @pulumi.getter(name="ipRangeFilter")
-    def ip_range_filter(self) -> Optional[pulumi.Input[str]]:
-        """
-        Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-        """
-        return pulumi.get(self, "ip_range_filter")
-
-    @ip_range_filter.setter
-    def ip_range_filter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip_range_filter", value)
-
-    @property
-    @pulumi.getter(name="isVirtualNetworkFilterEnabled")
-    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Flag to indicate whether to enable/disable Virtual Network ACL rules.
-        """
-        return pulumi.get(self, "is_virtual_network_filter_enabled")
-
-    @is_virtual_network_filter_enabled.setter
-    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_virtual_network_filter_enabled", value)
 
     @property
     @pulumi.getter
@@ -264,18 +117,6 @@ class DatabaseAccountArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
-        """
-        List of Virtual Network ACL rules configured for the Cosmos DB account.
-        """
-        return pulumi.get(self, "virtual_network_rules")
-
-    @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
-        pulumi.set(self, "virtual_network_rules", value)
-
 
 warnings.warn("""Version 2016-03-19 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -288,21 +129,11 @@ class DatabaseAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
-                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
-                 consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
-                 database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-                 ip_range_filter: Optional[pulumi.Input[str]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DatabaseAccountCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB database account.
@@ -310,21 +141,11 @@ class DatabaseAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
-        :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
-        :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
-        :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
-        :param pulumi.Input[str] ip_range_filter: Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[Union[str, 'DatabaseAccountKind']] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input[pulumi.InputType['DatabaseAccountCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB database accounts.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         ...
     @overload
@@ -351,21 +172,11 @@ class DatabaseAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
-                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
-                 consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
-                 database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-                 ip_range_filter: Optional[pulumi.Input[str]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DatabaseAccountCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""DatabaseAccount is deprecated: Version 2016-03-19 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -377,35 +188,33 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__ = DatabaseAccountArgs.__new__(DatabaseAccountArgs)
 
             __props__.__dict__["account_name"] = account_name
-            __props__.__dict__["capabilities"] = capabilities
-            __props__.__dict__["connector_offer"] = connector_offer
-            __props__.__dict__["consistency_policy"] = consistency_policy
-            if database_account_offer_type is None and not opts.urn:
-                raise TypeError("Missing required property 'database_account_offer_type'")
-            __props__.__dict__["database_account_offer_type"] = database_account_offer_type
-            __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
-            __props__.__dict__["enable_cassandra_connector"] = enable_cassandra_connector
-            __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
-            __props__.__dict__["ip_range_filter"] = ip_range_filter
-            __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
             if kind is None:
                 kind = 'GlobalDocumentDB'
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            if locations is None and not opts.urn:
-                raise TypeError("Missing required property 'locations'")
-            __props__.__dict__["locations"] = locations
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["virtual_network_rules"] = virtual_network_rules
+            __props__.__dict__["capabilities"] = None
+            __props__.__dict__["connector_offer"] = None
+            __props__.__dict__["consistency_policy"] = None
+            __props__.__dict__["database_account_offer_type"] = None
             __props__.__dict__["document_endpoint"] = None
+            __props__.__dict__["enable_automatic_failover"] = None
+            __props__.__dict__["enable_cassandra_connector"] = None
+            __props__.__dict__["enable_multiple_write_locations"] = None
             __props__.__dict__["failover_policies"] = None
+            __props__.__dict__["ip_range_filter"] = None
+            __props__.__dict__["is_virtual_network_filter_enabled"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["read_locations"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_network_rules"] = None
             __props__.__dict__["write_locations"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210315:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210415:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210515:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210615:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20211015:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20220515:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20220815:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20221115:DatabaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

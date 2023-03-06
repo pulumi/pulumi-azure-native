@@ -28,18 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The authentication type to be used to connect to the HTTP server.
-        /// </summary>
-        [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.HttpAuthenticationType>? AuthenticationType { get; set; }
-
-        /// <summary>
-        /// Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("certThumbprint")]
-        public Input<object>? CertThumbprint { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -50,24 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("embeddedCertData")]
-        public Input<object>? EmbeddedCertData { get; set; }
-
-        /// <summary>
-        /// If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("enableServerCertificateValidation")]
-        public Input<object>? EnableServerCertificateValidation { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -82,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'HttpServer'.
         /// </summary>
@@ -95,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
+        /// Properties specific to this linked service type.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
-
-        /// <summary>
-        /// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HttpLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public HttpLinkedServiceArgs()
         {

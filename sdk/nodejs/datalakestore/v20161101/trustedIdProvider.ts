@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,7 +40,7 @@ export class TrustedIdProvider extends pulumi.CustomResource {
     /**
      * The URL of this trusted identity provider.
      */
-    public readonly idProvider!: pulumi.Output<string>;
+    public /*out*/ readonly idProvider!: pulumi.Output<string>;
     /**
      * The resource name.
      */
@@ -61,16 +64,17 @@ export class TrustedIdProvider extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.idProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'idProvider'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["idProvider"] = args ? args.idProvider : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["trustedIdProviderName"] = args ? args.trustedIdProviderName : undefined;
+            resourceInputs["idProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -94,9 +98,9 @@ export interface TrustedIdProviderArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The URL of this trusted identity provider.
+     * The trusted identity provider properties to use when creating a new trusted identity provider.
      */
-    idProvider: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datalakestore.v20161101.CreateOrUpdateTrustedIdProviderPropertiesArgs>;
     /**
      * The name of the Azure resource group.
      */

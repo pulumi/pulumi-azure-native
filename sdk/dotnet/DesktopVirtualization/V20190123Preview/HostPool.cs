@@ -17,52 +17,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
     public partial class HostPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of applicationGroup links.
-        /// </summary>
-        [Output("applicationGroupReferences")]
-        public Output<ImmutableArray<string>> ApplicationGroupReferences { get; private set; } = null!;
-
-        /// <summary>
-        /// Custom rdp property of HostPool.
-        /// </summary>
-        [Output("customRdpProperty")]
-        public Output<string?> CustomRdpProperty { get; private set; } = null!;
-
-        /// <summary>
-        /// Description of HostPool.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// Friendly name of HostPool.
-        /// </summary>
-        [Output("friendlyName")]
-        public Output<string?> FriendlyName { get; private set; } = null!;
-
-        /// <summary>
-        /// HostPool type for desktop.
-        /// </summary>
-        [Output("hostPoolType")]
-        public Output<string> HostPoolType { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the load balancer.
-        /// </summary>
-        [Output("loadBalancerType")]
-        public Output<string> LoadBalancerType { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The max session limit of HostPool.
-        /// </summary>
-        [Output("maxSessionLimit")]
-        public Output<int?> MaxSessionLimit { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -71,34 +29,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// PersonalDesktopAssignment type for HostPool.
+        /// Detailed properties for HostPool
         /// </summary>
-        [Output("personalDesktopAssignmentType")]
-        public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of preferred application group type, default to Desktop Application Group
-        /// </summary>
-        [Output("preferredAppGroupType")]
-        public Output<string> PreferredAppGroupType { get; private set; } = null!;
-
-        /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Output("registrationInfo")]
-        public Output<Outputs.RegistrationInfoResponse?> RegistrationInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// The ring number of HostPool.
-        /// </summary>
-        [Output("ring")]
-        public Output<int?> Ring { get; private set; } = null!;
-
-        /// <summary>
-        /// Path to keyvault containing ssoContext secret.
-        /// </summary>
-        [Output("ssoContext")]
-        public Output<string?> SsoContext { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.HostPoolPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -111,18 +45,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Is validation environment.
-        /// </summary>
-        [Output("validationEnvironment")]
-        public Output<bool?> ValidationEnvironment { get; private set; } = null!;
-
-        /// <summary>
-        /// VM template for sessionhosts configuration within hostpool.
-        /// </summary>
-        [Output("vmTemplate")]
-        public Output<string?> VmTemplate { get; private set; } = null!;
 
 
         /// <summary>
@@ -190,40 +112,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
     public sealed class HostPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom rdp property of HostPool.
-        /// </summary>
-        [Input("customRdpProperty")]
-        public Input<string>? CustomRdpProperty { get; set; }
-
-        /// <summary>
-        /// Description of HostPool.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Friendly name of HostPool.
-        /// </summary>
-        [Input("friendlyName")]
-        public Input<string>? FriendlyName { get; set; }
-
-        /// <summary>
         /// The name of the host pool within the specified resource group
         /// </summary>
         [Input("hostPoolName")]
         public Input<string>? HostPoolName { get; set; }
-
-        /// <summary>
-        /// HostPool type for desktop.
-        /// </summary>
-        [Input("hostPoolType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190123Preview.HostPoolType> HostPoolType { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the load balancer.
-        /// </summary>
-        [Input("loadBalancerType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190123Preview.LoadBalancerType> LoadBalancerType { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -232,46 +124,16 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The max session limit of HostPool.
+        /// Detailed properties for HostPool
         /// </summary>
-        [Input("maxSessionLimit")]
-        public Input<int>? MaxSessionLimit { get; set; }
-
-        /// <summary>
-        /// PersonalDesktopAssignment type for HostPool.
-        /// </summary>
-        [Input("personalDesktopAssignmentType")]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190123Preview.PersonalDesktopAssignmentType>? PersonalDesktopAssignmentType { get; set; }
-
-        /// <summary>
-        /// The type of preferred application group type, default to Desktop Application Group
-        /// </summary>
-        [Input("preferredAppGroupType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190123Preview.PreferredAppGroupType> PreferredAppGroupType { get; set; } = null!;
-
-        /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Input("registrationInfo")]
-        public Input<Inputs.RegistrationInfoArgs>? RegistrationInfo { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.HostPoolPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The ring number of HostPool.
-        /// </summary>
-        [Input("ring")]
-        public Input<int>? Ring { get; set; }
-
-        /// <summary>
-        /// Path to keyvault containing ssoContext secret.
-        /// </summary>
-        [Input("ssoContext")]
-        public Input<string>? SsoContext { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -284,18 +146,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Is validation environment.
-        /// </summary>
-        [Input("validationEnvironment")]
-        public Input<bool>? ValidationEnvironment { get; set; }
-
-        /// <summary>
-        /// VM template for sessionhosts configuration within hostpool.
-        /// </summary>
-        [Input("vmTemplate")]
-        public Input<string>? VmTemplate { get; set; }
 
         public HostPoolArgs()
         {

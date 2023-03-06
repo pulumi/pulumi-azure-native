@@ -22,50 +22,22 @@ class GetGuestAgentResult:
     """
     Defines the GuestAgent.
     """
-    def __init__(__self__, credentials=None, http_proxy_config=None, id=None, name=None, provisioning_action=None, provisioning_state=None, status=None, system_data=None, type=None):
-        if credentials and not isinstance(credentials, dict):
-            raise TypeError("Expected argument 'credentials' to be a dict")
-        pulumi.set(__self__, "credentials", credentials)
-        if http_proxy_config and not isinstance(http_proxy_config, dict):
-            raise TypeError("Expected argument 'http_proxy_config' to be a dict")
-        pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_action and not isinstance(provisioning_action, str):
-            raise TypeError("Expected argument 'provisioning_action' to be a str")
-        pulumi.set(__self__, "provisioning_action", provisioning_action)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional['outputs.GuestCredentialResponse']:
-        """
-        Username / Password Credentials to provision guest agent.
-        """
-        return pulumi.get(self, "credentials")
-
-    @property
-    @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional['outputs.HttpProxyConfigurationResponse']:
-        """
-        HTTP Proxy configuration for the VM.
-        """
-        return pulumi.get(self, "http_proxy_config")
 
     @property
     @pulumi.getter
@@ -84,28 +56,12 @@ class GetGuestAgentResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[str]:
-        """
-        The guest agent provisioning action.
-        """
-        return pulumi.get(self, "provisioning_action")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def status(self) -> str:
+    def properties(self) -> 'outputs.GuestAgentPropertiesResponse':
         """
-        The guest agent status.
+        Resource properties.
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -130,13 +86,9 @@ class AwaitableGetGuestAgentResult(GetGuestAgentResult):
         if False:
             yield self
         return GetGuestAgentResult(
-            credentials=self.credentials,
-            http_proxy_config=self.http_proxy_config,
             id=self.id,
             name=self.name,
-            provisioning_action=self.provisioning_action,
-            provisioning_state=self.provisioning_state,
-            status=self.status,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -161,13 +113,9 @@ def get_guest_agent(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20210901preview:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult).value
 
     return AwaitableGetGuestAgentResult(
-        credentials=__ret__.credentials,
-        http_proxy_config=__ret__.http_proxy_config,
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_action=__ret__.provisioning_action,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

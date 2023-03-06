@@ -35,85 +35,25 @@ export interface GetVirtualMachineTemplateArgs {
  */
 export interface GetVirtualMachineTemplateResult {
     /**
-     * Gets or sets computer name.
-     */
-    readonly computerName: string;
-    /**
-     * Gets or sets the desired number of vCPUs for the vm.
-     */
-    readonly cpuCount: number;
-    /**
-     * Gets or sets the disks of the template.
-     */
-    readonly disks: outputs.scvmm.v20200605preview.VirtualDiskResponse[];
-    /**
-     * Gets or sets a value indicating whether to enable dynamic memory or not.
-     */
-    readonly dynamicMemoryEnabled: string;
-    /**
-     * Gets or sets the max dynamic memory for the vm.
-     */
-    readonly dynamicMemoryMaxMB: number;
-    /**
-     * Gets or sets the min dynamic memory for the vm.
-     */
-    readonly dynamicMemoryMinMB: number;
-    /**
      * The extended location.
      */
     readonly extendedLocation: outputs.scvmm.v20200605preview.ExtendedLocationResponse;
-    /**
-     * Gets or sets the generation for the vm.
-     */
-    readonly generation: number;
     /**
      * Resource Id
      */
     readonly id: string;
     /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    readonly inventoryItemId?: string;
-    /**
-     * Gets or sets a value indicating whether the vm template is customizable or not.
-     */
-    readonly isCustomizable: string;
-    /**
-     * Gets highly available property.
-     */
-    readonly isHighlyAvailable: string;
-    /**
-     * Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
-     */
-    readonly limitCpuForMigration: string;
-    /**
      * Gets or sets the location.
      */
     readonly location: string;
-    /**
-     * MemoryMB is the desired size of a virtual machine's memory, in MB.
-     */
-    readonly memoryMB: number;
     /**
      * Resource Name
      */
     readonly name: string;
     /**
-     * Gets or sets the network interfaces of the template.
+     * Resource properties.
      */
-    readonly networkInterfaces: outputs.scvmm.v20200605preview.NetworkInterfacesResponse[];
-    /**
-     * Gets or sets os name.
-     */
-    readonly osName: string;
-    /**
-     * Gets or sets the type of the os.
-     */
-    readonly osType: string;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.scvmm.v20200605preview.VirtualMachineTemplatePropertiesResponse;
     /**
      * The system data.
      */
@@ -126,14 +66,6 @@ export interface GetVirtualMachineTemplateResult {
      * Resource Type
      */
     readonly type: string;
-    /**
-     * Unique ID of the virtual machine template.
-     */
-    readonly uuid?: string;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    readonly vmmServerId?: string;
 }
 /**
  * Implements VirtualMachineTemplate GET method.

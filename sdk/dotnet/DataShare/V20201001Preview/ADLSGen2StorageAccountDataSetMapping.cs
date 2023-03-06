@@ -16,47 +16,11 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public partial class ADLSGen2StorageAccountDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets the container name.
-        /// </summary>
-        [Output("containerName")]
-        public Output<string> ContainerName { get; private set; } = null!;
-
-        /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        [Output("dataSetMappingStatus")]
-        public Output<string> DataSetMappingStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the path to folder within the container.
-        /// </summary>
-        [Output("folder")]
-        public Output<string> Folder { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set mapping.
         /// Expected value is 'AdlsGen2StorageAccount'.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Location of the sink storage account.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the mount path
-        /// </summary>
-        [Output("mountPath")]
-        public Output<string?> MountPath { get; private set; } = null!;
 
         /// <summary>
         /// Name of the azure resource
@@ -65,16 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// ADLSGen2 Storage account data set mapping properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource id of the sink storage account
-        /// </summary>
-        [Output("storageAccountResourceId")]
-        public Output<string> StorageAccountResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ADLSGen2StorageAccountDataSetMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -155,28 +113,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the container name.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Input("dataSetId", required: true)]
-        public Input<string> DataSetId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
         [Input("dataSetMappingName")]
         public Input<string>? DataSetMappingName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the path to folder within the container.
-        /// </summary>
-        [Input("folder", required: true)]
-        public Input<string> Folder { get; set; } = null!;
 
         /// <summary>
         /// Kind of data set mapping.
@@ -186,10 +126,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the mount path
+        /// ADLSGen2 Storage account data set mapping properties.
         /// </summary>
-        [Input("mountPath")]
-        public Input<string>? MountPath { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ADLSGen2StorageAccountDataSetMappingPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -202,12 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         [Input("shareSubscriptionName", required: true)]
         public Input<string> ShareSubscriptionName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource id of the sink storage account
-        /// </summary>
-        [Input("storageAccountResourceId", required: true)]
-        public Input<string> StorageAccountResourceId { get; set; } = null!;
 
         public ADLSGen2StorageAccountDataSetMappingArgs()
         {

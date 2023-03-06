@@ -22,10 +22,7 @@ class GetSimGroupResult:
     """
     SIM group resource.
     """
-    def __init__(__self__, encryption_key=None, id=None, identity=None, location=None, mobile_network=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
-        if encryption_key and not isinstance(encryption_key, dict):
-            raise TypeError("Expected argument 'encryption_key' to be a dict")
-        pulumi.set(__self__, "encryption_key", encryption_key)
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,15 +32,12 @@ class GetSimGroupResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if mobile_network and not isinstance(mobile_network, dict):
-            raise TypeError("Expected argument 'mobile_network' to be a dict")
-        pulumi.set(__self__, "mobile_network", mobile_network)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -53,14 +47,6 @@ class GetSimGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional['outputs.KeyVaultKeyResponse']:
-        """
-        A key to encrypt the SIM data that belongs to this SIM group.
-        """
-        return pulumi.get(self, "encryption_key")
 
     @property
     @pulumi.getter
@@ -87,14 +73,6 @@ class GetSimGroupResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> Optional['outputs.MobileNetworkResourceIdResponse']:
-        """
-        Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -103,12 +81,12 @@ class GetSimGroupResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SimGroupPropertiesFormatResponse':
         """
-        The provisioning state of the SIM group resource.
+        SIM group Properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -141,13 +119,11 @@ class AwaitableGetSimGroupResult(GetSimGroupResult):
         if False:
             yield self
         return GetSimGroupResult(
-            encryption_key=self.encryption_key,
             id=self.id,
             identity=self.identity,
             location=self.location,
-            mobile_network=self.mobile_network,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -170,13 +146,11 @@ def get_sim_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20221101:getSimGroup', __args__, opts=opts, typ=GetSimGroupResult).value
 
     return AwaitableGetSimGroupResult(
-        encryption_key=__ret__.encryption_key,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
-        mobile_network=__ret__.mobile_network,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

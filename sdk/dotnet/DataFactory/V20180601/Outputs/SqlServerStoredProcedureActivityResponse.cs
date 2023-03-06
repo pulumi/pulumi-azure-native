@@ -37,18 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// Stored procedure name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object StoredProcedureName;
-        /// <summary>
-        /// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
-        /// </summary>
-        public readonly object? StoredProcedureParameters;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'SqlServerStoredProcedure'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// SQL stored procedure activity properties.
+        /// </summary>
+        public readonly Outputs.SqlServerStoredProcedureActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -66,11 +62,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            object storedProcedureName,
-
-            object? storedProcedureParameters,
-
             string type,
+
+            Outputs.SqlServerStoredProcedureActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
@@ -79,9 +73,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            StoredProcedureName = storedProcedureName;
-            StoredProcedureParameters = storedProcedureParameters;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

@@ -22,18 +22,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221201
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// FHIR Mappings
-        /// </summary>
-        [Output("fhirMapping")]
-        public Output<Outputs.IotMappingPropertiesResponse> FhirMapping { get; private set; } = null!;
-
-        /// <summary>
-        /// Fully qualified resource id of the FHIR service to connect to.
-        /// </summary>
-        [Output("fhirServiceResourceId")]
-        public Output<string> FhirServiceResourceId { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -46,10 +34,10 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how resource identity is resolved on the destination.
+        /// IoT FHIR Destination settings.
         /// </summary>
-        [Output("resourceIdentityResolutionType")]
-        public Output<string> ResourceIdentityResolutionType { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IotFhirDestinationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -125,18 +113,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221201
         public Input<string>? FhirDestinationName { get; set; }
 
         /// <summary>
-        /// FHIR Mappings
-        /// </summary>
-        [Input("fhirMapping", required: true)]
-        public Input<Inputs.IotMappingPropertiesArgs> FhirMapping { get; set; } = null!;
-
-        /// <summary>
-        /// Fully qualified resource id of the FHIR service to connect to.
-        /// </summary>
-        [Input("fhirServiceResourceId", required: true)]
-        public Input<string> FhirServiceResourceId { get; set; } = null!;
-
-        /// <summary>
         /// The name of IoT Connector resource.
         /// </summary>
         [Input("iotConnectorName", required: true)]
@@ -149,16 +125,16 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221201
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// IoT FHIR Destination settings.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.IotFhirDestinationPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group that contains the service instance.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Determines how resource identity is resolved on the destination.
-        /// </summary>
-        [Input("resourceIdentityResolutionType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.HealthcareApis.V20221201.IotIdentityResolutionType> ResourceIdentityResolutionType { get; set; } = null!;
 
         /// <summary>
         /// The name of workspace resource.

@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
     public sealed class GetOrganizationResult
     {
         /// <summary>
-        /// The creation time of the resource.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
         /// The ARM id of the resource.
         /// </summary>
         public readonly string Id;
@@ -86,21 +82,9 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Confluent offer detail
+        /// Organization resource properties
         /// </summary>
-        public readonly Outputs.OfferDetailResponse OfferDetail;
-        /// <summary>
-        /// Id of the Confluent organization.
-        /// </summary>
-        public readonly string OrganizationId;
-        /// <summary>
-        /// Provision states for confluent RP
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// SSO url for the Confluent organization.
-        /// </summary>
-        public readonly string SsoUrl;
+        public readonly Outputs.OrganizationResourcePropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
         /// </summary>
@@ -113,49 +97,30 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Subscriber detail
-        /// </summary>
-        public readonly Outputs.UserDetailResponse UserDetail;
 
         [OutputConstructor]
         private GetOrganizationResult(
-            string createdTime,
-
             string id,
 
             string? location,
 
             string name,
 
-            Outputs.OfferDetailResponse offerDetail,
-
-            string organizationId,
-
-            string provisioningState,
-
-            string ssoUrl,
+            Outputs.OrganizationResourcePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.UserDetailResponse userDetail)
+            string type)
         {
-            CreatedTime = createdTime;
             Id = id;
             Location = location;
             Name = name;
-            OfferDetail = offerDetail;
-            OrganizationId = organizationId;
-            ProvisioningState = provisioningState;
-            SsoUrl = ssoUrl;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserDetail = userDetail;
         }
     }
 }

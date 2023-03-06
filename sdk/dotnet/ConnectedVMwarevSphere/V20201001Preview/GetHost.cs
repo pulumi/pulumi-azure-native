@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     public sealed class GetHostResult
     {
         /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        public readonly string CustomResourceName;
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -81,10 +77,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// Gets or sets the Id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the host.
-        /// </summary>
-        public readonly string? InventoryItemId;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -94,25 +86,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the host.
-        /// </summary>
-        public readonly string MoName;
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
-        /// </summary>
-        public readonly string? MoRefId;
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
+        public readonly Outputs.HostPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -125,65 +105,36 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// Gets or sets the type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        public readonly string Uuid;
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this host resides.
-        /// </summary>
-        public readonly string? VCenterId;
 
         [OutputConstructor]
         private GetHostResult(
-            string customResourceName,
-
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
-
-            string? inventoryItemId,
 
             string? kind,
 
             string location,
 
-            string moName,
-
-            string? moRefId,
-
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<Outputs.ResourceStatusResponse> statuses,
+            Outputs.HostPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uuid,
-
-            string? vCenterId)
+            string type)
         {
-            CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;
             Id = id;
-            InventoryItemId = inventoryItemId;
             Kind = kind;
             Location = location;
-            MoName = moName;
-            MoRefId = moRefId;
             Name = name;
-            ProvisioningState = provisioningState;
-            Statuses = statuses;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            VCenterId = vCenterId;
         }
     }
 }

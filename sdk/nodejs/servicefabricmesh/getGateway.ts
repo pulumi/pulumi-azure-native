@@ -36,25 +36,9 @@ export interface GetGatewayArgs {
  */
 export interface GetGatewayResult {
     /**
-     * User readable description of the gateway.
-     */
-    readonly description?: string;
-    /**
-     * Network that the Application is using.
-     */
-    readonly destinationNetwork: outputs.servicefabricmesh.NetworkRefResponse;
-    /**
-     * Configuration for http connectivity for this gateway.
-     */
-    readonly http?: outputs.servicefabricmesh.HttpConfigResponse[];
-    /**
      * Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * IP address of the gateway. This is populated in the response and is ignored for incoming requests.
-     */
-    readonly ipAddress: string;
     /**
      * The geo-location where the resource lives
      */
@@ -64,29 +48,13 @@ export interface GetGatewayResult {
      */
     readonly name: string;
     /**
-     * State of the resource.
+     * This type describes properties of a gateway resource.
      */
-    readonly provisioningState: string;
-    /**
-     * Network the gateway should listen on for requests.
-     */
-    readonly sourceNetwork: outputs.servicefabricmesh.NetworkRefResponse;
-    /**
-     * Status of the resource.
-     */
-    readonly status: string;
-    /**
-     * Gives additional information about the current status of the gateway.
-     */
-    readonly statusDetails: string;
+    readonly properties: outputs.servicefabricmesh.GatewayResourcePropertiesResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * Configuration for tcp connectivity for this gateway.
-     */
-    readonly tcp?: outputs.servicefabricmesh.TcpConfigResponse[];
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

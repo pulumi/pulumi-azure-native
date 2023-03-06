@@ -16,28 +16,10 @@ namespace Pulumi.AzureNative.Storage.V20210801
     public partial class BlobContainerImmutabilityPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
-        /// </summary>
-        [Output("allowProtectedAppendWrites")]
-        public Output<bool?> AllowProtectedAppendWrites { get; private set; } = null!;
-
-        /// <summary>
-        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
-        /// </summary>
-        [Output("allowProtectedAppendWritesAll")]
-        public Output<bool?> AllowProtectedAppendWritesAll { get; private set; } = null!;
-
-        /// <summary>
         /// Resource Etag.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// The immutability period for the blobs in the container since the policy creation, in days.
-        /// </summary>
-        [Output("immutabilityPeriodSinceCreationInDays")]
-        public Output<int?> ImmutabilityPeriodSinceCreationInDays { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -46,10 +28,10 @@ namespace Pulumi.AzureNative.Storage.V20210801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        /// The properties of an ImmutabilityPolicy of a blob container.
         /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ImmutabilityPolicyPropertyResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -127,34 +109,22 @@ namespace Pulumi.AzureNative.Storage.V20210801
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
-        /// </summary>
-        [Input("allowProtectedAppendWrites")]
-        public Input<bool>? AllowProtectedAppendWrites { get; set; }
-
-        /// <summary>
-        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
-        /// </summary>
-        [Input("allowProtectedAppendWritesAll")]
-        public Input<bool>? AllowProtectedAppendWritesAll { get; set; }
-
-        /// <summary>
         /// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The immutability period for the blobs in the container since the policy creation, in days.
-        /// </summary>
-        [Input("immutabilityPeriodSinceCreationInDays")]
-        public Input<int>? ImmutabilityPeriodSinceCreationInDays { get; set; }
-
-        /// <summary>
         /// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         /// </summary>
         [Input("immutabilityPolicyName")]
         public Input<string>? ImmutabilityPolicyName { get; set; }
+
+        /// <summary>
+        /// The properties of an ImmutabilityPolicy of a blob container.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ImmutabilityPolicyPropertyArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

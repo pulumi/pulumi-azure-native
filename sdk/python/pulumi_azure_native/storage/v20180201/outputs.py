@@ -20,6 +20,7 @@ __all__ = [
     'IPRuleResponse',
     'IdentityResponse',
     'ImmutabilityPolicyPropertiesResponse',
+    'ImmutabilityPolicyPropertyResponse',
     'KeyVaultPropertiesResponse',
     'LegalHoldPropertiesResponse',
     'NetworkRuleSetResponse',
@@ -523,6 +524,56 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         The ImmutabilityPolicy update history of the blob container.
         """
         return pulumi.get(self, "update_history")
+
+
+@pulumi.output_type
+class ImmutabilityPolicyPropertyResponse(dict):
+    """
+    The properties of an ImmutabilityPolicy of a blob container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immutabilityPeriodSinceCreationInDays":
+            suggest = "immutability_period_since_creation_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImmutabilityPolicyPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImmutabilityPolicyPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImmutabilityPolicyPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immutability_period_since_creation_in_days: int,
+                 state: str):
+        """
+        The properties of an ImmutabilityPolicy of a blob container.
+        :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        """
+        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
+    def immutability_period_since_creation_in_days(self) -> int:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

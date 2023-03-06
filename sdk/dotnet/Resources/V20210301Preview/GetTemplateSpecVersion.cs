@@ -82,33 +82,21 @@ namespace Pulumi.AzureNative.Resources.V20210301Preview
     public sealed class GetTemplateSpecVersionResult
     {
         /// <summary>
-        /// Template Spec version description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// An array of linked template artifacts.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LinkedTemplateArtifactResponse> LinkedTemplates;
         /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The main Azure Resource Manager template content.
-        /// </summary>
-        public readonly object? MainTemplate;
-        /// <summary>
-        /// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        /// </summary>
-        public readonly object? Metadata;
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Template Spec Version properties.
+        /// </summary>
+        public readonly Outputs.TemplateSpecVersionPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -121,46 +109,30 @@ namespace Pulumi.AzureNative.Resources.V20210301Preview
         /// Type of this resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The Azure Resource Manager template UI definition content.
-        /// </summary>
-        public readonly object? UiFormDefinition;
 
         [OutputConstructor]
         private GetTemplateSpecVersionResult(
-            string? description,
-
             string id,
-
-            ImmutableArray<Outputs.LinkedTemplateArtifactResponse> linkedTemplates,
 
             string location,
 
-            object? mainTemplate,
-
-            object? metadata,
-
             string name,
+
+            Outputs.TemplateSpecVersionPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            object? uiFormDefinition)
+            string type)
         {
-            Description = description;
             Id = id;
-            LinkedTemplates = linkedTemplates;
             Location = location;
-            MainTemplate = mainTemplate;
-            Metadata = metadata;
             Name = name;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UiFormDefinition = uiFormDefinition;
         }
     }
 }

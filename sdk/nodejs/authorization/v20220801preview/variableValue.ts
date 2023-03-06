@@ -42,6 +42,10 @@ export class VariableValue extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Properties for the variable value.
+     */
+    public readonly properties!: pulumi.Output<outputs.authorization.v20220801preview.PolicyVariableValuePropertiesResponse>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.v20220801preview.SystemDataResponse>;
@@ -49,10 +53,6 @@ export class VariableValue extends pulumi.CustomResource {
      * The type of the resource (Microsoft.Authorization/variables/values).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Variable value column value array.
-     */
-    public readonly values!: pulumi.Output<outputs.authorization.v20220801preview.PolicyVariableValueColumnValueResponse[]>;
 
     /**
      * Create a VariableValue resource with the given unique name, arguments, and options.
@@ -65,13 +65,13 @@ export class VariableValue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.values === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'values'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.variableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'variableName'");
             }
-            resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["variableName"] = args ? args.variableName : undefined;
             resourceInputs["variableValueName"] = args ? args.variableValueName : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -79,9 +79,9 @@ export class VariableValue extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["values"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VariableValue.__pulumiType, name, resourceInputs, opts);
@@ -93,9 +93,9 @@ export class VariableValue extends pulumi.CustomResource {
  */
 export interface VariableValueArgs {
     /**
-     * Variable value column value array.
+     * Properties for the variable value.
      */
-    values: pulumi.Input<pulumi.Input<inputs.authorization.v20220801preview.PolicyVariableValueColumnValueArgs>[]>;
+    properties: pulumi.Input<inputs.authorization.v20220801preview.PolicyVariableValuePropertiesArgs>;
     /**
      * The name of the variable to operate on.
      */

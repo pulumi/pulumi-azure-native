@@ -83,14 +83,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class GetStorageDomainResult
     {
         /// <summary>
-        /// The encryption key used to encrypt the data. This is a user secret.
-        /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptionKey;
-        /// <summary>
-        /// The encryption status "Enabled | Disabled".
-        /// </summary>
-        public readonly string EncryptionStatus;
-        /// <summary>
         /// The identifier.
         /// </summary>
         public readonly string Id;
@@ -99,9 +91,9 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The storage account credentials.
+        /// The properties.
         /// </summary>
-        public readonly ImmutableArray<string> StorageAccountCredentialIds;
+        public readonly Outputs.StorageDomainPropertiesResponse Properties;
         /// <summary>
         /// The type.
         /// </summary>
@@ -109,23 +101,17 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 
         [OutputConstructor]
         private GetStorageDomainResult(
-            Outputs.AsymmetricEncryptedSecretResponse? encryptionKey,
-
-            string encryptionStatus,
-
             string id,
 
             string name,
 
-            ImmutableArray<string> storageAccountCredentialIds,
+            Outputs.StorageDomainPropertiesResponse properties,
 
             string type)
         {
-            EncryptionKey = encryptionKey;
-            EncryptionStatus = encryptionStatus;
             Id = id;
             Name = name;
-            StorageAccountCredentialIds = storageAccountCredentialIds;
+            Properties = properties;
             Type = type;
         }
     }

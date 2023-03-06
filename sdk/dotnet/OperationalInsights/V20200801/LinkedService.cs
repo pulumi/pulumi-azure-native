@@ -22,16 +22,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the linked service.
+        /// The properties of the linked service.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-        /// </summary>
-        [Output("resourceId")]
-        public Output<string?> ResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LinkedServicePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-        /// </summary>
-        [Output("writeAccessResourceId")]
-        public Output<string?> WriteAccessResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -110,22 +98,16 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
-        /// The provisioning state of the linked service.
+        /// The properties of the linked service.
         /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.V20200801.LinkedServiceEntityStatus>? ProvisioningState { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.LinkedServicePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -144,12 +126,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
-
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-        /// </summary>
-        [Input("writeAccessResourceId")]
-        public Input<string>? WriteAccessResourceId { get; set; }
 
         public LinkedServiceArgs()
         {

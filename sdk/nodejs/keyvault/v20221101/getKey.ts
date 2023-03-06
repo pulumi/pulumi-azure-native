@@ -40,34 +40,9 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
-     * The attributes of the key.
-     */
-    readonly attributes?: outputs.keyvault.v20221101.KeyAttributesResponse;
-    /**
-     * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-     */
-    readonly curveName?: string;
-    /**
      * Fully qualified identifier of the key vault resource.
      */
     readonly id: string;
-    readonly keyOps?: string[];
-    /**
-     * The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-     */
-    readonly keySize?: number;
-    /**
-     * The URI to retrieve the current version of the key.
-     */
-    readonly keyUri: string;
-    /**
-     * The URI to retrieve the specific version of the key.
-     */
-    readonly keyUriWithVersion: string;
-    /**
-     * The type of the key. For valid values, see JsonWebKeyType.
-     */
-    readonly kty?: string;
     /**
      * Azure location of the key vault resource.
      */
@@ -77,13 +52,9 @@ export interface GetKeyResult {
      */
     readonly name: string;
     /**
-     * Key release policy in response. It will be used for both output and input. Omitted if empty
+     * The properties of the key.
      */
-    readonly releasePolicy?: outputs.keyvault.v20221101.KeyReleasePolicyResponse;
-    /**
-     * Key rotation policy in response. It will be used for both output and input. Omitted if empty
-     */
-    readonly rotationPolicy?: outputs.keyvault.v20221101.RotationPolicyResponse;
+    readonly properties: outputs.keyvault.v20221101.KeyPropertiesResponse;
     /**
      * Tags assigned to the key vault resource.
      */

@@ -37,33 +37,9 @@ export interface GetAlertRuleArgs {
  */
 export interface GetAlertRuleResult {
     /**
-     * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    readonly action?: outputs.insights.v20140401.RuleEmailActionResponse | outputs.insights.v20140401.RuleWebhookActionResponse;
-    /**
-     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    readonly actions?: (outputs.insights.v20140401.RuleEmailActionResponse | outputs.insights.v20140401.RuleWebhookActionResponse)[];
-    /**
-     * the condition that results in the alert rule being activated.
-     */
-    readonly condition: outputs.insights.v20140401.LocationThresholdRuleConditionResponse | outputs.insights.v20140401.ManagementEventRuleConditionResponse | outputs.insights.v20140401.ThresholdRuleConditionResponse;
-    /**
-     * the description of the alert rule that will be included in the alert email.
-     */
-    readonly description?: string;
-    /**
      * Azure resource Id
      */
     readonly id: string;
-    /**
-     * the flag that indicates whether the alert rule is enabled.
-     */
-    readonly isEnabled: boolean;
-    /**
-     * Last time the rule was updated in ISO8601 format.
-     */
-    readonly lastUpdatedTime: string;
     /**
      * Resource location
      */
@@ -73,9 +49,9 @@ export interface GetAlertRuleResult {
      */
     readonly name: string;
     /**
-     * the provisioning state.
+     * The alert rule properties of the resource.
      */
-    readonly provisioningState?: string;
+    readonly properties: outputs.insights.v20140401.AlertRuleResponse;
     /**
      * Resource tags
      */

@@ -40,10 +40,6 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
-     * The end IP address of the server firewall rule. Must be IPv4 format.
-     */
-    readonly endIpAddress: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -52,9 +48,9 @@ export interface GetFirewallRuleResult {
      */
     readonly name: string;
     /**
-     * The start IP address of the server firewall rule. Must be IPv4 format.
+     * The properties of a firewall rule.
      */
-    readonly startIpAddress: string;
+    readonly properties: outputs.dbforpostgresql.v20210615privatepreview.FirewallRulePropertiesResponse;
     /**
      * The system metadata relating to this resource.
      */

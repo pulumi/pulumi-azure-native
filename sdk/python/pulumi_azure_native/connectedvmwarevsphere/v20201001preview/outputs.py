@@ -12,13 +12,22 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ClusterInventoryItemResponse',
+    'ClusterPropertiesResponse',
+    'DatastoreInventoryItemResponse',
+    'DatastorePropertiesResponse',
     'ErrorDetailResponse',
     'ExtendedLocationResponse',
     'GuestAgentProfileResponse',
+    'GuestAgentPropertiesResponse',
     'GuestCredentialResponse',
     'HardwareProfileResponse',
+    'HostInventoryItemResponse',
+    'HostPropertiesResponse',
     'HttpProxyConfigurationResponse',
+    'HybridIdentityMetadataPropertiesResponse',
     'IdentityResponse',
+    'InventoryItemDetailsResponse',
     'MachineExtensionInstanceViewResponseStatus',
     'MachineExtensionPropertiesResponseInstanceView',
     'NetworkInterfaceResponse',
@@ -27,13 +36,526 @@ __all__ = [
     'NicIPSettingsResponse',
     'OsProfileResponse',
     'PlacementProfileResponse',
+    'ResourcePoolInventoryItemResponse',
+    'ResourcePoolPropertiesResponse',
     'ResourceStatusResponse',
     'StorageProfileResponse',
     'SystemDataResponse',
+    'VCenterPropertiesResponse',
     'VICredentialResponse',
     'VirtualDiskResponse',
+    'VirtualMachineInventoryItemResponse',
+    'VirtualMachinePropertiesResponse',
+    'VirtualMachineTemplateInventoryItemResponse',
+    'VirtualMachineTemplatePropertiesResponse',
+    'VirtualNetworkInventoryItemResponse',
+    'VirtualNetworkPropertiesResponse',
     'VirtualSCSIControllerResponse',
 ]
+
+@pulumi.output_type
+class ClusterInventoryItemResponse(dict):
+    """
+    The cluster inventory item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryType":
+            suggest = "inventory_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "managedResourceId":
+            suggest = "managed_resource_id"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInventoryItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInventoryItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInventoryItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_type: str,
+                 provisioning_state: str,
+                 managed_resource_id: Optional[str] = None,
+                 mo_name: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None):
+        """
+        The cluster inventory item.
+        :param str inventory_type: The inventory type.
+               Expected value is 'Cluster'.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param str mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        pulumi.set(__self__, "inventory_type", 'Cluster')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> str:
+        """
+        The inventory type.
+        Expected value is 'Cluster'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+
+@pulumi.output_type
+class ClusterPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "datastoreIds":
+            suggest = "datastore_ids"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "networkIds":
+            suggest = "network_ids"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 datastore_ids: Sequence[str],
+                 mo_name: str,
+                 network_ids: Sequence[str],
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 inventory_item_id: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param Sequence[str] datastore_ids: Gets or sets the datastore ARM ids.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the cluster.
+        :param Sequence[str] network_ids: Gets or sets the network ARM ids.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the cluster.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the cluster.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "datastore_ids", datastore_ids)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "network_ids", network_ids)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="datastoreIds")
+    def datastore_ids(self) -> Sequence[str]:
+        """
+        Gets or sets the datastore ARM ids.
+        """
+        return pulumi.get(self, "datastore_ids")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the cluster.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="networkIds")
+    def network_ids(self) -> Sequence[str]:
+        """
+        Gets or sets the network ARM ids.
+        """
+        return pulumi.get(self, "network_ids")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the cluster.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the cluster.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+
+@pulumi.output_type
+class DatastoreInventoryItemResponse(dict):
+    """
+    The datastore inventory item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryType":
+            suggest = "inventory_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "capacityGB":
+            suggest = "capacity_gb"
+        elif key == "freeSpaceGB":
+            suggest = "free_space_gb"
+        elif key == "managedResourceId":
+            suggest = "managed_resource_id"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatastoreInventoryItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatastoreInventoryItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatastoreInventoryItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_type: str,
+                 provisioning_state: str,
+                 capacity_gb: Optional[float] = None,
+                 free_space_gb: Optional[float] = None,
+                 managed_resource_id: Optional[str] = None,
+                 mo_name: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None):
+        """
+        The datastore inventory item.
+        :param str inventory_type: The inventory type.
+               Expected value is 'Datastore'.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param float capacity_gb: Gets or sets Maximum capacity of this datastore, in GBs.
+        :param float free_space_gb: Gets or sets Available space of this datastore, in GBs.
+        :param str managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param str mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        pulumi.set(__self__, "inventory_type", 'Datastore')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if capacity_gb is not None:
+            pulumi.set(__self__, "capacity_gb", capacity_gb)
+        if free_space_gb is not None:
+            pulumi.set(__self__, "free_space_gb", free_space_gb)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> str:
+        """
+        The inventory type.
+        Expected value is 'Datastore'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="capacityGB")
+    def capacity_gb(self) -> Optional[float]:
+        """
+        Gets or sets Maximum capacity of this datastore, in GBs.
+        """
+        return pulumi.get(self, "capacity_gb")
+
+    @property
+    @pulumi.getter(name="freeSpaceGB")
+    def free_space_gb(self) -> Optional[float]:
+        """
+        Gets or sets Available space of this datastore, in GBs.
+        """
+        return pulumi.get(self, "free_space_gb")
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+
+@pulumi.output_type
+class DatastorePropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatastorePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatastorePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatastorePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 mo_name: str,
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 inventory_item_id: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the datastore.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the datastore.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the datastore.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the datastore.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
 
 @pulumi.output_type
 class ErrorDetailResponse(dict):
@@ -213,6 +735,131 @@ class GuestAgentProfileResponse(dict):
 
 
 @pulumi.output_type
+class GuestAgentPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "httpProxyConfig":
+            suggest = "http_proxy_config"
+        elif key == "provisioningAction":
+            suggest = "provisioning_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestAgentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestAgentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestAgentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 provisioning_state: str,
+                 status: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 credentials: Optional['outputs.GuestCredentialResponse'] = None,
+                 http_proxy_config: Optional['outputs.HttpProxyConfigurationResponse'] = None,
+                 provisioning_action: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str status: Gets or sets the guest agent status.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param 'GuestCredentialResponse' credentials: Username / Password Credentials to provision guest agent.
+        :param 'HttpProxyConfigurationResponse' http_proxy_config: HTTP Proxy configuration for the VM.
+        :param str provisioning_action: Gets or sets the guest agent provisioning action.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if http_proxy_config is not None:
+            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+        if provisioning_action is not None:
+            pulumi.set(__self__, "provisioning_action", provisioning_action)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Gets or sets the guest agent status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.GuestCredentialResponse']:
+        """
+        Username / Password Credentials to provision guest agent.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional['outputs.HttpProxyConfigurationResponse']:
+        """
+        HTTP Proxy configuration for the VM.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @property
+    @pulumi.getter(name="provisioningAction")
+    def provisioning_action(self) -> Optional[str]:
+        """
+        Gets or sets the guest agent provisioning action.
+        """
+        return pulumi.get(self, "provisioning_action")
+
+
+@pulumi.output_type
 class GuestCredentialResponse(dict):
     """
     Username / Password Credentials to connect to guest.
@@ -343,6 +990,243 @@ class HardwareProfileResponse(dict):
 
 
 @pulumi.output_type
+class HostInventoryItemResponse(dict):
+    """
+    The host inventory item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryType":
+            suggest = "inventory_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "managedResourceId":
+            suggest = "managed_resource_id"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostInventoryItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostInventoryItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostInventoryItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_type: str,
+                 provisioning_state: str,
+                 managed_resource_id: Optional[str] = None,
+                 mo_name: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 parent: Optional['outputs.InventoryItemDetailsResponse'] = None):
+        """
+        The host inventory item.
+        :param str inventory_type: The inventory type.
+               Expected value is 'Host'.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param str mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param 'InventoryItemDetailsResponse' parent: Parent host inventory resource details.
+        """
+        pulumi.set(__self__, "inventory_type", 'Host')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> str:
+        """
+        The inventory type.
+        Expected value is 'Host'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional['outputs.InventoryItemDetailsResponse']:
+        """
+        Parent host inventory resource details.
+        """
+        return pulumi.get(self, "parent")
+
+
+@pulumi.output_type
+class HostPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 mo_name: str,
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 inventory_item_id: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the host.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the host.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this host resides.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the host.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the host.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this host resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+
+@pulumi.output_type
 class HttpProxyConfigurationResponse(dict):
     """
     HTTP Proxy configuration for the VM.
@@ -380,6 +1264,84 @@ class HttpProxyConfigurationResponse(dict):
         Gets or sets httpsProxy url.
         """
         return pulumi.get(self, "https_proxy")
+
+
+@pulumi.output_type
+class HybridIdentityMetadataPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicKey":
+            suggest = "public_key"
+        elif key == "vmId":
+            suggest = "vm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridIdentityMetadataPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridIdentityMetadataPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridIdentityMetadataPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: 'outputs.IdentityResponse',
+                 provisioning_state: str,
+                 public_key: Optional[str] = None,
+                 vm_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param 'IdentityResponse' identity: The identity of the resource.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str public_key: Gets or sets the Public Key.
+        :param str vm_id: Gets or sets the Vm Id.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if vm_id is not None:
+            pulumi.set(__self__, "vm_id", vm_id)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.IdentityResponse':
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[str]:
+        """
+        Gets or sets the Public Key.
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> Optional[str]:
+        """
+        Gets or sets the Vm Id.
+        """
+        return pulumi.get(self, "vm_id")
 
 
 @pulumi.output_type
@@ -443,6 +1405,60 @@ class IdentityResponse(dict):
         The type of managed service identity.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class InventoryItemDetailsResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moName":
+            suggest = "mo_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InventoryItemDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InventoryItemDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InventoryItemDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[str] = None,
+                 mo_name: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the resource.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the resource.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the resource.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the resource.
+        """
+        return pulumi.get(self, "mo_name")
 
 
 @pulumi.output_type
@@ -1215,6 +2231,333 @@ class PlacementProfileResponse(dict):
 
 
 @pulumi.output_type
+class ResourcePoolInventoryItemResponse(dict):
+    """
+    The resource pool inventory item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryType":
+            suggest = "inventory_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "managedResourceId":
+            suggest = "managed_resource_id"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourcePoolInventoryItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourcePoolInventoryItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourcePoolInventoryItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_type: str,
+                 provisioning_state: str,
+                 managed_resource_id: Optional[str] = None,
+                 mo_name: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 parent: Optional['outputs.InventoryItemDetailsResponse'] = None):
+        """
+        The resource pool inventory item.
+        :param str inventory_type: The inventory type.
+               Expected value is 'ResourcePool'.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param str mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param 'InventoryItemDetailsResponse' parent: Parent resourcePool inventory resource details.
+        """
+        pulumi.set(__self__, "inventory_type", 'ResourcePool')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> str:
+        """
+        The inventory type.
+        Expected value is 'ResourcePool'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional['outputs.InventoryItemDetailsResponse']:
+        """
+        Parent resourcePool inventory resource details.
+        """
+        return pulumi.get(self, "parent")
+
+
+@pulumi.output_type
+class ResourcePoolPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuLimitMHz":
+            suggest = "cpu_limit_m_hz"
+        elif key == "cpuReservationMHz":
+            suggest = "cpu_reservation_m_hz"
+        elif key == "cpuSharesLevel":
+            suggest = "cpu_shares_level"
+        elif key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "memLimitMB":
+            suggest = "mem_limit_mb"
+        elif key == "memReservationMB":
+            suggest = "mem_reservation_mb"
+        elif key == "memSharesLevel":
+            suggest = "mem_shares_level"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourcePoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourcePoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourcePoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_limit_m_hz: float,
+                 cpu_reservation_m_hz: float,
+                 cpu_shares_level: str,
+                 custom_resource_name: str,
+                 mem_limit_mb: float,
+                 mem_reservation_mb: float,
+                 mem_shares_level: str,
+                 mo_name: str,
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 inventory_item_id: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param float cpu_limit_m_hz: Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
+               Utilization will not exceed this limit even if there are available resources.
+        :param float cpu_reservation_m_hz: Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
+               to be available.
+        :param str cpu_shares_level: Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
+               This property is used in relative allocation between resource consumers.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param float mem_limit_mb: Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
+               Utilization will not exceed the specified limit even if there are available resources.
+        :param float mem_reservation_mb: Gets or sets MemReservationMB which specifies the guaranteed available memory in
+               megabytes.
+        :param str mem_shares_level: Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
+               This property is used in relative allocation between resource consumers.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the resource pool.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the resource pool.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        pulumi.set(__self__, "cpu_limit_m_hz", cpu_limit_m_hz)
+        pulumi.set(__self__, "cpu_reservation_m_hz", cpu_reservation_m_hz)
+        pulumi.set(__self__, "cpu_shares_level", cpu_shares_level)
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "mem_limit_mb", mem_limit_mb)
+        pulumi.set(__self__, "mem_reservation_mb", mem_reservation_mb)
+        pulumi.set(__self__, "mem_shares_level", mem_shares_level)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="cpuLimitMHz")
+    def cpu_limit_m_hz(self) -> float:
+        """
+        Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
+        Utilization will not exceed this limit even if there are available resources.
+        """
+        return pulumi.get(self, "cpu_limit_m_hz")
+
+    @property
+    @pulumi.getter(name="cpuReservationMHz")
+    def cpu_reservation_m_hz(self) -> float:
+        """
+        Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
+        to be available.
+        """
+        return pulumi.get(self, "cpu_reservation_m_hz")
+
+    @property
+    @pulumi.getter(name="cpuSharesLevel")
+    def cpu_shares_level(self) -> str:
+        """
+        Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
+        This property is used in relative allocation between resource consumers.
+        """
+        return pulumi.get(self, "cpu_shares_level")
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="memLimitMB")
+    def mem_limit_mb(self) -> float:
+        """
+        Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
+        Utilization will not exceed the specified limit even if there are available resources.
+        """
+        return pulumi.get(self, "mem_limit_mb")
+
+    @property
+    @pulumi.getter(name="memReservationMB")
+    def mem_reservation_mb(self) -> float:
+        """
+        Gets or sets MemReservationMB which specifies the guaranteed available memory in
+        megabytes.
+        """
+        return pulumi.get(self, "mem_reservation_mb")
+
+    @property
+    @pulumi.getter(name="memSharesLevel")
+    def mem_shares_level(self) -> str:
+        """
+        Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
+        This property is used in relative allocation between resource consumers.
+        """
+        return pulumi.get(self, "mem_shares_level")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the resource pool.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the resource pool.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+
+@pulumi.output_type
 class ResourceStatusResponse(dict):
     """
     The resource status information.
@@ -1470,6 +2813,152 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class VCenterPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionStatus":
+            suggest = "connection_status"
+        elif key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "instanceUuid":
+            suggest = "instance_uuid"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VCenterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VCenterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VCenterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_status: str,
+                 custom_resource_name: str,
+                 fqdn: str,
+                 instance_uuid: str,
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 version: str,
+                 credentials: Optional['outputs.VICredentialResponse'] = None,
+                 port: Optional[int] = None):
+        """
+        Defines the resource properties.
+        :param str connection_status: Gets or sets the connection status to the vCenter.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param str fqdn: Gets or sets the FQDN/IPAddress of the vCenter.
+        :param str instance_uuid: Gets or sets the instance UUID of the vCenter.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str version: Gets or sets the version of the vCenter.
+        :param 'VICredentialResponse' credentials: Username / Password Credentials to connect to vcenter.
+        :param int port: Gets or sets the port of the vCenter.
+        """
+        pulumi.set(__self__, "connection_status", connection_status)
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "instance_uuid", instance_uuid)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        pulumi.set(__self__, "version", version)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        Gets or sets the connection status to the vCenter.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        Gets or sets the FQDN/IPAddress of the vCenter.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="instanceUuid")
+    def instance_uuid(self) -> str:
+        """
+        Gets or sets the instance UUID of the vCenter.
+        """
+        return pulumi.get(self, "instance_uuid")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Gets or sets the version of the vCenter.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.VICredentialResponse']:
+        """
+        Username / Password Credentials to connect to vcenter.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Gets or sets the port of the vCenter.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class VICredentialResponse(dict):
     """
     Username / Password Credentials to connect to vcenter.
@@ -1650,6 +3139,1268 @@ class VirtualDiskResponse(dict):
         Gets or sets the unit number of the disk on the controller.
         """
         return pulumi.get(self, "unit_number")
+
+
+@pulumi.output_type
+class VirtualMachineInventoryItemResponse(dict):
+    """
+    The VM inventory item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryType":
+            suggest = "inventory_type"
+        elif key == "powerState":
+            suggest = "power_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "toolsRunningStatus":
+            suggest = "tools_running_status"
+        elif key == "toolsVersion":
+            suggest = "tools_version"
+        elif key == "toolsVersionStatus":
+            suggest = "tools_version_status"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "instanceUuid":
+            suggest = "instance_uuid"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "managedResourceId":
+            suggest = "managed_resource_id"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "resourcePool":
+            suggest = "resource_pool"
+        elif key == "smbiosUuid":
+            suggest = "smbios_uuid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineInventoryItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineInventoryItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineInventoryItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_type: str,
+                 power_state: str,
+                 provisioning_state: str,
+                 tools_running_status: str,
+                 tools_version: str,
+                 tools_version_status: str,
+                 folder_path: Optional[str] = None,
+                 host: Optional['outputs.InventoryItemDetailsResponse'] = None,
+                 instance_uuid: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None,
+                 managed_resource_id: Optional[str] = None,
+                 mo_name: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 os_name: Optional[str] = None,
+                 os_type: Optional[str] = None,
+                 resource_pool: Optional['outputs.InventoryItemDetailsResponse'] = None,
+                 smbios_uuid: Optional[str] = None):
+        """
+        The VM inventory item.
+        :param str inventory_type: The inventory type.
+               Expected value is 'VirtualMachine'.
+        :param str power_state: Gets the power state of the virtual machine.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str tools_running_status: Gets or sets the current running status of VMware Tools running in the guest operating system.
+        :param str tools_version: Gets or sets the current version of VMware Tools.
+        :param str tools_version_status: Gets or sets the current version status of VMware Tools installed in the guest operating system.
+        :param str folder_path: Gets or sets the folder path of the vm.
+        :param 'InventoryItemDetailsResponse' host: Host inventory resource details.
+        :param str instance_uuid: Gets or sets the instance uuid of the vm.
+        :param Sequence[str] ip_addresses: Gets or sets the nic ip addresses.
+        :param str managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param str mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param str os_name: Gets or sets os name.
+        :param str os_type: Gets or sets the type of the os.
+        :param 'InventoryItemDetailsResponse' resource_pool: ResourcePool inventory resource details.
+        :param str smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
+        """
+        pulumi.set(__self__, "inventory_type", 'VirtualMachine')
+        pulumi.set(__self__, "power_state", power_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "tools_running_status", tools_running_status)
+        pulumi.set(__self__, "tools_version", tools_version)
+        pulumi.set(__self__, "tools_version_status", tools_version_status)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if instance_uuid is not None:
+            pulumi.set(__self__, "instance_uuid", instance_uuid)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if os_name is not None:
+            pulumi.set(__self__, "os_name", os_name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if resource_pool is not None:
+            pulumi.set(__self__, "resource_pool", resource_pool)
+        if smbios_uuid is not None:
+            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> str:
+        """
+        The inventory type.
+        Expected value is 'VirtualMachine'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        Gets the power state of the virtual machine.
+        """
+        return pulumi.get(self, "power_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="toolsRunningStatus")
+    def tools_running_status(self) -> str:
+        """
+        Gets or sets the current running status of VMware Tools running in the guest operating system.
+        """
+        return pulumi.get(self, "tools_running_status")
+
+    @property
+    @pulumi.getter(name="toolsVersion")
+    def tools_version(self) -> str:
+        """
+        Gets or sets the current version of VMware Tools.
+        """
+        return pulumi.get(self, "tools_version")
+
+    @property
+    @pulumi.getter(name="toolsVersionStatus")
+    def tools_version_status(self) -> str:
+        """
+        Gets or sets the current version status of VMware Tools installed in the guest operating system.
+        """
+        return pulumi.get(self, "tools_version_status")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[str]:
+        """
+        Gets or sets the folder path of the vm.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional['outputs.InventoryItemDetailsResponse']:
+        """
+        Host inventory resource details.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="instanceUuid")
+    def instance_uuid(self) -> Optional[str]:
+        """
+        Gets or sets the instance uuid of the vm.
+        """
+        return pulumi.get(self, "instance_uuid")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the nic ip addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> Optional[str]:
+        """
+        Gets or sets os name.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="resourcePool")
+    def resource_pool(self) -> Optional['outputs.InventoryItemDetailsResponse']:
+        """
+        ResourcePool inventory resource details.
+        """
+        return pulumi.get(self, "resource_pool")
+
+    @property
+    @pulumi.getter(name="smbiosUuid")
+    def smbios_uuid(self) -> Optional[str]:
+        """
+        Gets or sets the SMBIOS UUID of the vm.
+        """
+        return pulumi.get(self, "smbios_uuid")
+
+
+@pulumi.output_type
+class VirtualMachinePropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "instanceUuid":
+            suggest = "instance_uuid"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "powerState":
+            suggest = "power_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "vmId":
+            suggest = "vm_id"
+        elif key == "firmwareType":
+            suggest = "firmware_type"
+        elif key == "guestAgentProfile":
+            suggest = "guest_agent_profile"
+        elif key == "hardwareProfile":
+            suggest = "hardware_profile"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "osProfile":
+            suggest = "os_profile"
+        elif key == "placementProfile":
+            suggest = "placement_profile"
+        elif key == "resourcePoolId":
+            suggest = "resource_pool_id"
+        elif key == "smbiosUuid":
+            suggest = "smbios_uuid"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
+        elif key == "templateId":
+            suggest = "template_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachinePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachinePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachinePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 folder_path: str,
+                 instance_uuid: str,
+                 mo_name: str,
+                 power_state: str,
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 vm_id: str,
+                 firmware_type: Optional[str] = None,
+                 guest_agent_profile: Optional['outputs.GuestAgentProfileResponse'] = None,
+                 hardware_profile: Optional['outputs.HardwareProfileResponse'] = None,
+                 inventory_item_id: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 network_profile: Optional['outputs.NetworkProfileResponse'] = None,
+                 os_profile: Optional['outputs.OsProfileResponse'] = None,
+                 placement_profile: Optional['outputs.PlacementProfileResponse'] = None,
+                 resource_pool_id: Optional[str] = None,
+                 smbios_uuid: Optional[str] = None,
+                 storage_profile: Optional['outputs.StorageProfileResponse'] = None,
+                 template_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param str folder_path: Gets or sets the folder path of the vm.
+        :param str instance_uuid: Gets or sets the instance uuid of the vm.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the virtual machine.
+        :param str power_state: Gets the power state of the virtual machine.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str vm_id: Gets or sets a unique identifier for the vm resource.
+        :param str firmware_type: Firmware type
+        :param 'GuestAgentProfileResponse' guest_agent_profile: Guest agent status properties.
+        :param 'HardwareProfileResponse' hardware_profile: Hardware properties.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the virtual machine.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+        :param 'NetworkProfileResponse' network_profile: Network properties.
+        :param 'OsProfileResponse' os_profile: OS properties.
+        :param 'PlacementProfileResponse' placement_profile: Placement properties.
+        :param str resource_pool_id: Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
+               deploy.
+        :param str smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
+        :param 'StorageProfileResponse' storage_profile: Storage properties.
+        :param str template_id: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "instance_uuid", instance_uuid)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "power_state", power_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        pulumi.set(__self__, "vm_id", vm_id)
+        if firmware_type is not None:
+            pulumi.set(__self__, "firmware_type", firmware_type)
+        if guest_agent_profile is not None:
+            pulumi.set(__self__, "guest_agent_profile", guest_agent_profile)
+        if hardware_profile is not None:
+            pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if os_profile is not None:
+            pulumi.set(__self__, "os_profile", os_profile)
+        if placement_profile is not None:
+            pulumi.set(__self__, "placement_profile", placement_profile)
+        if resource_pool_id is not None:
+            pulumi.set(__self__, "resource_pool_id", resource_pool_id)
+        if smbios_uuid is not None:
+            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> str:
+        """
+        Gets or sets the folder path of the vm.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="instanceUuid")
+    def instance_uuid(self) -> str:
+        """
+        Gets or sets the instance uuid of the vm.
+        """
+        return pulumi.get(self, "instance_uuid")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the virtual machine.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        Gets the power state of the virtual machine.
+        """
+        return pulumi.get(self, "power_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> str:
+        """
+        Gets or sets a unique identifier for the vm resource.
+        """
+        return pulumi.get(self, "vm_id")
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> Optional[str]:
+        """
+        Firmware type
+        """
+        return pulumi.get(self, "firmware_type")
+
+    @property
+    @pulumi.getter(name="guestAgentProfile")
+    def guest_agent_profile(self) -> Optional['outputs.GuestAgentProfileResponse']:
+        """
+        Guest agent status properties.
+        """
+        return pulumi.get(self, "guest_agent_profile")
+
+    @property
+    @pulumi.getter(name="hardwareProfile")
+    def hardware_profile(self) -> Optional['outputs.HardwareProfileResponse']:
+        """
+        Hardware properties.
+        """
+        return pulumi.get(self, "hardware_profile")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the virtual machine.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+        """
+        Network properties.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional['outputs.OsProfileResponse']:
+        """
+        OS properties.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="placementProfile")
+    def placement_profile(self) -> Optional['outputs.PlacementProfileResponse']:
+        """
+        Placement properties.
+        """
+        return pulumi.get(self, "placement_profile")
+
+    @property
+    @pulumi.getter(name="resourcePoolId")
+    def resource_pool_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
+        deploy.
+        """
+        return pulumi.get(self, "resource_pool_id")
+
+    @property
+    @pulumi.getter(name="smbiosUuid")
+    def smbios_uuid(self) -> Optional[str]:
+        """
+        Gets or sets the SMBIOS UUID of the vm.
+        """
+        return pulumi.get(self, "smbios_uuid")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+        """
+        Storage properties.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        """
+        return pulumi.get(self, "template_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+
+@pulumi.output_type
+class VirtualMachineTemplateInventoryItemResponse(dict):
+    """
+    The VM Template inventory item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryType":
+            suggest = "inventory_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "managedResourceId":
+            suggest = "managed_resource_id"
+        elif key == "memorySizeMB":
+            suggest = "memory_size_mb"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "numCPUs":
+            suggest = "num_cpus"
+        elif key == "numCoresPerSocket":
+            suggest = "num_cores_per_socket"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineTemplateInventoryItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineTemplateInventoryItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineTemplateInventoryItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_type: str,
+                 provisioning_state: str,
+                 folder_path: Optional[str] = None,
+                 managed_resource_id: Optional[str] = None,
+                 memory_size_mb: Optional[int] = None,
+                 mo_name: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 num_cpus: Optional[int] = None,
+                 num_cores_per_socket: Optional[int] = None,
+                 os_name: Optional[str] = None,
+                 os_type: Optional[str] = None):
+        """
+        The VM Template inventory item.
+        :param str inventory_type: The inventory type.
+               Expected value is 'VirtualMachineTemplate'.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str folder_path: Gets or sets the folder path of the template.
+        :param str managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param int memory_size_mb: Gets or sets memory size in MBs for the template.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param str mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param int num_cpus: Gets or sets the number of vCPUs for the template.
+        :param int num_cores_per_socket: Gets or sets the number of cores per socket for the template.
+               Defaults to 1 if unspecified.
+        :param str os_name: Gets or sets os name.
+        :param str os_type: Gets or sets the type of the os.
+        """
+        pulumi.set(__self__, "inventory_type", 'VirtualMachineTemplate')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if memory_size_mb is not None:
+            pulumi.set(__self__, "memory_size_mb", memory_size_mb)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if num_cpus is not None:
+            pulumi.set(__self__, "num_cpus", num_cpus)
+        if num_cores_per_socket is not None:
+            pulumi.set(__self__, "num_cores_per_socket", num_cores_per_socket)
+        if os_name is not None:
+            pulumi.set(__self__, "os_name", os_name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> str:
+        """
+        The inventory type.
+        Expected value is 'VirtualMachineTemplate'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[str]:
+        """
+        Gets or sets the folder path of the template.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @property
+    @pulumi.getter(name="memorySizeMB")
+    def memory_size_mb(self) -> Optional[int]:
+        """
+        Gets or sets memory size in MBs for the template.
+        """
+        return pulumi.get(self, "memory_size_mb")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="numCPUs")
+    def num_cpus(self) -> Optional[int]:
+        """
+        Gets or sets the number of vCPUs for the template.
+        """
+        return pulumi.get(self, "num_cpus")
+
+    @property
+    @pulumi.getter(name="numCoresPerSocket")
+    def num_cores_per_socket(self) -> Optional[int]:
+        """
+        Gets or sets the number of cores per socket for the template.
+        Defaults to 1 if unspecified.
+        """
+        return pulumi.get(self, "num_cores_per_socket")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> Optional[str]:
+        """
+        Gets or sets os name.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+
+@pulumi.output_type
+class VirtualMachineTemplatePropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "firmwareType":
+            suggest = "firmware_type"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "memorySizeMB":
+            suggest = "memory_size_mb"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "numCPUs":
+            suggest = "num_cpus"
+        elif key == "numCoresPerSocket":
+            suggest = "num_cores_per_socket"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "toolsVersion":
+            suggest = "tools_version"
+        elif key == "toolsVersionStatus":
+            suggest = "tools_version_status"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineTemplatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineTemplatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineTemplatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 disks: Sequence['outputs.VirtualDiskResponse'],
+                 firmware_type: str,
+                 folder_path: str,
+                 memory_size_mb: int,
+                 mo_name: str,
+                 network_interfaces: Sequence['outputs.NetworkInterfaceResponse'],
+                 num_cpus: int,
+                 num_cores_per_socket: int,
+                 os_name: str,
+                 os_type: str,
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 tools_version: str,
+                 tools_version_status: str,
+                 uuid: str,
+                 inventory_item_id: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param Sequence['VirtualDiskResponse'] disks: Gets or sets the disks the template.
+        :param str firmware_type: Firmware type
+        :param str folder_path: Gets or sets the folder path of the template.
+        :param int memory_size_mb: Gets or sets memory size in MBs for the template.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the virtual machine template.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: Gets or sets the network interfaces of the template.
+        :param int num_cpus: Gets or sets the number of vCPUs for the template.
+        :param int num_cores_per_socket: Gets or sets the number of cores per socket for the template.
+               Defaults to 1 if unspecified.
+        :param str os_name: Gets or sets os name.
+        :param str os_type: Gets or sets the type of the os.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str tools_version: Gets or sets the current version of VMware Tools.
+        :param str tools_version_status: Gets or sets the current version status of VMware Tools installed in the guest operating system.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the virtual machine template.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
+               template.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "disks", disks)
+        pulumi.set(__self__, "firmware_type", firmware_type)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "memory_size_mb", memory_size_mb)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+        pulumi.set(__self__, "num_cpus", num_cpus)
+        pulumi.set(__self__, "num_cores_per_socket", num_cores_per_socket)
+        pulumi.set(__self__, "os_name", os_name)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "tools_version", tools_version)
+        pulumi.set(__self__, "tools_version_status", tools_version_status)
+        pulumi.set(__self__, "uuid", uuid)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter
+    def disks(self) -> Sequence['outputs.VirtualDiskResponse']:
+        """
+        Gets or sets the disks the template.
+        """
+        return pulumi.get(self, "disks")
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> str:
+        """
+        Firmware type
+        """
+        return pulumi.get(self, "firmware_type")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> str:
+        """
+        Gets or sets the folder path of the template.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="memorySizeMB")
+    def memory_size_mb(self) -> int:
+        """
+        Gets or sets memory size in MBs for the template.
+        """
+        return pulumi.get(self, "memory_size_mb")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the virtual machine template.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+        """
+        Gets or sets the network interfaces of the template.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="numCPUs")
+    def num_cpus(self) -> int:
+        """
+        Gets or sets the number of vCPUs for the template.
+        """
+        return pulumi.get(self, "num_cpus")
+
+    @property
+    @pulumi.getter(name="numCoresPerSocket")
+    def num_cores_per_socket(self) -> int:
+        """
+        Gets or sets the number of cores per socket for the template.
+        Defaults to 1 if unspecified.
+        """
+        return pulumi.get(self, "num_cores_per_socket")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> str:
+        """
+        Gets or sets os name.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter(name="toolsVersion")
+    def tools_version(self) -> str:
+        """
+        Gets or sets the current version of VMware Tools.
+        """
+        return pulumi.get(self, "tools_version")
+
+    @property
+    @pulumi.getter(name="toolsVersionStatus")
+    def tools_version_status(self) -> str:
+        """
+        Gets or sets the current version status of VMware Tools installed in the guest operating system.
+        """
+        return pulumi.get(self, "tools_version_status")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the virtual machine template.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
+        template.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+
+@pulumi.output_type
+class VirtualNetworkInventoryItemResponse(dict):
+    """
+    The Virtual network inventory item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inventoryType":
+            suggest = "inventory_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "managedResourceId":
+            suggest = "managed_resource_id"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkInventoryItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkInventoryItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkInventoryItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inventory_type: str,
+                 provisioning_state: str,
+                 managed_resource_id: Optional[str] = None,
+                 mo_name: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None):
+        """
+        The Virtual network inventory item.
+        :param str inventory_type: The inventory type.
+               Expected value is 'VirtualNetwork'.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param str managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param str mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        pulumi.set(__self__, "inventory_type", 'VirtualNetwork')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> str:
+        """
+        The inventory type.
+        Expected value is 'VirtualNetwork'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+
+@pulumi.output_type
+class VirtualNetworkPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 mo_name: str,
+                 provisioning_state: str,
+                 statuses: Sequence['outputs.ResourceStatusResponse'],
+                 uuid: str,
+                 inventory_item_id: Optional[str] = None,
+                 mo_ref_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the virtual network.
+        :param str provisioning_state: Gets or sets the provisioning state.
+        :param Sequence['ResourceStatusResponse'] statuses: The resource status information.
+        :param str uuid: Gets or sets a unique identifier for this resource.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the virtual network.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "statuses", statuses)
+        pulumi.set(__self__, "uuid", uuid)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the virtual network.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> str:
+        """
+        Gets or sets a unique identifier for this resource.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the virtual network.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[str]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        return pulumi.get(self, "v_center_id")
 
 
 @pulumi.output_type

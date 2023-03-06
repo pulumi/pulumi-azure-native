@@ -17,100 +17,22 @@ namespace Pulumi.AzureNative.StorageMover
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Agent to assign for new Job Runs of this Job Definition.
-        /// </summary>
-        [Output("agentName")]
-        public Output<string?> AgentName { get; private set; } = null!;
-
-        /// <summary>
-        /// Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
-        /// </summary>
-        [Output("agentResourceId")]
-        public Output<string> AgentResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Strategy to use for copy.
-        /// </summary>
-        [Output("copyMode")]
-        public Output<string> CopyMode { get; private set; } = null!;
-
-        /// <summary>
-        /// A description for the Job Definition.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Job Run in a non-terminal state, if exists.
-        /// </summary>
-        [Output("latestJobRunName")]
-        public Output<string> LatestJobRunName { get; private set; } = null!;
-
-        /// <summary>
-        /// The fully qualified resource ID of the Job Run in a non-terminal state, if exists.
-        /// </summary>
-        [Output("latestJobRunResourceId")]
-        public Output<string> LatestJobRunResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The current status of the Job Run in a non-terminal state, if exists.
-        /// </summary>
-        [Output("latestJobRunStatus")]
-        public Output<string> LatestJobRunStatus { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of this resource.
+        /// Job definition properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the source Endpoint.
-        /// </summary>
-        [Output("sourceName")]
-        public Output<string> SourceName { get; private set; } = null!;
-
-        /// <summary>
-        /// Fully qualified resource ID of the source Endpoint.
-        /// </summary>
-        [Output("sourceResourceId")]
-        public Output<string> SourceResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The subpath to use when reading from the source Endpoint.
-        /// </summary>
-        [Output("sourceSubpath")]
-        public Output<string?> SourceSubpath { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.JobDefinitionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource system metadata.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the target Endpoint.
-        /// </summary>
-        [Output("targetName")]
-        public Output<string> TargetName { get; private set; } = null!;
-
-        /// <summary>
-        /// Fully qualified resource ID of the target Endpoint.
-        /// </summary>
-        [Output("targetResourceId")]
-        public Output<string> TargetResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The subpath to use when writing to the target Endpoint.
-        /// </summary>
-        [Output("targetSubpath")]
-        public Output<string?> TargetSubpath { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -169,24 +91,6 @@ namespace Pulumi.AzureNative.StorageMover
     public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Agent to assign for new Job Runs of this Job Definition.
-        /// </summary>
-        [Input("agentName")]
-        public Input<string>? AgentName { get; set; }
-
-        /// <summary>
-        /// Strategy to use for copy.
-        /// </summary>
-        [Input("copyMode", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.StorageMover.CopyMode> CopyMode { get; set; } = null!;
-
-        /// <summary>
-        /// A description for the Job Definition.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The name of the Job Definition resource.
         /// </summary>
         [Input("jobDefinitionName")]
@@ -199,40 +103,22 @@ namespace Pulumi.AzureNative.StorageMover
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
+        /// Job definition properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.JobDefinitionPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the source Endpoint.
-        /// </summary>
-        [Input("sourceName", required: true)]
-        public Input<string> SourceName { get; set; } = null!;
-
-        /// <summary>
-        /// The subpath to use when reading from the source Endpoint.
-        /// </summary>
-        [Input("sourceSubpath")]
-        public Input<string>? SourceSubpath { get; set; }
-
-        /// <summary>
         /// The name of the Storage Mover resource.
         /// </summary>
         [Input("storageMoverName", required: true)]
         public Input<string> StorageMoverName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the target Endpoint.
-        /// </summary>
-        [Input("targetName", required: true)]
-        public Input<string> TargetName { get; set; } = null!;
-
-        /// <summary>
-        /// The subpath to use when writing to the target Endpoint.
-        /// </summary>
-        [Input("targetSubpath")]
-        public Input<string>? TargetSubpath { get; set; }
 
         public JobDefinitionArgs()
         {

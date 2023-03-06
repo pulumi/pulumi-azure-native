@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetBlobFolderDataSetMappingResult',
@@ -21,16 +22,7 @@ class GetBlobFolderDataSetMappingResult:
     """
     A Blob folder data set mapping.
     """
-    def __init__(__self__, container_name=None, data_set_id=None, data_set_mapping_status=None, id=None, kind=None, name=None, prefix=None, provisioning_state=None, resource_group=None, storage_account_name=None, subscription_id=None, type=None):
-        if container_name and not isinstance(container_name, str):
-            raise TypeError("Expected argument 'container_name' to be a str")
-        pulumi.set(__self__, "container_name", container_name)
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        if data_set_mapping_status and not isinstance(data_set_mapping_status, str):
-            raise TypeError("Expected argument 'data_set_mapping_status' to be a str")
-        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,48 +32,12 @@ class GetBlobFolderDataSetMappingResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if prefix and not isinstance(prefix, str):
-            raise TypeError("Expected argument 'prefix' to be a str")
-        pulumi.set(__self__, "prefix", prefix)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_group and not isinstance(resource_group, str):
-            raise TypeError("Expected argument 'resource_group' to be a str")
-        pulumi.set(__self__, "resource_group", resource_group)
-        if storage_account_name and not isinstance(storage_account_name, str):
-            raise TypeError("Expected argument 'storage_account_name' to be a str")
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if subscription_id and not isinstance(subscription_id, str):
-            raise TypeError("Expected argument 'subscription_id' to be a str")
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
-        """
-        Container that has the file path.
-        """
-        return pulumi.get(self, "container_name")
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="dataSetMappingStatus")
-    def data_set_mapping_status(self) -> str:
-        """
-        Gets the status of the data set mapping.
-        """
-        return pulumi.get(self, "data_set_mapping_status")
 
     @property
     @pulumi.getter
@@ -110,43 +66,11 @@ class GetBlobFolderDataSetMappingResult:
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def properties(self) -> 'outputs.BlobFolderMappingPropertiesResponse':
         """
-        Prefix for blob folder
+        Blob folder data set mapping properties.
         """
-        return pulumi.get(self, "prefix")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state of the data set mapping.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
-        """
-        Resource group of storage account.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
-        """
-        Storage account name of the source data set.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        Subscription id of storage account.
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -163,17 +87,10 @@ class AwaitableGetBlobFolderDataSetMappingResult(GetBlobFolderDataSetMappingResu
         if False:
             yield self
         return GetBlobFolderDataSetMappingResult(
-            container_name=self.container_name,
-            data_set_id=self.data_set_id,
-            data_set_mapping_status=self.data_set_mapping_status,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            prefix=self.prefix,
-            provisioning_state=self.provisioning_state,
-            resource_group=self.resource_group,
-            storage_account_name=self.storage_account_name,
-            subscription_id=self.subscription_id,
+            properties=self.properties,
             type=self.type)
 
 
@@ -200,17 +117,10 @@ def get_blob_folder_data_set_mapping(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20191101:getBlobFolderDataSetMapping', __args__, opts=opts, typ=GetBlobFolderDataSetMappingResult).value
 
     return AwaitableGetBlobFolderDataSetMappingResult(
-        container_name=__ret__.container_name,
-        data_set_id=__ret__.data_set_id,
-        data_set_mapping_status=__ret__.data_set_mapping_status,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        prefix=__ret__.prefix,
-        provisioning_state=__ret__.provisioning_state,
-        resource_group=__ret__.resource_group,
-        storage_account_name=__ret__.storage_account_name,
-        subscription_id=__ret__.subscription_id,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ScheduledSynchronizationSettingArgs', 'ScheduledSynchronizationSetting']
 
@@ -18,28 +19,25 @@ class ScheduledSynchronizationSettingArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 recurrence_interval: pulumi.Input[Union[str, 'RecurrenceInterval']],
+                 properties: pulumi.Input['ScheduledSynchronizationSettingPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
-                 synchronization_time: pulumi.Input[str],
                  synchronization_setting_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScheduledSynchronizationSetting resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of synchronization setting.
                Expected value is 'ScheduleBased'.
-        :param pulumi.Input[Union[str, 'RecurrenceInterval']] recurrence_interval: Recurrence Interval
+        :param pulumi.Input['ScheduledSynchronizationSettingPropertiesArgs'] properties: Properties of scheduled synchronization
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the synchronization setting to.
-        :param pulumi.Input[str] synchronization_time: Synchronization time
         :param pulumi.Input[str] synchronization_setting_name: The name of the synchronizationSetting.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", 'ScheduleBased')
-        pulumi.set(__self__, "recurrence_interval", recurrence_interval)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "synchronization_time", synchronization_time)
         if synchronization_setting_name is not None:
             pulumi.set(__self__, "synchronization_setting_name", synchronization_setting_name)
 
@@ -69,16 +67,16 @@ class ScheduledSynchronizationSettingArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="recurrenceInterval")
-    def recurrence_interval(self) -> pulumi.Input[Union[str, 'RecurrenceInterval']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ScheduledSynchronizationSettingPropertiesArgs']:
         """
-        Recurrence Interval
+        Properties of scheduled synchronization
         """
-        return pulumi.get(self, "recurrence_interval")
+        return pulumi.get(self, "properties")
 
-    @recurrence_interval.setter
-    def recurrence_interval(self, value: pulumi.Input[Union[str, 'RecurrenceInterval']]):
-        pulumi.set(self, "recurrence_interval", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ScheduledSynchronizationSettingPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -105,18 +103,6 @@ class ScheduledSynchronizationSettingArgs:
         pulumi.set(self, "share_name", value)
 
     @property
-    @pulumi.getter(name="synchronizationTime")
-    def synchronization_time(self) -> pulumi.Input[str]:
-        """
-        Synchronization time
-        """
-        return pulumi.get(self, "synchronization_time")
-
-    @synchronization_time.setter
-    def synchronization_time(self, value: pulumi.Input[str]):
-        pulumi.set(self, "synchronization_time", value)
-
-    @property
     @pulumi.getter(name="synchronizationSettingName")
     def synchronization_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -136,11 +122,10 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 recurrence_interval: Optional[pulumi.Input[Union[str, 'RecurrenceInterval']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ScheduledSynchronizationSettingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
-                 synchronization_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A type of synchronization setting based on schedule
@@ -150,11 +135,10 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of synchronization setting.
                Expected value is 'ScheduleBased'.
-        :param pulumi.Input[Union[str, 'RecurrenceInterval']] recurrence_interval: Recurrence Interval
+        :param pulumi.Input[pulumi.InputType['ScheduledSynchronizationSettingPropertiesArgs']] properties: Properties of scheduled synchronization
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the synchronization setting to.
         :param pulumi.Input[str] synchronization_setting_name: The name of the synchronizationSetting.
-        :param pulumi.Input[str] synchronization_time: Synchronization time
         """
         ...
     @overload
@@ -182,11 +166,10 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 recurrence_interval: Optional[pulumi.Input[Union[str, 'RecurrenceInterval']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ScheduledSynchronizationSettingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
-                 synchronization_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -202,9 +185,9 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'ScheduleBased'
-            if recurrence_interval is None and not opts.urn:
-                raise TypeError("Missing required property 'recurrence_interval'")
-            __props__.__dict__["recurrence_interval"] = recurrence_interval
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -212,15 +195,9 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
             __props__.__dict__["synchronization_setting_name"] = synchronization_setting_name
-            if synchronization_time is None and not opts.urn:
-                raise TypeError("Missing required property 'synchronization_time'")
-            __props__.__dict__["synchronization_time"] = synchronization_time
-            __props__.__dict__["created_at"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["user_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20191101:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20200901:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledSynchronizationSetting, __self__).__init__(
@@ -245,24 +222,12 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
 
         __props__ = ScheduledSynchronizationSettingArgs.__new__(ScheduledSynchronizationSettingArgs)
 
-        __props__.__dict__["created_at"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["recurrence_interval"] = None
-        __props__.__dict__["synchronization_time"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_name"] = None
         return ScheduledSynchronizationSetting(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
-        """
-        Time at which the synchronization setting was created.
-        """
-        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -282,28 +247,12 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ScheduledSynchronizationSettingPropertiesResponse']:
         """
-        Gets or sets the provisioning state
+        Properties of scheduled synchronization
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="recurrenceInterval")
-    def recurrence_interval(self) -> pulumi.Output[str]:
-        """
-        Recurrence Interval
-        """
-        return pulumi.get(self, "recurrence_interval")
-
-    @property
-    @pulumi.getter(name="synchronizationTime")
-    def synchronization_time(self) -> pulumi.Output[str]:
-        """
-        Synchronization time
-        """
-        return pulumi.get(self, "synchronization_time")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -320,12 +269,4 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
         Type of the azure resource
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Output[str]:
-        """
-        Name of the user who created the synchronization setting.
-        """
-        return pulumi.get(self, "user_name")
 

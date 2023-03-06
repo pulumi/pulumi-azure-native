@@ -72,30 +72,6 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetScheduledQueryRuleResult
     {
         /// <summary>
-        /// Action needs to be taken on rule execution.
-        /// </summary>
-        public readonly Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> Action;
-        /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-        /// </summary>
-        public readonly bool? AutoMitigate;
-        /// <summary>
-        /// The api-version used when creating this alert rule
-        /// </summary>
-        public readonly string CreatedWithApiVersion;
-        /// <summary>
-        /// The description of the Log Search rule.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The display name of the alert rule
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
-        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-        /// </summary>
-        public readonly string? Enabled;
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         public readonly string Etag;
@@ -104,17 +80,9 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// True if alert rule is legacy Log Analytic rule
-        /// </summary>
-        public readonly bool IsLegacyLogAnalyticsRule;
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         public readonly string Kind;
-        /// <summary>
-        /// Last time the rule was updated in IS08601 format.
-        /// </summary>
-        public readonly string LastUpdatedTime;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -124,17 +92,9 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the scheduled query rule
+        /// The rule properties of the resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-        /// </summary>
-        public readonly Outputs.ScheduleResponse? Schedule;
-        /// <summary>
-        /// Data Source against which rule will Query Data
-        /// </summary>
-        public readonly Outputs.SourceResponse Source;
+        public readonly Outputs.LogSearchRuleResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -146,58 +106,28 @@ namespace Pulumi.AzureNative.Insights
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
-            Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> action,
-
-            bool? autoMitigate,
-
-            string createdWithApiVersion,
-
-            string? description,
-
-            string? displayName,
-
-            string? enabled,
-
             string etag,
 
             string id,
 
-            bool isLegacyLogAnalyticsRule,
-
             string kind,
-
-            string lastUpdatedTime,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            Outputs.ScheduleResponse? schedule,
-
-            Outputs.SourceResponse source,
+            Outputs.LogSearchRuleResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            Action = action;
-            AutoMitigate = autoMitigate;
-            CreatedWithApiVersion = createdWithApiVersion;
-            Description = description;
-            DisplayName = displayName;
-            Enabled = enabled;
             Etag = etag;
             Id = id;
-            IsLegacyLogAnalyticsRule = isLegacyLogAnalyticsRule;
             Kind = kind;
-            LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Schedule = schedule;
-            Source = source;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

@@ -22,72 +22,22 @@ class GetPolicyExemptionResult:
     """
     The policy exemption.
     """
-    def __init__(__self__, description=None, display_name=None, exemption_category=None, expires_on=None, id=None, metadata=None, name=None, policy_assignment_id=None, policy_definition_reference_ids=None, system_data=None, type=None):
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
-        if exemption_category and not isinstance(exemption_category, str):
-            raise TypeError("Expected argument 'exemption_category' to be a str")
-        pulumi.set(__self__, "exemption_category", exemption_category)
-        if expires_on and not isinstance(expires_on, str):
-            raise TypeError("Expected argument 'expires_on' to be a str")
-        pulumi.set(__self__, "expires_on", expires_on)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if policy_assignment_id and not isinstance(policy_assignment_id, str):
-            raise TypeError("Expected argument 'policy_assignment_id' to be a str")
-        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
-        if policy_definition_reference_ids and not isinstance(policy_definition_reference_ids, list):
-            raise TypeError("Expected argument 'policy_definition_reference_ids' to be a list")
-        pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the policy exemption.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        The display name of the policy exemption.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="exemptionCategory")
-    def exemption_category(self) -> str:
-        """
-        The policy exemption category. Possible values are Waiver and Mitigated.
-        """
-        return pulumi.get(self, "exemption_category")
-
-    @property
-    @pulumi.getter(name="expiresOn")
-    def expires_on(self) -> Optional[str]:
-        """
-        The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-        """
-        return pulumi.get(self, "expires_on")
 
     @property
     @pulumi.getter
@@ -99,14 +49,6 @@ class GetPolicyExemptionResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the policy exemption.
@@ -114,20 +56,12 @@ class GetPolicyExemptionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="policyAssignmentId")
-    def policy_assignment_id(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.PolicyExemptionPropertiesResponse':
         """
-        The ID of the policy assignment that is being exempted.
+        Properties for the policy exemption.
         """
-        return pulumi.get(self, "policy_assignment_id")
-
-    @property
-    @pulumi.getter(name="policyDefinitionReferenceIds")
-    def policy_definition_reference_ids(self) -> Optional[Sequence[str]]:
-        """
-        The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
-        """
-        return pulumi.get(self, "policy_definition_reference_ids")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -152,15 +86,9 @@ class AwaitableGetPolicyExemptionResult(GetPolicyExemptionResult):
         if False:
             yield self
         return GetPolicyExemptionResult(
-            description=self.description,
-            display_name=self.display_name,
-            exemption_category=self.exemption_category,
-            expires_on=self.expires_on,
             id=self.id,
-            metadata=self.metadata,
             name=self.name,
-            policy_assignment_id=self.policy_assignment_id,
-            policy_definition_reference_ids=self.policy_definition_reference_ids,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -182,15 +110,9 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20200701preview:getPolicyExemption', __args__, opts=opts, typ=GetPolicyExemptionResult).value
 
     return AwaitableGetPolicyExemptionResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        exemption_category=__ret__.exemption_category,
-        expires_on=__ret__.expires_on,
         id=__ret__.id,
-        metadata=__ret__.metadata,
         name=__ret__.name,
-        policy_assignment_id=__ret__.policy_assignment_id,
-        policy_definition_reference_ids=__ret__.policy_definition_reference_ids,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

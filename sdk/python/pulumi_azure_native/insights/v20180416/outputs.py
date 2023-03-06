@@ -17,6 +17,7 @@ __all__ = [
     'CriteriaResponse',
     'DimensionResponse',
     'LogMetricTriggerResponse',
+    'LogSearchRuleResponse',
     'LogToMetricActionResponse',
     'ScheduleResponse',
     'SourceResponse',
@@ -355,6 +356,172 @@ class LogMetricTriggerResponse(dict):
         Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         """
         return pulumi.get(self, "threshold_operator")
+
+
+@pulumi.output_type
+class LogSearchRuleResponse(dict):
+    """
+    Log Search Rule Definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdWithApiVersion":
+            suggest = "created_with_api_version"
+        elif key == "isLegacyLogAnalyticsRule":
+            suggest = "is_legacy_log_analytics_rule"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoMitigate":
+            suggest = "auto_mitigate"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogSearchRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogSearchRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogSearchRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Any,
+                 created_with_api_version: str,
+                 is_legacy_log_analytics_rule: bool,
+                 last_updated_time: str,
+                 provisioning_state: str,
+                 source: 'outputs.SourceResponse',
+                 auto_mitigate: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 enabled: Optional[str] = None,
+                 schedule: Optional['outputs.ScheduleResponse'] = None):
+        """
+        Log Search Rule Definition
+        :param Union['AlertingActionResponse', 'LogToMetricActionResponse'] action: Action needs to be taken on rule execution.
+        :param str created_with_api_version: The api-version used when creating this alert rule
+        :param bool is_legacy_log_analytics_rule: True if alert rule is legacy Log Analytic rule
+        :param str last_updated_time: Last time the rule was updated in IS08601 format.
+        :param str provisioning_state: Provisioning state of the scheduled query rule
+        :param 'SourceResponse' source: Data Source against which rule will Query Data
+        :param bool auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        :param str description: The description of the Log Search rule.
+        :param str display_name: The display name of the alert rule
+        :param str enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        :param 'ScheduleResponse' schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "created_with_api_version", created_with_api_version)
+        pulumi.set(__self__, "is_legacy_log_analytics_rule", is_legacy_log_analytics_rule)
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source", source)
+        if auto_mitigate is None:
+            auto_mitigate = False
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Any:
+        """
+        Action needs to be taken on rule execution.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="createdWithApiVersion")
+    def created_with_api_version(self) -> str:
+        """
+        The api-version used when creating this alert rule
+        """
+        return pulumi.get(self, "created_with_api_version")
+
+    @property
+    @pulumi.getter(name="isLegacyLogAnalyticsRule")
+    def is_legacy_log_analytics_rule(self) -> bool:
+        """
+        True if alert rule is legacy Log Analytic rule
+        """
+        return pulumi.get(self, "is_legacy_log_analytics_rule")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        Last time the rule was updated in IS08601 format.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the scheduled query rule
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.SourceResponse':
+        """
+        Data Source against which rule will Query Data
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[bool]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Log Search rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
+        """
+        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        return pulumi.get(self, "schedule")
 
 
 @pulumi.output_type

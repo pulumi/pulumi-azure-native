@@ -31,27 +31,6 @@ export interface GetStorageApplianceArgs {
 }
 
 export interface GetStorageApplianceResult {
-    readonly administratorCredentials: outputs.networkcloud.v20221212preview.AdministrativeCredentialsResponse;
-    /**
-     * The total capacity of the storage appliance.
-     */
-    readonly capacity: number;
-    /**
-     * The amount of storage consumed.
-     */
-    readonly capacityUsed: number;
-    /**
-     * The resource ID of the cluster this storage appliance is associated with.
-     */
-    readonly clusterId: string;
-    /**
-     * The detailed status of the storage appliance.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -65,41 +44,13 @@ export interface GetStorageApplianceResult {
      */
     readonly location: string;
     /**
-     * The endpoint for the management interface of the storage appliance.
-     */
-    readonly managementIpv4Address: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the storage appliance.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The resource ID of the rack where this storage appliance resides.
-     */
-    readonly rackId: string;
-    /**
-     * The slot the storage appliance is in the rack based on the BOM configuration.
-     */
-    readonly rackSlot: number;
-    /**
-     * The indicator of whether the storage appliance supports remote vendor management.
-     */
-    readonly remoteVendorManagementFeature: string;
-    /**
-     * The indicator of whether the remote vendor management feature is enabled or disabled, or unsupported if it is an unsupported feature.
-     */
-    readonly remoteVendorManagementStatus: string;
-    /**
-     * The serial number for the storage appliance.
-     */
-    readonly serialNumber: string;
-    /**
-     * The SKU for the storage appliance.
-     */
-    readonly storageApplianceSkuId: string;
+    readonly properties: outputs.networkcloud.v20221212preview.StorageAppliancePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

@@ -163,58 +163,16 @@ namespace Pulumi.AzureNative.Authorization.V20200401Preview
     public sealed class RoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The delegation flag used for creating a role assignment
+        /// Role assignment properties.
         /// </summary>
-        [Input("canDelegate")]
-        public Input<bool>? CanDelegate { get; set; }
-
-        /// <summary>
-        /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-        /// </summary>
-        [Input("condition")]
-        public Input<string>? Condition { get; set; }
-
-        /// <summary>
-        /// Version of the condition. Currently accepted value is '2.0'
-        /// </summary>
-        [Input("conditionVersion")]
-        public Input<string>? ConditionVersion { get; set; }
-
-        /// <summary>
-        /// Id of the delegated managed identity resource
-        /// </summary>
-        [Input("delegatedManagedIdentityResourceId")]
-        public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
-
-        /// <summary>
-        /// Description of role assignment
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-        /// </summary>
-        [Input("principalId", required: true)]
-        public Input<string> PrincipalId { get; set; } = null!;
-
-        /// <summary>
-        /// The principal type of the assigned principal ID.
-        /// </summary>
-        [Input("principalType")]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.V20200401Preview.PrincipalType>? PrincipalType { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.RoleAssignmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         /// </summary>
         [Input("roleAssignmentName")]
         public Input<string>? RoleAssignmentName { get; set; }
-
-        /// <summary>
-        /// The role definition ID used in the role assignment.
-        /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
@@ -224,7 +182,6 @@ namespace Pulumi.AzureNative.Authorization.V20200401Preview
 
         public RoleAssignmentArgs()
         {
-            PrincipalType = "User";
         }
         public static new RoleAssignmentArgs Empty => new RoleAssignmentArgs();
     }

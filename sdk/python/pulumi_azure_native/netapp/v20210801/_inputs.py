@@ -13,17 +13,22 @@ from ._enums import *
 __all__ = [
     'AccountEncryptionArgs',
     'ActiveDirectoryArgs',
+    'BackupPolicyPropertiesArgs',
+    'BackupPropertiesArgs',
     'DailyScheduleArgs',
     'ExportPolicyRuleArgs',
     'HourlyScheduleArgs',
     'MonthlyScheduleArgs',
     'PlacementKeyValuePairsArgs',
+    'PoolPropertiesArgs',
     'ReplicationObjectArgs',
+    'SnapshotPolicyPropertiesArgs',
     'VolumeBackupPropertiesArgs',
     'VolumeGroupMetaDataArgs',
     'VolumeGroupVolumePropertiesArgs',
     'VolumePropertiesDataProtectionArgs',
     'VolumePropertiesExportPolicyArgs',
+    'VolumePropertiesArgs',
     'VolumeSnapshotPropertiesArgs',
     'WeeklyScheduleArgs',
 ]
@@ -364,6 +369,120 @@ class ActiveDirectoryArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class BackupPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 daily_backups_to_keep: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 monthly_backups_to_keep: Optional[pulumi.Input[int]] = None,
+                 weekly_backups_to_keep: Optional[pulumi.Input[int]] = None):
+        """
+        Backup policy properties
+        :param pulumi.Input[int] daily_backups_to_keep: Daily backups count to keep
+        :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
+        :param pulumi.Input[int] monthly_backups_to_keep: Monthly backups count to keep
+        :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
+        """
+        if daily_backups_to_keep is not None:
+            pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if monthly_backups_to_keep is not None:
+            pulumi.set(__self__, "monthly_backups_to_keep", monthly_backups_to_keep)
+        if weekly_backups_to_keep is not None:
+            pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
+
+    @property
+    @pulumi.getter(name="dailyBackupsToKeep")
+    def daily_backups_to_keep(self) -> Optional[pulumi.Input[int]]:
+        """
+        Daily backups count to keep
+        """
+        return pulumi.get(self, "daily_backups_to_keep")
+
+    @daily_backups_to_keep.setter
+    def daily_backups_to_keep(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "daily_backups_to_keep", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The property to decide policy is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="monthlyBackupsToKeep")
+    def monthly_backups_to_keep(self) -> Optional[pulumi.Input[int]]:
+        """
+        Monthly backups count to keep
+        """
+        return pulumi.get(self, "monthly_backups_to_keep")
+
+    @monthly_backups_to_keep.setter
+    def monthly_backups_to_keep(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monthly_backups_to_keep", value)
+
+    @property
+    @pulumi.getter(name="weeklyBackupsToKeep")
+    def weekly_backups_to_keep(self) -> Optional[pulumi.Input[int]]:
+        """
+        Weekly backups count to keep
+        """
+        return pulumi.get(self, "weekly_backups_to_keep")
+
+    @weekly_backups_to_keep.setter
+    def weekly_backups_to_keep(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weekly_backups_to_keep", value)
+
+
+@pulumi.input_type
+class BackupPropertiesArgs:
+    def __init__(__self__, *,
+                 label: Optional[pulumi.Input[str]] = None,
+                 use_existing_snapshot: Optional[pulumi.Input[bool]] = None):
+        """
+        Backup properties
+        :param pulumi.Input[str] label: Label for backup
+        :param pulumi.Input[bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if use_existing_snapshot is None:
+            use_existing_snapshot = False
+        if use_existing_snapshot is not None:
+            pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        Label for backup
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="useExistingSnapshot")
+    def use_existing_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        return pulumi.get(self, "use_existing_snapshot")
+
+    @use_existing_snapshot.setter
+    def use_existing_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_existing_snapshot", value)
 
 
 @pulumi.input_type
@@ -885,6 +1004,98 @@ class PlacementKeyValuePairsArgs:
 
 
 @pulumi.input_type
+class PoolPropertiesArgs:
+    def __init__(__self__, *,
+                 service_level: pulumi.Input[Union[str, 'ServiceLevel']],
+                 size: pulumi.Input[float],
+                 cool_access: Optional[pulumi.Input[bool]] = None,
+                 encryption_type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
+                 qos_type: Optional[pulumi.Input[Union[str, 'QosType']]] = None):
+        """
+        Pool properties
+        :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
+        :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        :param pulumi.Input[bool] cool_access: If enabled (true) the pool can contain cool Access enabled volumes.
+        :param pulumi.Input[Union[str, 'EncryptionType']] encryption_type: Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        :param pulumi.Input[Union[str, 'QosType']] qos_type: The qos type of the pool
+        """
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "size", size)
+        if cool_access is None:
+            cool_access = False
+        if cool_access is not None:
+            pulumi.set(__self__, "cool_access", cool_access)
+        if encryption_type is None:
+            encryption_type = 'Single'
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if qos_type is None:
+            qos_type = 'Auto'
+        if qos_type is not None:
+            pulumi.set(__self__, "qos_type", qos_type)
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> pulumi.Input[Union[str, 'ServiceLevel']]:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @service_level.setter
+    def service_level(self, value: pulumi.Input[Union[str, 'ServiceLevel']]):
+        pulumi.set(self, "service_level", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[float]:
+        """
+        Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[float]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="coolAccess")
+    def cool_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled (true) the pool can contain cool Access enabled volumes.
+        """
+        return pulumi.get(self, "cool_access")
+
+    @cool_access.setter
+    def cool_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cool_access", value)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
+        """
+        Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
+        pulumi.set(self, "encryption_type", value)
+
+    @property
+    @pulumi.getter(name="qosType")
+    def qos_type(self) -> Optional[pulumi.Input[Union[str, 'QosType']]]:
+        """
+        The qos type of the pool
+        """
+        return pulumi.get(self, "qos_type")
+
+    @qos_type.setter
+    def qos_type(self, value: Optional[pulumi.Input[Union[str, 'QosType']]]):
+        pulumi.set(self, "qos_type", value)
+
+
+@pulumi.input_type
 class ReplicationObjectArgs:
     def __init__(__self__, *,
                  remote_volume_resource_id: pulumi.Input[str],
@@ -969,6 +1180,94 @@ class ReplicationObjectArgs:
     @replication_schedule.setter
     def replication_schedule(self, value: Optional[pulumi.Input[Union[str, 'ReplicationSchedule']]]):
         pulumi.set(self, "replication_schedule", value)
+
+
+@pulumi.input_type
+class SnapshotPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 daily_schedule: Optional[pulumi.Input['DailyScheduleArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 hourly_schedule: Optional[pulumi.Input['HourlyScheduleArgs']] = None,
+                 monthly_schedule: Optional[pulumi.Input['MonthlyScheduleArgs']] = None,
+                 weekly_schedule: Optional[pulumi.Input['WeeklyScheduleArgs']] = None):
+        """
+        Snapshot policy properties
+        :param pulumi.Input['DailyScheduleArgs'] daily_schedule: Schedule for daily snapshots
+        :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
+        :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Schedule for hourly snapshots
+        :param pulumi.Input['MonthlyScheduleArgs'] monthly_schedule: Schedule for monthly snapshots
+        :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Schedule for weekly snapshots
+        """
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if monthly_schedule is not None:
+            pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+
+    @property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional[pulumi.Input['DailyScheduleArgs']]:
+        """
+        Schedule for daily snapshots
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @daily_schedule.setter
+    def daily_schedule(self, value: Optional[pulumi.Input['DailyScheduleArgs']]):
+        pulumi.set(self, "daily_schedule", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The property to decide policy is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional[pulumi.Input['HourlyScheduleArgs']]:
+        """
+        Schedule for hourly snapshots
+        """
+        return pulumi.get(self, "hourly_schedule")
+
+    @hourly_schedule.setter
+    def hourly_schedule(self, value: Optional[pulumi.Input['HourlyScheduleArgs']]):
+        pulumi.set(self, "hourly_schedule", value)
+
+    @property
+    @pulumi.getter(name="monthlySchedule")
+    def monthly_schedule(self) -> Optional[pulumi.Input['MonthlyScheduleArgs']]:
+        """
+        Schedule for monthly snapshots
+        """
+        return pulumi.get(self, "monthly_schedule")
+
+    @monthly_schedule.setter
+    def monthly_schedule(self, value: Optional[pulumi.Input['MonthlyScheduleArgs']]):
+        pulumi.set(self, "monthly_schedule", value)
+
+    @property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional[pulumi.Input['WeeklyScheduleArgs']]:
+        """
+        Schedule for weekly snapshots
+        """
+        return pulumi.get(self, "weekly_schedule")
+
+    @weekly_schedule.setter
+    def weekly_schedule(self, value: Optional[pulumi.Input['WeeklyScheduleArgs']]):
+        pulumi.set(self, "weekly_schedule", value)
 
 
 @pulumi.input_type
@@ -1134,6 +1433,141 @@ class VolumeGroupMetaDataArgs:
 @pulumi.input_type
 class VolumeGroupVolumePropertiesArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['VolumePropertiesArgs'],
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Volume resource
+        :param pulumi.Input['VolumePropertiesArgs'] properties: Volume properties
+        :param pulumi.Input[str] name: Resource name
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        """
+        pulumi.set(__self__, "properties", properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VolumePropertiesArgs']:
+        """
+        Volume properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VolumePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class VolumePropertiesDataProtectionArgs:
+    def __init__(__self__, *,
+                 backup: Optional[pulumi.Input['VolumeBackupPropertiesArgs']] = None,
+                 replication: Optional[pulumi.Input['ReplicationObjectArgs']] = None,
+                 snapshot: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']] = None):
+        """
+        DataProtection type volumes include an object containing details of the replication
+        :param pulumi.Input['VolumeBackupPropertiesArgs'] backup: Backup Properties
+        :param pulumi.Input['ReplicationObjectArgs'] replication: Replication properties
+        :param pulumi.Input['VolumeSnapshotPropertiesArgs'] snapshot: Snapshot properties.
+        """
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
+        if replication is not None:
+            pulumi.set(__self__, "replication", replication)
+        if snapshot is not None:
+            pulumi.set(__self__, "snapshot", snapshot)
+
+    @property
+    @pulumi.getter
+    def backup(self) -> Optional[pulumi.Input['VolumeBackupPropertiesArgs']]:
+        """
+        Backup Properties
+        """
+        return pulumi.get(self, "backup")
+
+    @backup.setter
+    def backup(self, value: Optional[pulumi.Input['VolumeBackupPropertiesArgs']]):
+        pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter
+    def replication(self) -> Optional[pulumi.Input['ReplicationObjectArgs']]:
+        """
+        Replication properties
+        """
+        return pulumi.get(self, "replication")
+
+    @replication.setter
+    def replication(self, value: Optional[pulumi.Input['ReplicationObjectArgs']]):
+        pulumi.set(self, "replication", value)
+
+    @property
+    @pulumi.getter
+    def snapshot(self) -> Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']]:
+        """
+        Snapshot properties.
+        """
+        return pulumi.get(self, "snapshot")
+
+    @snapshot.setter
+    def snapshot(self, value: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']]):
+        pulumi.set(self, "snapshot", value)
+
+
+@pulumi.input_type
+class VolumePropertiesExportPolicyArgs:
+    def __init__(__self__, *,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
+        """
+        Set of export policy rules
+        :param pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
+        """
+        Export policy rule
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class VolumePropertiesArgs:
+    def __init__(__self__, *,
                  creation_token: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  usage_threshold: pulumi.Input[float],
@@ -1151,7 +1585,6 @@ class VolumeGroupVolumePropertiesArgs:
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  ldap_enabled: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
                  placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1162,13 +1595,12 @@ class VolumeGroupVolumePropertiesArgs:
                  smb_encryption: Optional[pulumi.Input[bool]] = None,
                  snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mibps: Optional[pulumi.Input[float]] = None,
                  unix_permissions: Optional[pulumi.Input[str]] = None,
                  volume_spec_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
-        Volume resource
+        Volume properties
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
@@ -1186,7 +1618,6 @@ class VolumeGroupVolumePropertiesArgs:
         :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[bool] ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
-        :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union[str, 'NetworkFeatures']] network_features: Basic network, or Standard features available to the volume.
         :param pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]] placement_rules: Application specific placement rules for the particular volume
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
@@ -1197,7 +1628,6 @@ class VolumeGroupVolumePropertiesArgs:
         :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param pulumi.Input[str] volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
@@ -1249,8 +1679,6 @@ class VolumeGroupVolumePropertiesArgs:
             ldap_enabled = False
         if ldap_enabled is not None:
             pulumi.set(__self__, "ldap_enabled", ldap_enabled)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if network_features is None:
             network_features = 'Basic'
         if network_features is not None:
@@ -1281,8 +1709,6 @@ class VolumeGroupVolumePropertiesArgs:
             pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
         if unix_permissions is None:
@@ -1499,18 +1925,6 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "ldap_enabled", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> Optional[pulumi.Input[Union[str, 'NetworkFeatures']]]:
         """
@@ -1631,18 +2045,6 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "snapshot_id", value)
 
     @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
     @pulumi.getter(name="throughputMibps")
     def throughput_mibps(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "throughput_mibps")
@@ -1686,86 +2088,6 @@ class VolumeGroupVolumePropertiesArgs:
     @volume_type.setter
     def volume_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "volume_type", value)
-
-
-@pulumi.input_type
-class VolumePropertiesDataProtectionArgs:
-    def __init__(__self__, *,
-                 backup: Optional[pulumi.Input['VolumeBackupPropertiesArgs']] = None,
-                 replication: Optional[pulumi.Input['ReplicationObjectArgs']] = None,
-                 snapshot: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']] = None):
-        """
-        DataProtection type volumes include an object containing details of the replication
-        :param pulumi.Input['VolumeBackupPropertiesArgs'] backup: Backup Properties
-        :param pulumi.Input['ReplicationObjectArgs'] replication: Replication properties
-        :param pulumi.Input['VolumeSnapshotPropertiesArgs'] snapshot: Snapshot properties.
-        """
-        if backup is not None:
-            pulumi.set(__self__, "backup", backup)
-        if replication is not None:
-            pulumi.set(__self__, "replication", replication)
-        if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
-
-    @property
-    @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['VolumeBackupPropertiesArgs']]:
-        """
-        Backup Properties
-        """
-        return pulumi.get(self, "backup")
-
-    @backup.setter
-    def backup(self, value: Optional[pulumi.Input['VolumeBackupPropertiesArgs']]):
-        pulumi.set(self, "backup", value)
-
-    @property
-    @pulumi.getter
-    def replication(self) -> Optional[pulumi.Input['ReplicationObjectArgs']]:
-        """
-        Replication properties
-        """
-        return pulumi.get(self, "replication")
-
-    @replication.setter
-    def replication(self, value: Optional[pulumi.Input['ReplicationObjectArgs']]):
-        pulumi.set(self, "replication", value)
-
-    @property
-    @pulumi.getter
-    def snapshot(self) -> Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']]:
-        """
-        Snapshot properties.
-        """
-        return pulumi.get(self, "snapshot")
-
-    @snapshot.setter
-    def snapshot(self, value: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']]):
-        pulumi.set(self, "snapshot", value)
-
-
-@pulumi.input_type
-class VolumePropertiesExportPolicyArgs:
-    def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
-        """
-        Set of export policy rules
-        :param pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
-        """
-        Export policy rule
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
-        pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type

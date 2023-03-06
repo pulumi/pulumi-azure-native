@@ -46,89 +46,9 @@ export interface GetVirtualMachineArgs {
  */
 export interface GetVirtualMachineResult {
     /**
-     * Indicates whether another user can take ownership of the virtual machine
-     */
-    readonly allowClaim?: boolean;
-    /**
-     * The applicable schedule for the virtual machine.
-     */
-    readonly applicableSchedule: outputs.devtestlab.ApplicableScheduleResponse;
-    /**
-     * The artifact deployment status for the virtual machine.
-     */
-    readonly artifactDeploymentStatus: outputs.devtestlab.ArtifactDeploymentStatusPropertiesResponse;
-    /**
-     * The artifacts to be installed on the virtual machine.
-     */
-    readonly artifacts?: outputs.devtestlab.ArtifactInstallPropertiesResponse[];
-    /**
-     * The resource identifier (Microsoft.Compute) of the virtual machine.
-     */
-    readonly computeId: string;
-    /**
-     * The compute virtual machine properties.
-     */
-    readonly computeVm: outputs.devtestlab.ComputeVmPropertiesResponse;
-    /**
-     * The email address of creator of the virtual machine.
-     */
-    readonly createdByUser: string;
-    /**
-     * The object identifier of the creator of the virtual machine.
-     */
-    readonly createdByUserId: string;
-    /**
-     * The creation date of the virtual machine.
-     */
-    readonly createdDate?: string;
-    /**
-     * The custom image identifier of the virtual machine.
-     */
-    readonly customImageId?: string;
-    /**
-     * New or existing data disks to attach to the virtual machine after creation
-     */
-    readonly dataDiskParameters?: outputs.devtestlab.DataDiskPropertiesResponse[];
-    /**
-     * Indicates whether the virtual machine is to be created without a public IP address.
-     */
-    readonly disallowPublicIpAddress?: boolean;
-    /**
-     * The resource ID of the environment that contains this virtual machine, if any.
-     */
-    readonly environmentId?: string;
-    /**
-     * The expiration date for VM.
-     */
-    readonly expirationDate?: string;
-    /**
-     * The fully-qualified domain name of the virtual machine.
-     */
-    readonly fqdn: string;
-    /**
-     * The Microsoft Azure Marketplace image reference of the virtual machine.
-     */
-    readonly galleryImageReference?: outputs.devtestlab.GalleryImageReferenceResponse;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
-    /**
-     * Indicates whether this virtual machine uses an SSH key for authentication.
-     */
-    readonly isAuthenticationWithSshKey?: boolean;
-    /**
-     * The lab subnet name of the virtual machine.
-     */
-    readonly labSubnetName?: string;
-    /**
-     * The lab virtual network identifier of the virtual machine.
-     */
-    readonly labVirtualNetworkId?: string;
-    /**
-     * Last known compute power state captured in DTL
-     */
-    readonly lastKnownPowerState: string;
     /**
      * The location of the resource.
      */
@@ -138,53 +58,9 @@ export interface GetVirtualMachineResult {
      */
     readonly name: string;
     /**
-     * The network interface properties.
+     * The properties of the resource.
      */
-    readonly networkInterface?: outputs.devtestlab.NetworkInterfacePropertiesResponse;
-    /**
-     * The notes of the virtual machine.
-     */
-    readonly notes?: string;
-    /**
-     * The OS type of the virtual machine.
-     */
-    readonly osType: string;
-    /**
-     * The object identifier of the owner of the virtual machine.
-     */
-    readonly ownerObjectId?: string;
-    /**
-     * The user principal name of the virtual machine owner.
-     */
-    readonly ownerUserPrincipalName?: string;
-    /**
-     * The password of the virtual machine administrator.
-     */
-    readonly password?: string;
-    /**
-     * The id of the plan associated with the virtual machine image
-     */
-    readonly planId?: string;
-    /**
-     * The provisioning status of the resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * Virtual Machine schedules to be created
-     */
-    readonly scheduleParameters?: outputs.devtestlab.ScheduleCreationParameterResponse[];
-    /**
-     * The size of the virtual machine.
-     */
-    readonly size?: string;
-    /**
-     * The SSH key of the virtual machine administrator.
-     */
-    readonly sshKey?: string;
-    /**
-     * Storage type to use for virtual machine (i.e. Standard, Premium).
-     */
-    readonly storageType?: string;
+    readonly properties: outputs.devtestlab.LabVirtualMachinePropertiesResponse;
     /**
      * The tags of the resource.
      */
@@ -193,18 +69,6 @@ export interface GetVirtualMachineResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier: string;
-    /**
-     * The user name of the virtual machine.
-     */
-    readonly userName?: string;
-    /**
-     * Tells source of creation of lab virtual machine. Output property only.
-     */
-    readonly virtualMachineCreationSource: string;
 }
 /**
  * Get virtual machine.

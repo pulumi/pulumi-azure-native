@@ -17,34 +17,16 @@ namespace Pulumi.AzureNative.HybridContainerService
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identity of the provisioned cluster.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.ProvisionedClusterIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// provisioning state of the hybridIdentityMetadata resource.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
-        /// </summary>
-        [Output("publicKey")]
-        public Output<string?> PublicKey { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique id of the parent provisioned cluster resource.
-        /// </summary>
-        [Output("resourceUid")]
-        public Output<string?> ResourceUid { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.HybridIdentityMetadataPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -114,10 +96,10 @@ namespace Pulumi.AzureNative.HybridContainerService
         public Input<string>? HybridIdentityMetadataResourceName { get; set; }
 
         /// <summary>
-        /// The identity of the provisioned cluster.
+        /// Resource properties.
         /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ProvisionedClusterIdentityArgs>? Identity { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.HybridIdentityMetadataPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Parameter for the name of the provisioned cluster
@@ -126,22 +108,10 @@ namespace Pulumi.AzureNative.HybridContainerService
         public Input<string> ProvisionedClustersName { get; set; } = null!;
 
         /// <summary>
-        /// Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
-        /// </summary>
-        [Input("publicKey")]
-        public Input<string>? PublicKey { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Unique id of the parent provisioned cluster resource.
-        /// </summary>
-        [Input("resourceUid")]
-        public Input<string>? ResourceUid { get; set; }
 
         public HybridIdentityMetadatumArgs()
         {

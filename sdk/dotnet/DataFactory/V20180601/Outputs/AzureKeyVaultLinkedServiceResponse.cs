@@ -21,17 +21,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object BaseUrl;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
-        /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        public readonly Outputs.CredentialReferenceResponse? Credential;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -45,30 +37,31 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'AzureKeyVault'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Key Vault linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureKeyVaultLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureKeyVaultLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            object baseUrl,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
-
-            Outputs.CredentialReferenceResponse? credential,
 
             string? description,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            Outputs.AzureKeyVaultLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            BaseUrl = baseUrl;
             ConnectVia = connectVia;
-            Credential = credential;
             Description = description;
             Parameters = parameters;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

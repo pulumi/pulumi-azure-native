@@ -41,10 +41,6 @@ export interface GetBandwidthScheduleArgs {
  */
 export interface GetBandwidthScheduleResult {
     /**
-     * The days of the week when this schedule is applicable.
-     */
-    readonly days: string[];
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -53,17 +49,9 @@ export interface GetBandwidthScheduleResult {
      */
     readonly name: string;
     /**
-     * The bandwidth rate in Mbps.
+     * The properties of the bandwidth schedule.
      */
-    readonly rateInMbps: number;
-    /**
-     * The start time of the schedule in UTC.
-     */
-    readonly start: string;
-    /**
-     * The stop time of the schedule in UTC.
-     */
-    readonly stop: string;
+    readonly properties: outputs.databoxedge.BandwidthSchedulePropertiesResponse;
     /**
      * Bandwidth object related to ASE resource
      */

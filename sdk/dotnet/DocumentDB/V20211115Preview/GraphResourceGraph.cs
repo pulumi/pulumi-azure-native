@@ -130,16 +130,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        /// Properties to create and update Azure Cosmos DB Graph resource.
         /// </summary>
-        [Input("options")]
-        public Input<Inputs.CreateUpdateOptionsArgs>? Options { get; set; }
-
-        /// <summary>
-        /// The standard JSON format of a Graph resource
-        /// </summary>
-        [Input("resource", required: true)]
-        public Input<Inputs.GraphResourceArgs> Resource { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.GraphResourceCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

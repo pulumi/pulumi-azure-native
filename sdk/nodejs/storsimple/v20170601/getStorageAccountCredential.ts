@@ -40,14 +40,6 @@ export interface GetStorageAccountCredentialArgs {
  */
 export interface GetStorageAccountCredentialResult {
     /**
-     * The details of the storage account password.
-     */
-    readonly accessKey?: outputs.storsimple.v20170601.AsymmetricEncryptedSecretResponse;
-    /**
-     * The storage endpoint
-     */
-    readonly endPoint: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -60,17 +52,13 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly name: string;
     /**
-     * Signifies whether SSL needs to be enabled or not.
+     * The storage account credential properties.
      */
-    readonly sslStatus: string;
+    readonly properties: outputs.storsimple.v20170601.StorageAccountCredentialPropertiesResponse;
     /**
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * The count of volumes using this storage account credential.
-     */
-    readonly volumesCount: number;
 }
 /**
  * Gets the properties of the specified storage account credential name.

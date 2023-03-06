@@ -22,16 +22,7 @@ class GetSqlDBTableDataSetMappingResult:
     """
     A SQL DB Table data set mapping.
     """
-    def __init__(__self__, data_set_id=None, data_set_mapping_status=None, database_name=None, id=None, kind=None, name=None, provisioning_state=None, schema_name=None, sql_server_resource_id=None, system_data=None, table_name=None, type=None):
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        if data_set_mapping_status and not isinstance(data_set_mapping_status, str):
-            raise TypeError("Expected argument 'data_set_mapping_status' to be a str")
-        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
-        if database_name and not isinstance(database_name, str):
-            raise TypeError("Expected argument 'database_name' to be a str")
-        pulumi.set(__self__, "database_name", database_name)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,48 +32,15 @@ class GetSqlDBTableDataSetMappingResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if schema_name and not isinstance(schema_name, str):
-            raise TypeError("Expected argument 'schema_name' to be a str")
-        pulumi.set(__self__, "schema_name", schema_name)
-        if sql_server_resource_id and not isinstance(sql_server_resource_id, str):
-            raise TypeError("Expected argument 'sql_server_resource_id' to be a str")
-        pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if table_name and not isinstance(table_name, str):
-            raise TypeError("Expected argument 'table_name' to be a str")
-        pulumi.set(__self__, "table_name", table_name)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="dataSetMappingStatus")
-    def data_set_mapping_status(self) -> str:
-        """
-        Gets the status of the data set mapping.
-        """
-        return pulumi.get(self, "data_set_mapping_status")
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
-        """
-        DatabaseName name of the sink data set
-        """
-        return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter
@@ -110,28 +68,12 @@ class GetSqlDBTableDataSetMappingResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SqlDBTableDataSetMappingPropertiesResponse':
         """
-        Provisioning state of the data set mapping.
+        Sql DB data set mapping properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> str:
-        """
-        Schema of the table. Default value is dbo.
-        """
-        return pulumi.get(self, "schema_name")
-
-    @property
-    @pulumi.getter(name="sqlServerResourceId")
-    def sql_server_resource_id(self) -> str:
-        """
-        Resource id of SQL server
-        """
-        return pulumi.get(self, "sql_server_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -140,14 +82,6 @@ class GetSqlDBTableDataSetMappingResult:
         System Data of the Azure resource.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> str:
-        """
-        SQL DB table name.
-        """
-        return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter
@@ -164,17 +98,11 @@ class AwaitableGetSqlDBTableDataSetMappingResult(GetSqlDBTableDataSetMappingResu
         if False:
             yield self
         return GetSqlDBTableDataSetMappingResult(
-            data_set_id=self.data_set_id,
-            data_set_mapping_status=self.data_set_mapping_status,
-            database_name=self.database_name,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            schema_name=self.schema_name,
-            sql_server_resource_id=self.sql_server_resource_id,
+            properties=self.properties,
             system_data=self.system_data,
-            table_name=self.table_name,
             type=self.type)
 
 
@@ -201,17 +129,11 @@ def get_sql_db_table_data_set_mapping(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getSqlDBTableDataSetMapping', __args__, opts=opts, typ=GetSqlDBTableDataSetMappingResult).value
 
     return AwaitableGetSqlDBTableDataSetMappingResult(
-        data_set_id=__ret__.data_set_id,
-        data_set_mapping_status=__ret__.data_set_mapping_status,
-        database_name=__ret__.database_name,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        schema_name=__ret__.schema_name,
-        sql_server_resource_id=__ret__.sql_server_resource_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        table_name=__ret__.table_name,
         type=__ret__.type)
 
 

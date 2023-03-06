@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// This type describes a volume provided by an Azure Files file share.
-        /// </summary>
-        [Output("azureFileParameters")]
-        public Output<Outputs.VolumeProviderParametersAzureFileResponse?> AzureFileParameters { get; private set; } = null!;
-
-        /// <summary>
-        /// User readable description of the volume.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -40,28 +28,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provider of the volume.
+        /// This type describes properties of a volume resource.
         /// </summary>
-        [Output("provider")]
-        public Output<string> Provider { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of the volume.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Gives additional information about the current status of the volume.
-        /// </summary>
-        [Output("statusDetails")]
-        public Output<string> StatusDetails { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VolumeResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -126,28 +96,16 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This type describes a volume provided by an Azure Files file share.
-        /// </summary>
-        [Input("azureFileParameters")]
-        public Input<Inputs.VolumeProviderParametersAzureFileArgs>? AzureFileParameters { get; set; }
-
-        /// <summary>
-        /// User readable description of the volume.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Provider of the volume.
+        /// This type describes properties of a volume resource.
         /// </summary>
-        [Input("provider", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.VolumeProvider> Provider { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.VolumeResourcePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Azure resource group name

@@ -17,64 +17,22 @@ __all__ = ['ShareArgs', 'Share']
 @pulumi.input_type
 class ShareArgs:
     def __init__(__self__, *,
-                 access_protocol: pulumi.Input[Union[str, 'ShareAccessProtocol']],
                  device_name: pulumi.Input[str],
-                 monitoring_status: pulumi.Input[Union[str, 'MonitoringStatus']],
+                 properties: pulumi.Input['SharePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 share_status: pulumi.Input[Union[str, 'ShareStatus']],
-                 azure_container_info: Optional[pulumi.Input['AzureContainerInfoArgs']] = None,
-                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]]] = None,
-                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 refresh_details: Optional[pulumi.Input['RefreshDetailsArgs']] = None,
-                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Share resource.
-        :param pulumi.Input[Union[str, 'ShareAccessProtocol']] access_protocol: Access protocol to be used by the share.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Current monitoring status of the share.
+        :param pulumi.Input['SharePropertiesArgs'] properties: The share properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Union[str, 'ShareStatus']] share_status: Current status of the share.
-        :param pulumi.Input['AzureContainerInfoArgs'] azure_container_info: Azure container mapping for the share.
-        :param pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the share.
-        :param pulumi.Input[str] description: Description for the share.
         :param pulumi.Input[str] name: The share name.
-        :param pulumi.Input['RefreshDetailsArgs'] refresh_details: Details of the refresh job on this share.
-        :param pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
-        pulumi.set(__self__, "access_protocol", access_protocol)
         pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_status", share_status)
-        if azure_container_info is not None:
-            pulumi.set(__self__, "azure_container_info", azure_container_info)
-        if client_access_rights is not None:
-            pulumi.set(__self__, "client_access_rights", client_access_rights)
-        if data_policy is not None:
-            pulumi.set(__self__, "data_policy", data_policy)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if refresh_details is not None:
-            pulumi.set(__self__, "refresh_details", refresh_details)
-        if user_access_rights is not None:
-            pulumi.set(__self__, "user_access_rights", user_access_rights)
-
-    @property
-    @pulumi.getter(name="accessProtocol")
-    def access_protocol(self) -> pulumi.Input[Union[str, 'ShareAccessProtocol']]:
-        """
-        Access protocol to be used by the share.
-        """
-        return pulumi.get(self, "access_protocol")
-
-    @access_protocol.setter
-    def access_protocol(self, value: pulumi.Input[Union[str, 'ShareAccessProtocol']]):
-        pulumi.set(self, "access_protocol", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -89,16 +47,16 @@ class ShareArgs:
         pulumi.set(self, "device_name", value)
 
     @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> pulumi.Input[Union[str, 'MonitoringStatus']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SharePropertiesArgs']:
         """
-        Current monitoring status of the share.
+        The share properties.
         """
-        return pulumi.get(self, "monitoring_status")
+        return pulumi.get(self, "properties")
 
-    @monitoring_status.setter
-    def monitoring_status(self, value: pulumi.Input[Union[str, 'MonitoringStatus']]):
-        pulumi.set(self, "monitoring_status", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['SharePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -113,66 +71,6 @@ class ShareArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Input[Union[str, 'ShareStatus']]:
-        """
-        Current status of the share.
-        """
-        return pulumi.get(self, "share_status")
-
-    @share_status.setter
-    def share_status(self, value: pulumi.Input[Union[str, 'ShareStatus']]):
-        pulumi.set(self, "share_status", value)
-
-    @property
-    @pulumi.getter(name="azureContainerInfo")
-    def azure_container_info(self) -> Optional[pulumi.Input['AzureContainerInfoArgs']]:
-        """
-        Azure container mapping for the share.
-        """
-        return pulumi.get(self, "azure_container_info")
-
-    @azure_container_info.setter
-    def azure_container_info(self, value: Optional[pulumi.Input['AzureContainerInfoArgs']]):
-        pulumi.set(self, "azure_container_info", value)
-
-    @property
-    @pulumi.getter(name="clientAccessRights")
-    def client_access_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]]]:
-        """
-        List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-        """
-        return pulumi.get(self, "client_access_rights")
-
-    @client_access_rights.setter
-    def client_access_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClientAccessRightArgs']]]]):
-        pulumi.set(self, "client_access_rights", value)
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> Optional[pulumi.Input[Union[str, 'DataPolicy']]]:
-        """
-        Data policy of the share.
-        """
-        return pulumi.get(self, "data_policy")
-
-    @data_policy.setter
-    def data_policy(self, value: Optional[pulumi.Input[Union[str, 'DataPolicy']]]):
-        pulumi.set(self, "data_policy", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the share.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -184,66 +82,26 @@ class ShareArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> Optional[pulumi.Input['RefreshDetailsArgs']]:
-        """
-        Details of the refresh job on this share.
-        """
-        return pulumi.get(self, "refresh_details")
-
-    @refresh_details.setter
-    def refresh_details(self, value: Optional[pulumi.Input['RefreshDetailsArgs']]):
-        pulumi.set(self, "refresh_details", value)
-
-    @property
-    @pulumi.getter(name="userAccessRights")
-    def user_access_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]]]:
-        """
-        Mapping of users and corresponding access rights on the share (required for SMB protocol).
-        """
-        return pulumi.get(self, "user_access_rights")
-
-    @user_access_rights.setter
-    def user_access_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessRightArgs']]]]):
-        pulumi.set(self, "user_access_rights", value)
-
 
 class Share(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_protocol: Optional[pulumi.Input[Union[str, 'ShareAccessProtocol']]] = None,
-                 azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
-                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
-                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 refresh_details: Optional[pulumi.Input[pulumi.InputType['RefreshDetailsArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SharePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_status: Optional[pulumi.Input[Union[str, 'ShareStatus']]] = None,
-                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
                  __props__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'ShareAccessProtocol']] access_protocol: Access protocol to be used by the share.
-        :param pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']] azure_container_info: Azure container mapping for the share.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the share.
-        :param pulumi.Input[str] description: Description for the share.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Current monitoring status of the share.
         :param pulumi.Input[str] name: The share name.
-        :param pulumi.Input[pulumi.InputType['RefreshDetailsArgs']] refresh_details: Details of the refresh job on this share.
+        :param pulumi.Input[pulumi.InputType['SharePropertiesArgs']] properties: The share properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Union[str, 'ShareStatus']] share_status: Current status of the share.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
         ...
     @overload
@@ -269,18 +127,10 @@ class Share(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_protocol: Optional[pulumi.Input[Union[str, 'ShareAccessProtocol']]] = None,
-                 azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
-                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
-                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 refresh_details: Optional[pulumi.Input[pulumi.InputType['RefreshDetailsArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SharePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_status: Optional[pulumi.Input[Union[str, 'ShareStatus']]] = None,
-                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -290,29 +140,16 @@ class Share(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ShareArgs.__new__(ShareArgs)
 
-            if access_protocol is None and not opts.urn:
-                raise TypeError("Missing required property 'access_protocol'")
-            __props__.__dict__["access_protocol"] = access_protocol
-            __props__.__dict__["azure_container_info"] = azure_container_info
-            __props__.__dict__["client_access_rights"] = client_access_rights
-            __props__.__dict__["data_policy"] = data_policy
-            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
-            if monitoring_status is None and not opts.urn:
-                raise TypeError("Missing required property 'monitoring_status'")
-            __props__.__dict__["monitoring_status"] = monitoring_status
             __props__.__dict__["name"] = name
-            __props__.__dict__["refresh_details"] = refresh_details
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if share_status is None and not opts.urn:
-                raise TypeError("Missing required property 'share_status'")
-            __props__.__dict__["share_status"] = share_status
-            __props__.__dict__["user_access_rights"] = user_access_rights
-            __props__.__dict__["share_mappings"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Share")])
@@ -339,68 +176,11 @@ class Share(pulumi.CustomResource):
 
         __props__ = ShareArgs.__new__(ShareArgs)
 
-        __props__.__dict__["access_protocol"] = None
-        __props__.__dict__["azure_container_info"] = None
-        __props__.__dict__["client_access_rights"] = None
-        __props__.__dict__["data_policy"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["monitoring_status"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["refresh_details"] = None
-        __props__.__dict__["share_mappings"] = None
-        __props__.__dict__["share_status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_access_rights"] = None
         return Share(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accessProtocol")
-    def access_protocol(self) -> pulumi.Output[str]:
-        """
-        Access protocol to be used by the share.
-        """
-        return pulumi.get(self, "access_protocol")
-
-    @property
-    @pulumi.getter(name="azureContainerInfo")
-    def azure_container_info(self) -> pulumi.Output[Optional['outputs.AzureContainerInfoResponse']]:
-        """
-        Azure container mapping for the share.
-        """
-        return pulumi.get(self, "azure_container_info")
-
-    @property
-    @pulumi.getter(name="clientAccessRights")
-    def client_access_rights(self) -> pulumi.Output[Optional[Sequence['outputs.ClientAccessRightResponse']]]:
-        """
-        List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-        """
-        return pulumi.get(self, "client_access_rights")
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        Data policy of the share.
-        """
-        return pulumi.get(self, "data_policy")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description for the share.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> pulumi.Output[str]:
-        """
-        Current monitoring status of the share.
-        """
-        return pulumi.get(self, "monitoring_status")
 
     @property
     @pulumi.getter
@@ -411,28 +191,12 @@ class Share(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> pulumi.Output[Optional['outputs.RefreshDetailsResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SharePropertiesResponse']:
         """
-        Details of the refresh job on this share.
+        The share properties.
         """
-        return pulumi.get(self, "refresh_details")
-
-    @property
-    @pulumi.getter(name="shareMappings")
-    def share_mappings(self) -> pulumi.Output[Sequence['outputs.MountPointMapResponse']]:
-        """
-        Share mount point to the role.
-        """
-        return pulumi.get(self, "share_mappings")
-
-    @property
-    @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Output[str]:
-        """
-        Current status of the share.
-        """
-        return pulumi.get(self, "share_status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -449,12 +213,4 @@ class Share(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAccessRights")
-    def user_access_rights(self) -> pulumi.Output[Optional[Sequence['outputs.UserAccessRightResponse']]]:
-        """
-        Mapping of users and corresponding access rights on the share (required for SMB protocol).
-        """
-        return pulumi.get(self, "user_access_rights")
 

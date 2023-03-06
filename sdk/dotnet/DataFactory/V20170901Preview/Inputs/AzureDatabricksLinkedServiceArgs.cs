@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class AzureDatabricksLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("accessToken", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> AccessToken { get; set; } = null!;
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -45,54 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// &lt;REGION&gt;.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("domain", required: true)]
-        public Input<object> Domain { get; set; } = null!;
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("existingClusterId")]
-        public Input<object>? ExistingClusterId { get; set; }
-
-        /// <summary>
-        /// The node types of new cluster. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("newClusterNodeType")]
-        public Input<object>? NewClusterNodeType { get; set; }
-
-        /// <summary>
-        /// Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("newClusterNumOfWorker")]
-        public Input<object>? NewClusterNumOfWorker { get; set; }
-
-        [Input("newClusterSparkConf")]
-        private InputMap<object>? _newClusterSparkConf;
-
-        /// <summary>
-        /// a set of optional, user-specified Spark configuration key-value pairs.
-        /// </summary>
-        public InputMap<object> NewClusterSparkConf
-        {
-            get => _newClusterSparkConf ?? (_newClusterSparkConf = new InputMap<object>());
-            set => _newClusterSparkConf = value;
-        }
-
-        /// <summary>
-        /// The Spark version of new cluster. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("newClusterVersion")]
-        public Input<object>? NewClusterVersion { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -111,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Databricks linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureDatabricksLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureDatabricksLinkedServiceArgs()
         {

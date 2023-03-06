@@ -10,27 +10,25 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['LinkedSubscriptionArgs', 'LinkedSubscription']
 
 @pulumi.input_type
 class LinkedSubscriptionArgs:
     def __init__(__self__, *,
-                 linked_subscription_id: pulumi.Input[str],
-                 registration_resource_id: pulumi.Input[str],
+                 properties: pulumi.Input['LinkedSubscriptionParameterPropertiesArgs'],
                  resource_group: pulumi.Input[str],
                  linked_subscription_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[Union[str, 'Location']]] = None):
         """
         The set of arguments for constructing a LinkedSubscription resource.
-        :param pulumi.Input[str] linked_subscription_id: The identifier associated with the device subscription.
-        :param pulumi.Input[str] registration_resource_id: The identifier associated with the device registration.
+        :param pulumi.Input['LinkedSubscriptionParameterPropertiesArgs'] properties: Properties of the Linked Subscription resource
         :param pulumi.Input[str] resource_group: Name of the resource group.
         :param pulumi.Input[str] linked_subscription_name: Name of the Linked Subscription resource.
         :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
         """
-        pulumi.set(__self__, "linked_subscription_id", linked_subscription_id)
-        pulumi.set(__self__, "registration_resource_id", registration_resource_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group", resource_group)
         if linked_subscription_name is not None:
             pulumi.set(__self__, "linked_subscription_name", linked_subscription_name)
@@ -38,28 +36,16 @@ class LinkedSubscriptionArgs:
             pulumi.set(__self__, "location", location)
 
     @property
-    @pulumi.getter(name="linkedSubscriptionId")
-    def linked_subscription_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LinkedSubscriptionParameterPropertiesArgs']:
         """
-        The identifier associated with the device subscription.
+        Properties of the Linked Subscription resource
         """
-        return pulumi.get(self, "linked_subscription_id")
+        return pulumi.get(self, "properties")
 
-    @linked_subscription_id.setter
-    def linked_subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "linked_subscription_id", value)
-
-    @property
-    @pulumi.getter(name="registrationResourceId")
-    def registration_resource_id(self) -> pulumi.Input[str]:
-        """
-        The identifier associated with the device registration.
-        """
-        return pulumi.get(self, "registration_resource_id")
-
-    @registration_resource_id.setter
-    def registration_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "registration_resource_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['LinkedSubscriptionParameterPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -103,10 +89,9 @@ class LinkedSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_subscription_id: Optional[pulumi.Input[str]] = None,
                  linked_subscription_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
-                 registration_resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedSubscriptionParameterPropertiesArgs']]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -115,10 +100,9 @@ class LinkedSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linked_subscription_id: The identifier associated with the device subscription.
         :param pulumi.Input[str] linked_subscription_name: Name of the Linked Subscription resource.
         :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
-        :param pulumi.Input[str] registration_resource_id: The identifier associated with the device registration.
+        :param pulumi.Input[pulumi.InputType['LinkedSubscriptionParameterPropertiesArgs']] properties: Properties of the Linked Subscription resource
         :param pulumi.Input[str] resource_group: Name of the resource group.
         """
         ...
@@ -146,10 +130,9 @@ class LinkedSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_subscription_id: Optional[pulumi.Input[str]] = None,
                  linked_subscription_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
-                 registration_resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedSubscriptionParameterPropertiesArgs']]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -160,14 +143,11 @@ class LinkedSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkedSubscriptionArgs.__new__(LinkedSubscriptionArgs)
 
-            if linked_subscription_id is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_subscription_id'")
-            __props__.__dict__["linked_subscription_id"] = linked_subscription_id
             __props__.__dict__["linked_subscription_name"] = linked_subscription_name
             __props__.__dict__["location"] = location
-            if registration_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'registration_resource_id'")
-            __props__.__dict__["registration_resource_id"] = registration_resource_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
             __props__.__dict__["resource_group"] = resource_group
@@ -178,7 +158,9 @@ class LinkedSubscription(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["last_connected_time"] = None
+            __props__.__dict__["linked_subscription_id"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["registration_resource_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None

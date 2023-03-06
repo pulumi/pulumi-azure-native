@@ -22,13 +22,7 @@ class GetAddressResult:
     """
     Address Resource.
     """
-    def __init__(__self__, address_validation_status=None, contact_details=None, id=None, location=None, name=None, shipping_address=None, system_data=None, tags=None, type=None):
-        if address_validation_status and not isinstance(address_validation_status, str):
-            raise TypeError("Expected argument 'address_validation_status' to be a str")
-        pulumi.set(__self__, "address_validation_status", address_validation_status)
-        if contact_details and not isinstance(contact_details, dict):
-            raise TypeError("Expected argument 'contact_details' to be a dict")
-        pulumi.set(__self__, "contact_details", contact_details)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,9 +32,9 @@ class GetAddressResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if shipping_address and not isinstance(shipping_address, dict):
-            raise TypeError("Expected argument 'shipping_address' to be a dict")
-        pulumi.set(__self__, "shipping_address", shipping_address)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -50,22 +44,6 @@ class GetAddressResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="addressValidationStatus")
-    def address_validation_status(self) -> str:
-        """
-        Status of address validation.
-        """
-        return pulumi.get(self, "address_validation_status")
-
-    @property
-    @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> 'outputs.ContactDetailsResponse':
-        """
-        Contact details for the address.
-        """
-        return pulumi.get(self, "contact_details")
 
     @property
     @pulumi.getter
@@ -92,12 +70,12 @@ class GetAddressResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional['outputs.ShippingAddressResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.AddressPropertiesResponse':
         """
-        Shipping details for the address.
+        Properties of an address.
         """
-        return pulumi.get(self, "shipping_address")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -130,12 +108,10 @@ class AwaitableGetAddressResult(GetAddressResult):
         if False:
             yield self
         return GetAddressResult(
-            address_validation_status=self.address_validation_status,
-            contact_details=self.contact_details,
             id=self.id,
             location=self.location,
             name=self.name,
-            shipping_address=self.shipping_address,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -158,12 +134,10 @@ def get_address(address_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:edgeorder/v20220501preview:getAddress', __args__, opts=opts, typ=GetAddressResult).value
 
     return AwaitableGetAddressResult(
-        address_validation_status=__ret__.address_validation_status,
-        contact_details=__ret__.contact_details,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        shipping_address=__ret__.shipping_address,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

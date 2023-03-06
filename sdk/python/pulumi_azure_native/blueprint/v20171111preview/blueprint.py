@@ -18,42 +18,18 @@ __all__ = ['BlueprintArgs', 'Blueprint']
 class BlueprintArgs:
     def __init__(__self__, *,
                  management_group_name: pulumi.Input[str],
-                 target_scope: pulumi.Input[Union[str, 'BlueprintTargetScope']],
-                 blueprint_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 layout: Optional[Any] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]] = None,
-                 versions: Optional[Any] = None):
+                 properties: pulumi.Input['BlueprintPropertiesArgs'],
+                 blueprint_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Blueprint resource.
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
-        :param pulumi.Input[Union[str, 'BlueprintTargetScope']] target_scope: The scope where this Blueprint can be applied.
+        :param pulumi.Input['BlueprintPropertiesArgs'] properties: Detailed properties for blueprint
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
-        :param pulumi.Input[str] description: Multi-line explain this resource.
-        :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param Any layout: Layout view of the blueprint, for UI reference.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]] parameters: Parameters required by this Blueprint definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]] resource_groups: Resource group placeholders defined by this Blueprint definition.
-        :param Any versions: Published versions of this blueprint.
         """
         pulumi.set(__self__, "management_group_name", management_group_name)
-        pulumi.set(__self__, "target_scope", target_scope)
+        pulumi.set(__self__, "properties", properties)
         if blueprint_name is not None:
             pulumi.set(__self__, "blueprint_name", blueprint_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if layout is not None:
-            pulumi.set(__self__, "layout", layout)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
-        if versions is not None:
-            pulumi.set(__self__, "versions", versions)
 
     @property
     @pulumi.getter(name="managementGroupName")
@@ -68,16 +44,16 @@ class BlueprintArgs:
         pulumi.set(self, "management_group_name", value)
 
     @property
-    @pulumi.getter(name="targetScope")
-    def target_scope(self) -> pulumi.Input[Union[str, 'BlueprintTargetScope']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BlueprintPropertiesArgs']:
         """
-        The scope where this Blueprint can be applied.
+        Detailed properties for blueprint
         """
-        return pulumi.get(self, "target_scope")
+        return pulumi.get(self, "properties")
 
-    @target_scope.setter
-    def target_scope(self, value: pulumi.Input[Union[str, 'BlueprintTargetScope']]):
-        pulumi.set(self, "target_scope", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['BlueprintPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="blueprintName")
@@ -91,78 +67,6 @@ class BlueprintArgs:
     def blueprint_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "blueprint_name", value)
 
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Multi-line explain this resource.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        One-liner string explain this resource.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def layout(self) -> Optional[Any]:
-        """
-        Layout view of the blueprint, for UI reference.
-        """
-        return pulumi.get(self, "layout")
-
-    @layout.setter
-    def layout(self, value: Optional[Any]):
-        pulumi.set(self, "layout", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]]:
-        """
-        Parameters required by this Blueprint definition.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]]):
-        pulumi.set(self, "parameters", value)
-
-    @property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]]:
-        """
-        Resource group placeholders defined by this Blueprint definition.
-        """
-        return pulumi.get(self, "resource_groups")
-
-    @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]]):
-        pulumi.set(self, "resource_groups", value)
-
-    @property
-    @pulumi.getter
-    def versions(self) -> Optional[Any]:
-        """
-        Published versions of this blueprint.
-        """
-        return pulumi.get(self, "versions")
-
-    @versions.setter
-    def versions(self, value: Optional[Any]):
-        pulumi.set(self, "versions", value)
-
 
 warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -175,14 +79,8 @@ class Blueprint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 layout: Optional[Any] = None,
                  management_group_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
-                 target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
-                 versions: Optional[Any] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BlueprintPropertiesArgs']]] = None,
                  __props__=None):
         """
         Represents a Blueprint definition.
@@ -190,14 +88,8 @@ class Blueprint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
-        :param pulumi.Input[str] description: Multi-line explain this resource.
-        :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param Any layout: Layout view of the blueprint, for UI reference.
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]] parameters: Parameters required by this Blueprint definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]] resource_groups: Resource group placeholders defined by this Blueprint definition.
-        :param pulumi.Input[Union[str, 'BlueprintTargetScope']] target_scope: The scope where this Blueprint can be applied.
-        :param Any versions: Published versions of this blueprint.
+        :param pulumi.Input[pulumi.InputType['BlueprintPropertiesArgs']] properties: Detailed properties for blueprint
         """
         ...
     @overload
@@ -224,14 +116,8 @@ class Blueprint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 layout: Optional[Any] = None,
                  management_group_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
-                 target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
-                 versions: Optional[Any] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BlueprintPropertiesArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Blueprint is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -243,20 +129,13 @@ class Blueprint(pulumi.CustomResource):
             __props__ = BlueprintArgs.__new__(BlueprintArgs)
 
             __props__.__dict__["blueprint_name"] = blueprint_name
-            __props__.__dict__["description"] = description
-            __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["layout"] = layout
             if management_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_name'")
             __props__.__dict__["management_group_name"] = management_group_name
-            __props__.__dict__["parameters"] = parameters
-            __props__.__dict__["resource_groups"] = resource_groups
-            if target_scope is None and not opts.urn:
-                raise TypeError("Missing required property 'target_scope'")
-            __props__.__dict__["target_scope"] = target_scope
-            __props__.__dict__["versions"] = versions
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
-            __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
         super(Blueprint, __self__).__init__(
             'azure-native:blueprint/v20171111preview:Blueprint',
@@ -280,41 +159,10 @@ class Blueprint(pulumi.CustomResource):
 
         __props__ = BlueprintArgs.__new__(BlueprintArgs)
 
-        __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
-        __props__.__dict__["layout"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["parameters"] = None
-        __props__.__dict__["resource_groups"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["target_scope"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["versions"] = None
         return Blueprint(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Multi-line explain this resource.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        One-liner string explain this resource.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def layout(self) -> pulumi.Output[Optional[Any]]:
-        """
-        Layout view of the blueprint, for UI reference.
-        """
-        return pulumi.get(self, "layout")
 
     @property
     @pulumi.getter
@@ -326,35 +174,11 @@ class Blueprint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ParameterDefinitionResponse']]]:
+    def properties(self) -> pulumi.Output['outputs.BlueprintPropertiesResponse']:
         """
-        Parameters required by this Blueprint definition.
+        Detailed properties for blueprint
         """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ResourceGroupDefinitionResponse']]]:
-        """
-        Resource group placeholders defined by this Blueprint definition.
-        """
-        return pulumi.get(self, "resource_groups")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output['outputs.BlueprintStatusResponse']:
-        """
-        Status of the Blueprint. This field is readonly.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="targetScope")
-    def target_scope(self) -> pulumi.Output[str]:
-        """
-        The scope where this Blueprint can be applied.
-        """
-        return pulumi.get(self, "target_scope")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -363,12 +187,4 @@ class Blueprint(pulumi.CustomResource):
         Type of this resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def versions(self) -> pulumi.Output[Optional[Any]]:
-        """
-        Published versions of this blueprint.
-        """
-        return pulumi.get(self, "versions")
 

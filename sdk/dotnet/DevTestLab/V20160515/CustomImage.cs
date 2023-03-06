@@ -17,34 +17,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public partial class CustomImage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The author of the custom image.
-        /// </summary>
-        [Output("author")]
-        public Output<string?> Author { get; private set; } = null!;
-
-        /// <summary>
-        /// The creation date of the custom image.
-        /// </summary>
-        [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the custom image.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The Managed Image Id backing the custom image.
-        /// </summary>
-        [Output("managedImageId")]
-        public Output<string?> ManagedImageId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -53,10 +29,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.CustomImagePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -69,24 +45,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string?> UniqueIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// The VHD from which the image is to be created.
-        /// </summary>
-        [Output("vhd")]
-        public Output<Outputs.CustomImagePropertiesCustomResponse?> Vhd { get; private set; } = null!;
-
-        /// <summary>
-        /// The virtual machine from which the image is to be created.
-        /// </summary>
-        [Output("vm")]
-        public Output<Outputs.CustomImagePropertiesFromVmResponse?> Vm { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,18 +98,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public sealed class CustomImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The author of the custom image.
-        /// </summary>
-        [Input("author")]
-        public Input<string>? Author { get; set; }
-
-        /// <summary>
-        /// The description of the custom image.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -164,22 +110,16 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Managed Image Id backing the custom image.
-        /// </summary>
-        [Input("managedImageId")]
-        public Input<string>? ManagedImageId { get; set; }
-
-        /// <summary>
         /// The name of the custom image.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.CustomImagePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -198,24 +138,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Input("uniqueIdentifier")]
-        public Input<string>? UniqueIdentifier { get; set; }
-
-        /// <summary>
-        /// The VHD from which the image is to be created.
-        /// </summary>
-        [Input("vhd")]
-        public Input<Inputs.CustomImagePropertiesCustomArgs>? Vhd { get; set; }
-
-        /// <summary>
-        /// The virtual machine from which the image is to be created.
-        /// </summary>
-        [Input("vm")]
-        public Input<Inputs.CustomImagePropertiesFromVmArgs>? Vm { get; set; }
 
         public CustomImageArgs()
         {

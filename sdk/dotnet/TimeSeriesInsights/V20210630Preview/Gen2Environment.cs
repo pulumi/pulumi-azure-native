@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
     public partial class Gen2Environment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        [Output("dataAccessFqdn")]
-        public Output<string> DataAccessFqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        [Output("dataAccessId")]
-        public Output<string> DataAccessId { get; private set; } = null!;
-
-        /// <summary>
         /// The kind of the environment.
         /// Expected value is 'Gen2'.
         /// </summary>
@@ -53,10 +35,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of the Gen2 environment.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.Gen2EnvironmentResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
@@ -65,46 +47,16 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.EnvironmentStatusResponse> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        /// </summary>
-        [Output("storageConfiguration")]
-        public Output<Outputs.Gen2StorageConfigurationOutputResponse> StorageConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
-        /// </summary>
-        [Output("supportsCustomerManagedKey")]
-        public Output<bool> SupportsCustomerManagedKey { get; private set; } = null!;
-
-        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The list of event properties which will be used to define the environment's time series id.
-        /// </summary>
-        [Output("timeSeriesIdProperties")]
-        public Output<ImmutableArray<Outputs.TimeSeriesIdPropertyResponse>> TimeSeriesIdProperties { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        /// </summary>
-        [Output("warmStoreConfiguration")]
-        public Output<Outputs.WarmStoreConfigurationPropertiesResponse?> WarmStoreConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -187,6 +139,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Properties used to create a Gen2 environment.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.Gen2EnvironmentCreationPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -197,12 +155,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        /// </summary>
-        [Input("storageConfiguration", required: true)]
-        public Input<Inputs.Gen2StorageConfigurationInputArgs> StorageConfiguration { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -215,24 +167,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        [Input("timeSeriesIdProperties", required: true)]
-        private InputList<Inputs.TimeSeriesIdPropertyArgs>? _timeSeriesIdProperties;
-
-        /// <summary>
-        /// The list of event properties which will be used to define the environment's time series id.
-        /// </summary>
-        public InputList<Inputs.TimeSeriesIdPropertyArgs> TimeSeriesIdProperties
-        {
-            get => _timeSeriesIdProperties ?? (_timeSeriesIdProperties = new InputList<Inputs.TimeSeriesIdPropertyArgs>());
-            set => _timeSeriesIdProperties = value;
-        }
-
-        /// <summary>
-        /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        /// </summary>
-        [Input("warmStoreConfiguration")]
-        public Input<Inputs.WarmStoreConfigurationPropertiesArgs>? WarmStoreConfiguration { get; set; }
 
         public Gen2EnvironmentArgs()
         {

@@ -38,14 +38,6 @@ export class ArcAddon extends pulumi.CustomResource {
     }
 
     /**
-     * Host OS supported by the Arc addon.
-     */
-    public /*out*/ readonly hostPlatform!: pulumi.Output<string>;
-    /**
-     * Platform where the runtime is hosted.
-     */
-    public /*out*/ readonly hostPlatformType!: pulumi.Output<string>;
-    /**
      * Addon type.
      * Expected value is 'ArcForKubernetes'.
      */
@@ -55,25 +47,9 @@ export class ArcAddon extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Addon Provisioning State
+     * Properties specific to Arc addon.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Arc resource group name
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * Arc resource location
-     */
-    public readonly resourceLocation!: pulumi.Output<string>;
-    /**
-     * Arc resource Name
-     */
-    public readonly resourceName!: pulumi.Output<string>;
-    /**
-     * Arc resource subscription Id
-     */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.databoxedge.v20201201.ArcAddonPropertiesResponse>;
     /**
      * Addon type
      */
@@ -82,10 +58,6 @@ export class ArcAddon extends pulumi.CustomResource {
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Arc resource version
-     */
-    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a ArcAddon resource with the given unique name, arguments, and options.
@@ -104,49 +76,30 @@ export class ArcAddon extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.resourceLocation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceLocation'");
-            }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
             }
             if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionId'");
-            }
             resourceInputs["addonName"] = args ? args.addonName : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["kind"] = "ArcForKubernetes";
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceLocation"] = args ? args.resourceLocation : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["hostPlatform"] = undefined /*out*/;
-            resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         } else {
-            resourceInputs["hostPlatform"] = undefined /*out*/;
-            resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGroupName"] = undefined /*out*/;
-            resourceInputs["resourceLocation"] = undefined /*out*/;
-            resourceInputs["resourceName"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:ArcAddon" }, { type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }, { type: "azure-native:databoxedge/v20220301:ArcAddon" }, { type: "azure-native:databoxedge/v20220401preview:ArcAddon" }, { type: "azure-native:databoxedge/v20221201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20230101preview:ArcAddon" }] };
@@ -173,23 +126,15 @@ export interface ArcAddonArgs {
      */
     kind: pulumi.Input<"ArcForKubernetes">;
     /**
+     * Properties specific to Arc addon.
+     */
+    properties: pulumi.Input<inputs.databoxedge.v20201201.ArcAddonPropertiesArgs>;
+    /**
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Arc resource location
-     */
-    resourceLocation: pulumi.Input<string>;
-    /**
-     * Arc resource Name
-     */
-    resourceName: pulumi.Input<string>;
-    /**
      * The role name.
      */
     roleName: pulumi.Input<string>;
-    /**
-     * Arc resource subscription Id
-     */
-    subscriptionId: pulumi.Input<string>;
 }

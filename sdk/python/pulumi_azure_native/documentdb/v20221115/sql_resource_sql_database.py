@@ -17,31 +17,27 @@ __all__ = ['SqlResourceSqlDatabaseArgs', 'SqlResourceSqlDatabase']
 class SqlResourceSqlDatabaseArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 resource: pulumi.Input['SqlDatabaseResourceArgs'],
+                 properties: pulumi.Input['SqlDatabaseCreateUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  database_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SqlResourceSqlDatabase resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input['SqlDatabaseResourceArgs'] resource: The standard JSON format of a SQL database
+        :param pulumi.Input['SqlDatabaseCreateUpdatePropertiesArgs'] properties: Properties to create and update Azure Cosmos DB SQL database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if options is not None:
-            pulumi.set(__self__, "options", options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -59,15 +55,15 @@ class SqlResourceSqlDatabaseArgs:
 
     @property
     @pulumi.getter
-    def resource(self) -> pulumi.Input['SqlDatabaseResourceArgs']:
+    def properties(self) -> pulumi.Input['SqlDatabaseCreateUpdatePropertiesArgs']:
         """
-        The standard JSON format of a SQL database
+        Properties to create and update Azure Cosmos DB SQL database.
         """
-        return pulumi.get(self, "resource")
+        return pulumi.get(self, "properties")
 
-    @resource.setter
-    def resource(self, value: pulumi.Input['SqlDatabaseResourceArgs']):
-        pulumi.set(self, "resource", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['SqlDatabaseCreateUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -107,18 +103,6 @@ class SqlResourceSqlDatabaseArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
-        """
-        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        """
-        return pulumi.get(self, "options")
-
-    @options.setter
-    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -138,8 +122,7 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -151,8 +134,7 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[pulumi.InputType['SqlDatabaseResourceArgs']] resource: The standard JSON format of a SQL database
+        :param pulumi.Input[pulumi.InputType['SqlDatabaseCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB SQL database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
@@ -183,8 +165,7 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -201,15 +182,16 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["location"] = location
-            __props__.__dict__["options"] = options
-            if resource is None and not opts.urn:
-                raise TypeError("Missing required property 'resource'")
-            __props__.__dict__["resource"] = resource
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["options"] = None
+            __props__.__dict__["resource"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20150401:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20150408:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20151106:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20160319:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20160331:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20190801:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20191212:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20200301:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20200401:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20200901:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210115:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210315:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210415:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210515:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210615:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20211015:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20220515:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20220815:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

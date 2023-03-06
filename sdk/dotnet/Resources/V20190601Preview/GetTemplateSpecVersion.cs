@@ -82,14 +82,6 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
     public sealed class GetTemplateSpecVersionResult
     {
         /// <summary>
-        /// An array of Template Spec artifacts.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse> Artifacts;
-        /// <summary>
-        /// Template Spec version description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
@@ -102,6 +94,10 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Template Spec Version properties.
+        /// </summary>
+        public readonly Outputs.TemplateSpecVersionPropertiesResponse Properties;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -110,42 +106,32 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The Azure Resource Manager template content.
-        /// </summary>
-        public readonly object? Template;
-        /// <summary>
         /// Type of this resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetTemplateSpecVersionResult(
-            ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse> artifacts,
-
-            string? description,
-
             string id,
 
             string location,
 
             string name,
 
+            Outputs.TemplateSpecVersionPropertiesResponse properties,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            object? template,
-
             string type)
         {
-            Artifacts = artifacts;
-            Description = description;
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            Template = template;
             Type = type;
         }
     }

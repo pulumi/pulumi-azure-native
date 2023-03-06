@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     public partial class Rollout : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to the artifact source resource Id where the payload is located.
-        /// </summary>
-        [Output("artifactSourceId")]
-        public Output<string?> ArtifactSourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The version of the build being deployed.
-        /// </summary>
-        [Output("buildVersion")]
-        public Output<string> BuildVersion { get; private set; } = null!;
-
-        /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
@@ -47,22 +35,16 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The list of step groups that define the orchestration.
+        /// Defines the properties that make up a rollout request.
         /// </summary>
-        [Output("stepGroups")]
-        public Output<ImmutableArray<Outputs.StepResponse>> StepGroups { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.RolloutRequestPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-        /// </summary>
-        [Output("targetServiceTopologyId")]
-        public Output<string> TargetServiceTopologyId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -121,18 +103,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     public sealed class RolloutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference to the artifact source resource Id where the payload is located.
-        /// </summary>
-        [Input("artifactSourceId")]
-        public Input<string>? ArtifactSourceId { get; set; }
-
-        /// <summary>
-        /// The version of the build being deployed.
-        /// </summary>
-        [Input("buildVersion", required: true)]
-        public Input<string> BuildVersion { get; set; } = null!;
-
-        /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Input("identity", required: true)]
@@ -143,6 +113,12 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Defines the properties that make up a rollout request.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.RolloutRequestPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -156,18 +132,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         [Input("rolloutName")]
         public Input<string>? RolloutName { get; set; }
 
-        [Input("stepGroups", required: true)]
-        private InputList<Inputs.StepArgs>? _stepGroups;
-
-        /// <summary>
-        /// The list of step groups that define the orchestration.
-        /// </summary>
-        public InputList<Inputs.StepArgs> StepGroups
-        {
-            get => _stepGroups ?? (_stepGroups = new InputList<Inputs.StepArgs>());
-            set => _stepGroups = value;
-        }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -179,12 +143,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-        /// </summary>
-        [Input("targetServiceTopologyId", required: true)]
-        public Input<string> TargetServiceTopologyId { get; set; } = null!;
 
         public RolloutArgs()
         {

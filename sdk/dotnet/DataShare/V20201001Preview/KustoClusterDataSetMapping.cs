@@ -16,35 +16,11 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public partial class KustoClusterDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        [Output("dataSetMappingStatus")]
-        public Output<string> DataSetMappingStatus { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set mapping.
         /// Expected value is 'KustoCluster'.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource id of the sink kusto cluster.
-        /// </summary>
-        [Output("kustoClusterResourceId")]
-        public Output<string> KustoClusterResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Location of the sink kusto cluster.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Name of the azure resource
@@ -53,10 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Kusto cluster data set mapping properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.KustoClusterDataSetMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -137,12 +113,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Input("dataSetId", required: true)]
-        public Input<string> DataSetId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
         [Input("dataSetMappingName")]
@@ -156,10 +126,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource id of the sink kusto cluster.
+        /// Kusto cluster data set mapping properties.
         /// </summary>
-        [Input("kustoClusterResourceId", required: true)]
-        public Input<string> KustoClusterResourceId { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.KustoClusterDataSetMappingPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

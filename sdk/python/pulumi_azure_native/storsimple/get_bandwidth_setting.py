@@ -22,7 +22,7 @@ class GetBandwidthSettingResult:
     """
     The bandwidth setting.
     """
-    def __init__(__self__, id=None, kind=None, name=None, schedules=None, type=None, volume_count=None):
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,15 +32,12 @@ class GetBandwidthSettingResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if schedules and not isinstance(schedules, list):
-            raise TypeError("Expected argument 'schedules' to be a list")
-        pulumi.set(__self__, "schedules", schedules)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_count and not isinstance(volume_count, int):
-            raise TypeError("Expected argument 'volume_count' to be a int")
-        pulumi.set(__self__, "volume_count", volume_count)
 
     @property
     @pulumi.getter
@@ -68,11 +65,11 @@ class GetBandwidthSettingResult:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Sequence['outputs.BandwidthScheduleResponse']:
+    def properties(self) -> 'outputs.BandwidthRateSettingPropertiesResponse':
         """
-        The schedules.
+        The properties of the bandwidth setting.
         """
-        return pulumi.get(self, "schedules")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -81,14 +78,6 @@ class GetBandwidthSettingResult:
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> int:
-        """
-        The number of volumes that uses the bandwidth setting.
-        """
-        return pulumi.get(self, "volume_count")
 
 
 class AwaitableGetBandwidthSettingResult(GetBandwidthSettingResult):
@@ -100,9 +89,8 @@ class AwaitableGetBandwidthSettingResult(GetBandwidthSettingResult):
             id=self.id,
             kind=self.kind,
             name=self.name,
-            schedules=self.schedules,
-            type=self.type,
-            volume_count=self.volume_count)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
@@ -129,9 +117,8 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        schedules=__ret__.schedules,
-        type=__ret__.type,
-        volume_count=__ret__.volume_count)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_bandwidth_setting)

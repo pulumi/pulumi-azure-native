@@ -22,22 +22,16 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+        /// The properties of the linked service.
         /// </summary>
-        [Output("resourceId")]
-        public Output<string?> ResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LinkedServicePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-        /// </summary>
-        [Output("writeAccessResourceId")]
-        public Output<string?> WriteAccessResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,28 +92,22 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
+        /// The properties of the linked service.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LinkedServicePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group to get. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
-
-        /// <summary>
         /// Name of the Log Analytics Workspace that will contain the linkedServices resource
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
-
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-        /// </summary>
-        [Input("writeAccessResourceId")]
-        public Input<string>? WriteAccessResourceId { get; set; }
 
         public LinkedServiceArgs()
         {

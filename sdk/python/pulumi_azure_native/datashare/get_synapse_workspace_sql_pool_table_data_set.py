@@ -22,10 +22,7 @@ class GetSynapseWorkspaceSqlPoolTableDataSetResult:
     """
     A Synapse Workspace Sql Pool Table data set.
     """
-    def __init__(__self__, data_set_id=None, id=None, kind=None, name=None, synapse_workspace_sql_pool_table_resource_id=None, system_data=None, type=None):
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,23 +32,15 @@ class GetSynapseWorkspaceSqlPoolTableDataSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if synapse_workspace_sql_pool_table_resource_id and not isinstance(synapse_workspace_sql_pool_table_resource_id, str):
-            raise TypeError("Expected argument 'synapse_workspace_sql_pool_table_resource_id' to be a str")
-        pulumi.set(__self__, "synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -79,12 +68,12 @@ class GetSynapseWorkspaceSqlPoolTableDataSetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="synapseWorkspaceSqlPoolTableResourceId")
-    def synapse_workspace_sql_pool_table_resource_id(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SynapseWorkspaceSqlPoolTableDataSetPropertiesResponse':
         """
-        Resource id of the Synapse Workspace SQL Pool Table
+        Synapse Workspace Sql Pool Table data set properties.
         """
-        return pulumi.get(self, "synapse_workspace_sql_pool_table_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -109,11 +98,10 @@ class AwaitableGetSynapseWorkspaceSqlPoolTableDataSetResult(GetSynapseWorkspaceS
         if False:
             yield self
         return GetSynapseWorkspaceSqlPoolTableDataSetResult(
-            data_set_id=self.data_set_id,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            synapse_workspace_sql_pool_table_resource_id=self.synapse_workspace_sql_pool_table_resource_id,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -142,11 +130,10 @@ def get_synapse_workspace_sql_pool_table_data_set(account_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getSynapseWorkspaceSqlPoolTableDataSet', __args__, opts=opts, typ=GetSynapseWorkspaceSqlPoolTableDataSetResult).value
 
     return AwaitableGetSynapseWorkspaceSqlPoolTableDataSetResult(
-        data_set_id=__ret__.data_set_id,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        synapse_workspace_sql_pool_table_resource_id=__ret__.synapse_workspace_sql_pool_table_resource_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

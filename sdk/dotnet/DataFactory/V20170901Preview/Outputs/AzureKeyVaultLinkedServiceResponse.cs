@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object BaseUrl;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -41,12 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'AzureKeyVault'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Key Vault linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureKeyVaultLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureKeyVaultLinkedServiceResponse(
             ImmutableArray<object> annotations,
-
-            object baseUrl,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
@@ -54,14 +52,16 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            Outputs.AzureKeyVaultLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            BaseUrl = baseUrl;
             ConnectVia = connectVia;
             Description = description;
             Parameters = parameters;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

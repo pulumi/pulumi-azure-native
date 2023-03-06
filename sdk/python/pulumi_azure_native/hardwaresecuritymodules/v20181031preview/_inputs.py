@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ApiEntityReferenceArgs',
+    'DedicatedHsmPropertiesArgs',
     'NetworkInterfaceArgs',
     'NetworkProfileArgs',
     'SkuArgs',
@@ -39,6 +40,46 @@ class ApiEntityReferenceArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class DedicatedHsmPropertiesArgs:
+    def __init__(__self__, *,
+                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+                 stamp_id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the dedicated hsm
+        :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the dedicated hsm.
+        :param pulumi.Input[str] stamp_id: This field will be used when RP does not support Availability zones.
+        """
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if stamp_id is not None:
+            pulumi.set(__self__, "stamp_id", stamp_id)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+        """
+        Specifies the network interfaces of the dedicated hsm.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="stampId")
+    def stamp_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This field will be used when RP does not support Availability zones.
+        """
+        return pulumi.get(self, "stamp_id")
+
+    @stamp_id.setter
+    def stamp_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stamp_id", value)
 
 
 @pulumi.input_type

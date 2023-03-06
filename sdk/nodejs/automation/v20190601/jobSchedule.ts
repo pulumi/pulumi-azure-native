@@ -48,19 +48,19 @@ export class JobSchedule extends pulumi.CustomResource {
     /**
      * Gets or sets the parameters of the job schedule.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets the hybrid worker group that the scheduled job should run on.
      */
-    public readonly runOn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly runOn!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the runbook.
      */
-    public readonly runbook!: pulumi.Output<outputs.automation.v20190601.RunbookAssociationPropertyResponse | undefined>;
+    public /*out*/ readonly runbook!: pulumi.Output<outputs.automation.v20190601.RunbookAssociationPropertyResponse | undefined>;
     /**
      * Gets or sets the schedule.
      */
-    public readonly schedule!: pulumi.Output<outputs.automation.v20190601.ScheduleAssociationPropertyResponse | undefined>;
+    public /*out*/ readonly schedule!: pulumi.Output<outputs.automation.v20190601.ScheduleAssociationPropertyResponse | undefined>;
     /**
      * Resource type
      */
@@ -80,23 +80,21 @@ export class JobSchedule extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runbook === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'runbook'");
-            }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schedule'");
-            }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             resourceInputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runOn"] = args ? args.runOn : undefined;
-            resourceInputs["runbook"] = args ? args.runbook : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["runOn"] = undefined /*out*/;
+            resourceInputs["runbook"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["jobScheduleId"] = undefined /*out*/;
@@ -127,23 +125,11 @@ export interface JobScheduleArgs {
      */
     jobScheduleId?: pulumi.Input<string>;
     /**
-     * Gets or sets a list of job properties.
+     * Gets or sets the list of job schedule properties.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties: pulumi.Input<inputs.automation.v20190601.JobScheduleCreatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Gets or sets the hybrid worker group that the scheduled job should run on.
-     */
-    runOn?: pulumi.Input<string>;
-    /**
-     * Gets or sets the runbook.
-     */
-    runbook: pulumi.Input<inputs.automation.v20190601.RunbookAssociationPropertyArgs>;
-    /**
-     * Gets or sets the schedule.
-     */
-    schedule: pulumi.Input<inputs.automation.v20190601.ScheduleAssociationPropertyArgs>;
 }

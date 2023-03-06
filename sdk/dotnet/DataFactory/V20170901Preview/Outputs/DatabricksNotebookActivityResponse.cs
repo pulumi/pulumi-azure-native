@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class DatabricksNotebookActivityResponse
     {
         /// <summary>
-        /// Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? BaseParameters;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -37,10 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object NotebookPath;
-        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
@@ -49,11 +41,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'DatabricksNotebook'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Databricks Notebook activity properties.
+        /// </summary>
+        public readonly Outputs.DatabricksNotebookActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private DatabricksNotebookActivityResponse(
-            ImmutableDictionary<string, object>? baseParameters,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
@@ -62,20 +56,19 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string name,
 
-            object notebookPath,
-
             Outputs.ActivityPolicyResponse? policy,
 
-            string type)
+            string type,
+
+            Outputs.DatabricksNotebookActivityTypePropertiesResponse typeProperties)
         {
-            BaseParameters = baseParameters;
             DependsOn = dependsOn;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Name = name;
-            NotebookPath = notebookPath;
             Policy = policy;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

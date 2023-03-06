@@ -17,64 +17,22 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public partial class Blueprint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// Layout view of the blueprint, for UI reference.
-        /// </summary>
-        [Output("layout")]
-        public Output<object?> Layout { get; private set; } = null!;
-
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters required by this Blueprint definition.
+        /// Detailed properties for blueprint
         /// </summary>
-        [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource group placeholders defined by this Blueprint definition.
-        /// </summary>
-        [Output("resourceGroups")]
-        public Output<ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>?> ResourceGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of the Blueprint. This field is readonly.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.BlueprintStatusResponse> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The scope where this Blueprint can be applied.
-        /// </summary>
-        [Output("targetScope")]
-        public Output<string> TargetScope { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BlueprintPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Published versions of this blueprint.
-        /// </summary>
-        [Output("versions")]
-        public Output<object?> Versions { get; private set; } = null!;
 
 
         /// <summary>
@@ -128,64 +86,16 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public Input<string>? BlueprintName { get; set; }
 
         /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// Layout view of the blueprint, for UI reference.
-        /// </summary>
-        [Input("layout")]
-        public Input<object>? Layout { get; set; }
-
-        /// <summary>
         /// ManagementGroup where blueprint stores.
         /// </summary>
         [Input("managementGroupName", required: true)]
         public Input<string> ManagementGroupName { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<Inputs.ParameterDefinitionArgs>? _parameters;
-
         /// <summary>
-        /// Parameters required by this Blueprint definition.
+        /// Detailed properties for blueprint
         /// </summary>
-        public InputMap<Inputs.ParameterDefinitionArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterDefinitionArgs>());
-            set => _parameters = value;
-        }
-
-        [Input("resourceGroups")]
-        private InputMap<Inputs.ResourceGroupDefinitionArgs>? _resourceGroups;
-
-        /// <summary>
-        /// Resource group placeholders defined by this Blueprint definition.
-        /// </summary>
-        public InputMap<Inputs.ResourceGroupDefinitionArgs> ResourceGroups
-        {
-            get => _resourceGroups ?? (_resourceGroups = new InputMap<Inputs.ResourceGroupDefinitionArgs>());
-            set => _resourceGroups = value;
-        }
-
-        /// <summary>
-        /// The scope where this Blueprint can be applied.
-        /// </summary>
-        [Input("targetScope", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Blueprint.V20171111Preview.BlueprintTargetScope> TargetScope { get; set; } = null!;
-
-        /// <summary>
-        /// Published versions of this blueprint.
-        /// </summary>
-        [Input("versions")]
-        public Input<object>? Versions { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.BlueprintPropertiesArgs> Properties { get; set; } = null!;
 
         public BlueprintArgs()
         {

@@ -22,42 +22,25 @@ class GetKustoClusterDataSetResult:
     """
     A kusto cluster data set.
     """
-    def __init__(__self__, data_set_id=None, id=None, kind=None, kusto_cluster_resource_id=None, location=None, name=None, provisioning_state=None, system_data=None, type=None):
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
-        if kusto_cluster_resource_id and not isinstance(kusto_cluster_resource_id, str):
-            raise TypeError("Expected argument 'kusto_cluster_resource_id' to be a str")
-        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -77,22 +60,6 @@ class GetKustoClusterDataSetResult:
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="kustoClusterResourceId")
-    def kusto_cluster_resource_id(self) -> str:
-        """
-        Resource id of the kusto cluster.
-        """
-        return pulumi.get(self, "kusto_cluster_resource_id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        Location of the kusto cluster.
-        """
-        return pulumi.get(self, "location")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -101,12 +68,12 @@ class GetKustoClusterDataSetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.KustoClusterDataSetPropertiesResponse':
         """
-        Provisioning state of the kusto cluster data set.
+        Kusto cluster data set properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -131,13 +98,10 @@ class AwaitableGetKustoClusterDataSetResult(GetKustoClusterDataSetResult):
         if False:
             yield self
         return GetKustoClusterDataSetResult(
-            data_set_id=self.data_set_id,
             id=self.id,
             kind=self.kind,
-            kusto_cluster_resource_id=self.kusto_cluster_resource_id,
-            location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -166,13 +130,10 @@ def get_kusto_cluster_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getKustoClusterDataSet', __args__, opts=opts, typ=GetKustoClusterDataSetResult).value
 
     return AwaitableGetKustoClusterDataSetResult(
-        data_set_id=__ret__.data_set_id,
         id=__ret__.id,
         kind=__ret__.kind,
-        kusto_cluster_resource_id=__ret__.kusto_cluster_resource_id,
-        location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

@@ -17,27 +17,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class HttpDatasetResponse
     {
         /// <summary>
-        /// The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
-        /// ...
-        /// request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? AdditionalHeaders;
-        /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The data compression method used on files.
-        /// </summary>
-        public readonly object? Compression;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The format of files.
-        /// </summary>
-        public readonly object? Format;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -47,18 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? RelativeUrl;
-        /// <summary>
-        /// The body for the HTTP request. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? RequestBody;
-        /// <summary>
-        /// The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? RequestMethod;
-        /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
         public readonly object? Structure;
@@ -67,45 +41,34 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'HttpFile'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Properties specific to this dataset type.
+        /// </summary>
+        public readonly Outputs.HttpDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private HttpDatasetResponse(
-            object? additionalHeaders,
-
             ImmutableArray<object> annotations,
 
-            object? compression,
-
             string? description,
-
-            object? format,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? relativeUrl,
-
-            object? requestBody,
-
-            object? requestMethod,
-
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.HttpDatasetTypePropertiesResponse typeProperties)
         {
-            AdditionalHeaders = additionalHeaders;
             Annotations = annotations;
-            Compression = compression;
             Description = description;
-            Format = format;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
-            RelativeUrl = relativeUrl;
-            RequestBody = requestBody;
-            RequestMethod = requestMethod;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

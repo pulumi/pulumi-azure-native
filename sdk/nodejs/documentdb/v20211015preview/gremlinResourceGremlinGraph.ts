@@ -49,8 +49,8 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
      * The name of the ARM resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly options!: pulumi.Output<outputs.documentdb.v20211015preview.GremlinGraphGetPropertiesResponseOptions | undefined>;
-    public readonly resource!: pulumi.Output<outputs.documentdb.v20211015preview.GremlinGraphGetPropertiesResponseResource | undefined>;
+    public /*out*/ readonly options!: pulumi.Output<outputs.documentdb.v20211015preview.GremlinGraphGetPropertiesResponseOptions | undefined>;
+    public /*out*/ readonly resource!: pulumi.Output<outputs.documentdb.v20211015preview.GremlinGraphGetPropertiesResponseResource | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -77,8 +77,8 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resource'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -88,11 +88,12 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             resourceInputs["graphName"] = args ? args.graphName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.documentdb.v20211015preview.gremlinGraphResourceArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.documentdb.v20211015preview.gremlinGraphCreateUpdatePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["resource"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["identity"] = undefined /*out*/;
@@ -135,13 +136,9 @@ export interface GremlinResourceGremlinGraphArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+     * Properties to create and update Azure Cosmos DB Gremlin graph.
      */
-    options?: pulumi.Input<inputs.documentdb.v20211015preview.CreateUpdateOptionsArgs>;
-    /**
-     * The standard JSON format of a Gremlin graph
-     */
-    resource: pulumi.Input<inputs.documentdb.v20211015preview.GremlinGraphResourceArgs>;
+    properties: pulumi.Input<inputs.documentdb.v20211015preview.GremlinGraphCreateUpdatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

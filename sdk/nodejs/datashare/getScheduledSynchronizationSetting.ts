@@ -46,10 +46,6 @@ export interface GetScheduledSynchronizationSettingArgs {
  */
 export interface GetScheduledSynchronizationSettingResult {
     /**
-     * Time at which the synchronization setting was created.
-     */
-    readonly createdAt: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -63,17 +59,9 @@ export interface GetScheduledSynchronizationSettingResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state
+     * Properties of scheduled synchronization
      */
-    readonly provisioningState: string;
-    /**
-     * Recurrence Interval
-     */
-    readonly recurrenceInterval: string;
-    /**
-     * Synchronization time
-     */
-    readonly synchronizationTime: string;
+    readonly properties: outputs.datashare.ScheduledSynchronizationSettingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */
@@ -82,10 +70,6 @@ export interface GetScheduledSynchronizationSettingResult {
      * Type of the azure resource
      */
     readonly type: string;
-    /**
-     * Name of the user who created the synchronization setting.
-     */
-    readonly userName: string;
 }
 /**
  * Get a synchronizationSetting in a share

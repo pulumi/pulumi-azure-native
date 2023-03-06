@@ -70,33 +70,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public sealed class GetVirtualMachineTemplateResult
     {
         /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        public readonly string CustomResourceName;
-        /// <summary>
-        /// Gets or sets the disks the template.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualDiskResponse> Disks;
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Firmware type
-        /// </summary>
-        public readonly string FirmwareType;
-        /// <summary>
-        /// Gets or sets the folder path of the template.
-        /// </summary>
-        public readonly string FolderPath;
-        /// <summary>
         /// Gets or sets the Id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the virtual machine template.
-        /// </summary>
-        public readonly string? InventoryItemId;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -106,51 +86,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Gets or sets memory size in MBs for the template.
-        /// </summary>
-        public readonly int MemorySizeMB;
-        /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the virtual machine template.
-        /// </summary>
-        public readonly string MoName;
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
-        /// template.
-        /// </summary>
-        public readonly string? MoRefId;
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the network interfaces of the template.
+        /// Resource properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
-        /// <summary>
-        /// Gets or sets the number of vCPUs for the template.
-        /// </summary>
-        public readonly int NumCPUs;
-        /// <summary>
-        /// Gets or sets the number of cores per socket for the template.
-        /// Defaults to 1 if unspecified.
-        /// </summary>
-        public readonly int NumCoresPerSocket;
-        /// <summary>
-        /// Gets or sets os name.
-        /// </summary>
-        public readonly string OsName;
-        /// <summary>
-        /// Gets or sets the type of the os.
-        /// </summary>
-        public readonly string OsType;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
+        public readonly Outputs.VirtualMachineTemplatePropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -160,109 +102,39 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Gets or sets the current version of VMware Tools.
-        /// </summary>
-        public readonly string ToolsVersion;
-        /// <summary>
-        /// Gets or sets the current version status of VMware Tools installed in the guest operating system.
-        /// </summary>
-        public readonly string ToolsVersionStatus;
-        /// <summary>
         /// Gets or sets the type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        public readonly string Uuid;
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this template resides.
-        /// </summary>
-        public readonly string? VCenterId;
 
         [OutputConstructor]
         private GetVirtualMachineTemplateResult(
-            string customResourceName,
-
-            ImmutableArray<Outputs.VirtualDiskResponse> disks,
-
             Outputs.ExtendedLocationResponse? extendedLocation,
 
-            string firmwareType,
-
-            string folderPath,
-
             string id,
-
-            string? inventoryItemId,
 
             string? kind,
 
             string location,
 
-            int memorySizeMB,
-
-            string moName,
-
-            string? moRefId,
-
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
-
-            int numCPUs,
-
-            int numCoresPerSocket,
-
-            string osName,
-
-            string osType,
-
-            string provisioningState,
-
-            ImmutableArray<Outputs.ResourceStatusResponse> statuses,
+            Outputs.VirtualMachineTemplatePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string toolsVersion,
-
-            string toolsVersionStatus,
-
-            string type,
-
-            string uuid,
-
-            string? vCenterId)
+            string type)
         {
-            CustomResourceName = customResourceName;
-            Disks = disks;
             ExtendedLocation = extendedLocation;
-            FirmwareType = firmwareType;
-            FolderPath = folderPath;
             Id = id;
-            InventoryItemId = inventoryItemId;
             Kind = kind;
             Location = location;
-            MemorySizeMB = memorySizeMB;
-            MoName = moName;
-            MoRefId = moRefId;
             Name = name;
-            NetworkInterfaces = networkInterfaces;
-            NumCPUs = numCPUs;
-            NumCoresPerSocket = numCoresPerSocket;
-            OsName = osName;
-            OsType = osType;
-            ProvisioningState = provisioningState;
-            Statuses = statuses;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            ToolsVersion = toolsVersion;
-            ToolsVersionStatus = toolsVersionStatus;
             Type = type;
-            Uuid = uuid;
-            VCenterId = vCenterId;
         }
     }
 }

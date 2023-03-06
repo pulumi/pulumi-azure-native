@@ -37,10 +37,6 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * Active Directories
-     */
-    readonly activeDirectories?: outputs.netapp.v20170815.ActiveDirectoryResponse[];
-    /**
      * Resource Id
      */
     readonly id: string;
@@ -53,9 +49,9 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
-     * Azure lifecycle management
+     * NetApp Account properties
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.netapp.v20170815.AccountPropertiesResponse;
     /**
      * Resource tags
      */

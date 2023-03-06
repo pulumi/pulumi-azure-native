@@ -42,14 +42,6 @@ export interface GetBackupPolicyArgs {
  */
 export interface GetBackupPolicyResult {
     /**
-     * Daily backups count to keep
-     */
-    readonly dailyBackupsToKeep?: number;
-    /**
-     * The property to decide policy is enabled or not
-     */
-    readonly enabled?: boolean;
-    /**
      * Resource Id
      */
     readonly id: string;
@@ -58,17 +50,13 @@ export interface GetBackupPolicyResult {
      */
     readonly location: string;
     /**
-     * Monthly backups count to keep
-     */
-    readonly monthlyBackupsToKeep?: number;
-    /**
-     * Name of backup policy
+     * Resource name
      */
     readonly name: string;
     /**
-     * Azure lifecycle management
+     * Backup policy Properties
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.netapp.v20200901.BackupPolicyPropertiesResponse;
     /**
      * Resource tags
      */
@@ -77,22 +65,6 @@ export interface GetBackupPolicyResult {
      * Resource type
      */
     readonly type: string;
-    /**
-     * A list of volumes assigned to this policy
-     */
-    readonly volumeBackups?: outputs.netapp.v20200901.VolumeBackupsResponse[];
-    /**
-     * Volumes using current backup policy
-     */
-    readonly volumesAssigned?: number;
-    /**
-     * Weekly backups count to keep
-     */
-    readonly weeklyBackupsToKeep?: number;
-    /**
-     * Yearly backups count to keep
-     */
-    readonly yearlyBackupsToKeep?: number;
 }
 /**
  * Get a particular backup Policy

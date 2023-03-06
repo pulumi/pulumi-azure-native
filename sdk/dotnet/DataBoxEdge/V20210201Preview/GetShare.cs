@@ -82,49 +82,17 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
     public sealed class GetShareResult
     {
         /// <summary>
-        /// Access protocol to be used by the share.
-        /// </summary>
-        public readonly string AccessProtocol;
-        /// <summary>
-        /// Azure container mapping for the share.
-        /// </summary>
-        public readonly Outputs.AzureContainerInfoResponse? AzureContainerInfo;
-        /// <summary>
-        /// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ClientAccessRightResponse> ClientAccessRights;
-        /// <summary>
-        /// Data policy of the share.
-        /// </summary>
-        public readonly string? DataPolicy;
-        /// <summary>
-        /// Description for the share.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Current monitoring status of the share.
-        /// </summary>
-        public readonly string MonitoringStatus;
         /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Details of the refresh job on this share.
+        /// The share properties.
         /// </summary>
-        public readonly Outputs.RefreshDetailsResponse? RefreshDetails;
-        /// <summary>
-        /// Share mount point to the role.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.MountPointMapResponse> ShareMappings;
-        /// <summary>
-        /// Current status of the share.
-        /// </summary>
-        public readonly string ShareStatus;
+        public readonly Outputs.SharePropertiesResponse Properties;
         /// <summary>
         /// Share on ASE device
         /// </summary>
@@ -133,55 +101,24 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Mapping of users and corresponding access rights on the share (required for SMB protocol).
-        /// </summary>
-        public readonly ImmutableArray<Outputs.UserAccessRightResponse> UserAccessRights;
 
         [OutputConstructor]
         private GetShareResult(
-            string accessProtocol,
-
-            Outputs.AzureContainerInfoResponse? azureContainerInfo,
-
-            ImmutableArray<Outputs.ClientAccessRightResponse> clientAccessRights,
-
-            string? dataPolicy,
-
-            string? description,
-
             string id,
-
-            string monitoringStatus,
 
             string name,
 
-            Outputs.RefreshDetailsResponse? refreshDetails,
-
-            ImmutableArray<Outputs.MountPointMapResponse> shareMappings,
-
-            string shareStatus,
+            Outputs.SharePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            ImmutableArray<Outputs.UserAccessRightResponse> userAccessRights)
+            string type)
         {
-            AccessProtocol = accessProtocol;
-            AzureContainerInfo = azureContainerInfo;
-            ClientAccessRights = clientAccessRights;
-            DataPolicy = dataPolicy;
-            Description = description;
             Id = id;
-            MonitoringStatus = monitoringStatus;
             Name = name;
-            RefreshDetails = refreshDetails;
-            ShareMappings = shareMappings;
-            ShareStatus = shareStatus;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            UserAccessRights = userAccessRights;
         }
     }
 }

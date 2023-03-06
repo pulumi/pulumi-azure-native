@@ -123,34 +123,16 @@ namespace Pulumi.AzureNative.Automation
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// Gets or sets the connectionType of the connection.
-        /// </summary>
-        [Input("connectionType", required: true)]
-        public Input<Inputs.ConnectionTypeAssociationPropertyArgs> ConnectionType { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the description of the connection.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("fieldDefinitionValues")]
-        private InputMap<string>? _fieldDefinitionValues;
-
-        /// <summary>
-        /// Gets or sets the field definition properties of the connection.
-        /// </summary>
-        public InputMap<string> FieldDefinitionValues
-        {
-            get => _fieldDefinitionValues ?? (_fieldDefinitionValues = new InputMap<string>());
-            set => _fieldDefinitionValues = value;
-        }
-
-        /// <summary>
         /// Gets or sets the name of the connection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the properties of the connection.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ConnectionCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

@@ -13,25 +13,41 @@ from ._enums import *
 __all__ = [
     'AdministrativeCredentialsArgs',
     'BareMetalMachineConfigurationDataArgs',
+    'BareMetalMachineKeySetPropertiesArgs',
+    'BareMetalMachinePropertiesArgs',
     'BgpPeerArgs',
+    'BmcKeySetPropertiesArgs',
     'ClusterCapacityArgs',
+    'ClusterManagerPropertiesArgs',
+    'ClusterMetricsConfigurationPropertiesArgs',
+    'ClusterPropertiesArgs',
     'CniBgpConfigurationArgs',
     'CommunityAdvertisementArgs',
+    'ConsolePropertiesArgs',
+    'DefaultCniNetworkPropertiesArgs',
     'EgressEndpointArgs',
     'EndpointDependencyArgs',
     'ExtendedLocationArgs',
+    'HybridAksClusterPropertiesArgs',
     'ImageRepositoryCredentialsArgs',
     'KeySetUserArgs',
+    'L2NetworkPropertiesArgs',
+    'L3NetworkPropertiesArgs',
     'ManagedResourceGroupConfigurationArgs',
     'NetworkAttachmentArgs',
     'OsDiskArgs',
     'RackDefinitionArgs',
+    'RackPropertiesArgs',
     'ServicePrincipalInformationArgs',
     'SshPublicKeyArgs',
     'StorageApplianceConfigurationDataArgs',
+    'StorageAppliancePropertiesArgs',
     'StorageProfileArgs',
+    'TrunkedNetworkPropertiesArgs',
     'ValidationThresholdArgs',
     'VirtualMachinePlacementHintArgs',
+    'VirtualMachinePropertiesArgs',
+    'VolumePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -184,6 +200,257 @@ class BareMetalMachineConfigurationDataArgs:
 
 
 @pulumi.input_type
+class BareMetalMachineKeySetPropertiesArgs:
+    def __init__(__self__, *,
+                 azure_group_id: pulumi.Input[str],
+                 expiration: pulumi.Input[str],
+                 jump_hosts_allowed: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 privilege_level: pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']],
+                 user_list: pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]],
+                 os_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] azure_group_id: The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        :param pulumi.Input[str] expiration: The date and time after which the users in this key set will be removed from the bare metal machines.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jump_hosts_allowed: The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
+        :param pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']] privilege_level: The access level allowed for the users in this key set.
+        :param pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]] user_list: The unique list of permitted users.
+        :param pulumi.Input[str] os_group_name: The name of the group that users will be assigned to on the operating system of the machines.
+        """
+        pulumi.set(__self__, "azure_group_id", azure_group_id)
+        pulumi.set(__self__, "expiration", expiration)
+        pulumi.set(__self__, "jump_hosts_allowed", jump_hosts_allowed)
+        pulumi.set(__self__, "privilege_level", privilege_level)
+        pulumi.set(__self__, "user_list", user_list)
+        if os_group_name is not None:
+            pulumi.set(__self__, "os_group_name", os_group_name)
+
+    @property
+    @pulumi.getter(name="azureGroupId")
+    def azure_group_id(self) -> pulumi.Input[str]:
+        """
+        The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        """
+        return pulumi.get(self, "azure_group_id")
+
+    @azure_group_id.setter
+    def azure_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azure_group_id", value)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> pulumi.Input[str]:
+        """
+        The date and time after which the users in this key set will be removed from the bare metal machines.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter(name="jumpHostsAllowed")
+    def jump_hosts_allowed(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
+        """
+        return pulumi.get(self, "jump_hosts_allowed")
+
+    @jump_hosts_allowed.setter
+    def jump_hosts_allowed(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "jump_hosts_allowed", value)
+
+    @property
+    @pulumi.getter(name="privilegeLevel")
+    def privilege_level(self) -> pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']]:
+        """
+        The access level allowed for the users in this key set.
+        """
+        return pulumi.get(self, "privilege_level")
+
+    @privilege_level.setter
+    def privilege_level(self, value: pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']]):
+        pulumi.set(self, "privilege_level", value)
+
+    @property
+    @pulumi.getter(name="userList")
+    def user_list(self) -> pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]:
+        """
+        The unique list of permitted users.
+        """
+        return pulumi.get(self, "user_list")
+
+    @user_list.setter
+    def user_list(self, value: pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]):
+        pulumi.set(self, "user_list", value)
+
+    @property
+    @pulumi.getter(name="osGroupName")
+    def os_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group that users will be assigned to on the operating system of the machines.
+        """
+        return pulumi.get(self, "os_group_name")
+
+    @os_group_name.setter
+    def os_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_group_name", value)
+
+
+@pulumi.input_type
+class BareMetalMachinePropertiesArgs:
+    def __init__(__self__, *,
+                 bmc_connection_string: pulumi.Input[str],
+                 bmc_credentials: pulumi.Input['AdministrativeCredentialsArgs'],
+                 bmc_mac_address: pulumi.Input[str],
+                 boot_mac_address: pulumi.Input[str],
+                 machine_details: pulumi.Input[str],
+                 machine_name: pulumi.Input[str],
+                 machine_sku_id: pulumi.Input[str],
+                 rack_id: pulumi.Input[str],
+                 rack_slot: pulumi.Input[float],
+                 serial_number: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
+        :param pulumi.Input[str] bmc_mac_address: The MAC address of the BMC device.
+        :param pulumi.Input[str] boot_mac_address: The MAC address of a NIC connected to the PXE network.
+        :param pulumi.Input[str] machine_details: The custom details provided by the customer.
+        :param pulumi.Input[str] machine_name: The OS-level hostname assigned to this machine.
+        :param pulumi.Input[str] machine_sku_id: The unique internal identifier of the bare metal machine SKU.
+        :param pulumi.Input[str] rack_id: The resource ID of the rack where this bare metal machine resides.
+        :param pulumi.Input[float] rack_slot: The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
+        :param pulumi.Input[str] serial_number: The serial number of the bare metal machine.
+        """
+        pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
+        pulumi.set(__self__, "bmc_credentials", bmc_credentials)
+        pulumi.set(__self__, "bmc_mac_address", bmc_mac_address)
+        pulumi.set(__self__, "boot_mac_address", boot_mac_address)
+        pulumi.set(__self__, "machine_details", machine_details)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "machine_sku_id", machine_sku_id)
+        pulumi.set(__self__, "rack_id", rack_id)
+        pulumi.set(__self__, "rack_slot", rack_slot)
+        pulumi.set(__self__, "serial_number", serial_number)
+
+    @property
+    @pulumi.getter(name="bmcConnectionString")
+    def bmc_connection_string(self) -> pulumi.Input[str]:
+        """
+        The connection string for the baseboard management controller including IP address and protocol.
+        """
+        return pulumi.get(self, "bmc_connection_string")
+
+    @bmc_connection_string.setter
+    def bmc_connection_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bmc_connection_string", value)
+
+    @property
+    @pulumi.getter(name="bmcCredentials")
+    def bmc_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
+        return pulumi.get(self, "bmc_credentials")
+
+    @bmc_credentials.setter
+    def bmc_credentials(self, value: pulumi.Input['AdministrativeCredentialsArgs']):
+        pulumi.set(self, "bmc_credentials", value)
+
+    @property
+    @pulumi.getter(name="bmcMacAddress")
+    def bmc_mac_address(self) -> pulumi.Input[str]:
+        """
+        The MAC address of the BMC device.
+        """
+        return pulumi.get(self, "bmc_mac_address")
+
+    @bmc_mac_address.setter
+    def bmc_mac_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bmc_mac_address", value)
+
+    @property
+    @pulumi.getter(name="bootMacAddress")
+    def boot_mac_address(self) -> pulumi.Input[str]:
+        """
+        The MAC address of a NIC connected to the PXE network.
+        """
+        return pulumi.get(self, "boot_mac_address")
+
+    @boot_mac_address.setter
+    def boot_mac_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "boot_mac_address", value)
+
+    @property
+    @pulumi.getter(name="machineDetails")
+    def machine_details(self) -> pulumi.Input[str]:
+        """
+        The custom details provided by the customer.
+        """
+        return pulumi.get(self, "machine_details")
+
+    @machine_details.setter
+    def machine_details(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_details", value)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
+        """
+        The OS-level hostname assigned to this machine.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter(name="machineSkuId")
+    def machine_sku_id(self) -> pulumi.Input[str]:
+        """
+        The unique internal identifier of the bare metal machine SKU.
+        """
+        return pulumi.get(self, "machine_sku_id")
+
+    @machine_sku_id.setter
+    def machine_sku_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_sku_id", value)
+
+    @property
+    @pulumi.getter(name="rackId")
+    def rack_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the rack where this bare metal machine resides.
+        """
+        return pulumi.get(self, "rack_id")
+
+    @rack_id.setter
+    def rack_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rack_id", value)
+
+    @property
+    @pulumi.getter(name="rackSlot")
+    def rack_slot(self) -> pulumi.Input[float]:
+        """
+        The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
+        """
+        return pulumi.get(self, "rack_slot")
+
+    @rack_slot.setter
+    def rack_slot(self, value: pulumi.Input[float]):
+        pulumi.set(self, "rack_slot", value)
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> pulumi.Input[str]:
+        """
+        The serial number of the bare metal machine.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @serial_number.setter
+    def serial_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "serial_number", value)
+
+
+@pulumi.input_type
 class BgpPeerArgs:
     def __init__(__self__, *,
                  as_number: pulumi.Input[float],
@@ -234,6 +501,73 @@ class BgpPeerArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class BmcKeySetPropertiesArgs:
+    def __init__(__self__, *,
+                 azure_group_id: pulumi.Input[str],
+                 expiration: pulumi.Input[str],
+                 privilege_level: pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']],
+                 user_list: pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]):
+        """
+        :param pulumi.Input[str] azure_group_id: The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        :param pulumi.Input[str] expiration: The date and time after which the users in this key set will be removed from the baseboard management controllers.
+        :param pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']] privilege_level: The access level allowed for the users in this key set.
+        :param pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]] user_list: The unique list of permitted users.
+        """
+        pulumi.set(__self__, "azure_group_id", azure_group_id)
+        pulumi.set(__self__, "expiration", expiration)
+        pulumi.set(__self__, "privilege_level", privilege_level)
+        pulumi.set(__self__, "user_list", user_list)
+
+    @property
+    @pulumi.getter(name="azureGroupId")
+    def azure_group_id(self) -> pulumi.Input[str]:
+        """
+        The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        """
+        return pulumi.get(self, "azure_group_id")
+
+    @azure_group_id.setter
+    def azure_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azure_group_id", value)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> pulumi.Input[str]:
+        """
+        The date and time after which the users in this key set will be removed from the baseboard management controllers.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter(name="privilegeLevel")
+    def privilege_level(self) -> pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']]:
+        """
+        The access level allowed for the users in this key set.
+        """
+        return pulumi.get(self, "privilege_level")
+
+    @privilege_level.setter
+    def privilege_level(self, value: pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']]):
+        pulumi.set(self, "privilege_level", value)
+
+    @property
+    @pulumi.getter(name="userList")
+    def user_list(self) -> pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]:
+        """
+        The unique list of permitted users.
+        """
+        return pulumi.get(self, "user_list")
+
+    @user_list.setter
+    def user_list(self, value: pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]):
+        pulumi.set(self, "user_list", value)
 
 
 @pulumi.input_type
@@ -372,6 +706,294 @@ class ClusterCapacityArgs:
 
 
 @pulumi.input_type
+class ClusterManagerPropertiesArgs:
+    def __init__(__self__, *,
+                 fabric_controller_id: pulumi.Input[str],
+                 analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] fabric_controller_id: The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+        :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics workspace that is used for the logs collection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
+        :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        :param pulumi.Input[str] vm_size: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
+        """
+        pulumi.set(__self__, "fabric_controller_id", fabric_controller_id)
+        if analytics_workspace_id is not None:
+            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if managed_resource_group_configuration is not None:
+            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="fabricControllerId")
+    def fabric_controller_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+        """
+        return pulumi.get(self, "fabric_controller_id")
+
+    @fabric_controller_id.setter
+    def fabric_controller_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fabric_controller_id", value)
+
+    @property
+    @pulumi.getter(name="analyticsWorkspaceId")
+    def analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Log Analytics workspace that is used for the logs collection.
+        """
+        return pulumi.get(self, "analytics_workspace_id")
+
+    @analytics_workspace_id.setter
+    def analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupConfiguration")
+    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
+        """
+        The configuration of the managed resource group associated with the resource.
+        """
+        return pulumi.get(self, "managed_resource_group_configuration")
+
+    @managed_resource_group_configuration.setter
+    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
+        pulumi.set(self, "managed_resource_group_configuration", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_size", value)
+
+
+@pulumi.input_type
+class ClusterMetricsConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 collection_interval: pulumi.Input[float],
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[float] collection_interval: The interval in minutes by which metrics will be collected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
+        """
+        pulumi.set(__self__, "collection_interval", collection_interval)
+        if enabled_metrics is not None:
+            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
+
+    @property
+    @pulumi.getter(name="collectionInterval")
+    def collection_interval(self) -> pulumi.Input[float]:
+        """
+        The interval in minutes by which metrics will be collected.
+        """
+        return pulumi.get(self, "collection_interval")
+
+    @collection_interval.setter
+    def collection_interval(self, value: pulumi.Input[float]):
+        pulumi.set(self, "collection_interval", value)
+
+    @property
+    @pulumi.getter(name="enabledMetrics")
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
+        """
+        return pulumi.get(self, "enabled_metrics")
+
+    @enabled_metrics.setter
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enabled_metrics", value)
+
+
+@pulumi.input_type
+class ClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 aggregator_or_single_rack_definition: pulumi.Input['RackDefinitionArgs'],
+                 analytics_workspace_id: pulumi.Input[str],
+                 cluster_type: pulumi.Input[Union[str, 'ClusterType']],
+                 cluster_version: pulumi.Input[str],
+                 network_fabric_id: pulumi.Input[str],
+                 cluster_capacity: Optional[pulumi.Input['ClusterCapacityArgs']] = None,
+                 cluster_location: Optional[pulumi.Input[str]] = None,
+                 cluster_service_principal: Optional[pulumi.Input['ServicePrincipalInformationArgs']] = None,
+                 compute_deployment_threshold: Optional[pulumi.Input['ValidationThresholdArgs']] = None,
+                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        :param pulumi.Input[Union[str, 'ClusterType']] cluster_type: The type of rack configuration for the cluster.
+        :param pulumi.Input[str] cluster_version: The current runtime version of the cluster.
+        :param pulumi.Input[str] network_fabric_id: The resource ID of the Network Fabric associated with the cluster.
+        :param pulumi.Input[str] cluster_location: The customer-provided location information to identify where the cluster resides.
+        :param pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
+               cluster, or an empty list in a single-rack cluster.
+        :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        """
+        pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
+        pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+        pulumi.set(__self__, "cluster_type", cluster_type)
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
+        if cluster_capacity is not None:
+            pulumi.set(__self__, "cluster_capacity", cluster_capacity)
+        if cluster_location is not None:
+            pulumi.set(__self__, "cluster_location", cluster_location)
+        if cluster_service_principal is not None:
+            pulumi.set(__self__, "cluster_service_principal", cluster_service_principal)
+        if compute_deployment_threshold is not None:
+            pulumi.set(__self__, "compute_deployment_threshold", compute_deployment_threshold)
+        if compute_rack_definitions is not None:
+            pulumi.set(__self__, "compute_rack_definitions", compute_rack_definitions)
+        if managed_resource_group_configuration is not None:
+            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+
+    @property
+    @pulumi.getter(name="aggregatorOrSingleRackDefinition")
+    def aggregator_or_single_rack_definition(self) -> pulumi.Input['RackDefinitionArgs']:
+        return pulumi.get(self, "aggregator_or_single_rack_definition")
+
+    @aggregator_or_single_rack_definition.setter
+    def aggregator_or_single_rack_definition(self, value: pulumi.Input['RackDefinitionArgs']):
+        pulumi.set(self, "aggregator_or_single_rack_definition", value)
+
+    @property
+    @pulumi.getter(name="analyticsWorkspaceId")
+    def analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        """
+        return pulumi.get(self, "analytics_workspace_id")
+
+    @analytics_workspace_id.setter
+    def analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> pulumi.Input[Union[str, 'ClusterType']]:
+        """
+        The type of rack configuration for the cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @cluster_type.setter
+    def cluster_type(self, value: pulumi.Input[Union[str, 'ClusterType']]):
+        pulumi.set(self, "cluster_type", value)
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> pulumi.Input[str]:
+        """
+        The current runtime version of the cluster.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @cluster_version.setter
+    def cluster_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter(name="networkFabricId")
+    def network_fabric_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Network Fabric associated with the cluster.
+        """
+        return pulumi.get(self, "network_fabric_id")
+
+    @network_fabric_id.setter
+    def network_fabric_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_fabric_id", value)
+
+    @property
+    @pulumi.getter(name="clusterCapacity")
+    def cluster_capacity(self) -> Optional[pulumi.Input['ClusterCapacityArgs']]:
+        return pulumi.get(self, "cluster_capacity")
+
+    @cluster_capacity.setter
+    def cluster_capacity(self, value: Optional[pulumi.Input['ClusterCapacityArgs']]):
+        pulumi.set(self, "cluster_capacity", value)
+
+    @property
+    @pulumi.getter(name="clusterLocation")
+    def cluster_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer-provided location information to identify where the cluster resides.
+        """
+        return pulumi.get(self, "cluster_location")
+
+    @cluster_location.setter
+    def cluster_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_location", value)
+
+    @property
+    @pulumi.getter(name="clusterServicePrincipal")
+    def cluster_service_principal(self) -> Optional[pulumi.Input['ServicePrincipalInformationArgs']]:
+        return pulumi.get(self, "cluster_service_principal")
+
+    @cluster_service_principal.setter
+    def cluster_service_principal(self, value: Optional[pulumi.Input['ServicePrincipalInformationArgs']]):
+        pulumi.set(self, "cluster_service_principal", value)
+
+    @property
+    @pulumi.getter(name="computeDeploymentThreshold")
+    def compute_deployment_threshold(self) -> Optional[pulumi.Input['ValidationThresholdArgs']]:
+        return pulumi.get(self, "compute_deployment_threshold")
+
+    @compute_deployment_threshold.setter
+    def compute_deployment_threshold(self, value: Optional[pulumi.Input['ValidationThresholdArgs']]):
+        pulumi.set(self, "compute_deployment_threshold", value)
+
+    @property
+    @pulumi.getter(name="computeRackDefinitions")
+    def compute_rack_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]]:
+        """
+        The list of rack definitions for the compute racks in a multi-rack
+        cluster, or an empty list in a single-rack cluster.
+        """
+        return pulumi.get(self, "compute_rack_definitions")
+
+    @compute_rack_definitions.setter
+    def compute_rack_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]]):
+        pulumi.set(self, "compute_rack_definitions", value)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupConfiguration")
+    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
+        """
+        The configuration of the managed resource group associated with the resource.
+        """
+        return pulumi.get(self, "managed_resource_group_configuration")
+
+    @managed_resource_group_configuration.setter
+    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
+        pulumi.set(self, "managed_resource_group_configuration", value)
+
+
+@pulumi.input_type
 class CniBgpConfigurationArgs:
     def __init__(__self__, *,
                  bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input['BgpPeerArgs']]]] = None,
@@ -500,6 +1122,158 @@ class CommunityAdvertisementArgs:
 
 
 @pulumi.input_type
+class ConsolePropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Union[str, 'ConsoleEnabled']],
+                 ssh_public_key: pulumi.Input['SshPublicKeyArgs'],
+                 expiration: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ConsoleEnabled']] enabled: The indicator of whether the console access is enabled.
+        :param pulumi.Input[str] expiration: The date and time after which the key will be disallowed access.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Union[str, 'ConsoleEnabled']]:
+        """
+        The indicator of whether the console access is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Union[str, 'ConsoleEnabled']]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> pulumi.Input['SshPublicKeyArgs']:
+        return pulumi.get(self, "ssh_public_key")
+
+    @ssh_public_key.setter
+    def ssh_public_key(self, value: pulumi.Input['SshPublicKeyArgs']):
+        pulumi.set(self, "ssh_public_key", value)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time after which the key will be disallowed access.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+
+@pulumi.input_type
+class DefaultCniNetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 l3_isolation_domain_id: pulumi.Input[str],
+                 vlan: pulumi.Input[float],
+                 cni_bgp_configuration: Optional[pulumi.Input['CniBgpConfigurationArgs']] = None,
+                 ip_allocation_type: Optional[pulumi.Input[Union[str, 'IpAllocationType']]] = None,
+                 ipv4_connected_prefix: Optional[pulumi.Input[str]] = None,
+                 ipv6_connected_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
+        :param pulumi.Input[float] vlan: The VLAN from the l3IsolationDomain that is used for this network.
+        :param pulumi.Input[Union[str, 'IpAllocationType']] ip_allocation_type: The type of the IP address allocation.
+        :param pulumi.Input[str] ipv4_connected_prefix: The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+               is IPV4 or DualStack.
+        :param pulumi.Input[str] ipv6_connected_prefix: The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+               is IPV6 or DualStack.
+        """
+        pulumi.set(__self__, "l3_isolation_domain_id", l3_isolation_domain_id)
+        pulumi.set(__self__, "vlan", vlan)
+        if cni_bgp_configuration is not None:
+            pulumi.set(__self__, "cni_bgp_configuration", cni_bgp_configuration)
+        if ip_allocation_type is None:
+            ip_allocation_type = 'DualStack'
+        if ip_allocation_type is not None:
+            pulumi.set(__self__, "ip_allocation_type", ip_allocation_type)
+        if ipv4_connected_prefix is not None:
+            pulumi.set(__self__, "ipv4_connected_prefix", ipv4_connected_prefix)
+        if ipv6_connected_prefix is not None:
+            pulumi.set(__self__, "ipv6_connected_prefix", ipv6_connected_prefix)
+
+    @property
+    @pulumi.getter(name="l3IsolationDomainId")
+    def l3_isolation_domain_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Network Fabric l3IsolationDomain.
+        """
+        return pulumi.get(self, "l3_isolation_domain_id")
+
+    @l3_isolation_domain_id.setter
+    def l3_isolation_domain_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "l3_isolation_domain_id", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> pulumi.Input[float]:
+        """
+        The VLAN from the l3IsolationDomain that is used for this network.
+        """
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: pulumi.Input[float]):
+        pulumi.set(self, "vlan", value)
+
+    @property
+    @pulumi.getter(name="cniBgpConfiguration")
+    def cni_bgp_configuration(self) -> Optional[pulumi.Input['CniBgpConfigurationArgs']]:
+        return pulumi.get(self, "cni_bgp_configuration")
+
+    @cni_bgp_configuration.setter
+    def cni_bgp_configuration(self, value: Optional[pulumi.Input['CniBgpConfigurationArgs']]):
+        pulumi.set(self, "cni_bgp_configuration", value)
+
+    @property
+    @pulumi.getter(name="ipAllocationType")
+    def ip_allocation_type(self) -> Optional[pulumi.Input[Union[str, 'IpAllocationType']]]:
+        """
+        The type of the IP address allocation.
+        """
+        return pulumi.get(self, "ip_allocation_type")
+
+    @ip_allocation_type.setter
+    def ip_allocation_type(self, value: Optional[pulumi.Input[Union[str, 'IpAllocationType']]]):
+        pulumi.set(self, "ip_allocation_type", value)
+
+    @property
+    @pulumi.getter(name="ipv4ConnectedPrefix")
+    def ipv4_connected_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+        is IPV4 or DualStack.
+        """
+        return pulumi.get(self, "ipv4_connected_prefix")
+
+    @ipv4_connected_prefix.setter
+    def ipv4_connected_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_connected_prefix", value)
+
+    @property
+    @pulumi.getter(name="ipv6ConnectedPrefix")
+    def ipv6_connected_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+        is IPV6 or DualStack.
+        """
+        return pulumi.get(self, "ipv6_connected_prefix")
+
+    @ipv6_connected_prefix.setter
+    def ipv6_connected_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_connected_prefix", value)
+
+
+@pulumi.input_type
 class EgressEndpointArgs:
     def __init__(__self__, *,
                  category: pulumi.Input[str],
@@ -612,6 +1386,73 @@ class ExtendedLocationArgs:
 
 
 @pulumi.input_type
+class HybridAksClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 associated_network_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 control_plane_count: pulumi.Input[float],
+                 hybrid_aks_provisioned_cluster_id: pulumi.Input[str],
+                 worker_count: pulumi.Input[float]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_network_ids: The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
+        :param pulumi.Input[float] control_plane_count: The number of control plane node VMs.
+        :param pulumi.Input[str] hybrid_aks_provisioned_cluster_id: The resource ID of the Hybrid AKS cluster that this additional information is for.
+        :param pulumi.Input[float] worker_count: The number of worker node VMs.
+        """
+        pulumi.set(__self__, "associated_network_ids", associated_network_ids)
+        pulumi.set(__self__, "control_plane_count", control_plane_count)
+        pulumi.set(__self__, "hybrid_aks_provisioned_cluster_id", hybrid_aks_provisioned_cluster_id)
+        pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="associatedNetworkIds")
+    def associated_network_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
+        """
+        return pulumi.get(self, "associated_network_ids")
+
+    @associated_network_ids.setter
+    def associated_network_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "associated_network_ids", value)
+
+    @property
+    @pulumi.getter(name="controlPlaneCount")
+    def control_plane_count(self) -> pulumi.Input[float]:
+        """
+        The number of control plane node VMs.
+        """
+        return pulumi.get(self, "control_plane_count")
+
+    @control_plane_count.setter
+    def control_plane_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "control_plane_count", value)
+
+    @property
+    @pulumi.getter(name="hybridAksProvisionedClusterId")
+    def hybrid_aks_provisioned_cluster_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Hybrid AKS cluster that this additional information is for.
+        """
+        return pulumi.get(self, "hybrid_aks_provisioned_cluster_id")
+
+    @hybrid_aks_provisioned_cluster_id.setter
+    def hybrid_aks_provisioned_cluster_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hybrid_aks_provisioned_cluster_id", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> pulumi.Input[float]:
+        """
+        The number of worker node VMs.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
 class ImageRepositoryCredentialsArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
@@ -710,6 +1551,205 @@ class KeySetUserArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class L2NetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 l2_isolation_domain_id: pulumi.Input[str],
+                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
+                 interface_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] l2_isolation_domain_id: The resource ID of the Network Fabric l2IsolationDomain.
+        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param pulumi.Input[str] interface_name: The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        pulumi.set(__self__, "l2_isolation_domain_id", l2_isolation_domain_id)
+        if hybrid_aks_plugin_type is None:
+            hybrid_aks_plugin_type = 'SRIOV'
+        if hybrid_aks_plugin_type is not None:
+            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+
+    @property
+    @pulumi.getter(name="l2IsolationDomainId")
+    def l2_isolation_domain_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Network Fabric l2IsolationDomain.
+        """
+        return pulumi.get(self, "l2_isolation_domain_id")
+
+    @l2_isolation_domain_id.setter
+    def l2_isolation_domain_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "l2_isolation_domain_id", value)
+
+    @property
+    @pulumi.getter(name="hybridAksPluginType")
+    def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]:
+        """
+        The network plugin type for Hybrid AKS.
+        """
+        return pulumi.get(self, "hybrid_aks_plugin_type")
+
+    @hybrid_aks_plugin_type.setter
+    def hybrid_aks_plugin_type(self, value: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]):
+        pulumi.set(self, "hybrid_aks_plugin_type", value)
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @interface_name.setter
+    def interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interface_name", value)
+
+
+@pulumi.input_type
+class L3NetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 l3_isolation_domain_id: pulumi.Input[str],
+                 vlan: pulumi.Input[float],
+                 hybrid_aks_ipam_enabled: Optional[pulumi.Input[Union[str, 'HybridAksIpamEnabled']]] = None,
+                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
+                 interface_name: Optional[pulumi.Input[str]] = None,
+                 ip_allocation_type: Optional[pulumi.Input[Union[str, 'IpAllocationType']]] = None,
+                 ipv4_connected_prefix: Optional[pulumi.Input[str]] = None,
+                 ipv6_connected_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
+        :param pulumi.Input[float] vlan: The VLAN from the l3IsolationDomain that is used for this network.
+        :param pulumi.Input[Union[str, 'HybridAksIpamEnabled']] hybrid_aks_ipam_enabled: The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param pulumi.Input[str] interface_name: The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        :param pulumi.Input[Union[str, 'IpAllocationType']] ip_allocation_type: The type of the IP address allocation, defaulted to "DualStack".
+        :param pulumi.Input[str] ipv4_connected_prefix: The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+               is IPV4 or DualStack.
+        :param pulumi.Input[str] ipv6_connected_prefix: The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+               is IPV6 or DualStack.
+        """
+        pulumi.set(__self__, "l3_isolation_domain_id", l3_isolation_domain_id)
+        pulumi.set(__self__, "vlan", vlan)
+        if hybrid_aks_ipam_enabled is None:
+            hybrid_aks_ipam_enabled = 'True'
+        if hybrid_aks_ipam_enabled is not None:
+            pulumi.set(__self__, "hybrid_aks_ipam_enabled", hybrid_aks_ipam_enabled)
+        if hybrid_aks_plugin_type is None:
+            hybrid_aks_plugin_type = 'SRIOV'
+        if hybrid_aks_plugin_type is not None:
+            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+        if ip_allocation_type is None:
+            ip_allocation_type = 'DualStack'
+        if ip_allocation_type is not None:
+            pulumi.set(__self__, "ip_allocation_type", ip_allocation_type)
+        if ipv4_connected_prefix is not None:
+            pulumi.set(__self__, "ipv4_connected_prefix", ipv4_connected_prefix)
+        if ipv6_connected_prefix is not None:
+            pulumi.set(__self__, "ipv6_connected_prefix", ipv6_connected_prefix)
+
+    @property
+    @pulumi.getter(name="l3IsolationDomainId")
+    def l3_isolation_domain_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Network Fabric l3IsolationDomain.
+        """
+        return pulumi.get(self, "l3_isolation_domain_id")
+
+    @l3_isolation_domain_id.setter
+    def l3_isolation_domain_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "l3_isolation_domain_id", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> pulumi.Input[float]:
+        """
+        The VLAN from the l3IsolationDomain that is used for this network.
+        """
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: pulumi.Input[float]):
+        pulumi.set(self, "vlan", value)
+
+    @property
+    @pulumi.getter(name="hybridAksIpamEnabled")
+    def hybrid_aks_ipam_enabled(self) -> Optional[pulumi.Input[Union[str, 'HybridAksIpamEnabled']]]:
+        """
+        The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        """
+        return pulumi.get(self, "hybrid_aks_ipam_enabled")
+
+    @hybrid_aks_ipam_enabled.setter
+    def hybrid_aks_ipam_enabled(self, value: Optional[pulumi.Input[Union[str, 'HybridAksIpamEnabled']]]):
+        pulumi.set(self, "hybrid_aks_ipam_enabled", value)
+
+    @property
+    @pulumi.getter(name="hybridAksPluginType")
+    def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]:
+        """
+        The network plugin type for Hybrid AKS.
+        """
+        return pulumi.get(self, "hybrid_aks_plugin_type")
+
+    @hybrid_aks_plugin_type.setter
+    def hybrid_aks_plugin_type(self, value: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]):
+        pulumi.set(self, "hybrid_aks_plugin_type", value)
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @interface_name.setter
+    def interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interface_name", value)
+
+    @property
+    @pulumi.getter(name="ipAllocationType")
+    def ip_allocation_type(self) -> Optional[pulumi.Input[Union[str, 'IpAllocationType']]]:
+        """
+        The type of the IP address allocation, defaulted to "DualStack".
+        """
+        return pulumi.get(self, "ip_allocation_type")
+
+    @ip_allocation_type.setter
+    def ip_allocation_type(self, value: Optional[pulumi.Input[Union[str, 'IpAllocationType']]]):
+        pulumi.set(self, "ip_allocation_type", value)
+
+    @property
+    @pulumi.getter(name="ipv4ConnectedPrefix")
+    def ipv4_connected_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+        is IPV4 or DualStack.
+        """
+        return pulumi.get(self, "ipv4_connected_prefix")
+
+    @ipv4_connected_prefix.setter
+    def ipv4_connected_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_connected_prefix", value)
+
+    @property
+    @pulumi.getter(name="ipv6ConnectedPrefix")
+    def ipv6_connected_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+        is IPV6 or DualStack.
+        """
+        return pulumi.get(self, "ipv6_connected_prefix")
+
+    @ipv6_connected_prefix.setter
+    def ipv6_connected_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_connected_prefix", value)
 
 
 @pulumi.input_type
@@ -1069,6 +2109,73 @@ class RackDefinitionArgs:
 
 
 @pulumi.input_type
+class RackPropertiesArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[str],
+                 rack_location: pulumi.Input[str],
+                 rack_serial_number: pulumi.Input[str],
+                 rack_sku_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] availability_zone: The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
+        :param pulumi.Input[str] rack_location: The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
+        :param pulumi.Input[str] rack_serial_number: The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
+        :param pulumi.Input[str] rack_sku_id: The SKU for the rack.
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "rack_location", rack_location)
+        pulumi.set(__self__, "rack_serial_number", rack_serial_number)
+        pulumi.set(__self__, "rack_sku_id", rack_sku_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[str]:
+        """
+        The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="rackLocation")
+    def rack_location(self) -> pulumi.Input[str]:
+        """
+        The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
+        """
+        return pulumi.get(self, "rack_location")
+
+    @rack_location.setter
+    def rack_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rack_location", value)
+
+    @property
+    @pulumi.getter(name="rackSerialNumber")
+    def rack_serial_number(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
+        """
+        return pulumi.get(self, "rack_serial_number")
+
+    @rack_serial_number.setter
+    def rack_serial_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rack_serial_number", value)
+
+    @property
+    @pulumi.getter(name="rackSkuId")
+    def rack_sku_id(self) -> pulumi.Input[str]:
+        """
+        The SKU for the rack.
+        """
+        return pulumi.get(self, "rack_sku_id")
+
+    @rack_sku_id.setter
+    def rack_sku_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rack_sku_id", value)
+
+
+@pulumi.input_type
 class ServicePrincipalInformationArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
@@ -1222,6 +2329,84 @@ class StorageApplianceConfigurationDataArgs:
 
 
 @pulumi.input_type
+class StorageAppliancePropertiesArgs:
+    def __init__(__self__, *,
+                 administrator_credentials: pulumi.Input['AdministrativeCredentialsArgs'],
+                 rack_id: pulumi.Input[str],
+                 rack_slot: pulumi.Input[float],
+                 serial_number: pulumi.Input[str],
+                 storage_appliance_sku_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] rack_id: The resource ID of the rack where this storage appliance resides.
+        :param pulumi.Input[float] rack_slot: The slot the storage appliance is in the rack based on the BOM configuration.
+        :param pulumi.Input[str] serial_number: The serial number for the storage appliance.
+        :param pulumi.Input[str] storage_appliance_sku_id: The SKU for the storage appliance.
+        """
+        pulumi.set(__self__, "administrator_credentials", administrator_credentials)
+        pulumi.set(__self__, "rack_id", rack_id)
+        pulumi.set(__self__, "rack_slot", rack_slot)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "storage_appliance_sku_id", storage_appliance_sku_id)
+
+    @property
+    @pulumi.getter(name="administratorCredentials")
+    def administrator_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
+        return pulumi.get(self, "administrator_credentials")
+
+    @administrator_credentials.setter
+    def administrator_credentials(self, value: pulumi.Input['AdministrativeCredentialsArgs']):
+        pulumi.set(self, "administrator_credentials", value)
+
+    @property
+    @pulumi.getter(name="rackId")
+    def rack_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the rack where this storage appliance resides.
+        """
+        return pulumi.get(self, "rack_id")
+
+    @rack_id.setter
+    def rack_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rack_id", value)
+
+    @property
+    @pulumi.getter(name="rackSlot")
+    def rack_slot(self) -> pulumi.Input[float]:
+        """
+        The slot the storage appliance is in the rack based on the BOM configuration.
+        """
+        return pulumi.get(self, "rack_slot")
+
+    @rack_slot.setter
+    def rack_slot(self, value: pulumi.Input[float]):
+        pulumi.set(self, "rack_slot", value)
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> pulumi.Input[str]:
+        """
+        The serial number for the storage appliance.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @serial_number.setter
+    def serial_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "serial_number", value)
+
+    @property
+    @pulumi.getter(name="storageApplianceSkuId")
+    def storage_appliance_sku_id(self) -> pulumi.Input[str]:
+        """
+        The SKU for the storage appliance.
+        """
+        return pulumi.get(self, "storage_appliance_sku_id")
+
+    @storage_appliance_sku_id.setter
+    def storage_appliance_sku_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_appliance_sku_id", value)
+
+
+@pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
                  os_disk: pulumi.Input['OsDiskArgs'],
@@ -1253,6 +2438,77 @@ class StorageProfileArgs:
     @volume_attachments.setter
     def volume_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "volume_attachments", value)
+
+
+@pulumi.input_type
+class TrunkedNetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 isolation_domain_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vlans: pulumi.Input[Sequence[pulumi.Input[float]]],
+                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
+                 interface_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] isolation_domain_ids: The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] vlans: The list of vlans that are selected from the isolation domains for trunking.
+        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param pulumi.Input[str] interface_name: The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        pulumi.set(__self__, "isolation_domain_ids", isolation_domain_ids)
+        pulumi.set(__self__, "vlans", vlans)
+        if hybrid_aks_plugin_type is None:
+            hybrid_aks_plugin_type = 'SRIOV'
+        if hybrid_aks_plugin_type is not None:
+            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+
+    @property
+    @pulumi.getter(name="isolationDomainIds")
+    def isolation_domain_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
+        """
+        return pulumi.get(self, "isolation_domain_ids")
+
+    @isolation_domain_ids.setter
+    def isolation_domain_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "isolation_domain_ids", value)
+
+    @property
+    @pulumi.getter
+    def vlans(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
+        """
+        The list of vlans that are selected from the isolation domains for trunking.
+        """
+        return pulumi.get(self, "vlans")
+
+    @vlans.setter
+    def vlans(self, value: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        pulumi.set(self, "vlans", value)
+
+    @property
+    @pulumi.getter(name="hybridAksPluginType")
+    def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]:
+        """
+        The network plugin type for Hybrid AKS.
+        """
+        return pulumi.get(self, "hybrid_aks_plugin_type")
+
+    @hybrid_aks_plugin_type.setter
+    def hybrid_aks_plugin_type(self, value: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]):
+        pulumi.set(self, "hybrid_aks_plugin_type", value)
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @interface_name.setter
+    def interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interface_name", value)
 
 
 @pulumi.input_type
@@ -1372,5 +2628,280 @@ class VirtualMachinePlacementHintArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[Union[str, 'VirtualMachinePlacementHintPodAffinityScope']]):
         pulumi.set(self, "scope", value)
+
+
+@pulumi.input_type
+class VirtualMachinePropertiesArgs:
+    def __init__(__self__, *,
+                 admin_username: pulumi.Input[str],
+                 cloud_services_network_attachment: pulumi.Input['NetworkAttachmentArgs'],
+                 cpu_cores: pulumi.Input[float],
+                 memory_size_gb: pulumi.Input[float],
+                 storage_profile: pulumi.Input['StorageProfileArgs'],
+                 vm_image: pulumi.Input[str],
+                 boot_method: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]] = None,
+                 isolate_emulator_thread: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]] = None,
+                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]] = None,
+                 network_data: Optional[pulumi.Input[str]] = None,
+                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]] = None,
+                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 virtio_interface: Optional[pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']]] = None,
+                 vm_device_model: Optional[pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']]] = None,
+                 vm_image_repository_credentials: Optional[pulumi.Input['ImageRepositoryCredentialsArgs']] = None):
+        """
+        :param pulumi.Input[str] admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
+        :param pulumi.Input[float] cpu_cores: The number of CPU cores in the virtual machine.
+        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine in GB.
+        :param pulumi.Input[str] vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
+        :param pulumi.Input[Union[str, 'VirtualMachineBootMethod']] boot_method: Selects the boot method for the virtual machine.
+        :param pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']] isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]] network_attachments: The list of network attachments to the virtual machine.
+        :param pulumi.Input[str] network_data: The Base64 encoded cloud-init network data.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]] placement_hints: The scheduling hints for the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] ssh_public_keys: The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
+        :param pulumi.Input[str] user_data: The Base64 encoded cloud-init user data.
+        :param pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']] virtio_interface: Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
+        :param pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']] vm_device_model: The type of the device model to use.
+        """
+        pulumi.set(__self__, "admin_username", admin_username)
+        pulumi.set(__self__, "cloud_services_network_attachment", cloud_services_network_attachment)
+        pulumi.set(__self__, "cpu_cores", cpu_cores)
+        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
+        pulumi.set(__self__, "storage_profile", storage_profile)
+        pulumi.set(__self__, "vm_image", vm_image)
+        if boot_method is None:
+            boot_method = 'UEFI'
+        if boot_method is not None:
+            pulumi.set(__self__, "boot_method", boot_method)
+        if isolate_emulator_thread is None:
+            isolate_emulator_thread = 'True'
+        if isolate_emulator_thread is not None:
+            pulumi.set(__self__, "isolate_emulator_thread", isolate_emulator_thread)
+        if network_attachments is not None:
+            pulumi.set(__self__, "network_attachments", network_attachments)
+        if network_data is not None:
+            pulumi.set(__self__, "network_data", network_data)
+        if placement_hints is not None:
+            pulumi.set(__self__, "placement_hints", placement_hints)
+        if ssh_public_keys is not None:
+            pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+        if virtio_interface is None:
+            virtio_interface = 'Modern'
+        if virtio_interface is not None:
+            pulumi.set(__self__, "virtio_interface", virtio_interface)
+        if vm_device_model is None:
+            vm_device_model = 'T2'
+        if vm_device_model is not None:
+            pulumi.set(__self__, "vm_device_model", vm_device_model)
+        if vm_image_repository_credentials is not None:
+            pulumi.set(__self__, "vm_image_repository_credentials", vm_image_repository_credentials)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> pulumi.Input[str]:
+        """
+        The name of the administrator to which the ssh public keys will be added into the authorized keys.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "admin_username", value)
+
+    @property
+    @pulumi.getter(name="cloudServicesNetworkAttachment")
+    def cloud_services_network_attachment(self) -> pulumi.Input['NetworkAttachmentArgs']:
+        return pulumi.get(self, "cloud_services_network_attachment")
+
+    @cloud_services_network_attachment.setter
+    def cloud_services_network_attachment(self, value: pulumi.Input['NetworkAttachmentArgs']):
+        pulumi.set(self, "cloud_services_network_attachment", value)
+
+    @property
+    @pulumi.getter(name="cpuCores")
+    def cpu_cores(self) -> pulumi.Input[float]:
+        """
+        The number of CPU cores in the virtual machine.
+        """
+        return pulumi.get(self, "cpu_cores")
+
+    @cpu_cores.setter
+    def cpu_cores(self, value: pulumi.Input[float]):
+        pulumi.set(self, "cpu_cores", value)
+
+    @property
+    @pulumi.getter(name="memorySizeGB")
+    def memory_size_gb(self) -> pulumi.Input[float]:
+        """
+        The memory size of the virtual machine in GB.
+        """
+        return pulumi.get(self, "memory_size_gb")
+
+    @memory_size_gb.setter
+    def memory_size_gb(self, value: pulumi.Input[float]):
+        pulumi.set(self, "memory_size_gb", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> pulumi.Input['StorageProfileArgs']:
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: pulumi.Input['StorageProfileArgs']):
+        pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter(name="vmImage")
+    def vm_image(self) -> pulumi.Input[str]:
+        """
+        The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
+        """
+        return pulumi.get(self, "vm_image")
+
+    @vm_image.setter
+    def vm_image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_image", value)
+
+    @property
+    @pulumi.getter(name="bootMethod")
+    def boot_method(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]]:
+        """
+        Selects the boot method for the virtual machine.
+        """
+        return pulumi.get(self, "boot_method")
+
+    @boot_method.setter
+    def boot_method(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]]):
+        pulumi.set(self, "boot_method", value)
+
+    @property
+    @pulumi.getter(name="isolateEmulatorThread")
+    def isolate_emulator_thread(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]]:
+        """
+        Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
+        """
+        return pulumi.get(self, "isolate_emulator_thread")
+
+    @isolate_emulator_thread.setter
+    def isolate_emulator_thread(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]]):
+        pulumi.set(self, "isolate_emulator_thread", value)
+
+    @property
+    @pulumi.getter(name="networkAttachments")
+    def network_attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]]:
+        """
+        The list of network attachments to the virtual machine.
+        """
+        return pulumi.get(self, "network_attachments")
+
+    @network_attachments.setter
+    def network_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]]):
+        pulumi.set(self, "network_attachments", value)
+
+    @property
+    @pulumi.getter(name="networkData")
+    def network_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 encoded cloud-init network data.
+        """
+        return pulumi.get(self, "network_data")
+
+    @network_data.setter
+    def network_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_data", value)
+
+    @property
+    @pulumi.getter(name="placementHints")
+    def placement_hints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]]:
+        """
+        The scheduling hints for the virtual machine.
+        """
+        return pulumi.get(self, "placement_hints")
+
+    @placement_hints.setter
+    def placement_hints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]]):
+        pulumi.set(self, "placement_hints", value)
+
+    @property
+    @pulumi.getter(name="sshPublicKeys")
+    def ssh_public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
+        """
+        The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
+        """
+        return pulumi.get(self, "ssh_public_keys")
+
+    @ssh_public_keys.setter
+    def ssh_public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
+        pulumi.set(self, "ssh_public_keys", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 encoded cloud-init user data.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
+    @pulumi.getter(name="virtioInterface")
+    def virtio_interface(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']]]:
+        """
+        Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
+        """
+        return pulumi.get(self, "virtio_interface")
+
+    @virtio_interface.setter
+    def virtio_interface(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']]]):
+        pulumi.set(self, "virtio_interface", value)
+
+    @property
+    @pulumi.getter(name="vmDeviceModel")
+    def vm_device_model(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']]]:
+        """
+        The type of the device model to use.
+        """
+        return pulumi.get(self, "vm_device_model")
+
+    @vm_device_model.setter
+    def vm_device_model(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']]]):
+        pulumi.set(self, "vm_device_model", value)
+
+    @property
+    @pulumi.getter(name="vmImageRepositoryCredentials")
+    def vm_image_repository_credentials(self) -> Optional[pulumi.Input['ImageRepositoryCredentialsArgs']]:
+        return pulumi.get(self, "vm_image_repository_credentials")
+
+    @vm_image_repository_credentials.setter
+    def vm_image_repository_credentials(self, value: Optional[pulumi.Input['ImageRepositoryCredentialsArgs']]):
+        pulumi.set(self, "vm_image_repository_credentials", value)
+
+
+@pulumi.input_type
+class VolumePropertiesArgs:
+    def __init__(__self__, *,
+                 size_mi_b: pulumi.Input[float]):
+        """
+        :param pulumi.Input[float] size_mi_b: The size of the allocation for this volume in Mebibytes.
+        """
+        pulumi.set(__self__, "size_mi_b", size_mi_b)
+
+    @property
+    @pulumi.getter(name="sizeMiB")
+    def size_mi_b(self) -> pulumi.Input[float]:
+        """
+        The size of the allocation for this volume in Mebibytes.
+        """
+        return pulumi.get(self, "size_mi_b")
+
+    @size_mi_b.setter
+    def size_mi_b(self, value: pulumi.Input[float]):
+        pulumi.set(self, "size_mi_b", value)
 
 

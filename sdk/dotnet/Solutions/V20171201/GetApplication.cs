@@ -71,10 +71,6 @@ namespace Pulumi.AzureNative.Solutions.V20171201
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// The fully qualified path of managed application definition Id.
-        /// </summary>
-        public readonly string? ApplicationDefinitionId;
-        /// <summary>
         /// Resource ID
         /// </summary>
         public readonly string Id;
@@ -95,29 +91,17 @@ namespace Pulumi.AzureNative.Solutions.V20171201
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
-        /// The managed resource group Id.
-        /// </summary>
-        public readonly string ManagedResourceGroupId;
-        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Name and value pairs that define the managed application outputs.
-        /// </summary>
-        public readonly object Outputs;
-        /// <summary>
-        /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-        /// </summary>
-        public readonly object? Parameters;
         /// <summary>
         /// The plan information.
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// The managed application provisioning state.
+        /// The managed application properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.ApplicationPropertiesResponse Properties;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
@@ -130,15 +114,9 @@ namespace Pulumi.AzureNative.Solutions.V20171201
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The blob URI where the UI definition file is located.
-        /// </summary>
-        public readonly string? UiDefinitionUri;
 
         [OutputConstructor]
         private GetApplicationResult(
-            string? applicationDefinitionId,
-
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -149,42 +127,29 @@ namespace Pulumi.AzureNative.Solutions.V20171201
 
             string? managedBy,
 
-            string managedResourceGroupId,
-
             string name,
-
-            object outputs,
-
-            object? parameters,
 
             Outputs.PlanResponse? plan,
 
-            string provisioningState,
+            Outputs.ApplicationPropertiesResponse properties,
 
             Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? uiDefinitionUri)
+            string type)
         {
-            ApplicationDefinitionId = applicationDefinitionId;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             ManagedBy = managedBy;
-            ManagedResourceGroupId = managedResourceGroupId;
             Name = name;
-            Outputs = outputs;
-            Parameters = parameters;
             Plan = plan;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Sku = sku;
             Tags = tags;
             Type = type;
-            UiDefinitionUri = uiDefinitionUri;
         }
     }
 }

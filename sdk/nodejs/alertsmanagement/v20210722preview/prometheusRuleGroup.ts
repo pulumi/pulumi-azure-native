@@ -38,22 +38,6 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
     }
 
     /**
-     * the cluster name of the rule group evaluation.
-     */
-    public readonly clusterName!: pulumi.Output<string | undefined>;
-    /**
-     * the description of the Prometheus rule group that will be included in the alert email.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * the flag that indicates whether the Prometheus rule group is enabled.
-     */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-     */
-    public readonly interval!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -62,13 +46,9 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * defines the rules in the Prometheus rule group.
+     * The Prometheus rule group properties of the resource.
      */
-    public readonly rules!: pulumi.Output<outputs.alertsmanagement.v20210722preview.PrometheusRuleResponse[]>;
-    /**
-     * the list of resource id's that this rule group is scoped to.
-     */
-    public readonly scopes!: pulumi.Output<string[]>;
+    public readonly properties!: pulumi.Output<outputs.alertsmanagement.v20210722preview.PrometheusRuleGroupPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -93,37 +73,24 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rules'");
-            }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scopes'");
-            }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["clusterName"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
-            resourceInputs["interval"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["rules"] = undefined /*out*/;
-            resourceInputs["scopes"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -138,25 +105,13 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
  */
 export interface PrometheusRuleGroupArgs {
     /**
-     * the cluster name of the rule group evaluation.
-     */
-    clusterName?: pulumi.Input<string>;
-    /**
-     * the description of the Prometheus rule group that will be included in the alert email.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * the flag that indicates whether the Prometheus rule group is enabled.
-     */
-    enabled?: pulumi.Input<boolean>;
-    /**
-     * the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-     */
-    interval?: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The Prometheus rule group properties of the resource.
+     */
+    properties: pulumi.Input<inputs.alertsmanagement.v20210722preview.PrometheusRuleGroupPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,14 +120,6 @@ export interface PrometheusRuleGroupArgs {
      * The name of the rule group.
      */
     ruleGroupName?: pulumi.Input<string>;
-    /**
-     * defines the rules in the Prometheus rule group.
-     */
-    rules: pulumi.Input<pulumi.Input<inputs.alertsmanagement.v20210722preview.PrometheusRuleArgs>[]>;
-    /**
-     * the list of resource id's that this rule group is scoped to.
-     */
-    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags.
      */

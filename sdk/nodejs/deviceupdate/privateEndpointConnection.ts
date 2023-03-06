@@ -39,25 +39,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Array of group IDs.
-     */
-    public readonly groupIds!: pulumi.Output<string[] | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource of private end point.
+     * Resource properties.
      */
-    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.deviceupdate.PrivateEndpointResponse | undefined>;
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.deviceupdate.PrivateLinkServiceConnectionStateResponse>;
-    /**
-     * The provisioning state of the private endpoint connection resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.deviceupdate.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -81,28 +69,22 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpoint"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpoint"] = undefined /*out*/;
-            resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -122,17 +104,13 @@ export interface PrivateEndpointConnectionArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Array of group IDs.
-     */
-    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The name of the private endpoint connection associated with the Azure resource
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * A collection of information about the state of the connection between service consumer and provider.
+     * Resource properties.
      */
-    privateLinkServiceConnectionState: pulumi.Input<inputs.deviceupdate.PrivateLinkServiceConnectionStateArgs>;
+    properties: pulumi.Input<inputs.deviceupdate.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The resource group name.
      */

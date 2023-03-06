@@ -35,14 +35,6 @@ export interface GetLinkerArgs {
  */
 export interface GetLinkerResult {
     /**
-     * The authentication type.
-     */
-    readonly authInfo?: outputs.servicelinker.v20211101preview.SecretAuthInfoResponse | outputs.servicelinker.v20211101preview.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.v20211101preview.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.v20211101preview.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.v20211101preview.UserAssignedIdentityAuthInfoResponse;
-    /**
-     * The application client type
-     */
-    readonly clientType?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -51,29 +43,17 @@ export interface GetLinkerResult {
      */
     readonly name: string;
     /**
-     * The provisioning state. 
+     * The properties of the linker.
      */
-    readonly provisioningState: string;
-    /**
-     * An option to store secret value in secure place
-     */
-    readonly secretStore?: outputs.servicelinker.v20211101preview.SecretStoreResponse;
+    readonly properties: outputs.servicelinker.v20211101preview.LinkerPropertiesResponse;
     /**
      * The system data.
      */
     readonly systemData: outputs.servicelinker.v20211101preview.SystemDataResponse;
     /**
-     * The resource Id of target service.
-     */
-    readonly targetId?: string;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The VNet solution.
-     */
-    readonly vNetSolution?: outputs.servicelinker.v20211101preview.VNetSolutionResponse;
 }
 /**
  * Returns Linker resource for a given name.

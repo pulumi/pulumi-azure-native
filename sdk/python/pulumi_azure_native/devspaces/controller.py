@@ -17,10 +17,9 @@ __all__ = ['ControllerArgs', 'Controller']
 @pulumi.input_type
 class ControllerArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['ControllerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
-                 target_container_host_credentials_base64: pulumi.Input[str],
-                 target_container_host_resource_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -28,22 +27,28 @@ class ControllerArgs:
         The set of arguments for constructing a Controller resource.
         :param pulumi.Input[str] resource_group_name: Resource group to which the resource belongs.
         :param pulumi.Input['SkuArgs'] sku: Model representing SKU for Azure Dev Spaces Controller.
-        :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
-        :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
         :param pulumi.Input[str] location: Region where the Azure resource is located.
         :param pulumi.Input[str] name: Name of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the Azure resource.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "target_container_host_credentials_base64", target_container_host_credentials_base64)
-        pulumi.set(__self__, "target_container_host_resource_id", target_container_host_resource_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ControllerPropertiesArgs']:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ControllerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -68,30 +73,6 @@ class ControllerArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="targetContainerHostCredentialsBase64")
-    def target_container_host_credentials_base64(self) -> pulumi.Input[str]:
-        """
-        Credentials of the target container host (base64).
-        """
-        return pulumi.get(self, "target_container_host_credentials_base64")
-
-    @target_container_host_credentials_base64.setter
-    def target_container_host_credentials_base64(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_container_host_credentials_base64", value)
-
-    @property
-    @pulumi.getter(name="targetContainerHostResourceId")
-    def target_container_host_resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource ID of the target container host
-        """
-        return pulumi.get(self, "target_container_host_resource_id")
-
-    @target_container_host_resource_id.setter
-    def target_container_host_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_container_host_resource_id", value)
 
     @property
     @pulumi.getter
@@ -137,11 +118,10 @@ class Controller(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ControllerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_container_host_credentials_base64: Optional[pulumi.Input[str]] = None,
-                 target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         API Version: 2019-04-01.
@@ -153,8 +133,6 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Model representing SKU for Azure Dev Spaces Controller.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the Azure resource.
-        :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
-        :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
         """
         ...
     @overload
@@ -182,11 +160,10 @@ class Controller(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ControllerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_container_host_credentials_base64: Optional[pulumi.Input[str]] = None,
-                 target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -198,6 +175,9 @@ class Controller(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -205,16 +185,6 @@ class Controller(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            if target_container_host_credentials_base64 is None and not opts.urn:
-                raise TypeError("Missing required property 'target_container_host_credentials_base64'")
-            __props__.__dict__["target_container_host_credentials_base64"] = target_container_host_credentials_base64
-            if target_container_host_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'target_container_host_resource_id'")
-            __props__.__dict__["target_container_host_resource_id"] = target_container_host_resource_id
-            __props__.__dict__["data_plane_fqdn"] = None
-            __props__.__dict__["host_suffix"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["target_container_host_api_server_fqdn"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devspaces/v20190401:Controller")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -240,33 +210,13 @@ class Controller(pulumi.CustomResource):
 
         __props__ = ControllerArgs.__new__(ControllerArgs)
 
-        __props__.__dict__["data_plane_fqdn"] = None
-        __props__.__dict__["host_suffix"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["target_container_host_api_server_fqdn"] = None
-        __props__.__dict__["target_container_host_resource_id"] = None
         __props__.__dict__["type"] = None
         return Controller(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataPlaneFqdn")
-    def data_plane_fqdn(self) -> pulumi.Output[str]:
-        """
-        DNS name for accessing DataPlane services
-        """
-        return pulumi.get(self, "data_plane_fqdn")
-
-    @property
-    @pulumi.getter(name="hostSuffix")
-    def host_suffix(self) -> pulumi.Output[str]:
-        """
-        DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-        """
-        return pulumi.get(self, "host_suffix")
 
     @property
     @pulumi.getter
@@ -285,12 +235,9 @@ class Controller(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provisioning state of the Azure Dev Spaces Controller.
-        """
-        return pulumi.get(self, "provisioning_state")
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ControllerPropertiesResponse']:
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -307,22 +254,6 @@ class Controller(pulumi.CustomResource):
         Tags for the Azure resource.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="targetContainerHostApiServerFqdn")
-    def target_container_host_api_server_fqdn(self) -> pulumi.Output[str]:
-        """
-        DNS of the target container host's API server
-        """
-        return pulumi.get(self, "target_container_host_api_server_fqdn")
-
-    @property
-    @pulumi.getter(name="targetContainerHostResourceId")
-    def target_container_host_resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource ID of the target container host
-        """
-        return pulumi.get(self, "target_container_host_resource_id")
 
     @property
     @pulumi.getter

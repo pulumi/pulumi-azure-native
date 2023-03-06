@@ -13,46 +13,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
     public partial class AutomationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The actions to execute when the automation rule is triggered
-        /// </summary>
-        [Output("actions")]
-        public Output<ImmutableArray<Union<Outputs.AutomationRuleModifyPropertiesActionResponse, Outputs.AutomationRuleRunPlaybookActionResponse>>> Actions { get; private set; } = null!;
-
-        /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        [Output("createdBy")]
-        public Output<Outputs.ClientInfoResponse> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The time the automation rule was created
-        /// </summary>
-        [Output("createdTimeUtc")]
-        public Output<string> CreatedTimeUtc { get; private set; } = null!;
-
-        /// <summary>
-        /// The display name of the automation rule
-        /// </summary>
-        [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<Outputs.ClientInfoResponse> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The last time the automation rule was updated
-        /// </summary>
-        [Output("lastModifiedTimeUtc")]
-        public Output<string> LastModifiedTimeUtc { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -61,22 +25,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The order of execution of the automation rule
+        /// Automation rule properties
         /// </summary>
-        [Output("order")]
-        public Output<int> Order { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AutomationRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// Describes automation rule triggering logic
-        /// </summary>
-        [Output("triggeringLogic")]
-        public Output<Outputs.AutomationRuleTriggeringLogicResponse> TriggeringLogic { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -150,18 +108,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
 
     public sealed class AutomationRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("actions", required: true)]
-        private InputList<Union<Inputs.AutomationRuleModifyPropertiesActionArgs, Inputs.AutomationRuleRunPlaybookActionArgs>>? _actions;
-
-        /// <summary>
-        /// The actions to execute when the automation rule is triggered
-        /// </summary>
-        public InputList<Union<Inputs.AutomationRuleModifyPropertiesActionArgs, Inputs.AutomationRuleRunPlaybookActionArgs>> Actions
-        {
-            get => _actions ?? (_actions = new InputList<Union<Inputs.AutomationRuleModifyPropertiesActionArgs, Inputs.AutomationRuleRunPlaybookActionArgs>>());
-            set => _actions = value;
-        }
-
         /// <summary>
         /// Automation rule ID
         /// </summary>
@@ -169,28 +115,16 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         public Input<string>? AutomationRuleId { get; set; }
 
         /// <summary>
-        /// The display name of the automation rule
+        /// Automation rule properties
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
-
-        /// <summary>
-        /// The order of execution of the automation rule
-        /// </summary>
-        [Input("order", required: true)]
-        public Input<int> Order { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.AutomationRulePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Describes automation rule triggering logic
-        /// </summary>
-        [Input("triggeringLogic", required: true)]
-        public Input<Inputs.AutomationRuleTriggeringLogicArgs> TriggeringLogic { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

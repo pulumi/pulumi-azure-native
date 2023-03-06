@@ -94,73 +94,21 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
     public sealed class GetJobDefinitionResult
     {
         /// <summary>
-        /// Name of the Agent to assign for new Job Runs of this Job Definition.
-        /// </summary>
-        public readonly string? AgentName;
-        /// <summary>
-        /// Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
-        /// </summary>
-        public readonly string AgentResourceId;
-        /// <summary>
-        /// Strategy to use for copy.
-        /// </summary>
-        public readonly string CopyMode;
-        /// <summary>
-        /// A description for the Job Definition.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the Job Run in a non-terminal state, if exists.
-        /// </summary>
-        public readonly string LatestJobRunName;
-        /// <summary>
-        /// The fully qualified resource ID of the Job Run in a non-terminal state, if exists.
-        /// </summary>
-        public readonly string LatestJobRunResourceId;
-        /// <summary>
-        /// The current status of the Job Run in a non-terminal state, if exists.
-        /// </summary>
-        public readonly string LatestJobRunStatus;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of this resource.
+        /// Job definition properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The name of the source Endpoint.
-        /// </summary>
-        public readonly string SourceName;
-        /// <summary>
-        /// Fully qualified resource ID of the source Endpoint.
-        /// </summary>
-        public readonly string SourceResourceId;
-        /// <summary>
-        /// The subpath to use when reading from the source Endpoint.
-        /// </summary>
-        public readonly string? SourceSubpath;
+        public readonly Outputs.JobDefinitionPropertiesResponse Properties;
         /// <summary>
         /// Resource system metadata.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// The name of the target Endpoint.
-        /// </summary>
-        public readonly string TargetName;
-        /// <summary>
-        /// Fully qualified resource ID of the target Endpoint.
-        /// </summary>
-        public readonly string TargetResourceId;
-        /// <summary>
-        /// The subpath to use when writing to the target Endpoint.
-        /// </summary>
-        public readonly string? TargetSubpath;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -168,59 +116,20 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
 
         [OutputConstructor]
         private GetJobDefinitionResult(
-            string? agentName,
-
-            string agentResourceId,
-
-            string copyMode,
-
-            string? description,
-
             string id,
-
-            string latestJobRunName,
-
-            string latestJobRunResourceId,
-
-            string latestJobRunStatus,
 
             string name,
 
-            string provisioningState,
-
-            string sourceName,
-
-            string sourceResourceId,
-
-            string? sourceSubpath,
+            Outputs.JobDefinitionPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string targetName,
-
-            string targetResourceId,
-
-            string? targetSubpath,
-
             string type)
         {
-            AgentName = agentName;
-            AgentResourceId = agentResourceId;
-            CopyMode = copyMode;
-            Description = description;
             Id = id;
-            LatestJobRunName = latestJobRunName;
-            LatestJobRunResourceId = latestJobRunResourceId;
-            LatestJobRunStatus = latestJobRunStatus;
             Name = name;
-            ProvisioningState = provisioningState;
-            SourceName = sourceName;
-            SourceResourceId = sourceResourceId;
-            SourceSubpath = sourceSubpath;
+            Properties = properties;
             SystemData = systemData;
-            TargetName = targetName;
-            TargetResourceId = targetResourceId;
-            TargetSubpath = targetSubpath;
             Type = type;
         }
     }

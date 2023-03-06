@@ -36,41 +36,13 @@ export interface GetVirtualMachineArgs {
  */
 export interface GetVirtualMachineResult {
     /**
-     * Availability Sets in vm.
-     */
-    readonly availabilitySets?: outputs.scvmm.VirtualMachinePropertiesResponseAvailabilitySets[];
-    /**
-     * Type of checkpoint supported for the vm.
-     */
-    readonly checkpointType?: string;
-    /**
-     * Checkpoints in the vm.
-     */
-    readonly checkpoints?: outputs.scvmm.CheckpointResponse[];
-    /**
-     * ARM Id of the cloud resource to use for deploying the vm.
-     */
-    readonly cloudId?: string;
-    /**
      * The extended location.
      */
     readonly extendedLocation: outputs.scvmm.ExtendedLocationResponse;
     /**
-     * Gets or sets the generation for the vm.
-     */
-    readonly generation?: number;
-    /**
-     * Hardware properties.
-     */
-    readonly hardwareProfile?: outputs.scvmm.HardwareProfileResponse;
-    /**
      * Resource Id
      */
     readonly id: string;
-    /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    readonly inventoryItemId?: string;
     /**
      * Gets or sets the location.
      */
@@ -80,25 +52,9 @@ export interface GetVirtualMachineResult {
      */
     readonly name: string;
     /**
-     * Network properties.
+     * Resource properties.
      */
-    readonly networkProfile?: outputs.scvmm.NetworkProfileResponse;
-    /**
-     * OS properties.
-     */
-    readonly osProfile?: outputs.scvmm.OsProfileResponse;
-    /**
-     * Gets the power state of the virtual machine.
-     */
-    readonly powerState: string;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
-     * Storage properties.
-     */
-    readonly storageProfile?: outputs.scvmm.StorageProfileResponse;
+    readonly properties: outputs.scvmm.VirtualMachinePropertiesResponse;
     /**
      * The system data.
      */
@@ -108,25 +64,9 @@ export interface GetVirtualMachineResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * ARM Id of the template resource to use for deploying the vm.
-     */
-    readonly templateId?: string;
-    /**
      * Resource Type
      */
     readonly type: string;
-    /**
-     * Unique ID of the virtual machine.
-     */
-    readonly uuid?: string;
-    /**
-     * VMName is the name of VM on the SCVMM server.
-     */
-    readonly vmName?: string;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    readonly vmmServerId?: string;
 }
 /**
  * Implements VirtualMachine GET method.

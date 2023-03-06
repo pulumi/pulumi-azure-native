@@ -16,44 +16,47 @@ __all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
 @pulumi.input_type
 class VirtualNetworkArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['VirtualNetworkPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v_center_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
+        :param pulumi.Input['VirtualNetworkPropertiesArgs'] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
-        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual network.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
-        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
         :param pulumi.Input[str] virtual_network_name: Name of the virtual network resource.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
-        if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if mo_ref_id is not None:
-            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if v_center_id is not None:
-            pulumi.set(__self__, "v_center_id", v_center_id)
         if virtual_network_name is not None:
             pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VirtualNetworkPropertiesArgs']:
+        """
+        Resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VirtualNetworkPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +83,6 @@ class VirtualNetworkArgs:
         pulumi.set(self, "extended_location", value)
 
     @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the inventory Item ID for the virtual network.
-        """
-        return pulumi.get(self, "inventory_item_id")
-
-    @inventory_item_id.setter
-    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "inventory_item_id", value)
-
-    @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
@@ -116,18 +107,6 @@ class VirtualNetworkArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="moRefId")
-    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
-        """
-        return pulumi.get(self, "mo_ref_id")
-
-    @mo_ref_id.setter
-    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "mo_ref_id", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -138,18 +117,6 @@ class VirtualNetworkArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="vCenterId")
-    def v_center_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the ARM Id of the vCenter resource in which this template resides.
-        """
-        return pulumi.get(self, "v_center_id")
-
-    @v_center_id.setter
-    def v_center_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "v_center_id", value)
 
     @property
     @pulumi.getter(name="virtualNetworkName")
@@ -170,13 +137,11 @@ class VirtualNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v_center_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -186,13 +151,11 @@ class VirtualNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
-        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual network.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkPropertiesArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
-        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
         :param pulumi.Input[str] virtual_network_name: Name of the virtual network resource.
         """
         ...
@@ -221,13 +184,11 @@ class VirtualNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v_center_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -239,24 +200,19 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
             __props__.__dict__["extended_location"] = extended_location
-            __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            __props__.__dict__["mo_ref_id"] = mo_ref_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["v_center_id"] = v_center_id
             __props__.__dict__["virtual_network_name"] = virtual_network_name
-            __props__.__dict__["custom_resource_name"] = None
-            __props__.__dict__["mo_name"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["uuid"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetwork, __self__).__init__(
@@ -281,30 +237,15 @@ class VirtualNetwork(pulumi.CustomResource):
 
         __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
-        __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["extended_location"] = None
-        __props__.__dict__["inventory_item_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["mo_name"] = None
-        __props__.__dict__["mo_ref_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["statuses"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["uuid"] = None
-        __props__.__dict__["v_center_id"] = None
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="customResourceName")
-    def custom_resource_name(self) -> pulumi.Output[str]:
-        """
-        Gets the name of the corresponding resource in Kubernetes.
-        """
-        return pulumi.get(self, "custom_resource_name")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -313,14 +254,6 @@ class VirtualNetwork(pulumi.CustomResource):
         Gets or sets the extended location.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Gets or sets the inventory Item ID for the virtual network.
-        """
-        return pulumi.get(self, "inventory_item_id")
 
     @property
     @pulumi.getter
@@ -339,22 +272,6 @@ class VirtualNetwork(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="moName")
-    def mo_name(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the vCenter Managed Object name for the virtual network.
-        """
-        return pulumi.get(self, "mo_name")
-
-    @property
-    @pulumi.getter(name="moRefId")
-    def mo_ref_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
-        """
-        return pulumi.get(self, "mo_ref_id")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -363,20 +280,12 @@ class VirtualNetwork(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def statuses(self) -> pulumi.Output[Sequence['outputs.ResourceStatusResponse']]:
+    def properties(self) -> pulumi.Output['outputs.VirtualNetworkPropertiesResponse']:
         """
-        The resource status information.
+        Resource properties.
         """
-        return pulumi.get(self, "statuses")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -401,20 +310,4 @@ class VirtualNetwork(pulumi.CustomResource):
         Gets or sets the type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
-        """
-        Gets or sets a unique identifier for this resource.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter(name="vCenterId")
-    def v_center_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Gets or sets the ARM Id of the vCenter resource in which this template resides.
-        """
-        return pulumi.get(self, "v_center_id")
 

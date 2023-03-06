@@ -17,64 +17,22 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171001Preview.Outputs
     public sealed class ContainerResponse
     {
         /// <summary>
-        /// The commands to execute within the container instance in exec form.
-        /// </summary>
-        public readonly ImmutableArray<string> Command;
-        /// <summary>
-        /// The environment variables to set in the container instance.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentVariableResponse> EnvironmentVariables;
-        /// <summary>
-        /// The name of the image used to create the container instance.
-        /// </summary>
-        public readonly string Image;
-        /// <summary>
-        /// The instance view of the container instance. Only valid in response.
-        /// </summary>
-        public readonly Outputs.ContainerPropertiesResponseInstanceView InstanceView;
-        /// <summary>
         /// The user-provided name of the container instance.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The exposed ports on the container instance.
+        /// The properties of the container instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerPortResponse> Ports;
-        /// <summary>
-        /// The resource requirements of the container instance.
-        /// </summary>
-        public readonly Outputs.ResourceRequirementsResponse Resources;
-        /// <summary>
-        /// The volume mounts available to the container instance.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeMountResponse> VolumeMounts;
+        public readonly Outputs.ContainerPropertiesResponse Properties;
 
         [OutputConstructor]
         private ContainerResponse(
-            ImmutableArray<string> command,
-
-            ImmutableArray<Outputs.EnvironmentVariableResponse> environmentVariables,
-
-            string image,
-
-            Outputs.ContainerPropertiesResponseInstanceView instanceView,
-
             string name,
 
-            ImmutableArray<Outputs.ContainerPortResponse> ports,
-
-            Outputs.ResourceRequirementsResponse resources,
-
-            ImmutableArray<Outputs.VolumeMountResponse> volumeMounts)
+            Outputs.ContainerPropertiesResponse properties)
         {
-            Command = command;
-            EnvironmentVariables = environmentVariables;
-            Image = image;
-            InstanceView = instanceView;
             Name = name;
-            Ports = ports;
-            Resources = resources;
-            VolumeMounts = volumeMounts;
+            Properties = properties;
         }
     }
 }

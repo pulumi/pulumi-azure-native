@@ -106,29 +106,9 @@ namespace Pulumi.AzureNative.NetApp.V20220901
     public sealed class GetBackupResult
     {
         /// <summary>
-        /// UUID v4 used to identify the Backup
-        /// </summary>
-        public readonly string BackupId;
-        /// <summary>
-        /// Type of backup Manual or Scheduled
-        /// </summary>
-        public readonly string BackupType;
-        /// <summary>
-        /// The creation date of the backup
-        /// </summary>
-        public readonly string CreationDate;
-        /// <summary>
-        /// Failure reason
-        /// </summary>
-        public readonly string FailureReason;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Label for backup
-        /// </summary>
-        public readonly string? Label;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -138,13 +118,9 @@ namespace Pulumi.AzureNative.NetApp.V20220901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup Properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Size of backup
-        /// </summary>
-        public readonly double Size;
+        public readonly Outputs.BackupPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -153,59 +129,27 @@ namespace Pulumi.AzureNative.NetApp.V20220901
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-        /// </summary>
-        public readonly bool? UseExistingSnapshot;
-        /// <summary>
-        /// Volume name
-        /// </summary>
-        public readonly string VolumeName;
 
         [OutputConstructor]
         private GetBackupResult(
-            string backupId,
-
-            string backupType,
-
-            string creationDate,
-
-            string failureReason,
-
             string id,
-
-            string? label,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            double size,
+            Outputs.BackupPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            bool? useExistingSnapshot,
-
-            string volumeName)
+            string type)
         {
-            BackupId = backupId;
-            BackupType = backupType;
-            CreationDate = creationDate;
-            FailureReason = failureReason;
             Id = id;
-            Label = label;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Size = size;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            UseExistingSnapshot = useExistingSnapshot;
-            VolumeName = volumeName;
         }
     }
 }

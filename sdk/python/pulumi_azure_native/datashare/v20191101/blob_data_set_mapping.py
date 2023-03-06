@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['BlobDataSetMappingArgs', 'BlobDataSetMapping']
 
@@ -16,47 +18,28 @@ __all__ = ['BlobDataSetMappingArgs', 'BlobDataSetMapping']
 class BlobDataSetMappingArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 container_name: pulumi.Input[str],
-                 data_set_id: pulumi.Input[str],
-                 file_path: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 resource_group: pulumi.Input[str],
+                 properties: pulumi.Input['BlobMappingPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_subscription_name: pulumi.Input[str],
-                 storage_account_name: pulumi.Input[str],
-                 subscription_id: pulumi.Input[str],
-                 data_set_mapping_name: Optional[pulumi.Input[str]] = None,
-                 output_type: Optional[pulumi.Input[Union[str, 'OutputType']]] = None):
+                 data_set_mapping_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BlobDataSetMapping resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] container_name: Container that has the file path.
-        :param pulumi.Input[str] data_set_id: The id of the source data set.
-        :param pulumi.Input[str] file_path: File path within the source data set
         :param pulumi.Input[str] kind: Kind of data set mapping.
                Expected value is 'Blob'.
-        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input['BlobMappingPropertiesArgs'] properties: Blob data set mapping properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
-        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
-        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
-        :param pulumi.Input[Union[str, 'OutputType']] output_type: File output type
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "file_path", file_path)
         pulumi.set(__self__, "kind", 'Blob')
-        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
         if data_set_mapping_name is not None:
             pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
-        if output_type is not None:
-            pulumi.set(__self__, "output_type", output_type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -69,42 +52,6 @@ class BlobDataSetMappingArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_name", value)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[str]:
-        """
-        Container that has the file path.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "container_name", value)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Input[str]:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @data_set_id.setter
-    def data_set_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_set_id", value)
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> pulumi.Input[str]:
-        """
-        File path within the source data set
-        """
-        return pulumi.get(self, "file_path")
-
-    @file_path.setter
-    def file_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_path", value)
 
     @property
     @pulumi.getter
@@ -120,16 +67,16 @@ class BlobDataSetMappingArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BlobMappingPropertiesArgs']:
         """
-        Resource group of storage account.
+        Blob data set mapping properties.
         """
-        return pulumi.get(self, "resource_group")
+        return pulumi.get(self, "properties")
 
-    @resource_group.setter
-    def resource_group(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['BlobMappingPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -156,30 +103,6 @@ class BlobDataSetMappingArgs:
         pulumi.set(self, "share_subscription_name", value)
 
     @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[str]:
-        """
-        Storage account name of the source data set.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[str]:
-        """
-        Subscription id of storage account.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subscription_id", value)
-
-    @property
     @pulumi.getter(name="dataSetMappingName")
     def data_set_mapping_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -191,18 +114,6 @@ class BlobDataSetMappingArgs:
     def data_set_mapping_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_set_mapping_name", value)
 
-    @property
-    @pulumi.getter(name="outputType")
-    def output_type(self) -> Optional[pulumi.Input[Union[str, 'OutputType']]]:
-        """
-        File output type
-        """
-        return pulumi.get(self, "output_type")
-
-    @output_type.setter
-    def output_type(self, value: Optional[pulumi.Input[Union[str, 'OutputType']]]):
-        pulumi.set(self, "output_type", value)
-
 
 class BlobDataSetMapping(pulumi.CustomResource):
     @overload
@@ -210,17 +121,11 @@ class BlobDataSetMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 container_name: Optional[pulumi.Input[str]] = None,
-                 data_set_id: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
-                 file_path: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 output_type: Optional[pulumi.Input[Union[str, 'OutputType']]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BlobMappingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A Blob data set mapping.
@@ -228,18 +133,12 @@ class BlobDataSetMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] container_name: Container that has the file path.
-        :param pulumi.Input[str] data_set_id: The id of the source data set.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
-        :param pulumi.Input[str] file_path: File path within the source data set
         :param pulumi.Input[str] kind: Kind of data set mapping.
                Expected value is 'Blob'.
-        :param pulumi.Input[Union[str, 'OutputType']] output_type: File output type
-        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input[pulumi.InputType['BlobMappingPropertiesArgs']] properties: Blob data set mapping properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
-        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
-        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
         """
         ...
     @overload
@@ -266,17 +165,11 @@ class BlobDataSetMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 container_name: Optional[pulumi.Input[str]] = None,
-                 data_set_id: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
-                 file_path: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 output_type: Optional[pulumi.Input[Union[str, 'OutputType']]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BlobMappingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -289,38 +182,20 @@ class BlobDataSetMapping(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_name'")
-            __props__.__dict__["container_name"] = container_name
-            if data_set_id is None and not opts.urn:
-                raise TypeError("Missing required property 'data_set_id'")
-            __props__.__dict__["data_set_id"] = data_set_id
             __props__.__dict__["data_set_mapping_name"] = data_set_mapping_name
-            if file_path is None and not opts.urn:
-                raise TypeError("Missing required property 'file_path'")
-            __props__.__dict__["file_path"] = file_path
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Blob'
-            __props__.__dict__["output_type"] = output_type
-            if resource_group is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group'")
-            __props__.__dict__["resource_group"] = resource_group
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_subscription_name'")
             __props__.__dict__["share_subscription_name"] = share_subscription_name
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
-            __props__.__dict__["storage_account_name"] = storage_account_name
-            if subscription_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subscription_id'")
-            __props__.__dict__["subscription_id"] = subscription_id
-            __props__.__dict__["data_set_mapping_status"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobDataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -346,51 +221,11 @@ class BlobDataSetMapping(pulumi.CustomResource):
 
         __props__ = BlobDataSetMappingArgs.__new__(BlobDataSetMappingArgs)
 
-        __props__.__dict__["container_name"] = None
-        __props__.__dict__["data_set_id"] = None
-        __props__.__dict__["data_set_mapping_status"] = None
-        __props__.__dict__["file_path"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["output_type"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["resource_group"] = None
-        __props__.__dict__["storage_account_name"] = None
-        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return BlobDataSetMapping(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Output[str]:
-        """
-        Container that has the file path.
-        """
-        return pulumi.get(self, "container_name")
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="dataSetMappingStatus")
-    def data_set_mapping_status(self) -> pulumi.Output[str]:
-        """
-        Gets the status of the data set mapping.
-        """
-        return pulumi.get(self, "data_set_mapping_status")
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> pulumi.Output[str]:
-        """
-        File path within the source data set
-        """
-        return pulumi.get(self, "file_path")
 
     @property
     @pulumi.getter
@@ -410,44 +245,12 @@ class BlobDataSetMapping(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="outputType")
-    def output_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BlobMappingPropertiesResponse']:
         """
-        File output type
+        Blob data set mapping properties.
         """
-        return pulumi.get(self, "output_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provisioning state of the data set mapping.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Output[str]:
-        """
-        Resource group of storage account.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Output[str]:
-        """
-        Storage account name of the source data set.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Output[str]:
-        """
-        Subscription id of storage account.
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

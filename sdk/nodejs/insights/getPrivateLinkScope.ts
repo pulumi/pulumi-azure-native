@@ -48,13 +48,9 @@ export interface GetPrivateLinkScopeResult {
      */
     readonly name: string;
     /**
-     * List of private endpoint connections.
+     * Properties that define a Azure Monitor PrivateLinkScope resource.
      */
-    readonly privateEndpointConnections: outputs.insights.PrivateEndpointConnectionResponse[];
-    /**
-     * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.insights.AzureMonitorPrivateLinkScopePropertiesResponse;
     /**
      * Resource tags
      */

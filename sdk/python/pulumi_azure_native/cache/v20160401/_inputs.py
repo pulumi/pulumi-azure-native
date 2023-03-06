@@ -11,9 +11,192 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'RedisCreatePropertiesArgs',
+    'RedisFirewallRulePropertiesArgs',
+    'ScheduleEntriesArgs',
     'ScheduleEntryArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class RedisCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 sku: pulumi.Input['SkuArgs'],
+                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
+                 static_ip: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Properties supplied to Create Redis operation.
+        :param pulumi.Input['SkuArgs'] sku: The SKU of the Redis cache to deploy.
+        :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
+        :param pulumi.Input[str] static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: tenantSettings
+        """
+        pulumi.set(__self__, "sku", sku)
+        if enable_non_ssl_port is not None:
+            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+        if redis_configuration is not None:
+            pulumi.set(__self__, "redis_configuration", redis_configuration)
+        if shard_count is not None:
+            pulumi.set(__self__, "shard_count", shard_count)
+        if static_ip is not None:
+            pulumi.set(__self__, "static_ip", static_ip)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tenant_settings is not None:
+            pulumi.set(__self__, "tenant_settings", tenant_settings)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        The SKU of the Redis cache to deploy.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="enableNonSslPort")
+    def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the non-ssl Redis server port (6379) is enabled.
+        """
+        return pulumi.get(self, "enable_non_ssl_port")
+
+    @enable_non_ssl_port.setter
+    def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_non_ssl_port", value)
+
+    @property
+    @pulumi.getter(name="redisConfiguration")
+    def redis_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        """
+        return pulumi.get(self, "redis_configuration")
+
+    @redis_configuration.setter
+    def redis_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "redis_configuration", value)
+
+    @property
+    @pulumi.getter(name="shardCount")
+    def shard_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of shards to be created on a Premium Cluster Cache.
+        """
+        return pulumi.get(self, "shard_count")
+
+    @shard_count.setter
+    def shard_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "shard_count", value)
+
+    @property
+    @pulumi.getter(name="staticIP")
+    def static_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        """
+        return pulumi.get(self, "static_ip")
+
+    @static_ip.setter
+    def static_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "static_ip", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="tenantSettings")
+    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        tenantSettings
+        """
+        return pulumi.get(self, "tenant_settings")
+
+    @tenant_settings.setter
+    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tenant_settings", value)
+
+
+@pulumi.input_type
+class RedisFirewallRulePropertiesArgs:
+    def __init__(__self__, *,
+                 end_ip: pulumi.Input[str],
+                 start_ip: pulumi.Input[str]):
+        """
+        Specifies a range of IP addresses permitted to connect to the cache
+        :param pulumi.Input[str] end_ip: highest IP address included in the range
+        :param pulumi.Input[str] start_ip: lowest IP address included in the range
+        """
+        pulumi.set(__self__, "end_ip", end_ip)
+        pulumi.set(__self__, "start_ip", start_ip)
+
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> pulumi.Input[str]:
+        """
+        highest IP address included in the range
+        """
+        return pulumi.get(self, "end_ip")
+
+    @end_ip.setter
+    def end_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_ip", value)
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> pulumi.Input[str]:
+        """
+        lowest IP address included in the range
+        """
+        return pulumi.get(self, "start_ip")
+
+    @start_ip.setter
+    def start_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_ip", value)
+
+
+@pulumi.input_type
+class ScheduleEntriesArgs:
+    def __init__(__self__, *,
+                 schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
+        """
+        List of patch schedules for a Redis cache.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
+        """
+        pulumi.set(__self__, "schedule_entries", schedule_entries)
+
+    @property
+    @pulumi.getter(name="scheduleEntries")
+    def schedule_entries(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]:
+        """
+        List of patch schedules for a Redis cache.
+        """
+        return pulumi.get(self, "schedule_entries")
+
+    @schedule_entries.setter
+    def schedule_entries(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
+        pulumi.set(self, "schedule_entries", value)
+
 
 @pulumi.input_type
 class ScheduleEntryArgs:

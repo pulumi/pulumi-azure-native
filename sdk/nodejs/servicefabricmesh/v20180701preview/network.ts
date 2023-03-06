@@ -41,18 +41,6 @@ export class Network extends pulumi.CustomResource {
     }
 
     /**
-     * the address prefix for this network.
-     */
-    public readonly addressPrefix!: pulumi.Output<string>;
-    /**
-     * User readable description of the network.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Configuration for public connectivity for this network.
-     */
-    public readonly ingressConfig!: pulumi.Output<outputs.servicefabricmesh.v20180701preview.IngressConfigResponse | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -61,9 +49,9 @@ export class Network extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * State of the resource.
+     * Describes properties of a network resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.servicefabricmesh.v20180701preview.NetworkResourcePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -86,29 +74,23 @@ export class Network extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressPrefix === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addressPrefix'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ingressConfig"] = args ? args.ingressConfig : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkName"] = args ? args.networkName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["addressPrefix"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["ingressConfig"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -124,18 +106,6 @@ export class Network extends pulumi.CustomResource {
  */
 export interface NetworkArgs {
     /**
-     * the address prefix for this network.
-     */
-    addressPrefix: pulumi.Input<string>;
-    /**
-     * User readable description of the network.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Configuration for public connectivity for this network.
-     */
-    ingressConfig?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.IngressConfigArgs>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -143,6 +113,10 @@ export interface NetworkArgs {
      * The identity of the network.
      */
     networkName?: pulumi.Input<string>;
+    /**
+     * Describes properties of a network resource.
+     */
+    properties: pulumi.Input<inputs.servicefabricmesh.v20180701preview.NetworkResourcePropertiesArgs>;
     /**
      * Azure resource group name
      */

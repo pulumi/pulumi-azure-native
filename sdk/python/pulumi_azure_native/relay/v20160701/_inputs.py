@@ -11,8 +11,32 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AuthorizationRulePropertiesArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class AuthorizationRulePropertiesArgs:
+    def __init__(__self__, *,
+                 rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
+        """
+        AuthorizationRule properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
+        """
+        pulumi.set(__self__, "rights", rights)
+
+    @property
+    @pulumi.getter
+    def rights(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]:
+        """
+        The rights associated with the rule.
+        """
+        return pulumi.get(self, "rights")
+
+    @rights.setter
+    def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
+        pulumi.set(self, "rights", value)
+
 
 @pulumi.input_type
 class SkuArgs:

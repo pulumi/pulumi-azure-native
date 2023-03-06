@@ -70,22 +70,6 @@ namespace Pulumi.AzureNative.LabServices.V20220801
     public sealed class GetLabPlanResult
     {
         /// <summary>
-        /// The allowed regions for the lab creator to use when creating labs using this lab plan.
-        /// </summary>
-        public readonly ImmutableArray<string> AllowedRegions;
-        /// <summary>
-        /// The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-        /// </summary>
-        public readonly Outputs.AutoShutdownProfileResponse? DefaultAutoShutdownProfile;
-        /// <summary>
-        /// The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-        /// </summary>
-        public readonly Outputs.ConnectionProfileResponse? DefaultConnectionProfile;
-        /// <summary>
-        /// The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-        /// </summary>
-        public readonly Outputs.LabPlanNetworkProfileResponse? DefaultNetworkProfile;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -93,10 +77,6 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         /// Managed Identity Information
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
-        /// <summary>
-        /// Base Url of the lms instance this lab plan can link lab rosters against.
-        /// </summary>
-        public readonly string? LinkedLmsInstance;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -106,17 +86,9 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Current provisioning state of the lab plan.
+        /// Lab plan resource properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-        /// </summary>
-        public readonly string? SharedGalleryId;
-        /// <summary>
-        /// Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-        /// </summary>
-        public readonly Outputs.SupportInfoResponse? SupportInfo;
+        public readonly Outputs.LabPlanPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the lab plan.
         /// </summary>
@@ -132,29 +104,15 @@ namespace Pulumi.AzureNative.LabServices.V20220801
 
         [OutputConstructor]
         private GetLabPlanResult(
-            ImmutableArray<string> allowedRegions,
-
-            Outputs.AutoShutdownProfileResponse? defaultAutoShutdownProfile,
-
-            Outputs.ConnectionProfileResponse? defaultConnectionProfile,
-
-            Outputs.LabPlanNetworkProfileResponse? defaultNetworkProfile,
-
             string id,
 
             Outputs.IdentityResponse? identity,
-
-            string? linkedLmsInstance,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            string? sharedGalleryId,
-
-            Outputs.SupportInfoResponse? supportInfo,
+            Outputs.LabPlanPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -162,18 +120,11 @@ namespace Pulumi.AzureNative.LabServices.V20220801
 
             string type)
         {
-            AllowedRegions = allowedRegions;
-            DefaultAutoShutdownProfile = defaultAutoShutdownProfile;
-            DefaultConnectionProfile = defaultConnectionProfile;
-            DefaultNetworkProfile = defaultNetworkProfile;
             Id = id;
             Identity = identity;
-            LinkedLmsInstance = linkedLmsInstance;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            SharedGalleryId = sharedGalleryId;
-            SupportInfo = supportInfo;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

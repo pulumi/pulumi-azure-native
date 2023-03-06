@@ -44,14 +44,6 @@ export interface ListVirtualMachineApplicableSchedulesResult {
      */
     readonly id: string;
     /**
-     * The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-     */
-    readonly labVmsShutdown?: outputs.devtestlab.v20180915.ScheduleResponse;
-    /**
-     * The auto-startup schedule, if one has been set at the lab or lab resource level.
-     */
-    readonly labVmsStartup?: outputs.devtestlab.v20180915.ScheduleResponse;
-    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -59,6 +51,10 @@ export interface ListVirtualMachineApplicableSchedulesResult {
      * The name of the resource.
      */
     readonly name: string;
+    /**
+     * The properties of the resource.
+     */
+    readonly properties: outputs.devtestlab.v20180915.ApplicableSchedulePropertiesResponse;
     /**
      * The tags of the resource.
      */

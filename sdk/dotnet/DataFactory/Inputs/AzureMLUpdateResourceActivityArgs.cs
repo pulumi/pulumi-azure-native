@@ -52,29 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("trainedModelFilePath", required: true)]
-        public Input<object> TrainedModelFilePath { get; set; } = null!;
-
-        /// <summary>
-        /// Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
-        /// </summary>
-        [Input("trainedModelLinkedServiceName", required: true)]
-        public Input<Inputs.LinkedServiceReferenceArgs> TrainedModelLinkedServiceName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("trainedModelName", required: true)]
-        public Input<object> TrainedModelName { get; set; } = null!;
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'AzureMLUpdateResource'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure ML Update Resource management activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureMLUpdateResourceActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

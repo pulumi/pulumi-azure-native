@@ -29,13 +29,9 @@ namespace Pulumi.AzureNative.Network.V20210201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The provisioning state of the VPN client root certificate resource.
+        /// Properties of the vpn client root certificate.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The certificate public data.
-        /// </summary>
-        public readonly string PublicCertData;
+        public readonly Outputs.VpnClientRootCertificatePropertiesFormatResponse Properties;
 
         [OutputConstructor]
         private VpnClientRootCertificateResponse(
@@ -45,15 +41,12 @@ namespace Pulumi.AzureNative.Network.V20210201.Outputs
 
             string? name,
 
-            string provisioningState,
-
-            string publicCertData)
+            Outputs.VpnClientRootCertificatePropertiesFormatResponse properties)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            PublicCertData = publicCertData;
+            Properties = properties;
         }
     }
 }

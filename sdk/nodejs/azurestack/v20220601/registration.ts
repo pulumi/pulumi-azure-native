@@ -81,15 +81,15 @@ export class Registration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registrationToken === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'registrationToken'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["registrationName"] = args ? args.registrationName : undefined;
-            resourceInputs["registrationToken"] = args ? args.registrationToken : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
@@ -124,13 +124,13 @@ export interface RegistrationArgs {
      */
     location?: pulumi.Input<string | enums.azurestack.v20220601.Location>;
     /**
+     * Properties of the Azure Stack registration resource
+     */
+    properties: pulumi.Input<inputs.azurestack.v20220601.RegistrationParameterPropertiesArgs>;
+    /**
      * Name of the Azure Stack registration.
      */
     registrationName?: pulumi.Input<string>;
-    /**
-     * The token identifying registered Azure Stack
-     */
-    registrationToken: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */

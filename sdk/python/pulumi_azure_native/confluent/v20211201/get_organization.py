@@ -22,10 +22,7 @@ class GetOrganizationResult:
     """
     Organization resource.
     """
-    def __init__(__self__, created_time=None, id=None, location=None, name=None, offer_detail=None, organization_id=None, provisioning_state=None, sso_url=None, system_data=None, tags=None, type=None, user_detail=None):
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        pulumi.set(__self__, "created_time", created_time)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,18 +32,9 @@ class GetOrganizationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if offer_detail and not isinstance(offer_detail, dict):
-            raise TypeError("Expected argument 'offer_detail' to be a dict")
-        pulumi.set(__self__, "offer_detail", offer_detail)
-        if organization_id and not isinstance(organization_id, str):
-            raise TypeError("Expected argument 'organization_id' to be a str")
-        pulumi.set(__self__, "organization_id", organization_id)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sso_url and not isinstance(sso_url, str):
-            raise TypeError("Expected argument 'sso_url' to be a str")
-        pulumi.set(__self__, "sso_url", sso_url)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -56,17 +44,6 @@ class GetOrganizationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_detail and not isinstance(user_detail, dict):
-            raise TypeError("Expected argument 'user_detail' to be a dict")
-        pulumi.set(__self__, "user_detail", user_detail)
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        The creation time of the resource.
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -93,36 +70,12 @@ class GetOrganizationResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="offerDetail")
-    def offer_detail(self) -> 'outputs.OfferDetailResponse':
+    @pulumi.getter
+    def properties(self) -> 'outputs.OrganizationResourcePropertiesResponse':
         """
-        Confluent offer detail
+        Organization resource properties
         """
-        return pulumi.get(self, "offer_detail")
-
-    @property
-    @pulumi.getter(name="organizationId")
-    def organization_id(self) -> str:
-        """
-        Id of the Confluent organization.
-        """
-        return pulumi.get(self, "organization_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provision states for confluent RP
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> str:
-        """
-        SSO url for the Confluent organization.
-        """
-        return pulumi.get(self, "sso_url")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -148,14 +101,6 @@ class GetOrganizationResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="userDetail")
-    def user_detail(self) -> 'outputs.UserDetailResponse':
-        """
-        Subscriber detail
-        """
-        return pulumi.get(self, "user_detail")
-
 
 class AwaitableGetOrganizationResult(GetOrganizationResult):
     # pylint: disable=using-constant-test
@@ -163,18 +108,13 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
         if False:
             yield self
         return GetOrganizationResult(
-            created_time=self.created_time,
             id=self.id,
             location=self.location,
             name=self.name,
-            offer_detail=self.offer_detail,
-            organization_id=self.organization_id,
-            provisioning_state=self.provisioning_state,
-            sso_url=self.sso_url,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            user_detail=self.user_detail)
+            type=self.type)
 
 
 def get_organization(organization_name: Optional[str] = None,
@@ -194,18 +134,13 @@ def get_organization(organization_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:confluent/v20211201:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
-        created_time=__ret__.created_time,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        offer_detail=__ret__.offer_detail,
-        organization_id=__ret__.organization_id,
-        provisioning_state=__ret__.provisioning_state,
-        sso_url=__ret__.sso_url,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        user_detail=__ret__.user_detail)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_organization)

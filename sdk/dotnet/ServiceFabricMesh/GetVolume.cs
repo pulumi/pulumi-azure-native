@@ -72,14 +72,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// This type describes a volume provided by an Azure Files file share.
-        /// </summary>
-        public readonly Outputs.VolumeProviderParametersAzureFileResponse? AzureFileParameters;
-        /// <summary>
-        /// User readable description of the volume.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -92,21 +84,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provider of the volume.
+        /// This type describes properties of a volume resource.
         /// </summary>
-        public readonly string Provider;
-        /// <summary>
-        /// State of the resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Status of the volume.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// Gives additional information about the current status of the volume.
-        /// </summary>
-        public readonly string StatusDetails;
+        public readonly Outputs.VolumeResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -118,37 +98,22 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
         [OutputConstructor]
         private GetVolumeResult(
-            Outputs.VolumeProviderParametersAzureFileResponse? azureFileParameters,
-
-            string? description,
-
             string id,
 
             string location,
 
             string name,
 
-            string provider,
-
-            string provisioningState,
-
-            string status,
-
-            string statusDetails,
+            Outputs.VolumeResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            AzureFileParameters = azureFileParameters;
-            Description = description;
             Id = id;
             Location = location;
             Name = name;
-            Provider = provider;
-            ProvisioningState = provisioningState;
-            Status = status;
-            StatusDetails = statusDetails;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

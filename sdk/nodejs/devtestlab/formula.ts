@@ -39,22 +39,6 @@ export class Formula extends pulumi.CustomResource {
     }
 
     /**
-     * The author of the formula.
-     */
-    public /*out*/ readonly author!: pulumi.Output<string>;
-    /**
-     * The creation date of the formula.
-     */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    /**
-     * The description of the formula.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The content of the formula.
-     */
-    public readonly formulaContent!: pulumi.Output<outputs.devtestlab.LabVirtualMachineCreationParameterResponse | undefined>;
-    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -63,13 +47,9 @@ export class Formula extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The OS type of the formula.
+     * The properties of the resource.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
-    /**
-     * The provisioning status of the resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.devtestlab.FormulaPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -78,14 +58,6 @@ export class Formula extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
-    /**
-     * Information about a VM from which a formula is to be created.
-     */
-    public readonly vm!: pulumi.Output<outputs.devtestlab.FormulaPropertiesFromVmResponse | undefined>;
 
     /**
      * Create a Formula resource with the given unique name, arguments, and options.
@@ -101,36 +73,25 @@ export class Formula extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["formulaContent"] = args ? (args.formulaContent ? pulumi.output(args.formulaContent).apply(inputs.devtestlab.labVirtualMachineCreationParameterArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.devtestlab.formulaPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vm"] = args ? args.vm : undefined;
-            resourceInputs["author"] = undefined /*out*/;
-            resourceInputs["creationDate"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            resourceInputs["author"] = undefined /*out*/;
-            resourceInputs["creationDate"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["formulaContent"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
-            resourceInputs["vm"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20150521preview:Formula" }, { type: "azure-native:devtestlab/v20160515:Formula" }, { type: "azure-native:devtestlab/v20180915:Formula" }] };
@@ -144,14 +105,6 @@ export class Formula extends pulumi.CustomResource {
  */
 export interface FormulaArgs {
     /**
-     * The description of the formula.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The content of the formula.
-     */
-    formulaContent?: pulumi.Input<inputs.devtestlab.LabVirtualMachineCreationParameterArgs>;
-    /**
      * The name of the lab.
      */
     labName: pulumi.Input<string>;
@@ -164,9 +117,9 @@ export interface FormulaArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The OS type of the formula.
+     * The properties of the resource.
      */
-    osType?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.devtestlab.FormulaPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -175,8 +128,4 @@ export interface FormulaArgs {
      * The tags of the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Information about a VM from which a formula is to be created.
-     */
-    vm?: pulumi.Input<inputs.devtestlab.FormulaPropertiesFromVmArgs>;
 }

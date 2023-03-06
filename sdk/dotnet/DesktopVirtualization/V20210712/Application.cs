@@ -16,94 +16,16 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource Type of Application.
-        /// </summary>
-        [Output("applicationType")]
-        public Output<string?> ApplicationType { get; private set; } = null!;
-
-        /// <summary>
-        /// Command Line Arguments for Application.
-        /// </summary>
-        [Output("commandLineArguments")]
-        public Output<string?> CommandLineArguments { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-        /// </summary>
-        [Output("commandLineSetting")]
-        public Output<string> CommandLineSetting { get; private set; } = null!;
-
-        /// <summary>
-        /// Description of Application.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies a path for the executable file for the application.
-        /// </summary>
-        [Output("filePath")]
-        public Output<string?> FilePath { get; private set; } = null!;
-
-        /// <summary>
-        /// Friendly name of Application.
-        /// </summary>
-        [Output("friendlyName")]
-        public Output<string?> FriendlyName { get; private set; } = null!;
-
-        /// <summary>
-        /// the icon a 64 bit string as a byte array.
-        /// </summary>
-        [Output("iconContent")]
-        public Output<string> IconContent { get; private set; } = null!;
-
-        /// <summary>
-        /// Hash of the icon.
-        /// </summary>
-        [Output("iconHash")]
-        public Output<string> IconHash { get; private set; } = null!;
-
-        /// <summary>
-        /// Index of the icon.
-        /// </summary>
-        [Output("iconIndex")]
-        public Output<int?> IconIndex { get; private set; } = null!;
-
-        /// <summary>
-        /// Path to icon.
-        /// </summary>
-        [Output("iconPath")]
-        public Output<string?> IconPath { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the package application Id for MSIX applications
-        /// </summary>
-        [Output("msixPackageApplicationId")]
-        public Output<string?> MsixPackageApplicationId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the package family name for MSIX applications
-        /// </summary>
-        [Output("msixPackageFamilyName")]
-        public Output<string?> MsixPackageFamilyName { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ObjectId of Application. (internal use)
+        /// Detailed properties for Application
         /// </summary>
-        [Output("objectId")]
-        public Output<string> ObjectId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether to show the RemoteApp program in the RD Web Access server.
-        /// </summary>
-        [Output("showInPortal")]
-        public Output<bool?> ShowInPortal { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ApplicationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -189,76 +111,16 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
-        /// Resource Type of Application.
+        /// Detailed properties for Application
         /// </summary>
-        [Input("applicationType")]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210712.RemoteApplicationType>? ApplicationType { get; set; }
-
-        /// <summary>
-        /// Command Line Arguments for Application.
-        /// </summary>
-        [Input("commandLineArguments")]
-        public Input<string>? CommandLineArguments { get; set; }
-
-        /// <summary>
-        /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-        /// </summary>
-        [Input("commandLineSetting", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210712.CommandLineSetting> CommandLineSetting { get; set; } = null!;
-
-        /// <summary>
-        /// Description of Application.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Specifies a path for the executable file for the application.
-        /// </summary>
-        [Input("filePath")]
-        public Input<string>? FilePath { get; set; }
-
-        /// <summary>
-        /// Friendly name of Application.
-        /// </summary>
-        [Input("friendlyName")]
-        public Input<string>? FriendlyName { get; set; }
-
-        /// <summary>
-        /// Index of the icon.
-        /// </summary>
-        [Input("iconIndex")]
-        public Input<int>? IconIndex { get; set; }
-
-        /// <summary>
-        /// Path to icon.
-        /// </summary>
-        [Input("iconPath")]
-        public Input<string>? IconPath { get; set; }
-
-        /// <summary>
-        /// Specifies the package application Id for MSIX applications
-        /// </summary>
-        [Input("msixPackageApplicationId")]
-        public Input<string>? MsixPackageApplicationId { get; set; }
-
-        /// <summary>
-        /// Specifies the package family name for MSIX applications
-        /// </summary>
-        [Input("msixPackageFamilyName")]
-        public Input<string>? MsixPackageFamilyName { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ApplicationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether to show the RemoteApp program in the RD Web Access server.
-        /// </summary>
-        [Input("showInPortal")]
-        public Input<bool>? ShowInPortal { get; set; }
 
         public ApplicationArgs()
         {

@@ -47,7 +47,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     /**
      * The list of key properties for the reference data set.
      */
-    public readonly keyProperties!: pulumi.Output<outputs.timeseriesinsights.v20170228preview.ReferenceDataSetKeyPropertyResponse[]>;
+    public /*out*/ readonly keyProperties!: pulumi.Output<outputs.timeseriesinsights.v20170228preview.ReferenceDataSetKeyPropertyResponse[]>;
     /**
      * Resource location
      */
@@ -85,19 +85,20 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.keyProperties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyProperties'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["keyProperties"] = args ? args.keyProperties : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["referenceDataSetName"] = args ? args.referenceDataSetName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["keyProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -126,13 +127,13 @@ export interface ReferenceDataSetArgs {
      */
     environmentName: pulumi.Input<string>;
     /**
-     * The list of key properties for the reference data set.
-     */
-    keyProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20170228preview.ReferenceDataSetKeyPropertyArgs>[]>;
-    /**
      * The location of the resource.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Properties used to create a reference data set.
+     */
+    properties: pulumi.Input<inputs.timeseriesinsights.v20170228preview.ReferenceDataSetCreationPropertiesArgs>;
     /**
      * Name of the reference data set.
      */

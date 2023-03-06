@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._inputs import *
 
 __all__ = ['CertificateArgs', 'Certificate']
 
@@ -15,36 +16,24 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
-                 base64_value: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 properties: pulumi.Input['CertificateCreateOrUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 certificate_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 is_exportable: Optional[pulumi.Input[bool]] = None,
-                 thumbprint: Optional[pulumi.Input[str]] = None):
+                 certificate_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] base64_value: Gets or sets the base64 encoded value of the certificate.
         :param pulumi.Input[str] name: Gets or sets the name of the certificate.
+        :param pulumi.Input['CertificateCreateOrUpdatePropertiesArgs'] properties: Gets or sets the properties of the certificate.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] certificate_name: The parameters supplied to the create or update certificate operation.
-        :param pulumi.Input[str] description: Gets or sets the description of the certificate.
-        :param pulumi.Input[bool] is_exportable: Gets or sets the is exportable flag of the certificate.
-        :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "base64_value", base64_value)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if certificate_name is not None:
             pulumi.set(__self__, "certificate_name", certificate_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if is_exportable is not None:
-            pulumi.set(__self__, "is_exportable", is_exportable)
-        if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -59,18 +48,6 @@ class CertificateArgs:
         pulumi.set(self, "automation_account_name", value)
 
     @property
-    @pulumi.getter(name="base64Value")
-    def base64_value(self) -> pulumi.Input[str]:
-        """
-        Gets or sets the base64 encoded value of the certificate.
-        """
-        return pulumi.get(self, "base64_value")
-
-    @base64_value.setter
-    def base64_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "base64_value", value)
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
@@ -81,6 +58,18 @@ class CertificateArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CertificateCreateOrUpdatePropertiesArgs']:
+        """
+        Gets or sets the properties of the certificate.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CertificateCreateOrUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -106,42 +95,6 @@ class CertificateArgs:
     def certificate_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_name", value)
 
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the description of the certificate.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="isExportable")
-    def is_exportable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Gets or sets the is exportable flag of the certificate.
-        """
-        return pulumi.get(self, "is_exportable")
-
-    @is_exportable.setter
-    def is_exportable(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_exportable", value)
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the thumbprint of the certificate.
-        """
-        return pulumi.get(self, "thumbprint")
-
-    @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "thumbprint", value)
-
 
 class Certificate(pulumi.CustomResource):
     @overload
@@ -149,13 +102,10 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 base64_value: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 is_exportable: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CertificateCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 thumbprint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Definition of the certificate.
@@ -164,13 +114,10 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] base64_value: Gets or sets the base64 encoded value of the certificate.
         :param pulumi.Input[str] certificate_name: The parameters supplied to the create or update certificate operation.
-        :param pulumi.Input[str] description: Gets or sets the description of the certificate.
-        :param pulumi.Input[bool] is_exportable: Gets or sets the is exportable flag of the certificate.
         :param pulumi.Input[str] name: Gets or sets the name of the certificate.
+        :param pulumi.Input[pulumi.InputType['CertificateCreateOrUpdatePropertiesArgs']] properties: Gets or sets the properties of the certificate.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
         """
         ...
     @overload
@@ -198,13 +145,10 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 base64_value: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 is_exportable: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CertificateCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 thumbprint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -217,22 +161,22 @@ class Certificate(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
-            if base64_value is None and not opts.urn:
-                raise TypeError("Missing required property 'base64_value'")
-            __props__.__dict__["base64_value"] = base64_value
             __props__.__dict__["certificate_name"] = certificate_name
-            __props__.__dict__["description"] = description
-            __props__.__dict__["is_exportable"] = is_exportable
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["thumbprint"] = thumbprint
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["description"] = None
             __props__.__dict__["expiry_time"] = None
+            __props__.__dict__["is_exportable"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Certificate"), pulumi.Alias(type_="azure-native:automation/v20190601:Certificate"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Certificate"), pulumi.Alias(type_="azure-native:automation/v20220808:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

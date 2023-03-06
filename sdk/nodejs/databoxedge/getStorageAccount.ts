@@ -41,22 +41,6 @@ export interface GetStorageAccountArgs {
  */
 export interface GetStorageAccountResult {
     /**
-     * BlobEndpoint of Storage Account
-     */
-    readonly blobEndpoint: string;
-    /**
-     * The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-     */
-    readonly containerCount: number;
-    /**
-     * Data policy of the storage Account.
-     */
-    readonly dataPolicy: string;
-    /**
-     * Description for the storage Account.
-     */
-    readonly description?: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -65,13 +49,9 @@ export interface GetStorageAccountResult {
      */
     readonly name: string;
     /**
-     * Storage Account Credential Id
+     * The Storage Account properties.
      */
-    readonly storageAccountCredentialId?: string;
-    /**
-     * Current status of the storage account
-     */
-    readonly storageAccountStatus?: string;
+    readonly properties: outputs.databoxedge.StorageAccountPropertiesResponse;
     /**
      * StorageAccount object on ASE device
      */

@@ -17,64 +17,22 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public partial class FileShare : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-        /// </summary>
-        [Output("adminUser")]
-        public Output<string> AdminUser { get; private set; } = null!;
-
-        /// <summary>
-        /// The data policy
-        /// </summary>
-        [Output("dataPolicy")]
-        public Output<string> DataPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// Description for file share
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The local used capacity in Bytes.
-        /// </summary>
-        [Output("localUsedCapacityInBytes")]
-        public Output<double> LocalUsedCapacityInBytes { get; private set; } = null!;
-
-        /// <summary>
-        /// The monitoring status
-        /// </summary>
-        [Output("monitoringStatus")]
-        public Output<string> MonitoringStatus { get; private set; } = null!;
-
-        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The total provisioned capacity in Bytes
+        /// The properties.
         /// </summary>
-        [Output("provisionedCapacityInBytes")]
-        public Output<double> ProvisionedCapacityInBytes { get; private set; } = null!;
-
-        /// <summary>
-        /// The Share Status
-        /// </summary>
-        [Output("shareStatus")]
-        public Output<string> ShareStatus { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.FileSharePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The used capacity in Bytes.
-        /// </summary>
-        [Output("usedCapacityInBytes")]
-        public Output<double> UsedCapacityInBytes { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,24 +80,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class FileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-        /// </summary>
-        [Input("adminUser", required: true)]
-        public Input<string> AdminUser { get; set; } = null!;
-
-        /// <summary>
-        /// The data policy
-        /// </summary>
-        [Input("dataPolicy", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.DataPolicy> DataPolicy { get; set; } = null!;
-
-        /// <summary>
-        /// Description for file share
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -158,16 +98,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The monitoring status
+        /// The properties.
         /// </summary>
-        [Input("monitoringStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.MonitoringStatus> MonitoringStatus { get; set; } = null!;
-
-        /// <summary>
-        /// The total provisioned capacity in Bytes
-        /// </summary>
-        [Input("provisionedCapacityInBytes", required: true)]
-        public Input<double> ProvisionedCapacityInBytes { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.FileSharePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name
@@ -180,12 +114,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         [Input("shareName")]
         public Input<string>? ShareName { get; set; }
-
-        /// <summary>
-        /// The Share Status
-        /// </summary>
-        [Input("shareStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.ShareStatus> ShareStatus { get; set; } = null!;
 
         public FileShareArgs()
         {

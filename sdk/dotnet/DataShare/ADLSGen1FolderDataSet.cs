@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.DataShare
     public partial class ADLSGen1FolderDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ADLS account name.
-        /// </summary>
-        [Output("accountName")]
-        public Output<string> AccountName { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// The folder path within the ADLS account.
-        /// </summary>
-        [Output("folderPath")]
-        public Output<string> FolderPath { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'AdlsGen1Folder'.
         /// </summary>
@@ -48,16 +30,10 @@ namespace Pulumi.AzureNative.DataShare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource group of ADLS account.
+        /// ADLS Gen 1 folder data set properties.
         /// </summary>
-        [Output("resourceGroup")]
-        public Output<string> ResourceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription id of ADLS account.
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ADLSGen1FolderPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -132,7 +108,7 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class ADLSGen1FolderDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ADLS account name.
+        /// The name of the share account.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -144,12 +120,6 @@ namespace Pulumi.AzureNative.DataShare
         public Input<string>? DataSetName { get; set; }
 
         /// <summary>
-        /// The folder path within the ADLS account.
-        /// </summary>
-        [Input("folderPath", required: true)]
-        public Input<string> FolderPath { get; set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'AdlsGen1Folder'.
         /// </summary>
@@ -157,10 +127,10 @@ namespace Pulumi.AzureNative.DataShare
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource group of ADLS account.
+        /// ADLS Gen 1 folder data set properties.
         /// </summary>
-        [Input("resourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ADLSGen1FolderPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -173,12 +143,6 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription id of ADLS account.
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
 
         public ADLSGen1FolderDataSetArgs()
         {

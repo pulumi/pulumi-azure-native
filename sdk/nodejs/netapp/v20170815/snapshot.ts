@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -38,14 +41,6 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * The creation date of the snapshot
-     */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    /**
-     * UUID v4 used to identify the FileSystem
-     */
-    public readonly fileSystemId!: pulumi.Output<string>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -54,13 +49,9 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure lifecycle management
+     * Snapshot Properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * UUID v4 used to identify the Snapshot
-     */
-    public /*out*/ readonly snapshotId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20170815.SnapshotPropertiesResponse>;
     /**
      * Resource type
      */
@@ -82,11 +73,11 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fileSystemId'");
-            }
             if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -95,24 +86,18 @@ export class Snapshot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumeName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["snapshotId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["creationDate"] = undefined /*out*/;
-            resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,10 +116,6 @@ export interface SnapshotArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * UUID v4 used to identify the FileSystem
-     */
-    fileSystemId: pulumi.Input<string>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
@@ -142,6 +123,10 @@ export interface SnapshotArgs {
      * The name of the capacity pool
      */
     poolName: pulumi.Input<string>;
+    /**
+     * Snapshot Properties
+     */
+    properties: pulumi.Input<inputs.netapp.v20170815.SnapshotPropertiesArgs>;
     /**
      * The name of the resource group.
      */

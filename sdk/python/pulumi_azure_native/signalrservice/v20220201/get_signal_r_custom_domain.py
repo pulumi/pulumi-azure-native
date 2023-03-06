@@ -22,44 +22,22 @@ class GetSignalRCustomDomainResult:
     """
     A custom domain
     """
-    def __init__(__self__, custom_certificate=None, domain_name=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
-        if custom_certificate and not isinstance(custom_certificate, dict):
-            raise TypeError("Expected argument 'custom_certificate' to be a dict")
-        pulumi.set(__self__, "custom_certificate", custom_certificate)
-        if domain_name and not isinstance(domain_name, str):
-            raise TypeError("Expected argument 'domain_name' to be a str")
-        pulumi.set(__self__, "domain_name", domain_name)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="customCertificate")
-    def custom_certificate(self) -> 'outputs.ResourceReferenceResponse':
-        """
-        Reference to a resource.
-        """
-        return pulumi.get(self, "custom_certificate")
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
-        """
-        The custom domain name.
-        """
-        return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
@@ -78,12 +56,12 @@ class GetSignalRCustomDomainResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.CustomDomainPropertiesResponse':
         """
-        Provisioning state of the resource.
+        Properties of a custom domain.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -108,11 +86,9 @@ class AwaitableGetSignalRCustomDomainResult(GetSignalRCustomDomainResult):
         if False:
             yield self
         return GetSignalRCustomDomainResult(
-            custom_certificate=self.custom_certificate,
-            domain_name=self.domain_name,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -137,11 +113,9 @@ def get_signal_r_custom_domain(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:signalrservice/v20220201:getSignalRCustomDomain', __args__, opts=opts, typ=GetSignalRCustomDomainResult).value
 
     return AwaitableGetSignalRCustomDomainResult(
-        custom_certificate=__ret__.custom_certificate,
-        domain_name=__ret__.domain_name,
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

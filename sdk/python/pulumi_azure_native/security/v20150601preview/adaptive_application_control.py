@@ -181,12 +181,9 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
             __props__.__dict__["path_recommendations"] = path_recommendations
             __props__.__dict__["protection_mode"] = protection_mode
             __props__.__dict__["vm_recommendations"] = vm_recommendations
-            __props__.__dict__["configuration_status"] = None
-            __props__.__dict__["issues"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["recommendation_status"] = None
-            __props__.__dict__["source_system"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-native:security/v20200101:AdaptiveApplicationControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -212,39 +209,11 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
         __props__ = AdaptiveApplicationControlArgs.__new__(AdaptiveApplicationControlArgs)
 
-        __props__.__dict__["configuration_status"] = None
-        __props__.__dict__["enforcement_mode"] = None
-        __props__.__dict__["issues"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["path_recommendations"] = None
-        __props__.__dict__["protection_mode"] = None
-        __props__.__dict__["recommendation_status"] = None
-        __props__.__dict__["source_system"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["vm_recommendations"] = None
         return AdaptiveApplicationControl(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="configurationStatus")
-    def configuration_status(self) -> pulumi.Output[Optional[str]]:
-        """
-        The configuration status of the VM/server group or machine or rule on the machine
-        """
-        return pulumi.get(self, "configuration_status")
-
-    @property
-    @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        The application control policy enforcement/protection mode of the VM/server group
-        """
-        return pulumi.get(self, "enforcement_mode")
-
-    @property
-    @pulumi.getter
-    def issues(self) -> pulumi.Output[Optional[Sequence['outputs.AppWhitelistingIssueSummaryResponse']]]:
-        return pulumi.get(self, "issues")
 
     @property
     @pulumi.getter
@@ -263,33 +232,12 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="pathRecommendations")
-    def path_recommendations(self) -> pulumi.Output[Optional[Sequence['outputs.PathRecommendationResponse']]]:
-        return pulumi.get(self, "path_recommendations")
-
-    @property
-    @pulumi.getter(name="protectionMode")
-    def protection_mode(self) -> pulumi.Output[Optional['outputs.ProtectionModeResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.AppWhitelistingGroupDataResponse']:
         """
-        The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        Represents a VM/server group and set of rules that are Recommended by Microsoft Defender for Cloud to be allowed
         """
-        return pulumi.get(self, "protection_mode")
-
-    @property
-    @pulumi.getter(name="recommendationStatus")
-    def recommendation_status(self) -> pulumi.Output[Optional[str]]:
-        """
-        The recommendation status of the VM/server group or VM/server
-        """
-        return pulumi.get(self, "recommendation_status")
-
-    @property
-    @pulumi.getter(name="sourceSystem")
-    def source_system(self) -> pulumi.Output[Optional[str]]:
-        """
-        The source type of the VM/server group
-        """
-        return pulumi.get(self, "source_system")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -298,9 +246,4 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vmRecommendations")
-    def vm_recommendations(self) -> pulumi.Output[Optional[Sequence['outputs.VmRecommendationResponse']]]:
-        return pulumi.get(self, "vm_recommendations")
 

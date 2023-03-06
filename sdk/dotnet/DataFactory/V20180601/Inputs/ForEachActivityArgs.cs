@@ -15,24 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class ForEachActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("activities", required: true)]
-        private InputList<object>? _activities;
-
-        /// <summary>
-        /// List of activities to execute .
-        /// </summary>
-        public InputList<object> Activities
-        {
-            get => _activities ?? (_activities = new InputList<object>());
-            set => _activities = value;
-        }
-
-        /// <summary>
-        /// Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
-        /// </summary>
-        [Input("batchCount")]
-        public Input<int>? BatchCount { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -52,18 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Should the loop be executed in sequence or in parallel (max 50)
-        /// </summary>
-        [Input("isSequential")]
-        public Input<bool>? IsSequential { get; set; }
-
-        /// <summary>
-        /// Collection to iterate.
-        /// </summary>
-        [Input("items", required: true)]
-        public Input<Inputs.ExpressionArgs> Items { get; set; } = null!;
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
@@ -75,6 +45,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// ForEach activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ForEachActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

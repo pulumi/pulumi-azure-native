@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._inputs import *
 
 __all__ = ['VirtualNetworkRuleArgs', 'VirtualNetworkRule']
 
@@ -15,19 +16,19 @@ __all__ = ['VirtualNetworkRuleArgs', 'VirtualNetworkRule']
 class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
+                 properties: pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 subnet_id: pulumi.Input[str],
                  virtual_network_rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRule resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
+        :param pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs'] properties: The virtual network rule properties to use when creating a new virtual network rule.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-        :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
         :param pulumi.Input[str] virtual_network_rule_name: The name of the virtual network rule to create or update.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_rule_name is not None:
             pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
 
@@ -44,6 +45,18 @@ class VirtualNetworkRuleArgs:
         pulumi.set(self, "account_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs']:
+        """
+        The virtual network rule properties to use when creating a new virtual network rule.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -54,18 +67,6 @@ class VirtualNetworkRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Input[str]:
-        """
-        The resource identifier for the subnet.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subnet_id", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRuleName")
@@ -86,8 +87,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateVirtualNetworkRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -97,8 +98,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
+        :param pulumi.Input[pulumi.InputType['CreateOrUpdateVirtualNetworkRulePropertiesArgs']] properties: The virtual network rule properties to use when creating a new virtual network rule.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-        :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
         :param pulumi.Input[str] virtual_network_rule_name: The name of the virtual network rule to create or update.
         """
         ...
@@ -127,8 +128,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateVirtualNetworkRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -142,14 +143,15 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if subnet_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subnet_id'")
-            __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["virtual_network_rule_name"] = virtual_network_rule_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["subnet_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakestore/v20161101:VirtualNetworkRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -107,21 +107,9 @@ namespace Pulumi.AzureNative.NetApp.V20200501
     public sealed class GetBackupResult
     {
         /// <summary>
-        /// Type of backup Manual or Scheduled
-        /// </summary>
-        public readonly string BackupType;
-        /// <summary>
-        /// The creation date of the backup
-        /// </summary>
-        public readonly string CreationDate;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Label for backup
-        /// </summary>
-        public readonly string? Label;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -131,13 +119,9 @@ namespace Pulumi.AzureNative.NetApp.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup Properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Size of backup
-        /// </summary>
-        public readonly double Size;
+        public readonly Outputs.BackupPropertiesResponse Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -145,32 +129,20 @@ namespace Pulumi.AzureNative.NetApp.V20200501
 
         [OutputConstructor]
         private GetBackupResult(
-            string backupType,
-
-            string creationDate,
-
             string id,
-
-            string? label,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            double size,
+            Outputs.BackupPropertiesResponse properties,
 
             string type)
         {
-            BackupType = backupType;
-            CreationDate = creationDate;
             Id = id;
-            Label = label;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Size = size;
+            Properties = properties;
             Type = type;
         }
     }

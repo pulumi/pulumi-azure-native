@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
     public sealed class CmdkeySetupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The password of data source access.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<Inputs.SecureStringArgs> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The server name of data source access.
-        /// </summary>
-        [Input("targetName", required: true)]
-        public Input<object> TargetName { get; set; } = null!;
-
-        /// <summary>
         /// The type of custom setup.
         /// Expected value is 'CmdkeySetup'.
         /// </summary>
@@ -35,10 +23,10 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The user name of data source access.
+        /// Cmdkey command custom setup type properties.
         /// </summary>
-        [Input("userName", required: true)]
-        public Input<object> UserName { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CmdkeySetupTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public CmdkeySetupArgs()
         {

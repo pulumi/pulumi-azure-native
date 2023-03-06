@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
     public sealed class GetguestDiagnosticsSettingResult
     {
         /// <summary>
-        /// the array of data source object which are configured to collect and send data
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DataSourceResponse> DataSources;
-        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -86,10 +82,9 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Operating system type for the configuration
+        /// The diagnostic settings to be applied to azure resources.
         /// </summary>
-        public readonly string? OsType;
-        public readonly string? ProxySetting;
+        public readonly Outputs.GuestDiagnosticSettingsResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -101,28 +96,22 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
 
         [OutputConstructor]
         private GetguestDiagnosticsSettingResult(
-            ImmutableArray<Outputs.DataSourceResponse> dataSources,
-
             string id,
 
             string location,
 
             string name,
 
-            string? osType,
-
-            string? proxySetting,
+            Outputs.GuestDiagnosticSettingsResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            DataSources = dataSources;
             Id = id;
             Location = location;
             Name = name;
-            OsType = osType;
-            ProxySetting = proxySetting;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

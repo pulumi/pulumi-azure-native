@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
-        /// </summary>
-        public readonly object? AuthHeaders;
-        /// <summary>
-        /// The authentication type to be used to connect to the HTTP server.
-        /// </summary>
-        public readonly string? AuthenticationType;
-        /// <summary>
-        /// Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? CertThumbprint;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -41,83 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EmbeddedCertData;
-        /// <summary>
-        /// If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? EnableServerCertificateValidation;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'HttpServer'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
+        /// Properties specific to this linked service type.
         /// </summary>
-        public readonly object Url;
-        /// <summary>
-        /// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? UserName;
+        public readonly Outputs.HttpLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private HttpLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            object? authHeaders,
-
-            string? authenticationType,
-
-            object? certThumbprint,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? embeddedCertData,
-
-            object? enableServerCertificateValidation,
-
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            object url,
-
-            object? userName)
+            Outputs.HttpLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            AuthHeaders = authHeaders;
-            AuthenticationType = authenticationType;
-            CertThumbprint = certThumbprint;
             ConnectVia = connectVia;
             Description = description;
-            EmbeddedCertData = embeddedCertData;
-            EnableServerCertificateValidation = enableServerCertificateValidation;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            Url = url;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

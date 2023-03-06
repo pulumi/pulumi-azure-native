@@ -39,25 +39,13 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * The identity
-     */
-    public /*out*/ readonly clusterId!: pulumi.Output<number>;
-    /**
-     * The cluster size
-     */
-    public readonly clusterSize!: pulumi.Output<number>;
-    /**
-     * The hosts
-     */
-    public /*out*/ readonly hosts!: pulumi.Output<string[]>;
-    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The state of the cluster provisioning
+     * The properties of a cluster resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.avs.ClusterPropertiesResponse>;
     /**
      * The cluster SKU
      */
@@ -78,11 +66,11 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterSize === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterSize'");
-            }
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -91,21 +79,15 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterSize"] = args ? args.clusterSize : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["hosts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["clusterSize"] = undefined /*out*/;
-            resourceInputs["hosts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -125,13 +107,13 @@ export interface ClusterArgs {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * The cluster size
-     */
-    clusterSize: pulumi.Input<number>;
-    /**
      * The name of the private cloud.
      */
     privateCloudName: pulumi.Input<string>;
+    /**
+     * The properties of a cluster resource
+     */
+    properties: pulumi.Input<inputs.avs.ClusterPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

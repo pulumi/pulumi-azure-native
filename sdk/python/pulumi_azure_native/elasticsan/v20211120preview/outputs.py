@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ElasticSanPropertiesResponse',
     'IscsiTargetInfoResponse',
     'NetworkRuleSetResponse',
     'SkuResponse',
@@ -19,6 +20,161 @@ __all__ = [
     'SystemDataResponse',
     'VirtualNetworkRuleResponse',
 ]
+
+@pulumi.output_type
+class ElasticSanPropertiesResponse(dict):
+    """
+    Elastic San response properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseSizeTiB":
+            suggest = "base_size_ti_b"
+        elif key == "extendedCapacitySizeTiB":
+            suggest = "extended_capacity_size_ti_b"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "totalIops":
+            suggest = "total_iops"
+        elif key == "totalMBps":
+            suggest = "total_m_bps"
+        elif key == "totalSizeTiB":
+            suggest = "total_size_ti_b"
+        elif key == "totalVolumeSizeGiB":
+            suggest = "total_volume_size_gi_b"
+        elif key == "volumeGroupCount":
+            suggest = "volume_group_count"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSanPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSanPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSanPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_size_ti_b: float,
+                 extended_capacity_size_ti_b: float,
+                 provisioning_state: str,
+                 sku: 'outputs.SkuResponse',
+                 total_iops: float,
+                 total_m_bps: float,
+                 total_size_ti_b: float,
+                 total_volume_size_gi_b: float,
+                 volume_group_count: float,
+                 availability_zones: Optional[Sequence[str]] = None):
+        """
+        Elastic San response properties.
+        :param float base_size_ti_b: Base size of the Elastic San appliance in TiB.
+        :param float extended_capacity_size_ti_b: Extended size of the Elastic San appliance in TiB.
+        :param str provisioning_state: State of the operation on the resource.
+        :param 'SkuResponse' sku: resource sku
+        :param float total_iops: Total Provisioned IOPS of the Elastic San appliance.
+        :param float total_m_bps: Total Provisioned MBps Elastic San appliance.
+        :param float total_size_ti_b: Total size of the Elastic San appliance in TB.
+        :param float total_volume_size_gi_b: Total size of the provisioned Volumes in GiB.
+        :param float volume_group_count: Total number of volume groups in this Elastic San appliance.
+        :param Sequence[str] availability_zones: Logical zone for Elastic San resource; example: ["1"].
+        """
+        pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
+        pulumi.set(__self__, "extended_capacity_size_ti_b", extended_capacity_size_ti_b)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "total_iops", total_iops)
+        pulumi.set(__self__, "total_m_bps", total_m_bps)
+        pulumi.set(__self__, "total_size_ti_b", total_size_ti_b)
+        pulumi.set(__self__, "total_volume_size_gi_b", total_volume_size_gi_b)
+        pulumi.set(__self__, "volume_group_count", volume_group_count)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @property
+    @pulumi.getter(name="baseSizeTiB")
+    def base_size_ti_b(self) -> float:
+        """
+        Base size of the Elastic San appliance in TiB.
+        """
+        return pulumi.get(self, "base_size_ti_b")
+
+    @property
+    @pulumi.getter(name="extendedCapacitySizeTiB")
+    def extended_capacity_size_ti_b(self) -> float:
+        """
+        Extended size of the Elastic San appliance in TiB.
+        """
+        return pulumi.get(self, "extended_capacity_size_ti_b")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the operation on the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
+        """
+        resource sku
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="totalIops")
+    def total_iops(self) -> float:
+        """
+        Total Provisioned IOPS of the Elastic San appliance.
+        """
+        return pulumi.get(self, "total_iops")
+
+    @property
+    @pulumi.getter(name="totalMBps")
+    def total_m_bps(self) -> float:
+        """
+        Total Provisioned MBps Elastic San appliance.
+        """
+        return pulumi.get(self, "total_m_bps")
+
+    @property
+    @pulumi.getter(name="totalSizeTiB")
+    def total_size_ti_b(self) -> float:
+        """
+        Total size of the Elastic San appliance in TB.
+        """
+        return pulumi.get(self, "total_size_ti_b")
+
+    @property
+    @pulumi.getter(name="totalVolumeSizeGiB")
+    def total_volume_size_gi_b(self) -> float:
+        """
+        Total size of the provisioned Volumes in GiB.
+        """
+        return pulumi.get(self, "total_volume_size_gi_b")
+
+    @property
+    @pulumi.getter(name="volumeGroupCount")
+    def volume_group_count(self) -> float:
+        """
+        Total number of volume groups in this Elastic San appliance.
+        """
+        return pulumi.get(self, "volume_group_count")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        Logical zone for Elastic San resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
 
 @pulumi.output_type
 class IscsiTargetInfoResponse(dict):

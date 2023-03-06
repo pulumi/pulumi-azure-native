@@ -42,33 +42,13 @@ export class Schedule extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Notes for this schedule.
+     * Schedule resource properties
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
-    /**
-     * Current provisioning state of the schedule.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The recurrence pattern of the scheduled actions.
-     */
-    public readonly recurrencePattern!: pulumi.Output<outputs.labservices.v20220801.RecurrencePatternResponse | undefined>;
-    /**
-     * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-     */
-    public readonly startAt!: pulumi.Output<string | undefined>;
-    /**
-     * When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-     */
-    public readonly stopAt!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.labservices.v20220801.SchedulePropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the schedule.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.labservices.v20220801.SystemDataResponse>;
-    /**
-     * The IANA timezone id for the schedule.
-     */
-    public readonly timeZoneId!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -88,36 +68,23 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stopAt === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'stopAt'");
-            }
-            if ((!args || args.timeZoneId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'timeZoneId'");
-            }
             resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["recurrencePattern"] = args ? args.recurrencePattern : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
-            resourceInputs["startAt"] = args ? args.startAt : undefined;
-            resourceInputs["stopAt"] = args ? args.stopAt : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["notes"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["recurrencePattern"] = undefined /*out*/;
-            resourceInputs["startAt"] = undefined /*out*/;
-            resourceInputs["stopAt"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["timeZoneId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -136,13 +103,9 @@ export interface ScheduleArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * Notes for this schedule.
+     * Schedule resource properties
      */
-    notes?: pulumi.Input<string>;
-    /**
-     * The recurrence pattern of the scheduled actions.
-     */
-    recurrencePattern?: pulumi.Input<inputs.labservices.v20220801.RecurrencePatternArgs>;
+    properties: pulumi.Input<inputs.labservices.v20220801.SchedulePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,16 +114,4 @@ export interface ScheduleArgs {
      * The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
      */
     scheduleName?: pulumi.Input<string>;
-    /**
-     * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-     */
-    startAt?: pulumi.Input<string>;
-    /**
-     * When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-     */
-    stopAt: pulumi.Input<string>;
-    /**
-     * The IANA timezone id for the schedule.
-     */
-    timeZoneId: pulumi.Input<string>;
 }

@@ -11,10 +11,63 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'FirewallRulePropertiesResponse',
     'ResourceIdentityResponse',
     'SkuResponse',
     'StorageProfileResponse',
 ]
+
+@pulumi.output_type
+class FirewallRulePropertiesResponse(dict):
+    """
+    The properties of a server firewall rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIpAddress":
+            suggest = "end_ip_address"
+        elif key == "startIpAddress":
+            suggest = "start_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip_address: str,
+                 start_ip_address: str):
+        """
+        The properties of a server firewall rule.
+        :param str end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
+        :param str start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
+        """
+        The end IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
+        """
+        The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "start_ip_address")
+
 
 @pulumi.output_type
 class ResourceIdentityResponse(dict):

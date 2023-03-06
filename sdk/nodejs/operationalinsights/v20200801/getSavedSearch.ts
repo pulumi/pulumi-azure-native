@@ -40,25 +40,9 @@ export interface GetSavedSearchArgs {
  */
 export interface GetSavedSearchResult {
     /**
-     * The category of the saved search. This helps the user to find a saved search faster. 
-     */
-    readonly category: string;
-    /**
-     * Saved search display name.
-     */
-    readonly displayName: string;
-    /**
      * The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
      */
     readonly etag?: string;
-    /**
-     * The function alias if query serves as a function.
-     */
-    readonly functionAlias?: string;
-    /**
-     * The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
-     */
-    readonly functionParameters?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -68,21 +52,13 @@ export interface GetSavedSearchResult {
      */
     readonly name: string;
     /**
-     * The query expression for the saved search.
+     * The properties of the saved search.
      */
-    readonly query: string;
-    /**
-     * The tags attached to the saved search.
-     */
-    readonly tags?: outputs.operationalinsights.v20200801.TagResponse[];
+    readonly properties: outputs.operationalinsights.v20200801.SavedSearchPropertiesResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The version number of the query language. The current version is 2 and is the default.
-     */
-    readonly version?: number;
 }
 /**
  * Gets the specified saved search for a given workspace.

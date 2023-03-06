@@ -37,26 +37,6 @@ export interface GetVirtualNetworkGatewayConnectionArgs {
  */
 export interface GetVirtualNetworkGatewayConnectionResult {
     /**
-     * The authorizationKey.
-     */
-    readonly authorizationKey?: string;
-    /**
-     * Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
-     */
-    readonly connectionStatus: string;
-    /**
-     * Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
-     */
-    readonly connectionType: string;
-    /**
-     * The egress bytes transferred in this connection.
-     */
-    readonly egressBytesTransferred: number;
-    /**
-     * EnableBgp flag
-     */
-    readonly enableBgp?: boolean;
-    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -64,18 +44,6 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      * Resource ID.
      */
     readonly id?: string;
-    /**
-     * The ingress bytes transferred in this connection.
-     */
-    readonly ingressBytesTransferred: number;
-    /**
-     * The IPSec Policies to be considered by this connection.
-     */
-    readonly ipsecPolicies?: outputs.network.v20170901.IpsecPolicyResponse[];
-    /**
-     * The reference to local network gateway resource.
-     */
-    readonly localNetworkGateway2?: outputs.network.v20170901.LocalNetworkGatewayResponse;
     /**
      * Resource location.
      */
@@ -85,49 +53,17 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly name: string;
     /**
-     * The reference to peerings resource.
+     * Properties of the virtual network gateway connection.
      */
-    readonly peer?: outputs.network.v20170901.SubResourceResponse;
-    /**
-     * The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-     */
-    readonly provisioningState: string;
-    /**
-     * The resource GUID property of the VirtualNetworkGatewayConnection resource.
-     */
-    readonly resourceGuid?: string;
-    /**
-     * The routing weight.
-     */
-    readonly routingWeight?: number;
-    /**
-     * The IPSec shared key.
-     */
-    readonly sharedKey?: string;
+    readonly properties: outputs.network.v20170901.VirtualNetworkGatewayConnectionPropertiesFormatResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Collection of all tunnels' connection health status.
-     */
-    readonly tunnelConnectionStatus: outputs.network.v20170901.TunnelConnectionHealthResponse[];
-    /**
      * Resource type.
      */
     readonly type: string;
-    /**
-     * Enable policy-based traffic selectors.
-     */
-    readonly usePolicyBasedTrafficSelectors?: boolean;
-    /**
-     * The reference to virtual network gateway resource.
-     */
-    readonly virtualNetworkGateway1: outputs.network.v20170901.VirtualNetworkGatewayResponse;
-    /**
-     * The reference to virtual network gateway resource.
-     */
-    readonly virtualNetworkGateway2?: outputs.network.v20170901.VirtualNetworkGatewayResponse;
 }
 /**
  * Gets the specified virtual network gateway connection by resource group.

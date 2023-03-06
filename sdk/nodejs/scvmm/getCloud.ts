@@ -36,14 +36,6 @@ export interface GetCloudArgs {
  */
 export interface GetCloudResult {
     /**
-     * Capacity of the cloud.
-     */
-    readonly cloudCapacity: outputs.scvmm.CloudCapacityResponse;
-    /**
-     * Name of the cloud in VMMServer.
-     */
-    readonly cloudName: string;
-    /**
      * The extended location.
      */
     readonly extendedLocation: outputs.scvmm.ExtendedLocationResponse;
@@ -51,10 +43,6 @@ export interface GetCloudResult {
      * Resource Id
      */
     readonly id: string;
-    /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    readonly inventoryItemId?: string;
     /**
      * Gets or sets the location.
      */
@@ -64,13 +52,9 @@ export interface GetCloudResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * List of QoS policies available for the cloud.
-     */
-    readonly storageQoSPolicies: outputs.scvmm.StorageQoSPolicyResponse[];
+    readonly properties: outputs.scvmm.CloudPropertiesResponse;
     /**
      * The system data.
      */
@@ -83,14 +67,6 @@ export interface GetCloudResult {
      * Resource Type
      */
     readonly type: string;
-    /**
-     * Unique ID of the cloud.
-     */
-    readonly uuid?: string;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    readonly vmmServerId?: string;
 }
 /**
  * Implements Cloud GET method.

@@ -35,29 +35,9 @@ export interface GetApplicationGroupArgs {
  */
 export interface GetApplicationGroupResult {
     /**
-     * Resource Type of ApplicationGroup.
-     */
-    readonly applicationGroupType: string;
-    /**
-     * Is cloud pc resource.
-     */
-    readonly cloudPcResource: boolean;
-    /**
-     * Description of ApplicationGroup.
-     */
-    readonly description?: string;
-    /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
     readonly etag: string;
-    /**
-     * Friendly name of ApplicationGroup.
-     */
-    readonly friendlyName?: string;
-    /**
-     * HostPool arm path of ApplicationGroup.
-     */
-    readonly hostPoolArmPath: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -76,18 +56,14 @@ export interface GetApplicationGroupResult {
      */
     readonly managedBy?: string;
     /**
-     * The registration info of HostPool.
-     */
-    readonly migrationRequest?: outputs.desktopvirtualization.v20210401preview.MigrationRequestPropertiesResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * ObjectId of ApplicationGroup. (internal use)
-     */
-    readonly objectId: string;
     readonly plan?: outputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetResponsePlan;
+    /**
+     * Detailed properties for ApplicationGroup
+     */
+    readonly properties: outputs.desktopvirtualization.v20210401preview.ApplicationGroupPropertiesResponse;
     readonly sku?: outputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetResponseSku;
     /**
      * Resource tags.
@@ -97,10 +73,6 @@ export interface GetApplicationGroupResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Workspace arm path of ApplicationGroup.
-     */
-    readonly workspaceArmPath: string;
 }
 /**
  * Get an application group.

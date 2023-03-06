@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The list of event types that cause this trigger to fire.
-        /// </summary>
-        public readonly ImmutableArray<object> Events;
-        /// <summary>
         /// Pipelines that need to be started.
         /// </summary>
         public readonly ImmutableArray<Outputs.TriggerPipelineReferenceResponse> Pipelines;
@@ -37,22 +33,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string RuntimeState;
         /// <summary>
-        /// The ARM resource ID of the Azure Event Grid Topic.
-        /// </summary>
-        public readonly string Scope;
-        /// <summary>
-        /// The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
-        /// </summary>
-        public readonly string? SubjectBeginsWith;
-        /// <summary>
-        /// The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
-        /// </summary>
-        public readonly string? SubjectEndsWith;
-        /// <summary>
         /// Trigger type.
         /// Expected value is 'CustomEventsTrigger'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Custom Events Trigger properties.
+        /// </summary>
+        public readonly Outputs.CustomEventsTriggerResponseTypeProperties TypeProperties;
 
         [OutputConstructor]
         private CustomEventsTriggerResponse(
@@ -60,29 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            ImmutableArray<object> events,
-
             ImmutableArray<Outputs.TriggerPipelineReferenceResponse> pipelines,
 
             string runtimeState,
 
-            string scope,
+            string type,
 
-            string? subjectBeginsWith,
-
-            string? subjectEndsWith,
-
-            string type)
+            Outputs.CustomEventsTriggerResponseTypeProperties typeProperties)
         {
             Annotations = annotations;
             Description = description;
-            Events = events;
             Pipelines = pipelines;
             RuntimeState = runtimeState;
-            Scope = scope;
-            SubjectBeginsWith = subjectBeginsWith;
-            SubjectEndsWith = subjectEndsWith;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

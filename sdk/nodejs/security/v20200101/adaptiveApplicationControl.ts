@@ -35,15 +35,6 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     }
 
     /**
-     * The configuration status of the machines group or machine or rule
-     */
-    public /*out*/ readonly configurationStatus!: pulumi.Output<string>;
-    /**
-     * The application control policy enforcement/protection mode of the machine group
-     */
-    public readonly enforcementMode!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly issues!: pulumi.Output<outputs.security.v20200101.AdaptiveApplicationControlIssueSummaryResponse[]>;
-    /**
      * Location where the resource is stored
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
@@ -51,24 +42,14 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly pathRecommendations!: pulumi.Output<outputs.security.v20200101.PathRecommendationResponse[] | undefined>;
     /**
-     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+     * Represents a machines group and set of rules to be allowed running on a machine
      */
-    public readonly protectionMode!: pulumi.Output<outputs.security.v20200101.ProtectionModeResponse | undefined>;
-    /**
-     * The initial recommendation status of the machine group or machine
-     */
-    public /*out*/ readonly recommendationStatus!: pulumi.Output<string>;
-    /**
-     * The source type of the machine group
-     */
-    public /*out*/ readonly sourceSystem!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.security.v20200101.AdaptiveApplicationControlGroupDataResponse>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    public readonly vmRecommendations!: pulumi.Output<outputs.security.v20200101.VmRecommendationResponse[] | undefined>;
 
     /**
      * Create a AdaptiveApplicationControl resource with the given unique name, arguments, and options.
@@ -84,31 +65,20 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             if ((!args || args.ascLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ascLocation'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             resourceInputs["ascLocation"] = args ? args.ascLocation : undefined;
-            resourceInputs["enforcementMode"] = args ? args.enforcementMode : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["pathRecommendations"] = args ? args.pathRecommendations : undefined;
-            resourceInputs["protectionMode"] = args ? args.protectionMode : undefined;
-            resourceInputs["vmRecommendations"] = args ? args.vmRecommendations : undefined;
-            resourceInputs["configurationStatus"] = undefined /*out*/;
-            resourceInputs["issues"] = undefined /*out*/;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["recommendationStatus"] = undefined /*out*/;
-            resourceInputs["sourceSystem"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["configurationStatus"] = undefined /*out*/;
-            resourceInputs["enforcementMode"] = undefined /*out*/;
-            resourceInputs["issues"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["pathRecommendations"] = undefined /*out*/;
-            resourceInputs["protectionMode"] = undefined /*out*/;
-            resourceInputs["recommendationStatus"] = undefined /*out*/;
-            resourceInputs["sourceSystem"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmRecommendations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:security:AdaptiveApplicationControl" }, { type: "azure-native:security/v20150601preview:AdaptiveApplicationControl" }] };
@@ -126,17 +96,11 @@ export interface AdaptiveApplicationControlArgs {
      */
     ascLocation: pulumi.Input<string>;
     /**
-     * The application control policy enforcement/protection mode of the machine group
-     */
-    enforcementMode?: pulumi.Input<string>;
-    /**
      * Name of an application control machine group
      */
     groupName?: pulumi.Input<string>;
-    pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.PathRecommendationArgs>[]>;
     /**
-     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+     * Represents a machines group and set of rules to be allowed running on a machine
      */
-    protectionMode?: pulumi.Input<inputs.security.v20200101.ProtectionModeArgs>;
-    vmRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.VmRecommendationArgs>[]>;
+    properties: pulumi.Input<inputs.security.v20200101.AdaptiveApplicationControlGroupDataArgs>;
 }

@@ -41,57 +41,21 @@ export interface GetRosettaNetProcessConfigurationArgs {
  */
 export interface GetRosettaNetProcessConfigurationResult {
     /**
-     * The RosettaNet process configuration activity settings.
-     */
-    readonly activitySettings: outputs.logic.RosettaNetPipActivitySettingsResponse;
-    /**
-     * The changed time.
-     */
-    readonly changedTime: string;
-    /**
-     * The created time.
-     */
-    readonly createdTime: string;
-    /**
-     * The integration account RosettaNet ProcessConfiguration properties.
-     */
-    readonly description?: string;
-    /**
      * The resource id.
      */
     readonly id: string;
-    /**
-     * The RosettaNet initiator role settings.
-     */
-    readonly initiatorRoleSettings: outputs.logic.RosettaNetPipRoleSettingsResponse;
     /**
      * The resource location.
      */
     readonly location?: string;
     /**
-     * The metadata.
-     */
-    readonly metadata?: {[key: string]: string};
-    /**
      * Gets the resource name.
      */
     readonly name: string;
     /**
-     * The integration account RosettaNet process code.
+     * The integration account RosettaNet process configuration properties.
      */
-    readonly processCode: string;
-    /**
-     * The integration account RosettaNet process name.
-     */
-    readonly processName: string;
-    /**
-     * The integration account RosettaNet process version.
-     */
-    readonly processVersion: string;
-    /**
-     * The RosettaNet responder role settings.
-     */
-    readonly responderRoleSettings: outputs.logic.RosettaNetPipRoleSettingsResponse;
+    readonly properties: outputs.logic.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse;
     /**
      * The resource tags.
      */

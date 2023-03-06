@@ -38,61 +38,21 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * The workspace provider authorizations.
-     */
-    public readonly authorizations!: pulumi.Output<outputs.databricks.v20210401preview.WorkspaceProviderAuthorizationResponse[] | undefined>;
-    /**
-     * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-     */
-    public /*out*/ readonly createdBy!: pulumi.Output<outputs.databricks.v20210401preview.CreatedByResponse | undefined>;
-    /**
-     * Specifies the date and time when the workspace is created.
-     */
-    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
-    /**
-     * Encryption properties for databricks workspace
-     */
-    public readonly encryption!: pulumi.Output<outputs.databricks.v20210401preview.WorkspacePropertiesResponseEncryption | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * The managed resource group Id.
-     */
-    public readonly managedResourceGroupId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The workspace's custom parameters.
+     * The workspace properties.
      */
-    public readonly parameters!: pulumi.Output<outputs.databricks.v20210401preview.WorkspaceCustomParametersResponse | undefined>;
-    /**
-     * Private endpoint connections created on the workspace
-     */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.databricks.v20210401preview.PrivateEndpointConnectionResponse[]>;
-    /**
-     * The workspace provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-     */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
-     */
-    public readonly requiredNsgRules!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.databricks.v20210401preview.WorkspacePropertiesResponse>;
     /**
      * The SKU of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.databricks.v20210401preview.SkuResponse | undefined>;
-    /**
-     * The details of Managed Identity of Storage Account
-     */
-    public /*out*/ readonly storageAccountIdentity!: pulumi.Output<outputs.databricks.v20210401preview.ManagedIdentityConfigurationResponse | undefined>;
     /**
      * The system metadata relating to this resource
      */
@@ -105,22 +65,6 @@ export class Workspace extends pulumi.CustomResource {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The blob URI where the UI definition file is located.
-     */
-    public readonly uiDefinitionUri!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-     */
-    public /*out*/ readonly updatedBy!: pulumi.Output<outputs.databricks.v20210401preview.CreatedByResponse | undefined>;
-    /**
-     * The unique identifier of the databricks workspace in databricks control plane.
-     */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
-    /**
-     * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-     */
-    public /*out*/ readonly workspaceUrl!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -133,57 +77,29 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedResourceGroupId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'managedResourceGroupId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            resourceInputs["parameters"] = args ? (args.parameters ? pulumi.output(args.parameters).apply(inputs.databricks.v20210401preview.workspaceCustomParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["requiredNsgRules"] = args ? args.requiredNsgRules : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.databricks.v20210401preview.workspacePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["storageAccountIdentity"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["updatedBy"] = undefined /*out*/;
-            resourceInputs["workspaceId"] = undefined /*out*/;
-            resourceInputs["workspaceUrl"] = undefined /*out*/;
         } else {
-            resourceInputs["authorizations"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdDateTime"] = undefined /*out*/;
-            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["managedResourceGroupId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
-            resourceInputs["requiredNsgRules"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["storageAccountIdentity"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uiDefinitionUri"] = undefined /*out*/;
-            resourceInputs["updatedBy"] = undefined /*out*/;
-            resourceInputs["workspaceId"] = undefined /*out*/;
-            resourceInputs["workspaceUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databricks:Workspace" }, { type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-native:databricks/v20220401preview:Workspace" }, { type: "azure-native:databricks/v20230201:Workspace" }] };
@@ -197,33 +113,13 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceArgs {
     /**
-     * The workspace provider authorizations.
-     */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.v20210401preview.WorkspaceProviderAuthorizationArgs>[]>;
-    /**
-     * Encryption properties for databricks workspace
-     */
-    encryption?: pulumi.Input<inputs.databricks.v20210401preview.WorkspacePropertiesEncryptionArgs>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The managed resource group Id.
+     * The workspace properties.
      */
-    managedResourceGroupId: pulumi.Input<string>;
-    /**
-     * The workspace's custom parameters.
-     */
-    parameters?: pulumi.Input<inputs.databricks.v20210401preview.WorkspaceCustomParametersArgs>;
-    /**
-     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-     */
-    publicNetworkAccess?: pulumi.Input<string | enums.databricks.v20210401preview.PublicNetworkAccess>;
-    /**
-     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
-     */
-    requiredNsgRules?: pulumi.Input<string | enums.databricks.v20210401preview.RequiredNsgRules>;
+    properties: pulumi.Input<inputs.databricks.v20210401preview.WorkspacePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -236,10 +132,6 @@ export interface WorkspaceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The blob URI where the UI definition file is located.
-     */
-    uiDefinitionUri?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

@@ -18,28 +18,24 @@ __all__ = ['JitNetworkAccessPolicyArgs', 'JitNetworkAccessPolicy']
 class JitNetworkAccessPolicyArgs:
     def __init__(__self__, *,
                  asc_location: pulumi.Input[str],
+                 properties: pulumi.Input['JitNetworkAccessPolicyPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]],
                  jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None):
+                 kind: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a JitNetworkAccessPolicy resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         :param pulumi.Input[str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] kind: Kind of the resource
         """
         pulumi.set(__self__, "asc_location", asc_location)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_machines", virtual_machines)
         if jit_network_access_policy_name is not None:
             pulumi.set(__self__, "jit_network_access_policy_name", jit_network_access_policy_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-        if requests is not None:
-            pulumi.set(__self__, "requests", requests)
 
     @property
     @pulumi.getter(name="ascLocation")
@@ -54,6 +50,15 @@ class JitNetworkAccessPolicyArgs:
         pulumi.set(self, "asc_location", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['JitNetworkAccessPolicyPropertiesArgs']:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['JitNetworkAccessPolicyPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -64,18 +69,6 @@ class JitNetworkAccessPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]:
-        """
-        Configurations for Microsoft.Compute/virtualMachines resource type.
-        """
-        return pulumi.get(self, "virtual_machines")
-
-    @virtual_machines.setter
-    def virtual_machines(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]):
-        pulumi.set(self, "virtual_machines", value)
 
     @property
     @pulumi.getter(name="jitNetworkAccessPolicyName")
@@ -101,15 +94,6 @@ class JitNetworkAccessPolicyArgs:
     def kind(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kind", value)
 
-    @property
-    @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]:
-        return pulumi.get(self, "requests")
-
-    @requests.setter
-    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]):
-        pulumi.set(self, "requests", value)
-
 
 class JitNetworkAccessPolicy(pulumi.CustomResource):
     @overload
@@ -119,9 +103,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
                  __props__=None):
         """
         Create a JitNetworkAccessPolicy resource with the given unique name, props, and options.
@@ -131,7 +114,6 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
         ...
     @overload
@@ -159,9 +141,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -176,16 +157,14 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             __props__.__dict__["asc_location"] = asc_location
             __props__.__dict__["jit_network_access_policy_name"] = jit_network_access_policy_name
             __props__.__dict__["kind"] = kind
-            __props__.__dict__["requests"] = requests
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if virtual_machines is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_machines'")
-            __props__.__dict__["virtual_machines"] = virtual_machines
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:JitNetworkAccessPolicy"), pulumi.Alias(type_="azure-native:security/v20150601preview:JitNetworkAccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -214,10 +193,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["requests"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_machines"] = None
         return JitNetworkAccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -245,17 +222,9 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Gets the provisioning state of the Just-in-Time policy.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def requests(self) -> pulumi.Output[Optional[Sequence['outputs.JitNetworkAccessRequestResponse']]]:
-        return pulumi.get(self, "requests")
+    def properties(self) -> pulumi.Output['outputs.JitNetworkAccessPolicyPropertiesResponse']:
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -264,12 +233,4 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> pulumi.Output[Sequence['outputs.JitNetworkAccessPolicyVirtualMachineResponse']]:
-        """
-        Configurations for Microsoft.Compute/virtualMachines resource type.
-        """
-        return pulumi.get(self, "virtual_machines")
 

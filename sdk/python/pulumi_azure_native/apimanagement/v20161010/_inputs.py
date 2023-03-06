@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AdditionalRegionArgs',
+    'ApiManagementServicePropertiesArgs',
     'ApiManagementServiceSkuPropertiesArgs',
     'CertificateInformationArgs',
     'HostnameConfigurationArgs',
@@ -82,6 +83,142 @@ class AdditionalRegionArgs:
     def vpnconfiguration(self) -> Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]:
         """
         Virtual network configuration for the location.
+        """
+        return pulumi.get(self, "vpnconfiguration")
+
+    @vpnconfiguration.setter
+    def vpnconfiguration(self, value: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]):
+        pulumi.set(self, "vpnconfiguration", value)
+
+
+@pulumi.input_type
+class ApiManagementServicePropertiesArgs:
+    def __init__(__self__, *,
+                 publisher_email: pulumi.Input[str],
+                 publisher_name: pulumi.Input[str],
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]] = None,
+                 addresser_email: Optional[pulumi.Input[str]] = None,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
+                 vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
+                 vpnconfiguration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None):
+        """
+        Properties of an API Management service resource description.
+        :param pulumi.Input[str] publisher_email: Publisher email.
+        :param pulumi.Input[str] publisher_name: Publisher name.
+        :param pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[str] addresser_email: Addresser email.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service, like disabling TLS 1.0.
+        :param pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input['VirtualNetworkType'] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        :param pulumi.Input['VirtualNetworkConfigurationArgs'] vpnconfiguration: Virtual network configuration of the API Management service.
+        """
+        pulumi.set(__self__, "publisher_email", publisher_email)
+        pulumi.set(__self__, "publisher_name", publisher_name)
+        if additional_locations is not None:
+            pulumi.set(__self__, "additional_locations", additional_locations)
+        if addresser_email is not None:
+            pulumi.set(__self__, "addresser_email", addresser_email)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+        if hostname_configurations is not None:
+            pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+        if vpn_type is None:
+            vpn_type = 'None'
+        if vpn_type is not None:
+            pulumi.set(__self__, "vpn_type", vpn_type)
+        if vpnconfiguration is not None:
+            pulumi.set(__self__, "vpnconfiguration", vpnconfiguration)
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> pulumi.Input[str]:
+        """
+        Publisher email.
+        """
+        return pulumi.get(self, "publisher_email")
+
+    @publisher_email.setter
+    def publisher_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_email", value)
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> pulumi.Input[str]:
+        """
+        Publisher name.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @publisher_name.setter
+    def publisher_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_name", value)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]]:
+        """
+        Additional datacenter locations of the API Management service.
+        """
+        return pulumi.get(self, "additional_locations")
+
+    @additional_locations.setter
+    def additional_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]]):
+        pulumi.set(self, "additional_locations", value)
+
+    @property
+    @pulumi.getter(name="addresserEmail")
+    def addresser_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Addresser email.
+        """
+        return pulumi.get(self, "addresser_email")
+
+    @addresser_email.setter
+    def addresser_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addresser_email", value)
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Custom properties of the API Management service, like disabling TLS 1.0.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_properties", value)
+
+    @property
+    @pulumi.getter(name="hostnameConfigurations")
+    def hostname_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]:
+        """
+        Custom hostname configuration of the API Management service.
+        """
+        return pulumi.get(self, "hostname_configurations")
+
+    @hostname_configurations.setter
+    def hostname_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]):
+        pulumi.set(self, "hostname_configurations", value)
+
+    @property
+    @pulumi.getter(name="vpnType")
+    def vpn_type(self) -> Optional[pulumi.Input['VirtualNetworkType']]:
+        """
+        The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        """
+        return pulumi.get(self, "vpn_type")
+
+    @vpn_type.setter
+    def vpn_type(self, value: Optional[pulumi.Input['VirtualNetworkType']]):
+        pulumi.set(self, "vpn_type", value)
+
+    @property
+    @pulumi.getter
+    def vpnconfiguration(self) -> Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]:
+        """
+        Virtual network configuration of the API Management service.
         """
         return pulumi.get(self, "vpnconfiguration")
 

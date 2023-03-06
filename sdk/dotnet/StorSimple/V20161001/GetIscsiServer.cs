@@ -95,18 +95,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class GetIscsiServerResult
     {
         /// <summary>
-        /// The backup policy id.
-        /// </summary>
-        public readonly string BackupScheduleGroupId;
-        /// <summary>
-        /// The chap id.
-        /// </summary>
-        public readonly string? ChapId;
-        /// <summary>
-        /// The description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The identifier.
         /// </summary>
         public readonly string Id;
@@ -115,13 +103,9 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The reverse chap id.
+        /// The properties.
         /// </summary>
-        public readonly string? ReverseChapId;
-        /// <summary>
-        /// The storage domain id.
-        /// </summary>
-        public readonly string StorageDomainId;
+        public readonly Outputs.ISCSIServerPropertiesResponse Properties;
         /// <summary>
         /// The type.
         /// </summary>
@@ -129,29 +113,17 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 
         [OutputConstructor]
         private GetIscsiServerResult(
-            string backupScheduleGroupId,
-
-            string? chapId,
-
-            string? description,
-
             string id,
 
             string name,
 
-            string? reverseChapId,
-
-            string storageDomainId,
+            Outputs.ISCSIServerPropertiesResponse properties,
 
             string type)
         {
-            BackupScheduleGroupId = backupScheduleGroupId;
-            ChapId = chapId;
-            Description = description;
             Id = id;
             Name = name;
-            ReverseChapId = reverseChapId;
-            StorageDomainId = storageDomainId;
+            Properties = properties;
             Type = type;
         }
     }

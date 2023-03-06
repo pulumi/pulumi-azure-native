@@ -45,73 +45,21 @@ export interface GetJobDefinitionArgs {
  */
 export interface GetJobDefinitionResult {
     /**
-     * Name of the Agent to assign for new Job Runs of this Job Definition.
-     */
-    readonly agentName?: string;
-    /**
-     * Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
-     */
-    readonly agentResourceId: string;
-    /**
-     * Strategy to use for copy.
-     */
-    readonly copyMode: string;
-    /**
-     * A description for the Job Definition.
-     */
-    readonly description?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The name of the Job Run in a non-terminal state, if exists.
-     */
-    readonly latestJobRunName: string;
-    /**
-     * The fully qualified resource ID of the Job Run in a non-terminal state, if exists.
-     */
-    readonly latestJobRunResourceId: string;
-    /**
-     * The current status of the Job Run in a non-terminal state, if exists.
-     */
-    readonly latestJobRunStatus: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of this resource.
+     * Job definition properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The name of the source Endpoint.
-     */
-    readonly sourceName: string;
-    /**
-     * Fully qualified resource ID of the source Endpoint.
-     */
-    readonly sourceResourceId: string;
-    /**
-     * The subpath to use when reading from the source Endpoint.
-     */
-    readonly sourceSubpath?: string;
+    readonly properties: outputs.storagemover.v20220701preview.JobDefinitionPropertiesResponse;
     /**
      * Resource system metadata.
      */
     readonly systemData: outputs.storagemover.v20220701preview.SystemDataResponse;
-    /**
-     * The name of the target Endpoint.
-     */
-    readonly targetName: string;
-    /**
-     * Fully qualified resource ID of the target Endpoint.
-     */
-    readonly targetResourceId: string;
-    /**
-     * The subpath to use when writing to the target Endpoint.
-     */
-    readonly targetSubpath?: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -96,18 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetADLSGen2FileDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// File path within the file system.
-        /// </summary>
-        public readonly string FilePath;
-        /// <summary>
-        /// File system to which the file belongs.
-        /// </summary>
-        public readonly string FileSystem;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -121,17 +109,9 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource group of storage account
+        /// ADLS Gen 2 file data set properties.
         /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ADLSGen2FilePropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -143,37 +123,22 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetADLSGen2FileDataSetResult(
-            string dataSetId,
-
-            string filePath,
-
-            string fileSystem,
-
             string id,
 
             string kind,
 
             string name,
 
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.ADLSGen2FilePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
-            FilePath = filePath;
-            FileSystem = fileSystem;
             Id = id;
             Kind = kind;
             Name = name;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

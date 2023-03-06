@@ -86,6 +86,7 @@ __all__ = [
     'ConnectionMonitorHttpConfigurationArgs',
     'ConnectionMonitorIcmpConfigurationArgs',
     'ConnectionMonitorOutputArgs',
+    'ConnectionMonitorParametersArgs',
     'ConnectionMonitorSourceArgs',
     'ConnectionMonitorSuccessThresholdArgs',
     'ConnectionMonitorTcpConfigurationArgs',
@@ -174,6 +175,7 @@ __all__ = [
     'LoadBalancerSkuArgs',
     'LoadBalancingRuleArgs',
     'LoadBalancingSettingsModelArgs',
+    'LocalNetworkGatewayPropertiesFormatArgs',
     'LocalNetworkGatewayArgs',
     'ManagedRuleExclusionArgs',
     'ManagedRuleGroupOverrideArgs',
@@ -208,10 +210,13 @@ __all__ = [
     'OwaspCrsExclusionEntryArgs',
     'P2SConnectionConfigurationArgs',
     'P2SVpnServerConfigRadiusClientRootCertificateArgs',
+    'P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatArgs',
     'P2SVpnServerConfigRadiusServerRootCertificateArgs',
     'P2SVpnServerConfigVpnClientRevokedCertificateArgs',
+    'P2SVpnServerConfigVpnClientRootCertificatePropertiesFormatArgs',
     'P2SVpnServerConfigVpnClientRootCertificateArgs',
     'PacketCaptureFilterArgs',
+    'PacketCaptureParametersArgs',
     'PacketCaptureStorageLocationArgs',
     'PerimeterBasedAccessRuleArgs',
     'PolicySettingsArgs',
@@ -270,7 +275,9 @@ __all__ = [
     'VirtualHubRouteV2Args',
     'VirtualHubRouteArgs',
     'VirtualNetworkBgpCommunitiesArgs',
+    'VirtualNetworkGatewayConnectionPropertiesFormatArgs',
     'VirtualNetworkGatewayIPConfigurationArgs',
+    'VirtualNetworkGatewayPropertiesFormatArgs',
     'VirtualNetworkGatewaySkuArgs',
     'VirtualNetworkGatewayArgs',
     'VirtualNetworkPeeringArgs',
@@ -278,6 +285,7 @@ __all__ = [
     'VnetRouteArgs',
     'VpnClientConfigurationArgs',
     'VpnClientRevokedCertificateArgs',
+    'VpnClientRootCertificatePropertiesFormatArgs',
     'VpnClientRootCertificateArgs',
     'VpnConnectionArgs',
     'VpnGatewayNatRuleArgs',
@@ -6065,6 +6073,162 @@ class ConnectionMonitorOutputArgs:
     @workspace_settings.setter
     def workspace_settings(self, value: Optional[pulumi.Input['ConnectionMonitorWorkspaceSettingsArgs']]):
         pulumi.set(self, "workspace_settings", value)
+
+
+@pulumi.input_type
+class ConnectionMonitorParametersArgs:
+    def __init__(__self__, *,
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 destination: Optional[pulumi.Input['ConnectionMonitorDestinationArgs']] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]] = None,
+                 monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]] = None,
+                 source: Optional[pulumi.Input['ConnectionMonitorSourceArgs']] = None,
+                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]] = None,
+                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]] = None):
+        """
+        Parameters that define the operation to create a connection monitor.
+        :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
+        :param pulumi.Input['ConnectionMonitorDestinationArgs'] destination: Describes the destination of connection monitor.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]] endpoints: List of connection monitor endpoints.
+        :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
+        :param pulumi.Input[str] notes: Optional notes to be associated with the connection monitor.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]] outputs: List of connection monitor outputs.
+        :param pulumi.Input['ConnectionMonitorSourceArgs'] source: Describes the source of connection monitor.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]] test_configurations: List of connection monitor test configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]] test_groups: List of connection monitor test groups.
+        """
+        if auto_start is None:
+            auto_start = True
+        if auto_start is not None:
+            pulumi.set(__self__, "auto_start", auto_start)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if monitoring_interval_in_seconds is None:
+            monitoring_interval_in_seconds = 60
+        if monitoring_interval_in_seconds is not None:
+            pulumi.set(__self__, "monitoring_interval_in_seconds", monitoring_interval_in_seconds)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if test_configurations is not None:
+            pulumi.set(__self__, "test_configurations", test_configurations)
+        if test_groups is not None:
+            pulumi.set(__self__, "test_groups", test_groups)
+
+    @property
+    @pulumi.getter(name="autoStart")
+    def auto_start(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the connection monitor will start automatically once created.
+        """
+        return pulumi.get(self, "auto_start")
+
+    @auto_start.setter
+    def auto_start(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_start", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['ConnectionMonitorDestinationArgs']]:
+        """
+        Describes the destination of connection monitor.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['ConnectionMonitorDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]]:
+        """
+        List of connection monitor endpoints.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
+
+    @property
+    @pulumi.getter(name="monitoringIntervalInSeconds")
+    def monitoring_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Monitoring interval in seconds.
+        """
+        return pulumi.get(self, "monitoring_interval_in_seconds")
+
+    @monitoring_interval_in_seconds.setter
+    def monitoring_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional notes to be associated with the connection monitor.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]]:
+        """
+        List of connection monitor outputs.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]]):
+        pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['ConnectionMonitorSourceArgs']]:
+        """
+        Describes the source of connection monitor.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['ConnectionMonitorSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="testConfigurations")
+    def test_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]]:
+        """
+        List of connection monitor test configurations.
+        """
+        return pulumi.get(self, "test_configurations")
+
+    @test_configurations.setter
+    def test_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]]):
+        pulumi.set(self, "test_configurations", value)
+
+    @property
+    @pulumi.getter(name="testGroups")
+    def test_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]]:
+        """
+        List of connection monitor test groups.
+        """
+        return pulumi.get(self, "test_groups")
+
+    @test_groups.setter
+    def test_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]]):
+        pulumi.set(self, "test_groups", value)
 
 
 @pulumi.input_type
@@ -12117,24 +12281,18 @@ class LoadBalancingSettingsModelArgs:
 
 
 @pulumi.input_type
-class LocalNetworkGatewayArgs:
+class LocalNetworkGatewayPropertiesFormatArgs:
     def __init__(__self__, *,
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 local_network_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 local_network_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None):
         """
-        A common class for general resource information.
+        LocalNetworkGateway properties.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Local network gateway's BGP speaker settings.
         :param pulumi.Input[str] fqdn: FQDN of local network gateway.
         :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
-        :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['AddressSpaceArgs'] local_network_address_space: Local network site address space.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -12142,14 +12300,8 @@ class LocalNetworkGatewayArgs:
             pulumi.set(__self__, "fqdn", fqdn)
         if gateway_ip_address is not None:
             pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if local_network_address_space is not None:
             pulumi.set(__self__, "local_network_address_space", local_network_address_space)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -12188,18 +12340,6 @@ class LocalNetworkGatewayArgs:
         pulumi.set(self, "gateway_ip_address", value)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
     @pulumi.getter(name="localNetworkAddressSpace")
     def local_network_address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
         """
@@ -12210,6 +12350,53 @@ class LocalNetworkGatewayArgs:
     @local_network_address_space.setter
     def local_network_address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
         pulumi.set(self, "local_network_address_space", value)
+
+
+@pulumi.input_type
+class LocalNetworkGatewayArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['LocalNetworkGatewayPropertiesFormatArgs'],
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        A common class for general resource information.
+        :param pulumi.Input['LocalNetworkGatewayPropertiesFormatArgs'] properties: Properties of the local network gateway.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "properties", properties)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LocalNetworkGatewayPropertiesFormatArgs']:
+        """
+        Properties of the local network gateway.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LocalNetworkGatewayPropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
@@ -14647,26 +14834,14 @@ class P2SVpnServerConfigRadiusClientRootCertificateArgs:
 
 
 @pulumi.input_type
-class P2SVpnServerConfigRadiusServerRootCertificateArgs:
+class P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatArgs:
     def __init__(__self__, *,
-                 public_cert_data: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 public_cert_data: pulumi.Input[str]):
         """
-        Radius Server root certificate of P2SVpnServerConfiguration.
+        Properties of Radius Server root certificate of P2SVpnServerConfiguration.
         :param pulumi.Input[str] public_cert_data: The certificate public data.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         pulumi.set(__self__, "public_cert_data", public_cert_data)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="publicCertData")
@@ -14679,6 +14854,41 @@ class P2SVpnServerConfigRadiusServerRootCertificateArgs:
     @public_cert_data.setter
     def public_cert_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "public_cert_data", value)
+
+
+@pulumi.input_type
+class P2SVpnServerConfigRadiusServerRootCertificateArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatArgs'],
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Radius Server root certificate of P2SVpnServerConfiguration.
+        :param pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatArgs'] properties: Properties of the P2SVpnServerConfiguration Radius Server root certificate.
+        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "properties", properties)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatArgs']:
+        """
+        Properties of the P2SVpnServerConfiguration Radius Server root certificate.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -14790,26 +15000,14 @@ class P2SVpnServerConfigVpnClientRevokedCertificateArgs:
 
 
 @pulumi.input_type
-class P2SVpnServerConfigVpnClientRootCertificateArgs:
+class P2SVpnServerConfigVpnClientRootCertificatePropertiesFormatArgs:
     def __init__(__self__, *,
-                 public_cert_data: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 public_cert_data: pulumi.Input[str]):
         """
-        VPN client root certificate of P2SVpnServerConfiguration.
+        Properties of VPN client root certificate of P2SVpnServerConfiguration.
         :param pulumi.Input[str] public_cert_data: The certificate public data.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         pulumi.set(__self__, "public_cert_data", public_cert_data)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="publicCertData")
@@ -14822,6 +15020,41 @@ class P2SVpnServerConfigVpnClientRootCertificateArgs:
     @public_cert_data.setter
     def public_cert_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "public_cert_data", value)
+
+
+@pulumi.input_type
+class P2SVpnServerConfigVpnClientRootCertificateArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['P2SVpnServerConfigVpnClientRootCertificatePropertiesFormatArgs'],
+                 etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        VPN client root certificate of P2SVpnServerConfiguration.
+        :param pulumi.Input['P2SVpnServerConfigVpnClientRootCertificatePropertiesFormatArgs'] properties: Properties of the P2SVpnServerConfiguration VPN client root certificate.
+        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "properties", properties)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['P2SVpnServerConfigVpnClientRootCertificatePropertiesFormatArgs']:
+        """
+        Properties of the P2SVpnServerConfiguration VPN client root certificate.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['P2SVpnServerConfigVpnClientRootCertificatePropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -14948,6 +15181,114 @@ class PacketCaptureFilterArgs:
     @remote_port.setter
     def remote_port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_port", value)
+
+
+@pulumi.input_type
+class PacketCaptureParametersArgs:
+    def __init__(__self__, *,
+                 storage_location: pulumi.Input['PacketCaptureStorageLocationArgs'],
+                 target: pulumi.Input[str],
+                 bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
+                 time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
+                 total_bytes_per_session: Optional[pulumi.Input[float]] = None):
+        """
+        Parameters that define the create packet capture operation.
+        :param pulumi.Input['PacketCaptureStorageLocationArgs'] storage_location: The storage location for a packet capture session.
+        :param pulumi.Input[str] target: The ID of the targeted resource, only VM is currently supported.
+        :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
+        :param pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]] filters: A list of packet capture filters.
+        :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
+        :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
+        """
+        pulumi.set(__self__, "storage_location", storage_location)
+        pulumi.set(__self__, "target", target)
+        if bytes_to_capture_per_packet is None:
+            bytes_to_capture_per_packet = 0
+        if bytes_to_capture_per_packet is not None:
+            pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if time_limit_in_seconds is None:
+            time_limit_in_seconds = 18000
+        if time_limit_in_seconds is not None:
+            pulumi.set(__self__, "time_limit_in_seconds", time_limit_in_seconds)
+        if total_bytes_per_session is None:
+            total_bytes_per_session = 1073741824
+        if total_bytes_per_session is not None:
+            pulumi.set(__self__, "total_bytes_per_session", total_bytes_per_session)
+
+    @property
+    @pulumi.getter(name="storageLocation")
+    def storage_location(self) -> pulumi.Input['PacketCaptureStorageLocationArgs']:
+        """
+        The storage location for a packet capture session.
+        """
+        return pulumi.get(self, "storage_location")
+
+    @storage_location.setter
+    def storage_location(self, value: pulumi.Input['PacketCaptureStorageLocationArgs']):
+        pulumi.set(self, "storage_location", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The ID of the targeted resource, only VM is currently supported.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="bytesToCapturePerPacket")
+    def bytes_to_capture_per_packet(self) -> Optional[pulumi.Input[float]]:
+        """
+        Number of bytes captured per packet, the remaining bytes are truncated.
+        """
+        return pulumi.get(self, "bytes_to_capture_per_packet")
+
+    @bytes_to_capture_per_packet.setter
+    def bytes_to_capture_per_packet(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "bytes_to_capture_per_packet", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]:
+        """
+        A list of packet capture filters.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="timeLimitInSeconds")
+    def time_limit_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum duration of the capture session in seconds.
+        """
+        return pulumi.get(self, "time_limit_in_seconds")
+
+    @time_limit_in_seconds.setter
+    def time_limit_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_limit_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="totalBytesPerSession")
+    def total_bytes_per_session(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum size of the capture output.
+        """
+        return pulumi.get(self, "total_bytes_per_session")
+
+    @total_bytes_per_session.setter
+    def total_bytes_per_session(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "total_bytes_per_session", value)
 
 
 @pulumi.input_type
@@ -19146,6 +19487,284 @@ class VirtualNetworkBgpCommunitiesArgs:
 
 
 @pulumi.input_type
+class VirtualNetworkGatewayConnectionPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 connection_type: pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']],
+                 virtual_network_gateway1: pulumi.Input['VirtualNetworkGatewayArgs'],
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']]] = None,
+                 connection_protocol: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
+                 dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+                 local_network_gateway2: Optional[pulumi.Input['LocalNetworkGatewayArgs']] = None,
+                 peer: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
+                 use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
+                 use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
+                 virtual_network_gateway2: Optional[pulumi.Input['VirtualNetworkGatewayArgs']] = None):
+        """
+        VirtualNetworkGatewayConnection properties.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type.
+        :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway1: The reference to virtual network gateway resource.
+        :param pulumi.Input[str] authorization_key: The authorizationKey.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']] connection_mode: The connection mode for this connection.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] connection_protocol: Connection protocol used for this connection.
+        :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds.
+        :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
+        :param pulumi.Input[bool] express_route_gateway_bypass: Bypass ExpressRoute Gateway for data forwarding.
+        :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input['LocalNetworkGatewayArgs'] local_network_gateway2: The reference to local network gateway resource.
+        :param pulumi.Input['SubResourceArgs'] peer: The reference to peerings resource.
+        :param pulumi.Input[int] routing_weight: The routing weight.
+        :param pulumi.Input[str] shared_key: The IPSec shared key.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
+        :param pulumi.Input[bool] use_local_azure_ip_address: Use private local Azure IP for the connection.
+        :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
+        :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway2: The reference to virtual network gateway resource.
+        """
+        pulumi.set(__self__, "connection_type", connection_type)
+        pulumi.set(__self__, "virtual_network_gateway1", virtual_network_gateway1)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_mode is not None:
+            pulumi.set(__self__, "connection_mode", connection_mode)
+        if connection_protocol is not None:
+            pulumi.set(__self__, "connection_protocol", connection_protocol)
+        if dpd_timeout_seconds is not None:
+            pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
+        if enable_bgp is not None:
+            pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if express_route_gateway_bypass is not None:
+            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+        if ipsec_policies is not None:
+            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+        if local_network_gateway2 is not None:
+            pulumi.set(__self__, "local_network_gateway2", local_network_gateway2)
+        if peer is not None:
+            pulumi.set(__self__, "peer", peer)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+        if traffic_selector_policies is not None:
+            pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
+        if use_local_azure_ip_address is not None:
+            pulumi.set(__self__, "use_local_azure_ip_address", use_local_azure_ip_address)
+        if use_policy_based_traffic_selectors is not None:
+            pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+        if virtual_network_gateway2 is not None:
+            pulumi.set(__self__, "virtual_network_gateway2", virtual_network_gateway2)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]:
+        """
+        Gateway connection type.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]):
+        pulumi.set(self, "connection_type", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkGateway1")
+    def virtual_network_gateway1(self) -> pulumi.Input['VirtualNetworkGatewayArgs']:
+        """
+        The reference to virtual network gateway resource.
+        """
+        return pulumi.get(self, "virtual_network_gateway1")
+
+    @virtual_network_gateway1.setter
+    def virtual_network_gateway1(self, value: pulumi.Input['VirtualNetworkGatewayArgs']):
+        pulumi.set(self, "virtual_network_gateway1", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorizationKey.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']]]:
+        """
+        The connection mode for this connection.
+        """
+        return pulumi.get(self, "connection_mode")
+
+    @connection_mode.setter
+    def connection_mode(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']]]):
+        pulumi.set(self, "connection_mode", value)
+
+    @property
+    @pulumi.getter(name="connectionProtocol")
+    def connection_protocol(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]]:
+        """
+        Connection protocol used for this connection.
+        """
+        return pulumi.get(self, "connection_protocol")
+
+    @connection_protocol.setter
+    def connection_protocol(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]]):
+        pulumi.set(self, "connection_protocol", value)
+
+    @property
+    @pulumi.getter(name="dpdTimeoutSeconds")
+    def dpd_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The dead peer detection timeout of this connection in seconds.
+        """
+        return pulumi.get(self, "dpd_timeout_seconds")
+
+    @dpd_timeout_seconds.setter
+    def dpd_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dpd_timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
+        """
+        EnableBgp flag.
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @enable_bgp.setter
+    def enable_bgp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_bgp", value)
+
+    @property
+    @pulumi.getter(name="expressRouteGatewayBypass")
+    def express_route_gateway_bypass(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bypass ExpressRoute Gateway for data forwarding.
+        """
+        return pulumi.get(self, "express_route_gateway_bypass")
+
+    @express_route_gateway_bypass.setter
+    def express_route_gateway_bypass(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "express_route_gateway_bypass", value)
+
+    @property
+    @pulumi.getter(name="ipsecPolicies")
+    def ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]:
+        """
+        The IPSec Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "ipsec_policies")
+
+    @ipsec_policies.setter
+    def ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]):
+        pulumi.set(self, "ipsec_policies", value)
+
+    @property
+    @pulumi.getter(name="localNetworkGateway2")
+    def local_network_gateway2(self) -> Optional[pulumi.Input['LocalNetworkGatewayArgs']]:
+        """
+        The reference to local network gateway resource.
+        """
+        return pulumi.get(self, "local_network_gateway2")
+
+    @local_network_gateway2.setter
+    def local_network_gateway2(self, value: Optional[pulumi.Input['LocalNetworkGatewayArgs']]):
+        pulumi.set(self, "local_network_gateway2", value)
+
+    @property
+    @pulumi.getter
+    def peer(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The reference to peerings resource.
+        """
+        return pulumi.get(self, "peer")
+
+    @peer.setter
+    def peer(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "peer", value)
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        The routing weight.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @routing_weight.setter
+    def routing_weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "routing_weight", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPSec shared key.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
+
+    @property
+    @pulumi.getter(name="trafficSelectorPolicies")
+    def traffic_selector_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]]:
+        """
+        The Traffic Selector Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "traffic_selector_policies")
+
+    @traffic_selector_policies.setter
+    def traffic_selector_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]]):
+        pulumi.set(self, "traffic_selector_policies", value)
+
+    @property
+    @pulumi.getter(name="useLocalAzureIpAddress")
+    def use_local_azure_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use private local Azure IP for the connection.
+        """
+        return pulumi.get(self, "use_local_azure_ip_address")
+
+    @use_local_azure_ip_address.setter
+    def use_local_azure_ip_address(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_local_azure_ip_address", value)
+
+    @property
+    @pulumi.getter(name="usePolicyBasedTrafficSelectors")
+    def use_policy_based_traffic_selectors(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable policy-based traffic selectors.
+        """
+        return pulumi.get(self, "use_policy_based_traffic_selectors")
+
+    @use_policy_based_traffic_selectors.setter
+    def use_policy_based_traffic_selectors(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_policy_based_traffic_selectors", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkGateway2")
+    def virtual_network_gateway2(self) -> Optional[pulumi.Input['VirtualNetworkGatewayArgs']]:
+        """
+        The reference to virtual network gateway resource.
+        """
+        return pulumi.get(self, "virtual_network_gateway2")
+
+    @virtual_network_gateway2.setter
+    def virtual_network_gateway2(self, value: Optional[pulumi.Input['VirtualNetworkGatewayArgs']]):
+        pulumi.set(self, "virtual_network_gateway2", value)
+
+
+@pulumi.input_type
 class VirtualNetworkGatewayIPConfigurationArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
@@ -19234,47 +19853,7 @@ class VirtualNetworkGatewayIPConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewaySkuArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']]] = None,
-                 tier: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]] = None):
-        """
-        VirtualNetworkGatewaySku details.
-        :param pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']] name: Gateway SKU name.
-        :param pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']] tier: Gateway SKU tier.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']]]:
-        """
-        Gateway SKU name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]]:
-        """
-        Gateway SKU tier.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]]):
-        pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
-class VirtualNetworkGatewayArgs:
+class VirtualNetworkGatewayPropertiesFormatArgs:
     def __init__(__self__, *,
                  active_active: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
@@ -19282,34 +19861,26 @@ class VirtualNetworkGatewayArgs:
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_dns_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_private_ip_address: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  gateway_default_site: Optional[pulumi.Input['SubResourceArgs']] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['VirtualNetworkGatewaySkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input['VpnClientConfigurationArgs']] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
                  vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None):
         """
-        A common class for general resource information.
+        VirtualNetworkGateway properties.
         :param pulumi.Input[bool] active_active: ActiveActive flag.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Virtual network gateway's BGP speaker settings.
         :param pulumi.Input['AddressSpaceArgs'] custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param pulumi.Input[bool] enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
         :param pulumi.Input[bool] enable_dns_forwarding: Whether dns forwarding is enabled or not.
         :param pulumi.Input[bool] enable_private_ip_address: Whether private IP needs to be enabled on this gateway for connections or not.
-        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of type local virtual network gateway.
         :param pulumi.Input['SubResourceArgs'] gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayType']] gateway_type: The type of this virtual network gateway.
-        :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]] ip_configurations: IP configurations for virtual network gateway.
-        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['VirtualNetworkGatewaySkuArgs'] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         :param pulumi.Input['VpnClientConfigurationArgs'] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[Union[str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -19327,22 +19898,14 @@ class VirtualNetworkGatewayArgs:
             pulumi.set(__self__, "enable_dns_forwarding", enable_dns_forwarding)
         if enable_private_ip_address is not None:
             pulumi.set(__self__, "enable_private_ip_address", enable_private_ip_address)
-        if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
         if gateway_default_site is not None:
             pulumi.set(__self__, "gateway_default_site", gateway_default_site)
         if gateway_type is not None:
             pulumi.set(__self__, "gateway_type", gateway_type)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if v_net_extended_location_resource_id is not None:
             pulumi.set(__self__, "v_net_extended_location_resource_id", v_net_extended_location_resource_id)
         if vpn_client_configuration is not None:
@@ -19425,18 +19988,6 @@ class VirtualNetworkGatewayArgs:
         pulumi.set(self, "enable_private_ip_address", value)
 
     @property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
-        """
-        The extended location of type local virtual network gateway.
-        """
-        return pulumi.get(self, "extended_location")
-
-    @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
-        pulumi.set(self, "extended_location", value)
-
-    @property
     @pulumi.getter(name="gatewayDefaultSite")
     def gateway_default_site(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
@@ -19461,18 +20012,6 @@ class VirtualNetworkGatewayArgs:
         pulumi.set(self, "gateway_type", value)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]]]:
         """
@@ -19486,18 +20025,6 @@ class VirtualNetworkGatewayArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['VirtualNetworkGatewaySkuArgs']]:
         """
         The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
@@ -19507,18 +20034,6 @@ class VirtualNetworkGatewayArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['VirtualNetworkGatewaySkuArgs']]):
         pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="vNetExtendedLocationResourceId")
@@ -19567,6 +20082,133 @@ class VirtualNetworkGatewayArgs:
     @vpn_type.setter
     def vpn_type(self, value: Optional[pulumi.Input[Union[str, 'VpnType']]]):
         pulumi.set(self, "vpn_type", value)
+
+
+@pulumi.input_type
+class VirtualNetworkGatewaySkuArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]] = None):
+        """
+        VirtualNetworkGatewaySku details.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']] name: Gateway SKU name.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']] tier: Gateway SKU tier.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']]]:
+        """
+        Gateway SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]]:
+        """
+        Gateway SKU tier.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]]):
+        pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class VirtualNetworkGatewayArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['VirtualNetworkGatewayPropertiesFormatArgs'],
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        A common class for general resource information.
+        :param pulumi.Input['VirtualNetworkGatewayPropertiesFormatArgs'] properties: Properties of the virtual network gateway.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of type local virtual network gateway.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "properties", properties)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VirtualNetworkGatewayPropertiesFormatArgs']:
+        """
+        Properties of the virtual network gateway.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VirtualNetworkGatewayPropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The extended location of type local virtual network gateway.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -20154,22 +20796,14 @@ class VpnClientRevokedCertificateArgs:
 
 
 @pulumi.input_type
-class VpnClientRootCertificateArgs:
+class VpnClientRootCertificatePropertiesFormatArgs:
     def __init__(__self__, *,
-                 public_cert_data: pulumi.Input[str],
-                 id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 public_cert_data: pulumi.Input[str]):
         """
-        VPN client root certificate of virtual network gateway.
+        Properties of SSL certificates of application gateway.
         :param pulumi.Input[str] public_cert_data: The certificate public data.
-        :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         pulumi.set(__self__, "public_cert_data", public_cert_data)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="publicCertData")
@@ -20182,6 +20816,37 @@ class VpnClientRootCertificateArgs:
     @public_cert_data.setter
     def public_cert_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "public_cert_data", value)
+
+
+@pulumi.input_type
+class VpnClientRootCertificateArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['VpnClientRootCertificatePropertiesFormatArgs'],
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        VPN client root certificate of virtual network gateway.
+        :param pulumi.Input['VpnClientRootCertificatePropertiesFormatArgs'] properties: Properties of the vpn client root certificate.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "properties", properties)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VpnClientRootCertificatePropertiesFormatArgs']:
+        """
+        Properties of the vpn client root certificate.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VpnClientRootCertificatePropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter

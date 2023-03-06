@@ -47,17 +47,9 @@ export interface GetMobileNetworkResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the mobile network resource.
+     * Mobile network properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-     */
-    readonly publicLandMobileNetworkIdentifier: outputs.mobilenetwork.v20221101.PlmnIdResponse;
-    /**
-     * The mobile network resource identifier
-     */
-    readonly serviceKey: string;
+    readonly properties: outputs.mobilenetwork.v20221101.MobileNetworkPropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

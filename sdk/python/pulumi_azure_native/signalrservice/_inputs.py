@@ -11,6 +11,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CustomCertificatePropertiesArgs',
+    'CustomDomainPropertiesArgs',
     'NetworkACLArgs',
     'PrivateEndpointACLArgs',
     'PrivateEndpointArgs',
@@ -23,6 +25,98 @@ __all__ = [
     'SignalRNetworkACLsArgs',
     'UpstreamTemplateArgs',
 ]
+
+@pulumi.input_type
+class CustomCertificatePropertiesArgs:
+    def __init__(__self__, *,
+                 key_vault_base_uri: pulumi.Input[str],
+                 key_vault_secret_name: pulumi.Input[str],
+                 key_vault_secret_version: Optional[pulumi.Input[str]] = None):
+        """
+        Custom certificate properties.
+        :param pulumi.Input[str] key_vault_base_uri: Base uri of the KeyVault that stores certificate.
+        :param pulumi.Input[str] key_vault_secret_name: Certificate secret name.
+        :param pulumi.Input[str] key_vault_secret_version: Certificate secret version.
+        """
+        pulumi.set(__self__, "key_vault_base_uri", key_vault_base_uri)
+        pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+        if key_vault_secret_version is not None:
+            pulumi.set(__self__, "key_vault_secret_version", key_vault_secret_version)
+
+    @property
+    @pulumi.getter(name="keyVaultBaseUri")
+    def key_vault_base_uri(self) -> pulumi.Input[str]:
+        """
+        Base uri of the KeyVault that stores certificate.
+        """
+        return pulumi.get(self, "key_vault_base_uri")
+
+    @key_vault_base_uri.setter
+    def key_vault_base_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_base_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretName")
+    def key_vault_secret_name(self) -> pulumi.Input[str]:
+        """
+        Certificate secret name.
+        """
+        return pulumi.get(self, "key_vault_secret_name")
+
+    @key_vault_secret_name.setter
+    def key_vault_secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_secret_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretVersion")
+    def key_vault_secret_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate secret version.
+        """
+        return pulumi.get(self, "key_vault_secret_version")
+
+    @key_vault_secret_version.setter
+    def key_vault_secret_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_secret_version", value)
+
+
+@pulumi.input_type
+class CustomDomainPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_certificate: pulumi.Input['ResourceReferenceArgs'],
+                 domain_name: pulumi.Input[str]):
+        """
+        Properties of a custom domain.
+        :param pulumi.Input['ResourceReferenceArgs'] custom_certificate: Reference to a resource.
+        :param pulumi.Input[str] domain_name: The custom domain name.
+        """
+        pulumi.set(__self__, "custom_certificate", custom_certificate)
+        pulumi.set(__self__, "domain_name", domain_name)
+
+    @property
+    @pulumi.getter(name="customCertificate")
+    def custom_certificate(self) -> pulumi.Input['ResourceReferenceArgs']:
+        """
+        Reference to a resource.
+        """
+        return pulumi.get(self, "custom_certificate")
+
+    @custom_certificate.setter
+    def custom_certificate(self, value: pulumi.Input['ResourceReferenceArgs']):
+        pulumi.set(self, "custom_certificate", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The custom domain name.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
 
 @pulumi.input_type
 class NetworkACLArgs:

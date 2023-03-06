@@ -18,39 +18,31 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 managed_resource_group_id: pulumi.Input[str],
+                 properties: pulumi.Input['ApplicationPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
                  plan: Optional[pulumi.Input['PlanArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_definition_uri: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
+        :param pulumi.Input['ApplicationPropertiesArgs'] properties: The managed application properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
         :param pulumi.Input[str] application_name: The name of the managed application.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
-        :param Any parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         :param pulumi.Input['PlanArgs'] plan: The plan information.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         """
         pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if application_definition_id is not None:
-            pulumi.set(__self__, "application_definition_id", application_definition_id)
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
         if identity is not None:
@@ -59,16 +51,12 @@ class ApplicationArgs:
             pulumi.set(__self__, "location", location)
         if managed_by is not None:
             pulumi.set(__self__, "managed_by", managed_by)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if ui_definition_uri is not None:
-            pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
 
     @property
     @pulumi.getter
@@ -83,16 +71,16 @@ class ApplicationArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ApplicationPropertiesArgs']:
         """
-        The managed resource group Id.
+        The managed application properties.
         """
-        return pulumi.get(self, "managed_resource_group_id")
+        return pulumi.get(self, "properties")
 
-    @managed_resource_group_id.setter
-    def managed_resource_group_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "managed_resource_group_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ApplicationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -105,18 +93,6 @@ class ApplicationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="applicationDefinitionId")
-    def application_definition_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The fully qualified path of managed application definition Id.
-        """
-        return pulumi.get(self, "application_definition_id")
-
-    @application_definition_id.setter
-    def application_definition_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "application_definition_id", value)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -168,18 +144,6 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
-        """
-        Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[Any]):
-        pulumi.set(self, "parameters", value)
-
-    @property
-    @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
         The plan information.
@@ -214,18 +178,6 @@ class ApplicationArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="uiDefinitionUri")
-    def ui_definition_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The blob URI where the UI definition file is located.
-        """
-        return pulumi.get(self, "ui_definition_uri")
-
-    @ui_definition_uri.setter
-    def ui_definition_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ui_definition_uri", value)
-
 
 warnings.warn("""Version 2017-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -237,38 +189,32 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_definition_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Information about managed application.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
         :param pulumi.Input[str] application_name: The name of the managed application.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
-        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
-        :param Any parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The plan information.
+        :param pulumi.Input[pulumi.InputType['ApplicationPropertiesArgs']] properties: The managed application properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         """
         ...
     @overload
@@ -294,19 +240,16 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_definition_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Application is deprecated: Version 2017-12-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -317,7 +260,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            __props__.__dict__["application_definition_id"] = application_definition_id
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
@@ -325,20 +267,16 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
-            if managed_resource_group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_resource_group_id'")
-            __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
-            __props__.__dict__["parameters"] = parameters
             __props__.__dict__["plan"] = plan
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["ui_definition_uri"] = ui_definition_uri
             __props__.__dict__["name"] = None
-            __props__.__dict__["outputs"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions:Application"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20170901:Application"), pulumi.Alias(type_="azure-native:solutions/v20180201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180301:Application"), pulumi.Alias(type_="azure-native:solutions/v20180601:Application"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20190701:Application"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210701:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -364,30 +302,17 @@ class Application(pulumi.CustomResource):
 
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-        __props__.__dict__["application_definition_id"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_by"] = None
-        __props__.__dict__["managed_resource_group_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["outputs"] = None
-        __props__.__dict__["parameters"] = None
         __props__.__dict__["plan"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["ui_definition_uri"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="applicationDefinitionId")
-    def application_definition_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The fully qualified path of managed application definition Id.
-        """
-        return pulumi.get(self, "application_definition_id")
 
     @property
     @pulumi.getter
@@ -422,36 +347,12 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "managed_by")
 
     @property
-    @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> pulumi.Output[str]:
-        """
-        The managed resource group Id.
-        """
-        return pulumi.get(self, "managed_resource_group_id")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def outputs(self) -> pulumi.Output[Any]:
-        """
-        Name and value pairs that define the managed application outputs.
-        """
-        return pulumi.get(self, "outputs")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Any]]:
-        """
-        Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-        """
-        return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
@@ -462,12 +363,12 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "plan")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ApplicationPropertiesResponse']:
         """
-        The managed application provisioning state.
+        The managed application properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -492,12 +393,4 @@ class Application(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uiDefinitionUri")
-    def ui_definition_uri(self) -> pulumi.Output[Optional[str]]:
-        """
-        The blob URI where the UI definition file is located.
-        """
-        return pulumi.get(self, "ui_definition_uri")
 

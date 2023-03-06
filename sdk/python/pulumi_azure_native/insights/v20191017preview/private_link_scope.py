@@ -9,23 +9,27 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['PrivateLinkScopeArgs', 'PrivateLinkScope']
 
 @pulumi.input_type
 class PrivateLinkScopeArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['AzureMonitorPrivateLinkScopePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkScope resource.
+        :param pulumi.Input['AzureMonitorPrivateLinkScopePropertiesArgs'] properties: Properties that define a Azure Monitor PrivateLinkScope resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -33,6 +37,18 @@ class PrivateLinkScopeArgs:
             pulumi.set(__self__, "scope_name", scope_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['AzureMonitorPrivateLinkScopePropertiesArgs']:
+        """
+        Properties that define a Azure Monitor PrivateLinkScope resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['AzureMonitorPrivateLinkScopePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +105,7 @@ class PrivateLinkScope(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AzureMonitorPrivateLinkScopePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -99,6 +116,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[pulumi.InputType['AzureMonitorPrivateLinkScopePropertiesArgs']] properties: Properties that define a Azure Monitor PrivateLinkScope resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -128,6 +146,7 @@ class PrivateLinkScope(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AzureMonitorPrivateLinkScopePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -141,14 +160,15 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__ = PrivateLinkScopeArgs.__new__(PrivateLinkScopeArgs)
 
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scope_name"] = scope_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["private_endpoint_connections"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:PrivateLinkScope"), pulumi.Alias(type_="azure-native:insights/v20210701preview:PrivateLinkScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -176,8 +196,7 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["private_endpoint_connections"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PrivateLinkScope(resource_name, opts=opts, __props__=__props__)
@@ -199,20 +218,12 @@ class PrivateLinkScope(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.AzureMonitorPrivateLinkScopePropertiesResponse']:
         """
-        List of private endpoint connections.
+        Properties that define a Azure Monitor PrivateLinkScope resource.
         """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

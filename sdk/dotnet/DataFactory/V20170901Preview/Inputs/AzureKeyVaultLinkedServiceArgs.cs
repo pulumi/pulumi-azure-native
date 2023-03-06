@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("baseUrl", required: true)]
-        public Input<object> BaseUrl { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -63,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Key Vault linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureKeyVaultLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureKeyVaultLinkedServiceArgs()
         {

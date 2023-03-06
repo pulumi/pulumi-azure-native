@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -58,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The password for Basic authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapCloudForCustomer'.
         /// </summary>
@@ -71,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
+        /// SAP Cloud for Customer linked service properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
-
-        /// <summary>
-        /// The username for Basic authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapCloudForCustomerLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapCloudForCustomerLinkedServiceArgs()
         {

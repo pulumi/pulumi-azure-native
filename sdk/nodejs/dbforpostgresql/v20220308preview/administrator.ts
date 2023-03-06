@@ -42,25 +42,13 @@ export class Administrator extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The objectId of the Active Directory administrator.
+     * Properties of the active directory administrator.
      */
-    public readonly objectId!: pulumi.Output<string | undefined>;
-    /**
-     * Active Directory administrator principal name.
-     */
-    public readonly principalName!: pulumi.Output<string | undefined>;
-    /**
-     * The principal type used to represent the type of Active Directory Administrator.
-     */
-    public readonly principalType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20220308preview.AdministratorPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.v20220308preview.SystemDataResponse>;
-    /**
-     * The tenantId of the Active Directory administrator.
-     */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -90,15 +78,13 @@ export class Administrator extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["objectId"] = undefined /*out*/;
-            resourceInputs["principalName"] = undefined /*out*/;
-            resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

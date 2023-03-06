@@ -11,11 +11,81 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ElasticSanPropertiesArgs',
     'NetworkRuleSetArgs',
     'SkuArgs',
     'SourceCreationDataArgs',
     'VirtualNetworkRuleArgs',
 ]
+
+@pulumi.input_type
+class ElasticSanPropertiesArgs:
+    def __init__(__self__, *,
+                 base_size_ti_b: pulumi.Input[float],
+                 extended_capacity_size_ti_b: pulumi.Input[float],
+                 sku: pulumi.Input['SkuArgs'],
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Elastic San response properties.
+        :param pulumi.Input[float] base_size_ti_b: Base size of the Elastic San appliance in TiB.
+        :param pulumi.Input[float] extended_capacity_size_ti_b: Extended size of the Elastic San appliance in TiB.
+        :param pulumi.Input['SkuArgs'] sku: resource sku
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Elastic San resource; example: ["1"].
+        """
+        pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
+        pulumi.set(__self__, "extended_capacity_size_ti_b", extended_capacity_size_ti_b)
+        pulumi.set(__self__, "sku", sku)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @property
+    @pulumi.getter(name="baseSizeTiB")
+    def base_size_ti_b(self) -> pulumi.Input[float]:
+        """
+        Base size of the Elastic San appliance in TiB.
+        """
+        return pulumi.get(self, "base_size_ti_b")
+
+    @base_size_ti_b.setter
+    def base_size_ti_b(self, value: pulumi.Input[float]):
+        pulumi.set(self, "base_size_ti_b", value)
+
+    @property
+    @pulumi.getter(name="extendedCapacitySizeTiB")
+    def extended_capacity_size_ti_b(self) -> pulumi.Input[float]:
+        """
+        Extended size of the Elastic San appliance in TiB.
+        """
+        return pulumi.get(self, "extended_capacity_size_ti_b")
+
+    @extended_capacity_size_ti_b.setter
+    def extended_capacity_size_ti_b(self, value: pulumi.Input[float]):
+        pulumi.set(self, "extended_capacity_size_ti_b", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        resource sku
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Logical zone for Elastic San resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
 
 @pulumi.input_type
 class NetworkRuleSetArgs:

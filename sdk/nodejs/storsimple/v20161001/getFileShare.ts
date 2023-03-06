@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -49,49 +52,21 @@ export interface GetFileShareArgs {
  */
 export interface GetFileShareResult {
     /**
-     * The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-     */
-    readonly adminUser: string;
-    /**
-     * The data policy
-     */
-    readonly dataPolicy: string;
-    /**
-     * Description for file share
-     */
-    readonly description?: string;
-    /**
      * The identifier.
      */
     readonly id: string;
-    /**
-     * The local used capacity in Bytes.
-     */
-    readonly localUsedCapacityInBytes: number;
-    /**
-     * The monitoring status
-     */
-    readonly monitoringStatus: string;
     /**
      * The name.
      */
     readonly name: string;
     /**
-     * The total provisioned capacity in Bytes
+     * The properties.
      */
-    readonly provisionedCapacityInBytes: number;
-    /**
-     * The Share Status
-     */
-    readonly shareStatus: string;
+    readonly properties: outputs.storsimple.v20161001.FileSharePropertiesResponse;
     /**
      * The type.
      */
     readonly type: string;
-    /**
-     * The used capacity in Bytes.
-     */
-    readonly usedCapacityInBytes: number;
 }
 /**
  * Returns the properties of the specified file share name.

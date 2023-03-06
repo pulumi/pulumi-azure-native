@@ -22,19 +22,7 @@ class GetVolumeContainerResult:
     """
     The volume container.
     """
-    def __init__(__self__, band_width_rate_in_mbps=None, bandwidth_setting_id=None, encryption_key=None, encryption_status=None, id=None, kind=None, name=None, owner_ship_status=None, storage_account_credential_id=None, total_cloud_storage_usage_in_bytes=None, type=None, volume_count=None):
-        if band_width_rate_in_mbps and not isinstance(band_width_rate_in_mbps, int):
-            raise TypeError("Expected argument 'band_width_rate_in_mbps' to be a int")
-        pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
-        if bandwidth_setting_id and not isinstance(bandwidth_setting_id, str):
-            raise TypeError("Expected argument 'bandwidth_setting_id' to be a str")
-        pulumi.set(__self__, "bandwidth_setting_id", bandwidth_setting_id)
-        if encryption_key and not isinstance(encryption_key, dict):
-            raise TypeError("Expected argument 'encryption_key' to be a dict")
-        pulumi.set(__self__, "encryption_key", encryption_key)
-        if encryption_status and not isinstance(encryption_status, str):
-            raise TypeError("Expected argument 'encryption_status' to be a str")
-        pulumi.set(__self__, "encryption_status", encryption_status)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,53 +32,12 @@ class GetVolumeContainerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if owner_ship_status and not isinstance(owner_ship_status, str):
-            raise TypeError("Expected argument 'owner_ship_status' to be a str")
-        pulumi.set(__self__, "owner_ship_status", owner_ship_status)
-        if storage_account_credential_id and not isinstance(storage_account_credential_id, str):
-            raise TypeError("Expected argument 'storage_account_credential_id' to be a str")
-        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
-        if total_cloud_storage_usage_in_bytes and not isinstance(total_cloud_storage_usage_in_bytes, float):
-            raise TypeError("Expected argument 'total_cloud_storage_usage_in_bytes' to be a float")
-        pulumi.set(__self__, "total_cloud_storage_usage_in_bytes", total_cloud_storage_usage_in_bytes)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_count and not isinstance(volume_count, int):
-            raise TypeError("Expected argument 'volume_count' to be a int")
-        pulumi.set(__self__, "volume_count", volume_count)
-
-    @property
-    @pulumi.getter(name="bandWidthRateInMbps")
-    def band_width_rate_in_mbps(self) -> Optional[int]:
-        """
-        The bandwidth-rate set on the volume container.
-        """
-        return pulumi.get(self, "band_width_rate_in_mbps")
-
-    @property
-    @pulumi.getter(name="bandwidthSettingId")
-    def bandwidth_setting_id(self) -> Optional[str]:
-        """
-        The ID of the bandwidth setting associated with the volume container.
-        """
-        return pulumi.get(self, "bandwidth_setting_id")
-
-    @property
-    @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
-        """
-        The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-        """
-        return pulumi.get(self, "encryption_key")
-
-    @property
-    @pulumi.getter(name="encryptionStatus")
-    def encryption_status(self) -> str:
-        """
-        The flag to denote whether encryption is enabled or not.
-        """
-        return pulumi.get(self, "encryption_status")
 
     @property
     @pulumi.getter
@@ -117,28 +64,12 @@ class GetVolumeContainerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="ownerShipStatus")
-    def owner_ship_status(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.VolumeContainerPropertiesResponse':
         """
-        The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+        The volume container properties.
         """
-        return pulumi.get(self, "owner_ship_status")
-
-    @property
-    @pulumi.getter(name="storageAccountCredentialId")
-    def storage_account_credential_id(self) -> str:
-        """
-        The path ID of storage account associated with the volume container.
-        """
-        return pulumi.get(self, "storage_account_credential_id")
-
-    @property
-    @pulumi.getter(name="totalCloudStorageUsageInBytes")
-    def total_cloud_storage_usage_in_bytes(self) -> float:
-        """
-        The total cloud storage for the volume container.
-        """
-        return pulumi.get(self, "total_cloud_storage_usage_in_bytes")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -148,14 +79,6 @@ class GetVolumeContainerResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> int:
-        """
-        The number of volumes in the volume Container.
-        """
-        return pulumi.get(self, "volume_count")
-
 
 class AwaitableGetVolumeContainerResult(GetVolumeContainerResult):
     # pylint: disable=using-constant-test
@@ -163,18 +86,11 @@ class AwaitableGetVolumeContainerResult(GetVolumeContainerResult):
         if False:
             yield self
         return GetVolumeContainerResult(
-            band_width_rate_in_mbps=self.band_width_rate_in_mbps,
-            bandwidth_setting_id=self.bandwidth_setting_id,
-            encryption_key=self.encryption_key,
-            encryption_status=self.encryption_status,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            owner_ship_status=self.owner_ship_status,
-            storage_account_credential_id=self.storage_account_credential_id,
-            total_cloud_storage_usage_in_bytes=self.total_cloud_storage_usage_in_bytes,
-            type=self.type,
-            volume_count=self.volume_count)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_volume_container(device_name: Optional[str] = None,
@@ -201,18 +117,11 @@ def get_volume_container(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getVolumeContainer', __args__, opts=opts, typ=GetVolumeContainerResult).value
 
     return AwaitableGetVolumeContainerResult(
-        band_width_rate_in_mbps=__ret__.band_width_rate_in_mbps,
-        bandwidth_setting_id=__ret__.bandwidth_setting_id,
-        encryption_key=__ret__.encryption_key,
-        encryption_status=__ret__.encryption_status,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        owner_ship_status=__ret__.owner_ship_status,
-        storage_account_credential_id=__ret__.storage_account_credential_id,
-        total_cloud_storage_usage_in_bytes=__ret__.total_cloud_storage_usage_in_bytes,
-        type=__ret__.type,
-        volume_count=__ret__.volume_count)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_volume_container)

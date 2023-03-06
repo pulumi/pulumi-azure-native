@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class ExecuteDataFlowActivityResponse
     {
         /// <summary>
-        /// Compute properties for data flow activity.
-        /// </summary>
-        public readonly Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? Compute;
-        /// <summary>
-        /// Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
-        /// </summary>
-        public readonly object? ContinueOnError;
-        /// <summary>
-        /// Data flow reference.
-        /// </summary>
-        public readonly Outputs.DataFlowReferenceResponse DataFlow;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -36,10 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The integration runtime reference.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeReferenceResponse? IntegrationRuntime;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -53,26 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
-        /// </summary>
-        public readonly object? RunConcurrently;
-        /// <summary>
-        /// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
-        /// </summary>
-        public readonly object? SourceStagingConcurrency;
-        /// <summary>
-        /// Staging info for execute data flow activity.
-        /// </summary>
-        public readonly Outputs.DataFlowStagingInfoResponse? Staging;
-        /// <summary>
-        /// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
-        /// </summary>
-        public readonly object? TraceLevel;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'ExecuteDataFlow'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Execute data flow activity properties.
+        /// </summary>
+        public readonly Outputs.ExecuteDataFlowActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -80,17 +52,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private ExecuteDataFlowActivityResponse(
-            Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? compute,
-
-            object? continueOnError,
-
-            Outputs.DataFlowReferenceResponse dataFlow,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            Outputs.IntegrationRuntimeReferenceResponse? integrationRuntime,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -98,32 +62,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            object? runConcurrently,
-
-            object? sourceStagingConcurrency,
-
-            Outputs.DataFlowStagingInfoResponse? staging,
-
-            object? traceLevel,
-
             string type,
+
+            Outputs.ExecuteDataFlowActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Compute = compute;
-            ContinueOnError = continueOnError;
-            DataFlow = dataFlow;
             DependsOn = dependsOn;
             Description = description;
-            IntegrationRuntime = integrationRuntime;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            RunConcurrently = runConcurrently;
-            SourceStagingConcurrency = sourceStagingConcurrency;
-            Staging = staging;
-            TraceLevel = traceLevel;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

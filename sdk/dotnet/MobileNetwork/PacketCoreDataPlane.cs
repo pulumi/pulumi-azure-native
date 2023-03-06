@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the packet core data plane resource.
+        /// Packet core data plane Properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PacketCoreDataPlanePropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -87,12 +87,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-        /// </summary>
-        [Output("userPlaneAccessInterface")]
-        public Output<Outputs.InterfacePropertiesResponse> UserPlaneAccessInterface { get; private set; } = null!;
 
 
         /// <summary>
@@ -200,6 +194,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? PacketCoreDataPlaneName { get; set; }
 
         /// <summary>
+        /// Packet core data plane Properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PacketCoreDataPlanePropertiesFormatArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -216,12 +216,6 @@ namespace Pulumi.AzureNative.MobileNetwork
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-        /// </summary>
-        [Input("userPlaneAccessInterface", required: true)]
-        public Input<Inputs.InterfacePropertiesArgs> UserPlaneAccessInterface { get; set; } = null!;
 
         public PacketCoreDataPlaneArgs()
         {

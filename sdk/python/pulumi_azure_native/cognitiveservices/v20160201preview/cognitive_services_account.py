@@ -18,6 +18,7 @@ __all__ = ['CognitiveServicesAccountArgs', 'CognitiveServicesAccount']
 class CognitiveServicesAccountArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[Union[str, 'Kind']],
+                 properties: Any,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  account_name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class CognitiveServicesAccountArgs:
         """
         The set of arguments for constructing a CognitiveServicesAccount resource.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of cognitive service account.
+        :param Any properties: Must exist in the request. Must not be null.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the cognitive services account.
         :param pulumi.Input[str] account_name: The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -33,6 +35,7 @@ class CognitiveServicesAccountArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         """
         pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if account_name is not None:
@@ -53,6 +56,18 @@ class CognitiveServicesAccountArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Union[str, 'Kind']]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Any:
+        """
+        Must exist in the request. Must not be null.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Any):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -128,6 +143,7 @@ class CognitiveServicesAccount(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -140,6 +156,7 @@ class CognitiveServicesAccount(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of cognitive service account.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.
+        :param Any properties: Must exist in the request. Must not be null.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the cognitive services account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
@@ -171,6 +188,7 @@ class CognitiveServicesAccount(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -189,6 +207,9 @@ class CognitiveServicesAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name

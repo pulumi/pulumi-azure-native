@@ -120,21 +120,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The set of data flow policy rules that make up this service.
+        /// Service Properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PccRuleConfigurationResponse> PccRules;
-        /// <summary>
-        /// The provisioning state of the service resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
-        /// </summary>
-        public readonly int ServicePrecedence;
-        /// <summary>
-        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
-        /// </summary>
-        public readonly Outputs.QosPolicyResponse? ServiceQosPolicy;
+        public readonly Outputs.ServicePropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -168,13 +156,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string name,
 
-            ImmutableArray<Outputs.PccRuleConfigurationResponse> pccRules,
-
-            string provisioningState,
-
-            int servicePrecedence,
-
-            Outputs.QosPolicyResponse? serviceQosPolicy,
+            Outputs.ServicePropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -191,10 +173,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             LastModifiedByType = lastModifiedByType;
             Location = location;
             Name = name;
-            PccRules = pccRules;
-            ProvisioningState = provisioningState;
-            ServicePrecedence = servicePrecedence;
-            ServiceQosPolicy = serviceQosPolicy;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -15,6 +15,7 @@ __all__ = [
     'ElasticPoolPerDatabaseSettingsArgs',
     'FailoverGroupReadOnlyEndpointArgs',
     'FailoverGroupReadWriteEndpointArgs',
+    'GeoBackupPolicyPropertiesArgs',
     'InstanceFailoverGroupReadOnlyEndpointArgs',
     'InstanceFailoverGroupReadWriteEndpointArgs',
     'JobScheduleArgs',
@@ -164,6 +165,29 @@ class FailoverGroupReadWriteEndpointArgs:
     @failover_with_data_loss_grace_period_minutes.setter
     def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
+
+
+@pulumi.input_type
+class GeoBackupPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['GeoBackupPolicyState']):
+        """
+        The properties of the geo backup policy.
+        :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['GeoBackupPolicyState']:
+        """
+        The state of the geo backup policy.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['GeoBackupPolicyState']):
+        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type

@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     public partial class SqlDBTableDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        [Output("dataSetMappingStatus")]
-        public Output<string> DataSetMappingStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// DatabaseName name of the sink data set
-        /// </summary>
-        [Output("databaseName")]
-        public Output<string> DatabaseName { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set mapping.
         /// Expected value is 'SqlDBTable'.
         /// </summary>
@@ -47,28 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Sql DB data set mapping properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Schema of the table. Default value is dbo.
-        /// </summary>
-        [Output("schemaName")]
-        public Output<string> SchemaName { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource id of SQL server
-        /// </summary>
-        [Output("sqlServerResourceId")]
-        public Output<string> SqlServerResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// SQL DB table name.
-        /// </summary>
-        [Output("tableName")]
-        public Output<string> TableName { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SqlDBTableDataSetMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
@@ -143,22 +107,10 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Input("dataSetId", required: true)]
-        public Input<string> DataSetId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
         [Input("dataSetMappingName")]
         public Input<string>? DataSetMappingName { get; set; }
-
-        /// <summary>
-        /// DatabaseName name of the sink data set
-        /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// Kind of data set mapping.
@@ -168,34 +120,22 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
+        /// Sql DB data set mapping properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.SqlDBTableDataSetMappingPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schema of the table. Default value is dbo.
-        /// </summary>
-        [Input("schemaName", required: true)]
-        public Input<string> SchemaName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the share subscription which will hold the data set sink.
         /// </summary>
         [Input("shareSubscriptionName", required: true)]
         public Input<string> ShareSubscriptionName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource id of SQL server
-        /// </summary>
-        [Input("sqlServerResourceId", required: true)]
-        public Input<string> SqlServerResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// SQL DB table name.
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
 
         public SqlDBTableDataSetMappingArgs()
         {

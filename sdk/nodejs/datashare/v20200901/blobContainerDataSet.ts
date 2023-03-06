@@ -38,14 +38,6 @@ export class BlobContainerDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * BLOB Container name.
-     */
-    public readonly containerName!: pulumi.Output<string>;
-    /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'Container'.
      */
@@ -55,17 +47,9 @@ export class BlobContainerDataSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource group of storage account
+     * Blob container data set properties.
      */
-    public readonly resourceGroup!: pulumi.Output<string>;
-    /**
-     * Storage account name of the source data set
-     */
-    public readonly storageAccountName!: pulumi.Output<string>;
-    /**
-     * Subscription id of storage account
-     */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20200901.BlobContainerPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
@@ -89,14 +73,11 @@ export class BlobContainerDataSet extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.containerName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'containerName'");
-            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroup'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -104,33 +85,19 @@ export class BlobContainerDataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
             resourceInputs["kind"] = "Container";
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["containerName"] = undefined /*out*/;
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["resourceGroup"] = undefined /*out*/;
-            resourceInputs["storageAccountName"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -150,10 +117,6 @@ export interface BlobContainerDataSetArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * BLOB Container name.
-     */
-    containerName: pulumi.Input<string>;
-    /**
      * The name of the dataSet.
      */
     dataSetName?: pulumi.Input<string>;
@@ -163,9 +126,9 @@ export interface BlobContainerDataSetArgs {
      */
     kind: pulumi.Input<"Container">;
     /**
-     * Resource group of storage account
+     * Blob container data set properties.
      */
-    resourceGroup: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.v20200901.BlobContainerPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -174,12 +137,4 @@ export interface BlobContainerDataSetArgs {
      * The name of the share to add the data set to.
      */
     shareName: pulumi.Input<string>;
-    /**
-     * Storage account name of the source data set
-     */
-    storageAccountName: pulumi.Input<string>;
-    /**
-     * Subscription id of storage account
-     */
-    subscriptionId: pulumi.Input<string>;
 }

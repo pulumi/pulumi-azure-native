@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.DatasetFolderArgs>? Folder { get; set; }
 
         /// <summary>
-        /// The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        [Input("index", required: true)]
-        public Input<object> Index { get; set; } = null!;
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName", required: true)]
@@ -62,12 +56,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterSpecificationArgs>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("path")]
-        public Input<object>? Path { get; set; }
 
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -87,6 +75,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Web table dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.WebTableDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public WebTableDatasetArgs()
         {

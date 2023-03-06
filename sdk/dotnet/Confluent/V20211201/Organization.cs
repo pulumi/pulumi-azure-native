@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Confluent.V20211201
     public partial class Organization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The creation time of the resource.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
         /// Location of Organization resource
         /// </summary>
         [Output("location")]
@@ -34,28 +28,10 @@ namespace Pulumi.AzureNative.Confluent.V20211201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Confluent offer detail
+        /// Organization resource properties
         /// </summary>
-        [Output("offerDetail")]
-        public Output<Outputs.OfferDetailResponse> OfferDetail { get; private set; } = null!;
-
-        /// <summary>
-        /// Id of the Confluent organization.
-        /// </summary>
-        [Output("organizationId")]
-        public Output<string> OrganizationId { get; private set; } = null!;
-
-        /// <summary>
-        /// Provision states for confluent RP
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// SSO url for the Confluent organization.
-        /// </summary>
-        [Output("ssoUrl")]
-        public Output<string> SsoUrl { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.OrganizationResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
@@ -74,12 +50,6 @@ namespace Pulumi.AzureNative.Confluent.V20211201
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscriber detail
-        /// </summary>
-        [Output("userDetail")]
-        public Output<Outputs.UserDetailResponse> UserDetail { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,16 +111,16 @@ namespace Pulumi.AzureNative.Confluent.V20211201
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Confluent offer detail
-        /// </summary>
-        [Input("offerDetail", required: true)]
-        public Input<Inputs.OfferDetailArgs> OfferDetail { get; set; } = null!;
-
-        /// <summary>
         /// Organization resource name
         /// </summary>
         [Input("organizationName")]
         public Input<string>? OrganizationName { get; set; }
+
+        /// <summary>
+        /// Organization resource properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.OrganizationResourcePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Resource group name
@@ -169,12 +139,6 @@ namespace Pulumi.AzureNative.Confluent.V20211201
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Subscriber detail
-        /// </summary>
-        [Input("userDetail", required: true)]
-        public Input<Inputs.UserDetailArgs> UserDetail { get; set; } = null!;
 
         public OrganizationArgs()
         {

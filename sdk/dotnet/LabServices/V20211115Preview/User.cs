@@ -16,64 +16,22 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The amount of usage quota time the user gets in addition to the lab usage quota.
-        /// </summary>
-        [Output("additionalUsageQuota")]
-        public Output<string?> AdditionalUsageQuota { get; private set; } = null!;
-
-        /// <summary>
-        /// Display name of the user, for example user's full name.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// Email address of the user.
-        /// </summary>
-        [Output("email")]
-        public Output<string> Email { get; private set; } = null!;
-
-        /// <summary>
-        /// Date and time when the invitation message was sent to the user.
-        /// </summary>
-        [Output("invitationSent")]
-        public Output<string> InvitationSent { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the invitation message for the user.
-        /// </summary>
-        [Output("invitationState")]
-        public Output<string> InvitationState { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Current provisioning state of the user resource.
+        /// User resource properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the user's registration within the lab.
-        /// </summary>
-        [Output("registrationState")]
-        public Output<string> RegistrationState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.UserPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// How long the user has used their virtual machines in this lab.
-        /// </summary>
-        [Output("totalUsage")]
-        public Output<string> TotalUsage { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -132,22 +90,16 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of usage quota time the user gets in addition to the lab usage quota.
-        /// </summary>
-        [Input("additionalUsageQuota")]
-        public Input<string>? AdditionalUsageQuota { get; set; }
-
-        /// <summary>
-        /// Email address of the user.
-        /// </summary>
-        [Input("email", required: true)]
-        public Input<string> Email { get; set; } = null!;
-
-        /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// User resource properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.UserPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

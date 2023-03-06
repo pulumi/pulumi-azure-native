@@ -46,13 +46,13 @@ export interface GetMonitoringConfigResult {
      */
     readonly id: string;
     /**
-     * The metrics configuration details
-     */
-    readonly metricConfigurations: outputs.databoxedge.v20200901.MetricConfigurationResponse[];
-    /**
      * The object name.
      */
     readonly name: string;
+    /**
+     * The metric setting properties.
+     */
+    readonly properties: outputs.databoxedge.v20200901.MonitoringMetricConfigurationPropertiesResponse;
     /**
      * The hierarchical type of the object.
      */

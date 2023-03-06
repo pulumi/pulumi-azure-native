@@ -21,26 +21,26 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The base definition of a secret type.
-        /// </summary>
-        public readonly Union<Outputs.LinkedIntegrationRuntimeKeyResponse, Outputs.LinkedIntegrationRuntimeRbacResponse>? LinkedInfo;
-        /// <summary>
         /// The type of integration runtime.
         /// Expected value is 'SelfHosted'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// When this property is not null, means this is a linked integration runtime. The property is used to access original integration runtime.
+        /// </summary>
+        public readonly Outputs.LinkedIntegrationRuntimeTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SelfHostedIntegrationRuntimeResponse(
             string? description,
 
-            Union<Outputs.LinkedIntegrationRuntimeKeyResponse, Outputs.LinkedIntegrationRuntimeRbacResponse>? linkedInfo,
+            string type,
 
-            string type)
+            Outputs.LinkedIntegrationRuntimeTypePropertiesResponse typeProperties)
         {
             Description = description;
-            LinkedInfo = linkedInfo;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

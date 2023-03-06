@@ -24,10 +24,7 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, active_directories=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
-        if active_directories and not isinstance(active_directories, list):
-            raise TypeError("Expected argument 'active_directories' to be a list")
-        pulumi.set(__self__, "active_directories", active_directories)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -37,23 +34,15 @@ class GetAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="activeDirectories")
-    def active_directories(self) -> Optional[Sequence['outputs.ActiveDirectoryResponse']]:
-        """
-        Active Directories
-        """
-        return pulumi.get(self, "active_directories")
 
     @property
     @pulumi.getter
@@ -80,12 +69,12 @@ class GetAccountResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.AccountPropertiesResponse':
         """
-        Azure lifecycle management
+        NetApp Account properties
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -110,11 +99,10 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
-            active_directories=self.active_directories,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -137,11 +125,10 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20170815:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        active_directories=__ret__.active_directories,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

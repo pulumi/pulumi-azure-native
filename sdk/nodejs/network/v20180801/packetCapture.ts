@@ -40,9 +40,9 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
-    public readonly bytesToCapturePerPacket!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly bytesToCapturePerPacket!: pulumi.Output<number | undefined>;
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
-    public readonly filters!: pulumi.Output<outputs.network.v20180801.PacketCaptureFilterResponse[] | undefined>;
+    public /*out*/ readonly filters!: pulumi.Output<outputs.network.v20180801.PacketCaptureFilterResponse[] | undefined>;
     /**
      * Name of the packet capture session.
      */
@@ -54,19 +54,19 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * Describes the storage location for a packet capture session.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.network.v20180801.PacketCaptureStorageLocationResponse>;
+    public /*out*/ readonly storageLocation!: pulumi.Output<outputs.network.v20180801.PacketCaptureStorageLocationResponse>;
     /**
      * The ID of the targeted resource, only VM is currently supported.
      */
-    public readonly target!: pulumi.Output<string>;
+    public /*out*/ readonly target!: pulumi.Output<string>;
     /**
      * Maximum duration of the capture session in seconds.
      */
-    public readonly timeLimitInSeconds!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly timeLimitInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Maximum size of the capture output.
      */
-    public readonly totalBytesPerSession!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly totalBytesPerSession!: pulumi.Output<number | undefined>;
 
     /**
      * Create a PacketCapture resource with the given unique name, arguments, and options.
@@ -82,27 +82,25 @@ export class PacketCapture extends pulumi.CustomResource {
             if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageLocation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageLocation'");
-            }
-            if ((!args || args.target === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'target'");
-            }
-            resourceInputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) ?? 0;
-            resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.network.v20180801.packetCaptureParametersArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
-            resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 1073741824;
+            resourceInputs["bytesToCapturePerPacket"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["filters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageLocation"] = undefined /*out*/;
+            resourceInputs["target"] = undefined /*out*/;
+            resourceInputs["timeLimitInSeconds"] = undefined /*out*/;
+            resourceInputs["totalBytesPerSession"] = undefined /*out*/;
         } else {
             resourceInputs["bytesToCapturePerPacket"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -126,11 +124,6 @@ export class PacketCapture extends pulumi.CustomResource {
  */
 export interface PacketCaptureArgs {
     /**
-     * Number of bytes captured per packet, the remaining bytes are truncated.
-     */
-    bytesToCapturePerPacket?: pulumi.Input<number>;
-    filters?: pulumi.Input<pulumi.Input<inputs.network.v20180801.PacketCaptureFilterArgs>[]>;
-    /**
      * The name of the network watcher.
      */
     networkWatcherName: pulumi.Input<string>;
@@ -139,23 +132,11 @@ export interface PacketCaptureArgs {
      */
     packetCaptureName?: pulumi.Input<string>;
     /**
+     * Parameters that define the create packet capture operation.
+     */
+    properties: pulumi.Input<inputs.network.v20180801.PacketCaptureParametersArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Describes the storage location for a packet capture session.
-     */
-    storageLocation: pulumi.Input<inputs.network.v20180801.PacketCaptureStorageLocationArgs>;
-    /**
-     * The ID of the targeted resource, only VM is currently supported.
-     */
-    target: pulumi.Input<string>;
-    /**
-     * Maximum duration of the capture session in seconds.
-     */
-    timeLimitInSeconds?: pulumi.Input<number>;
-    /**
-     * Maximum size of the capture output.
-     */
-    totalBytesPerSession?: pulumi.Input<number>;
 }

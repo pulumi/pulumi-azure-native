@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public partial class GlobalSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The creation date of the schedule.
-        /// </summary>
-        [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
-
-        /// <summary>
-        /// If the schedule will occur once each day of the week, specify the daily recurrence.
-        /// </summary>
-        [Output("dailyRecurrence")]
-        public Output<Outputs.DayDetailsResponse?> DailyRecurrence { get; private set; } = null!;
-
-        /// <summary>
-        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
-        /// </summary>
-        [Output("hourlyRecurrence")]
-        public Output<Outputs.HourDetailsResponse?> HourlyRecurrence { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -46,22 +28,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Notification settings.
+        /// The properties of the resource.
         /// </summary>
-        [Output("notificationSettings")]
-        public Output<Outputs.NotificationSettingsResponse?> NotificationSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning status of the resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the schedule (i.e. Enabled, Disabled)
-        /// </summary>
-        [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SchedulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -70,40 +40,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID to which the schedule belongs
-        /// </summary>
-        [Output("targetResourceId")]
-        public Output<string?> TargetResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        /// </summary>
-        [Output("taskType")]
-        public Output<string?> TaskType { get; private set; } = null!;
-
-        /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
-        /// </summary>
-        [Output("timeZoneId")]
-        public Output<string?> TimeZoneId { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
-        /// </summary>
-        [Output("weeklyRecurrence")]
-        public Output<Outputs.WeekDetailsResponse?> WeeklyRecurrence { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,18 +96,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public sealed class GlobalScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If the schedule will occur once each day of the week, specify the daily recurrence.
-        /// </summary>
-        [Input("dailyRecurrence")]
-        public Input<Inputs.DayDetailsArgs>? DailyRecurrence { get; set; }
-
-        /// <summary>
-        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
-        /// </summary>
-        [Input("hourlyRecurrence")]
-        public Input<Inputs.HourDetailsArgs>? HourlyRecurrence { get; set; }
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
@@ -180,22 +108,16 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Notification settings.
+        /// The properties of the resource.
         /// </summary>
-        [Input("notificationSettings")]
-        public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SchedulePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The status of the schedule (i.e. Enabled, Disabled)
-        /// </summary>
-        [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -209,33 +131,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The resource ID to which the schedule belongs
-        /// </summary>
-        [Input("targetResourceId")]
-        public Input<string>? TargetResourceId { get; set; }
-
-        /// <summary>
-        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        /// </summary>
-        [Input("taskType")]
-        public Input<string>? TaskType { get; set; }
-
-        /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
-        /// </summary>
-        [Input("timeZoneId")]
-        public Input<string>? TimeZoneId { get; set; }
-
-        /// <summary>
-        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
-        /// </summary>
-        [Input("weeklyRecurrence")]
-        public Input<Inputs.WeekDetailsArgs>? WeeklyRecurrence { get; set; }
-
         public GlobalScheduleArgs()
         {
-            Status = "Disabled";
         }
         public static new GlobalScheduleArgs Empty => new GlobalScheduleArgs();
     }

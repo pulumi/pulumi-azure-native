@@ -17,43 +17,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public partial class ResourcePool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
-        /// Utilization will not exceed this limit even if there are available resources.
-        /// </summary>
-        [Output("cpuLimitMHz")]
-        public Output<double> CpuLimitMHz { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
-        /// to be available.
-        /// </summary>
-        [Output("cpuReservationMHz")]
-        public Output<double> CpuReservationMHz { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
-        /// This property is used in relative allocation between resource consumers.
-        /// </summary>
-        [Output("cpuSharesLevel")]
-        public Output<string> CpuSharesLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        [Output("customResourceName")]
-        public Output<string> CustomResourceName { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the resource pool.
-        /// </summary>
-        [Output("inventoryItemId")]
-        public Output<string?> InventoryItemId { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -68,55 +35,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
-        /// Utilization will not exceed the specified limit even if there are available resources.
-        /// </summary>
-        [Output("memLimitMB")]
-        public Output<double> MemLimitMB { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets MemReservationMB which specifies the guaranteed available memory in
-        /// megabytes.
-        /// </summary>
-        [Output("memReservationMB")]
-        public Output<double> MemReservationMB { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
-        /// This property is used in relative allocation between resource consumers.
-        /// </summary>
-        [Output("memSharesLevel")]
-        public Output<string> MemSharesLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the resource pool.
-        /// </summary>
-        [Output("moName")]
-        public Output<string> MoName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
-        /// </summary>
-        [Output("moRefId")]
-        public Output<string?> MoRefId { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        [Output("statuses")]
-        public Output<ImmutableArray<Outputs.ResourceStatusResponse>> Statuses { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ResourcePoolPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -135,18 +63,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        /// </summary>
-        [Output("vCenterId")]
-        public Output<string?> VCenterId { get; private set; } = null!;
 
 
         /// <summary>
@@ -206,12 +122,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
-        /// Gets or sets the inventory Item ID for the resource pool.
-        /// </summary>
-        [Input("inventoryItemId")]
-        public Input<string>? InventoryItemId { get; set; }
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
@@ -224,10 +134,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+        /// Resource properties.
         /// </summary>
-        [Input("moRefId")]
-        public Input<string>? MoRefId { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ResourcePoolPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.
@@ -252,12 +162,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        /// </summary>
-        [Input("vCenterId")]
-        public Input<string>? VCenterId { get; set; }
 
         public ResourcePoolArgs()
         {

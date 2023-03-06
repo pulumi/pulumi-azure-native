@@ -84,18 +84,6 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountSessionResult
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        public readonly string ChangedTime;
-        /// <summary>
-        /// The session content.
-        /// </summary>
-        public readonly object? Content;
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -108,6 +96,10 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The integration account session properties.
+        /// </summary>
+        public readonly Outputs.IntegrationAccountSessionPropertiesResponse Properties;
+        /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -118,28 +110,22 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountSessionResult(
-            string changedTime,
-
-            object? content,
-
-            string createdTime,
-
             string id,
 
             string? location,
 
             string name,
 
+            Outputs.IntegrationAccountSessionPropertiesResponse properties,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ChangedTime = changedTime;
-            Content = content;
-            CreatedTime = createdTime;
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

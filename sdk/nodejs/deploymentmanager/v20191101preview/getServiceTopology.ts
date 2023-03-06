@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -32,10 +35,6 @@ export interface GetServiceTopologyArgs {
  */
 export interface GetServiceTopologyResult {
     /**
-     * The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-     */
-    readonly artifactSourceId?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -47,6 +46,10 @@ export interface GetServiceTopologyResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The properties that define the service topology.
+     */
+    readonly properties: outputs.deploymentmanager.v20191101preview.ServiceTopologyResourceResponseProperties;
     /**
      * Resource tags.
      */

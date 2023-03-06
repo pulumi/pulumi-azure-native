@@ -28,40 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("clientId")]
-        public Input<object>? ClientId { get; set; }
-
-        /// <summary>
-        /// The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("clientSecret")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ClientSecret { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// Properties used to connect to Salesforce Marketing Cloud. It is mutually exclusive with any other properties in the linked service. Type: object.
-        /// </summary>
-        [Input("connectionProperties")]
-        public Input<object>? ConnectionProperties { get; set; }
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -83,22 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
+        /// Salesforce Marketing Cloud linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
-
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("useHostVerification")]
-        public Input<object>? UseHostVerification { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("usePeerVerification")]
-        public Input<object>? UsePeerVerification { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SalesforceMarketingCloudLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SalesforceMarketingCloudLinkedServiceArgs()
         {

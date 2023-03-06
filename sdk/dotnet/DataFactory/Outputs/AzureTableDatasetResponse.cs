@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Table dataset properties.
+        /// </summary>
+        public readonly Outputs.AzureTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureTableDatasetResponse(
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? structure,
 
-            object tableName,
+            string type,
 
-            string type)
+            Outputs.AzureTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
@@ -81,8 +81,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Schema = schema;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

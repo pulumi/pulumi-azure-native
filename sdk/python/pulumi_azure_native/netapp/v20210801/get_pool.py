@@ -22,13 +22,7 @@ class GetPoolResult:
     """
     Capacity pool resource
     """
-    def __init__(__self__, cool_access=None, encryption_type=None, etag=None, id=None, location=None, name=None, pool_id=None, provisioning_state=None, qos_type=None, service_level=None, size=None, system_data=None, tags=None, total_throughput_mibps=None, type=None, utilized_throughput_mibps=None):
-        if cool_access and not isinstance(cool_access, bool):
-            raise TypeError("Expected argument 'cool_access' to be a bool")
-        pulumi.set(__self__, "cool_access", cool_access)
-        if encryption_type and not isinstance(encryption_type, str):
-            raise TypeError("Expected argument 'encryption_type' to be a str")
-        pulumi.set(__self__, "encryption_type", encryption_type)
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -41,52 +35,18 @@ class GetPoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if pool_id and not isinstance(pool_id, str):
-            raise TypeError("Expected argument 'pool_id' to be a str")
-        pulumi.set(__self__, "pool_id", pool_id)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if qos_type and not isinstance(qos_type, str):
-            raise TypeError("Expected argument 'qos_type' to be a str")
-        pulumi.set(__self__, "qos_type", qos_type)
-        if service_level and not isinstance(service_level, str):
-            raise TypeError("Expected argument 'service_level' to be a str")
-        pulumi.set(__self__, "service_level", service_level)
-        if size and not isinstance(size, float):
-            raise TypeError("Expected argument 'size' to be a float")
-        pulumi.set(__self__, "size", size)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if total_throughput_mibps and not isinstance(total_throughput_mibps, float):
-            raise TypeError("Expected argument 'total_throughput_mibps' to be a float")
-        pulumi.set(__self__, "total_throughput_mibps", total_throughput_mibps)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if utilized_throughput_mibps and not isinstance(utilized_throughput_mibps, float):
-            raise TypeError("Expected argument 'utilized_throughput_mibps' to be a float")
-        pulumi.set(__self__, "utilized_throughput_mibps", utilized_throughput_mibps)
-
-    @property
-    @pulumi.getter(name="coolAccess")
-    def cool_access(self) -> Optional[bool]:
-        """
-        If enabled (true) the pool can contain cool Access enabled volumes.
-        """
-        return pulumi.get(self, "cool_access")
-
-    @property
-    @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[str]:
-        """
-        Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-        """
-        return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter
@@ -121,44 +81,12 @@ class GetPoolResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="poolId")
-    def pool_id(self) -> str:
-        """
-        UUID v4 used to identify the Pool
-        """
-        return pulumi.get(self, "pool_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Azure lifecycle management
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="qosType")
-    def qos_type(self) -> Optional[str]:
-        """
-        The qos type of the pool
-        """
-        return pulumi.get(self, "qos_type")
-
-    @property
-    @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> str:
-        """
-        The service level of the file system
-        """
-        return pulumi.get(self, "service_level")
-
-    @property
     @pulumi.getter
-    def size(self) -> float:
+    def properties(self) -> 'outputs.PoolPropertiesResponse':
         """
-        Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        Capacity pool properties
         """
-        return pulumi.get(self, "size")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -177,28 +105,12 @@ class GetPoolResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="totalThroughputMibps")
-    def total_throughput_mibps(self) -> float:
-        """
-        Total throughput of pool in Mibps
-        """
-        return pulumi.get(self, "total_throughput_mibps")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="utilizedThroughputMibps")
-    def utilized_throughput_mibps(self) -> float:
-        """
-        Utilized throughput of pool in Mibps
-        """
-        return pulumi.get(self, "utilized_throughput_mibps")
 
 
 class AwaitableGetPoolResult(GetPoolResult):
@@ -207,22 +119,14 @@ class AwaitableGetPoolResult(GetPoolResult):
         if False:
             yield self
         return GetPoolResult(
-            cool_access=self.cool_access,
-            encryption_type=self.encryption_type,
             etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
-            pool_id=self.pool_id,
-            provisioning_state=self.provisioning_state,
-            qos_type=self.qos_type,
-            service_level=self.service_level,
-            size=self.size,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            total_throughput_mibps=self.total_throughput_mibps,
-            type=self.type,
-            utilized_throughput_mibps=self.utilized_throughput_mibps)
+            type=self.type)
 
 
 def get_pool(account_name: Optional[str] = None,
@@ -245,22 +149,14 @@ def get_pool(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20210801:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        cool_access=__ret__.cool_access,
-        encryption_type=__ret__.encryption_type,
         etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        pool_id=__ret__.pool_id,
-        provisioning_state=__ret__.provisioning_state,
-        qos_type=__ret__.qos_type,
-        service_level=__ret__.service_level,
-        size=__ret__.size,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        total_throughput_mibps=__ret__.total_throughput_mibps,
-        type=__ret__.type,
-        utilized_throughput_mibps=__ret__.utilized_throughput_mibps)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_pool)

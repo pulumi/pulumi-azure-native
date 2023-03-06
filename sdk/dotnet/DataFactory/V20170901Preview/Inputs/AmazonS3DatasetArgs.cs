@@ -28,34 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<object> BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// The data compression method used for the Amazon S3 object.
-        /// </summary>
-        [Input("compression")]
-        public object? Compression { get; set; }
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The format of files.
-        /// </summary>
-        [Input("format")]
-        public object? Format { get; set; }
-
-        /// <summary>
-        /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("key")]
-        public Input<object>? Key { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -76,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("prefix")]
-        public Input<object>? Prefix { get; set; }
-
-        /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
         [Input("structure")]
@@ -95,10 +65,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The version for the S3 object. Type: string (or Expression with resultType string).
+        /// Amazon S3 dataset properties.
         /// </summary>
-        [Input("version")]
-        public Input<object>? Version { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AmazonS3DatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AmazonS3DatasetArgs()
         {

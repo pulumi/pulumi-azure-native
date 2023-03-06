@@ -11,13 +11,43 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessControlRecordPropertiesArgs',
     'AsymmetricEncryptedSecretArgs',
+    'BackupPolicyPropertiesArgs',
+    'BackupSchedulePropertiesArgs',
+    'BandwidthRateSettingPropertiesArgs',
     'BandwidthScheduleArgs',
     'ManagerIntrinsicSettingsArgs',
     'ManagerSkuArgs',
     'ScheduleRecurrenceArgs',
+    'StorageAccountCredentialPropertiesArgs',
     'TimeArgs',
+    'VolumeContainerPropertiesArgs',
+    'VolumePropertiesArgs',
 ]
+
+@pulumi.input_type
+class AccessControlRecordPropertiesArgs:
+    def __init__(__self__, *,
+                 initiator_name: pulumi.Input[str]):
+        """
+        The properties of access control record.
+        :param pulumi.Input[str] initiator_name: The iSCSI initiator name (IQN).
+        """
+        pulumi.set(__self__, "initiator_name", initiator_name)
+
+    @property
+    @pulumi.getter(name="initiatorName")
+    def initiator_name(self) -> pulumi.Input[str]:
+        """
+        The iSCSI initiator name (IQN).
+        """
+        return pulumi.get(self, "initiator_name")
+
+    @initiator_name.setter
+    def initiator_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "initiator_name", value)
+
 
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
@@ -71,6 +101,135 @@ class AsymmetricEncryptedSecretArgs:
     @encryption_cert_thumbprint.setter
     def encryption_cert_thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encryption_cert_thumbprint", value)
+
+
+@pulumi.input_type
+class BackupPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 volume_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The properties of the backup policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
+        """
+        pulumi.set(__self__, "volume_ids", volume_ids)
+
+    @property
+    @pulumi.getter(name="volumeIds")
+    def volume_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The path IDs of the volumes which are part of the backup policy.
+        """
+        return pulumi.get(self, "volume_ids")
+
+    @volume_ids.setter
+    def volume_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "volume_ids", value)
+
+
+@pulumi.input_type
+class BackupSchedulePropertiesArgs:
+    def __init__(__self__, *,
+                 backup_type: pulumi.Input['BackupType'],
+                 retention_count: pulumi.Input[float],
+                 schedule_recurrence: pulumi.Input['ScheduleRecurrenceArgs'],
+                 schedule_status: pulumi.Input['ScheduleStatus'],
+                 start_time: pulumi.Input[str]):
+        """
+        The properties of the backup schedule.
+        :param pulumi.Input['BackupType'] backup_type: The type of backup which needs to be taken.
+        :param pulumi.Input[float] retention_count: The number of backups to be retained.
+        :param pulumi.Input['ScheduleRecurrenceArgs'] schedule_recurrence: The schedule recurrence.
+        :param pulumi.Input['ScheduleStatus'] schedule_status: The schedule status.
+        :param pulumi.Input[str] start_time: The start time of the schedule.
+        """
+        pulumi.set(__self__, "backup_type", backup_type)
+        pulumi.set(__self__, "retention_count", retention_count)
+        pulumi.set(__self__, "schedule_recurrence", schedule_recurrence)
+        pulumi.set(__self__, "schedule_status", schedule_status)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> pulumi.Input['BackupType']:
+        """
+        The type of backup which needs to be taken.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @backup_type.setter
+    def backup_type(self, value: pulumi.Input['BackupType']):
+        pulumi.set(self, "backup_type", value)
+
+    @property
+    @pulumi.getter(name="retentionCount")
+    def retention_count(self) -> pulumi.Input[float]:
+        """
+        The number of backups to be retained.
+        """
+        return pulumi.get(self, "retention_count")
+
+    @retention_count.setter
+    def retention_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "retention_count", value)
+
+    @property
+    @pulumi.getter(name="scheduleRecurrence")
+    def schedule_recurrence(self) -> pulumi.Input['ScheduleRecurrenceArgs']:
+        """
+        The schedule recurrence.
+        """
+        return pulumi.get(self, "schedule_recurrence")
+
+    @schedule_recurrence.setter
+    def schedule_recurrence(self, value: pulumi.Input['ScheduleRecurrenceArgs']):
+        pulumi.set(self, "schedule_recurrence", value)
+
+    @property
+    @pulumi.getter(name="scheduleStatus")
+    def schedule_status(self) -> pulumi.Input['ScheduleStatus']:
+        """
+        The schedule status.
+        """
+        return pulumi.get(self, "schedule_status")
+
+    @schedule_status.setter
+    def schedule_status(self, value: pulumi.Input['ScheduleStatus']):
+        pulumi.set(self, "schedule_status", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        The start time of the schedule.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class BandwidthRateSettingPropertiesArgs:
+    def __init__(__self__, *,
+                 schedules: pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]]):
+        """
+        The properties of the bandwidth setting.
+        :param pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]] schedules: The schedules.
+        """
+        pulumi.set(__self__, "schedules", schedules)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]]:
+        """
+        The schedules.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]]):
+        pulumi.set(self, "schedules", value)
 
 
 @pulumi.input_type
@@ -242,6 +401,60 @@ class ScheduleRecurrenceArgs:
 
 
 @pulumi.input_type
+class StorageAccountCredentialPropertiesArgs:
+    def __init__(__self__, *,
+                 end_point: pulumi.Input[str],
+                 ssl_status: pulumi.Input['SslStatus'],
+                 access_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
+        """
+        The storage account credential properties.
+        :param pulumi.Input[str] end_point: The storage endpoint
+        :param pulumi.Input['SslStatus'] ssl_status: Signifies whether SSL needs to be enabled or not.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] access_key: The details of the storage account password.
+        """
+        pulumi.set(__self__, "end_point", end_point)
+        pulumi.set(__self__, "ssl_status", ssl_status)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+
+    @property
+    @pulumi.getter(name="endPoint")
+    def end_point(self) -> pulumi.Input[str]:
+        """
+        The storage endpoint
+        """
+        return pulumi.get(self, "end_point")
+
+    @end_point.setter
+    def end_point(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_point", value)
+
+    @property
+    @pulumi.getter(name="sslStatus")
+    def ssl_status(self) -> pulumi.Input['SslStatus']:
+        """
+        Signifies whether SSL needs to be enabled or not.
+        """
+        return pulumi.get(self, "ssl_status")
+
+    @ssl_status.setter
+    def ssl_status(self, value: pulumi.Input['SslStatus']):
+        pulumi.set(self, "ssl_status", value)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        The details of the storage account password.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "access_key", value)
+
+
+@pulumi.input_type
 class TimeArgs:
     def __init__(__self__, *,
                  hours: pulumi.Input[int],
@@ -292,5 +505,159 @@ class TimeArgs:
     @seconds.setter
     def seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "seconds", value)
+
+
+@pulumi.input_type
+class VolumeContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 storage_account_credential_id: pulumi.Input[str],
+                 band_width_rate_in_mbps: Optional[pulumi.Input[int]] = None,
+                 bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
+        """
+        The properties of volume container.
+        :param pulumi.Input[str] storage_account_credential_id: The path ID of storage account associated with the volume container.
+        :param pulumi.Input[int] band_width_rate_in_mbps: The bandwidth-rate set on the volume container.
+        :param pulumi.Input[str] bandwidth_setting_id: The ID of the bandwidth setting associated with the volume container.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        """
+        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        if band_width_rate_in_mbps is not None:
+            pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
+        if bandwidth_setting_id is not None:
+            pulumi.set(__self__, "bandwidth_setting_id", bandwidth_setting_id)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> pulumi.Input[str]:
+        """
+        The path ID of storage account associated with the volume container.
+        """
+        return pulumi.get(self, "storage_account_credential_id")
+
+    @storage_account_credential_id.setter
+    def storage_account_credential_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_credential_id", value)
+
+    @property
+    @pulumi.getter(name="bandWidthRateInMbps")
+    def band_width_rate_in_mbps(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bandwidth-rate set on the volume container.
+        """
+        return pulumi.get(self, "band_width_rate_in_mbps")
+
+    @band_width_rate_in_mbps.setter
+    def band_width_rate_in_mbps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "band_width_rate_in_mbps", value)
+
+    @property
+    @pulumi.getter(name="bandwidthSettingId")
+    def bandwidth_setting_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the bandwidth setting associated with the volume container.
+        """
+        return pulumi.get(self, "bandwidth_setting_id")
+
+    @bandwidth_setting_id.setter
+    def bandwidth_setting_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bandwidth_setting_id", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "encryption_key", value)
+
+
+@pulumi.input_type
+class VolumePropertiesArgs:
+    def __init__(__self__, *,
+                 access_control_record_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 monitoring_status: pulumi.Input['MonitoringStatus'],
+                 size_in_bytes: pulumi.Input[float],
+                 volume_status: pulumi.Input['VolumeStatus'],
+                 volume_type: pulumi.Input['VolumeType']):
+        """
+        The properties of volume.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.
+        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status of the volume.
+        :param pulumi.Input[float] size_in_bytes: The size of the volume in bytes.
+        :param pulumi.Input['VolumeStatus'] volume_status: The volume status.
+        :param pulumi.Input['VolumeType'] volume_type: The type of the volume.
+        """
+        pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+        pulumi.set(__self__, "volume_status", volume_status)
+        pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="accessControlRecordIds")
+    def access_control_record_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of the access control records, associated with the volume.
+        """
+        return pulumi.get(self, "access_control_record_ids")
+
+    @access_control_record_ids.setter
+    def access_control_record_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "access_control_record_ids", value)
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> pulumi.Input['MonitoringStatus']:
+        """
+        The monitoring status of the volume.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @monitoring_status.setter
+    def monitoring_status(self, value: pulumi.Input['MonitoringStatus']):
+        pulumi.set(self, "monitoring_status", value)
+
+    @property
+    @pulumi.getter(name="sizeInBytes")
+    def size_in_bytes(self) -> pulumi.Input[float]:
+        """
+        The size of the volume in bytes.
+        """
+        return pulumi.get(self, "size_in_bytes")
+
+    @size_in_bytes.setter
+    def size_in_bytes(self, value: pulumi.Input[float]):
+        pulumi.set(self, "size_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="volumeStatus")
+    def volume_status(self) -> pulumi.Input['VolumeStatus']:
+        """
+        The volume status.
+        """
+        return pulumi.get(self, "volume_status")
+
+    @volume_status.setter
+    def volume_status(self, value: pulumi.Input['VolumeStatus']):
+        pulumi.set(self, "volume_status", value)
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> pulumi.Input['VolumeType']:
+        """
+        The type of the volume.
+        """
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: pulumi.Input['VolumeType']):
+        pulumi.set(self, "volume_type", value)
 
 

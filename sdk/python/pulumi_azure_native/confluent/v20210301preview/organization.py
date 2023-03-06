@@ -16,24 +16,21 @@ __all__ = ['OrganizationArgs', 'Organization']
 @pulumi.input_type
 class OrganizationArgs:
     def __init__(__self__, *,
-                 offer_detail: pulumi.Input['OfferDetailArgs'],
+                 properties: pulumi.Input['OrganizationResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 user_detail: pulumi.Input['UserDetailArgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Organization resource.
-        :param pulumi.Input['OfferDetailArgs'] offer_detail: Confluent offer detail
+        :param pulumi.Input['OrganizationResourcePropertiesArgs'] properties: Organization resource properties
         :param pulumi.Input[str] resource_group_name: Resource group name
-        :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
         :param pulumi.Input[str] location: Location of Organization resource
         :param pulumi.Input[str] organization_name: Organization resource name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
         """
-        pulumi.set(__self__, "offer_detail", offer_detail)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_detail", user_detail)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if organization_name is not None:
@@ -42,16 +39,16 @@ class OrganizationArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="offerDetail")
-    def offer_detail(self) -> pulumi.Input['OfferDetailArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['OrganizationResourcePropertiesArgs']:
         """
-        Confluent offer detail
+        Organization resource properties
         """
-        return pulumi.get(self, "offer_detail")
+        return pulumi.get(self, "properties")
 
-    @offer_detail.setter
-    def offer_detail(self, value: pulumi.Input['OfferDetailArgs']):
-        pulumi.set(self, "offer_detail", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['OrganizationResourcePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -64,18 +61,6 @@ class OrganizationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="userDetail")
-    def user_detail(self) -> pulumi.Input['UserDetailArgs']:
-        """
-        Subscriber detail
-        """
-        return pulumi.get(self, "user_detail")
-
-    @user_detail.setter
-    def user_detail(self, value: pulumi.Input['UserDetailArgs']):
-        pulumi.set(self, "user_detail", value)
 
     @property
     @pulumi.getter
@@ -120,11 +105,10 @@ class Organization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offer_detail: Optional[pulumi.Input[pulumi.InputType['OfferDetailArgs']]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_detail: Optional[pulumi.Input[pulumi.InputType['UserDetailArgs']]] = None,
                  __props__=None):
         """
         Organization resource.
@@ -132,11 +116,10 @@ class Organization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of Organization resource
-        :param pulumi.Input[pulumi.InputType['OfferDetailArgs']] offer_detail: Confluent offer detail
         :param pulumi.Input[str] organization_name: Organization resource name
+        :param pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesArgs']] properties: Organization resource properties
         :param pulumi.Input[str] resource_group_name: Resource group name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
-        :param pulumi.Input[pulumi.InputType['UserDetailArgs']] user_detail: Subscriber detail
         """
         ...
     @overload
@@ -163,11 +146,10 @@ class Organization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offer_detail: Optional[pulumi.Input[pulumi.InputType['OfferDetailArgs']]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_detail: Optional[pulumi.Input[pulumi.InputType['UserDetailArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -178,22 +160,15 @@ class Organization(pulumi.CustomResource):
             __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
             __props__.__dict__["location"] = location
-            if offer_detail is None and not opts.urn:
-                raise TypeError("Missing required property 'offer_detail'")
-            __props__.__dict__["offer_detail"] = offer_detail
             __props__.__dict__["organization_name"] = organization_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if user_detail is None and not opts.urn:
-                raise TypeError("Missing required property 'user_detail'")
-            __props__.__dict__["user_detail"] = user_detail
-            __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["organization_id"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["sso_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210901preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20211201:Organization")])
@@ -220,26 +195,13 @@ class Organization(pulumi.CustomResource):
 
         __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
-        __props__.__dict__["created_time"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["offer_detail"] = None
-        __props__.__dict__["organization_id"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["sso_url"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_detail"] = None
         return Organization(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
-        """
-        The creation time of the resource.
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -258,36 +220,12 @@ class Organization(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="offerDetail")
-    def offer_detail(self) -> pulumi.Output['outputs.OfferDetailResponse']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.OrganizationResourcePropertiesResponse']:
         """
-        Confluent offer detail
+        Organization resource properties
         """
-        return pulumi.get(self, "offer_detail")
-
-    @property
-    @pulumi.getter(name="organizationId")
-    def organization_id(self) -> pulumi.Output[str]:
-        """
-        Id of the Confluent organization.
-        """
-        return pulumi.get(self, "organization_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provision states for confluent RP
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> pulumi.Output[str]:
-        """
-        SSO url for the Confluent organization.
-        """
-        return pulumi.get(self, "sso_url")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -312,12 +250,4 @@ class Organization(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userDetail")
-    def user_detail(self) -> pulumi.Output['outputs.UserDetailResponse']:
-        """
-        Subscriber detail
-        """
-        return pulumi.get(self, "user_detail")
 

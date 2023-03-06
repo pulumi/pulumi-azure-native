@@ -23,12 +23,6 @@ namespace Pulumi.AzureNative.ScVmm
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        [Output("inventoryItemId")]
-        public Output<string?> InventoryItemId { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         [Output("location")]
@@ -41,16 +35,10 @@ namespace Pulumi.AzureNative.ScVmm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the virtual network in vmmServer.
+        /// Resource properties.
         /// </summary>
-        [Output("networkName")]
-        public Output<string> NetworkName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VirtualNetworkPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -69,18 +57,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique ID of the virtual network.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string?> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        [Output("vmmServerId")]
-        public Output<string?> VmmServerId { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,16 +114,16 @@ namespace Pulumi.AzureNative.ScVmm
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        [Input("inventoryItemId")]
-        public Input<string>? InventoryItemId { get; set; }
-
-        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.VirtualNetworkPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -168,22 +144,10 @@ namespace Pulumi.AzureNative.ScVmm
         }
 
         /// <summary>
-        /// Unique ID of the virtual network.
-        /// </summary>
-        [Input("uuid")]
-        public Input<string>? Uuid { get; set; }
-
-        /// <summary>
         /// Name of the VirtualNetwork.
         /// </summary>
         [Input("virtualNetworkName")]
         public Input<string>? VirtualNetworkName { get; set; }
-
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        [Input("vmmServerId")]
-        public Input<string>? VmmServerId { get; set; }
 
         public VirtualNetworkArgs()
         {

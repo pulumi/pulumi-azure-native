@@ -56,17 +56,9 @@ export interface GetOutboundEndpointResult {
      */
     readonly name: string;
     /**
-     * The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the outbound endpoint.
      */
-    readonly provisioningState: string;
-    /**
-     * The resourceGuid property of the outbound endpoint resource.
-     */
-    readonly resourceGuid: string;
-    /**
-     * The reference to the subnet used for the outbound endpoint.
-     */
-    readonly subnet: outputs.network.v20220701.SubResourceResponse;
+    readonly properties: outputs.network.v20220701.OutboundEndpointPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

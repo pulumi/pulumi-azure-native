@@ -82,18 +82,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public sealed class GetGuestAgentResult
     {
         /// <summary>
-        /// Username / Password Credentials to provision guest agent.
-        /// </summary>
-        public readonly Outputs.GuestCredentialResponse? Credentials;
-        /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        public readonly string CustomResourceName;
-        /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        public readonly Outputs.HttpProxyConfigurationResponse? HttpProxyConfig;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -102,21 +90,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the guest agent provisioning action.
+        /// Resource properties.
         /// </summary>
-        public readonly string? ProvisioningAction;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Gets or sets the guest agent status.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
+        public readonly Outputs.GuestAgentPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -125,49 +101,24 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        public readonly string Uuid;
 
         [OutputConstructor]
         private GetGuestAgentResult(
-            Outputs.GuestCredentialResponse? credentials,
-
-            string customResourceName,
-
-            Outputs.HttpProxyConfigurationResponse? httpProxyConfig,
-
             string id,
 
             string name,
 
-            string? provisioningAction,
-
-            string provisioningState,
-
-            string status,
-
-            ImmutableArray<Outputs.ResourceStatusResponse> statuses,
+            Outputs.GuestAgentPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string uuid)
+            string type)
         {
-            Credentials = credentials;
-            CustomResourceName = customResourceName;
-            HttpProxyConfig = httpProxyConfig;
             Id = id;
             Name = name;
-            ProvisioningAction = provisioningAction;
-            ProvisioningState = provisioningState;
-            Status = status;
-            Statuses = statuses;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            Uuid = uuid;
         }
     }
 }

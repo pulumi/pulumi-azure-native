@@ -22,34 +22,19 @@ class GetScheduleResult:
     """
     Schedule for automatically turning virtual machines in a lab on and off at specified times.
     """
-    def __init__(__self__, id=None, name=None, notes=None, provisioning_state=None, recurrence_pattern=None, start_at=None, stop_at=None, system_data=None, time_zone_id=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if notes and not isinstance(notes, str):
-            raise TypeError("Expected argument 'notes' to be a str")
-        pulumi.set(__self__, "notes", notes)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if recurrence_pattern and not isinstance(recurrence_pattern, dict):
-            raise TypeError("Expected argument 'recurrence_pattern' to be a dict")
-        pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
-        if start_at and not isinstance(start_at, str):
-            raise TypeError("Expected argument 'start_at' to be a str")
-        pulumi.set(__self__, "start_at", start_at)
-        if stop_at and not isinstance(stop_at, str):
-            raise TypeError("Expected argument 'stop_at' to be a str")
-        pulumi.set(__self__, "stop_at", stop_at)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if time_zone_id and not isinstance(time_zone_id, str):
-            raise TypeError("Expected argument 'time_zone_id' to be a str")
-        pulumi.set(__self__, "time_zone_id", time_zone_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -72,43 +57,11 @@ class GetScheduleResult:
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def properties(self) -> 'outputs.SchedulePropertiesResponse':
         """
-        Notes for this schedule.
+        Schedule resource properties
         """
-        return pulumi.get(self, "notes")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Current provisioning state of the schedule.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="recurrencePattern")
-    def recurrence_pattern(self) -> Optional['outputs.RecurrencePatternResponse']:
-        """
-        The recurrence pattern of the scheduled actions.
-        """
-        return pulumi.get(self, "recurrence_pattern")
-
-    @property
-    @pulumi.getter(name="startAt")
-    def start_at(self) -> Optional[str]:
-        """
-        When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-        """
-        return pulumi.get(self, "start_at")
-
-    @property
-    @pulumi.getter(name="stopAt")
-    def stop_at(self) -> str:
-        """
-        When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-        """
-        return pulumi.get(self, "stop_at")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -117,14 +70,6 @@ class GetScheduleResult:
         Metadata pertaining to creation and last modification of the schedule.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="timeZoneId")
-    def time_zone_id(self) -> str:
-        """
-        The IANA timezone id for the schedule.
-        """
-        return pulumi.get(self, "time_zone_id")
 
     @property
     @pulumi.getter
@@ -143,13 +88,8 @@ class AwaitableGetScheduleResult(GetScheduleResult):
         return GetScheduleResult(
             id=self.id,
             name=self.name,
-            notes=self.notes,
-            provisioning_state=self.provisioning_state,
-            recurrence_pattern=self.recurrence_pattern,
-            start_at=self.start_at,
-            stop_at=self.stop_at,
+            properties=self.properties,
             system_data=self.system_data,
-            time_zone_id=self.time_zone_id,
             type=self.type)
 
 
@@ -176,13 +116,8 @@ def get_schedule(lab_name: Optional[str] = None,
     return AwaitableGetScheduleResult(
         id=__ret__.id,
         name=__ret__.name,
-        notes=__ret__.notes,
-        provisioning_state=__ret__.provisioning_state,
-        recurrence_pattern=__ret__.recurrence_pattern,
-        start_at=__ret__.start_at,
-        stop_at=__ret__.stop_at,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        time_zone_id=__ret__.time_zone_id,
         type=__ret__.type)
 
 

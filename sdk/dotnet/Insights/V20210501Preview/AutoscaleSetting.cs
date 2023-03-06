@@ -16,40 +16,22 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
     public partial class AutoscaleSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
-        /// </summary>
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// the name of the autoscale setting.
+        /// Azure resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// the collection of notifications.
+        /// The autoscale setting of the resource.
         /// </summary>
-        [Output("notifications")]
-        public Output<ImmutableArray<Outputs.AutoscaleNotificationResponse>> Notifications { get; private set; } = null!;
-
-        /// <summary>
-        /// the predictive autoscale policy mode.
-        /// </summary>
-        [Output("predictiveAutoscalePolicy")]
-        public Output<Outputs.PredictiveAutoscalePolicyResponse?> PredictiveAutoscalePolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-        /// </summary>
-        [Output("profiles")]
-        public Output<ImmutableArray<Outputs.AutoscaleProfileResponse>> Profiles { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AutoscaleSettingResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to the response.
@@ -62,18 +44,6 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// the location of the resource that the autoscale setting should be added to.
-        /// </summary>
-        [Output("targetResourceLocation")]
-        public Output<string?> TargetResourceLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// the resource identifier of the resource that the autoscale setting should be added to.
-        /// </summary>
-        [Output("targetResourceUri")]
-        public Output<string?> TargetResourceUri { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type
@@ -140,52 +110,16 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         public Input<string>? AutoscaleSettingName { get; set; }
 
         /// <summary>
-        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// the name of the autoscale setting.
+        /// The autoscale setting of the resource.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("notifications")]
-        private InputList<Inputs.AutoscaleNotificationArgs>? _notifications;
-
-        /// <summary>
-        /// the collection of notifications.
-        /// </summary>
-        public InputList<Inputs.AutoscaleNotificationArgs> Notifications
-        {
-            get => _notifications ?? (_notifications = new InputList<Inputs.AutoscaleNotificationArgs>());
-            set => _notifications = value;
-        }
-
-        /// <summary>
-        /// the predictive autoscale policy mode.
-        /// </summary>
-        [Input("predictiveAutoscalePolicy")]
-        public Input<Inputs.PredictiveAutoscalePolicyArgs>? PredictiveAutoscalePolicy { get; set; }
-
-        [Input("profiles", required: true)]
-        private InputList<Inputs.AutoscaleProfileArgs>? _profiles;
-
-        /// <summary>
-        /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-        /// </summary>
-        public InputList<Inputs.AutoscaleProfileArgs> Profiles
-        {
-            get => _profiles ?? (_profiles = new InputList<Inputs.AutoscaleProfileArgs>());
-            set => _profiles = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.AutoscaleSettingArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -205,21 +139,8 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
             set => _tags = value;
         }
 
-        /// <summary>
-        /// the location of the resource that the autoscale setting should be added to.
-        /// </summary>
-        [Input("targetResourceLocation")]
-        public Input<string>? TargetResourceLocation { get; set; }
-
-        /// <summary>
-        /// the resource identifier of the resource that the autoscale setting should be added to.
-        /// </summary>
-        [Input("targetResourceUri")]
-        public Input<string>? TargetResourceUri { get; set; }
-
         public AutoscaleSettingArgs()
         {
-            Enabled = false;
         }
         public static new AutoscaleSettingArgs Empty => new AutoscaleSettingArgs();
     }

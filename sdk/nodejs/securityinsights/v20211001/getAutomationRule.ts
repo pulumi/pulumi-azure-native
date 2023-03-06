@@ -37,22 +37,6 @@ export interface GetAutomationRuleArgs {
 
 export interface GetAutomationRuleResult {
     /**
-     * The actions to execute when the automation rule is triggered
-     */
-    readonly actions: (outputs.securityinsights.v20211001.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.v20211001.AutomationRuleRunPlaybookActionResponse)[];
-    /**
-     * Information on the client (user or application) that made some action
-     */
-    readonly createdBy: outputs.securityinsights.v20211001.ClientInfoResponse;
-    /**
-     * The time the automation rule was created
-     */
-    readonly createdTimeUtc: string;
-    /**
-     * The display name of the automation rule
-     */
-    readonly displayName: string;
-    /**
      * Etag of the azure resource
      */
     readonly etag?: string;
@@ -61,29 +45,17 @@ export interface GetAutomationRuleResult {
      */
     readonly id: string;
     /**
-     * Information on the client (user or application) that made some action
-     */
-    readonly lastModifiedBy: outputs.securityinsights.v20211001.ClientInfoResponse;
-    /**
-     * The last time the automation rule was updated
-     */
-    readonly lastModifiedTimeUtc: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The order of execution of the automation rule
+     * Automation rule properties
      */
-    readonly order: number;
+    readonly properties: outputs.securityinsights.v20211001.AutomationRulePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.securityinsights.v20211001.SystemDataResponse;
-    /**
-     * Describes automation rule triggering logic
-     */
-    readonly triggeringLogic: outputs.securityinsights.v20211001.AutomationRuleTriggeringLogicResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

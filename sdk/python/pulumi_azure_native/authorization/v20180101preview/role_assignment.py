@@ -8,56 +8,38 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from ._inputs import *
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
 
 @pulumi.input_type
 class RoleAssignmentArgs:
     def __init__(__self__, *,
-                 principal_id: pulumi.Input[str],
-                 role_definition_id: pulumi.Input[str],
+                 properties: pulumi.Input['RoleAssignmentPropertiesArgs'],
                  scope: pulumi.Input[str],
-                 can_delegate: Optional[pulumi.Input[bool]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
-        :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-        :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
+        :param pulumi.Input['RoleAssignmentPropertiesArgs'] properties: Role assignment properties.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
         :param pulumi.Input[str] role_assignment_name: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "scope", scope)
-        if can_delegate is not None:
-            pulumi.set(__self__, "can_delegate", can_delegate)
         if role_assignment_name is not None:
             pulumi.set(__self__, "role_assignment_name", role_assignment_name)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RoleAssignmentPropertiesArgs']:
         """
-        The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        Role assignment properties.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "properties")
 
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[str]:
-        """
-        The role definition ID used in the role assignment.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_definition_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['RoleAssignmentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -70,18 +52,6 @@ class RoleAssignmentArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope", value)
-
-    @property
-    @pulumi.getter(name="canDelegate")
-    def can_delegate(self) -> Optional[pulumi.Input[bool]]:
-        """
-        The delegation flag used for creating a role assignment
-        """
-        return pulumi.get(self, "can_delegate")
-
-    @can_delegate.setter
-    def can_delegate(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "can_delegate", value)
 
     @property
     @pulumi.getter(name="roleAssignmentName")
@@ -101,10 +71,8 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 can_delegate: Optional[pulumi.Input[bool]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -112,10 +80,8 @@ class RoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
-        :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        :param pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']] properties: Role assignment properties.
         :param pulumi.Input[str] role_assignment_name: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
-        :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """
         ...
@@ -142,10 +108,8 @@ class RoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 can_delegate: Optional[pulumi.Input[bool]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -156,18 +120,17 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
-            __props__.__dict__["can_delegate"] = can_delegate
-            if principal_id is None and not opts.urn:
-                raise TypeError("Missing required property 'principal_id'")
-            __props__.__dict__["principal_id"] = principal_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["role_assignment_name"] = role_assignment_name
-            if role_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'role_definition_id'")
-            __props__.__dict__["role_definition_id"] = role_definition_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["can_delegate"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["principal_id"] = None
+            __props__.__dict__["role_definition_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180901preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200301preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200401preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200801preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20201001preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20220401:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

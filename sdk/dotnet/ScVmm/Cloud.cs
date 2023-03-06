@@ -17,28 +17,10 @@ namespace Pulumi.AzureNative.ScVmm
     public partial class Cloud : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Capacity of the cloud.
-        /// </summary>
-        [Output("cloudCapacity")]
-        public Output<Outputs.CloudCapacityResponse> CloudCapacity { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of the cloud in VMMServer.
-        /// </summary>
-        [Output("cloudName")]
-        public Output<string> CloudName { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        [Output("inventoryItemId")]
-        public Output<string?> InventoryItemId { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the location.
@@ -53,16 +35,10 @@ namespace Pulumi.AzureNative.ScVmm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// List of QoS policies available for the cloud.
-        /// </summary>
-        [Output("storageQoSPolicies")]
-        public Output<ImmutableArray<Outputs.StorageQoSPolicyResponse>> StorageQoSPolicies { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.CloudPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -81,18 +57,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique ID of the cloud.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string?> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        [Output("vmmServerId")]
-        public Output<string?> VmmServerId { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,16 +120,16 @@ namespace Pulumi.AzureNative.ScVmm
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        [Input("inventoryItemId")]
-        public Input<string>? InventoryItemId { get; set; }
-
-        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.CloudPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -184,18 +148,6 @@ namespace Pulumi.AzureNative.ScVmm
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Unique ID of the cloud.
-        /// </summary>
-        [Input("uuid")]
-        public Input<string>? Uuid { get; set; }
-
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        [Input("vmmServerId")]
-        public Input<string>? VmmServerId { get; set; }
 
         public CloudArgs()
         {

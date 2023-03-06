@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     public sealed class GetPacketCoreControlPlaneResult
     {
         /// <summary>
-        /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-        /// </summary>
-        public readonly Outputs.InterfacePropertiesResponse ControlPlaneAccessInterface;
-        /// <summary>
-        /// The core network technology generation.
-        /// </summary>
-        public readonly string? CoreNetworkTechnology;
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
@@ -89,10 +81,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// The type of identity that created the resource.
         /// </summary>
         public readonly string? CreatedByType;
-        /// <summary>
-        /// Azure ARC custom location where the packet core is deployed.
-        /// </summary>
-        public readonly Outputs.CustomLocationResourceIdResponse? CustomLocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -114,17 +102,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Mobile network that this packet core control plane belongs to
-        /// </summary>
-        public readonly Outputs.MobileNetworkResourceIdResponse MobileNetwork;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the packet core control plane resource.
+        /// Packet core control plane Properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PacketCoreControlPlanePropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -137,24 +121,14 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The version of the packet core software that is deployed.
-        /// </summary>
-        public readonly string? Version;
 
         [OutputConstructor]
         private GetPacketCoreControlPlaneResult(
-            Outputs.InterfacePropertiesResponse controlPlaneAccessInterface,
-
-            string? coreNetworkTechnology,
-
             string? createdAt,
 
             string? createdBy,
 
             string? createdByType,
-
-            Outputs.CustomLocationResourceIdResponse? customLocation,
 
             string id,
 
@@ -166,38 +140,29 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 
             string location,
 
-            Outputs.MobileNetworkResourceIdResponse mobileNetwork,
-
             string name,
 
-            string provisioningState,
+            Outputs.PacketCoreControlPlanePropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? version)
+            string type)
         {
-            ControlPlaneAccessInterface = controlPlaneAccessInterface;
-            CoreNetworkTechnology = coreNetworkTechnology;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;
-            CustomLocation = customLocation;
             Id = id;
             LastModifiedAt = lastModifiedAt;
             LastModifiedBy = lastModifiedBy;
             LastModifiedByType = lastModifiedByType;
             Location = location;
-            MobileNetwork = mobileNetwork;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Version = version;
         }
     }
 }

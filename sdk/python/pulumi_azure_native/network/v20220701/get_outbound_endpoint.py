@@ -22,7 +22,7 @@ class GetOutboundEndpointResult:
     """
     Describes an outbound endpoint for a DNS resolver.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnet=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -35,15 +35,9 @@ class GetOutboundEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        pulumi.set(__self__, "resource_guid", resource_guid)
-        if subnet and not isinstance(subnet, dict):
-            raise TypeError("Expected argument 'subnet' to be a dict")
-        pulumi.set(__self__, "subnet", subnet)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -87,28 +81,12 @@ class GetOutboundEndpointResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
-        """
-        The resourceGuid property of the outbound endpoint resource.
-        """
-        return pulumi.get(self, "resource_guid")
-
-    @property
     @pulumi.getter
-    def subnet(self) -> 'outputs.SubResourceResponse':
+    def properties(self) -> 'outputs.OutboundEndpointPropertiesResponse':
         """
-        The reference to the subnet used for the outbound endpoint.
+        Properties of the outbound endpoint.
         """
-        return pulumi.get(self, "subnet")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -145,9 +123,7 @@ class AwaitableGetOutboundEndpointResult(GetOutboundEndpointResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            resource_guid=self.resource_guid,
-            subnet=self.subnet,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -177,9 +153,7 @@ def get_outbound_endpoint(dns_resolver_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        subnet=__ret__.subnet,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
     public partial class SavedSearch : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The category of the saved search. This helps the user to find a saved search faster. 
-        /// </summary>
-        [Output("category")]
-        public Output<string> Category { get; private set; } = null!;
-
-        /// <summary>
-        /// Saved search display name.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// The ETag of the saved search.
         /// </summary>
         [Output("eTag")]
@@ -41,28 +29,16 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        /// The properties of the saved search.
         /// </summary>
-        [Output("query")]
-        public Output<string> Query { get; private set; } = null!;
-
-        /// <summary>
-        /// The tags attached to the saved search.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableArray<Outputs.TagResponse>> Tags { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SavedSearchPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the saved search.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The version number of the query language. The current version is 2 and is the default.
-        /// </summary>
-        [Output("version")]
-        public Output<double?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -116,28 +92,16 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
     public sealed class SavedSearchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category of the saved search. This helps the user to find a saved search faster. 
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
-        /// Saved search display name.
-        /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
-
-        /// <summary>
         /// The ETag of the saved search.
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        /// The properties of the saved search.
         /// </summary>
-        [Input("query", required: true)]
-        public Input<string> Query { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.SavedSearchPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group name.
@@ -150,24 +114,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         /// </summary>
         [Input("savedSearchId")]
         public Input<string>? SavedSearchId { get; set; }
-
-        [Input("tags")]
-        private InputList<Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// The tags attached to the saved search.
-        /// </summary>
-        public InputList<Inputs.TagArgs> Tags
-        {
-            get => _tags ?? (_tags = new InputList<Inputs.TagArgs>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The version number of the query language. The current version is 2 and is the default.
-        /// </summary>
-        [Input("version")]
-        public Input<double>? Version { get; set; }
 
         /// <summary>
         /// The Log Analytics Workspace name.

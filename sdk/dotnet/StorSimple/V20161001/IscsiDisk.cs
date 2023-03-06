@@ -17,64 +17,22 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public partial class IscsiDisk : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The access control records.
-        /// </summary>
-        [Output("accessControlRecords")]
-        public Output<ImmutableArray<string>> AccessControlRecords { get; private set; } = null!;
-
-        /// <summary>
-        /// The data policy.
-        /// </summary>
-        [Output("dataPolicy")]
-        public Output<string> DataPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The disk status.
-        /// </summary>
-        [Output("diskStatus")]
-        public Output<string> DiskStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The local used capacity in bytes.
-        /// </summary>
-        [Output("localUsedCapacityInBytes")]
-        public Output<double> LocalUsedCapacityInBytes { get; private set; } = null!;
-
-        /// <summary>
-        /// The monitoring.
-        /// </summary>
-        [Output("monitoringStatus")]
-        public Output<string> MonitoringStatus { get; private set; } = null!;
-
-        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioned capacity in bytes.
+        /// The properties.
         /// </summary>
-        [Output("provisionedCapacityInBytes")]
-        public Output<double> ProvisionedCapacityInBytes { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ISCSIDiskPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The used capacity in bytes.
-        /// </summary>
-        [Output("usedCapacityInBytes")]
-        public Output<double> UsedCapacityInBytes { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,30 +79,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 
     public sealed class IscsiDiskArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accessControlRecords", required: true)]
-        private InputList<string>? _accessControlRecords;
-
-        /// <summary>
-        /// The access control records.
-        /// </summary>
-        public InputList<string> AccessControlRecords
-        {
-            get => _accessControlRecords ?? (_accessControlRecords = new InputList<string>());
-            set => _accessControlRecords = value;
-        }
-
-        /// <summary>
-        /// The data policy.
-        /// </summary>
-        [Input("dataPolicy", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.DataPolicy> DataPolicy { get; set; } = null!;
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
         /// <summary>
         /// The device name.
         /// </summary>
@@ -156,12 +90,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         [Input("diskName")]
         public Input<string>? DiskName { get; set; }
-
-        /// <summary>
-        /// The disk status.
-        /// </summary>
-        [Input("diskStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.DiskStatus> DiskStatus { get; set; } = null!;
 
         /// <summary>
         /// The iSCSI server name.
@@ -176,16 +104,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The monitoring.
+        /// The properties.
         /// </summary>
-        [Input("monitoringStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.MonitoringStatus> MonitoringStatus { get; set; } = null!;
-
-        /// <summary>
-        /// The provisioned capacity in bytes.
-        /// </summary>
-        [Input("provisionedCapacityInBytes", required: true)]
-        public Input<double> ProvisionedCapacityInBytes { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ISCSIDiskPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

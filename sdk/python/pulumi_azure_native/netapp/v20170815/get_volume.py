@@ -24,16 +24,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, creation_token=None, export_policy=None, file_system_id=None, id=None, location=None, name=None, provisioning_state=None, service_level=None, subnet_id=None, tags=None, type=None, usage_threshold=None):
-        if creation_token and not isinstance(creation_token, str):
-            raise TypeError("Expected argument 'creation_token' to be a str")
-        pulumi.set(__self__, "creation_token", creation_token)
-        if export_policy and not isinstance(export_policy, dict):
-            raise TypeError("Expected argument 'export_policy' to be a dict")
-        pulumi.set(__self__, "export_policy", export_policy)
-        if file_system_id and not isinstance(file_system_id, str):
-            raise TypeError("Expected argument 'file_system_id' to be a str")
-        pulumi.set(__self__, "file_system_id", file_system_id)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,48 +34,15 @@ class GetVolumeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if service_level and not isinstance(service_level, str):
-            raise TypeError("Expected argument 'service_level' to be a str")
-        pulumi.set(__self__, "service_level", service_level)
-        if subnet_id and not isinstance(subnet_id, str):
-            raise TypeError("Expected argument 'subnet_id' to be a str")
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if usage_threshold and not isinstance(usage_threshold, float):
-            raise TypeError("Expected argument 'usage_threshold' to be a float")
-        pulumi.set(__self__, "usage_threshold", usage_threshold)
-
-    @property
-    @pulumi.getter(name="creationToken")
-    def creation_token(self) -> str:
-        """
-        A unique file path for the volume. Used when creating mount targets
-        """
-        return pulumi.get(self, "creation_token")
-
-    @property
-    @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
-        """
-        Export policy rule
-        """
-        return pulumi.get(self, "export_policy")
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
-        """
-        Unique FileSystem Identifier.
-        """
-        return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter
@@ -111,28 +69,12 @@ class GetVolumeResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.VolumePropertiesResponse':
         """
-        Azure lifecycle management
+        Volume properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> str:
-        """
-        The service level of the file system
-        """
-        return pulumi.get(self, "service_level")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -150,14 +92,6 @@ class GetVolumeResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> Optional[float]:
-        """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-        """
-        return pulumi.get(self, "usage_threshold")
-
 
 class AwaitableGetVolumeResult(GetVolumeResult):
     # pylint: disable=using-constant-test
@@ -165,18 +99,12 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
-            creation_token=self.creation_token,
-            export_policy=self.export_policy,
-            file_system_id=self.file_system_id,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            service_level=self.service_level,
-            subnet_id=self.subnet_id,
+            properties=self.properties,
             tags=self.tags,
-            type=self.type,
-            usage_threshold=self.usage_threshold)
+            type=self.type)
 
 
 def get_volume(account_name: Optional[str] = None,
@@ -203,18 +131,12 @@ def get_volume(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20170815:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        creation_token=__ret__.creation_token,
-        export_policy=__ret__.export_policy,
-        file_system_id=__ret__.file_system_id,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        service_level=__ret__.service_level,
-        subnet_id=__ret__.subnet_id,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        type=__ret__.type,
-        usage_threshold=__ret__.usage_threshold)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_volume)

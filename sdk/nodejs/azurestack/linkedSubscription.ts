@@ -69,7 +69,7 @@ export class LinkedSubscription extends pulumi.CustomResource {
     /**
      * The identifier associated with the device subscription.
      */
-    public readonly linkedSubscriptionId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly linkedSubscriptionId!: pulumi.Output<string | undefined>;
     /**
      * Location of the resource.
      */
@@ -81,7 +81,7 @@ export class LinkedSubscription extends pulumi.CustomResource {
     /**
      * The identifier associated with the device registration.
      */
-    public readonly registrationResourceId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly registrationResourceId!: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -106,19 +106,15 @@ export class LinkedSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.linkedSubscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'linkedSubscriptionId'");
-            }
-            if ((!args || args.registrationResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'registrationResourceId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["linkedSubscriptionId"] = args ? args.linkedSubscriptionId : undefined;
             resourceInputs["linkedSubscriptionName"] = args ? args.linkedSubscriptionName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registrationResourceId"] = args ? args.registrationResourceId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["deviceConnectionStatus"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
@@ -127,7 +123,9 @@ export class LinkedSubscription extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["lastConnectedTime"] = undefined /*out*/;
+            resourceInputs["linkedSubscriptionId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["registrationResourceId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -159,10 +157,6 @@ export class LinkedSubscription extends pulumi.CustomResource {
  */
 export interface LinkedSubscriptionArgs {
     /**
-     * The identifier associated with the device subscription.
-     */
-    linkedSubscriptionId: pulumi.Input<string>;
-    /**
      * Name of the Linked Subscription resource.
      */
     linkedSubscriptionName?: pulumi.Input<string>;
@@ -171,9 +165,9 @@ export interface LinkedSubscriptionArgs {
      */
     location?: pulumi.Input<string | enums.azurestack.Location>;
     /**
-     * The identifier associated with the device registration.
+     * Properties of the Linked Subscription resource
      */
-    registrationResourceId: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.azurestack.LinkedSubscriptionParameterPropertiesArgs>;
     /**
      * Name of the resource group.
      */

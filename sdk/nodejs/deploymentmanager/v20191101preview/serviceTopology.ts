@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,10 +38,6 @@ export class ServiceTopology extends pulumi.CustomResource {
     }
 
     /**
-     * The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-     */
-    public readonly artifactSourceId!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -46,6 +45,10 @@ export class ServiceTopology extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The properties that define the service topology.
+     */
+    public readonly properties!: pulumi.Output<outputs.deploymentmanager.v20191101preview.ServiceTopologyResourceResponseProperties>;
     /**
      * Resource tags.
      */
@@ -66,20 +69,23 @@ export class ServiceTopology extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["artifactSourceId"] = args ? args.artifactSourceId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceTopologyName"] = args ? args.serviceTopologyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["artifactSourceId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -95,13 +101,13 @@ export class ServiceTopology extends pulumi.CustomResource {
  */
 export interface ServiceTopologyArgs {
     /**
-     * The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-     */
-    artifactSourceId?: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The properties that define the service topology.
+     */
+    properties: pulumi.Input<inputs.deploymentmanager.v20191101preview.ServiceTopologyResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

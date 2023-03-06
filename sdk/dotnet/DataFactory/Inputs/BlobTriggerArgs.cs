@@ -33,24 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The path of the container/folder that will trigger the pipeline.
-        /// </summary>
-        [Input("folderPath", required: true)]
-        public Input<string> FolderPath { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure Storage linked service reference.
-        /// </summary>
-        [Input("linkedService", required: true)]
-        public Input<Inputs.LinkedServiceReferenceArgs> LinkedService { get; set; } = null!;
-
-        /// <summary>
-        /// The max number of parallel files to handle when it is triggered.
-        /// </summary>
-        [Input("maxConcurrency", required: true)]
-        public Input<int> MaxConcurrency { get; set; } = null!;
-
         [Input("pipelines")]
         private InputList<Inputs.TriggerPipelineReferenceArgs>? _pipelines;
 
@@ -69,6 +51,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Blob Trigger properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.BlobTriggerTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public BlobTriggerArgs()
         {

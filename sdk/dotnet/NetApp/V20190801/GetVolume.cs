@@ -95,26 +95,6 @@ namespace Pulumi.AzureNative.NetApp.V20190801
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// Unique Baremetal Tenant Identifier.
-        /// </summary>
-        public readonly string BaremetalTenantId;
-        /// <summary>
-        /// A unique file path for the volume. Used when creating mount targets
-        /// </summary>
-        public readonly string CreationToken;
-        /// <summary>
-        /// DataProtection volume, can have a replication object
-        /// </summary>
-        public readonly Outputs.VolumePropertiesResponseDataProtection? DataProtection;
-        /// <summary>
-        /// Set of export policy rules
-        /// </summary>
-        public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
-        /// <summary>
-        /// Unique FileSystem Identifier.
-        /// </summary>
-        public readonly string FileSystemId;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -123,33 +103,13 @@ namespace Pulumi.AzureNative.NetApp.V20190801
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// List of mount targets
-        /// </summary>
-        public readonly ImmutableArray<Outputs.MountTargetPropertiesResponse> MountTargets;
-        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Set of protocol types
+        /// Volume properties
         /// </summary>
-        public readonly ImmutableArray<string> ProtocolTypes;
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        public readonly string? ServiceLevel;
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
-        /// </summary>
-        public readonly string? SnapshotId;
-        /// <summary>
-        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        /// </summary>
-        public readonly string SubnetId;
+        public readonly Outputs.VolumePropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -158,78 +118,27 @@ namespace Pulumi.AzureNative.NetApp.V20190801
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        /// </summary>
-        public readonly double UsageThreshold;
-        /// <summary>
-        /// Resource size in bytes, current storage usage for the volume in bytes
-        /// </summary>
-        public readonly double UsedBytes;
-        /// <summary>
-        /// What type of volume is this
-        /// </summary>
-        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetVolumeResult(
-            string baremetalTenantId,
-
-            string creationToken,
-
-            Outputs.VolumePropertiesResponseDataProtection? dataProtection,
-
-            Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
-
-            string fileSystemId,
-
             string id,
 
             string location,
 
-            ImmutableArray<Outputs.MountTargetPropertiesResponse> mountTargets,
-
             string name,
 
-            ImmutableArray<string> protocolTypes,
-
-            string provisioningState,
-
-            string? serviceLevel,
-
-            string? snapshotId,
-
-            string subnetId,
+            Outputs.VolumePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            double usageThreshold,
-
-            double usedBytes,
-
-            string? volumeType)
+            string type)
         {
-            BaremetalTenantId = baremetalTenantId;
-            CreationToken = creationToken;
-            DataProtection = dataProtection;
-            ExportPolicy = exportPolicy;
-            FileSystemId = fileSystemId;
             Id = id;
             Location = location;
-            MountTargets = mountTargets;
             Name = name;
-            ProtocolTypes = protocolTypes;
-            ProvisioningState = provisioningState;
-            ServiceLevel = serviceLevel;
-            SnapshotId = snapshotId;
-            SubnetId = subnetId;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UsageThreshold = usageThreshold;
-            UsedBytes = usedBytes;
-            VolumeType = volumeType;
         }
     }
 }

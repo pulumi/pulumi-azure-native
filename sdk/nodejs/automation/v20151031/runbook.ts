@@ -44,11 +44,11 @@ export class Runbook extends pulumi.CustomResource {
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the draft runbook properties.
      */
-    public readonly draft!: pulumi.Output<outputs.automation.v20151031.RunbookDraftResponse | undefined>;
+    public /*out*/ readonly draft!: pulumi.Output<outputs.automation.v20151031.RunbookDraftResponse | undefined>;
     /**
      * Gets or sets the etag of the resource.
      */
@@ -72,15 +72,15 @@ export class Runbook extends pulumi.CustomResource {
     /**
      * Gets or sets the option to log activity trace of the runbook.
      */
-    public readonly logActivityTrace!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly logActivityTrace!: pulumi.Output<number | undefined>;
     /**
      * Gets or sets progress log option.
      */
-    public readonly logProgress!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly logProgress!: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets verbose log option.
      */
-    public readonly logVerbose!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly logVerbose!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource
      */
@@ -100,11 +100,11 @@ export class Runbook extends pulumi.CustomResource {
     /**
      * Gets or sets the published runbook content link.
      */
-    public readonly publishContentLink!: pulumi.Output<outputs.automation.v20151031.ContentLinkResponse | undefined>;
+    public /*out*/ readonly publishContentLink!: pulumi.Output<outputs.automation.v20151031.ContentLinkResponse | undefined>;
     /**
      * Gets or sets the type of the runbook.
      */
-    public readonly runbookType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly runbookType!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the state of the runbook.
      */
@@ -132,33 +132,34 @@ export class Runbook extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runbookType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'runbookType'");
-            }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["draft"] = args ? args.draft : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logActivityTrace"] = args ? args.logActivityTrace : undefined;
-            resourceInputs["logProgress"] = args ? args.logProgress : undefined;
-            resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publishContentLink"] = args ? args.publishContentLink : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["runbookName"] = args ? args.runbookName : undefined;
-            resourceInputs["runbookType"] = args ? args.runbookType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["draft"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["jobCount"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["logActivityTrace"] = undefined /*out*/;
+            resourceInputs["logProgress"] = undefined /*out*/;
+            resourceInputs["logVerbose"] = undefined /*out*/;
             resourceInputs["outputTypes"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publishContentLink"] = undefined /*out*/;
+            resourceInputs["runbookType"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -199,37 +200,17 @@ export interface RunbookArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the description of the runbook.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Gets or sets the draft runbook properties.
-     */
-    draft?: pulumi.Input<inputs.automation.v20151031.RunbookDraftArgs>;
-    /**
      * Gets or sets the location of the resource.
      */
     location?: pulumi.Input<string>;
-    /**
-     * Gets or sets the activity-level tracing options of the runbook.
-     */
-    logActivityTrace?: pulumi.Input<number>;
-    /**
-     * Gets or sets progress log option.
-     */
-    logProgress?: pulumi.Input<boolean>;
-    /**
-     * Gets or sets verbose log option.
-     */
-    logVerbose?: pulumi.Input<boolean>;
     /**
      * Gets or sets the name of the resource.
      */
     name?: pulumi.Input<string>;
     /**
-     * Gets or sets the published runbook content link.
+     * Gets or sets runbook create or update properties.
      */
-    publishContentLink?: pulumi.Input<inputs.automation.v20151031.ContentLinkArgs>;
+    properties: pulumi.Input<inputs.automation.v20151031.RunbookCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
@@ -238,10 +219,6 @@ export interface RunbookArgs {
      * The runbook name.
      */
     runbookName?: pulumi.Input<string>;
-    /**
-     * Gets or sets the type of the runbook.
-     */
-    runbookType: pulumi.Input<string | enums.automation.v20151031.RunbookTypeEnum>;
     /**
      * Gets or sets the tags attached to the resource.
      */

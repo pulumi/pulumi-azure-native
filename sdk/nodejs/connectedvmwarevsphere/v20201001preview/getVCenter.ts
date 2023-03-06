@@ -35,33 +35,13 @@ export interface GetVCenterArgs {
  */
 export interface GetVCenterResult {
     /**
-     * Gets or sets the connection status to the vCenter.
-     */
-    readonly connectionStatus: string;
-    /**
-     * Username / Password Credentials to connect to vcenter.
-     */
-    readonly credentials?: outputs.connectedvmwarevsphere.v20201001preview.VICredentialResponse;
-    /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    readonly customResourceName: string;
-    /**
      * Gets or sets the extended location.
      */
     readonly extendedLocation?: outputs.connectedvmwarevsphere.v20201001preview.ExtendedLocationResponse;
     /**
-     * Gets or sets the FQDN/IPAddress of the vCenter.
-     */
-    readonly fqdn: string;
-    /**
      * Gets or sets the Id.
      */
     readonly id: string;
-    /**
-     * Gets or sets the instance UUID of the vCenter.
-     */
-    readonly instanceUuid: string;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -75,17 +55,9 @@ export interface GetVCenterResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the port of the vCenter.
+     * Resource properties.
      */
-    readonly port?: number;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
-     * The resource status information.
-     */
-    readonly statuses: outputs.connectedvmwarevsphere.v20201001preview.ResourceStatusResponse[];
+    readonly properties: outputs.connectedvmwarevsphere.v20201001preview.VCenterPropertiesResponse;
     /**
      * The system data.
      */
@@ -98,14 +70,6 @@ export interface GetVCenterResult {
      * Gets or sets the type of the resource.
      */
     readonly type: string;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    readonly uuid: string;
-    /**
-     * Gets or sets the version of the vCenter.
-     */
-    readonly version: string;
 }
 /**
  * Implements vCenter GET method.

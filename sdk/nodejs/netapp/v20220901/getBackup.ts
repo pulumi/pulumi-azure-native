@@ -50,29 +50,9 @@ export interface GetBackupArgs {
  */
 export interface GetBackupResult {
     /**
-     * UUID v4 used to identify the Backup
-     */
-    readonly backupId: string;
-    /**
-     * Type of backup Manual or Scheduled
-     */
-    readonly backupType: string;
-    /**
-     * The creation date of the backup
-     */
-    readonly creationDate: string;
-    /**
-     * Failure reason
-     */
-    readonly failureReason: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Label for backup
-     */
-    readonly label?: string;
     /**
      * Resource location
      */
@@ -82,13 +62,9 @@ export interface GetBackupResult {
      */
     readonly name: string;
     /**
-     * Azure lifecycle management
+     * Backup Properties
      */
-    readonly provisioningState: string;
-    /**
-     * Size of backup
-     */
-    readonly size: number;
+    readonly properties: outputs.netapp.v20220901.BackupPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -97,14 +73,6 @@ export interface GetBackupResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-     */
-    readonly useExistingSnapshot?: boolean;
-    /**
-     * Volume name
-     */
-    readonly volumeName: string;
 }
 /**
  * Gets the specified backup of the volume

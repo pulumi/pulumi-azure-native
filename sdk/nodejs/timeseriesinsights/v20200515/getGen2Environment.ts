@@ -40,18 +40,6 @@ export interface GetGen2EnvironmentArgs {
  */
 export interface GetGen2EnvironmentResult {
     /**
-     * The time the resource was created.
-     */
-    readonly creationTime: string;
-    /**
-     * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    readonly dataAccessFqdn: string;
-    /**
-     * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    readonly dataAccessId: string;
-    /**
      * Resource Id
      */
     readonly id: string;
@@ -69,37 +57,21 @@ export interface GetGen2EnvironmentResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Properties of the Gen2 environment.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.timeseriesinsights.v20200515.Gen2EnvironmentResourcePropertiesResponse;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     readonly sku: outputs.timeseriesinsights.v20200515.SkuResponse;
     /**
-     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-     */
-    readonly status: outputs.timeseriesinsights.v20200515.EnvironmentStatusResponse;
-    /**
-     * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-     */
-    readonly storageConfiguration: outputs.timeseriesinsights.v20200515.Gen2StorageConfigurationOutputResponse;
-    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The list of event properties which will be used to define the environment's time series id.
-     */
-    readonly timeSeriesIdProperties: outputs.timeseriesinsights.v20200515.TimeSeriesIdPropertyResponse[];
-    /**
      * Resource type
      */
     readonly type: string;
-    /**
-     * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-     */
-    readonly warmStoreConfiguration?: outputs.timeseriesinsights.v20200515.WarmStoreConfigurationPropertiesResponse;
 }
 /**
  * Gets the environment with the specified name in the specified subscription and resource group.

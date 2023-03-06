@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,14 +38,6 @@ export class BlobFolderDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Container that has the file path.
-     */
-    public readonly containerName!: pulumi.Output<string>;
-    /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'BlobFolder'.
      */
@@ -52,21 +47,9 @@ export class BlobFolderDataSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Prefix for blob folder
+     * Blob folder data set properties.
      */
-    public readonly prefix!: pulumi.Output<string>;
-    /**
-     * Resource group of storage account
-     */
-    public readonly resourceGroup!: pulumi.Output<string>;
-    /**
-     * Storage account name of the source data set
-     */
-    public readonly storageAccountName!: pulumi.Output<string>;
-    /**
-     * Subscription id of storage account
-     */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20181101preview.BlobFolderPropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -86,17 +69,11 @@ export class BlobFolderDataSet extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.containerName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'containerName'");
-            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.prefix === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'prefix'");
-            }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroup'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -104,34 +81,18 @@ export class BlobFolderDataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
             resourceInputs["kind"] = "BlobFolder";
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["containerName"] = undefined /*out*/;
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["prefix"] = undefined /*out*/;
-            resourceInputs["resourceGroup"] = undefined /*out*/;
-            resourceInputs["storageAccountName"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,10 +111,6 @@ export interface BlobFolderDataSetArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Container that has the file path.
-     */
-    containerName: pulumi.Input<string>;
-    /**
      * The name of the dataSet.
      */
     dataSetName?: pulumi.Input<string>;
@@ -163,13 +120,9 @@ export interface BlobFolderDataSetArgs {
      */
     kind: pulumi.Input<"BlobFolder">;
     /**
-     * Prefix for blob folder
+     * Blob folder data set properties.
      */
-    prefix: pulumi.Input<string>;
-    /**
-     * Resource group of storage account
-     */
-    resourceGroup: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.v20181101preview.BlobFolderPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -178,12 +131,4 @@ export interface BlobFolderDataSetArgs {
      * The name of the share to add the data set to.
      */
     shareName: pulumi.Input<string>;
-    /**
-     * Storage account name of the source data set
-     */
-    storageAccountName: pulumi.Input<string>;
-    /**
-     * Subscription id of storage account
-     */
-    subscriptionId: pulumi.Input<string>;
 }

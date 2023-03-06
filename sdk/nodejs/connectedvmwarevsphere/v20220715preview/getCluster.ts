@@ -35,14 +35,6 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    readonly customResourceName: string;
-    /**
-     * Gets or sets the datastore ARM ids.
-     */
-    readonly datastoreIds: string[];
-    /**
      * Gets or sets the extended location.
      */
     readonly extendedLocation?: outputs.connectedvmwarevsphere.v20220715preview.ExtendedLocationResponse;
@@ -50,10 +42,6 @@ export interface GetClusterResult {
      * Gets or sets the Id.
      */
     readonly id: string;
-    /**
-     * Gets or sets the inventory Item ID for the cluster.
-     */
-    readonly inventoryItemId?: string;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -63,29 +51,13 @@ export interface GetClusterResult {
      */
     readonly location: string;
     /**
-     * Gets or sets the vCenter Managed Object name for the cluster.
-     */
-    readonly moName: string;
-    /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the cluster.
-     */
-    readonly moRefId?: string;
-    /**
      * Gets or sets the name.
      */
     readonly name: string;
     /**
-     * Gets or sets the network ARM ids.
+     * Resource properties.
      */
-    readonly networkIds: string[];
-    /**
-     * Gets or sets the provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
-     * The resource status information.
-     */
-    readonly statuses: outputs.connectedvmwarevsphere.v20220715preview.ResourceStatusResponse[];
+    readonly properties: outputs.connectedvmwarevsphere.v20220715preview.ClusterPropertiesResponse;
     /**
      * The system data.
      */
@@ -98,14 +70,6 @@ export interface GetClusterResult {
      * Gets or sets the type of the resource.
      */
     readonly type: string;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    readonly uuid: string;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
-     */
-    readonly vCenterId?: string;
 }
 /**
  * Implements cluster GET method.

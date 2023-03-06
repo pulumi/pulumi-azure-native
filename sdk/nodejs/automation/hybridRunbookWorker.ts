@@ -65,7 +65,7 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
     /**
      * Azure Resource Manager Id for a virtual machine.
      */
-    public readonly vmResourceId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly vmResourceId!: pulumi.Output<string | undefined>;
     /**
      * Name of the HybridWorker.
      */
@@ -92,6 +92,9 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
             if ((!args || args.hybridRunbookWorkerGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hybridRunbookWorkerGroupName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -99,13 +102,14 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
             resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
             resourceInputs["hybridRunbookWorkerId"] = args ? args.hybridRunbookWorkerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vmResourceId"] = args ? args.vmResourceId : undefined;
             resourceInputs["ip"] = undefined /*out*/;
             resourceInputs["lastSeenDateTime"] = undefined /*out*/;
             resourceInputs["registeredDateTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmResourceId"] = undefined /*out*/;
             resourceInputs["workerName"] = undefined /*out*/;
             resourceInputs["workerType"] = undefined /*out*/;
         } else {
@@ -147,11 +151,11 @@ export interface HybridRunbookWorkerArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Gets or sets hybrid runbook worker group create or update properties.
+     */
+    properties: pulumi.Input<inputs.automation.HybridRunbookWorkerCreateOrUpdateParametersArgs>;
+    /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Azure Resource Manager Id for a virtual machine.
-     */
-    vmResourceId?: pulumi.Input<string>;
 }

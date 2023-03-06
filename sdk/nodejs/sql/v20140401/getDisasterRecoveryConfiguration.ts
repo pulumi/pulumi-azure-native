@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,14 +40,6 @@ export interface GetDisasterRecoveryConfigurationArgs {
  */
 export interface GetDisasterRecoveryConfigurationResult {
     /**
-     * Whether or not failover can be done automatically.
-     */
-    readonly autoFailover: string;
-    /**
-     * How aggressive the automatic failover should be.
-     */
-    readonly failoverPolicy: string;
-    /**
      * Resource ID.
      */
     readonly id: string;
@@ -53,29 +48,13 @@ export interface GetDisasterRecoveryConfigurationResult {
      */
     readonly location: string;
     /**
-     * Logical name of the server.
-     */
-    readonly logicalServerName: string;
-    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Logical name of the partner server.
+     * The properties representing the resource.
      */
-    readonly partnerLogicalServerName: string;
-    /**
-     * Id of the partner server.
-     */
-    readonly partnerServerId: string;
-    /**
-     * The role of the current server in the disaster recovery configuration.
-     */
-    readonly role: string;
-    /**
-     * The status of the disaster recovery configuration.
-     */
-    readonly status: string;
+    readonly properties: outputs.sql.v20140401.DisasterRecoveryConfigurationPropertiesResponse;
     /**
      * Resource type.
      */

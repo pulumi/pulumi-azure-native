@@ -40,11 +40,11 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * The auto sync of the source control. Default is false.
      */
-    public readonly autoSync!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly autoSync!: pulumi.Output<boolean | undefined>;
     /**
      * The repo branch of the source control. Include branch as empty string for VsoTfvc.
      */
-    public readonly branch!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly branch!: pulumi.Output<string | undefined>;
     /**
      * The creation time.
      */
@@ -52,11 +52,11 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * The description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * The folder path of the source control.
      */
-    public readonly folderPath!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly folderPath!: pulumi.Output<string | undefined>;
     /**
      * The last modified time.
      */
@@ -68,15 +68,15 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * The auto publish of the source control. Default is true.
      */
-    public readonly publishRunbook!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly publishRunbook!: pulumi.Output<boolean | undefined>;
     /**
      * The repo url of the source control.
      */
-    public readonly repoUrl!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly repoUrl!: pulumi.Output<string | undefined>;
     /**
      * The source type. Must be one of VsoGit, VsoTfvc, GitHub.
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly sourceType!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -96,23 +96,26 @@ export class SourceControl extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoSync"] = args ? args.autoSync : undefined;
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
-            resourceInputs["publishRunbook"] = args ? args.publishRunbook : undefined;
-            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
             resourceInputs["sourceControlName"] = args ? args.sourceControlName : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["autoSync"] = undefined /*out*/;
+            resourceInputs["branch"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["folderPath"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publishRunbook"] = undefined /*out*/;
+            resourceInputs["repoUrl"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["autoSync"] = undefined /*out*/;
@@ -139,47 +142,19 @@ export class SourceControl extends pulumi.CustomResource {
  */
 export interface SourceControlArgs {
     /**
-     * The auto async of the source control. Default is false.
-     */
-    autoSync?: pulumi.Input<boolean>;
-    /**
      * The name of the automation account.
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * The repo branch of the source control. Include branch as empty string for VsoTfvc.
+     * The properties of the source control.
      */
-    branch?: pulumi.Input<string>;
-    /**
-     * The user description of the source control.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The folder path of the source control. Path must be relative.
-     */
-    folderPath?: pulumi.Input<string>;
-    /**
-     * The auto publish of the source control. Default is true.
-     */
-    publishRunbook?: pulumi.Input<boolean>;
-    /**
-     * The repo url of the source control.
-     */
-    repoUrl?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.automation.v20190601.SourceControlCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The authorization token for the repo of the source control.
-     */
-    securityToken?: pulumi.Input<inputs.automation.v20190601.SourceControlSecurityTokenPropertiesArgs>;
-    /**
      * The source control name.
      */
     sourceControlName?: pulumi.Input<string>;
-    /**
-     * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
-     */
-    sourceType?: pulumi.Input<string | enums.automation.v20190601.SourceType>;
 }

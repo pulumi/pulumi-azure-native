@@ -11,7 +11,9 @@ from ... import _utilities
 
 __all__ = [
     'PolicyVariableColumnArgs',
+    'PolicyVariablePropertiesArgs',
     'PolicyVariableValueColumnValueArgs',
+    'PolicyVariableValuePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -35,6 +37,29 @@ class PolicyVariableColumnArgs:
     @column_name.setter
     def column_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "column_name", value)
+
+
+@pulumi.input_type
+class PolicyVariablePropertiesArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]]):
+        """
+        The variable properties.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]] columns: Variable column definitions.
+        """
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]]:
+        """
+        Variable column definitions.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]]):
+        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type
@@ -73,5 +98,28 @@ class PolicyVariableValueColumnValueArgs:
     @column_value.setter
     def column_value(self, value: Any):
         pulumi.set(self, "column_value", value)
+
+
+@pulumi.input_type
+class PolicyVariableValuePropertiesArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]]):
+        """
+        The variable value properties.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]] values: Variable value column value array.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]]:
+        """
+        Variable value column value array.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]]):
+        pulumi.set(self, "values", value)
 
 

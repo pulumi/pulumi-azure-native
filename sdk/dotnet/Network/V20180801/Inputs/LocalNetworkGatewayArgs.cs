@@ -16,22 +16,10 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
     public sealed class LocalNetworkGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Local network gateway's BGP speaker settings.
-        /// </summary>
-        [Input("bgpSettings")]
-        public Input<Inputs.BgpSettingsArgs>? BgpSettings { get; set; }
-
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// IP address of local network gateway.
-        /// </summary>
-        [Input("gatewayIpAddress")]
-        public Input<string>? GatewayIpAddress { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -40,22 +28,16 @@ namespace Pulumi.AzureNative.Network.V20180801.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Local network site address space.
-        /// </summary>
-        [Input("localNetworkAddressSpace")]
-        public Input<Inputs.AddressSpaceArgs>? LocalNetworkAddressSpace { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The resource GUID property of the LocalNetworkGateway resource.
+        /// Properties of the local network gateway.
         /// </summary>
-        [Input("resourceGuid")]
-        public Input<string>? ResourceGuid { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.LocalNetworkGatewayPropertiesFormatArgs> Properties { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

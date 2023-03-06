@@ -64,22 +64,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the mobile network resource.
+        /// Mobile network properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-        /// </summary>
-        [Output("publicLandMobileNetworkIdentifier")]
-        public Output<Outputs.PlmnIdResponse> PublicLandMobileNetworkIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// The mobile network resource identifier
-        /// </summary>
-        [Output("serviceKey")]
-        public Output<string> ServiceKey { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.MobileNetworkPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -199,10 +187,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         public Input<string>? MobileNetworkName { get; set; }
 
         /// <summary>
-        /// The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        /// Mobile network properties.
         /// </summary>
-        [Input("publicLandMobileNetworkIdentifier", required: true)]
-        public Input<Inputs.PlmnIdArgs> PublicLandMobileNetworkIdentifier { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.MobileNetworkPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

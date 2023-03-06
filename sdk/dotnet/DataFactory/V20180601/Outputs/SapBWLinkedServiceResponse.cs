@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object ClientId;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -33,70 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Password to access the SAP BW server.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
-        /// <summary>
-        /// Host name of the SAP BW instance. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Server;
-        /// <summary>
-        /// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object SystemNumber;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapBW'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Username to access the SAP BW server. Type: string (or Expression with resultType string).
+        /// Properties specific to this linked service type.
         /// </summary>
-        public readonly object? UserName;
+        public readonly Outputs.SapBWLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapBWLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            object clientId,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
-            object server,
-
-            object systemNumber,
 
             string type,
 
-            object? userName)
+            Outputs.SapBWLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            ClientId = clientId;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
-            Server = server;
-            SystemNumber = systemNumber;
             Type = type;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

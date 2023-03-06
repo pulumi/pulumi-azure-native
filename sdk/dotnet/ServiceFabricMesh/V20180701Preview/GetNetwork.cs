@@ -71,21 +71,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     public sealed class GetNetworkResult
     {
         /// <summary>
-        /// the address prefix for this network.
-        /// </summary>
-        public readonly string AddressPrefix;
-        /// <summary>
-        /// User readable description of the network.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Configuration for public connectivity for this network.
-        /// </summary>
-        public readonly Outputs.IngressConfigResponse? IngressConfig;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -95,9 +83,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the resource.
+        /// Describes properties of a network resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.NetworkResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -109,31 +97,22 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 
         [OutputConstructor]
         private GetNetworkResult(
-            string addressPrefix,
-
-            string? description,
-
             string id,
-
-            Outputs.IngressConfigResponse? ingressConfig,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.NetworkResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            AddressPrefix = addressPrefix;
-            Description = description;
             Id = id;
-            IngressConfig = ingressConfig;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

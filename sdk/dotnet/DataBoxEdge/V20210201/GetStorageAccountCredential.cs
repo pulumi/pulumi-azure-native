@@ -82,26 +82,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
     public sealed class GetStorageAccountCredentialResult
     {
         /// <summary>
-        /// Encrypted storage key.
-        /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? AccountKey;
-        /// <summary>
-        /// Type of storage accessed on the storage account.
-        /// </summary>
-        public readonly string AccountType;
-        /// <summary>
-        /// Alias for the storage account.
-        /// </summary>
-        public readonly string Alias;
-        /// <summary>
-        /// Blob end point for private clouds.
-        /// </summary>
-        public readonly string? BlobDomainName;
-        /// <summary>
-        /// Connection string for the storage account. Use this string if username and account key are not specified.
-        /// </summary>
-        public readonly string? ConnectionString;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -110,13 +90,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Signifies whether SSL needs to be enabled or not.
+        /// The storage account credential properties.
         /// </summary>
-        public readonly string SslStatus;
-        /// <summary>
-        /// Id of the storage account.
-        /// </summary>
-        public readonly string? StorageAccountId;
+        public readonly Outputs.StorageAccountCredentialPropertiesResponse Properties;
         /// <summary>
         /// StorageAccountCredential object
         /// </summary>
@@ -125,49 +101,24 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Username for the storage account.
-        /// </summary>
-        public readonly string? UserName;
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
-            Outputs.AsymmetricEncryptedSecretResponse? accountKey,
-
-            string accountType,
-
-            string alias,
-
-            string? blobDomainName,
-
-            string? connectionString,
-
             string id,
 
             string name,
 
-            string sslStatus,
-
-            string? storageAccountId,
+            Outputs.StorageAccountCredentialPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string? userName)
+            string type)
         {
-            AccountKey = accountKey;
-            AccountType = accountType;
-            Alias = alias;
-            BlobDomainName = blobDomainName;
-            ConnectionString = connectionString;
             Id = id;
             Name = name;
-            SslStatus = sslStatus;
-            StorageAccountId = storageAccountId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            UserName = userName;
         }
     }
 }

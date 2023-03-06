@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class GetMetadataActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// GetMetadata activity dataset reference.
-        /// </summary>
-        [Input("dataset", required: true)]
-        public Input<Inputs.DatasetReferenceArgs> Dataset { get; set; } = null!;
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -38,18 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        [Input("fieldList")]
-        private InputList<object>? _fieldList;
-
-        /// <summary>
-        /// Fields of metadata to get from dataset.
-        /// </summary>
-        public InputList<object> FieldList
-        {
-            get => _fieldList ?? (_fieldList = new InputList<object>());
-            set => _fieldList = value;
-        }
 
         /// <summary>
         /// Linked service reference.
@@ -75,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// GetMetadata activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.GetMetadataActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public GetMetadataActivityArgs()
         {

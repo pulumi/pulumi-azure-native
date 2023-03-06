@@ -25,14 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The MongoDB connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object ConnectionString;
-        /// <summary>
-        /// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Database;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -45,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'MongoDbV2'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// MongoDB linked service properties.
+        /// </summary>
+        public readonly Outputs.MongoDbV2LinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private MongoDbV2LinkedServiceResponse(
@@ -52,23 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object connectionString,
-
-            object database,
-
             string? description,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            Outputs.MongoDbV2LinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
-            Database = database;
             Description = description;
             Parameters = parameters;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -18,8 +18,7 @@ class MongoDBResourceMongoDBCollectionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
-                 options: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 resource: pulumi.Input['MongoDBCollectionResourceArgs'],
+                 properties: pulumi.Input['MongoDBCollectionCreateUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  collection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -28,8 +27,7 @@ class MongoDBResourceMongoDBCollectionArgs:
         The set of arguments for constructing a MongoDBResourceMongoDBCollection resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input['MongoDBCollectionResourceArgs'] resource: The standard JSON format of a MongoDB collection
+        :param pulumi.Input['MongoDBCollectionCreateUpdatePropertiesArgs'] properties: Properties to create and update Azure Cosmos DB MongoDB collection.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] collection_name: Cosmos DB collection name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
@@ -37,8 +35,7 @@ class MongoDBResourceMongoDBCollectionArgs:
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if collection_name is not None:
             pulumi.set(__self__, "collection_name", collection_name)
@@ -73,27 +70,15 @@ class MongoDBResourceMongoDBCollectionArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+    def properties(self) -> pulumi.Input['MongoDBCollectionCreateUpdatePropertiesArgs']:
         """
-        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        Properties to create and update Azure Cosmos DB MongoDB collection.
         """
-        return pulumi.get(self, "options")
+        return pulumi.get(self, "properties")
 
-    @options.setter
-    def options(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> pulumi.Input['MongoDBCollectionResourceArgs']:
-        """
-        The standard JSON format of a MongoDB collection
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: pulumi.Input['MongoDBCollectionResourceArgs']):
-        pulumi.set(self, "resource", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['MongoDBCollectionCreateUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -158,8 +143,7 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
                  collection_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['MongoDBCollectionResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MongoDBCollectionCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -172,8 +156,7 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
         :param pulumi.Input[str] collection_name: Cosmos DB collection name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[pulumi.InputType['MongoDBCollectionResourceArgs']] resource: The standard JSON format of a MongoDB collection
+        :param pulumi.Input[pulumi.InputType['MongoDBCollectionCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB MongoDB collection.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
@@ -205,8 +188,7 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
                  collection_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['MongoDBCollectionResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MongoDBCollectionCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -227,17 +209,15 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["location"] = location
-            if options is None and not opts.urn:
-                raise TypeError("Missing required property 'options'")
-            __props__.__dict__["options"] = options
-            if resource is None and not opts.urn:
-                raise TypeError("Missing required property 'resource'")
-            __props__.__dict__["resource"] = resource
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["resource"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20150401:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20150408:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20151106:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20160319:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20160331:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20200301:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20200401:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20200901:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210315:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210415:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210515:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210615:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20211015:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20220515:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20220815:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-native:documentdb/v20221115:MongoDBResourceMongoDBCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -38,22 +38,6 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
-     * Parent Device Update Account name which Instance belongs to.
-     */
-    public readonly accountName!: pulumi.Output<string>;
-    /**
-     * Customer-initiated diagnostic log collection storage properties
-     */
-    public readonly diagnosticStorageProperties!: pulumi.Output<outputs.deviceupdate.v20221001.DiagnosticStoragePropertiesResponse | undefined>;
-    /**
-     * Enables or Disables the diagnostic logs collection
-     */
-    public readonly enableDiagnostics!: pulumi.Output<boolean | undefined>;
-    /**
-     * List of IoT Hubs associated with the account.
-     */
-    public readonly iotHubs!: pulumi.Output<outputs.deviceupdate.v20221001.IotHubSettingsResponse[] | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -62,9 +46,9 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state.
+     * Device Update instance properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.deviceupdate.v20221001.InstanceResponseProperties>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -92,29 +76,25 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["diagnosticStorageProperties"] = args ? args.diagnosticStorageProperties : undefined;
-            resourceInputs["enableDiagnostics"] = args ? args.enableDiagnostics : undefined;
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["iotHubs"] = args ? args.iotHubs : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["accountName"] = undefined /*out*/;
-            resourceInputs["diagnosticStorageProperties"] = undefined /*out*/;
-            resourceInputs["enableDiagnostics"] = undefined /*out*/;
-            resourceInputs["iotHubs"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -135,25 +115,17 @@ export interface InstanceArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Customer-initiated diagnostic log collection storage properties
-     */
-    diagnosticStorageProperties?: pulumi.Input<inputs.deviceupdate.v20221001.DiagnosticStoragePropertiesArgs>;
-    /**
-     * Enables or Disables the diagnostic logs collection
-     */
-    enableDiagnostics?: pulumi.Input<boolean>;
-    /**
      * Instance name.
      */
     instanceName?: pulumi.Input<string>;
     /**
-     * List of IoT Hubs associated with the account.
-     */
-    iotHubs?: pulumi.Input<pulumi.Input<inputs.deviceupdate.v20221001.IotHubSettingsArgs>[]>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Device Update instance properties.
+     */
+    properties: pulumi.Input<inputs.deviceupdate.v20221001.InstancePropertiesArgs>;
     /**
      * The resource group name.
      */

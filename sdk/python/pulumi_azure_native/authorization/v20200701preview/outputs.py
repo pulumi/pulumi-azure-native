@@ -11,8 +11,127 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'PolicyExemptionPropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class PolicyExemptionPropertiesResponse(dict):
+    """
+    The policy exemption properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exemptionCategory":
+            suggest = "exemption_category"
+        elif key == "policyAssignmentId":
+            suggest = "policy_assignment_id"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "expiresOn":
+            suggest = "expires_on"
+        elif key == "policyDefinitionReferenceIds":
+            suggest = "policy_definition_reference_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyExemptionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyExemptionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyExemptionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exemption_category: str,
+                 policy_assignment_id: str,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 expires_on: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 policy_definition_reference_ids: Optional[Sequence[str]] = None):
+        """
+        The policy exemption properties.
+        :param str exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
+        :param str policy_assignment_id: The ID of the policy assignment that is being exempted.
+        :param str description: The description of the policy exemption.
+        :param str display_name: The display name of the policy exemption.
+        :param str expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        :param Any metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param Sequence[str] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        """
+        pulumi.set(__self__, "exemption_category", exemption_category)
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if expires_on is not None:
+            pulumi.set(__self__, "expires_on", expires_on)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if policy_definition_reference_ids is not None:
+            pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
+
+    @property
+    @pulumi.getter(name="exemptionCategory")
+    def exemption_category(self) -> str:
+        """
+        The policy exemption category. Possible values are Waiver and Mitigated.
+        """
+        return pulumi.get(self, "exemption_category")
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> str:
+        """
+        The ID of the policy assignment that is being exempted.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the policy exemption.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the policy exemption.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> Optional[str]:
+        """
+        The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        """
+        return pulumi.get(self, "expires_on")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceIds")
+    def policy_definition_reference_ids(self) -> Optional[Sequence[str]]:
+        """
+        The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_ids")
+
 
 @pulumi.output_type
 class SystemDataResponse(dict):

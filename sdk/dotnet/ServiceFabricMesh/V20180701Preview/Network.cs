@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     public partial class Network : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the address prefix for this network.
-        /// </summary>
-        [Output("addressPrefix")]
-        public Output<string> AddressPrefix { get; private set; } = null!;
-
-        /// <summary>
-        /// User readable description of the network.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration for public connectivity for this network.
-        /// </summary>
-        [Output("ingressConfig")]
-        public Output<Outputs.IngressConfigResponse?> IngressConfig { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -47,10 +29,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the resource.
+        /// Describes properties of a network resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.NetworkResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -115,24 +97,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the address prefix for this network.
-        /// </summary>
-        [Input("addressPrefix", required: true)]
-        public Input<string> AddressPrefix { get; set; } = null!;
-
-        /// <summary>
-        /// User readable description of the network.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Configuration for public connectivity for this network.
-        /// </summary>
-        [Input("ingressConfig")]
-        public Input<Inputs.IngressConfigArgs>? IngressConfig { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -143,6 +107,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         /// </summary>
         [Input("networkName")]
         public Input<string>? NetworkName { get; set; }
+
+        /// <summary>
+        /// Describes properties of a network resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.NetworkResourcePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Azure resource group name

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetIscsiServerResult',
@@ -23,55 +24,19 @@ class GetIscsiServerResult:
     """
     The iSCSI server.
     """
-    def __init__(__self__, backup_schedule_group_id=None, chap_id=None, description=None, id=None, name=None, reverse_chap_id=None, storage_domain_id=None, type=None):
-        if backup_schedule_group_id and not isinstance(backup_schedule_group_id, str):
-            raise TypeError("Expected argument 'backup_schedule_group_id' to be a str")
-        pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
-        if chap_id and not isinstance(chap_id, str):
-            raise TypeError("Expected argument 'chap_id' to be a str")
-        pulumi.set(__self__, "chap_id", chap_id)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if reverse_chap_id and not isinstance(reverse_chap_id, str):
-            raise TypeError("Expected argument 'reverse_chap_id' to be a str")
-        pulumi.set(__self__, "reverse_chap_id", reverse_chap_id)
-        if storage_domain_id and not isinstance(storage_domain_id, str):
-            raise TypeError("Expected argument 'storage_domain_id' to be a str")
-        pulumi.set(__self__, "storage_domain_id", storage_domain_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="backupScheduleGroupId")
-    def backup_schedule_group_id(self) -> str:
-        """
-        The backup policy id.
-        """
-        return pulumi.get(self, "backup_schedule_group_id")
-
-    @property
-    @pulumi.getter(name="chapId")
-    def chap_id(self) -> Optional[str]:
-        """
-        The chap id.
-        """
-        return pulumi.get(self, "chap_id")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -90,20 +55,12 @@ class GetIscsiServerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="reverseChapId")
-    def reverse_chap_id(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ISCSIServerPropertiesResponse':
         """
-        The reverse chap id.
+        The properties.
         """
-        return pulumi.get(self, "reverse_chap_id")
-
-    @property
-    @pulumi.getter(name="storageDomainId")
-    def storage_domain_id(self) -> str:
-        """
-        The storage domain id.
-        """
-        return pulumi.get(self, "storage_domain_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -120,13 +77,9 @@ class AwaitableGetIscsiServerResult(GetIscsiServerResult):
         if False:
             yield self
         return GetIscsiServerResult(
-            backup_schedule_group_id=self.backup_schedule_group_id,
-            chap_id=self.chap_id,
-            description=self.description,
             id=self.id,
             name=self.name,
-            reverse_chap_id=self.reverse_chap_id,
-            storage_domain_id=self.storage_domain_id,
+            properties=self.properties,
             type=self.type)
 
 
@@ -154,13 +107,9 @@ def get_iscsi_server(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20161001:getIscsiServer', __args__, opts=opts, typ=GetIscsiServerResult).value
 
     return AwaitableGetIscsiServerResult(
-        backup_schedule_group_id=__ret__.backup_schedule_group_id,
-        chap_id=__ret__.chap_id,
-        description=__ret__.description,
         id=__ret__.id,
         name=__ret__.name,
-        reverse_chap_id=__ret__.reverse_chap_id,
-        storage_domain_id=__ret__.storage_domain_id,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

@@ -14,6 +14,7 @@ __all__ = [
     'AdditionalLocationArgs',
     'ApiCreateOrUpdatePropertiesWsdlSelectorArgs',
     'ApiManagementServiceIdentityArgs',
+    'ApiManagementServicePropertiesArgs',
     'ApiManagementServiceSkuPropertiesArgs',
     'ApiVersionSetContractDetailsArgs',
     'AuthenticationSettingsContractArgs',
@@ -155,6 +156,158 @@ class ApiManagementServiceIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[str, 'ApimIdentityType']]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ApiManagementServicePropertiesArgs:
+    def __init__(__self__, *,
+                 publisher_email: pulumi.Input[str],
+                 publisher_name: pulumi.Input[str],
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]] = None,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
+                 notification_sender_email: Optional[pulumi.Input[str]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
+                 virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None):
+        """
+        Properties of an API Management service resource description.
+        :param pulumi.Input[str] publisher_email: Publisher email.
+        :param pulumi.Input[str] publisher_name: Publisher name.
+        :param pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
+        :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network configuration of the API Management service.
+        :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        """
+        pulumi.set(__self__, "publisher_email", publisher_email)
+        pulumi.set(__self__, "publisher_name", publisher_name)
+        if additional_locations is not None:
+            pulumi.set(__self__, "additional_locations", additional_locations)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+        if hostname_configurations is not None:
+            pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+        if notification_sender_email is not None:
+            pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+        if virtual_network_configuration is not None:
+            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if virtual_network_type is None:
+            virtual_network_type = 'None'
+        if virtual_network_type is not None:
+            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> pulumi.Input[str]:
+        """
+        Publisher email.
+        """
+        return pulumi.get(self, "publisher_email")
+
+    @publisher_email.setter
+    def publisher_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_email", value)
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> pulumi.Input[str]:
+        """
+        Publisher name.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @publisher_name.setter
+    def publisher_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_name", value)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]]:
+        """
+        Additional datacenter locations of the API Management service.
+        """
+        return pulumi.get(self, "additional_locations")
+
+    @additional_locations.setter
+    def additional_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]]):
+        pulumi.set(self, "additional_locations", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]]:
+        """
+        List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_properties", value)
+
+    @property
+    @pulumi.getter(name="hostnameConfigurations")
+    def hostname_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]:
+        """
+        Custom hostname configuration of the API Management service.
+        """
+        return pulumi.get(self, "hostname_configurations")
+
+    @hostname_configurations.setter
+    def hostname_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]):
+        pulumi.set(self, "hostname_configurations", value)
+
+    @property
+    @pulumi.getter(name="notificationSenderEmail")
+    def notification_sender_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email address from which the notification will be sent.
+        """
+        return pulumi.get(self, "notification_sender_email")
+
+    @notification_sender_email.setter
+    def notification_sender_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_sender_email", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]:
+        """
+        Virtual network configuration of the API Management service.
+        """
+        return pulumi.get(self, "virtual_network_configuration")
+
+    @virtual_network_configuration.setter
+    def virtual_network_configuration(self, value: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]):
+        pulumi.set(self, "virtual_network_configuration", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkType")
+    def virtual_network_type(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]]:
+        """
+        The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        """
+        return pulumi.get(self, "virtual_network_type")
+
+    @virtual_network_type.setter
+    def virtual_network_type(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]]):
+        pulumi.set(self, "virtual_network_type", value)
 
 
 @pulumi.input_type

@@ -144,16 +144,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        /// Properties to create and update Azure Cosmos DB Gremlin graph.
         /// </summary>
-        [Input("options", required: true)]
-        public Input<Inputs.CreateUpdateOptionsArgs> Options { get; set; } = null!;
-
-        /// <summary>
-        /// The standard JSON format of a Gremlin graph
-        /// </summary>
-        [Input("resource", required: true)]
-        public Input<Inputs.GremlinGraphResourceArgs> Resource { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.GremlinGraphCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

@@ -17,23 +17,23 @@ __all__ = ['PacketCoreDataPlaneArgs', 'PacketCoreDataPlane']
 class PacketCoreDataPlaneArgs:
     def __init__(__self__, *,
                  packet_core_control_plane_name: pulumi.Input[str],
+                 properties: pulumi.Input['PacketCoreDataPlanePropertiesFormatArgs'],
                  resource_group_name: pulumi.Input[str],
-                 user_plane_access_interface: pulumi.Input['InterfacePropertiesArgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PacketCoreDataPlane resource.
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
+        :param pulumi.Input['PacketCoreDataPlanePropertiesFormatArgs'] properties: Packet core data plane Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['InterfacePropertiesArgs'] user_plane_access_interface: The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_plane_access_interface", user_plane_access_interface)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if packet_core_data_plane_name is not None:
@@ -54,6 +54,18 @@ class PacketCoreDataPlaneArgs:
         pulumi.set(self, "packet_core_control_plane_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PacketCoreDataPlanePropertiesFormatArgs']:
+        """
+        Packet core data plane Properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['PacketCoreDataPlanePropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -64,18 +76,6 @@ class PacketCoreDataPlaneArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="userPlaneAccessInterface")
-    def user_plane_access_interface(self) -> pulumi.Input['InterfacePropertiesArgs']:
-        """
-        The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-        """
-        return pulumi.get(self, "user_plane_access_interface")
-
-    @user_plane_access_interface.setter
-    def user_plane_access_interface(self, value: pulumi.Input['InterfacePropertiesArgs']):
-        pulumi.set(self, "user_plane_access_interface", value)
 
     @property
     @pulumi.getter
@@ -122,9 +122,9 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                  packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PacketCoreDataPlanePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
                  __props__=None):
         """
         Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
@@ -134,9 +134,9 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
+        :param pulumi.Input[pulumi.InputType['PacketCoreDataPlanePropertiesFormatArgs']] properties: Packet core data plane Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] user_plane_access_interface: The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
         """
         ...
     @overload
@@ -165,9 +165,9 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                  packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PacketCoreDataPlanePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -182,15 +182,14 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                 raise TypeError("Missing required property 'packet_core_control_plane_name'")
             __props__.__dict__["packet_core_control_plane_name"] = packet_core_control_plane_name
             __props__.__dict__["packet_core_data_plane_name"] = packet_core_data_plane_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if user_plane_access_interface is None and not opts.urn:
-                raise TypeError("Missing required property 'user_plane_access_interface'")
-            __props__.__dict__["user_plane_access_interface"] = user_plane_access_interface
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:PacketCoreDataPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane")])
@@ -219,11 +218,10 @@ class PacketCoreDataPlane(pulumi.CustomResource):
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_plane_access_interface"] = None
         return PacketCoreDataPlane(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,12 +241,12 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.PacketCoreDataPlanePropertiesFormatResponse']:
         """
-        The provisioning state of the packet core data plane resource.
+        Packet core data plane Properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -273,12 +271,4 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userPlaneAccessInterface")
-    def user_plane_access_interface(self) -> pulumi.Output['outputs.InterfacePropertiesResponse']:
-        """
-        The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-        """
-        return pulumi.get(self, "user_plane_access_interface")
 

@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class QuickBooksLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access token for OAuth 1.0 authentication.
-        /// </summary>
-        [Input("accessToken", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> AccessToken { get; set; } = null!;
-
-        /// <summary>
-        /// The access token secret for OAuth 1.0 authentication.
-        /// </summary>
-        [Input("accessTokenSecret", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> AccessTokenSecret { get; set; } = null!;
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,46 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The company ID of the QuickBooks company to authorize.
-        /// </summary>
-        [Input("companyId", required: true)]
-        public Input<object> CompanyId { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The consumer key for OAuth 1.0 authentication.
-        /// </summary>
-        [Input("consumerKey", required: true)]
-        public Input<object> ConsumerKey { get; set; } = null!;
-
-        /// <summary>
-        /// The consumer secret for OAuth 1.0 authentication.
-        /// </summary>
-        [Input("consumerSecret", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ConsumerSecret { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<object> Endpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -101,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// QuickBooks server linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.QuickBooksLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public QuickBooksLinkedServiceArgs()
         {

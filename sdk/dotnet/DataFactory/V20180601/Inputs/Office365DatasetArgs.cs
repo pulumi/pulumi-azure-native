@@ -58,12 +58,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// A predicate expression that can be used to filter the specific rows to extract from Office 365. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("predicate")]
-        public Input<object>? Predicate { get; set; }
-
-        /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
         [Input("schema")]
@@ -76,17 +70,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<object> TableName { get; set; } = null!;
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'Office365Table'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Office365 dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.Office365DatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public Office365DatasetArgs()
         {

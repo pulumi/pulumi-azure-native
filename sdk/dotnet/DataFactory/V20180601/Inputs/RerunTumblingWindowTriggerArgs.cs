@@ -34,35 +34,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The parent trigger reference.
-        /// </summary>
-        [Input("parentTrigger", required: true)]
-        public Input<object> ParentTrigger { get; set; } = null!;
-
-        /// <summary>
-        /// The end time for the time period for which restatement is initiated. Only UTC time is currently supported.
-        /// </summary>
-        [Input("requestedEndTime", required: true)]
-        public Input<string> RequestedEndTime { get; set; } = null!;
-
-        /// <summary>
-        /// The start time for the time period for which restatement is initiated. Only UTC time is currently supported.
-        /// </summary>
-        [Input("requestedStartTime", required: true)]
-        public Input<string> RequestedStartTime { get; set; } = null!;
-
-        /// <summary>
-        /// The max number of parallel time windows (ready for execution) for which a rerun is triggered.
-        /// </summary>
-        [Input("rerunConcurrency", required: true)]
-        public Input<int> RerunConcurrency { get; set; } = null!;
-
-        /// <summary>
         /// Trigger type.
         /// Expected value is 'RerunTumblingWindowTrigger'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Rerun Trigger properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.RerunTumblingWindowTriggerTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public RerunTumblingWindowTriggerArgs()
         {

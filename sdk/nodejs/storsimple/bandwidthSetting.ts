@@ -47,17 +47,13 @@ export class BandwidthSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The schedules.
+     * The properties of the bandwidth setting.
      */
-    public readonly schedules!: pulumi.Output<outputs.storsimple.BandwidthScheduleResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.BandwidthRateSettingPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The number of volumes that uses the bandwidth setting.
-     */
-    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
 
     /**
      * Create a BandwidthSetting resource with the given unique name, arguments, and options.
@@ -73,26 +69,24 @@ export class BandwidthSetting extends pulumi.CustomResource {
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.schedules === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schedules'");
             }
             resourceInputs["bandwidthSettingName"] = args ? args.bandwidthSettingName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeCount"] = undefined /*out*/;
         } else {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["schedules"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:BandwidthSetting" }] };
@@ -118,11 +112,11 @@ export interface BandwidthSettingArgs {
      */
     managerName: pulumi.Input<string>;
     /**
+     * The properties of the bandwidth setting.
+     */
+    properties: pulumi.Input<inputs.storsimple.BandwidthRateSettingPropertiesArgs>;
+    /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The schedules.
-     */
-    schedules: pulumi.Input<pulumi.Input<inputs.storsimple.BandwidthScheduleArgs>[]>;
 }

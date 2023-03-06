@@ -12,33 +12,44 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicableSchedulePropertiesResponse',
     'ApplicableScheduleResponse',
     'ArmTemplateParameterPropertiesResponse',
     'ArtifactDeploymentStatusPropertiesResponse',
     'ArtifactInstallPropertiesResponse',
     'ArtifactParameterPropertiesResponse',
+    'ArtifactSourcePropertiesResponse',
     'BulkCreationParametersResponse',
     'ComputeDataDiskResponse',
     'ComputeVmInstanceViewStatusResponse',
     'ComputeVmPropertiesResponse',
     'CustomImagePropertiesCustomResponse',
     'CustomImagePropertiesFromVmResponse',
+    'CustomImagePropertiesResponse',
     'DayDetailsResponse',
+    'DiskPropertiesResponse',
     'EnvironmentDeploymentPropertiesResponse',
+    'EnvironmentPropertiesResponse',
     'EventResponse',
     'ExternalSubnetResponse',
     'FormulaPropertiesFromVmResponse',
+    'FormulaPropertiesResponse',
     'GalleryImageReferenceResponse',
     'HourDetailsResponse',
     'IdentityPropertiesResponse',
     'InboundNatRuleResponse',
     'LabVhdResponse',
     'LabVirtualMachineCreationParameterResponse',
+    'LabVirtualMachinePropertiesResponse',
     'LinuxOsInfoResponse',
     'NetworkInterfacePropertiesResponse',
+    'NotificationChannelPropertiesResponse',
     'NotificationSettingsResponse',
+    'PolicyPropertiesResponse',
     'PortResponse',
+    'SchedulePropertiesResponse',
     'ScheduleResponse',
+    'SecretPropertiesResponse',
     'SharedPublicIpAddressConfigurationResponse',
     'SubnetOverrideResponse',
     'SubnetResponse',
@@ -50,9 +61,9 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicableScheduleResponse(dict):
+class ApplicableSchedulePropertiesResponse(dict):
     """
-    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    Properties of a schedules applicable to a virtual machine.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -63,41 +74,71 @@ class ApplicableScheduleResponse(dict):
             suggest = "lab_vms_startup"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicableScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicableSchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicableScheduleResponse.__key_warning(key)
+        ApplicableSchedulePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicableScheduleResponse.__key_warning(key)
+        ApplicableSchedulePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 lab_vms_shutdown: Optional['outputs.ScheduleResponse'] = None,
+                 lab_vms_startup: Optional['outputs.ScheduleResponse'] = None):
+        """
+        Properties of a schedules applicable to a virtual machine.
+        :param 'ScheduleResponse' lab_vms_shutdown: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        :param 'ScheduleResponse' lab_vms_startup: The auto-startup schedule, if one has been set at the lab or lab resource level.
+        """
+        if lab_vms_shutdown is not None:
+            pulumi.set(__self__, "lab_vms_shutdown", lab_vms_shutdown)
+        if lab_vms_startup is not None:
+            pulumi.set(__self__, "lab_vms_startup", lab_vms_startup)
+
+    @property
+    @pulumi.getter(name="labVmsShutdown")
+    def lab_vms_shutdown(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        """
+        return pulumi.get(self, "lab_vms_shutdown")
+
+    @property
+    @pulumi.getter(name="labVmsStartup")
+    def lab_vms_startup(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        The auto-startup schedule, if one has been set at the lab or lab resource level.
+        """
+        return pulumi.get(self, "lab_vms_startup")
+
+
+@pulumi.output_type
+class ApplicableScheduleResponse(dict):
+    """
+    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    """
+    def __init__(__self__, *,
                  id: str,
                  name: str,
+                 properties: 'outputs.ApplicableSchedulePropertiesResponse',
                  type: str,
-                 lab_vms_shutdown: Optional['outputs.ScheduleResponse'] = None,
-                 lab_vms_startup: Optional['outputs.ScheduleResponse'] = None,
                  location: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
         :param str id: The identifier of the resource.
         :param str name: The name of the resource.
+        :param 'ApplicableSchedulePropertiesResponse' properties: The properties of the resource.
         :param str type: The type of the resource.
-        :param 'ScheduleResponse' lab_vms_shutdown: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-        :param 'ScheduleResponse' lab_vms_startup: The auto-startup schedule, if one has been set at the lab or lab resource level.
         :param str location: The location of the resource.
         :param Mapping[str, str] tags: The tags of the resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "type", type)
-        if lab_vms_shutdown is not None:
-            pulumi.set(__self__, "lab_vms_shutdown", lab_vms_shutdown)
-        if lab_vms_startup is not None:
-            pulumi.set(__self__, "lab_vms_startup", lab_vms_startup)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -121,27 +162,19 @@ class ApplicableScheduleResponse(dict):
 
     @property
     @pulumi.getter
+    def properties(self) -> 'outputs.ApplicableSchedulePropertiesResponse':
+        """
+        The properties of the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="labVmsShutdown")
-    def lab_vms_shutdown(self) -> Optional['outputs.ScheduleResponse']:
-        """
-        The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-        """
-        return pulumi.get(self, "lab_vms_shutdown")
-
-    @property
-    @pulumi.getter(name="labVmsStartup")
-    def lab_vms_startup(self) -> Optional['outputs.ScheduleResponse']:
-        """
-        The auto-startup schedule, if one has been set at the lab or lab resource level.
-        """
-        return pulumi.get(self, "lab_vms_startup")
 
     @property
     @pulumi.getter
@@ -402,6 +435,181 @@ class ArtifactParameterPropertiesResponse(dict):
         The value of the artifact parameter.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ArtifactSourcePropertiesResponse(dict):
+    """
+    Properties of an artifact source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "armTemplateFolderPath":
+            suggest = "arm_template_folder_path"
+        elif key == "branchRef":
+            suggest = "branch_ref"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "securityToken":
+            suggest = "security_token"
+        elif key == "sourceType":
+            suggest = "source_type"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArtifactSourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArtifactSourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArtifactSourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_date: str,
+                 arm_template_folder_path: Optional[str] = None,
+                 branch_ref: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 folder_path: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 security_token: Optional[str] = None,
+                 source_type: Optional[str] = None,
+                 status: Optional[str] = None,
+                 unique_identifier: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        Properties of an artifact source.
+        :param str created_date: The artifact source's creation date.
+        :param str arm_template_folder_path: The folder containing Azure Resource Manager templates.
+        :param str branch_ref: The artifact source's branch reference.
+        :param str display_name: The artifact source's display name.
+        :param str folder_path: The folder containing artifacts.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str security_token: The security token to authenticate to the artifact source.
+        :param str source_type: The artifact source's type.
+        :param str status: Indicates if the artifact source is enabled (values: Enabled, Disabled).
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param str uri: The artifact source's URI.
+        """
+        pulumi.set(__self__, "created_date", created_date)
+        if arm_template_folder_path is not None:
+            pulumi.set(__self__, "arm_template_folder_path", arm_template_folder_path)
+        if branch_ref is not None:
+            pulumi.set(__self__, "branch_ref", branch_ref)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if security_token is not None:
+            pulumi.set(__self__, "security_token", security_token)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The artifact source's creation date.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="armTemplateFolderPath")
+    def arm_template_folder_path(self) -> Optional[str]:
+        """
+        The folder containing Azure Resource Manager templates.
+        """
+        return pulumi.get(self, "arm_template_folder_path")
+
+    @property
+    @pulumi.getter(name="branchRef")
+    def branch_ref(self) -> Optional[str]:
+        """
+        The artifact source's branch reference.
+        """
+        return pulumi.get(self, "branch_ref")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The artifact source's display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[str]:
+        """
+        The folder containing artifacts.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="securityToken")
+    def security_token(self) -> Optional[str]:
+        """
+        The security token to authenticate to the artifact source.
+        """
+        return pulumi.get(self, "security_token")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[str]:
+        """
+        The artifact source's type.
+        """
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates if the artifact source is enabled (values: Enabled, Disabled).
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The artifact source's URI.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type
@@ -846,6 +1054,135 @@ class CustomImagePropertiesFromVmResponse(dict):
 
 
 @pulumi.output_type
+class CustomImagePropertiesResponse(dict):
+    """
+    Properties of a custom image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+        elif key == "managedImageId":
+            suggest = "managed_image_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomImagePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomImagePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomImagePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date: str,
+                 author: Optional[str] = None,
+                 description: Optional[str] = None,
+                 managed_image_id: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 unique_identifier: Optional[str] = None,
+                 vhd: Optional['outputs.CustomImagePropertiesCustomResponse'] = None,
+                 vm: Optional['outputs.CustomImagePropertiesFromVmResponse'] = None):
+        """
+        Properties of a custom image.
+        :param str creation_date: The creation date of the custom image.
+        :param str author: The author of the custom image.
+        :param str description: The description of the custom image.
+        :param str managed_image_id: The Managed Image Id backing the custom image.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param 'CustomImagePropertiesCustomResponse' vhd: The VHD from which the image is to be created.
+        :param 'CustomImagePropertiesFromVmResponse' vm: The virtual machine from which the image is to be created.
+        """
+        pulumi.set(__self__, "creation_date", creation_date)
+        if author is not None:
+            pulumi.set(__self__, "author", author)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if managed_image_id is not None:
+            pulumi.set(__self__, "managed_image_id", managed_image_id)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if vhd is not None:
+            pulumi.set(__self__, "vhd", vhd)
+        if vm is not None:
+            pulumi.set(__self__, "vm", vm)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The creation date of the custom image.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def author(self) -> Optional[str]:
+        """
+        The author of the custom image.
+        """
+        return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the custom image.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="managedImageId")
+    def managed_image_id(self) -> Optional[str]:
+        """
+        The Managed Image Id backing the custom image.
+        """
+        return pulumi.get(self, "managed_image_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter
+    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomResponse']:
+        """
+        The VHD from which the image is to be created.
+        """
+        return pulumi.get(self, "vhd")
+
+    @property
+    @pulumi.getter
+    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmResponse']:
+        """
+        The virtual machine from which the image is to be created.
+        """
+        return pulumi.get(self, "vm")
+
+
+@pulumi.output_type
 class DayDetailsResponse(dict):
     """
     Properties of a daily schedule.
@@ -866,6 +1203,171 @@ class DayDetailsResponse(dict):
         The time of day the schedule will occur.
         """
         return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class DiskPropertiesResponse(dict):
+    """
+    Properties of a disk.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "diskBlobName":
+            suggest = "disk_blob_name"
+        elif key == "diskSizeGiB":
+            suggest = "disk_size_gi_b"
+        elif key == "diskType":
+            suggest = "disk_type"
+        elif key == "diskUri":
+            suggest = "disk_uri"
+        elif key == "hostCaching":
+            suggest = "host_caching"
+        elif key == "leasedByLabVmId":
+            suggest = "leased_by_lab_vm_id"
+        elif key == "managedDiskId":
+            suggest = "managed_disk_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_date: str,
+                 disk_blob_name: Optional[str] = None,
+                 disk_size_gi_b: Optional[int] = None,
+                 disk_type: Optional[str] = None,
+                 disk_uri: Optional[str] = None,
+                 host_caching: Optional[str] = None,
+                 leased_by_lab_vm_id: Optional[str] = None,
+                 managed_disk_id: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 unique_identifier: Optional[str] = None):
+        """
+        Properties of a disk.
+        :param str created_date: The creation date of the disk.
+        :param str disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
+        :param int disk_size_gi_b: The size of the disk in Gibibytes.
+        :param str disk_type: The storage type for the disk (i.e. Standard, Premium).
+        :param str disk_uri: When backed by a blob, the URI of underlying blob.
+        :param str host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        :param str leased_by_lab_vm_id: The resource ID of the VM to which this disk is leased.
+        :param str managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        """
+        pulumi.set(__self__, "created_date", created_date)
+        if disk_blob_name is not None:
+            pulumi.set(__self__, "disk_blob_name", disk_blob_name)
+        if disk_size_gi_b is not None:
+            pulumi.set(__self__, "disk_size_gi_b", disk_size_gi_b)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
+        if disk_uri is not None:
+            pulumi.set(__self__, "disk_uri", disk_uri)
+        if host_caching is not None:
+            pulumi.set(__self__, "host_caching", host_caching)
+        if leased_by_lab_vm_id is not None:
+            pulumi.set(__self__, "leased_by_lab_vm_id", leased_by_lab_vm_id)
+        if managed_disk_id is not None:
+            pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the disk.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="diskBlobName")
+    def disk_blob_name(self) -> Optional[str]:
+        """
+        When backed by a blob, the name of the VHD blob without extension.
+        """
+        return pulumi.get(self, "disk_blob_name")
+
+    @property
+    @pulumi.getter(name="diskSizeGiB")
+    def disk_size_gi_b(self) -> Optional[int]:
+        """
+        The size of the disk in Gibibytes.
+        """
+        return pulumi.get(self, "disk_size_gi_b")
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[str]:
+        """
+        The storage type for the disk (i.e. Standard, Premium).
+        """
+        return pulumi.get(self, "disk_type")
+
+    @property
+    @pulumi.getter(name="diskUri")
+    def disk_uri(self) -> Optional[str]:
+        """
+        When backed by a blob, the URI of underlying blob.
+        """
+        return pulumi.get(self, "disk_uri")
+
+    @property
+    @pulumi.getter(name="hostCaching")
+    def host_caching(self) -> Optional[str]:
+        """
+        The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        """
+        return pulumi.get(self, "host_caching")
+
+    @property
+    @pulumi.getter(name="leasedByLabVmId")
+    def leased_by_lab_vm_id(self) -> Optional[str]:
+        """
+        The resource ID of the VM to which this disk is leased.
+        """
+        return pulumi.get(self, "leased_by_lab_vm_id")
+
+    @property
+    @pulumi.getter(name="managedDiskId")
+    def managed_disk_id(self) -> Optional[str]:
+        """
+        When backed by managed disk, this is the ID of the compute disk resource.
+        """
+        return pulumi.get(self, "managed_disk_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
 
 
 @pulumi.output_type
@@ -918,6 +1420,114 @@ class EnvironmentDeploymentPropertiesResponse(dict):
         The parameters of the Azure Resource Manager template.
         """
         return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class EnvironmentPropertiesResponse(dict):
+    """
+    Properties of an environment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdByUser":
+            suggest = "created_by_user"
+        elif key == "resourceGroupId":
+            suggest = "resource_group_id"
+        elif key == "armTemplateDisplayName":
+            suggest = "arm_template_display_name"
+        elif key == "deploymentProperties":
+            suggest = "deployment_properties"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_by_user: str,
+                 resource_group_id: str,
+                 arm_template_display_name: Optional[str] = None,
+                 deployment_properties: Optional['outputs.EnvironmentDeploymentPropertiesResponse'] = None,
+                 provisioning_state: Optional[str] = None,
+                 unique_identifier: Optional[str] = None):
+        """
+        Properties of an environment.
+        :param str created_by_user: The creator of the environment.
+        :param str resource_group_id: The identifier of the resource group containing the environment's resources.
+        :param str arm_template_display_name: The display name of the Azure Resource Manager template that produced the environment.
+        :param 'EnvironmentDeploymentPropertiesResponse' deployment_properties: The deployment properties of the environment.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        """
+        pulumi.set(__self__, "created_by_user", created_by_user)
+        pulumi.set(__self__, "resource_group_id", resource_group_id)
+        if arm_template_display_name is not None:
+            pulumi.set(__self__, "arm_template_display_name", arm_template_display_name)
+        if deployment_properties is not None:
+            pulumi.set(__self__, "deployment_properties", deployment_properties)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="createdByUser")
+    def created_by_user(self) -> str:
+        """
+        The creator of the environment.
+        """
+        return pulumi.get(self, "created_by_user")
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> str:
+        """
+        The identifier of the resource group containing the environment's resources.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @property
+    @pulumi.getter(name="armTemplateDisplayName")
+    def arm_template_display_name(self) -> Optional[str]:
+        """
+        The display name of the Azure Resource Manager template that produced the environment.
+        """
+        return pulumi.get(self, "arm_template_display_name")
+
+    @property
+    @pulumi.getter(name="deploymentProperties")
+    def deployment_properties(self) -> Optional['outputs.EnvironmentDeploymentPropertiesResponse']:
+        """
+        The deployment properties of the environment.
+        """
+        return pulumi.get(self, "deployment_properties")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
 
 
 @pulumi.output_type
@@ -1033,6 +1643,137 @@ class FormulaPropertiesFromVmResponse(dict):
         The identifier of the VM from which a formula is to be created.
         """
         return pulumi.get(self, "lab_vm_id")
+
+
+@pulumi.output_type
+class FormulaPropertiesResponse(dict):
+    """
+    Properties of a formula.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+        elif key == "formulaContent":
+            suggest = "formula_content"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FormulaPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FormulaPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FormulaPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date: str,
+                 author: Optional[str] = None,
+                 description: Optional[str] = None,
+                 formula_content: Optional['outputs.LabVirtualMachineCreationParameterResponse'] = None,
+                 os_type: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 unique_identifier: Optional[str] = None,
+                 vm: Optional['outputs.FormulaPropertiesFromVmResponse'] = None):
+        """
+        Properties of a formula.
+        :param str creation_date: The creation date of the formula.
+        :param str author: The author of the formula.
+        :param str description: The description of the formula.
+        :param 'LabVirtualMachineCreationParameterResponse' formula_content: The content of the formula.
+        :param str os_type: The OS type of the formula.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param 'FormulaPropertiesFromVmResponse' vm: Information about a VM from which a formula is to be created.
+        """
+        pulumi.set(__self__, "creation_date", creation_date)
+        if author is not None:
+            pulumi.set(__self__, "author", author)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if formula_content is not None:
+            pulumi.set(__self__, "formula_content", formula_content)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if vm is not None:
+            pulumi.set(__self__, "vm", vm)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The creation date of the formula.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def author(self) -> Optional[str]:
+        """
+        The author of the formula.
+        """
+        return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the formula.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="formulaContent")
+    def formula_content(self) -> Optional['outputs.LabVirtualMachineCreationParameterResponse']:
+        """
+        The content of the formula.
+        """
+        return pulumi.get(self, "formula_content")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The OS type of the formula.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter
+    def vm(self) -> Optional['outputs.FormulaPropertiesFromVmResponse']:
+        """
+        Information about a VM from which a formula is to be created.
+        """
+        return pulumi.get(self, "vm")
 
 
 @pulumi.output_type
@@ -1804,6 +2545,455 @@ class LabVirtualMachineCreationParameterResponse(dict):
 
 
 @pulumi.output_type
+class LabVirtualMachinePropertiesResponse(dict):
+    """
+    Properties of a virtual machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeId":
+            suggest = "compute_id"
+        elif key == "allowClaim":
+            suggest = "allow_claim"
+        elif key == "applicableSchedule":
+            suggest = "applicable_schedule"
+        elif key == "artifactDeploymentStatus":
+            suggest = "artifact_deployment_status"
+        elif key == "computeVm":
+            suggest = "compute_vm"
+        elif key == "createdByUser":
+            suggest = "created_by_user"
+        elif key == "createdByUserId":
+            suggest = "created_by_user_id"
+        elif key == "createdDate":
+            suggest = "created_date"
+        elif key == "customImageId":
+            suggest = "custom_image_id"
+        elif key == "disallowPublicIpAddress":
+            suggest = "disallow_public_ip_address"
+        elif key == "environmentId":
+            suggest = "environment_id"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "galleryImageReference":
+            suggest = "gallery_image_reference"
+        elif key == "isAuthenticationWithSshKey":
+            suggest = "is_authentication_with_ssh_key"
+        elif key == "labSubnetName":
+            suggest = "lab_subnet_name"
+        elif key == "labVirtualNetworkId":
+            suggest = "lab_virtual_network_id"
+        elif key == "networkInterface":
+            suggest = "network_interface"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "ownerObjectId":
+            suggest = "owner_object_id"
+        elif key == "ownerUserPrincipalName":
+            suggest = "owner_user_principal_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sshKey":
+            suggest = "ssh_key"
+        elif key == "storageType":
+            suggest = "storage_type"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "virtualMachineCreationSource":
+            suggest = "virtual_machine_creation_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabVirtualMachinePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabVirtualMachinePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabVirtualMachinePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_id: str,
+                 allow_claim: Optional[bool] = None,
+                 applicable_schedule: Optional['outputs.ApplicableScheduleResponse'] = None,
+                 artifact_deployment_status: Optional['outputs.ArtifactDeploymentStatusPropertiesResponse'] = None,
+                 artifacts: Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']] = None,
+                 compute_vm: Optional['outputs.ComputeVmPropertiesResponse'] = None,
+                 created_by_user: Optional[str] = None,
+                 created_by_user_id: Optional[str] = None,
+                 created_date: Optional[str] = None,
+                 custom_image_id: Optional[str] = None,
+                 disallow_public_ip_address: Optional[bool] = None,
+                 environment_id: Optional[str] = None,
+                 expiration_date: Optional[str] = None,
+                 fqdn: Optional[str] = None,
+                 gallery_image_reference: Optional['outputs.GalleryImageReferenceResponse'] = None,
+                 is_authentication_with_ssh_key: Optional[bool] = None,
+                 lab_subnet_name: Optional[str] = None,
+                 lab_virtual_network_id: Optional[str] = None,
+                 network_interface: Optional['outputs.NetworkInterfacePropertiesResponse'] = None,
+                 notes: Optional[str] = None,
+                 os_type: Optional[str] = None,
+                 owner_object_id: Optional[str] = None,
+                 owner_user_principal_name: Optional[str] = None,
+                 password: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 size: Optional[str] = None,
+                 ssh_key: Optional[str] = None,
+                 storage_type: Optional[str] = None,
+                 unique_identifier: Optional[str] = None,
+                 user_name: Optional[str] = None,
+                 virtual_machine_creation_source: Optional[str] = None):
+        """
+        Properties of a virtual machine.
+        :param str compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
+        :param bool allow_claim: Indicates whether another user can take ownership of the virtual machine
+        :param 'ApplicableScheduleResponse' applicable_schedule: The applicable schedule for the virtual machine.
+        :param 'ArtifactDeploymentStatusPropertiesResponse' artifact_deployment_status: The artifact deployment status for the virtual machine.
+        :param Sequence['ArtifactInstallPropertiesResponse'] artifacts: The artifacts to be installed on the virtual machine.
+        :param 'ComputeVmPropertiesResponse' compute_vm: The compute virtual machine properties.
+        :param str created_by_user: The email address of creator of the virtual machine.
+        :param str created_by_user_id: The object identifier of the creator of the virtual machine.
+        :param str created_date: The creation date of the virtual machine.
+        :param str custom_image_id: The custom image identifier of the virtual machine.
+        :param bool disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
+        :param str environment_id: The resource ID of the environment that contains this virtual machine, if any.
+        :param str expiration_date: The expiration date for VM.
+        :param str fqdn: The fully-qualified domain name of the virtual machine.
+        :param 'GalleryImageReferenceResponse' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
+        :param bool is_authentication_with_ssh_key: Indicates whether this virtual machine uses an SSH key for authentication.
+        :param str lab_subnet_name: The lab subnet name of the virtual machine.
+        :param str lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
+        :param 'NetworkInterfacePropertiesResponse' network_interface: The network interface properties.
+        :param str notes: The notes of the virtual machine.
+        :param str os_type: The OS type of the virtual machine.
+        :param str owner_object_id: The object identifier of the owner of the virtual machine.
+        :param str owner_user_principal_name: The user principal name of the virtual machine owner.
+        :param str password: The password of the virtual machine administrator.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str size: The size of the virtual machine.
+        :param str ssh_key: The SSH key of the virtual machine administrator.
+        :param str storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param str user_name: The user name of the virtual machine.
+        :param str virtual_machine_creation_source: Tells source of creation of lab virtual machine. Output property only.
+        """
+        pulumi.set(__self__, "compute_id", compute_id)
+        if allow_claim is not None:
+            pulumi.set(__self__, "allow_claim", allow_claim)
+        if applicable_schedule is not None:
+            pulumi.set(__self__, "applicable_schedule", applicable_schedule)
+        if artifact_deployment_status is not None:
+            pulumi.set(__self__, "artifact_deployment_status", artifact_deployment_status)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if compute_vm is not None:
+            pulumi.set(__self__, "compute_vm", compute_vm)
+        if created_by_user is not None:
+            pulumi.set(__self__, "created_by_user", created_by_user)
+        if created_by_user_id is not None:
+            pulumi.set(__self__, "created_by_user_id", created_by_user_id)
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if custom_image_id is not None:
+            pulumi.set(__self__, "custom_image_id", custom_image_id)
+        if disallow_public_ip_address is not None:
+            pulumi.set(__self__, "disallow_public_ip_address", disallow_public_ip_address)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if gallery_image_reference is not None:
+            pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+        if is_authentication_with_ssh_key is not None:
+            pulumi.set(__self__, "is_authentication_with_ssh_key", is_authentication_with_ssh_key)
+        if lab_subnet_name is not None:
+            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+        if lab_virtual_network_id is not None:
+            pulumi.set(__self__, "lab_virtual_network_id", lab_virtual_network_id)
+        if network_interface is not None:
+            pulumi.set(__self__, "network_interface", network_interface)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if owner_object_id is not None:
+            pulumi.set(__self__, "owner_object_id", owner_object_id)
+        if owner_user_principal_name is not None:
+            pulumi.set(__self__, "owner_user_principal_name", owner_user_principal_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if ssh_key is not None:
+            pulumi.set(__self__, "ssh_key", ssh_key)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+        if virtual_machine_creation_source is not None:
+            pulumi.set(__self__, "virtual_machine_creation_source", virtual_machine_creation_source)
+
+    @property
+    @pulumi.getter(name="computeId")
+    def compute_id(self) -> str:
+        """
+        The resource identifier (Microsoft.Compute) of the virtual machine.
+        """
+        return pulumi.get(self, "compute_id")
+
+    @property
+    @pulumi.getter(name="allowClaim")
+    def allow_claim(self) -> Optional[bool]:
+        """
+        Indicates whether another user can take ownership of the virtual machine
+        """
+        return pulumi.get(self, "allow_claim")
+
+    @property
+    @pulumi.getter(name="applicableSchedule")
+    def applicable_schedule(self) -> Optional['outputs.ApplicableScheduleResponse']:
+        """
+        The applicable schedule for the virtual machine.
+        """
+        return pulumi.get(self, "applicable_schedule")
+
+    @property
+    @pulumi.getter(name="artifactDeploymentStatus")
+    def artifact_deployment_status(self) -> Optional['outputs.ArtifactDeploymentStatusPropertiesResponse']:
+        """
+        The artifact deployment status for the virtual machine.
+        """
+        return pulumi.get(self, "artifact_deployment_status")
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]:
+        """
+        The artifacts to be installed on the virtual machine.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter(name="computeVm")
+    def compute_vm(self) -> Optional['outputs.ComputeVmPropertiesResponse']:
+        """
+        The compute virtual machine properties.
+        """
+        return pulumi.get(self, "compute_vm")
+
+    @property
+    @pulumi.getter(name="createdByUser")
+    def created_by_user(self) -> Optional[str]:
+        """
+        The email address of creator of the virtual machine.
+        """
+        return pulumi.get(self, "created_by_user")
+
+    @property
+    @pulumi.getter(name="createdByUserId")
+    def created_by_user_id(self) -> Optional[str]:
+        """
+        The object identifier of the creator of the virtual machine.
+        """
+        return pulumi.get(self, "created_by_user_id")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[str]:
+        """
+        The creation date of the virtual machine.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="customImageId")
+    def custom_image_id(self) -> Optional[str]:
+        """
+        The custom image identifier of the virtual machine.
+        """
+        return pulumi.get(self, "custom_image_id")
+
+    @property
+    @pulumi.getter(name="disallowPublicIpAddress")
+    def disallow_public_ip_address(self) -> Optional[bool]:
+        """
+        Indicates whether the virtual machine is to be created without a public IP address.
+        """
+        return pulumi.get(self, "disallow_public_ip_address")
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[str]:
+        """
+        The resource ID of the environment that contains this virtual machine, if any.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[str]:
+        """
+        The expiration date for VM.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        The fully-qualified domain name of the virtual machine.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="galleryImageReference")
+    def gallery_image_reference(self) -> Optional['outputs.GalleryImageReferenceResponse']:
+        """
+        The Microsoft Azure Marketplace image reference of the virtual machine.
+        """
+        return pulumi.get(self, "gallery_image_reference")
+
+    @property
+    @pulumi.getter(name="isAuthenticationWithSshKey")
+    def is_authentication_with_ssh_key(self) -> Optional[bool]:
+        """
+        Indicates whether this virtual machine uses an SSH key for authentication.
+        """
+        return pulumi.get(self, "is_authentication_with_ssh_key")
+
+    @property
+    @pulumi.getter(name="labSubnetName")
+    def lab_subnet_name(self) -> Optional[str]:
+        """
+        The lab subnet name of the virtual machine.
+        """
+        return pulumi.get(self, "lab_subnet_name")
+
+    @property
+    @pulumi.getter(name="labVirtualNetworkId")
+    def lab_virtual_network_id(self) -> Optional[str]:
+        """
+        The lab virtual network identifier of the virtual machine.
+        """
+        return pulumi.get(self, "lab_virtual_network_id")
+
+    @property
+    @pulumi.getter(name="networkInterface")
+    def network_interface(self) -> Optional['outputs.NetworkInterfacePropertiesResponse']:
+        """
+        The network interface properties.
+        """
+        return pulumi.get(self, "network_interface")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        The notes of the virtual machine.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The OS type of the virtual machine.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="ownerObjectId")
+    def owner_object_id(self) -> Optional[str]:
+        """
+        The object identifier of the owner of the virtual machine.
+        """
+        return pulumi.get(self, "owner_object_id")
+
+    @property
+    @pulumi.getter(name="ownerUserPrincipalName")
+    def owner_user_principal_name(self) -> Optional[str]:
+        """
+        The user principal name of the virtual machine owner.
+        """
+        return pulumi.get(self, "owner_user_principal_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password of the virtual machine administrator.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The size of the virtual machine.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="sshKey")
+    def ssh_key(self) -> Optional[str]:
+        """
+        The SSH key of the virtual machine administrator.
+        """
+        return pulumi.get(self, "ssh_key")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[str]:
+        """
+        Storage type to use for virtual machine (i.e. Standard, Premium).
+        """
+        return pulumi.get(self, "storage_type")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        The user name of the virtual machine.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="virtualMachineCreationSource")
+    def virtual_machine_creation_source(self) -> Optional[str]:
+        """
+        Tells source of creation of lab virtual machine. Output property only.
+        """
+        return pulumi.get(self, "virtual_machine_creation_source")
+
+
+@pulumi.output_type
 class LinuxOsInfoResponse(dict):
     """
     Information about a Linux OS.
@@ -1996,6 +3186,111 @@ class NetworkInterfacePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class NotificationChannelPropertiesResponse(dict):
+    """
+    Properties of a schedule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+        elif key == "webHookUrl":
+            suggest = "web_hook_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationChannelPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationChannelPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_date: str,
+                 description: Optional[str] = None,
+                 events: Optional[Sequence['outputs.EventResponse']] = None,
+                 provisioning_state: Optional[str] = None,
+                 unique_identifier: Optional[str] = None,
+                 web_hook_url: Optional[str] = None):
+        """
+        Properties of a schedule.
+        :param str created_date: The creation date of the notification channel.
+        :param str description: Description of notification.
+        :param Sequence['EventResponse'] events: The list of event for which this notification is enabled.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param str web_hook_url: The webhook URL to send notifications to.
+        """
+        pulumi.set(__self__, "created_date", created_date)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if web_hook_url is not None:
+            pulumi.set(__self__, "web_hook_url", web_hook_url)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the notification channel.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of notification.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence['outputs.EventResponse']]:
+        """
+        The list of event for which this notification is enabled.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter(name="webHookUrl")
+    def web_hook_url(self) -> Optional[str]:
+        """
+        The webhook URL to send notifications to.
+        """
+        return pulumi.get(self, "web_hook_url")
+
+
+@pulumi.output_type
 class NotificationSettingsResponse(dict):
     """
     Notification settings for a schedule.
@@ -2062,6 +3357,151 @@ class NotificationSettingsResponse(dict):
 
 
 @pulumi.output_type
+class PolicyPropertiesResponse(dict):
+    """
+    Properties of a Policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "evaluatorType":
+            suggest = "evaluator_type"
+        elif key == "factData":
+            suggest = "fact_data"
+        elif key == "factName":
+            suggest = "fact_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_date: str,
+                 description: Optional[str] = None,
+                 evaluator_type: Optional[str] = None,
+                 fact_data: Optional[str] = None,
+                 fact_name: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 status: Optional[str] = None,
+                 threshold: Optional[str] = None,
+                 unique_identifier: Optional[str] = None):
+        """
+        Properties of a Policy.
+        :param str created_date: The creation date of the policy.
+        :param str description: The description of the policy.
+        :param str evaluator_type: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        :param str fact_data: The fact data of the policy.
+        :param str fact_name: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str status: The status of the policy.
+        :param str threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        """
+        pulumi.set(__self__, "created_date", created_date)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if evaluator_type is not None:
+            pulumi.set(__self__, "evaluator_type", evaluator_type)
+        if fact_data is not None:
+            pulumi.set(__self__, "fact_data", fact_data)
+        if fact_name is not None:
+            pulumi.set(__self__, "fact_name", fact_name)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The creation date of the policy.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the policy.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="evaluatorType")
+    def evaluator_type(self) -> Optional[str]:
+        """
+        The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        """
+        return pulumi.get(self, "evaluator_type")
+
+    @property
+    @pulumi.getter(name="factData")
+    def fact_data(self) -> Optional[str]:
+        """
+        The fact data of the policy.
+        """
+        return pulumi.get(self, "fact_data")
+
+    @property
+    @pulumi.getter(name="factName")
+    def fact_name(self) -> Optional[str]:
+        """
+        The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        """
+        return pulumi.get(self, "fact_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the policy.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[str]:
+        """
+        The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+
+@pulumi.output_type
 class PortResponse(dict):
     """
     Properties of a network port.
@@ -2116,9 +3556,9 @@ class PortResponse(dict):
 
 
 @pulumi.output_type
-class ScheduleResponse(dict):
+class SchedulePropertiesResponse(dict):
     """
-    A schedule.
+    Properties of a schedule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2145,46 +3585,36 @@ class ScheduleResponse(dict):
             suggest = "weekly_recurrence"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ScheduleResponse.__key_warning(key)
+        SchedulePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ScheduleResponse.__key_warning(key)
+        SchedulePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  created_date: str,
-                 id: str,
-                 name: str,
-                 type: str,
                  daily_recurrence: Optional['outputs.DayDetailsResponse'] = None,
                  hourly_recurrence: Optional['outputs.HourDetailsResponse'] = None,
-                 location: Optional[str] = None,
                  notification_settings: Optional['outputs.NotificationSettingsResponse'] = None,
                  provisioning_state: Optional[str] = None,
                  status: Optional[str] = None,
-                 tags: Optional[Mapping[str, str]] = None,
                  target_resource_id: Optional[str] = None,
                  task_type: Optional[str] = None,
                  time_zone_id: Optional[str] = None,
                  unique_identifier: Optional[str] = None,
                  weekly_recurrence: Optional['outputs.WeekDetailsResponse'] = None):
         """
-        A schedule.
+        Properties of a schedule.
         :param str created_date: The creation date of the schedule.
-        :param str id: The identifier of the resource.
-        :param str name: The name of the resource.
-        :param str type: The type of the resource.
         :param 'DayDetailsResponse' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param 'HourDetailsResponse' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
-        :param str location: The location of the resource.
         :param 'NotificationSettingsResponse' notification_settings: Notification settings.
         :param str provisioning_state: The provisioning status of the resource.
         :param str status: The status of the schedule (i.e. Enabled, Disabled)
-        :param Mapping[str, str] tags: The tags of the resource.
         :param str target_resource_id: The resource ID to which the schedule belongs
         :param str task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param str time_zone_id: The time zone ID (e.g. Pacific Standard time).
@@ -2192,23 +3622,16 @@ class ScheduleResponse(dict):
         :param 'WeekDetailsResponse' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         pulumi.set(__self__, "created_date", created_date)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if daily_recurrence is not None:
             pulumi.set(__self__, "daily_recurrence", daily_recurrence)
         if hourly_recurrence is not None:
             pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if notification_settings is not None:
             pulumi.set(__self__, "notification_settings", notification_settings)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if target_resource_id is not None:
             pulumi.set(__self__, "target_resource_id", target_resource_id)
         if task_type is not None:
@@ -2229,30 +3652,6 @@ class ScheduleResponse(dict):
         return pulumi.get(self, "created_date")
 
     @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The identifier of the resource.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the resource.
-        """
-        return pulumi.get(self, "type")
-
-    @property
     @pulumi.getter(name="dailyRecurrence")
     def daily_recurrence(self) -> Optional['outputs.DayDetailsResponse']:
         """
@@ -2267,14 +3666,6 @@ class ScheduleResponse(dict):
         If the schedule will occur multiple times a day, specify the hourly recurrence.
         """
         return pulumi.get(self, "hourly_recurrence")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        The location of the resource.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="notificationSettings")
@@ -2299,14 +3690,6 @@ class ScheduleResponse(dict):
         The status of the schedule (i.e. Enabled, Disabled)
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        The tags of the resource.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetResourceId")
@@ -2347,6 +3730,151 @@ class ScheduleResponse(dict):
         If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         return pulumi.get(self, "weekly_recurrence")
+
+
+@pulumi.output_type
+class ScheduleResponse(dict):
+    """
+    A schedule.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 properties: 'outputs.SchedulePropertiesResponse',
+                 type: str,
+                 location: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        A schedule.
+        :param str id: The identifier of the resource.
+        :param str name: The name of the resource.
+        :param 'SchedulePropertiesResponse' properties: The properties of the resource.
+        :param str type: The type of the resource.
+        :param str location: The location of the resource.
+        :param Mapping[str, str] tags: The tags of the resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.SchedulePropertiesResponse':
+        """
+        The properties of the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class SecretPropertiesResponse(dict):
+    """
+    Properties of a secret.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: Optional[str] = None,
+                 unique_identifier: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Properties of a secret.
+        :param str provisioning_state: The provisioning status of the resource.
+        :param str unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param str value: The value of the secret for secret creation.
+        """
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if unique_identifier is not None:
+            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning status of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> Optional[str]:
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the secret for secret creation.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

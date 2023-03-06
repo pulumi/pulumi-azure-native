@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
-        /// <summary>
-        /// The Salesforce object API name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("objectApiName")]
-        public Input<object>? ObjectApiName { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -69,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Salesforce object dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SalesforceObjectDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SalesforceObjectDatasetArgs()
         {

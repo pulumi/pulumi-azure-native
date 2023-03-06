@@ -42,18 +42,6 @@ export interface GetDataStoreArgs {
  */
 export interface GetDataStoreResult {
     /**
-     * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-     */
-    readonly customerSecrets?: outputs.hybriddata.v20160601.CustomerSecretResponse[];
-    /**
-     * The arm id of the data store type.
-     */
-    readonly dataStoreTypeId: string;
-    /**
-     * A generic json used differently by each data source type.
-     */
-    readonly extendedProperties?: any;
-    /**
      * Id of the object.
      */
     readonly id: string;
@@ -62,13 +50,9 @@ export interface GetDataStoreResult {
      */
     readonly name: string;
     /**
-     * Arm Id for the manager resource to which the data source is associated. This is optional.
+     * DataStore properties.
      */
-    readonly repositoryId?: string;
-    /**
-     * State of the data source.
-     */
-    readonly state: string;
+    readonly properties: outputs.hybriddata.v20160601.DataStorePropertiesResponse;
     /**
      * Type of the object.
      */

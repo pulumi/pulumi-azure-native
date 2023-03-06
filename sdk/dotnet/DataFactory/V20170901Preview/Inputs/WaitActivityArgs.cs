@@ -47,10 +47,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Duration in seconds.
+        /// Wait activity properties.
         /// </summary>
-        [Input("waitTimeInSeconds", required: true)]
-        public Input<int> WaitTimeInSeconds { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.WaitActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public WaitActivityArgs()
         {

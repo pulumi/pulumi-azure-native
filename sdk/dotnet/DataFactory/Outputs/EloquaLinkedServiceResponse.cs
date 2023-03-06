@@ -29,42 +29,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// The endpoint of the Eloqua server. (i.e. eloqua.example.com)
-        /// </summary>
-        public readonly object Endpoint;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password corresponding to the user name.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Eloqua'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Eloqua server linked service properties.
         /// </summary>
-        public readonly object? UseEncryptedEndpoints;
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UseHostVerification;
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UsePeerVerification;
-        /// <summary>
-        /// The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-        /// </summary>
-        public readonly object Username;
+        public readonly Outputs.EloquaLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private EloquaLinkedServiceResponse(
@@ -74,36 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            object? encryptedCredential,
-
-            object endpoint,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            object? useEncryptedEndpoints,
-
-            object? useHostVerification,
-
-            object? usePeerVerification,
-
-            object username)
+            Outputs.EloquaLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            Endpoint = endpoint;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            UseEncryptedEndpoints = useEncryptedEndpoints;
-            UseHostVerification = useHostVerification;
-            UsePeerVerification = usePeerVerification;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -38,14 +38,6 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /**
-     * If enabled (true) the pool can contain cool Access enabled volumes.
-     */
-    public readonly coolAccess!: pulumi.Output<boolean | undefined>;
-    /**
-     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-     */
-    public readonly encryptionType!: pulumi.Output<string | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -58,25 +50,9 @@ export class Pool extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * UUID v4 used to identify the Pool
+     * Capacity pool properties
      */
-    public /*out*/ readonly poolId!: pulumi.Output<string>;
-    /**
-     * Azure lifecycle management
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The qos type of the pool
-     */
-    public readonly qosType!: pulumi.Output<string | undefined>;
-    /**
-     * The service level of the file system
-     */
-    public readonly serviceLevel!: pulumi.Output<string>;
-    /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiply of 4398046511104).
-     */
-    public readonly size!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20220901.PoolPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -86,17 +62,9 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Total throughput of pool in MiB/s
-     */
-    public /*out*/ readonly totalThroughputMibps!: pulumi.Output<number>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Utilized throughput of pool in MiB/s
-     */
-    public /*out*/ readonly utilizedThroughputMibps!: pulumi.Output<number>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -112,49 +80,30 @@ export class Pool extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceLevel'");
-            }
-            if ((!args || args.size === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'size'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
-            resourceInputs["encryptionType"] = (args ? args.encryptionType : undefined) ?? "Single";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["qosType"] = (args ? args.qosType : undefined) ?? "Auto";
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.netapp.v20220901.poolPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            resourceInputs["size"] = (args ? args.size : undefined) ?? 4398046511104;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["poolId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["totalThroughputMibps"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["utilizedThroughputMibps"] = undefined /*out*/;
         } else {
-            resourceInputs["coolAccess"] = undefined /*out*/;
-            resourceInputs["encryptionType"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["poolId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["qosType"] = undefined /*out*/;
-            resourceInputs["serviceLevel"] = undefined /*out*/;
-            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["totalThroughputMibps"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["utilizedThroughputMibps"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Pool" }, { type: "azure-native:netapp/v20170815:Pool" }, { type: "azure-native:netapp/v20190501:Pool" }, { type: "azure-native:netapp/v20190601:Pool" }, { type: "azure-native:netapp/v20190701:Pool" }, { type: "azure-native:netapp/v20190801:Pool" }, { type: "azure-native:netapp/v20191001:Pool" }, { type: "azure-native:netapp/v20191101:Pool" }, { type: "azure-native:netapp/v20200201:Pool" }, { type: "azure-native:netapp/v20200301:Pool" }, { type: "azure-native:netapp/v20200501:Pool" }, { type: "azure-native:netapp/v20200601:Pool" }, { type: "azure-native:netapp/v20200701:Pool" }, { type: "azure-native:netapp/v20200801:Pool" }, { type: "azure-native:netapp/v20200901:Pool" }, { type: "azure-native:netapp/v20201101:Pool" }, { type: "azure-native:netapp/v20201201:Pool" }, { type: "azure-native:netapp/v20210201:Pool" }, { type: "azure-native:netapp/v20210401:Pool" }, { type: "azure-native:netapp/v20210401preview:Pool" }, { type: "azure-native:netapp/v20210601:Pool" }, { type: "azure-native:netapp/v20210801:Pool" }, { type: "azure-native:netapp/v20211001:Pool" }, { type: "azure-native:netapp/v20220101:Pool" }, { type: "azure-native:netapp/v20220301:Pool" }, { type: "azure-native:netapp/v20220501:Pool" }] };
@@ -172,14 +121,6 @@ export interface PoolArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * If enabled (true) the pool can contain cool Access enabled volumes.
-     */
-    coolAccess?: pulumi.Input<boolean>;
-    /**
-     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-     */
-    encryptionType?: pulumi.Input<string | enums.netapp.v20220901.EncryptionType>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -188,21 +129,13 @@ export interface PoolArgs {
      */
     poolName?: pulumi.Input<string>;
     /**
-     * The qos type of the pool
+     * Capacity pool properties
      */
-    qosType?: pulumi.Input<string | enums.netapp.v20220901.QosType>;
+    properties: pulumi.Input<inputs.netapp.v20220901.PoolPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The service level of the file system
-     */
-    serviceLevel: pulumi.Input<string | enums.netapp.v20220901.ServiceLevel>;
-    /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiply of 4398046511104).
-     */
-    size: pulumi.Input<number>;
     /**
      * Resource tags.
      */

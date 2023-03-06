@@ -16,64 +16,16 @@ namespace Pulumi.AzureNative.Authorization.V20220701Preview
     public partial class PolicyExemption : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The option whether validate the exemption is at or under the assignment scope.
-        /// </summary>
-        [Output("assignmentScopeValidation")]
-        public Output<string?> AssignmentScopeValidation { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the policy exemption.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The display name of the policy exemption.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// The policy exemption category. Possible values are Waiver and Mitigated.
-        /// </summary>
-        [Output("exemptionCategory")]
-        public Output<string> ExemptionCategory { get; private set; } = null!;
-
-        /// <summary>
-        /// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-        /// </summary>
-        [Output("expiresOn")]
-        public Output<string?> ExpiresOn { get; private set; } = null!;
-
-        /// <summary>
-        /// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-        /// </summary>
-        [Output("metadata")]
-        public Output<object?> Metadata { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the policy exemption.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the policy assignment that is being exempted.
+        /// Properties for the policy exemption.
         /// </summary>
-        [Output("policyAssignmentId")]
-        public Output<string> PolicyAssignmentId { get; private set; } = null!;
-
-        /// <summary>
-        /// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
-        /// </summary>
-        [Output("policyDefinitionReferenceIds")]
-        public Output<ImmutableArray<string>> PolicyDefinitionReferenceIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource selector list to filter policies by resource properties.
-        /// </summary>
-        [Output("resourceSelectors")]
-        public Output<ImmutableArray<Outputs.ResourceSelectorResponse>> ResourceSelectors { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PolicyExemptionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -138,76 +90,16 @@ namespace Pulumi.AzureNative.Authorization.V20220701Preview
     public sealed class PolicyExemptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The option whether validate the exemption is at or under the assignment scope.
-        /// </summary>
-        [Input("assignmentScopeValidation")]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.V20220701Preview.AssignmentScopeValidation>? AssignmentScopeValidation { get; set; }
-
-        /// <summary>
-        /// The description of the policy exemption.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The display name of the policy exemption.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// The policy exemption category. Possible values are Waiver and Mitigated.
-        /// </summary>
-        [Input("exemptionCategory", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.V20220701Preview.ExemptionCategory> ExemptionCategory { get; set; } = null!;
-
-        /// <summary>
-        /// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-        /// </summary>
-        [Input("expiresOn")]
-        public Input<string>? ExpiresOn { get; set; }
-
-        /// <summary>
-        /// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-        /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
-
-        /// <summary>
-        /// The ID of the policy assignment that is being exempted.
-        /// </summary>
-        [Input("policyAssignmentId", required: true)]
-        public Input<string> PolicyAssignmentId { get; set; } = null!;
-
-        [Input("policyDefinitionReferenceIds")]
-        private InputList<string>? _policyDefinitionReferenceIds;
-
-        /// <summary>
-        /// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
-        /// </summary>
-        public InputList<string> PolicyDefinitionReferenceIds
-        {
-            get => _policyDefinitionReferenceIds ?? (_policyDefinitionReferenceIds = new InputList<string>());
-            set => _policyDefinitionReferenceIds = value;
-        }
-
-        /// <summary>
         /// The name of the policy exemption to delete.
         /// </summary>
         [Input("policyExemptionName")]
         public Input<string>? PolicyExemptionName { get; set; }
 
-        [Input("resourceSelectors")]
-        private InputList<Inputs.ResourceSelectorArgs>? _resourceSelectors;
-
         /// <summary>
-        /// The resource selector list to filter policies by resource properties.
+        /// Properties for the policy exemption.
         /// </summary>
-        public InputList<Inputs.ResourceSelectorArgs> ResourceSelectors
-        {
-            get => _resourceSelectors ?? (_resourceSelectors = new InputList<Inputs.ResourceSelectorArgs>());
-            set => _resourceSelectors = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.PolicyExemptionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -217,7 +109,6 @@ namespace Pulumi.AzureNative.Authorization.V20220701Preview
 
         public PolicyExemptionArgs()
         {
-            AssignmentScopeValidation = "Default";
         }
         public static new PolicyExemptionArgs Empty => new PolicyExemptionArgs();
     }

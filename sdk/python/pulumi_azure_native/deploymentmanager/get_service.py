@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetServiceResult',
@@ -21,7 +22,7 @@ class GetServiceResult:
     """
     The resource representation of a service in a service topology.
     """
-    def __init__(__self__, id=None, location=None, name=None, tags=None, target_location=None, target_subscription_id=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,15 +32,12 @@ class GetServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if target_location and not isinstance(target_location, str):
-            raise TypeError("Expected argument 'target_location' to be a str")
-        pulumi.set(__self__, "target_location", target_location)
-        if target_subscription_id and not isinstance(target_subscription_id, str):
-            raise TypeError("Expected argument 'target_subscription_id' to be a str")
-        pulumi.set(__self__, "target_subscription_id", target_subscription_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -70,27 +68,19 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
+    def properties(self) -> 'outputs.ServiceResourceResponseProperties':
+        """
+        The properties that define a service in a service topology.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="targetLocation")
-    def target_location(self) -> str:
-        """
-        The Azure location to which the resources in the service belong to or should be deployed to.
-        """
-        return pulumi.get(self, "target_location")
-
-    @property
-    @pulumi.getter(name="targetSubscriptionId")
-    def target_subscription_id(self) -> str:
-        """
-        The subscription to which the resources in the service belong to or should be deployed to.
-        """
-        return pulumi.get(self, "target_subscription_id")
 
     @property
     @pulumi.getter
@@ -110,9 +100,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             tags=self.tags,
-            target_location=self.target_location,
-            target_subscription_id=self.target_subscription_id,
             type=self.type)
 
 
@@ -140,9 +129,8 @@ def get_service(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        target_location=__ret__.target_location,
-        target_subscription_id=__ret__.target_subscription_id,
         type=__ret__.type)
 
 

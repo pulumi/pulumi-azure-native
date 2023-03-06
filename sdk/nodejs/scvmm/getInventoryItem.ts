@@ -45,29 +45,17 @@ export interface GetInventoryItemResult {
      */
     readonly id: string;
     /**
-     * Gets the Managed Object name in VMM for the inventory item.
-     */
-    readonly inventoryItemName: string;
-    /**
-     * They inventory type.
-     */
-    readonly inventoryType: string;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     readonly kind?: string;
-    /**
-     * Gets the tracked resource id corresponding to the inventory resource.
-     */
-    readonly managedResourceId: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets the provisioning state.
+     * Resource properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.scvmm.CloudInventoryItemResponse | outputs.scvmm.VirtualMachineInventoryItemResponse | outputs.scvmm.VirtualMachineTemplateInventoryItemResponse | outputs.scvmm.VirtualNetworkInventoryItemResponse;
     /**
      * The system data.
      */
@@ -76,10 +64,6 @@ export interface GetInventoryItemResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Gets the UUID (which is assigned by VMM) for the inventory item.
-     */
-    readonly uuid: string;
 }
 /**
  * Shows an inventory item.

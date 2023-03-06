@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class SynapseNotebookActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Spark configuration properties, which will override the 'conf' of the notebook you provide.
-        /// </summary>
-        [Input("conf")]
-        public Input<object>? Conf { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -40,18 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("driverSize")]
-        public Input<object>? DriverSize { get; set; }
-
-        /// <summary>
-        /// Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("executorSize")]
-        public Input<object>? ExecutorSize { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName")]
@@ -64,40 +46,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Synapse notebook reference.
-        /// </summary>
-        [Input("notebook", required: true)]
-        public Input<Inputs.SynapseNotebookReferenceArgs> Notebook { get; set; } = null!;
-
-        /// <summary>
-        /// Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
-        /// </summary>
-        [Input("numExecutors")]
-        public Input<int>? NumExecutors { get; set; }
-
-        [Input("parameters")]
-        private InputMap<Inputs.NotebookParameterArgs>? _parameters;
-
-        /// <summary>
-        /// Notebook parameters.
-        /// </summary>
-        public InputMap<Inputs.NotebookParameterArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.NotebookParameterArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
         /// Activity policy.
         /// </summary>
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
-
-        /// <summary>
-        /// The name of the big data pool which will be used to execute the notebook.
-        /// </summary>
-        [Input("sparkPool")]
-        public Input<Inputs.BigDataPoolParametrizationReferenceArgs>? SparkPool { get; set; }
 
         /// <summary>
         /// Type of activity.
@@ -105,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Execute Synapse notebook activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SynapseNotebookActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

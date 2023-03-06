@@ -88,13 +88,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The metrics configuration details
-        /// </summary>
-        public readonly ImmutableArray<Outputs.MetricConfigurationResponse> MetricConfigurations;
-        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The metric setting properties.
+        /// </summary>
+        public readonly Outputs.MonitoringMetricConfigurationPropertiesResponse Properties;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -104,15 +104,15 @@ namespace Pulumi.AzureNative.DataBoxEdge
         private GetMonitoringConfigResult(
             string id,
 
-            ImmutableArray<Outputs.MetricConfigurationResponse> metricConfigurations,
-
             string name,
+
+            Outputs.MonitoringMetricConfigurationPropertiesResponse properties,
 
             string type)
         {
             Id = id;
-            MetricConfigurations = metricConfigurations;
             Name = name;
+            Properties = properties;
             Type = type;
         }
     }

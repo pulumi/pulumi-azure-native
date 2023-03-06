@@ -39,45 +39,13 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * Comments describing why this attestation was created.
-     */
-    public readonly comments!: pulumi.Output<string | undefined>;
-    /**
-     * The compliance state that should be set on the resource.
-     */
-    public readonly complianceState!: pulumi.Output<string | undefined>;
-    /**
-     * The evidence supporting the compliance state set in this attestation.
-     */
-    public readonly evidence!: pulumi.Output<outputs.policyinsights.AttestationEvidenceResponse[] | undefined>;
-    /**
-     * The time the compliance state should expire.
-     */
-    public readonly expiresOn!: pulumi.Output<string | undefined>;
-    /**
-     * The time the compliance state was last changed in this attestation.
-     */
-    public /*out*/ readonly lastComplianceStateChangeAt!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+     * Properties for the attestation.
      */
-    public readonly owner!: pulumi.Output<string | undefined>;
-    /**
-     * The resource ID of the policy assignment that the attestation is setting the state for.
-     */
-    public readonly policyAssignmentId!: pulumi.Output<string>;
-    /**
-     * The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
-     */
-    public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
-    /**
-     * The status of the attestation.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.policyinsights.AttestationPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -98,33 +66,17 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyAssignmentId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             resourceInputs["attestationName"] = args ? args.attestationName : undefined;
-            resourceInputs["comments"] = args ? args.comments : undefined;
-            resourceInputs["complianceState"] = args ? args.complianceState : undefined;
-            resourceInputs["evidence"] = args ? args.evidence : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["comments"] = undefined /*out*/;
-            resourceInputs["complianceState"] = undefined /*out*/;
-            resourceInputs["evidence"] = undefined /*out*/;
-            resourceInputs["expiresOn"] = undefined /*out*/;
-            resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["owner"] = undefined /*out*/;
-            resourceInputs["policyAssignmentId"] = undefined /*out*/;
-            resourceInputs["policyDefinitionReferenceId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -144,31 +96,7 @@ export interface AttestationAtSubscriptionArgs {
      */
     attestationName?: pulumi.Input<string>;
     /**
-     * Comments describing why this attestation was created.
+     * Properties for the attestation.
      */
-    comments?: pulumi.Input<string>;
-    /**
-     * The compliance state that should be set on the resource.
-     */
-    complianceState?: pulumi.Input<string | enums.policyinsights.ComplianceState>;
-    /**
-     * The evidence supporting the compliance state set in this attestation.
-     */
-    evidence?: pulumi.Input<pulumi.Input<inputs.policyinsights.AttestationEvidenceArgs>[]>;
-    /**
-     * The time the compliance state should expire.
-     */
-    expiresOn?: pulumi.Input<string>;
-    /**
-     * The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
-     */
-    owner?: pulumi.Input<string>;
-    /**
-     * The resource ID of the policy assignment that the attestation is setting the state for.
-     */
-    policyAssignmentId: pulumi.Input<string>;
-    /**
-     * The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
-     */
-    policyDefinitionReferenceId?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.policyinsights.AttestationPropertiesArgs>;
 }

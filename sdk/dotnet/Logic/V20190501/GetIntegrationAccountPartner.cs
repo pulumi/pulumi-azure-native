@@ -82,18 +82,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public sealed class GetIntegrationAccountPartnerResult
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        public readonly string ChangedTime;
-        /// <summary>
-        /// The partner content.
-        /// </summary>
-        public readonly Outputs.PartnerContentResponse Content;
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -102,17 +90,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The metadata.
-        /// </summary>
-        public readonly object? Metadata;
-        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The partner type.
+        /// The integration account partner properties.
         /// </summary>
-        public readonly string PartnerType;
+        public readonly Outputs.IntegrationAccountPartnerPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -124,34 +108,22 @@ namespace Pulumi.AzureNative.Logic.V20190501
 
         [OutputConstructor]
         private GetIntegrationAccountPartnerResult(
-            string changedTime,
-
-            Outputs.PartnerContentResponse content,
-
-            string createdTime,
-
             string id,
 
             string? location,
 
-            object? metadata,
-
             string name,
 
-            string partnerType,
+            Outputs.IntegrationAccountPartnerPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ChangedTime = changedTime;
-            Content = content;
-            CreatedTime = createdTime;
             Id = id;
             Location = location;
-            Metadata = metadata;
             Name = name;
-            PartnerType = partnerType;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

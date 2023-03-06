@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
         /// <summary>
-        /// The Salesforce object API name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ObjectApiName;
-        /// <summary>
         /// Parameters for dataset.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -45,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'SalesforceObject'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Salesforce object dataset properties.
+        /// </summary>
+        public readonly Outputs.SalesforceObjectDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SalesforceObjectDatasetResponse(
@@ -54,21 +54,21 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            object? objectApiName,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.SalesforceObjectDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             LinkedServiceName = linkedServiceName;
-            ObjectApiName = objectApiName;
             Parameters = parameters;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -8,12 +8,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'AclResponse',
+    'DiskPoolPropertiesResponse',
     'DiskResponse',
     'IscsiLunResponse',
+    'IscsiTargetPropertiesResponse',
     'SystemMetadataResponse',
 ]
 
@@ -67,6 +70,108 @@ class AclResponse(dict):
         List of LUN names mapped to the ACL.
         """
         return pulumi.get(self, "mapped_luns")
+
+
+@pulumi.output_type
+class DiskPoolPropertiesResponse(dict):
+    """
+    Disk Pool response properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "additionalCapabilities":
+            suggest = "additional_capabilities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskPoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskPoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskPoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zones: Sequence[str],
+                 provisioning_state: str,
+                 status: str,
+                 subnet_id: str,
+                 additional_capabilities: Optional[Sequence[str]] = None,
+                 disks: Optional[Sequence['outputs.DiskResponse']] = None):
+        """
+        Disk Pool response properties.
+        :param Sequence[str] availability_zones: Logical zone for Disk Pool resource; example: ["1"].
+        :param str provisioning_state: State of the operation on the resource.
+        :param str status: Operational status of the Disk Pool.
+        :param str subnet_id: Azure Resource ID of a Subnet for the Disk Pool.
+        :param Sequence[str] additional_capabilities: List of additional capabilities for Disk Pool.
+        :param Sequence['DiskResponse'] disks: List of Azure Managed Disks to attach to a Disk Pool.
+        """
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if disks is not None:
+            pulumi.set(__self__, "disks", disks)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Sequence[str]:
+        """
+        Logical zone for Disk Pool resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the operation on the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Operational status of the Disk Pool.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        Azure Resource ID of a Subnet for the Disk Pool.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional[Sequence[str]]:
+        """
+        List of additional capabilities for Disk Pool.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @property
+    @pulumi.getter
+    def disks(self) -> Optional[Sequence['outputs.DiskResponse']]:
+        """
+        List of Azure Managed Disks to attach to a Disk Pool.
+        """
+        return pulumi.get(self, "disks")
 
 
 @pulumi.output_type
@@ -150,6 +255,143 @@ class IscsiLunResponse(dict):
         User defined name for iSCSI LUN; example: "lun0"
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IscsiTargetPropertiesResponse(dict):
+    """
+    Response properties for iSCSI Target operations.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aclMode":
+            suggest = "acl_mode"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "targetIqn":
+            suggest = "target_iqn"
+        elif key == "staticAcls":
+            suggest = "static_acls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IscsiTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IscsiTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IscsiTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 acl_mode: str,
+                 provisioning_state: str,
+                 sessions: Sequence[str],
+                 status: str,
+                 target_iqn: str,
+                 endpoints: Optional[Sequence[str]] = None,
+                 luns: Optional[Sequence['outputs.IscsiLunResponse']] = None,
+                 port: Optional[int] = None,
+                 static_acls: Optional[Sequence['outputs.AclResponse']] = None):
+        """
+        Response properties for iSCSI Target operations.
+        :param str acl_mode: Mode for Target connectivity.
+        :param str provisioning_state: State of the operation on the resource.
+        :param Sequence[str] sessions: List of identifiers for active sessions on the iSCSI target
+        :param str status: Operational status of the iSCSI Target.
+        :param str target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        :param Sequence[str] endpoints: List of private IPv4 addresses to connect to the iSCSI Target.
+        :param Sequence['IscsiLunResponse'] luns: List of LUNs to be exposed through iSCSI Target.
+        :param int port: The port used by iSCSI Target portal group.
+        :param Sequence['AclResponse'] static_acls: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        """
+        pulumi.set(__self__, "acl_mode", acl_mode)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sessions", sessions)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "target_iqn", target_iqn)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if luns is not None:
+            pulumi.set(__self__, "luns", luns)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if static_acls is not None:
+            pulumi.set(__self__, "static_acls", static_acls)
+
+    @property
+    @pulumi.getter(name="aclMode")
+    def acl_mode(self) -> str:
+        """
+        Mode for Target connectivity.
+        """
+        return pulumi.get(self, "acl_mode")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the operation on the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sessions(self) -> Sequence[str]:
+        """
+        List of identifiers for active sessions on the iSCSI target
+        """
+        return pulumi.get(self, "sessions")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Operational status of the iSCSI Target.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="targetIqn")
+    def target_iqn(self) -> str:
+        """
+        iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        return pulumi.get(self, "target_iqn")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[Sequence[str]]:
+        """
+        List of private IPv4 addresses to connect to the iSCSI Target.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter
+    def luns(self) -> Optional[Sequence['outputs.IscsiLunResponse']]:
+        """
+        List of LUNs to be exposed through iSCSI Target.
+        """
+        return pulumi.get(self, "luns")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port used by iSCSI Target portal group.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="staticAcls")
+    def static_acls(self) -> Optional[Sequence['outputs.AclResponse']]:
+        """
+        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        """
+        return pulumi.get(self, "static_acls")
 
 
 @pulumi.output_type

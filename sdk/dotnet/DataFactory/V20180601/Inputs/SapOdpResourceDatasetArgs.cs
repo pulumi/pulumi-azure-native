@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The context of the SAP ODP Object. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("context", required: true)]
-        public Input<object> Context { get; set; } = null!;
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
@@ -50,12 +44,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SAP ODP Object. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("objectName", required: true)]
-        public Input<object> ObjectName { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -87,6 +75,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// SAP ODP Resource properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapOdpResourceDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapOdpResourceDatasetArgs()
         {

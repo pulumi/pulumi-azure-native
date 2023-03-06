@@ -11,6 +11,7 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'LinkerPropertiesArgs',
     'SecretAuthInfoArgs',
     'SecretStoreArgs',
     'ServicePrincipalCertificateAuthInfoArgs',
@@ -19,6 +20,94 @@ __all__ = [
     'UserAssignedIdentityAuthInfoArgs',
     'VNetSolutionArgs',
 ]
+
+@pulumi.input_type
+class LinkerPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_info: Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
+                 client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
+                 secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None):
+        """
+        The properties of the linker.
+        :param pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
+        :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
+        :param pulumi.Input['SecretStoreArgs'] secret_store: An option to store secret value in secure place
+        :param pulumi.Input[str] target_id: The resource Id of target service.
+        :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
+        """
+        if auth_info is not None:
+            pulumi.set(__self__, "auth_info", auth_info)
+        if client_type is not None:
+            pulumi.set(__self__, "client_type", client_type)
+        if secret_store is not None:
+            pulumi.set(__self__, "secret_store", secret_store)
+        if target_id is not None:
+            pulumi.set(__self__, "target_id", target_id)
+        if v_net_solution is not None:
+            pulumi.set(__self__, "v_net_solution", v_net_solution)
+
+    @property
+    @pulumi.getter(name="authInfo")
+    def auth_info(self) -> Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]:
+        """
+        The authentication type.
+        """
+        return pulumi.get(self, "auth_info")
+
+    @auth_info.setter
+    def auth_info(self, value: Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]):
+        pulumi.set(self, "auth_info", value)
+
+    @property
+    @pulumi.getter(name="clientType")
+    def client_type(self) -> Optional[pulumi.Input[Union[str, 'ClientType']]]:
+        """
+        The application client type
+        """
+        return pulumi.get(self, "client_type")
+
+    @client_type.setter
+    def client_type(self, value: Optional[pulumi.Input[Union[str, 'ClientType']]]):
+        pulumi.set(self, "client_type", value)
+
+    @property
+    @pulumi.getter(name="secretStore")
+    def secret_store(self) -> Optional[pulumi.Input['SecretStoreArgs']]:
+        """
+        An option to store secret value in secure place
+        """
+        return pulumi.get(self, "secret_store")
+
+    @secret_store.setter
+    def secret_store(self, value: Optional[pulumi.Input['SecretStoreArgs']]):
+        pulumi.set(self, "secret_store", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of target service.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_id", value)
+
+    @property
+    @pulumi.getter(name="vNetSolution")
+    def v_net_solution(self) -> Optional[pulumi.Input['VNetSolutionArgs']]:
+        """
+        The VNet solution.
+        """
+        return pulumi.get(self, "v_net_solution")
+
+    @v_net_solution.setter
+    def v_net_solution(self, value: Optional[pulumi.Input['VNetSolutionArgs']]):
+        pulumi.set(self, "v_net_solution", value)
+
 
 @pulumi.input_type
 class SecretAuthInfoArgs:

@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public partial class Assignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the Blueprint definition resource.
-        /// </summary>
-        [Output("blueprintId")]
-        public Output<string?> BlueprintId { get; private set; } = null!;
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// Managed Service Identity for this Blueprint assignment
         /// </summary>
         [Output("identity")]
@@ -47,40 +29,16 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Defines how Blueprint-managed resources will be locked.
-        /// </summary>
-        [Output("locks")]
-        public Output<Outputs.AssignmentLockSettingsResponse?> Locks { get; private set; } = null!;
-
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Blueprint parameter values.
+        /// Properties for Assignment object.
         /// </summary>
-        [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterValueBaseResponse>> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the assignment.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Names and locations of resource group placeholders.
-        /// </summary>
-        [Output("resourceGroups")]
-        public Output<ImmutableDictionary<string, Outputs.ResourceGroupValueResponse>> ResourceGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of Blueprint assignment. This field is readonly.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.AssignmentStatusResponse> Status { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
@@ -140,24 +98,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public Input<string>? AssignmentName { get; set; }
 
         /// <summary>
-        /// ID of the Blueprint definition resource.
-        /// </summary>
-        [Input("blueprintId")]
-        public Input<string>? BlueprintId { get; set; }
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Managed Service Identity for this Blueprint assignment
         /// </summary>
         [Input("identity", required: true)]
@@ -170,34 +110,10 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Defines how Blueprint-managed resources will be locked.
+        /// Properties for Assignment object.
         /// </summary>
-        [Input("locks")]
-        public Input<Inputs.AssignmentLockSettingsArgs>? Locks { get; set; }
-
-        [Input("parameters", required: true)]
-        private InputMap<Inputs.ParameterValueBaseArgs>? _parameters;
-
-        /// <summary>
-        /// Blueprint parameter values.
-        /// </summary>
-        public InputMap<Inputs.ParameterValueBaseArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterValueBaseArgs>());
-            set => _parameters = value;
-        }
-
-        [Input("resourceGroups", required: true)]
-        private InputMap<Inputs.ResourceGroupValueArgs>? _resourceGroups;
-
-        /// <summary>
-        /// Names and locations of resource group placeholders.
-        /// </summary>
-        public InputMap<Inputs.ResourceGroupValueArgs> ResourceGroups
-        {
-            get => _resourceGroups ?? (_resourceGroups = new InputMap<Inputs.ResourceGroupValueArgs>());
-            set => _resourceGroups = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.AssignmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// azure subscriptionId, which we assign the blueprint to.

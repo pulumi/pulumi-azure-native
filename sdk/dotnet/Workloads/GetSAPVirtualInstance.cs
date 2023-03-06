@@ -72,22 +72,6 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPVirtualInstanceResult
     {
         /// <summary>
-        /// Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-        /// </summary>
-        public readonly object Configuration;
-        /// <summary>
-        /// Defines the environment type - Production/Non Production.
-        /// </summary>
-        public readonly string Environment;
-        /// <summary>
-        /// Indicates any errors on the Virtual Instance for SAP solutions resource.
-        /// </summary>
-        public readonly Outputs.SAPVirtualInstanceErrorResponse Errors;
-        /// <summary>
-        /// Defines the health of SAP Instances.
-        /// </summary>
-        public readonly string Health;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -100,29 +84,13 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Managed resource group configuration
-        /// </summary>
-        public readonly Outputs.ManagedRGConfigurationResponse? ManagedResourceGroupConfiguration;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Defines the provisioning states.
+        /// Defines the Virtual Instance for SAP solutions resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Defines the SAP Product type.
-        /// </summary>
-        public readonly string SapProduct;
-        /// <summary>
-        /// Defines the Virtual Instance for SAP state.
-        /// </summary>
-        public readonly string State;
-        /// <summary>
-        /// Defines the SAP Instance status.
-        /// </summary>
-        public readonly string Status;
+        public readonly Outputs.SAPVirtualInstancePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -138,31 +106,15 @@ namespace Pulumi.AzureNative.Workloads
 
         [OutputConstructor]
         private GetSAPVirtualInstanceResult(
-            object configuration,
-
-            string environment,
-
-            Outputs.SAPVirtualInstanceErrorResponse errors,
-
-            string health,
-
             string id,
 
             Outputs.UserAssignedServiceIdentityResponse? identity,
 
             string location,
 
-            Outputs.ManagedRGConfigurationResponse? managedResourceGroupConfiguration,
-
             string name,
 
-            string provisioningState,
-
-            string sapProduct,
-
-            string state,
-
-            string status,
+            Outputs.SAPVirtualInstancePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -170,19 +122,11 @@ namespace Pulumi.AzureNative.Workloads
 
             string type)
         {
-            Configuration = configuration;
-            Environment = environment;
-            Errors = errors;
-            Health = health;
             Id = id;
             Identity = identity;
             Location = location;
-            ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
             Name = name;
-            ProvisioningState = provisioningState;
-            SapProduct = sapProduct;
-            State = state;
-            Status = status;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

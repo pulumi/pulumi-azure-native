@@ -40,10 +40,6 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Array of group IDs.
-     */
-    readonly groupIds?: string[];
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -52,17 +48,9 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * The resource of private end point.
+     * Resource properties.
      */
-    readonly privateEndpoint?: outputs.deviceupdate.v20200301preview.PrivateEndpointResponse;
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    readonly privateLinkServiceConnectionState: outputs.deviceupdate.v20200301preview.PrivateLinkServiceConnectionStateResponse;
-    /**
-     * The provisioning state of the private endpoint connection resource.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.deviceupdate.v20200301preview.PrivateEndpointConnectionPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

@@ -17,18 +17,18 @@ __all__ = ['MonitoringConfigArgs', 'MonitoringConfig']
 class MonitoringConfigArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
-                 metric_configurations: pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]],
+                 properties: pulumi.Input['MonitoringMetricConfigurationPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  role_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a MonitoringConfig resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]] metric_configurations: The metrics configuration details
+        :param pulumi.Input['MonitoringMetricConfigurationPropertiesArgs'] properties: The metric setting properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
         pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "metric_configurations", metric_configurations)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role_name", role_name)
 
@@ -45,16 +45,16 @@ class MonitoringConfigArgs:
         pulumi.set(self, "device_name", value)
 
     @property
-    @pulumi.getter(name="metricConfigurations")
-    def metric_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['MonitoringMetricConfigurationPropertiesArgs']:
         """
-        The metrics configuration details
+        The metric setting properties.
         """
-        return pulumi.get(self, "metric_configurations")
+        return pulumi.get(self, "properties")
 
-    @metric_configurations.setter
-    def metric_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]]):
-        pulumi.set(self, "metric_configurations", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['MonitoringMetricConfigurationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -87,7 +87,7 @@ class MonitoringConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 metric_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricConfigurationArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MonitoringMetricConfigurationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -97,7 +97,7 @@ class MonitoringConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricConfigurationArgs']]]] metric_configurations: The metrics configuration details
+        :param pulumi.Input[pulumi.InputType['MonitoringMetricConfigurationPropertiesArgs']] properties: The metric setting properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
@@ -126,7 +126,7 @@ class MonitoringConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 metric_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricConfigurationArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MonitoringMetricConfigurationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -141,9 +141,9 @@ class MonitoringConfig(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
-            if metric_configurations is None and not opts.urn:
-                raise TypeError("Missing required property 'metric_configurations'")
-            __props__.__dict__["metric_configurations"] = metric_configurations
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -177,19 +177,11 @@ class MonitoringConfig(pulumi.CustomResource):
 
         __props__ = MonitoringConfigArgs.__new__(MonitoringConfigArgs)
 
-        __props__.__dict__["metric_configurations"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return MonitoringConfig(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="metricConfigurations")
-    def metric_configurations(self) -> pulumi.Output[Sequence['outputs.MetricConfigurationResponse']]:
-        """
-        The metrics configuration details
-        """
-        return pulumi.get(self, "metric_configurations")
 
     @property
     @pulumi.getter
@@ -198,6 +190,14 @@ class MonitoringConfig(pulumi.CustomResource):
         The object name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.MonitoringMetricConfigurationPropertiesResponse']:
+        """
+        The metric setting properties.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +45,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Gets the expiry time of the certificate.
      */
@@ -50,7 +53,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Gets the is exportable flag of the certificate.
      */
-    public readonly isExportable!: pulumi.Output<boolean>;
+    public /*out*/ readonly isExportable!: pulumi.Output<boolean>;
     /**
      * Gets the last modified time.
      */
@@ -62,7 +65,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Gets the thumbprint of the certificate.
      */
-    public readonly thumbprint!: pulumi.Output<string>;
+    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -82,26 +85,26 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.base64Value === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'base64Value'");
-            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["base64Value"] = args ? args.base64Value : undefined;
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isExportable"] = args ? args.isExportable : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["expiryTime"] = undefined /*out*/;
+            resourceInputs["isExportable"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -129,31 +132,19 @@ export interface CertificateArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the base64 encoded value of the certificate.
-     */
-    base64Value: pulumi.Input<string>;
-    /**
      * The parameters supplied to the create or update certificate operation.
      */
     certificateName?: pulumi.Input<string>;
-    /**
-     * Gets or sets the description of the certificate.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Gets or sets the is exportable flag of the certificate.
-     */
-    isExportable?: pulumi.Input<boolean>;
     /**
      * Gets or sets the name of the certificate.
      */
     name: pulumi.Input<string>;
     /**
+     * Gets or sets the properties of the certificate.
+     */
+    properties: pulumi.Input<inputs.automation.CertificateCreateOrUpdatePropertiesArgs>;
+    /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Gets or sets the thumbprint of the certificate.
-     */
-    thumbprint?: pulumi.Input<string>;
 }

@@ -22,37 +22,25 @@ class GetInventoryItemResult:
     """
     Defines the inventory item.
     """
-    def __init__(__self__, id=None, inventory_item_name=None, inventory_type=None, kind=None, managed_resource_id=None, name=None, provisioning_state=None, system_data=None, type=None, uuid=None):
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if inventory_item_name and not isinstance(inventory_item_name, str):
-            raise TypeError("Expected argument 'inventory_item_name' to be a str")
-        pulumi.set(__self__, "inventory_item_name", inventory_item_name)
-        if inventory_type and not isinstance(inventory_type, str):
-            raise TypeError("Expected argument 'inventory_type' to be a str")
-        pulumi.set(__self__, "inventory_type", inventory_type)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
-        if managed_resource_id and not isinstance(managed_resource_id, str):
-            raise TypeError("Expected argument 'managed_resource_id' to be a str")
-        pulumi.set(__self__, "managed_resource_id", managed_resource_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if uuid and not isinstance(uuid, str):
-            raise TypeError("Expected argument 'uuid' to be a str")
-        pulumi.set(__self__, "uuid", uuid)
 
     @property
     @pulumi.getter
@@ -63,36 +51,12 @@ class GetInventoryItemResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="inventoryItemName")
-    def inventory_item_name(self) -> str:
-        """
-        Gets the Managed Object name in VMM for the inventory item.
-        """
-        return pulumi.get(self, "inventory_item_name")
-
-    @property
-    @pulumi.getter(name="inventoryType")
-    def inventory_type(self) -> str:
-        """
-        They inventory type.
-        """
-        return pulumi.get(self, "inventory_type")
-
-    @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter(name="managedResourceId")
-    def managed_resource_id(self) -> str:
-        """
-        Gets the tracked resource id corresponding to the inventory resource.
-        """
-        return pulumi.get(self, "managed_resource_id")
 
     @property
     @pulumi.getter
@@ -103,12 +67,12 @@ class GetInventoryItemResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> Any:
         """
-        Gets the provisioning state.
+        Resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -126,14 +90,6 @@ class GetInventoryItemResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def uuid(self) -> str:
-        """
-        Gets the UUID (which is assigned by VMM) for the inventory item.
-        """
-        return pulumi.get(self, "uuid")
-
 
 class AwaitableGetInventoryItemResult(GetInventoryItemResult):
     # pylint: disable=using-constant-test
@@ -142,15 +98,11 @@ class AwaitableGetInventoryItemResult(GetInventoryItemResult):
             yield self
         return GetInventoryItemResult(
             id=self.id,
-            inventory_item_name=self.inventory_item_name,
-            inventory_type=self.inventory_type,
             kind=self.kind,
-            managed_resource_id=self.managed_resource_id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            uuid=self.uuid)
+            type=self.type)
 
 
 def get_inventory_item(inventory_item_name: Optional[str] = None,
@@ -175,15 +127,11 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
 
     return AwaitableGetInventoryItemResult(
         id=__ret__.id,
-        inventory_item_name=__ret__.inventory_item_name,
-        inventory_type=__ret__.inventory_type,
         kind=__ret__.kind,
-        managed_resource_id=__ret__.managed_resource_id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        uuid=__ret__.uuid)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_inventory_item)

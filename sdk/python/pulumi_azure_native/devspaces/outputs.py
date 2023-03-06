@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'ControllerConnectionDetailsResponse',
+    'ControllerPropertiesResponse',
     'KubernetesConnectionDetailsResponse',
     'SkuResponse',
 ]
@@ -34,6 +35,93 @@ class ControllerConnectionDetailsResponse(dict):
         Base class for types that supply values used to connect to container orchestrators
         """
         return pulumi.get(self, "orchestrator_specific_connection_details")
+
+
+@pulumi.output_type
+class ControllerPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataPlaneFqdn":
+            suggest = "data_plane_fqdn"
+        elif key == "hostSuffix":
+            suggest = "host_suffix"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "targetContainerHostApiServerFqdn":
+            suggest = "target_container_host_api_server_fqdn"
+        elif key == "targetContainerHostResourceId":
+            suggest = "target_container_host_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ControllerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ControllerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ControllerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_plane_fqdn: str,
+                 host_suffix: str,
+                 provisioning_state: str,
+                 target_container_host_api_server_fqdn: str,
+                 target_container_host_resource_id: str):
+        """
+        :param str data_plane_fqdn: DNS name for accessing DataPlane services
+        :param str host_suffix: DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+        :param str provisioning_state: Provisioning state of the Azure Dev Spaces Controller.
+        :param str target_container_host_api_server_fqdn: DNS of the target container host's API server
+        :param str target_container_host_resource_id: Resource ID of the target container host
+        """
+        pulumi.set(__self__, "data_plane_fqdn", data_plane_fqdn)
+        pulumi.set(__self__, "host_suffix", host_suffix)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "target_container_host_api_server_fqdn", target_container_host_api_server_fqdn)
+        pulumi.set(__self__, "target_container_host_resource_id", target_container_host_resource_id)
+
+    @property
+    @pulumi.getter(name="dataPlaneFqdn")
+    def data_plane_fqdn(self) -> str:
+        """
+        DNS name for accessing DataPlane services
+        """
+        return pulumi.get(self, "data_plane_fqdn")
+
+    @property
+    @pulumi.getter(name="hostSuffix")
+    def host_suffix(self) -> str:
+        """
+        DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+        """
+        return pulumi.get(self, "host_suffix")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Azure Dev Spaces Controller.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="targetContainerHostApiServerFqdn")
+    def target_container_host_api_server_fqdn(self) -> str:
+        """
+        DNS of the target container host's API server
+        """
+        return pulumi.get(self, "target_container_host_api_server_fqdn")
+
+    @property
+    @pulumi.getter(name="targetContainerHostResourceId")
+    def target_container_host_resource_id(self) -> str:
+        """
+        Resource ID of the target container host
+        """
+        return pulumi.get(self, "target_container_host_resource_id")
 
 
 @pulumi.output_type

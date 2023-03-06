@@ -50,10 +50,6 @@ export class SimGroup extends pulumi.CustomResource {
      */
     public readonly createdByType!: pulumi.Output<string | undefined>;
     /**
-     * A key to encrypt the SIM data that belongs to this SIM group.
-     */
-    public readonly encryptionKey!: pulumi.Output<outputs.mobilenetwork.v20220401preview.KeyVaultKeyResponse | undefined>;
-    /**
      * The identity used to retrieve the encryption key from Azure key vault.
      */
     public readonly identity!: pulumi.Output<outputs.mobilenetwork.v20220401preview.ManagedServiceIdentityResponse | undefined>;
@@ -74,17 +70,13 @@ export class SimGroup extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Mobile network that this SIM belongs to
-     */
-    public readonly mobileNetwork!: pulumi.Output<outputs.mobilenetwork.v20220401preview.MobileNetworkResourceIdResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the SIM group resource.
+     * SIM group Properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.v20220401preview.SimGroupPropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -109,39 +101,38 @@ export class SimGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetwork"] = args ? args.mobileNetwork : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["simGroupName"] = args ? args.simGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;
-            resourceInputs["encryptionKey"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["lastModifiedAt"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mobileNetwork"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -170,10 +161,6 @@ export interface SimGroupArgs {
      */
     createdByType?: pulumi.Input<string | enums.mobilenetwork.v20220401preview.CreatedByType>;
     /**
-     * A key to encrypt the SIM data that belongs to this SIM group.
-     */
-    encryptionKey?: pulumi.Input<inputs.mobilenetwork.v20220401preview.KeyVaultKeyArgs>;
-    /**
      * The identity used to retrieve the encryption key from Azure key vault.
      */
     identity?: pulumi.Input<inputs.mobilenetwork.v20220401preview.ManagedServiceIdentityArgs>;
@@ -194,9 +181,9 @@ export interface SimGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Mobile network that this SIM belongs to
+     * SIM group Properties.
      */
-    mobileNetwork?: pulumi.Input<inputs.mobilenetwork.v20220401preview.MobileNetworkResourceIdArgs>;
+    properties: pulumi.Input<inputs.mobilenetwork.v20220401preview.SimGroupPropertiesFormatArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

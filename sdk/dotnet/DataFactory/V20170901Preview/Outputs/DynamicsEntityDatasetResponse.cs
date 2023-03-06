@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The logical name of the entity. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EntityName;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
@@ -45,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'DynamicsEntity'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Dynamics entity dataset properties.
+        /// </summary>
+        public readonly Outputs.DynamicsEntityDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private DynamicsEntityDatasetResponse(
@@ -52,23 +52,23 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            object? entityName,
-
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.DynamicsEntityDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
-            EntityName = entityName;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

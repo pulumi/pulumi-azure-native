@@ -14,6 +14,7 @@ __all__ = [
     'AuthenticationDetailsValue',
     'ConnectedClusterAADProfileArgs',
     'ConnectedClusterIdentityArgs',
+    'ConnectedClusterPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -114,5 +115,107 @@ class ConnectedClusterIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input['ResourceIdentityType']):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ConnectedClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 aad_profile: pulumi.Input['ConnectedClusterAADProfileArgs'],
+                 agent_public_key_certificate: pulumi.Input[str],
+                 connectivity_status: Optional[pulumi.Input[Union[str, 'ConnectivityStatus']]] = None,
+                 distribution: Optional[pulumi.Input[str]] = None,
+                 infrastructure: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
+        """
+        Properties of the connected cluster.
+        :param pulumi.Input['ConnectedClusterAADProfileArgs'] aad_profile: AAD profile of the connected cluster.
+        :param pulumi.Input[str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        :param pulumi.Input[Union[str, 'ConnectivityStatus']] connectivity_status: Represents the connectivity status of the connected cluster.
+        :param pulumi.Input[str] distribution: The Kubernetes distribution running on this connected cluster.
+        :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
+        """
+        pulumi.set(__self__, "aad_profile", aad_profile)
+        pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
+        if connectivity_status is not None:
+            pulumi.set(__self__, "connectivity_status", connectivity_status)
+        if distribution is not None:
+            pulumi.set(__self__, "distribution", distribution)
+        if infrastructure is not None:
+            pulumi.set(__self__, "infrastructure", infrastructure)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="aadProfile")
+    def aad_profile(self) -> pulumi.Input['ConnectedClusterAADProfileArgs']:
+        """
+        AAD profile of the connected cluster.
+        """
+        return pulumi.get(self, "aad_profile")
+
+    @aad_profile.setter
+    def aad_profile(self, value: pulumi.Input['ConnectedClusterAADProfileArgs']):
+        pulumi.set(self, "aad_profile", value)
+
+    @property
+    @pulumi.getter(name="agentPublicKeyCertificate")
+    def agent_public_key_certificate(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        """
+        return pulumi.get(self, "agent_public_key_certificate")
+
+    @agent_public_key_certificate.setter
+    def agent_public_key_certificate(self, value: pulumi.Input[str]):
+        pulumi.set(self, "agent_public_key_certificate", value)
+
+    @property
+    @pulumi.getter(name="connectivityStatus")
+    def connectivity_status(self) -> Optional[pulumi.Input[Union[str, 'ConnectivityStatus']]]:
+        """
+        Represents the connectivity status of the connected cluster.
+        """
+        return pulumi.get(self, "connectivity_status")
+
+    @connectivity_status.setter
+    def connectivity_status(self, value: Optional[pulumi.Input[Union[str, 'ConnectivityStatus']]]):
+        pulumi.set(self, "connectivity_status", value)
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kubernetes distribution running on this connected cluster.
+        """
+        return pulumi.get(self, "distribution")
+
+    @distribution.setter
+    def distribution(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution", value)
+
+    @property
+    @pulumi.getter
+    def infrastructure(self) -> Optional[pulumi.Input[str]]:
+        """
+        The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        """
+        return pulumi.get(self, "infrastructure")
+
+    @infrastructure.setter
+    def infrastructure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "infrastructure", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        Provisioning state of the connected cluster resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
 

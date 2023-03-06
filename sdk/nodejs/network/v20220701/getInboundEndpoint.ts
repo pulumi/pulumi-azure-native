@@ -48,10 +48,6 @@ export interface GetInboundEndpointResult {
      */
     readonly id: string;
     /**
-     * IP configurations for the inbound endpoint.
-     */
-    readonly ipConfigurations: outputs.network.v20220701.InboundEndpointIPConfigurationResponse[];
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -60,13 +56,9 @@ export interface GetInboundEndpointResult {
      */
     readonly name: string;
     /**
-     * The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the inbound endpoint.
      */
-    readonly provisioningState: string;
-    /**
-     * The resourceGuid property of the inbound endpoint resource.
-     */
-    readonly resourceGuid: string;
+    readonly properties: outputs.network.v20220701.InboundEndpointPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

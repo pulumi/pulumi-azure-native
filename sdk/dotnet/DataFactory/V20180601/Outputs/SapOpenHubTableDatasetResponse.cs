@@ -21,17 +21,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
-        /// </summary>
-        public readonly object? BaseRequestId;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? ExcludeLastRequest;
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
@@ -40,10 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
-        /// <summary>
-        /// The name of the Open Hub Destination with destination type as Database Table. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object OpenHubDestinationName;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -61,22 +49,20 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'SapOpenHubTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Sap Business Warehouse Open Hub Destination Table properties.
+        /// </summary>
+        public readonly Outputs.SapOpenHubTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapOpenHubTableDatasetResponse(
             ImmutableArray<object> annotations,
 
-            object? baseRequestId,
-
             string? description,
-
-            object? excludeLastRequest,
 
             Outputs.DatasetResponseFolder? folder,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
-
-            object openHubDestinationName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
@@ -84,19 +70,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.SapOpenHubTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            BaseRequestId = baseRequestId;
             Description = description;
-            ExcludeLastRequest = excludeLastRequest;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
-            OpenHubDestinationName = openHubDestinationName;
             Parameters = parameters;
             Schema = schema;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

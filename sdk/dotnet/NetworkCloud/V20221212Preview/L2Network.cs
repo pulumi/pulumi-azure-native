@@ -13,52 +13,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class L2Network : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID of the Network Cloud cluster this L2 network is associated with.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the L2 network.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
-        /// </summary>
-        [Output("hybridAksClustersAssociatedIds")]
-        public Output<ImmutableArray<string>> HybridAksClustersAssociatedIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The network plugin type for Hybrid AKS.
-        /// </summary>
-        [Output("hybridAksPluginType")]
-        public Output<string?> HybridAksPluginType { get; private set; } = null!;
-
-        /// <summary>
-        /// The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        /// </summary>
-        [Output("interfaceName")]
-        public Output<string?> InterfaceName { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the Network Fabric l2IsolationDomain.
-        /// </summary>
-        [Output("l2IsolationDomainId")]
-        public Output<string> L2IsolationDomainId { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -73,10 +31,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the L2 network.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.L2NetworkPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -95,12 +53,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
-        /// </summary>
-        [Output("virtualMachinesAssociatedIds")]
-        public Output<ImmutableArray<string>> VirtualMachinesAssociatedIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -158,24 +110,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
-        /// The network plugin type for Hybrid AKS.
-        /// </summary>
-        [Input("hybridAksPluginType")]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.V20221212Preview.HybridAksPluginType>? HybridAksPluginType { get; set; }
-
-        /// <summary>
-        /// The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        /// </summary>
-        [Input("interfaceName")]
-        public Input<string>? InterfaceName { get; set; }
-
-        /// <summary>
-        /// The resource ID of the Network Fabric l2IsolationDomain.
-        /// </summary>
-        [Input("l2IsolationDomainId", required: true)]
-        public Input<string> L2IsolationDomainId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the L2 network.
         /// </summary>
         [Input("l2NetworkName")]
@@ -186,6 +120,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The list of the resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.L2NetworkPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -207,7 +147,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
         public L2NetworkArgs()
         {
-            HybridAksPluginType = "SRIOV";
         }
         public static new L2NetworkArgs Empty => new L2NetworkArgs();
     }

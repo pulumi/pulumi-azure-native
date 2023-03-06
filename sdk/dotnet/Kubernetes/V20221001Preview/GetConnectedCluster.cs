@@ -70,30 +70,6 @@ namespace Pulumi.AzureNative.Kubernetes.V20221001Preview
     public sealed class GetConnectedClusterResult
     {
         /// <summary>
-        /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-        /// </summary>
-        public readonly string AgentPublicKeyCertificate;
-        /// <summary>
-        /// Version of the agent running on the connected cluster resource
-        /// </summary>
-        public readonly string AgentVersion;
-        /// <summary>
-        /// Indicates whether Azure Hybrid Benefit is opted in
-        /// </summary>
-        public readonly string? AzureHybridBenefit;
-        /// <summary>
-        /// Represents the connectivity status of the connected cluster.
-        /// </summary>
-        public readonly string ConnectivityStatus;
-        /// <summary>
-        /// The Kubernetes distribution running on this connected cluster.
-        /// </summary>
-        public readonly string? Distribution;
-        /// <summary>
-        /// The Kubernetes distribution version on this connected cluster.
-        /// </summary>
-        public readonly string? DistributionVersion;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -102,49 +78,17 @@ namespace Pulumi.AzureNative.Kubernetes.V20221001Preview
         /// </summary>
         public readonly Outputs.ConnectedClusterIdentityResponse Identity;
         /// <summary>
-        /// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
-        /// </summary>
-        public readonly string? Infrastructure;
-        /// <summary>
-        /// The Kubernetes version of the connected cluster resource
-        /// </summary>
-        public readonly string KubernetesVersion;
-        /// <summary>
-        /// Time representing the last instance when heart beat was received from the cluster
-        /// </summary>
-        public readonly string LastConnectivityTime;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// Expiration time of the managed identity certificate
-        /// </summary>
-        public readonly string ManagedIdentityCertificateExpirationTime;
-        /// <summary>
-        /// More properties related to the Connected Cluster
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> MiscellaneousProperties;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Connected cluster offering
+        /// Describes the connected cluster resource properties.
         /// </summary>
-        public readonly string Offering;
-        /// <summary>
-        /// The resource id of the private link scope this connected cluster is assigned to, if any.
-        /// </summary>
-        public readonly string? PrivateLinkScopeResourceId;
-        /// <summary>
-        /// Property which describes the state of private link on a connected cluster resource.
-        /// </summary>
-        public readonly string? PrivateLinkState;
-        /// <summary>
-        /// Provisioning state of the connected cluster resource.
-        /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly Outputs.ConnectedClusterPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
         /// </summary>
@@ -154,91 +98,35 @@ namespace Pulumi.AzureNative.Kubernetes.V20221001Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Number of CPU cores present in the connected cluster resource
-        /// </summary>
-        public readonly int TotalCoreCount;
-        /// <summary>
-        /// Number of nodes present in the connected cluster resource
-        /// </summary>
-        public readonly int TotalNodeCount;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetConnectedClusterResult(
-            string agentPublicKeyCertificate,
-
-            string agentVersion,
-
-            string? azureHybridBenefit,
-
-            string connectivityStatus,
-
-            string? distribution,
-
-            string? distributionVersion,
-
             string id,
 
             Outputs.ConnectedClusterIdentityResponse identity,
 
-            string? infrastructure,
-
-            string kubernetesVersion,
-
-            string lastConnectivityTime,
-
             string location,
-
-            string managedIdentityCertificateExpirationTime,
-
-            ImmutableDictionary<string, string> miscellaneousProperties,
 
             string name,
 
-            string offering,
-
-            string? privateLinkScopeResourceId,
-
-            string? privateLinkState,
-
-            string? provisioningState,
+            Outputs.ConnectedClusterPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            int totalCoreCount,
-
-            int totalNodeCount,
-
             string type)
         {
-            AgentPublicKeyCertificate = agentPublicKeyCertificate;
-            AgentVersion = agentVersion;
-            AzureHybridBenefit = azureHybridBenefit;
-            ConnectivityStatus = connectivityStatus;
-            Distribution = distribution;
-            DistributionVersion = distributionVersion;
             Id = id;
             Identity = identity;
-            Infrastructure = infrastructure;
-            KubernetesVersion = kubernetesVersion;
-            LastConnectivityTime = lastConnectivityTime;
             Location = location;
-            ManagedIdentityCertificateExpirationTime = managedIdentityCertificateExpirationTime;
-            MiscellaneousProperties = miscellaneousProperties;
             Name = name;
-            Offering = offering;
-            PrivateLinkScopeResourceId = privateLinkScopeResourceId;
-            PrivateLinkState = privateLinkState;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            TotalCoreCount = totalCoreCount;
-            TotalNodeCount = totalNodeCount;
             Type = type;
         }
     }

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._inputs import *
 
 __all__ = ['TrustedIdProviderArgs', 'TrustedIdProvider']
 
@@ -15,18 +16,18 @@ __all__ = ['TrustedIdProviderArgs', 'TrustedIdProvider']
 class TrustedIdProviderArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 id_provider: pulumi.Input[str],
+                 properties: pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  trusted_id_provider_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TrustedIdProvider resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
-        :param pulumi.Input[str] id_provider: The URL of this trusted identity provider.
+        :param pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs'] properties: The trusted identity provider properties to use when creating a new trusted identity provider.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "id_provider", id_provider)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if trusted_id_provider_name is not None:
             pulumi.set(__self__, "trusted_id_provider_name", trusted_id_provider_name)
@@ -44,16 +45,16 @@ class TrustedIdProviderArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="idProvider")
-    def id_provider(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs']:
         """
-        The URL of this trusted identity provider.
+        The trusted identity provider properties to use when creating a new trusted identity provider.
         """
-        return pulumi.get(self, "id_provider")
+        return pulumi.get(self, "properties")
 
-    @id_provider.setter
-    def id_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id_provider", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -86,7 +87,7 @@ class TrustedIdProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 id_provider: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateTrustedIdProviderPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -97,7 +98,7 @@ class TrustedIdProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
-        :param pulumi.Input[str] id_provider: The URL of this trusted identity provider.
+        :param pulumi.Input[pulumi.InputType['CreateOrUpdateTrustedIdProviderPropertiesArgs']] properties: The trusted identity provider properties to use when creating a new trusted identity provider.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
@@ -127,7 +128,7 @@ class TrustedIdProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 id_provider: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateTrustedIdProviderPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -142,13 +143,14 @@ class TrustedIdProvider(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if id_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'id_provider'")
-            __props__.__dict__["id_provider"] = id_provider
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["trusted_id_provider_name"] = trusted_id_provider_name
+            __props__.__dict__["id_provider"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakestore/v20161101:TrustedIdProvider")])

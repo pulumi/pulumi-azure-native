@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
     public sealed class GetGuestDiagnosticsSettingsAssociationResult
     {
         /// <summary>
-        /// The guest diagnostic settings name.
-        /// </summary>
-        public readonly string GuestDiagnosticSettingsName;
-        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -86,6 +82,10 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The diagnostics settings associations of the resource.
+        /// </summary>
+        public readonly Outputs.GuestDiagnosticSettingsAssociationResponse Properties;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -96,22 +96,22 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
 
         [OutputConstructor]
         private GetGuestDiagnosticsSettingsAssociationResult(
-            string guestDiagnosticSettingsName,
-
             string id,
 
             string location,
 
             string name,
 
+            Outputs.GuestDiagnosticSettingsAssociationResponse properties,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            GuestDiagnosticSettingsName = guestDiagnosticSettingsName;
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

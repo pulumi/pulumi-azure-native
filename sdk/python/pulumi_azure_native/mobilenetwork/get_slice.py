@@ -22,7 +22,7 @@ class GetSliceResult:
     """
     Network slice resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, description=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, snssai=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -32,9 +32,6 @@ class GetSliceResult:
         if created_by_type and not isinstance(created_by_type, str):
             raise TypeError("Expected argument 'created_by_type' to be a str")
         pulumi.set(__self__, "created_by_type", created_by_type)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,12 +50,9 @@ class GetSliceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if snssai and not isinstance(snssai, dict):
-            raise TypeError("Expected argument 'snssai' to be a dict")
-        pulumi.set(__self__, "snssai", snssai)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -92,14 +86,6 @@ class GetSliceResult:
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        An optional description for this network slice.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -150,20 +136,12 @@ class GetSliceResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the network slice resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def snssai(self) -> 'outputs.SnssaiResponse':
+    def properties(self) -> 'outputs.SlicePropertiesFormatResponse':
         """
-        Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        Slice properties.
         """
-        return pulumi.get(self, "snssai")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -199,15 +177,13 @@ class AwaitableGetSliceResult(GetSliceResult):
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_type=self.created_by_type,
-            description=self.description,
             id=self.id,
             last_modified_at=self.last_modified_at,
             last_modified_by=self.last_modified_by,
             last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            snssai=self.snssai,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -237,15 +213,13 @@ def get_slice(mobile_network_name: Optional[str] = None,
         created_at=__ret__.created_at,
         created_by=__ret__.created_by,
         created_by_type=__ret__.created_by_type,
-        description=__ret__.description,
         id=__ret__.id,
         last_modified_at=__ret__.last_modified_at,
         last_modified_by=__ret__.last_modified_by,
         last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        snssai=__ret__.snssai,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -17,22 +17,10 @@ namespace Pulumi.AzureNative.Insights
     public partial class LogProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-        /// </summary>
-        [Output("categories")]
-        public Output<ImmutableArray<string>> Categories { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-        /// </summary>
-        [Output("locations")]
-        public Output<ImmutableArray<string>> Locations { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name
@@ -41,22 +29,10 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// the retention policy for the events in the log.
+        /// The log profile properties of the resource.
         /// </summary>
-        [Output("retentionPolicy")]
-        public Output<Outputs.RetentionPolicyResponse> RetentionPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-        /// </summary>
-        [Output("serviceBusRuleId")]
-        public Output<string?> ServiceBusRuleId { get; private set; } = null!;
-
-        /// <summary>
-        /// the resource id of the storage account to which you would like to send the Activity Log.
-        /// </summary>
-        [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LogProfilePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -119,35 +95,11 @@ namespace Pulumi.AzureNative.Insights
 
     public sealed class LogProfileArgs : global::Pulumi.ResourceArgs
     {
-        [Input("categories", required: true)]
-        private InputList<string>? _categories;
-
-        /// <summary>
-        /// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-        /// </summary>
-        public InputList<string> Categories
-        {
-            get => _categories ?? (_categories = new InputList<string>());
-            set => _categories = value;
-        }
-
         /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        [Input("locations", required: true)]
-        private InputList<string>? _locations;
-
-        /// <summary>
-        /// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-        /// </summary>
-        public InputList<string> Locations
-        {
-            get => _locations ?? (_locations = new InputList<string>());
-            set => _locations = value;
-        }
 
         /// <summary>
         /// The name of the log profile.
@@ -156,22 +108,10 @@ namespace Pulumi.AzureNative.Insights
         public Input<string>? LogProfileName { get; set; }
 
         /// <summary>
-        /// the retention policy for the events in the log.
+        /// The log profile properties of the resource.
         /// </summary>
-        [Input("retentionPolicy", required: true)]
-        public Input<Inputs.RetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
-
-        /// <summary>
-        /// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-        /// </summary>
-        [Input("serviceBusRuleId")]
-        public Input<string>? ServiceBusRuleId { get; set; }
-
-        /// <summary>
-        /// the resource id of the storage account to which you would like to send the Activity Log.
-        /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.LogProfilePropertiesArgs> Properties { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

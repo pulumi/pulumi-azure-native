@@ -39,21 +39,13 @@ export class SignalRCustomDomain extends pulumi.CustomResource {
     }
 
     /**
-     * Reference to a resource.
-     */
-    public readonly customCertificate!: pulumi.Output<outputs.signalrservice.ResourceReferenceResponse>;
-    /**
-     * The custom domain name.
-     */
-    public readonly domainName!: pulumi.Output<string>;
-    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the resource.
+     * Properties of a custom domain.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.signalrservice.CustomDomainPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -74,11 +66,8 @@ export class SignalRCustomDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.customCertificate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'customCertificate'");
-            }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -86,19 +75,15 @@ export class SignalRCustomDomain extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["customCertificate"] = args ? args.customCertificate : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["customCertificate"] = undefined /*out*/;
-            resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -114,17 +99,13 @@ export class SignalRCustomDomain extends pulumi.CustomResource {
  */
 export interface SignalRCustomDomainArgs {
     /**
-     * Reference to a resource.
-     */
-    customCertificate: pulumi.Input<inputs.signalrservice.ResourceReferenceArgs>;
-    /**
-     * The custom domain name.
-     */
-    domainName: pulumi.Input<string>;
-    /**
      * Custom domain name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Properties of a custom domain.
+     */
+    properties: pulumi.Input<inputs.signalrservice.CustomDomainPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

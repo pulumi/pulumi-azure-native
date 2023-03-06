@@ -44,10 +44,6 @@ export interface GetVirtualNetworkResult {
      */
     readonly id: string;
     /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    readonly inventoryItemId?: string;
-    /**
      * Gets or sets the location.
      */
     readonly location: string;
@@ -56,13 +52,9 @@ export interface GetVirtualNetworkResult {
      */
     readonly name: string;
     /**
-     * Name of the virtual network in vmmServer.
+     * Resource properties.
      */
-    readonly networkName: string;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.scvmm.VirtualNetworkPropertiesResponse;
     /**
      * The system data.
      */
@@ -75,14 +67,6 @@ export interface GetVirtualNetworkResult {
      * Resource Type
      */
     readonly type: string;
-    /**
-     * Unique ID of the virtual network.
-     */
-    readonly uuid?: string;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    readonly vmmServerId?: string;
 }
 /**
  * Implements VirtualNetwork GET method.

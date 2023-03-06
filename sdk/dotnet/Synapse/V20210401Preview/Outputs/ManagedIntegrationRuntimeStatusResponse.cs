@@ -17,25 +17,9 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
     public sealed class ManagedIntegrationRuntimeStatusResponse
     {
         /// <summary>
-        /// The time at which the integration runtime was created, in ISO8601 format.
-        /// </summary>
-        public readonly string CreateTime;
-        /// <summary>
         /// The workspace name which the integration runtime belong to.
         /// </summary>
         public readonly string DataFactoryName;
-        /// <summary>
-        /// The last operation result that occurred on this integration runtime.
-        /// </summary>
-        public readonly Outputs.ManagedIntegrationRuntimeOperationResultResponse LastOperation;
-        /// <summary>
-        /// The list of nodes for managed integration runtime.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedIntegrationRuntimeNodeResponse> Nodes;
-        /// <summary>
-        /// The errors that occurred on this integration runtime.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedIntegrationRuntimeErrorResponse> OtherErrors;
         /// <summary>
         /// The state of integration runtime.
         /// </summary>
@@ -45,30 +29,25 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
         /// Expected value is 'Managed'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Managed integration runtime status type properties.
+        /// </summary>
+        public readonly Outputs.ManagedIntegrationRuntimeStatusTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ManagedIntegrationRuntimeStatusResponse(
-            string createTime,
-
             string dataFactoryName,
-
-            Outputs.ManagedIntegrationRuntimeOperationResultResponse lastOperation,
-
-            ImmutableArray<Outputs.ManagedIntegrationRuntimeNodeResponse> nodes,
-
-            ImmutableArray<Outputs.ManagedIntegrationRuntimeErrorResponse> otherErrors,
 
             string state,
 
-            string type)
+            string type,
+
+            Outputs.ManagedIntegrationRuntimeStatusTypePropertiesResponse typeProperties)
         {
-            CreateTime = createTime;
             DataFactoryName = dataFactoryName;
-            LastOperation = lastOperation;
-            Nodes = nodes;
-            OtherErrors = otherErrors;
             State = state;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

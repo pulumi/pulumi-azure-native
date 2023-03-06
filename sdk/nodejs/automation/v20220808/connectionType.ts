@@ -48,11 +48,11 @@ export class ConnectionType extends pulumi.CustomResource {
     /**
      * Gets the field definitions of the connection type.
      */
-    public readonly fieldDefinitions!: pulumi.Output<{[key: string]: outputs.automation.v20220808.FieldDefinitionResponse}>;
+    public /*out*/ readonly fieldDefinitions!: pulumi.Output<{[key: string]: outputs.automation.v20220808.FieldDefinitionResponse}>;
     /**
      * Gets or sets a Boolean value to indicate if the connection type is global.
      */
-    public readonly isGlobal!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly isGlobal!: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the last modified time.
      */
@@ -80,23 +80,24 @@ export class ConnectionType extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.fieldDefinitions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fieldDefinitions'");
-            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             resourceInputs["connectionTypeName"] = args ? args.connectionTypeName : undefined;
-            resourceInputs["fieldDefinitions"] = args ? args.fieldDefinitions : undefined;
-            resourceInputs["isGlobal"] = args ? args.isGlobal : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fieldDefinitions"] = undefined /*out*/;
+            resourceInputs["isGlobal"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -128,17 +129,13 @@ export interface ConnectionTypeArgs {
      */
     connectionTypeName?: pulumi.Input<string>;
     /**
-     * Gets or sets the field definitions of the connection type.
-     */
-    fieldDefinitions: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20220808.FieldDefinitionArgs>}>;
-    /**
-     * Gets or sets a Boolean value to indicate if the connection type is global.
-     */
-    isGlobal?: pulumi.Input<boolean>;
-    /**
      * Gets or sets the name of the connection type.
      */
     name: pulumi.Input<string>;
+    /**
+     * Gets or sets the value of the connection type.
+     */
+    properties: pulumi.Input<inputs.automation.v20220808.ConnectionTypeCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */

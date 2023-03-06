@@ -35,41 +35,9 @@ export interface GetMetricAlertArgs {
  */
 export interface GetMetricAlertResult {
     /**
-     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    readonly actions?: outputs.insights.v20180301.MetricAlertActionResponse[];
-    /**
-     * the flag that indicates whether the alert should be auto resolved or not. The default is true.
-     */
-    readonly autoMitigate?: boolean;
-    /**
-     * defines the specific alert criteria information.
-     */
-    readonly criteria: outputs.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaResponse | outputs.insights.v20180301.MetricAlertSingleResourceMultipleMetricCriteriaResponse | outputs.insights.v20180301.WebtestLocationAvailabilityCriteriaResponse;
-    /**
-     * the description of the metric alert that will be included in the alert email.
-     */
-    readonly description?: string;
-    /**
-     * the flag that indicates whether the metric alert is enabled.
-     */
-    readonly enabled: boolean;
-    /**
-     * how often the metric alert is evaluated represented in ISO 8601 duration format.
-     */
-    readonly evaluationFrequency: string;
-    /**
      * Azure resource Id
      */
     readonly id: string;
-    /**
-     * the value indicating whether this alert rule is migrated.
-     */
-    readonly isMigrated: boolean;
-    /**
-     * Last time the rule was updated in ISO8601 format.
-     */
-    readonly lastUpdatedTime: string;
     /**
      * Resource location
      */
@@ -79,33 +47,17 @@ export interface GetMetricAlertResult {
      */
     readonly name: string;
     /**
-     * the list of resource id's that this metric alert is scoped to.
+     * The alert rule properties of the resource.
      */
-    readonly scopes: string[];
-    /**
-     * Alert severity {0, 1, 2, 3, 4}
-     */
-    readonly severity: number;
+    readonly properties: outputs.insights.v20180301.MetricAlertPropertiesResponse;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
-     * the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
-     */
-    readonly targetResourceRegion?: string;
-    /**
-     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
-     */
-    readonly targetResourceType?: string;
-    /**
      * Azure resource type
      */
     readonly type: string;
-    /**
-     * the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
-     */
-    readonly windowSize: string;
 }
 /**
  * Retrieve an alert rule definition.

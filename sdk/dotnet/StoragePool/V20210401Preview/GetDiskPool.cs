@@ -70,18 +70,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
     public sealed class GetDiskPoolResult
     {
         /// <summary>
-        /// List of additional capabilities for Disk Pool.
-        /// </summary>
-        public readonly ImmutableArray<string> AdditionalCapabilities;
-        /// <summary>
-        /// Logical zone for Disk Pool resource; example: ["1"].
-        /// </summary>
-        public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// List of Azure Managed Disks to attach to a Disk Pool.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DiskResponse> Disks;
-        /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -94,17 +82,9 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the operation on the resource.
+        /// Properties of Disk Pool.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Operational status of the Disk Pool.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// Azure Resource ID of a Subnet for the Disk Pool.
-        /// </summary>
-        public readonly string SubnetId;
+        public readonly Outputs.DiskPoolPropertiesResponse Properties;
         /// <summary>
         /// Resource metadata required by ARM RPC
         /// </summary>
@@ -124,23 +104,13 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
 
         [OutputConstructor]
         private GetDiskPoolResult(
-            ImmutableArray<string> additionalCapabilities,
-
-            ImmutableArray<string> availabilityZones,
-
-            ImmutableArray<Outputs.DiskResponse> disks,
-
             string id,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            string status,
-
-            string subnetId,
+            Outputs.DiskPoolPropertiesResponse properties,
 
             Outputs.SystemMetadataResponse systemData,
 
@@ -150,15 +120,10 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
 
             string type)
         {
-            AdditionalCapabilities = additionalCapabilities;
-            AvailabilityZones = availabilityZones;
-            Disks = disks;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Status = status;
-            SubnetId = subnetId;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Tier = tier;

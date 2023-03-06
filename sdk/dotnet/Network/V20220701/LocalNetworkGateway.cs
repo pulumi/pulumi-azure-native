@@ -16,34 +16,10 @@ namespace Pulumi.AzureNative.Network.V20220701
     public partial class LocalNetworkGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Local network gateway's BGP speaker settings.
-        /// </summary>
-        [Output("bgpSettings")]
-        public Output<Outputs.BgpSettingsResponse?> BgpSettings { get; private set; } = null!;
-
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// FQDN of local network gateway.
-        /// </summary>
-        [Output("fqdn")]
-        public Output<string?> Fqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// IP address of local network gateway.
-        /// </summary>
-        [Output("gatewayIpAddress")]
-        public Output<string?> GatewayIpAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// Local network site address space.
-        /// </summary>
-        [Output("localNetworkAddressSpace")]
-        public Output<Outputs.AddressSpaceResponse?> LocalNetworkAddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -58,16 +34,10 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the local network gateway resource.
+        /// Properties of the local network gateway.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource GUID property of the local network gateway resource.
-        /// </summary>
-        [Output("resourceGuid")]
-        public Output<string> ResourceGuid { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LocalNetworkGatewayPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -173,34 +143,10 @@ namespace Pulumi.AzureNative.Network.V20220701
     public sealed class LocalNetworkGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Local network gateway's BGP speaker settings.
-        /// </summary>
-        [Input("bgpSettings")]
-        public Input<Inputs.BgpSettingsArgs>? BgpSettings { get; set; }
-
-        /// <summary>
-        /// FQDN of local network gateway.
-        /// </summary>
-        [Input("fqdn")]
-        public Input<string>? Fqdn { get; set; }
-
-        /// <summary>
-        /// IP address of local network gateway.
-        /// </summary>
-        [Input("gatewayIpAddress")]
-        public Input<string>? GatewayIpAddress { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Local network site address space.
-        /// </summary>
-        [Input("localNetworkAddressSpace")]
-        public Input<Inputs.AddressSpaceArgs>? LocalNetworkAddressSpace { get; set; }
 
         /// <summary>
         /// The name of the local network gateway.
@@ -213,6 +159,12 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties of the local network gateway.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LocalNetworkGatewayPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

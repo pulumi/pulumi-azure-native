@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AutoscaleNotificationArgs',
     'AutoscaleProfileArgs',
+    'AutoscaleSettingArgs',
     'EmailNotificationArgs',
     'LogSettingsArgs',
     'ManagementGroupLogSettingsArgs',
@@ -169,6 +170,127 @@ class AutoscaleProfileArgs:
     @recurrence.setter
     def recurrence(self, value: Optional[pulumi.Input['RecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
+
+
+@pulumi.input_type
+class AutoscaleSettingArgs:
+    def __init__(__self__, *,
+                 profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]] = None,
+                 predictive_autoscale_policy: Optional[pulumi.Input['PredictiveAutoscalePolicyArgs']] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
+                 target_resource_uri: Optional[pulumi.Input[str]] = None):
+        """
+        A setting that contains all of the configuration for the automatic scaling of a resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        :param pulumi.Input[str] name: the name of the autoscale setting.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]] notifications: the collection of notifications.
+        :param pulumi.Input['PredictiveAutoscalePolicyArgs'] predictive_autoscale_policy: the predictive autoscale policy mode.
+        :param pulumi.Input[str] target_resource_location: the location of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        pulumi.set(__self__, "profiles", profiles)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if predictive_autoscale_policy is not None:
+            pulumi.set(__self__, "predictive_autoscale_policy", predictive_autoscale_policy)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
+        if target_resource_uri is not None:
+            pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]]:
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]]):
+        pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the name of the autoscale setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]:
+        """
+        the collection of notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]):
+        pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter(name="predictiveAutoscalePolicy")
+    def predictive_autoscale_policy(self) -> Optional[pulumi.Input['PredictiveAutoscalePolicyArgs']]:
+        """
+        the predictive autoscale policy mode.
+        """
+        return pulumi.get(self, "predictive_autoscale_policy")
+
+    @predictive_autoscale_policy.setter
+    def predictive_autoscale_policy(self, value: Optional[pulumi.Input['PredictiveAutoscalePolicyArgs']]):
+        pulumi.set(self, "predictive_autoscale_policy", value)
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @target_resource_location.setter
+    def target_resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_location", value)
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_uri")
+
+    @target_resource_uri.setter
+    def target_resource_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_uri", value)
 
 
 @pulumi.input_type

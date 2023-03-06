@@ -82,49 +82,21 @@ namespace Pulumi.AzureNative.LabServices.V20220801
     public sealed class GetUserResult
     {
         /// <summary>
-        /// The amount of usage quota time the user gets in addition to the lab usage quota.
-        /// </summary>
-        public readonly string? AdditionalUsageQuota;
-        /// <summary>
-        /// Display name of the user, for example user's full name.
-        /// </summary>
-        public readonly string DisplayName;
-        /// <summary>
-        /// Email address of the user.
-        /// </summary>
-        public readonly string Email;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Date and time when the invitation message was sent to the user.
-        /// </summary>
-        public readonly string InvitationSent;
-        /// <summary>
-        /// State of the invitation message for the user.
-        /// </summary>
-        public readonly string InvitationState;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Current provisioning state of the user resource.
+        /// User resource properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// State of the user's registration within the lab.
-        /// </summary>
-        public readonly string RegistrationState;
+        public readonly Outputs.UserPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// How long the user has used their virtual machines in this lab.
-        /// </summary>
-        public readonly string TotalUsage;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -132,41 +104,20 @@ namespace Pulumi.AzureNative.LabServices.V20220801
 
         [OutputConstructor]
         private GetUserResult(
-            string? additionalUsageQuota,
-
-            string displayName,
-
-            string email,
-
             string id,
-
-            string invitationSent,
-
-            string invitationState,
 
             string name,
 
-            string provisioningState,
-
-            string registrationState,
+            Outputs.UserPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string totalUsage,
-
             string type)
         {
-            AdditionalUsageQuota = additionalUsageQuota;
-            DisplayName = displayName;
-            Email = email;
             Id = id;
-            InvitationSent = invitationSent;
-            InvitationState = invitationState;
             Name = name;
-            ProvisioningState = provisioningState;
-            RegistrationState = registrationState;
+            Properties = properties;
             SystemData = systemData;
-            TotalUsage = totalUsage;
             Type = type;
         }
     }

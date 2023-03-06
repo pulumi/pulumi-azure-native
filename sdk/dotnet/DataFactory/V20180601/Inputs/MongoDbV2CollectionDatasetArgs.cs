@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The collection name of the MongoDB database. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("collection", required: true)]
-        public Input<object> Collection { get; set; } = null!;
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
@@ -81,6 +75,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// MongoDB database dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.MongoDbV2CollectionDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public MongoDbV2CollectionDatasetArgs()
         {

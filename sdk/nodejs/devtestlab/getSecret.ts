@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -60,9 +63,9 @@ export interface GetSecretResult {
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.devtestlab.SecretPropertiesResponse;
     /**
      * The tags of the resource.
      */
@@ -71,14 +74,6 @@ export interface GetSecretResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier: string;
-    /**
-     * The value of the secret for secret creation.
-     */
-    readonly value?: string;
 }
 /**
  * Get secret.

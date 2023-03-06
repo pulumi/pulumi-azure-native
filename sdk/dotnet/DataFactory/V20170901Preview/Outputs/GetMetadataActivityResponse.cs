@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class GetMetadataActivityResponse
     {
         /// <summary>
-        /// GetMetadata activity dataset reference.
-        /// </summary>
-        public readonly Outputs.DatasetReferenceResponse Dataset;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -28,10 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Fields of metadata to get from dataset.
-        /// </summary>
-        public readonly ImmutableArray<object> FieldList;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -49,16 +41,16 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'GetMetadata'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// GetMetadata activity properties.
+        /// </summary>
+        public readonly Outputs.GetMetadataActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private GetMetadataActivityResponse(
-            Outputs.DatasetReferenceResponse dataset,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            ImmutableArray<object> fieldList,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -66,16 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            string type)
+            string type,
+
+            Outputs.GetMetadataActivityTypePropertiesResponse typeProperties)
         {
-            Dataset = dataset;
             DependsOn = dependsOn;
             Description = description;
-            FieldList = fieldList;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

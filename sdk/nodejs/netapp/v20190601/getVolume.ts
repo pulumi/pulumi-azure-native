@@ -47,22 +47,6 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * Unique Baremetal Tenant Identifier.
-     */
-    readonly baremetalTenantId: string;
-    /**
-     * A unique file path for the volume. Used when creating mount targets
-     */
-    readonly creationToken: string;
-    /**
-     * Set of export policy rules
-     */
-    readonly exportPolicy?: outputs.netapp.v20190601.VolumePropertiesResponseExportPolicy;
-    /**
-     * Unique FileSystem Identifier.
-     */
-    readonly fileSystemId: string;
-    /**
      * Resource Id
      */
     readonly id: string;
@@ -71,33 +55,13 @@ export interface GetVolumeResult {
      */
     readonly location: string;
     /**
-     * List of mount targets
-     */
-    readonly mountTargets: outputs.netapp.v20190601.MountTargetPropertiesResponse[];
-    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Set of protocol types
+     * Volume properties
      */
-    readonly protocolTypes?: string[];
-    /**
-     * Azure lifecycle management
-     */
-    readonly provisioningState: string;
-    /**
-     * The service level of the file system
-     */
-    readonly serviceLevel?: string;
-    /**
-     * UUID v4 or resource identifier used to identify the Snapshot.
-     */
-    readonly snapshotId?: string;
-    /**
-     * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-     */
-    readonly subnetId: string;
+    readonly properties: outputs.netapp.v20190601.VolumePropertiesResponse;
     /**
      * Resource tags
      */
@@ -106,10 +70,6 @@ export interface GetVolumeResult {
      * Resource type
      */
     readonly type: string;
-    /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-     */
-    readonly usageThreshold: number;
 }
 /**
  * Get the details of the specified volume

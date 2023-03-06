@@ -38,22 +38,6 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /**
-     * The creation date of the notification channel.
-     */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
-    /**
-     * Description of notification.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-     */
-    public readonly emailRecipient!: pulumi.Output<string | undefined>;
-    /**
-     * The list of event for which this notification is enabled.
-     */
-    public readonly events!: pulumi.Output<outputs.devtestlab.v20180915.EventResponse[] | undefined>;
-    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -62,13 +46,9 @@ export class NotificationChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The locale to use when sending a notification (fallback for unsupported languages is EN).
+     * The properties of the resource.
      */
-    public readonly notificationLocale!: pulumi.Output<string | undefined>;
-    /**
-     * The provisioning status of the resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.NotificationChannelPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -77,14 +57,6 @@ export class NotificationChannel extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
-    /**
-     * The webhook URL to send notifications to.
-     */
-    public readonly webHookUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -100,36 +72,25 @@ export class NotificationChannel extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["emailRecipient"] = args ? args.emailRecipient : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationLocale"] = args ? args.notificationLocale : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["webHookUrl"] = args ? args.webHookUrl : undefined;
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["emailRecipient"] = undefined /*out*/;
-            resourceInputs["events"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["notificationLocale"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
-            resourceInputs["webHookUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:NotificationChannel" }, { type: "azure-native:devtestlab/v20160515:NotificationChannel" }] };
@@ -143,18 +104,6 @@ export class NotificationChannel extends pulumi.CustomResource {
  */
 export interface NotificationChannelArgs {
     /**
-     * Description of notification.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-     */
-    emailRecipient?: pulumi.Input<string>;
-    /**
-     * The list of event for which this notification is enabled.
-     */
-    events?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.EventArgs>[]>;
-    /**
      * The name of the lab.
      */
     labName: pulumi.Input<string>;
@@ -167,9 +116,9 @@ export interface NotificationChannelArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The locale to use when sending a notification (fallback for unsupported languages is EN).
+     * The properties of the resource.
      */
-    notificationLocale?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.devtestlab.v20180915.NotificationChannelPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -178,8 +127,4 @@ export interface NotificationChannelArgs {
      * The tags of the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The webhook URL to send notifications to.
-     */
-    webHookUrl?: pulumi.Input<string>;
 }

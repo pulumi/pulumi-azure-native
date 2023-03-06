@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'CustomerSecretArgs',
+    'DataStorePropertiesArgs',
+    'JobDefinitionPropertiesArgs',
     'ScheduleArgs',
     'SkuArgs',
 ]
@@ -67,6 +69,243 @@ class CustomerSecretArgs:
     @key_value.setter
     def key_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_value", value)
+
+
+@pulumi.input_type
+class DataStorePropertiesArgs:
+    def __init__(__self__, *,
+                 data_store_type_id: pulumi.Input[str],
+                 state: pulumi.Input['State'],
+                 customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]] = None,
+                 extended_properties: Optional[Any] = None,
+                 repository_id: Optional[pulumi.Input[str]] = None):
+        """
+        Data Store for sources and sinks
+        :param pulumi.Input[str] data_store_type_id: The arm id of the data store type.
+        :param pulumi.Input['State'] state: State of the data source.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param Any extended_properties: A generic json used differently by each data source type.
+        :param pulumi.Input[str] repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
+        """
+        pulumi.set(__self__, "data_store_type_id", data_store_type_id)
+        pulumi.set(__self__, "state", state)
+        if customer_secrets is not None:
+            pulumi.set(__self__, "customer_secrets", customer_secrets)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @property
+    @pulumi.getter(name="dataStoreTypeId")
+    def data_store_type_id(self) -> pulumi.Input[str]:
+        """
+        The arm id of the data store type.
+        """
+        return pulumi.get(self, "data_store_type_id")
+
+    @data_store_type_id.setter
+    def data_store_type_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_store_type_id", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['State']:
+        """
+        State of the data source.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['State']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="customerSecrets")
+    def customer_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]]:
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        return pulumi.get(self, "customer_secrets")
+
+    @customer_secrets.setter
+    def customer_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]]):
+        pulumi.set(self, "customer_secrets", value)
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Any]:
+        """
+        A generic json used differently by each data source type.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[Any]):
+        pulumi.set(self, "extended_properties", value)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Arm Id for the manager resource to which the data source is associated. This is optional.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+@pulumi.input_type
+class JobDefinitionPropertiesArgs:
+    def __init__(__self__, *,
+                 data_sink_id: pulumi.Input[str],
+                 data_source_id: pulumi.Input[str],
+                 state: pulumi.Input['State'],
+                 customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]] = None,
+                 data_service_input: Optional[Any] = None,
+                 last_modified_time: Optional[pulumi.Input[str]] = None,
+                 run_location: Optional[pulumi.Input['RunLocation']] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]]] = None,
+                 user_confirmation: Optional[pulumi.Input['UserConfirmation']] = None):
+        """
+        Job Definition
+        :param pulumi.Input[str] data_sink_id: Data Sink Id associated to the job definition.
+        :param pulumi.Input[str] data_source_id: Data Source Id associated to the job definition.
+        :param pulumi.Input['State'] state: State of the job definition.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param Any data_service_input: A generic json used differently by each data service type.
+        :param pulumi.Input[str] last_modified_time: Last modified time of the job definition.
+        :param pulumi.Input['RunLocation'] run_location: This is the preferred geo location for the job to run.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]] schedules: Schedule for running the job definition
+        :param pulumi.Input['UserConfirmation'] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        """
+        pulumi.set(__self__, "data_sink_id", data_sink_id)
+        pulumi.set(__self__, "data_source_id", data_source_id)
+        pulumi.set(__self__, "state", state)
+        if customer_secrets is not None:
+            pulumi.set(__self__, "customer_secrets", customer_secrets)
+        if data_service_input is not None:
+            pulumi.set(__self__, "data_service_input", data_service_input)
+        if last_modified_time is not None:
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if run_location is not None:
+            pulumi.set(__self__, "run_location", run_location)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
+        if user_confirmation is None:
+            user_confirmation = 'NotRequired'
+        if user_confirmation is not None:
+            pulumi.set(__self__, "user_confirmation", user_confirmation)
+
+    @property
+    @pulumi.getter(name="dataSinkId")
+    def data_sink_id(self) -> pulumi.Input[str]:
+        """
+        Data Sink Id associated to the job definition.
+        """
+        return pulumi.get(self, "data_sink_id")
+
+    @data_sink_id.setter
+    def data_sink_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_sink_id", value)
+
+    @property
+    @pulumi.getter(name="dataSourceId")
+    def data_source_id(self) -> pulumi.Input[str]:
+        """
+        Data Source Id associated to the job definition.
+        """
+        return pulumi.get(self, "data_source_id")
+
+    @data_source_id.setter
+    def data_source_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source_id", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['State']:
+        """
+        State of the job definition.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['State']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="customerSecrets")
+    def customer_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]]:
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        return pulumi.get(self, "customer_secrets")
+
+    @customer_secrets.setter
+    def customer_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]]):
+        pulumi.set(self, "customer_secrets", value)
+
+    @property
+    @pulumi.getter(name="dataServiceInput")
+    def data_service_input(self) -> Optional[Any]:
+        """
+        A generic json used differently by each data service type.
+        """
+        return pulumi.get(self, "data_service_input")
+
+    @data_service_input.setter
+    def data_service_input(self, value: Optional[Any]):
+        pulumi.set(self, "data_service_input", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last modified time of the job definition.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @last_modified_time.setter
+    def last_modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_time", value)
+
+    @property
+    @pulumi.getter(name="runLocation")
+    def run_location(self) -> Optional[pulumi.Input['RunLocation']]:
+        """
+        This is the preferred geo location for the job to run.
+        """
+        return pulumi.get(self, "run_location")
+
+    @run_location.setter
+    def run_location(self, value: Optional[pulumi.Input['RunLocation']]):
+        pulumi.set(self, "run_location", value)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]]]:
+        """
+        Schedule for running the job definition
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleArgs']]]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
+    @pulumi.getter(name="userConfirmation")
+    def user_confirmation(self) -> Optional[pulumi.Input['UserConfirmation']]:
+        """
+        Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        """
+        return pulumi.get(self, "user_confirmation")
+
+    @user_confirmation.setter
+    def user_confirmation(self, value: Optional[pulumi.Input['UserConfirmation']]):
+        pulumi.set(self, "user_confirmation", value)
 
 
 @pulumi.input_type

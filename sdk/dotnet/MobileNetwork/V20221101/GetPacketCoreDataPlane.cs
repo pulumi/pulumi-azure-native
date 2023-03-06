@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the packet core data plane resource.
+        /// Packet core data plane Properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PacketCoreDataPlanePropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -109,10 +109,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-        /// </summary>
-        public readonly Outputs.InterfacePropertiesResponse UserPlaneAccessInterface;
 
         [OutputConstructor]
         private GetPacketCoreDataPlaneResult(
@@ -122,24 +118,21 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
 
             string name,
 
-            string provisioningState,
+            Outputs.PacketCoreDataPlanePropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.InterfacePropertiesResponse userPlaneAccessInterface)
+            string type)
         {
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserPlaneAccessInterface = userPlaneAccessInterface;
         }
     }
 }

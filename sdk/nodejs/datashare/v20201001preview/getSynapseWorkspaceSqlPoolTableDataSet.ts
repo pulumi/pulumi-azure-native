@@ -45,10 +45,6 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetArgs {
  */
 export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
     /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -62,9 +58,9 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
      */
     readonly name: string;
     /**
-     * Resource id of the Synapse Workspace SQL Pool Table
+     * Synapse Workspace Sql Pool Table data set properties.
      */
-    readonly synapseWorkspaceSqlPoolTableResourceId: string;
+    readonly properties: outputs.datashare.v20201001preview.SynapseWorkspaceSqlPoolTableDataSetPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

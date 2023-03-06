@@ -17,22 +17,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Outputs
     public sealed class ServiceResourceDescriptionResponse
     {
         /// <summary>
-        /// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerCodePackagePropertiesResponse> CodePackages;
-        /// <summary>
-        /// User readable description of the service.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// Reference to sinks in DiagnosticsDescription.
-        /// </summary>
-        public readonly Outputs.DiagnosticsRefResponse? Diagnostics;
-        /// <summary>
-        /// The health state of a resource such as Application, Service, or Network.
-        /// </summary>
-        public readonly string? HealthState;
-        /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -41,21 +25,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The names of the private networks that this service needs to be part of.
+        /// This type describes properties of a service resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkRefResponse> NetworkRefs;
-        /// <summary>
-        /// The Operating system type required by the code in service.
-        /// </summary>
-        public readonly string OsType;
-        /// <summary>
-        /// The number of replicas of the service to create. Defaults to 1 if not specified.
-        /// </summary>
-        public readonly int? ReplicaCount;
-        /// <summary>
-        /// Represents the status of the service.
-        /// </summary>
-        public readonly string Status;
+        public readonly Outputs.ServiceResourcePropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -63,38 +35,17 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Outputs
 
         [OutputConstructor]
         private ServiceResourceDescriptionResponse(
-            ImmutableArray<Outputs.ContainerCodePackagePropertiesResponse> codePackages,
-
-            string? description,
-
-            Outputs.DiagnosticsRefResponse? diagnostics,
-
-            string? healthState,
-
             string id,
 
             string? name,
 
-            ImmutableArray<Outputs.NetworkRefResponse> networkRefs,
-
-            string osType,
-
-            int? replicaCount,
-
-            string status,
+            Outputs.ServiceResourcePropertiesResponse properties,
 
             string type)
         {
-            CodePackages = codePackages;
-            Description = description;
-            Diagnostics = diagnostics;
-            HealthState = healthState;
             Id = id;
             Name = name;
-            NetworkRefs = networkRefs;
-            OsType = osType;
-            ReplicaCount = replicaCount;
-            Status = status;
+            Properties = properties;
             Type = type;
         }
     }

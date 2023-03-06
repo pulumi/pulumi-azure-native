@@ -82,18 +82,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
     public sealed class GetGen2EnvironmentResult
     {
         /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        public readonly string CreationTime;
-        /// <summary>
-        /// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        public readonly string DataAccessFqdn;
-        /// <summary>
-        /// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        public readonly string DataAccessId;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -111,54 +99,24 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The list of private endpoint connections to the environment.
+        /// Properties of the Gen2 environment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
-        /// <summary>
-        /// Provisioning state of the resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-        /// </summary>
-        public readonly string? PublicNetworkAccess;
+        public readonly Outputs.Gen2EnvironmentResourcePropertiesResponse Properties;
         /// <summary>
         /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        /// </summary>
-        public readonly Outputs.EnvironmentStatusResponse Status;
-        /// <summary>
-        /// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        /// </summary>
-        public readonly Outputs.Gen2StorageConfigurationOutputResponse StorageConfiguration;
-        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The list of event properties which will be used to define the environment's time series id.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TimeSeriesIdPropertyResponse> TimeSeriesIdProperties;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        /// </summary>
-        public readonly Outputs.WarmStoreConfigurationPropertiesResponse? WarmStoreConfiguration;
 
         [OutputConstructor]
         private GetGen2EnvironmentResult(
-            string creationTime,
-
-            string dataAccessFqdn,
-
-            string dataAccessId,
-
             string id,
 
             string kind,
@@ -167,43 +125,22 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
-
-            string provisioningState,
-
-            string? publicNetworkAccess,
+            Outputs.Gen2EnvironmentResourcePropertiesResponse properties,
 
             Outputs.SkuResponse sku,
 
-            Outputs.EnvironmentStatusResponse status,
-
-            Outputs.Gen2StorageConfigurationOutputResponse storageConfiguration,
-
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TimeSeriesIdPropertyResponse> timeSeriesIdProperties,
-
-            string type,
-
-            Outputs.WarmStoreConfigurationPropertiesResponse? warmStoreConfiguration)
+            string type)
         {
-            CreationTime = creationTime;
-            DataAccessFqdn = dataAccessFqdn;
-            DataAccessId = dataAccessId;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
-            ProvisioningState = provisioningState;
-            PublicNetworkAccess = publicNetworkAccess;
+            Properties = properties;
             Sku = sku;
-            Status = status;
-            StorageConfiguration = storageConfiguration;
             Tags = tags;
-            TimeSeriesIdProperties = timeSeriesIdProperties;
             Type = type;
-            WarmStoreConfiguration = warmStoreConfiguration;
         }
     }
 }

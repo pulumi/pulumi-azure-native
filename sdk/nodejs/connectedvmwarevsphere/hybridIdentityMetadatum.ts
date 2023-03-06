@@ -39,21 +39,13 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
     }
 
     /**
-     * The identity of the resource.
-     */
-    public /*out*/ readonly identity!: pulumi.Output<outputs.connectedvmwarevsphere.IdentityResponse>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Gets or sets the Public Key.
-     */
-    public readonly publicKey!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.connectedvmwarevsphere.HybridIdentityMetadataPropertiesResponse>;
     /**
      * The system data.
      */
@@ -62,10 +54,6 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets or sets the Vm Id.
-     */
-    public readonly vmId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HybridIdentityMetadatum resource with the given unique name, arguments, and options.
@@ -78,6 +66,9 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -85,23 +76,17 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
             resourceInputs["metadataName"] = args ? args.metadataName : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["vmId"] = args ? args.vmId : undefined;
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:HybridIdentityMetadatum" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum" }] };
@@ -119,9 +104,9 @@ export interface HybridIdentityMetadatumArgs {
      */
     metadataName?: pulumi.Input<string>;
     /**
-     * Gets or sets the Public Key.
+     * Resource properties.
      */
-    publicKey?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.connectedvmwarevsphere.HybridIdentityMetadataPropertiesArgs>;
     /**
      * The Resource Group Name.
      */
@@ -130,8 +115,4 @@ export interface HybridIdentityMetadatumArgs {
      * Name of the vm.
      */
     virtualMachineName: pulumi.Input<string>;
-    /**
-     * Gets or sets the Vm Id.
-     */
-    vmId?: pulumi.Input<string>;
 }

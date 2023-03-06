@@ -10,49 +10,29 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['BandwidthScheduleArgs', 'BandwidthSchedule']
 
 @pulumi.input_type
 class BandwidthScheduleArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]],
                  device_name: pulumi.Input[str],
-                 rate_in_mbps: pulumi.Input[int],
+                 properties: pulumi.Input['BandwidthSchedulePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 start: pulumi.Input[str],
-                 stop: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BandwidthSchedule resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[int] rate_in_mbps: The bandwidth rate in Mbps.
+        :param pulumi.Input['BandwidthSchedulePropertiesArgs'] properties: The properties of the bandwidth schedule.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] start: The start time of the schedule in UTC.
-        :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
         :param pulumi.Input[str] name: The bandwidth schedule name which needs to be added/updated.
         """
-        pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start", start)
-        pulumi.set(__self__, "stop", stop)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]:
-        """
-        The days of the week when this schedule is applicable.
-        """
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]):
-        pulumi.set(self, "days", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -67,16 +47,16 @@ class BandwidthScheduleArgs:
         pulumi.set(self, "device_name", value)
 
     @property
-    @pulumi.getter(name="rateInMbps")
-    def rate_in_mbps(self) -> pulumi.Input[int]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BandwidthSchedulePropertiesArgs']:
         """
-        The bandwidth rate in Mbps.
+        The properties of the bandwidth schedule.
         """
-        return pulumi.get(self, "rate_in_mbps")
+        return pulumi.get(self, "properties")
 
-    @rate_in_mbps.setter
-    def rate_in_mbps(self, value: pulumi.Input[int]):
-        pulumi.set(self, "rate_in_mbps", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['BandwidthSchedulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -89,30 +69,6 @@ class BandwidthScheduleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def start(self) -> pulumi.Input[str]:
-        """
-        The start time of the schedule in UTC.
-        """
-        return pulumi.get(self, "start")
-
-    @start.setter
-    def start(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start", value)
-
-    @property
-    @pulumi.getter
-    def stop(self) -> pulumi.Input[str]:
-        """
-        The stop time of the schedule in UTC.
-        """
-        return pulumi.get(self, "stop")
-
-    @stop.setter
-    def stop(self, value: pulumi.Input[str]):
-        pulumi.set(self, "stop", value)
 
     @property
     @pulumi.getter
@@ -132,26 +88,20 @@ class BandwidthSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rate_in_mbps: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BandwidthSchedulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 start: Optional[pulumi.Input[str]] = None,
-                 stop: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The bandwidth schedule details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The bandwidth schedule name which needs to be added/updated.
-        :param pulumi.Input[int] rate_in_mbps: The bandwidth rate in Mbps.
+        :param pulumi.Input[pulumi.InputType['BandwidthSchedulePropertiesArgs']] properties: The properties of the bandwidth schedule.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] start: The start time of the schedule in UTC.
-        :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
         """
         ...
     @overload
@@ -177,13 +127,10 @@ class BandwidthSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rate_in_mbps: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BandwidthSchedulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 start: Optional[pulumi.Input[str]] = None,
-                 stop: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,25 +140,16 @@ class BandwidthSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BandwidthScheduleArgs.__new__(BandwidthScheduleArgs)
 
-            if days is None and not opts.urn:
-                raise TypeError("Missing required property 'days'")
-            __props__.__dict__["days"] = days
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["name"] = name
-            if rate_in_mbps is None and not opts.urn:
-                raise TypeError("Missing required property 'rate_in_mbps'")
-            __props__.__dict__["rate_in_mbps"] = rate_in_mbps
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if start is None and not opts.urn:
-                raise TypeError("Missing required property 'start'")
-            __props__.__dict__["start"] = start
-            if stop is None and not opts.urn:
-                raise TypeError("Missing required property 'stop'")
-            __props__.__dict__["stop"] = stop
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:BandwidthSchedule")])
@@ -238,22 +176,11 @@ class BandwidthSchedule(pulumi.CustomResource):
 
         __props__ = BandwidthScheduleArgs.__new__(BandwidthScheduleArgs)
 
-        __props__.__dict__["days"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["rate_in_mbps"] = None
-        __props__.__dict__["start"] = None
-        __props__.__dict__["stop"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return BandwidthSchedule(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def days(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The days of the week when this schedule is applicable.
-        """
-        return pulumi.get(self, "days")
 
     @property
     @pulumi.getter
@@ -264,28 +191,12 @@ class BandwidthSchedule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="rateInMbps")
-    def rate_in_mbps(self) -> pulumi.Output[int]:
-        """
-        The bandwidth rate in Mbps.
-        """
-        return pulumi.get(self, "rate_in_mbps")
-
-    @property
     @pulumi.getter
-    def start(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.BandwidthSchedulePropertiesResponse']:
         """
-        The start time of the schedule in UTC.
+        The properties of the bandwidth schedule.
         """
-        return pulumi.get(self, "start")
-
-    @property
-    @pulumi.getter
-    def stop(self) -> pulumi.Output[str]:
-        """
-        The stop time of the schedule in UTC.
-        """
-        return pulumi.get(self, "stop")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

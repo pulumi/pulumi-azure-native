@@ -82,45 +82,17 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public sealed class GetSimResult
     {
         /// <summary>
-        /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
-        /// </summary>
-        public readonly string? DeviceType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The integrated circuit card ID (ICCID) for the SIM.
-        /// </summary>
-        public readonly string? IntegratedCircuitCardIdentifier;
-        /// <summary>
-        /// The international mobile subscriber identity (IMSI) for the SIM.
-        /// </summary>
-        public readonly string InternationalMobileSubscriberIdentity;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the SIM resource.
+        /// SIM Properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
-        /// </summary>
-        public readonly Outputs.SimPolicyResourceIdResponse? SimPolicy;
-        /// <summary>
-        /// The state of the SIM resource.
-        /// </summary>
-        public readonly string SimState;
-        /// <summary>
-        /// A dictionary of sites to the provisioning state of this SIM on that site.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> SiteProvisioningState;
-        /// <summary>
-        /// A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SimStaticIpPropertiesResponse> StaticIpConfiguration;
+        public readonly Outputs.SimPropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -129,59 +101,24 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The public key fingerprint of the SIM vendor who provided this SIM, if any.
-        /// </summary>
-        public readonly string VendorKeyFingerprint;
-        /// <summary>
-        /// The name of the SIM vendor who provided this SIM, if any.
-        /// </summary>
-        public readonly string VendorName;
 
         [OutputConstructor]
         private GetSimResult(
-            string? deviceType,
-
             string id,
-
-            string? integratedCircuitCardIdentifier,
-
-            string internationalMobileSubscriberIdentity,
 
             string name,
 
-            string provisioningState,
-
-            Outputs.SimPolicyResourceIdResponse? simPolicy,
-
-            string simState,
-
-            ImmutableDictionary<string, string> siteProvisioningState,
-
-            ImmutableArray<Outputs.SimStaticIpPropertiesResponse> staticIpConfiguration,
+            Outputs.SimPropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string vendorKeyFingerprint,
-
-            string vendorName)
+            string type)
         {
-            DeviceType = deviceType;
             Id = id;
-            IntegratedCircuitCardIdentifier = integratedCircuitCardIdentifier;
-            InternationalMobileSubscriberIdentity = internationalMobileSubscriberIdentity;
             Name = name;
-            ProvisioningState = provisioningState;
-            SimPolicy = simPolicy;
-            SimState = simState;
-            SiteProvisioningState = siteProvisioningState;
-            StaticIpConfiguration = staticIpConfiguration;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            VendorKeyFingerprint = vendorKeyFingerprint;
-            VendorName = vendorName;
         }
     }
 }

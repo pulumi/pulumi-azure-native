@@ -38,13 +38,13 @@ export class MonitoringConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The metrics configuration details
-     */
-    public readonly metricConfigurations!: pulumi.Output<outputs.databoxedge.v20210201.MetricConfigurationResponse[]>;
-    /**
      * The object name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The metric setting properties.
+     */
+    public readonly properties!: pulumi.Output<outputs.databoxedge.v20210201.MonitoringMetricConfigurationPropertiesResponse>;
     /**
      * MonitoringConfiguration on ASE device
      */
@@ -68,8 +68,8 @@ export class MonitoringConfig extends pulumi.CustomResource {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.metricConfigurations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'metricConfigurations'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -78,15 +78,15 @@ export class MonitoringConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleName'");
             }
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["metricConfigurations"] = args ? args.metricConfigurations : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["metricConfigurations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -106,9 +106,9 @@ export interface MonitoringConfigArgs {
      */
     deviceName: pulumi.Input<string>;
     /**
-     * The metrics configuration details
+     * The metric setting properties.
      */
-    metricConfigurations: pulumi.Input<pulumi.Input<inputs.databoxedge.v20210201.MetricConfigurationArgs>[]>;
+    properties: pulumi.Input<inputs.databoxedge.v20210201.MonitoringMetricConfigurationPropertiesArgs>;
     /**
      * The resource group name.
      */

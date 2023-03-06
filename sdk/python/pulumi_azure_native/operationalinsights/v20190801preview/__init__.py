@@ -11,3 +11,5 @@ from .get_linked_service import *
 from .get_linked_storage_account import *
 from .linked_service import *
 from .linked_storage_account import *
+from ._inputs import *
+from . import outputs

@@ -45,18 +45,6 @@ export interface GetBlobFolderDataSetMappingArgs {
  */
 export interface GetBlobFolderDataSetMappingResult {
     /**
-     * Container that has the file path.
-     */
-    readonly containerName: string;
-    /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -70,25 +58,9 @@ export interface GetBlobFolderDataSetMappingResult {
      */
     readonly name: string;
     /**
-     * Prefix for blob folder
+     * Blob folder data set mapping properties.
      */
-    readonly prefix: string;
-    /**
-     * Provisioning state of the data set mapping.
-     */
-    readonly provisioningState: string;
-    /**
-     * Resource group of storage account.
-     */
-    readonly resourceGroup: string;
-    /**
-     * Storage account name of the source data set.
-     */
-    readonly storageAccountName: string;
-    /**
-     * Subscription id of storage account.
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.v20201001preview.BlobFolderMappingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

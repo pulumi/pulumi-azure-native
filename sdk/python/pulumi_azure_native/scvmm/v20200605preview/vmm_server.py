@@ -17,33 +17,25 @@ __all__ = ['VmmServerArgs', 'VmmServer']
 class VmmServerArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
-                 fqdn: pulumi.Input[str],
+                 properties: pulumi.Input['VMMServerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 credentials: Optional[pulumi.Input['VMMServerPropertiesCredentialsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vmm_server_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VmmServer resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
-        :param pulumi.Input[str] fqdn: Fqdn is the hostname/ip of the vmmServer.
+        :param pulumi.Input['VMMServerPropertiesArgs'] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input['VMMServerPropertiesCredentialsArgs'] credentials: Credentials to connect to VMMServer.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[int] port: Port is the port on which the vmmServer is listening.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
         """
         pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vmm_server_name is not None:
@@ -63,15 +55,15 @@ class VmmServerArgs:
 
     @property
     @pulumi.getter
-    def fqdn(self) -> pulumi.Input[str]:
+    def properties(self) -> pulumi.Input['VMMServerPropertiesArgs']:
         """
-        Fqdn is the hostname/ip of the vmmServer.
+        Resource properties.
         """
-        return pulumi.get(self, "fqdn")
+        return pulumi.get(self, "properties")
 
-    @fqdn.setter
-    def fqdn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "fqdn", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['VMMServerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -87,18 +79,6 @@ class VmmServerArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['VMMServerPropertiesCredentialsArgs']]:
-        """
-        Credentials to connect to VMMServer.
-        """
-        return pulumi.get(self, "credentials")
-
-    @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['VMMServerPropertiesCredentialsArgs']]):
-        pulumi.set(self, "credentials", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets the location.
@@ -108,18 +88,6 @@ class VmmServerArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Port is the port on which the vmmServer is listening.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
@@ -151,11 +119,9 @@ class VmmServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['VMMServerPropertiesCredentialsArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VMMServerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vmm_server_name: Optional[pulumi.Input[str]] = None,
@@ -165,11 +131,9 @@ class VmmServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VMMServerPropertiesCredentialsArgs']] credentials: Credentials to connect to VMMServer.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
-        :param pulumi.Input[str] fqdn: Fqdn is the hostname/ip of the vmmServer.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[int] port: Port is the port on which the vmmServer is listening.
+        :param pulumi.Input[pulumi.InputType['VMMServerPropertiesArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
@@ -198,11 +162,9 @@ class VmmServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['VMMServerPropertiesCredentialsArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VMMServerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vmm_server_name: Optional[pulumi.Input[str]] = None,
@@ -215,28 +177,21 @@ class VmmServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VmmServerArgs.__new__(VmmServerArgs)
 
-            __props__.__dict__["credentials"] = credentials
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
-            if fqdn is None and not opts.urn:
-                raise TypeError("Missing required property 'fqdn'")
-            __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["location"] = location
-            __props__.__dict__["port"] = port
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vmm_server_name"] = vmm_server_name
-            __props__.__dict__["connection_status"] = None
-            __props__.__dict__["error_message"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["uuid"] = None
-            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm:VmmServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VmmServer, __self__).__init__(
@@ -261,45 +216,14 @@ class VmmServer(pulumi.CustomResource):
 
         __props__ = VmmServerArgs.__new__(VmmServerArgs)
 
-        __props__.__dict__["connection_status"] = None
-        __props__.__dict__["credentials"] = None
-        __props__.__dict__["error_message"] = None
         __props__.__dict__["extended_location"] = None
-        __props__.__dict__["fqdn"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["port"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["uuid"] = None
-        __props__.__dict__["version"] = None
         return VmmServer(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the connection status to the vmmServer.
-        """
-        return pulumi.get(self, "connection_status")
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> pulumi.Output[Optional['outputs.VMMServerPropertiesResponseCredentials']]:
-        """
-        Credentials to connect to VMMServer.
-        """
-        return pulumi.get(self, "credentials")
-
-    @property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> pulumi.Output[str]:
-        """
-        Gets or sets any error message if connection to vmmServer is having any issue.
-        """
-        return pulumi.get(self, "error_message")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -308,14 +232,6 @@ class VmmServer(pulumi.CustomResource):
         The extended location.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter
-    def fqdn(self) -> pulumi.Output[str]:
-        """
-        Fqdn is the hostname/ip of the vmmServer.
-        """
-        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter
@@ -335,19 +251,11 @@ class VmmServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[int]]:
+    def properties(self) -> pulumi.Output['outputs.VMMServerPropertiesResponse']:
         """
-        Port is the port on which the vmmServer is listening.
+        Resource properties.
         """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -372,20 +280,4 @@ class VmmServer(pulumi.CustomResource):
         Resource Type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
-        """
-        Unique ID of vmmServer.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
-        """
-        Version is the version of the vmmSever.
-        """
-        return pulumi.get(self, "version")
 

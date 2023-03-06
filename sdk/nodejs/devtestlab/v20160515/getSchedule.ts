@@ -47,18 +47,6 @@ export interface GetScheduleArgs {
  */
 export interface GetScheduleResult {
     /**
-     * The creation date of the schedule.
-     */
-    readonly createdDate: string;
-    /**
-     * If the schedule will occur once each day of the week, specify the daily recurrence.
-     */
-    readonly dailyRecurrence?: outputs.devtestlab.v20160515.DayDetailsResponse;
-    /**
-     * If the schedule will occur multiple times a day, specify the hourly recurrence.
-     */
-    readonly hourlyRecurrence?: outputs.devtestlab.v20160515.HourDetailsResponse;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
@@ -71,45 +59,17 @@ export interface GetScheduleResult {
      */
     readonly name: string;
     /**
-     * Notification settings.
+     * The properties of the resource.
      */
-    readonly notificationSettings?: outputs.devtestlab.v20160515.NotificationSettingsResponse;
-    /**
-     * The provisioning status of the resource.
-     */
-    readonly provisioningState?: string;
-    /**
-     * The status of the schedule (i.e. Enabled, Disabled)
-     */
-    readonly status?: string;
+    readonly properties: outputs.devtestlab.v20160515.SchedulePropertiesResponse;
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The resource ID to which the schedule belongs
-     */
-    readonly targetResourceId?: string;
-    /**
-     * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-     */
-    readonly taskType?: string;
-    /**
-     * The time zone ID (e.g. Pacific Standard time).
-     */
-    readonly timeZoneId?: string;
-    /**
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier?: string;
-    /**
-     * If the schedule will occur only some days of the week, specify the weekly recurrence.
-     */
-    readonly weeklyRecurrence?: outputs.devtestlab.v20160515.WeekDetailsResponse;
 }
 /**
  * Get schedule.

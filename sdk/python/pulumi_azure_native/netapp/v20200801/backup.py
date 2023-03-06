@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['BackupArgs', 'Backup']
 
@@ -16,29 +18,28 @@ class BackupArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  pool_name: pulumi.Input[str],
+                 properties: pulumi.Input['BackupPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  volume_name: pulumi.Input[str],
                  backup_name: Optional[pulumi.Input[str]] = None,
-                 label: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Backup resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] pool_name: The name of the capacity pool
+        :param pulumi.Input['BackupPropertiesArgs'] properties: Backup Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] backup_name: The name of the backup
-        :param pulumi.Input[str] label: Label for backup
         :param pulumi.Input[str] location: Resource location
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "volume_name", volume_name)
         if backup_name is not None:
             pulumi.set(__self__, "backup_name", backup_name)
-        if label is not None:
-            pulumi.set(__self__, "label", label)
         if location is not None:
             pulumi.set(__self__, "location", location)
 
@@ -65,6 +66,18 @@ class BackupArgs:
     @pool_name.setter
     def pool_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "pool_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BackupPropertiesArgs']:
+        """
+        Backup Properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['BackupPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,18 +117,6 @@ class BackupArgs:
 
     @property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[str]]:
-        """
-        Label for backup
-        """
-        return pulumi.get(self, "label")
-
-    @label.setter
-    def label(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "label", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Resource location
@@ -139,9 +140,9 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
-                 label: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -152,9 +153,9 @@ class Backup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] backup_name: The name of the backup
-        :param pulumi.Input[str] label: Label for backup
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
+        :param pulumi.Input[pulumi.InputType['BackupPropertiesArgs']] properties: Backup Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
         """
@@ -184,9 +185,9 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
-                 label: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -203,23 +204,20 @@ class Backup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["backup_name"] = backup_name
-            __props__.__dict__["label"] = label
             __props__.__dict__["location"] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
-            __props__.__dict__["backup_id"] = None
-            __props__.__dict__["backup_type"] = None
-            __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["size"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20211001:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220301:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220901:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -245,48 +243,11 @@ class Backup(pulumi.CustomResource):
 
         __props__ = BackupArgs.__new__(BackupArgs)
 
-        __props__.__dict__["backup_id"] = None
-        __props__.__dict__["backup_type"] = None
-        __props__.__dict__["creation_date"] = None
-        __props__.__dict__["label"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["size"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return Backup(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="backupId")
-    def backup_id(self) -> pulumi.Output[str]:
-        """
-        UUID v4 used to identify the Backup
-        """
-        return pulumi.get(self, "backup_id")
-
-    @property
-    @pulumi.getter(name="backupType")
-    def backup_type(self) -> pulumi.Output[str]:
-        """
-        Type of backup Manual or Scheduled
-        """
-        return pulumi.get(self, "backup_type")
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
-        """
-        The creation date of the backup
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter
-    def label(self) -> pulumi.Output[Optional[str]]:
-        """
-        Label for backup
-        """
-        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
@@ -305,20 +266,12 @@ class Backup(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Azure lifecycle management
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[float]:
+    def properties(self) -> pulumi.Output['outputs.BackupPropertiesResponse']:
         """
-        Size of backup
+        Backup Properties
         """
-        return pulumi.get(self, "size")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

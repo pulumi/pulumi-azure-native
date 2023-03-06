@@ -42,9 +42,9 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The rights associated with the rule.
+     * Authorization rule properties.
      */
-    public readonly rights!: pulumi.Output<string[]>;
+    public readonly properties!: pulumi.Output<outputs.relay.v20170401.AuthorizationRuleResponseProperties>;
     /**
      * Resource type.
      */
@@ -64,25 +64,25 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.relayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relayName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rights'");
-            }
             resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["relayName"] = args ? args.relayName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rights"] = args ? args.rights : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -105,6 +105,10 @@ export interface WCFRelayAuthorizationRuleArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
+     * Authorization rule properties.
+     */
+    properties: pulumi.Input<inputs.relay.v20170401.AuthorizationRulePropertiesArgs>;
+    /**
      * The relay name.
      */
     relayName: pulumi.Input<string>;
@@ -112,8 +116,4 @@ export interface WCFRelayAuthorizationRuleArgs {
      * Name of the Resource group within the Azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The rights associated with the rule.
-     */
-    rights: pulumi.Input<pulumi.Input<enums.relay.v20170401.AccessRights>[]>;
 }

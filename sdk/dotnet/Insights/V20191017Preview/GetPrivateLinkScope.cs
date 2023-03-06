@@ -82,13 +82,9 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections.
+        /// Properties that define a Azure Monitor PrivateLinkScope resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
-        /// <summary>
-        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.AzureMonitorPrivateLinkScopePropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -106,9 +102,7 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
-
-            string provisioningState,
+            Outputs.AzureMonitorPrivateLinkScopePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -117,8 +111,7 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
             Id = id;
             Location = location;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

@@ -22,13 +22,7 @@ class GetBlobFolderDataSetResult:
     """
     An Azure storage blob folder data set.
     """
-    def __init__(__self__, container_name=None, data_set_id=None, id=None, kind=None, name=None, prefix=None, resource_group=None, storage_account_name=None, subscription_id=None, system_data=None, type=None):
-        if container_name and not isinstance(container_name, str):
-            raise TypeError("Expected argument 'container_name' to be a str")
-        pulumi.set(__self__, "container_name", container_name)
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,40 +32,15 @@ class GetBlobFolderDataSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if prefix and not isinstance(prefix, str):
-            raise TypeError("Expected argument 'prefix' to be a str")
-        pulumi.set(__self__, "prefix", prefix)
-        if resource_group and not isinstance(resource_group, str):
-            raise TypeError("Expected argument 'resource_group' to be a str")
-        pulumi.set(__self__, "resource_group", resource_group)
-        if storage_account_name and not isinstance(storage_account_name, str):
-            raise TypeError("Expected argument 'storage_account_name' to be a str")
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if subscription_id and not isinstance(subscription_id, str):
-            raise TypeError("Expected argument 'subscription_id' to be a str")
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
-        """
-        Container that has the file path.
-        """
-        return pulumi.get(self, "container_name")
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -100,35 +69,11 @@ class GetBlobFolderDataSetResult:
 
     @property
     @pulumi.getter
-    def prefix(self) -> str:
+    def properties(self) -> 'outputs.BlobFolderPropertiesResponse':
         """
-        Prefix for blob folder
+        Blob folder data set properties.
         """
-        return pulumi.get(self, "prefix")
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
-        """
-        Resource group of storage account
-        """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
-        """
-        Storage account name of the source data set
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        Subscription id of storage account
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -153,15 +98,10 @@ class AwaitableGetBlobFolderDataSetResult(GetBlobFolderDataSetResult):
         if False:
             yield self
         return GetBlobFolderDataSetResult(
-            container_name=self.container_name,
-            data_set_id=self.data_set_id,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            prefix=self.prefix,
-            resource_group=self.resource_group,
-            storage_account_name=self.storage_account_name,
-            subscription_id=self.subscription_id,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -189,15 +129,10 @@ def get_blob_folder_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20201001preview:getBlobFolderDataSet', __args__, opts=opts, typ=GetBlobFolderDataSetResult).value
 
     return AwaitableGetBlobFolderDataSetResult(
-        container_name=__ret__.container_name,
-        data_set_id=__ret__.data_set_id,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        prefix=__ret__.prefix,
-        resource_group=__ret__.resource_group,
-        storage_account_name=__ret__.storage_account_name,
-        subscription_id=__ret__.subscription_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

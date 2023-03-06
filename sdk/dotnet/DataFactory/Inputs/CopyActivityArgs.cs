@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class CopyActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        [Input("dataIntegrationUnits")]
-        public Input<object>? DataIntegrationUnits { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -38,18 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("enableSkipIncompatibleRow")]
-        public Input<object>? EnableSkipIncompatibleRow { get; set; }
-
-        /// <summary>
-        /// Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("enableStaging")]
-        public Input<object>? EnableStaging { get; set; }
 
         [Input("inputs")]
         private InputList<Inputs.DatasetReferenceArgs>? _inputs;
@@ -70,18 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
 
         /// <summary>
-        /// Log settings customer needs provide when enabling log.
-        /// </summary>
-        [Input("logSettings")]
-        public Input<Inputs.LogSettingsArgs>? LogSettings { get; set; }
-
-        /// <summary>
-        /// (Deprecated. Please use LogSettings) Log storage settings customer need to provide when enabling session log.
-        /// </summary>
-        [Input("logStorageSettings")]
-        public Input<Inputs.LogStorageSettingsArgs>? LogStorageSettings { get; set; }
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
@@ -100,76 +70,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        [Input("parallelCopies")]
-        public Input<object>? ParallelCopies { get; set; }
-
-        /// <summary>
         /// Activity policy.
         /// </summary>
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
-
-        [Input("preserve")]
-        private InputList<object>? _preserve;
-
-        /// <summary>
-        /// Preserve rules.
-        /// </summary>
-        public InputList<object> Preserve
-        {
-            get => _preserve ?? (_preserve = new InputList<object>());
-            set => _preserve = value;
-        }
-
-        [Input("preserveRules")]
-        private InputList<object>? _preserveRules;
-
-        /// <summary>
-        /// Preserve Rules.
-        /// </summary>
-        public InputList<object> PreserveRules
-        {
-            get => _preserveRules ?? (_preserveRules = new InputList<object>());
-            set => _preserveRules = value;
-        }
-
-        /// <summary>
-        /// Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
-        /// </summary>
-        [Input("redirectIncompatibleRowSettings")]
-        public Input<Inputs.RedirectIncompatibleRowSettingsArgs>? RedirectIncompatibleRowSettings { get; set; }
-
-        /// <summary>
-        /// Copy activity sink.
-        /// </summary>
-        [Input("sink", required: true)]
-        public object Sink { get; set; } = null!;
-
-        /// <summary>
-        /// Specify the fault tolerance for data consistency.
-        /// </summary>
-        [Input("skipErrorFile")]
-        public Input<Inputs.SkipErrorFileArgs>? SkipErrorFile { get; set; }
-
-        /// <summary>
-        /// Copy activity source.
-        /// </summary>
-        [Input("source", required: true)]
-        public object Source { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies interim staging settings when EnableStaging is true.
-        /// </summary>
-        [Input("stagingSettings")]
-        public Input<Inputs.StagingSettingsArgs>? StagingSettings { get; set; }
-
-        /// <summary>
-        /// Copy activity translator. If not specified, tabular translator is used.
-        /// </summary>
-        [Input("translator")]
-        public Input<object>? Translator { get; set; }
 
         /// <summary>
         /// Type of activity.
@@ -177,6 +81,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Copy activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CopyActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;
@@ -189,12 +99,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             get => _userProperties ?? (_userProperties = new InputList<Inputs.UserPropertyArgs>());
             set => _userProperties = value;
         }
-
-        /// <summary>
-        /// Whether to enable Data Consistency validation. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("validateDataConsistency")]
-        public Input<object>? ValidateDataConsistency { get; set; }
 
         public CopyActivityArgs()
         {

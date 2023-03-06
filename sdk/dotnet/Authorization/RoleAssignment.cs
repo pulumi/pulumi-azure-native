@@ -158,52 +158,16 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class RoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        /// Role assignment properties.
         /// </summary>
-        [Input("condition")]
-        public Input<string>? Condition { get; set; }
-
-        /// <summary>
-        /// Version of the condition. Currently accepted value is '2.0'
-        /// </summary>
-        [Input("conditionVersion")]
-        public Input<string>? ConditionVersion { get; set; }
-
-        /// <summary>
-        /// Id of the delegated managed identity resource
-        /// </summary>
-        [Input("delegatedManagedIdentityResourceId")]
-        public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
-
-        /// <summary>
-        /// Description of role assignment
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The principal ID.
-        /// </summary>
-        [Input("principalId", required: true)]
-        public Input<string> PrincipalId { get; set; } = null!;
-
-        /// <summary>
-        /// The principal type of the assigned principal ID.
-        /// </summary>
-        [Input("principalType")]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.PrincipalType>? PrincipalType { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.RoleAssignmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the role assignment. It can be any valid GUID.
         /// </summary>
         [Input("roleAssignmentName")]
         public Input<string>? RoleAssignmentName { get; set; }
-
-        /// <summary>
-        /// The role definition ID.
-        /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -213,7 +177,6 @@ namespace Pulumi.AzureNative.Authorization
 
         public RoleAssignmentArgs()
         {
-            PrincipalType = "User";
         }
         public static new RoleAssignmentArgs Empty => new RoleAssignmentArgs();
     }

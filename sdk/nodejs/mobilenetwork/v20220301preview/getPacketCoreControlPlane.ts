@@ -35,14 +35,6 @@ export interface GetPacketCoreControlPlaneArgs {
  */
 export interface GetPacketCoreControlPlaneResult {
     /**
-     * The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-     */
-    readonly controlPlaneAccessInterface: outputs.mobilenetwork.v20220301preview.InterfacePropertiesResponse;
-    /**
-     * The core network technology generation.
-     */
-    readonly coreNetworkTechnology?: string;
-    /**
      * The timestamp of resource creation (UTC).
      */
     readonly createdAt?: string;
@@ -54,10 +46,6 @@ export interface GetPacketCoreControlPlaneResult {
      * The type of identity that created the resource.
      */
     readonly createdByType?: string;
-    /**
-     * Azure ARC custom location where the packet core is deployed.
-     */
-    readonly customLocation?: outputs.mobilenetwork.v20220301preview.CustomLocationResourceIdResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -79,17 +67,13 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly location: string;
     /**
-     * Mobile network that this packet core control plane belongs to
-     */
-    readonly mobileNetwork: outputs.mobilenetwork.v20220301preview.MobileNetworkResourceIdResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the packet core control plane resource.
+     * Packet core control plane Properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.mobilenetwork.v20220301preview.PacketCoreControlPlanePropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -102,10 +86,6 @@ export interface GetPacketCoreControlPlaneResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The version of the packet core software that is deployed.
-     */
-    readonly version?: string;
 }
 /**
  * Gets information about the specified packet core control plane.

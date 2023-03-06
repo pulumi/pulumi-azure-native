@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class CustomActivityResponse
     {
         /// <summary>
-        /// Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
-        /// </summary>
-        public readonly object? AutoUserSpecification;
-        /// <summary>
-        /// Command for custom activity Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Command;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -32,14 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExtendedProperties;
-        /// <summary>
-        /// Folder path for resource files Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? FolderPath;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -53,22 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// Reference objects
-        /// </summary>
-        public readonly Outputs.CustomActivityReferenceObjectResponse? ReferenceObjects;
-        /// <summary>
-        /// Resource linked service reference.
-        /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse? ResourceLinkedService;
-        /// <summary>
-        /// The retention time for the files submitted for custom activity. Type: double (or Expression with resultType double).
-        /// </summary>
-        public readonly object? RetentionTimeInDays;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Custom'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Custom activity properties.
+        /// </summary>
+        public readonly Outputs.CustomActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -76,17 +52,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private CustomActivityResponse(
-            object? autoUserSpecification,
-
-            object command,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            ImmutableDictionary<string, object>? extendedProperties,
-
-            object? folderPath,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -94,29 +62,19 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            Outputs.CustomActivityReferenceObjectResponse? referenceObjects,
-
-            Outputs.LinkedServiceReferenceResponse? resourceLinkedService,
-
-            object? retentionTimeInDays,
-
             string type,
+
+            Outputs.CustomActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            AutoUserSpecification = autoUserSpecification;
-            Command = command;
             DependsOn = dependsOn;
             Description = description;
-            ExtendedProperties = extendedProperties;
-            FolderPath = folderPath;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            ReferenceObjects = referenceObjects;
-            ResourceLinkedService = resourceLinkedService;
-            RetentionTimeInDays = retentionTimeInDays;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Properties for the variable value.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.PolicyVariableValuePropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -32,12 +38,6 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Variable value column value array.
-        /// </summary>
-        [Output("values")]
-        public Output<ImmutableArray<Outputs.PolicyVariableValueColumnValueResponse>> Values { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,17 +90,11 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
 
-        [Input("values", required: true)]
-        private InputList<Inputs.PolicyVariableValueColumnValueArgs>? _values;
-
         /// <summary>
-        /// Variable value column value array.
+        /// Properties for the variable value.
         /// </summary>
-        public InputList<Inputs.PolicyVariableValueColumnValueArgs> Values
-        {
-            get => _values ?? (_values = new InputList<Inputs.PolicyVariableValueColumnValueArgs>());
-            set => _values = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.PolicyVariableValuePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the variable to operate on.

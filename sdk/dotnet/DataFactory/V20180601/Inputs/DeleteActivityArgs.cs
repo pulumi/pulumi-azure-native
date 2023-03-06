@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class DeleteActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Delete activity dataset reference.
-        /// </summary>
-        [Input("dataset", required: true)]
-        public Input<Inputs.DatasetReferenceArgs> Dataset { get; set; } = null!;
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -40,28 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to record detailed logs of delete-activity execution. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("enableLogging")]
-        public Input<object>? EnableLogging { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName")]
         public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
-
-        /// <summary>
-        /// Log storage settings customer need to provide when enableLogging is true.
-        /// </summary>
-        [Input("logStorageSettings")]
-        public Input<Inputs.LogStorageSettingsArgs>? LogStorageSettings { get; set; }
-
-        /// <summary>
-        /// The max concurrent connections to connect data source at the same time.
-        /// </summary>
-        [Input("maxConcurrentConnections")]
-        public Input<int>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
         /// Activity name.
@@ -76,23 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("recursive")]
-        public Input<object>? Recursive { get; set; }
-
-        /// <summary>
-        /// Delete activity store settings.
-        /// </summary>
-        [Input("storeSettings")]
-        public object? StoreSettings { get; set; }
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Delete'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Delete activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DeleteActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

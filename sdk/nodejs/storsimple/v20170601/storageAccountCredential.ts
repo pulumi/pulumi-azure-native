@@ -38,14 +38,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     }
 
     /**
-     * The details of the storage account password.
-     */
-    public readonly accessKey!: pulumi.Output<outputs.storsimple.v20170601.AsymmetricEncryptedSecretResponse | undefined>;
-    /**
-     * The storage endpoint
-     */
-    public readonly endPoint!: pulumi.Output<string>;
-    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -54,17 +46,13 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Signifies whether SSL needs to be enabled or not.
+     * The storage account credential properties.
      */
-    public readonly sslStatus!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.StorageAccountCredentialPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The count of volumes using this storage account credential.
-     */
-    public /*out*/ readonly volumesCount!: pulumi.Output<number>;
 
     /**
      * Create a StorageAccountCredential resource with the given unique name, arguments, and options.
@@ -77,36 +65,27 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endPoint === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'endPoint'");
-            }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sslStatus === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sslStatus'");
-            }
-            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
-            resourceInputs["endPoint"] = args ? args.endPoint : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sslStatus"] = args ? args.sslStatus : undefined;
             resourceInputs["storageAccountCredentialName"] = args ? args.storageAccountCredentialName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumesCount"] = undefined /*out*/;
         } else {
-            resourceInputs["accessKey"] = undefined /*out*/;
-            resourceInputs["endPoint"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["sslStatus"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumesCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:StorageAccountCredential" }, { type: "azure-native:storsimple/v20161001:StorageAccountCredential" }] };
@@ -120,14 +99,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
  */
 export interface StorageAccountCredentialArgs {
     /**
-     * The details of the storage account password.
-     */
-    accessKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecretArgs>;
-    /**
-     * The storage endpoint
-     */
-    endPoint: pulumi.Input<string>;
-    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
@@ -136,13 +107,13 @@ export interface StorageAccountCredentialArgs {
      */
     managerName: pulumi.Input<string>;
     /**
+     * The storage account credential properties.
+     */
+    properties: pulumi.Input<inputs.storsimple.v20170601.StorageAccountCredentialPropertiesArgs>;
+    /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Signifies whether SSL needs to be enabled or not.
-     */
-    sslStatus: pulumi.Input<enums.storsimple.v20170601.SslStatus>;
     /**
      * The storage account credential name.
      */

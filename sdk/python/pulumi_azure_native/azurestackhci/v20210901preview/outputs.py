@@ -26,8 +26,10 @@ __all__ = [
     'GalleryImageVersionStorageProfileResponse',
     'GalleryOSDiskImageResponse',
     'GuestAgentProfileResponse',
+    'GuestAgentPropertiesResponse',
     'GuestCredentialResponse',
     'HttpProxyConfigurationResponse',
+    'HybridIdentityMetadataPropertiesResponse',
     'IPPoolInfoResponse',
     'IPPoolResponse',
     'IdentityResponse',
@@ -998,6 +1000,96 @@ class GuestAgentProfileResponse(dict):
 
 
 @pulumi.output_type
+class GuestAgentPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "httpProxyConfig":
+            suggest = "http_proxy_config"
+        elif key == "provisioningAction":
+            suggest = "provisioning_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestAgentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestAgentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestAgentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 status: str,
+                 credentials: Optional['outputs.GuestCredentialResponse'] = None,
+                 http_proxy_config: Optional['outputs.HttpProxyConfigurationResponse'] = None,
+                 provisioning_action: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str provisioning_state: The provisioning state.
+        :param str status: The guest agent status.
+        :param 'GuestCredentialResponse' credentials: Username / Password Credentials to provision guest agent.
+        :param 'HttpProxyConfigurationResponse' http_proxy_config: HTTP Proxy configuration for the VM.
+        :param str provisioning_action: The guest agent provisioning action.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if http_proxy_config is not None:
+            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+        if provisioning_action is not None:
+            pulumi.set(__self__, "provisioning_action", provisioning_action)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The guest agent status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.GuestCredentialResponse']:
+        """
+        Username / Password Credentials to provision guest agent.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional['outputs.HttpProxyConfigurationResponse']:
+        """
+        HTTP Proxy configuration for the VM.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @property
+    @pulumi.getter(name="provisioningAction")
+    def provisioning_action(self) -> Optional[str]:
+        """
+        The guest agent provisioning action.
+        """
+        return pulumi.get(self, "provisioning_action")
+
+
+@pulumi.output_type
 class GuestCredentialResponse(dict):
     """
     Username / Password Credentials to connect to guest.
@@ -1058,6 +1150,84 @@ class HttpProxyConfigurationResponse(dict):
         The httpsProxy url.
         """
         return pulumi.get(self, "https_proxy")
+
+
+@pulumi.output_type
+class HybridIdentityMetadataPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicKey":
+            suggest = "public_key"
+        elif key == "resourceUid":
+            suggest = "resource_uid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridIdentityMetadataPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridIdentityMetadataPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridIdentityMetadataPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: 'outputs.IdentityResponse',
+                 provisioning_state: str,
+                 public_key: Optional[str] = None,
+                 resource_uid: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param 'IdentityResponse' identity: Identity for the resource.
+        :param str provisioning_state: The provisioning state.
+        :param str public_key: The Public Key.
+        :param str resource_uid: The unique identifier for the resource.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if resource_uid is not None:
+            pulumi.set(__self__, "resource_uid", resource_uid)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.IdentityResponse':
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[str]:
+        """
+        The Public Key.
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter(name="resourceUid")
+    def resource_uid(self) -> Optional[str]:
+        """
+        The unique identifier for the resource.
+        """
+        return pulumi.get(self, "resource_uid")
 
 
 @pulumi.output_type

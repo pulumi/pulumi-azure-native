@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class AzureDataExplorerCommandActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A control command, according to the Azure Data Explorer command syntax. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("command", required: true)]
-        public Input<object> Command { get; set; } = null!;
-
-        /// <summary>
-        /// Control command timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9]))..)
-        /// </summary>
-        [Input("commandTimeout")]
-        public Input<object>? CommandTimeout { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -69,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Data Explorer command activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureDataExplorerCommandActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

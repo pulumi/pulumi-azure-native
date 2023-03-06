@@ -40,14 +40,6 @@ export interface GetGuestAgentArgs {
  */
 export interface GetGuestAgentResult {
     /**
-     * Username / Password Credentials to provision guest agent.
-     */
-    readonly credentials?: outputs.azurestackhci.v20210901preview.GuestCredentialResponse;
-    /**
-     * HTTP Proxy configuration for the VM.
-     */
-    readonly httpProxyConfig?: outputs.azurestackhci.v20210901preview.HttpProxyConfigurationResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -56,17 +48,9 @@ export interface GetGuestAgentResult {
      */
     readonly name: string;
     /**
-     * The guest agent provisioning action.
+     * Resource properties.
      */
-    readonly provisioningAction?: string;
-    /**
-     * The provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
-     * The guest agent status.
-     */
-    readonly status: string;
+    readonly properties: outputs.azurestackhci.v20210901preview.GuestAgentPropertiesResponse;
     /**
      * The system data.
      */

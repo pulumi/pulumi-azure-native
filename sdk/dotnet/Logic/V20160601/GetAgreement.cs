@@ -82,38 +82,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
     public sealed class GetAgreementResult
     {
         /// <summary>
-        /// The agreement type.
-        /// </summary>
-        public readonly string AgreementType;
-        /// <summary>
-        /// The changed time.
-        /// </summary>
-        public readonly string ChangedTime;
-        /// <summary>
-        /// The agreement content.
-        /// </summary>
-        public readonly Outputs.AgreementContentResponse Content;
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
-        /// The business identity of the guest partner.
-        /// </summary>
-        public readonly Outputs.BusinessIdentityResponse GuestIdentity;
-        /// <summary>
-        /// The integration account partner that is set as guest partner for this agreement.
-        /// </summary>
-        public readonly string GuestPartner;
-        /// <summary>
-        /// The business identity of the host partner.
-        /// </summary>
-        public readonly Outputs.BusinessIdentityResponse HostIdentity;
-        /// <summary>
-        /// The integration account partner that is set as host partner for this agreement.
-        /// </summary>
-        public readonly string HostPartner;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -122,13 +90,13 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The metadata.
-        /// </summary>
-        public readonly object? Metadata;
-        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The integration account agreement properties.
+        /// </summary>
+        public readonly Outputs.IntegrationAccountAgreementPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -140,46 +108,22 @@ namespace Pulumi.AzureNative.Logic.V20160601
 
         [OutputConstructor]
         private GetAgreementResult(
-            string agreementType,
-
-            string changedTime,
-
-            Outputs.AgreementContentResponse content,
-
-            string createdTime,
-
-            Outputs.BusinessIdentityResponse guestIdentity,
-
-            string guestPartner,
-
-            Outputs.BusinessIdentityResponse hostIdentity,
-
-            string hostPartner,
-
             string id,
 
             string? location,
 
-            object? metadata,
-
             string name,
+
+            Outputs.IntegrationAccountAgreementPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            AgreementType = agreementType;
-            ChangedTime = changedTime;
-            Content = content;
-            CreatedTime = createdTime;
-            GuestIdentity = guestIdentity;
-            GuestPartner = guestPartner;
-            HostIdentity = hostIdentity;
-            HostPartner = hostPartner;
             Id = id;
             Location = location;
-            Metadata = metadata;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

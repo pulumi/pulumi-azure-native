@@ -17,37 +17,23 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
     public sealed class CmdkeySetupResponse
     {
         /// <summary>
-        /// The password of data source access.
-        /// </summary>
-        public readonly Outputs.SecureStringResponse Password;
-        /// <summary>
-        /// The server name of data source access.
-        /// </summary>
-        public readonly object TargetName;
-        /// <summary>
         /// The type of custom setup.
         /// Expected value is 'CmdkeySetup'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The user name of data source access.
+        /// Cmdkey command custom setup type properties.
         /// </summary>
-        public readonly object UserName;
+        public readonly Outputs.CmdkeySetupTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CmdkeySetupResponse(
-            Outputs.SecureStringResponse password,
-
-            object targetName,
-
             string type,
 
-            object userName)
+            Outputs.CmdkeySetupTypePropertiesResponse typeProperties)
         {
-            Password = password;
-            TargetName = targetName;
             Type = type;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

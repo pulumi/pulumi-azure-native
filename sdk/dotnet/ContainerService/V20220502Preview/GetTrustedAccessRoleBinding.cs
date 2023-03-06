@@ -90,17 +90,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current provisioning state of trusted access role binding.
+        /// Properties for trusted access role binding
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
-        /// </summary>
-        public readonly ImmutableArray<string> Roles;
-        /// <summary>
-        /// The ARM resource ID of source resource that trusted access is configured for.
-        /// </summary>
-        public readonly string SourceResourceId;
+        public readonly Outputs.TrustedAccessRoleBindingPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -116,11 +108,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
 
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<string> roles,
-
-            string sourceResourceId,
+            Outputs.TrustedAccessRoleBindingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -128,9 +116,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220502Preview
         {
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            Roles = roles;
-            SourceResourceId = sourceResourceId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

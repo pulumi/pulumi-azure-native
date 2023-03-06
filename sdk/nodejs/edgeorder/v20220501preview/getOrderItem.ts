@@ -40,10 +40,6 @@ export interface GetOrderItemArgs {
  */
 export interface GetOrderItemResult {
     /**
-     * Represents shipping and return address for order item.
-     */
-    readonly addressDetails: outputs.edgeorder.v20220501preview.AddressDetailsResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -56,17 +52,9 @@ export interface GetOrderItemResult {
      */
     readonly name: string;
     /**
-     * Id of the order to which order item belongs to.
+     * Order item properties.
      */
-    readonly orderId: string;
-    /**
-     * Represents order item details.
-     */
-    readonly orderItemDetails: outputs.edgeorder.v20220501preview.OrderItemDetailsResponse;
-    /**
-     * Start time of order item.
-     */
-    readonly startTime: string;
+    readonly properties: outputs.edgeorder.v20220501preview.OrderItemPropertiesResponse;
     /**
      * Represents resource creation and update time.
      */

@@ -70,85 +70,25 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     public sealed class GetVirtualMachineTemplateResult
     {
         /// <summary>
-        /// Gets or sets computer name.
-        /// </summary>
-        public readonly string ComputerName;
-        /// <summary>
-        /// Gets or sets the desired number of vCPUs for the vm.
-        /// </summary>
-        public readonly int CpuCount;
-        /// <summary>
-        /// Gets or sets the disks of the template.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualDiskResponse> Disks;
-        /// <summary>
-        /// Gets or sets a value indicating whether to enable dynamic memory or not.
-        /// </summary>
-        public readonly string DynamicMemoryEnabled;
-        /// <summary>
-        /// Gets or sets the max dynamic memory for the vm.
-        /// </summary>
-        public readonly int DynamicMemoryMaxMB;
-        /// <summary>
-        /// Gets or sets the min dynamic memory for the vm.
-        /// </summary>
-        public readonly int DynamicMemoryMinMB;
-        /// <summary>
         /// The extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
-        /// <summary>
-        /// Gets or sets the generation for the vm.
-        /// </summary>
-        public readonly int Generation;
         /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        public readonly string? InventoryItemId;
-        /// <summary>
-        /// Gets or sets a value indicating whether the vm template is customizable or not.
-        /// </summary>
-        public readonly string IsCustomizable;
-        /// <summary>
-        /// Gets highly available property.
-        /// </summary>
-        public readonly string IsHighlyAvailable;
-        /// <summary>
-        /// Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
-        /// </summary>
-        public readonly string LimitCpuForMigration;
-        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// MemoryMB is the desired size of a virtual machine's memory, in MB.
-        /// </summary>
-        public readonly int MemoryMB;
         /// <summary>
         /// Resource Name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the network interfaces of the template.
+        /// Resource properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfacesResponse> NetworkInterfaces;
-        /// <summary>
-        /// Gets or sets os name.
-        /// </summary>
-        public readonly string OsName;
-        /// <summary>
-        /// Gets or sets the type of the os.
-        /// </summary>
-        public readonly string OsType;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.VirtualMachineTemplatePropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -161,92 +101,33 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         /// Resource Type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Unique ID of the virtual machine template.
-        /// </summary>
-        public readonly string? Uuid;
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        public readonly string? VmmServerId;
 
         [OutputConstructor]
         private GetVirtualMachineTemplateResult(
-            string computerName,
-
-            int cpuCount,
-
-            ImmutableArray<Outputs.VirtualDiskResponse> disks,
-
-            string dynamicMemoryEnabled,
-
-            int dynamicMemoryMaxMB,
-
-            int dynamicMemoryMinMB,
-
             Outputs.ExtendedLocationResponse extendedLocation,
-
-            int generation,
 
             string id,
 
-            string? inventoryItemId,
-
-            string isCustomizable,
-
-            string isHighlyAvailable,
-
-            string limitCpuForMigration,
-
             string location,
-
-            int memoryMB,
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfacesResponse> networkInterfaces,
-
-            string osName,
-
-            string osType,
-
-            string provisioningState,
+            Outputs.VirtualMachineTemplatePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? uuid,
-
-            string? vmmServerId)
+            string type)
         {
-            ComputerName = computerName;
-            CpuCount = cpuCount;
-            Disks = disks;
-            DynamicMemoryEnabled = dynamicMemoryEnabled;
-            DynamicMemoryMaxMB = dynamicMemoryMaxMB;
-            DynamicMemoryMinMB = dynamicMemoryMinMB;
             ExtendedLocation = extendedLocation;
-            Generation = generation;
             Id = id;
-            InventoryItemId = inventoryItemId;
-            IsCustomizable = isCustomizable;
-            IsHighlyAvailable = isHighlyAvailable;
-            LimitCpuForMigration = limitCpuForMigration;
             Location = location;
-            MemoryMB = memoryMB;
             Name = name;
-            NetworkInterfaces = networkInterfaces;
-            OsName = osName;
-            OsType = osType;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            VmmServerId = vmmServerId;
         }
     }
 }

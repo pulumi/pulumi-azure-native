@@ -47,22 +47,6 @@ export interface GetFormulaArgs {
  */
 export interface GetFormulaResult {
     /**
-     * The author of the formula.
-     */
-    readonly author?: string;
-    /**
-     * The creation date of the formula.
-     */
-    readonly creationDate: string;
-    /**
-     * The description of the formula.
-     */
-    readonly description?: string;
-    /**
-     * The content of the formula.
-     */
-    readonly formulaContent?: outputs.devtestlab.v20160515.LabVirtualMachineCreationParameterResponse;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
@@ -75,13 +59,9 @@ export interface GetFormulaResult {
      */
     readonly name: string;
     /**
-     * The OS type of the formula.
+     * The properties of the resource.
      */
-    readonly osType?: string;
-    /**
-     * The provisioning status of the resource.
-     */
-    readonly provisioningState?: string;
+    readonly properties: outputs.devtestlab.v20160515.FormulaPropertiesResponse;
     /**
      * The tags of the resource.
      */
@@ -90,14 +70,6 @@ export interface GetFormulaResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier?: string;
-    /**
-     * Information about a VM from which a formula is to be created.
-     */
-    readonly vm?: outputs.devtestlab.v20160515.FormulaPropertiesFromVmResponse;
 }
 /**
  * Get formula.

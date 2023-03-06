@@ -38,37 +38,9 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The fully qualified path of managed application definition Id.
-     */
-    public readonly applicationDefinitionId!: pulumi.Output<string | undefined>;
-    /**
-     * The collection of managed application artifacts.
-     */
-    public /*out*/ readonly artifacts!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationArtifactResponse[]>;
-    /**
-     * The  read-only authorizations property that is retrieved from the application package.
-     */
-    public /*out*/ readonly authorizations!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationAuthorizationResponse[]>;
-    /**
-     * The managed application billing details.
-     */
-    public /*out*/ readonly billingDetails!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationBillingDetailsDefinitionResponse>;
-    /**
-     * The client entity that created the JIT request.
-     */
-    public /*out*/ readonly createdBy!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationClientDetailsResponse>;
-    /**
-     * The read-only customer support property that is retrieved from the application package.
-     */
-    public /*out*/ readonly customerSupport!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationPackageContactResponse>;
-    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.solutions.v20200821preview.IdentityResponse | undefined>;
-    /**
-     * The managed application Jit access policy.
-     */
-    public readonly jitAccessPolicy!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationJitAccessPolicyResponse | undefined>;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -82,45 +54,21 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
-     * The managed resource group Id.
-     */
-    public readonly managedResourceGroupId!: pulumi.Output<string | undefined>;
-    /**
-     * The managed application management mode.
-     */
-    public /*out*/ readonly managementMode!: pulumi.Output<string>;
-    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Name and value pairs that define the managed application outputs.
-     */
-    public /*out*/ readonly outputs!: pulumi.Output<any>;
-    /**
-     * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-     */
-    public readonly parameters!: pulumi.Output<any | undefined>;
     /**
      * The plan information.
      */
     public readonly plan!: pulumi.Output<outputs.solutions.v20200821preview.PlanResponse | undefined>;
     /**
-     * The managed application provisioning state.
+     * The managed application properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The publisher tenant Id.
-     */
-    public /*out*/ readonly publisherTenantId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationPropertiesResponse>;
     /**
      * The SKU of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.solutions.v20200821preview.SkuResponse | undefined>;
-    /**
-     * The read-only support URLs property that is retrieved from the application package.
-     */
-    public /*out*/ readonly supportUrls!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationPackageSupportUrlsResponse>;
     /**
      * Resource tags
      */
@@ -129,10 +77,6 @@ export class Application extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The client entity that last updated the JIT request.
-     */
-    public /*out*/ readonly updatedBy!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationClientDetailsResponse>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -148,60 +92,35 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["jitAccessPolicy"] = args ? args.jitAccessPolicy : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["artifacts"] = undefined /*out*/;
-            resourceInputs["authorizations"] = undefined /*out*/;
-            resourceInputs["billingDetails"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["customerSupport"] = undefined /*out*/;
-            resourceInputs["managementMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["outputs"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publisherTenantId"] = undefined /*out*/;
-            resourceInputs["supportUrls"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["updatedBy"] = undefined /*out*/;
         } else {
-            resourceInputs["applicationDefinitionId"] = undefined /*out*/;
-            resourceInputs["artifacts"] = undefined /*out*/;
-            resourceInputs["authorizations"] = undefined /*out*/;
-            resourceInputs["billingDetails"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["customerSupport"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["jitAccessPolicy"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
-            resourceInputs["managedResourceGroupId"] = undefined /*out*/;
-            resourceInputs["managementMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["outputs"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publisherTenantId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["supportUrls"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["updatedBy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:Application" }, { type: "azure-native:solutions/v20160901preview:Application" }, { type: "azure-native:solutions/v20170901:Application" }, { type: "azure-native:solutions/v20171201:Application" }, { type: "azure-native:solutions/v20180201:Application" }, { type: "azure-native:solutions/v20180301:Application" }, { type: "azure-native:solutions/v20180601:Application" }, { type: "azure-native:solutions/v20180901preview:Application" }, { type: "azure-native:solutions/v20190701:Application" }, { type: "azure-native:solutions/v20210201preview:Application" }, { type: "azure-native:solutions/v20210701:Application" }] };
@@ -215,10 +134,6 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
-     * The fully qualified path of managed application definition Id.
-     */
-    applicationDefinitionId?: pulumi.Input<string>;
-    /**
      * The name of the managed application.
      */
     applicationName?: pulumi.Input<string>;
@@ -226,10 +141,6 @@ export interface ApplicationArgs {
      * The identity of the resource.
      */
     identity?: pulumi.Input<inputs.solutions.v20200821preview.IdentityArgs>;
-    /**
-     * The managed application Jit access policy.
-     */
-    jitAccessPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationJitAccessPolicyArgs>;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -243,17 +154,13 @@ export interface ApplicationArgs {
      */
     managedBy?: pulumi.Input<string>;
     /**
-     * The managed resource group Id.
-     */
-    managedResourceGroupId?: pulumi.Input<string>;
-    /**
-     * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-     */
-    parameters?: any;
-    /**
      * The plan information.
      */
     plan?: pulumi.Input<inputs.solutions.v20200821preview.PlanArgs>;
+    /**
+     * The managed application properties.
+     */
+    properties: pulumi.Input<inputs.solutions.v20200821preview.ApplicationPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

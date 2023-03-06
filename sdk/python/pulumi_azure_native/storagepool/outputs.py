@@ -14,8 +14,10 @@ from ._enums import *
 __all__ = [
     'AclResponse',
     'AttributesResponse',
+    'DiskPoolPropertiesResponse',
     'DiskResponse',
     'IscsiLunResponse',
+    'IscsiTargetPropertiesResponse',
     'SystemMetadataResponse',
     'TargetPortalGroupResponse',
 ]
@@ -145,6 +147,119 @@ class AttributesResponse(dict):
 
 
 @pulumi.output_type
+class DiskPoolPropertiesResponse(dict):
+    """
+    Disk pool response properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "additionalCapabilities":
+            suggest = "additional_capabilities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskPoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskPoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskPoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zones: Sequence[str],
+                 provisioning_state: str,
+                 status: str,
+                 subnet_id: str,
+                 tier: str,
+                 additional_capabilities: Optional[Sequence[str]] = None,
+                 disks: Optional[Sequence['outputs.DiskResponse']] = None):
+        """
+        Disk pool response properties.
+        :param Sequence[str] availability_zones: Logical zone for Disk pool resource; example: ["1"].
+        :param str provisioning_state: State of the operation on the resource.
+        :param str status: Operational status of the Disk pool.
+        :param str subnet_id: Azure Resource ID of a Subnet for the Disk pool.
+        :param str tier: Determines the SKU of VM deployed for Disk pool
+        :param Sequence[str] additional_capabilities: List of additional capabilities for Disk pool.
+        :param Sequence['DiskResponse'] disks: List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        """
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "tier", tier)
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if disks is not None:
+            pulumi.set(__self__, "disks", disks)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Sequence[str]:
+        """
+        Logical zone for Disk pool resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the operation on the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Operational status of the Disk pool.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        Azure Resource ID of a Subnet for the Disk pool.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        Determines the SKU of VM deployed for Disk pool
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional[Sequence[str]]:
+        """
+        List of additional capabilities for Disk pool.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @property
+    @pulumi.getter
+    def disks(self) -> Optional[Sequence['outputs.DiskResponse']]:
+        """
+        List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        """
+        return pulumi.get(self, "disks")
+
+
+@pulumi.output_type
 class DiskResponse(dict):
     """
     Azure Managed Disk to attach to the Disk pool.
@@ -214,6 +329,80 @@ class IscsiLunResponse(dict):
         User defined name for iSCSI LUN; example: "lun0"
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IscsiTargetPropertiesResponse(dict):
+    """
+    Response properties for iSCSI target operations.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "targetIqn":
+            suggest = "target_iqn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IscsiTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IscsiTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IscsiTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 status: str,
+                 target_iqn: str,
+                 tpgs: Sequence['outputs.TargetPortalGroupResponse']):
+        """
+        Response properties for iSCSI target operations.
+        :param str provisioning_state: State of the operation on the resource.
+        :param str status: Operational status of the iSCSI target.
+        :param str target_iqn: iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        :param Sequence['TargetPortalGroupResponse'] tpgs: List of iSCSI target portal groups. Can have 1 portal group at most.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "target_iqn", target_iqn)
+        pulumi.set(__self__, "tpgs", tpgs)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the operation on the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Operational status of the iSCSI target.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="targetIqn")
+    def target_iqn(self) -> str:
+        """
+        iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        return pulumi.get(self, "target_iqn")
+
+    @property
+    @pulumi.getter
+    def tpgs(self) -> Sequence['outputs.TargetPortalGroupResponse']:
+        """
+        List of iSCSI target portal groups. Can have 1 portal group at most.
+        """
+        return pulumi.get(self, "tpgs")
 
 
 @pulumi.output_type

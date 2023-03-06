@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class AzureDataLakeAnalyticsLinkedServiceResponse
     {
         /// <summary>
-        /// The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object AccountName;
-        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -29,88 +25,43 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? DataLakeAnalyticsUri;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ResourceGroupName;
-        /// <summary>
-        /// The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ServicePrincipalId;
-        /// <summary>
-        /// The Key of the application used to authenticate against the Azure Data Lake Analytics account.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
-        /// <summary>
-        /// Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? SubscriptionId;
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Tenant;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureDataLakeAnalytics'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Data Lake Analytics linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureDataLakeAnalyticsLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureDataLakeAnalyticsLinkedServiceResponse(
-            object accountName,
-
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? dataLakeAnalyticsUri,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? resourceGroupName,
+            string type,
 
-            object? servicePrincipalId,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
-
-            object? subscriptionId,
-
-            object tenant,
-
-            string type)
+            Outputs.AzureDataLakeAnalyticsLinkedServiceTypePropertiesResponse typeProperties)
         {
-            AccountName = accountName;
             Annotations = annotations;
             ConnectVia = connectVia;
-            DataLakeAnalyticsUri = dataLakeAnalyticsUri;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            ResourceGroupName = resourceGroupName;
-            ServicePrincipalId = servicePrincipalId;
-            ServicePrincipalKey = servicePrincipalKey;
-            SubscriptionId = subscriptionId;
-            Tenant = tenant;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

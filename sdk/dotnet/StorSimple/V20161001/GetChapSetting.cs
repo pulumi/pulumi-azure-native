@@ -103,9 +103,9 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The chap password.
+        /// Chap properties
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse Password;
+        public readonly Outputs.ChapPropertiesResponse Properties;
         /// <summary>
         /// The type.
         /// </summary>
@@ -117,13 +117,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 
             string name,
 
-            Outputs.AsymmetricEncryptedSecretResponse password,
+            Outputs.ChapPropertiesResponse properties,
 
             string type)
         {
             Id = id;
             Name = name;
-            Password = password;
+            Properties = properties;
             Type = type;
         }
     }

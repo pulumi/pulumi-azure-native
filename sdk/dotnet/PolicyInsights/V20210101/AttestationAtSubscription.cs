@@ -16,64 +16,16 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
     public partial class AttestationAtSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Comments describing why this attestation was created.
-        /// </summary>
-        [Output("comments")]
-        public Output<string?> Comments { get; private set; } = null!;
-
-        /// <summary>
-        /// The compliance state that should be set on the resource.
-        /// </summary>
-        [Output("complianceState")]
-        public Output<string?> ComplianceState { get; private set; } = null!;
-
-        /// <summary>
-        /// The evidence supporting the compliance state set in this attestation.
-        /// </summary>
-        [Output("evidence")]
-        public Output<ImmutableArray<Outputs.AttestationEvidenceResponse>> Evidence { get; private set; } = null!;
-
-        /// <summary>
-        /// The time the compliance state should expire.
-        /// </summary>
-        [Output("expiresOn")]
-        public Output<string?> ExpiresOn { get; private set; } = null!;
-
-        /// <summary>
-        /// The time the compliance state was last changed in this attestation.
-        /// </summary>
-        [Output("lastComplianceStateChangeAt")]
-        public Output<string> LastComplianceStateChangeAt { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+        /// Properties for the attestation.
         /// </summary>
-        [Output("owner")]
-        public Output<string?> Owner { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the policy assignment that the attestation is setting the state for.
-        /// </summary>
-        [Output("policyAssignmentId")]
-        public Output<string> PolicyAssignmentId { get; private set; } = null!;
-
-        /// <summary>
-        /// The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
-        /// </summary>
-        [Output("policyDefinitionReferenceId")]
-        public Output<string?> PolicyDefinitionReferenceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the attestation.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AttestationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -144,52 +96,10 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         public Input<string>? AttestationName { get; set; }
 
         /// <summary>
-        /// Comments describing why this attestation was created.
+        /// Properties for the attestation.
         /// </summary>
-        [Input("comments")]
-        public Input<string>? Comments { get; set; }
-
-        /// <summary>
-        /// The compliance state that should be set on the resource.
-        /// </summary>
-        [Input("complianceState")]
-        public InputUnion<string, Pulumi.AzureNative.PolicyInsights.V20210101.ComplianceState>? ComplianceState { get; set; }
-
-        [Input("evidence")]
-        private InputList<Inputs.AttestationEvidenceArgs>? _evidence;
-
-        /// <summary>
-        /// The evidence supporting the compliance state set in this attestation.
-        /// </summary>
-        public InputList<Inputs.AttestationEvidenceArgs> Evidence
-        {
-            get => _evidence ?? (_evidence = new InputList<Inputs.AttestationEvidenceArgs>());
-            set => _evidence = value;
-        }
-
-        /// <summary>
-        /// The time the compliance state should expire.
-        /// </summary>
-        [Input("expiresOn")]
-        public Input<string>? ExpiresOn { get; set; }
-
-        /// <summary>
-        /// The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
-        /// </summary>
-        [Input("owner")]
-        public Input<string>? Owner { get; set; }
-
-        /// <summary>
-        /// The resource ID of the policy assignment that the attestation is setting the state for.
-        /// </summary>
-        [Input("policyAssignmentId", required: true)]
-        public Input<string> PolicyAssignmentId { get; set; } = null!;
-
-        /// <summary>
-        /// The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
-        /// </summary>
-        [Input("policyDefinitionReferenceId")]
-        public Input<string>? PolicyDefinitionReferenceId { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.AttestationPropertiesArgs> Properties { get; set; } = null!;
 
         public AttestationAtSubscriptionArgs()
         {

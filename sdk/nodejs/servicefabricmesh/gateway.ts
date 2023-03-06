@@ -39,22 +39,6 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     /**
-     * User readable description of the gateway.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Network that the Application is using.
-     */
-    public readonly destinationNetwork!: pulumi.Output<outputs.servicefabricmesh.NetworkRefResponse>;
-    /**
-     * Configuration for http connectivity for this gateway.
-     */
-    public readonly http!: pulumi.Output<outputs.servicefabricmesh.HttpConfigResponse[] | undefined>;
-    /**
-     * IP address of the gateway. This is populated in the response and is ignored for incoming requests.
-     */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -63,29 +47,13 @@ export class Gateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * State of the resource.
+     * This type describes properties of a gateway resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Network the gateway should listen on for requests.
-     */
-    public readonly sourceNetwork!: pulumi.Output<outputs.servicefabricmesh.NetworkRefResponse>;
-    /**
-     * Status of the resource.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Gives additional information about the current status of the gateway.
-     */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.servicefabricmesh.GatewayResourcePropertiesResponse>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Configuration for tcp connectivity for this gateway.
-     */
-    public readonly tcp!: pulumi.Output<outputs.servicefabricmesh.TcpConfigResponse[] | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -102,43 +70,24 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationNetwork === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destinationNetwork'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceNetwork === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceNetwork'");
-            }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationNetwork"] = args ? args.destinationNetwork : undefined;
             resourceInputs["gatewayResourceName"] = args ? args.gatewayResourceName : undefined;
-            resourceInputs["http"] = args ? args.http : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceNetwork"] = args ? args.sourceNetwork : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tcp"] = args ? args.tcp : undefined;
-            resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["destinationNetwork"] = undefined /*out*/;
-            resourceInputs["http"] = undefined /*out*/;
-            resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sourceNetwork"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["tcp"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,39 +102,23 @@ export class Gateway extends pulumi.CustomResource {
  */
 export interface GatewayArgs {
     /**
-     * User readable description of the gateway.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Network that the Application is using.
-     */
-    destinationNetwork: pulumi.Input<inputs.servicefabricmesh.NetworkRefArgs>;
-    /**
      * The identity of the gateway.
      */
     gatewayResourceName?: pulumi.Input<string>;
-    /**
-     * Configuration for http connectivity for this gateway.
-     */
-    http?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.HttpConfigArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
+     * This type describes properties of a gateway resource.
+     */
+    properties: pulumi.Input<inputs.servicefabricmesh.GatewayResourcePropertiesArgs>;
+    /**
      * Azure resource group name
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Network the gateway should listen on for requests.
-     */
-    sourceNetwork: pulumi.Input<inputs.servicefabricmesh.NetworkRefArgs>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration for tcp connectivity for this gateway.
-     */
-    tcp?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.TcpConfigArgs>[]>;
 }

@@ -11,20 +11,328 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterInventoryItemArgs',
+    'ClusterPropertiesArgs',
+    'DatastoreInventoryItemArgs',
+    'DatastorePropertiesArgs',
     'ExtendedLocationArgs',
+    'GuestAgentPropertiesArgs',
     'GuestCredentialArgs',
     'HardwareProfileArgs',
+    'HostInventoryItemArgs',
+    'HostPropertiesArgs',
     'HttpProxyConfigurationArgs',
+    'HybridIdentityMetadataPropertiesArgs',
     'IdentityArgs',
+    'InventoryItemDetailsArgs',
     'NetworkInterfaceArgs',
     'NetworkProfileArgs',
     'NicIPSettingsArgs',
     'OsProfileArgs',
     'PlacementProfileArgs',
+    'ResourcePoolInventoryItemArgs',
+    'ResourcePoolPropertiesArgs',
     'StorageProfileArgs',
+    'VCenterPropertiesArgs',
     'VICredentialArgs',
     'VirtualDiskArgs',
+    'VirtualMachineInventoryItemArgs',
+    'VirtualMachinePropertiesArgs',
+    'VirtualMachineTemplateInventoryItemArgs',
+    'VirtualMachineTemplatePropertiesArgs',
+    'VirtualNetworkInventoryItemArgs',
+    'VirtualNetworkPropertiesArgs',
 ]
+
+@pulumi.input_type
+class ClusterInventoryItemArgs:
+    def __init__(__self__, *,
+                 inventory_type: pulumi.Input[str],
+                 managed_resource_id: Optional[pulumi.Input[str]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None):
+        """
+        The cluster inventory item.
+        :param pulumi.Input[str] inventory_type: The inventory type.
+               Expected value is 'Cluster'.
+        :param pulumi.Input[str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        pulumi.set(__self__, "inventory_type", 'Cluster')
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> pulumi.Input[str]:
+        """
+        The inventory type.
+        Expected value is 'Cluster'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @inventory_type.setter
+    def inventory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inventory_type", value)
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @managed_resource_id.setter
+    def managed_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_id", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+
+@pulumi.input_type
+class ClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the cluster.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the cluster.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the cluster.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the cluster.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
+
+
+@pulumi.input_type
+class DatastoreInventoryItemArgs:
+    def __init__(__self__, *,
+                 inventory_type: pulumi.Input[str],
+                 capacity_gb: Optional[pulumi.Input[float]] = None,
+                 free_space_gb: Optional[pulumi.Input[float]] = None,
+                 managed_resource_id: Optional[pulumi.Input[str]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None):
+        """
+        The datastore inventory item.
+        :param pulumi.Input[str] inventory_type: The inventory type.
+               Expected value is 'Datastore'.
+        :param pulumi.Input[float] capacity_gb: Gets or sets Maximum capacity of this datastore, in GBs.
+        :param pulumi.Input[float] free_space_gb: Gets or sets Available space of this datastore, in GBs.
+        :param pulumi.Input[str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        pulumi.set(__self__, "inventory_type", 'Datastore')
+        if capacity_gb is not None:
+            pulumi.set(__self__, "capacity_gb", capacity_gb)
+        if free_space_gb is not None:
+            pulumi.set(__self__, "free_space_gb", free_space_gb)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> pulumi.Input[str]:
+        """
+        The inventory type.
+        Expected value is 'Datastore'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @inventory_type.setter
+    def inventory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inventory_type", value)
+
+    @property
+    @pulumi.getter(name="capacityGB")
+    def capacity_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        Gets or sets Maximum capacity of this datastore, in GBs.
+        """
+        return pulumi.get(self, "capacity_gb")
+
+    @capacity_gb.setter
+    def capacity_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "capacity_gb", value)
+
+    @property
+    @pulumi.getter(name="freeSpaceGB")
+    def free_space_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        Gets or sets Available space of this datastore, in GBs.
+        """
+        return pulumi.get(self, "free_space_gb")
+
+    @free_space_gb.setter
+    def free_space_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "free_space_gb", value)
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @managed_resource_id.setter
+    def managed_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_id", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+
+@pulumi.input_type
+class DatastorePropertiesArgs:
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the datastore.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the datastore.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
+
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -64,6 +372,62 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GuestAgentPropertiesArgs:
+    def __init__(__self__, *,
+                 credentials: Optional[pulumi.Input['GuestCredentialArgs']] = None,
+                 http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
+                 provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input['GuestCredentialArgs'] credentials: Username / Password Credentials to provision guest agent.
+        :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
+        :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: Gets or sets the guest agent provisioning action.
+        """
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if http_proxy_config is not None:
+            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+        if provisioning_action is not None:
+            pulumi.set(__self__, "provisioning_action", provisioning_action)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['GuestCredentialArgs']]:
+        """
+        Username / Password Credentials to provision guest agent.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['GuestCredentialArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional[pulumi.Input['HttpProxyConfigurationArgs']]:
+        """
+        HTTP Proxy configuration for the VM.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @http_proxy_config.setter
+    def http_proxy_config(self, value: Optional[pulumi.Input['HttpProxyConfigurationArgs']]):
+        pulumi.set(self, "http_proxy_config", value)
+
+    @property
+    @pulumi.getter(name="provisioningAction")
+    def provisioning_action(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningAction']]]:
+        """
+        Gets or sets the guest agent provisioning action.
+        """
+        return pulumi.get(self, "provisioning_action")
+
+    @provisioning_action.setter
+    def provisioning_action(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]]):
+        pulumi.set(self, "provisioning_action", value)
 
 
 @pulumi.input_type
@@ -163,6 +527,151 @@ class HardwareProfileArgs:
 
 
 @pulumi.input_type
+class HostInventoryItemArgs:
+    def __init__(__self__, *,
+                 inventory_type: pulumi.Input[str],
+                 managed_resource_id: Optional[pulumi.Input[str]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 parent: Optional[pulumi.Input['InventoryItemDetailsArgs']] = None):
+        """
+        The host inventory item.
+        :param pulumi.Input[str] inventory_type: The inventory type.
+               Expected value is 'Host'.
+        :param pulumi.Input[str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param pulumi.Input['InventoryItemDetailsArgs'] parent: Parent host inventory resource details.
+        """
+        pulumi.set(__self__, "inventory_type", 'Host')
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> pulumi.Input[str]:
+        """
+        The inventory type.
+        Expected value is 'Host'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @inventory_type.setter
+    def inventory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inventory_type", value)
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @managed_resource_id.setter
+    def managed_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_id", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional[pulumi.Input['InventoryItemDetailsArgs']]:
+        """
+        Parent host inventory resource details.
+        """
+        return pulumi.get(self, "parent")
+
+    @parent.setter
+    def parent(self, value: Optional[pulumi.Input['InventoryItemDetailsArgs']]):
+        pulumi.set(self, "parent", value)
+
+
+@pulumi.input_type
+class HostPropertiesArgs:
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the host.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this host resides.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the host.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this host resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
+
+
+@pulumi.input_type
 class HttpProxyConfigurationArgs:
     def __init__(__self__, *,
                  https_proxy: Optional[pulumi.Input[str]] = None):
@@ -187,6 +696,46 @@ class HttpProxyConfigurationArgs:
 
 
 @pulumi.input_type
+class HybridIdentityMetadataPropertiesArgs:
+    def __init__(__self__, *,
+                 public_key: Optional[pulumi.Input[str]] = None,
+                 vm_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] public_key: Gets or sets the Public Key.
+        :param pulumi.Input[str] vm_id: Gets or sets the Vm Id.
+        """
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if vm_id is not None:
+            pulumi.set(__self__, "vm_id", vm_id)
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the Public Key.
+        """
+        return pulumi.get(self, "public_key")
+
+    @public_key.setter
+    def public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key", value)
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the Vm Id.
+        """
+        return pulumi.get(self, "vm_id")
+
+    @vm_id.setter
+    def vm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_id", value)
+
+
+@pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'IdentityType']]):
@@ -207,6 +756,46 @@ class IdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class InventoryItemDetailsArgs:
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the resource.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the resource.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the resource.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
 
 
 @pulumi.input_type
@@ -570,6 +1159,151 @@ class PlacementProfileArgs:
 
 
 @pulumi.input_type
+class ResourcePoolInventoryItemArgs:
+    def __init__(__self__, *,
+                 inventory_type: pulumi.Input[str],
+                 managed_resource_id: Optional[pulumi.Input[str]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 parent: Optional[pulumi.Input['InventoryItemDetailsArgs']] = None):
+        """
+        The resource pool inventory item.
+        :param pulumi.Input[str] inventory_type: The inventory type.
+               Expected value is 'ResourcePool'.
+        :param pulumi.Input[str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param pulumi.Input['InventoryItemDetailsArgs'] parent: Parent resourcePool inventory resource details.
+        """
+        pulumi.set(__self__, "inventory_type", 'ResourcePool')
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> pulumi.Input[str]:
+        """
+        The inventory type.
+        Expected value is 'ResourcePool'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @inventory_type.setter
+    def inventory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inventory_type", value)
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @managed_resource_id.setter
+    def managed_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_id", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional[pulumi.Input['InventoryItemDetailsArgs']]:
+        """
+        Parent resourcePool inventory resource details.
+        """
+        return pulumi.get(self, "parent")
+
+    @parent.setter
+    def parent(self, value: Optional[pulumi.Input['InventoryItemDetailsArgs']]):
+        pulumi.set(self, "parent", value)
+
+
+@pulumi.input_type
+class ResourcePoolPropertiesArgs:
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource pool.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the resource pool.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
+
+
+@pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
                  disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]] = None):
@@ -591,6 +1325,61 @@ class StorageProfileArgs:
     @disks.setter
     def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]]):
         pulumi.set(self, "disks", value)
+
+
+@pulumi.input_type
+class VCenterPropertiesArgs:
+    def __init__(__self__, *,
+                 fqdn: pulumi.Input[str],
+                 credentials: Optional[pulumi.Input['VICredentialArgs']] = None,
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] fqdn: Gets or sets the FQDN/IPAddress of the vCenter.
+        :param pulumi.Input['VICredentialArgs'] credentials: Username / Password Credentials to connect to vcenter.
+        :param pulumi.Input[int] port: Gets or sets the port of the vCenter.
+        """
+        pulumi.set(__self__, "fqdn", fqdn)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the FQDN/IPAddress of the vCenter.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['VICredentialArgs']]:
+        """
+        Username / Password Credentials to connect to vcenter.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['VICredentialArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the port of the vCenter.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
@@ -767,5 +1556,766 @@ class VirtualDiskArgs:
     @unit_number.setter
     def unit_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unit_number", value)
+
+
+@pulumi.input_type
+class VirtualMachineInventoryItemArgs:
+    def __init__(__self__, *,
+                 inventory_type: pulumi.Input[str],
+                 folder_path: Optional[pulumi.Input[str]] = None,
+                 host: Optional[pulumi.Input['InventoryItemDetailsArgs']] = None,
+                 instance_uuid: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 managed_resource_id: Optional[pulumi.Input[str]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 os_name: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+                 resource_pool: Optional[pulumi.Input['InventoryItemDetailsArgs']] = None,
+                 smbios_uuid: Optional[pulumi.Input[str]] = None):
+        """
+        The VM inventory item.
+        :param pulumi.Input[str] inventory_type: The inventory type.
+               Expected value is 'VirtualMachine'.
+        :param pulumi.Input[str] folder_path: Gets or sets the folder path of the vm.
+        :param pulumi.Input['InventoryItemDetailsArgs'] host: Host inventory resource details.
+        :param pulumi.Input[str] instance_uuid: Gets or sets the instance uuid of the vm.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Gets or sets the nic ip addresses.
+        :param pulumi.Input[str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param pulumi.Input[str] os_name: Gets or sets os name.
+        :param pulumi.Input[Union[str, 'OsType']] os_type: Gets or sets the type of the os.
+        :param pulumi.Input['InventoryItemDetailsArgs'] resource_pool: ResourcePool inventory resource details.
+        :param pulumi.Input[str] smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
+        """
+        pulumi.set(__self__, "inventory_type", 'VirtualMachine')
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if instance_uuid is not None:
+            pulumi.set(__self__, "instance_uuid", instance_uuid)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if os_name is not None:
+            pulumi.set(__self__, "os_name", os_name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if resource_pool is not None:
+            pulumi.set(__self__, "resource_pool", resource_pool)
+        if smbios_uuid is not None:
+            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> pulumi.Input[str]:
+        """
+        The inventory type.
+        Expected value is 'VirtualMachine'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @inventory_type.setter
+    def inventory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inventory_type", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the folder path of the vm.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input['InventoryItemDetailsArgs']]:
+        """
+        Host inventory resource details.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input['InventoryItemDetailsArgs']]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="instanceUuid")
+    def instance_uuid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the instance uuid of the vm.
+        """
+        return pulumi.get(self, "instance_uuid")
+
+    @instance_uuid.setter
+    def instance_uuid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_uuid", value)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets the nic ip addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @managed_resource_id.setter
+    def managed_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_id", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets os name.
+        """
+        return pulumi.get(self, "os_name")
+
+    @os_name.setter
+    def os_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_name", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OsType']]]:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OsType']]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="resourcePool")
+    def resource_pool(self) -> Optional[pulumi.Input['InventoryItemDetailsArgs']]:
+        """
+        ResourcePool inventory resource details.
+        """
+        return pulumi.get(self, "resource_pool")
+
+    @resource_pool.setter
+    def resource_pool(self, value: Optional[pulumi.Input['InventoryItemDetailsArgs']]):
+        pulumi.set(self, "resource_pool", value)
+
+    @property
+    @pulumi.getter(name="smbiosUuid")
+    def smbios_uuid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SMBIOS UUID of the vm.
+        """
+        return pulumi.get(self, "smbios_uuid")
+
+    @smbios_uuid.setter
+    def smbios_uuid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "smbios_uuid", value)
+
+
+@pulumi.input_type
+class VirtualMachinePropertiesArgs:
+    def __init__(__self__, *,
+                 firmware_type: Optional[pulumi.Input[Union[str, 'FirmwareType']]] = None,
+                 hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+                 os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
+                 placement_profile: Optional[pulumi.Input['PlacementProfileArgs']] = None,
+                 resource_pool_id: Optional[pulumi.Input[str]] = None,
+                 smbios_uuid: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+                 template_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[Union[str, 'FirmwareType']] firmware_type: Firmware type
+        :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Hardware properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual machine.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+        :param pulumi.Input['NetworkProfileArgs'] network_profile: Network properties.
+        :param pulumi.Input['OsProfileArgs'] os_profile: OS properties.
+        :param pulumi.Input['PlacementProfileArgs'] placement_profile: Placement properties.
+        :param pulumi.Input[str] resource_pool_id: Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
+               deploy.
+        :param pulumi.Input[str] smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
+        :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage properties.
+        :param pulumi.Input[str] template_id: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        if firmware_type is not None:
+            pulumi.set(__self__, "firmware_type", firmware_type)
+        if hardware_profile is not None:
+            pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if os_profile is not None:
+            pulumi.set(__self__, "os_profile", os_profile)
+        if placement_profile is not None:
+            pulumi.set(__self__, "placement_profile", placement_profile)
+        if resource_pool_id is not None:
+            pulumi.set(__self__, "resource_pool_id", resource_pool_id)
+        if smbios_uuid is not None:
+            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> Optional[pulumi.Input[Union[str, 'FirmwareType']]]:
+        """
+        Firmware type
+        """
+        return pulumi.get(self, "firmware_type")
+
+    @firmware_type.setter
+    def firmware_type(self, value: Optional[pulumi.Input[Union[str, 'FirmwareType']]]):
+        pulumi.set(self, "firmware_type", value)
+
+    @property
+    @pulumi.getter(name="hardwareProfile")
+    def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
+        """
+        Hardware properties.
+        """
+        return pulumi.get(self, "hardware_profile")
+
+    @hardware_profile.setter
+    def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
+        pulumi.set(self, "hardware_profile", value)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the virtual machine.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+        """
+        Network properties.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional[pulumi.Input['OsProfileArgs']]:
+        """
+        OS properties.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @os_profile.setter
+    def os_profile(self, value: Optional[pulumi.Input['OsProfileArgs']]):
+        pulumi.set(self, "os_profile", value)
+
+    @property
+    @pulumi.getter(name="placementProfile")
+    def placement_profile(self) -> Optional[pulumi.Input['PlacementProfileArgs']]:
+        """
+        Placement properties.
+        """
+        return pulumi.get(self, "placement_profile")
+
+    @placement_profile.setter
+    def placement_profile(self, value: Optional[pulumi.Input['PlacementProfileArgs']]):
+        pulumi.set(self, "placement_profile", value)
+
+    @property
+    @pulumi.getter(name="resourcePoolId")
+    def resource_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
+        deploy.
+        """
+        return pulumi.get(self, "resource_pool_id")
+
+    @resource_pool_id.setter
+    def resource_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_pool_id", value)
+
+    @property
+    @pulumi.getter(name="smbiosUuid")
+    def smbios_uuid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SMBIOS UUID of the vm.
+        """
+        return pulumi.get(self, "smbios_uuid")
+
+    @smbios_uuid.setter
+    def smbios_uuid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "smbios_uuid", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+        """
+        Storage properties.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
+
+
+@pulumi.input_type
+class VirtualMachineTemplateInventoryItemArgs:
+    def __init__(__self__, *,
+                 inventory_type: pulumi.Input[str],
+                 folder_path: Optional[pulumi.Input[str]] = None,
+                 managed_resource_id: Optional[pulumi.Input[str]] = None,
+                 memory_size_mb: Optional[pulumi.Input[int]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 num_cpus: Optional[pulumi.Input[int]] = None,
+                 num_cores_per_socket: Optional[pulumi.Input[int]] = None,
+                 os_name: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None):
+        """
+        The VM Template inventory item.
+        :param pulumi.Input[str] inventory_type: The inventory type.
+               Expected value is 'VirtualMachineTemplate'.
+        :param pulumi.Input[str] folder_path: Gets or sets the folder path of the template.
+        :param pulumi.Input[str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param pulumi.Input[int] memory_size_mb: Gets or sets memory size in MBs for the template.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        :param pulumi.Input[int] num_cpus: Gets or sets the number of vCPUs for the template.
+        :param pulumi.Input[int] num_cores_per_socket: Gets or sets the number of cores per socket for the template.
+               Defaults to 1 if unspecified.
+        :param pulumi.Input[str] os_name: Gets or sets os name.
+        :param pulumi.Input[Union[str, 'OsType']] os_type: Gets or sets the type of the os.
+        """
+        pulumi.set(__self__, "inventory_type", 'VirtualMachineTemplate')
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if memory_size_mb is not None:
+            pulumi.set(__self__, "memory_size_mb", memory_size_mb)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if num_cpus is not None:
+            pulumi.set(__self__, "num_cpus", num_cpus)
+        if num_cores_per_socket is not None:
+            pulumi.set(__self__, "num_cores_per_socket", num_cores_per_socket)
+        if os_name is not None:
+            pulumi.set(__self__, "os_name", os_name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> pulumi.Input[str]:
+        """
+        The inventory type.
+        Expected value is 'VirtualMachineTemplate'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @inventory_type.setter
+    def inventory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inventory_type", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the folder path of the template.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @managed_resource_id.setter
+    def managed_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_id", value)
+
+    @property
+    @pulumi.getter(name="memorySizeMB")
+    def memory_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets memory size in MBs for the template.
+        """
+        return pulumi.get(self, "memory_size_mb")
+
+    @memory_size_mb.setter
+    def memory_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "memory_size_mb", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="numCPUs")
+    def num_cpus(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the number of vCPUs for the template.
+        """
+        return pulumi.get(self, "num_cpus")
+
+    @num_cpus.setter
+    def num_cpus(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "num_cpus", value)
+
+    @property
+    @pulumi.getter(name="numCoresPerSocket")
+    def num_cores_per_socket(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the number of cores per socket for the template.
+        Defaults to 1 if unspecified.
+        """
+        return pulumi.get(self, "num_cores_per_socket")
+
+    @num_cores_per_socket.setter
+    def num_cores_per_socket(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "num_cores_per_socket", value)
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets os name.
+        """
+        return pulumi.get(self, "os_name")
+
+    @os_name.setter
+    def os_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_name", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OsType']]]:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OsType']]]):
+        pulumi.set(self, "os_type", value)
+
+
+@pulumi.input_type
+class VirtualMachineTemplatePropertiesArgs:
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual machine template.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
+               template.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the virtual machine template.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
+        template.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
+
+
+@pulumi.input_type
+class VirtualNetworkInventoryItemArgs:
+    def __init__(__self__, *,
+                 inventory_type: pulumi.Input[str],
+                 managed_resource_id: Optional[pulumi.Input[str]] = None,
+                 mo_name: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None):
+        """
+        The Virtual network inventory item.
+        :param pulumi.Input[str] inventory_type: The inventory type.
+               Expected value is 'VirtualNetwork'.
+        :param pulumi.Input[str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
+        :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        pulumi.set(__self__, "inventory_type", 'VirtualNetwork')
+        if managed_resource_id is not None:
+            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+        if mo_name is not None:
+            pulumi.set(__self__, "mo_name", mo_name)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+
+    @property
+    @pulumi.getter(name="inventoryType")
+    def inventory_type(self) -> pulumi.Input[str]:
+        """
+        The inventory type.
+        Expected value is 'VirtualNetwork'.
+        """
+        return pulumi.get(self, "inventory_type")
+
+    @inventory_type.setter
+    def inventory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inventory_type", value)
+
+    @property
+    @pulumi.getter(name="managedResourceId")
+    def managed_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tracked resource id corresponding to the inventory resource.
+        """
+        return pulumi.get(self, "managed_resource_id")
+
+    @managed_resource_id.setter
+    def managed_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_id", value)
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter Managed Object name for the inventory item.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @mo_name.setter
+    def mo_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_name", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+
+@pulumi.input_type
+class VirtualNetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual network.
+        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if mo_ref_id is not None:
+            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the virtual network.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @mo_ref_id.setter
+    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mo_ref_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
 
 

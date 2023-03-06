@@ -8,10 +8,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'CustomerSecretResponse',
+    'DataStorePropertiesResponse',
+    'JobDefinitionPropertiesResponse',
     'ScheduleResponse',
     'SkuResponse',
 ]
@@ -77,6 +80,245 @@ class CustomerSecretResponse(dict):
         It contains the encrypted customer secret.
         """
         return pulumi.get(self, "key_value")
+
+
+@pulumi.output_type
+class DataStorePropertiesResponse(dict):
+    """
+    Data Store for sources and sinks
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStoreTypeId":
+            suggest = "data_store_type_id"
+        elif key == "customerSecrets":
+            suggest = "customer_secrets"
+        elif key == "extendedProperties":
+            suggest = "extended_properties"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataStorePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataStorePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataStorePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_store_type_id: str,
+                 state: str,
+                 customer_secrets: Optional[Sequence['outputs.CustomerSecretResponse']] = None,
+                 extended_properties: Optional[Any] = None,
+                 repository_id: Optional[str] = None):
+        """
+        Data Store for sources and sinks
+        :param str data_store_type_id: The arm id of the data store type.
+        :param str state: State of the data source.
+        :param Sequence['CustomerSecretResponse'] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param Any extended_properties: A generic json used differently by each data source type.
+        :param str repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
+        """
+        pulumi.set(__self__, "data_store_type_id", data_store_type_id)
+        pulumi.set(__self__, "state", state)
+        if customer_secrets is not None:
+            pulumi.set(__self__, "customer_secrets", customer_secrets)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @property
+    @pulumi.getter(name="dataStoreTypeId")
+    def data_store_type_id(self) -> str:
+        """
+        The arm id of the data store type.
+        """
+        return pulumi.get(self, "data_store_type_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the data source.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="customerSecrets")
+    def customer_secrets(self) -> Optional[Sequence['outputs.CustomerSecretResponse']]:
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        return pulumi.get(self, "customer_secrets")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Any]:
+        """
+        A generic json used differently by each data source type.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[str]:
+        """
+        Arm Id for the manager resource to which the data source is associated. This is optional.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class JobDefinitionPropertiesResponse(dict):
+    """
+    Job Definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSinkId":
+            suggest = "data_sink_id"
+        elif key == "dataSourceId":
+            suggest = "data_source_id"
+        elif key == "customerSecrets":
+            suggest = "customer_secrets"
+        elif key == "dataServiceInput":
+            suggest = "data_service_input"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "runLocation":
+            suggest = "run_location"
+        elif key == "userConfirmation":
+            suggest = "user_confirmation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_sink_id: str,
+                 data_source_id: str,
+                 state: str,
+                 customer_secrets: Optional[Sequence['outputs.CustomerSecretResponse']] = None,
+                 data_service_input: Optional[Any] = None,
+                 last_modified_time: Optional[str] = None,
+                 run_location: Optional[str] = None,
+                 schedules: Optional[Sequence['outputs.ScheduleResponse']] = None,
+                 user_confirmation: Optional[str] = None):
+        """
+        Job Definition
+        :param str data_sink_id: Data Sink Id associated to the job definition.
+        :param str data_source_id: Data Source Id associated to the job definition.
+        :param str state: State of the job definition.
+        :param Sequence['CustomerSecretResponse'] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param Any data_service_input: A generic json used differently by each data service type.
+        :param str last_modified_time: Last modified time of the job definition.
+        :param str run_location: This is the preferred geo location for the job to run.
+        :param Sequence['ScheduleResponse'] schedules: Schedule for running the job definition
+        :param str user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        """
+        pulumi.set(__self__, "data_sink_id", data_sink_id)
+        pulumi.set(__self__, "data_source_id", data_source_id)
+        pulumi.set(__self__, "state", state)
+        if customer_secrets is not None:
+            pulumi.set(__self__, "customer_secrets", customer_secrets)
+        if data_service_input is not None:
+            pulumi.set(__self__, "data_service_input", data_service_input)
+        if last_modified_time is not None:
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if run_location is not None:
+            pulumi.set(__self__, "run_location", run_location)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
+        if user_confirmation is None:
+            user_confirmation = 'NotRequired'
+        if user_confirmation is not None:
+            pulumi.set(__self__, "user_confirmation", user_confirmation)
+
+    @property
+    @pulumi.getter(name="dataSinkId")
+    def data_sink_id(self) -> str:
+        """
+        Data Sink Id associated to the job definition.
+        """
+        return pulumi.get(self, "data_sink_id")
+
+    @property
+    @pulumi.getter(name="dataSourceId")
+    def data_source_id(self) -> str:
+        """
+        Data Source Id associated to the job definition.
+        """
+        return pulumi.get(self, "data_source_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the job definition.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="customerSecrets")
+    def customer_secrets(self) -> Optional[Sequence['outputs.CustomerSecretResponse']]:
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        return pulumi.get(self, "customer_secrets")
+
+    @property
+    @pulumi.getter(name="dataServiceInput")
+    def data_service_input(self) -> Optional[Any]:
+        """
+        A generic json used differently by each data service type.
+        """
+        return pulumi.get(self, "data_service_input")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        """
+        Last modified time of the job definition.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter(name="runLocation")
+    def run_location(self) -> Optional[str]:
+        """
+        This is the preferred geo location for the job to run.
+        """
+        return pulumi.get(self, "run_location")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[Sequence['outputs.ScheduleResponse']]:
+        """
+        Schedule for running the job definition
+        """
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter(name="userConfirmation")
+    def user_confirmation(self) -> Optional[str]:
+        """
+        Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        """
+        return pulumi.get(self, "user_confirmation")
 
 
 @pulumi.output_type

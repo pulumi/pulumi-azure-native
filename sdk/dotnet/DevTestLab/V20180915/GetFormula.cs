@@ -94,22 +94,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public sealed class GetFormulaResult
     {
         /// <summary>
-        /// The author of the formula.
-        /// </summary>
-        public readonly string Author;
-        /// <summary>
-        /// The creation date of the formula.
-        /// </summary>
-        public readonly string CreationDate;
-        /// <summary>
-        /// The description of the formula.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The content of the formula.
-        /// </summary>
-        public readonly Outputs.LabVirtualMachineCreationParameterResponse? FormulaContent;
-        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -122,13 +106,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The OS type of the formula.
+        /// The properties of the resource.
         /// </summary>
-        public readonly string? OsType;
-        /// <summary>
-        /// The provisioning status of the resource.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.FormulaPropertiesResponse Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -137,56 +117,27 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        public readonly string UniqueIdentifier;
-        /// <summary>
-        /// Information about a VM from which a formula is to be created.
-        /// </summary>
-        public readonly Outputs.FormulaPropertiesFromVmResponse? Vm;
 
         [OutputConstructor]
         private GetFormulaResult(
-            string author,
-
-            string creationDate,
-
-            string? description,
-
-            Outputs.LabVirtualMachineCreationParameterResponse? formulaContent,
-
             string id,
 
             string? location,
 
             string name,
 
-            string? osType,
-
-            string provisioningState,
+            Outputs.FormulaPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uniqueIdentifier,
-
-            Outputs.FormulaPropertiesFromVmResponse? vm)
+            string type)
         {
-            Author = author;
-            CreationDate = creationDate;
-            Description = description;
-            FormulaContent = formulaContent;
             Id = id;
             Location = location;
             Name = name;
-            OsType = osType;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
-            Vm = vm;
         }
     }
 }

@@ -22,78 +22,22 @@ class GetPipelineResult:
     """
     Pipeline resource type.
     """
-    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, folder=None, id=None, name=None, parameters=None, policy=None, run_dimensions=None, type=None, variables=None):
-        if activities and not isinstance(activities, list):
-            raise TypeError("Expected argument 'activities' to be a list")
-        pulumi.set(__self__, "activities", activities)
-        if annotations and not isinstance(annotations, list):
-            raise TypeError("Expected argument 'annotations' to be a list")
-        pulumi.set(__self__, "annotations", annotations)
-        if concurrency and not isinstance(concurrency, int):
-            raise TypeError("Expected argument 'concurrency' to be a int")
-        pulumi.set(__self__, "concurrency", concurrency)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if folder and not isinstance(folder, dict):
-            raise TypeError("Expected argument 'folder' to be a dict")
-        pulumi.set(__self__, "folder", folder)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        pulumi.set(__self__, "parameters", parameters)
-        if policy and not isinstance(policy, dict):
-            raise TypeError("Expected argument 'policy' to be a dict")
-        pulumi.set(__self__, "policy", policy)
-        if run_dimensions and not isinstance(run_dimensions, dict):
-            raise TypeError("Expected argument 'run_dimensions' to be a dict")
-        pulumi.set(__self__, "run_dimensions", run_dimensions)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if variables and not isinstance(variables, dict):
-            raise TypeError("Expected argument 'variables' to be a dict")
-        pulumi.set(__self__, "variables", variables)
-
-    @property
-    @pulumi.getter
-    def activities(self) -> Optional[Sequence[Any]]:
-        """
-        List of activities in pipeline.
-        """
-        return pulumi.get(self, "activities")
-
-    @property
-    @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Any]]:
-        """
-        List of tags that can be used for describing the Pipeline.
-        """
-        return pulumi.get(self, "annotations")
-
-    @property
-    @pulumi.getter
-    def concurrency(self) -> Optional[int]:
-        """
-        The max number of concurrent runs for the pipeline.
-        """
-        return pulumi.get(self, "concurrency")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the pipeline.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -102,14 +46,6 @@ class GetPipelineResult:
         Etag identifies change in the resource.
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter
-    def folder(self) -> Optional['outputs.PipelineResponseFolder']:
-        """
-        The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-        """
-        return pulumi.get(self, "folder")
 
     @property
     @pulumi.getter
@@ -129,27 +65,11 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+    def properties(self) -> 'outputs.PipelineResponse':
         """
-        List of parameters for pipeline.
+        Properties of the pipeline.
         """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter
-    def policy(self) -> Optional['outputs.PipelinePolicyResponse']:
-        """
-        Pipeline Policy.
-        """
-        return pulumi.get(self, "policy")
-
-    @property
-    @pulumi.getter(name="runDimensions")
-    def run_dimensions(self) -> Optional[Mapping[str, Any]]:
-        """
-        Dimensions emitted by Pipeline.
-        """
-        return pulumi.get(self, "run_dimensions")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -159,14 +79,6 @@ class GetPipelineResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def variables(self) -> Optional[Mapping[str, 'outputs.VariableSpecificationResponse']]:
-        """
-        List of variables for pipeline.
-        """
-        return pulumi.get(self, "variables")
-
 
 class AwaitableGetPipelineResult(GetPipelineResult):
     # pylint: disable=using-constant-test
@@ -174,19 +86,11 @@ class AwaitableGetPipelineResult(GetPipelineResult):
         if False:
             yield self
         return GetPipelineResult(
-            activities=self.activities,
-            annotations=self.annotations,
-            concurrency=self.concurrency,
-            description=self.description,
             etag=self.etag,
-            folder=self.folder,
             id=self.id,
             name=self.name,
-            parameters=self.parameters,
-            policy=self.policy,
-            run_dimensions=self.run_dimensions,
-            type=self.type,
-            variables=self.variables)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_pipeline(factory_name: Optional[str] = None,
@@ -210,19 +114,11 @@ def get_pipeline(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        activities=__ret__.activities,
-        annotations=__ret__.annotations,
-        concurrency=__ret__.concurrency,
-        description=__ret__.description,
         etag=__ret__.etag,
-        folder=__ret__.folder,
         id=__ret__.id,
         name=__ret__.name,
-        parameters=__ret__.parameters,
-        policy=__ret__.policy,
-        run_dimensions=__ret__.run_dimensions,
-        type=__ret__.type,
-        variables=__ret__.variables)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_pipeline)

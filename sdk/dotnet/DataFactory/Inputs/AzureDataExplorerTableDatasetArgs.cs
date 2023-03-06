@@ -70,17 +70,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The table name of the Azure Data Explorer database. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("table")]
-        public Input<object>? Table { get; set; }
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureDataExplorerTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Data Explorer (Kusto) dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureDataExplorerDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureDataExplorerTableDatasetArgs()
         {

@@ -35,41 +35,17 @@ export interface GetPolicyExemptionArgs {
  */
 export interface GetPolicyExemptionResult {
     /**
-     * The description of the policy exemption.
-     */
-    readonly description?: string;
-    /**
-     * The display name of the policy exemption.
-     */
-    readonly displayName?: string;
-    /**
-     * The policy exemption category. Possible values are Waiver and Mitigated.
-     */
-    readonly exemptionCategory: string;
-    /**
-     * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-     */
-    readonly expiresOn?: string;
-    /**
      * The ID of the policy exemption.
      */
     readonly id: string;
-    /**
-     * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-     */
-    readonly metadata?: any;
     /**
      * The name of the policy exemption.
      */
     readonly name: string;
     /**
-     * The ID of the policy assignment that is being exempted.
+     * Properties for the policy exemption.
      */
-    readonly policyAssignmentId: string;
-    /**
-     * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
-     */
-    readonly policyDefinitionReferenceIds?: string[];
+    readonly properties: outputs.authorization.v20200701preview.PolicyExemptionPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

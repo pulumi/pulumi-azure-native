@@ -15,24 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class HDInsightSparkActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("arguments")]
-        private InputList<object>? _arguments;
-
-        /// <summary>
-        /// The user-specified arguments to HDInsightSparkActivity.
-        /// </summary>
-        public InputList<object> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputList<object>());
-            set => _arguments = value;
-        }
-
-        /// <summary>
-        /// The application's Java/Spark main class.
-        /// </summary>
-        [Input("className")]
-        public Input<string>? ClassName { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -50,18 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The relative path to the root folder of the code/package to be executed. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("entryFilePath", required: true)]
-        public Input<object> EntryFilePath { get; set; } = null!;
-
-        /// <summary>
-        /// Debug info option.
-        /// </summary>
-        [Input("getDebugInfo")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.HDInsightActivityDebugInfoOption>? GetDebugInfo { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -82,41 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("proxyUser")]
-        public Input<object>? ProxyUser { get; set; }
-
-        /// <summary>
-        /// The root path in 'sparkJobLinkedService' for all the job’s files. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("rootPath", required: true)]
-        public Input<object> RootPath { get; set; } = null!;
-
-        [Input("sparkConfig")]
-        private InputMap<object>? _sparkConfig;
-
-        /// <summary>
-        /// Spark configuration property.
-        /// </summary>
-        public InputMap<object> SparkConfig
-        {
-            get => _sparkConfig ?? (_sparkConfig = new InputMap<object>());
-            set => _sparkConfig = value;
-        }
-
-        /// <summary>
-        /// The storage linked service for uploading the entry file and dependencies, and for receiving logs.
-        /// </summary>
-        [Input("sparkJobLinkedService")]
-        public Input<Inputs.LinkedServiceReferenceArgs>? SparkJobLinkedService { get; set; }
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'HDInsightSpark'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// HDInsight spark activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HDInsightSparkActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public HDInsightSparkActivityArgs()
         {

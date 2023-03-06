@@ -39,18 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The IP address or host name of the Jira service. (e.g. jira.example.com)
-        /// </summary>
-        [Input("host", required: true)]
-        public Input<object> Host { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -64,18 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The password corresponding to the user name that you provided in the username field.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
-        /// </summary>
-        [Input("port")]
-        public Input<object>? Port { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Jira'.
         /// </summary>
@@ -83,28 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Jira Service linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
-
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("useHostVerification")]
-        public Input<object>? UseHostVerification { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("usePeerVerification")]
-        public Input<object>? UsePeerVerification { get; set; }
-
-        /// <summary>
-        /// The user name that you use to access Jira Service.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<object> Username { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.JiraLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public JiraLinkedServiceArgs()
         {

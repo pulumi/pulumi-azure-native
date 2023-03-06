@@ -146,16 +146,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        /// Properties to create and update Azure Cosmos DB MongoDB collection.
         /// </summary>
-        [Input("options")]
-        public Input<Inputs.CreateUpdateOptionsArgs>? Options { get; set; }
-
-        /// <summary>
-        /// The standard JSON format of a MongoDB collection
-        /// </summary>
-        [Input("resource", required: true)]
-        public Input<Inputs.MongoDBCollectionResourceArgs> Resource { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.MongoDBCollectionCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

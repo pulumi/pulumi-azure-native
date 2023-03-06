@@ -38,14 +38,6 @@ export class Address extends pulumi.CustomResource {
     }
 
     /**
-     * Status of address validation.
-     */
-    public /*out*/ readonly addressValidationStatus!: pulumi.Output<string>;
-    /**
-     * Contact details for the address.
-     */
-    public readonly contactDetails!: pulumi.Output<outputs.edgeorder.v20220501preview.ContactDetailsResponse>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -54,9 +46,9 @@ export class Address extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Shipping details for the address.
+     * Properties of an address.
      */
-    public readonly shippingAddress!: pulumi.Output<outputs.edgeorder.v20220501preview.ShippingAddressResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.edgeorder.v20220501preview.AddressPropertiesResponse>;
     /**
      * Represents resource creation and update time.
      */
@@ -81,28 +73,24 @@ export class Address extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'contactDetails'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addressName"] = args ? args.addressName : undefined;
-            resourceInputs["contactDetails"] = args ? args.contactDetails : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["addressValidationStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["addressValidationStatus"] = undefined /*out*/;
-            resourceInputs["contactDetails"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["shippingAddress"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -123,21 +111,17 @@ export interface AddressArgs {
      */
     addressName?: pulumi.Input<string>;
     /**
-     * Contact details for the address.
-     */
-    contactDetails: pulumi.Input<inputs.edgeorder.v20220501preview.ContactDetailsArgs>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
+     * Properties of an address.
+     */
+    properties: pulumi.Input<inputs.edgeorder.v20220501preview.AddressPropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Shipping details for the address.
-     */
-    shippingAddress?: pulumi.Input<inputs.edgeorder.v20220501preview.ShippingAddressArgs>;
     /**
      * Resource tags.
      */

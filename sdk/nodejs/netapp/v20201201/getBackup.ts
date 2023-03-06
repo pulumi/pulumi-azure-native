@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -47,29 +50,9 @@ export interface GetBackupArgs {
  */
 export interface GetBackupResult {
     /**
-     * UUID v4 used to identify the Backup
-     */
-    readonly backupId: string;
-    /**
-     * Type of backup Manual or Scheduled
-     */
-    readonly backupType: string;
-    /**
-     * The creation date of the backup
-     */
-    readonly creationDate: string;
-    /**
-     * Failure reason
-     */
-    readonly failureReason: string;
-    /**
      * Resource Id
      */
     readonly id: string;
-    /**
-     * Label for backup
-     */
-    readonly label?: string;
     /**
      * Resource location
      */
@@ -79,21 +62,13 @@ export interface GetBackupResult {
      */
     readonly name: string;
     /**
-     * Azure lifecycle management
+     * Backup Properties
      */
-    readonly provisioningState: string;
-    /**
-     * Size of backup
-     */
-    readonly size: number;
+    readonly properties: outputs.netapp.v20201201.BackupPropertiesResponse;
     /**
      * Resource type
      */
     readonly type: string;
-    /**
-     * Volume name
-     */
-    readonly volumeName: string;
 }
 /**
  * Get a particular backup of the volume

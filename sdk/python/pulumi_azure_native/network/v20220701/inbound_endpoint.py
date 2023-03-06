@@ -18,7 +18,7 @@ __all__ = ['InboundEndpointArgs', 'InboundEndpoint']
 class InboundEndpointArgs:
     def __init__(__self__, *,
                  dns_resolver_name: pulumi.Input[str],
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['InboundEndpointIPConfigurationArgs']]],
+                 properties: pulumi.Input['InboundEndpointPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  inbound_endpoint_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -26,14 +26,14 @@ class InboundEndpointArgs:
         """
         The set of arguments for constructing a InboundEndpoint resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
-        :param pulumi.Input[Sequence[pulumi.Input['InboundEndpointIPConfigurationArgs']]] ip_configurations: IP configurations for the inbound endpoint.
+        :param pulumi.Input['InboundEndpointPropertiesArgs'] properties: Properties of the inbound endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] inbound_endpoint_name: The name of the inbound endpoint for the DNS resolver.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dns_resolver_name", dns_resolver_name)
-        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if inbound_endpoint_name is not None:
             pulumi.set(__self__, "inbound_endpoint_name", inbound_endpoint_name)
@@ -55,16 +55,16 @@ class InboundEndpointArgs:
         pulumi.set(self, "dns_resolver_name", value)
 
     @property
-    @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['InboundEndpointIPConfigurationArgs']]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['InboundEndpointPropertiesArgs']:
         """
-        IP configurations for the inbound endpoint.
+        Properties of the inbound endpoint.
         """
-        return pulumi.get(self, "ip_configurations")
+        return pulumi.get(self, "properties")
 
-    @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['InboundEndpointIPConfigurationArgs']]]):
-        pulumi.set(self, "ip_configurations", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['InboundEndpointPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -122,8 +122,8 @@ class InboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_resolver_name: Optional[pulumi.Input[str]] = None,
                  inbound_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundEndpointIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['InboundEndpointPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -134,8 +134,8 @@ class InboundEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
         :param pulumi.Input[str] inbound_endpoint_name: The name of the inbound endpoint for the DNS resolver.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundEndpointIPConfigurationArgs']]]] ip_configurations: IP configurations for the inbound endpoint.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['InboundEndpointPropertiesArgs']] properties: Properties of the inbound endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -165,8 +165,8 @@ class InboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_resolver_name: Optional[pulumi.Input[str]] = None,
                  inbound_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundEndpointIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['InboundEndpointPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -182,18 +182,16 @@ class InboundEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dns_resolver_name'")
             __props__.__dict__["dns_resolver_name"] = dns_resolver_name
             __props__.__dict__["inbound_endpoint_name"] = inbound_endpoint_name
-            if ip_configurations is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_configurations'")
-            __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:InboundEndpoint"), pulumi.Alias(type_="azure-native:network/v20200401preview:InboundEndpoint")])
@@ -221,11 +219,9 @@ class InboundEndpoint(pulumi.CustomResource):
         __props__ = InboundEndpointArgs.__new__(InboundEndpointArgs)
 
         __props__.__dict__["etag"] = None
-        __props__.__dict__["ip_configurations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -238,14 +234,6 @@ class InboundEndpoint(pulumi.CustomResource):
         ETag of the inbound endpoint.
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[Sequence['outputs.InboundEndpointIPConfigurationResponse']]:
-        """
-        IP configurations for the inbound endpoint.
-        """
-        return pulumi.get(self, "ip_configurations")
 
     @property
     @pulumi.getter
@@ -264,20 +252,12 @@ class InboundEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.InboundEndpointPropertiesResponse']:
         """
-        The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+        Properties of the inbound endpoint.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> pulumi.Output[str]:
-        """
-        The resourceGuid property of the inbound endpoint resource.
-        """
-        return pulumi.get(self, "resource_guid")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

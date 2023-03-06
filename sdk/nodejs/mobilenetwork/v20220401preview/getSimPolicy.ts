@@ -52,10 +52,6 @@ export interface GetSimPolicyResult {
      */
     readonly createdByType?: string;
     /**
-     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
-     */
-    readonly defaultSlice: outputs.mobilenetwork.v20220401preview.SliceResourceIdResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -80,21 +76,9 @@ export interface GetSimPolicyResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the SIM policy resource.
+     * SIM policy Properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Interval for the UE periodic registration update procedure, in seconds.
-     */
-    readonly registrationTimer?: number;
-    /**
-     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
-     */
-    readonly rfspIndex?: number;
-    /**
-     * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-     */
-    readonly sliceConfigurations: outputs.mobilenetwork.v20220401preview.SliceConfigurationResponse[];
+    readonly properties: outputs.mobilenetwork.v20220401preview.SimPolicyPropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -107,10 +91,6 @@ export interface GetSimPolicyResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-     */
-    readonly ueAmbr: outputs.mobilenetwork.v20220401preview.AmbrResponse;
 }
 /**
  * Gets information about the specified SIM policy.

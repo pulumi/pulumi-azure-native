@@ -29,30 +29,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly string? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password for Basic authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapEcc'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
+        /// SAP ECC linked service properties.
         /// </summary>
-        public readonly string Url;
-        /// <summary>
-        /// The username for Basic authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly string? Username;
+        public readonly Outputs.SapEccLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapEccLinkedServiceResponse(
@@ -62,27 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            string? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            string url,
-
-            string? username)
+            Outputs.SapEccLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            Url = url;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

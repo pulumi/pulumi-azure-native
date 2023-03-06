@@ -23,10 +23,10 @@ namespace Pulumi.AzureNative.Addons.V20170515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the resource.
+        /// Describes Canonical support plan type and status.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.CanonicalSupportPlanPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Microsoft.Addons/supportProvider

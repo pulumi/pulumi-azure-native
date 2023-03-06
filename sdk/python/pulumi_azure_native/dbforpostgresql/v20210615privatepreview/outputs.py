@@ -13,8 +13,10 @@ from ._enums import *
 
 __all__ = [
     'AADAppResponse',
+    'AdminCredentialsResponse',
     'BackupResponse',
     'DBServerMetadataResponse',
+    'FirewallRulePropertiesResponse',
     'HighAvailabilityResponse',
     'IdentityResponse',
     'MaintenanceWindowResponse',
@@ -71,6 +73,18 @@ class AADAppResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AdminCredentialsResponse(dict):
+    """
+    Server admin credentials.
+    """
+    def __init__(__self__):
+        """
+        Server admin credentials.
+        """
+        pass
 
 
 @pulumi.output_type
@@ -202,6 +216,58 @@ class DBServerMetadataResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class FirewallRulePropertiesResponse(dict):
+    """
+    The properties of a server firewall rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIpAddress":
+            suggest = "end_ip_address"
+        elif key == "startIpAddress":
+            suggest = "start_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip_address: str,
+                 start_ip_address: str):
+        """
+        The properties of a server firewall rule.
+        :param str end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
+        :param str start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
+        """
+        The end IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
+        """
+        The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "start_ip_address")
 
 
 @pulumi.output_type
@@ -469,6 +535,8 @@ class MigrationSecretParametersResponse(dict):
         suggest = None
         if key == "aadApp":
             suggest = "aad_app"
+        elif key == "adminCredentials":
+            suggest = "admin_credentials"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrationSecretParametersResponse. Access the value via the '{suggest}' property getter instead.")
@@ -482,12 +550,15 @@ class MigrationSecretParametersResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aad_app: 'outputs.AADAppResponse'):
+                 aad_app: 'outputs.AADAppResponse',
+                 admin_credentials: 'outputs.AdminCredentialsResponse'):
         """
         Migration secret parameters.
         :param 'AADAppResponse' aad_app: Azure active directory application.
+        :param 'AdminCredentialsResponse' admin_credentials: Server admin credentials.
         """
         pulumi.set(__self__, "aad_app", aad_app)
+        pulumi.set(__self__, "admin_credentials", admin_credentials)
 
     @property
     @pulumi.getter(name="aadApp")
@@ -496,6 +567,14 @@ class MigrationSecretParametersResponse(dict):
         Azure active directory application.
         """
         return pulumi.get(self, "aad_app")
+
+    @property
+    @pulumi.getter(name="adminCredentials")
+    def admin_credentials(self) -> 'outputs.AdminCredentialsResponse':
+        """
+        Server admin credentials.
+        """
+        return pulumi.get(self, "admin_credentials")
 
 
 @pulumi.output_type

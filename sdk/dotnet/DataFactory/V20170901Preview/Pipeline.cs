@@ -17,30 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of activities in pipeline.
-        /// </summary>
-        [Output("activities")]
-        public Output<ImmutableArray<object>> Activities { get; private set; } = null!;
-
-        /// <summary>
-        /// List of tags that can be used for describing the Pipeline.
-        /// </summary>
-        [Output("annotations")]
-        public Output<ImmutableArray<object>> Annotations { get; private set; } = null!;
-
-        /// <summary>
-        /// The max number of concurrent runs for the pipeline.
-        /// </summary>
-        [Output("concurrency")]
-        public Output<int?> Concurrency { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the pipeline.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         [Output("etag")]
@@ -53,10 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of parameters for pipeline.
+        /// Properties of the pipeline.
         /// </summary>
-        [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>?> Parameters { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PipelineResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -114,65 +90,23 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
-        [Input("activities")]
-        private InputList<object>? _activities;
-
-        /// <summary>
-        /// List of activities in pipeline.
-        /// </summary>
-        public InputList<object> Activities
-        {
-            get => _activities ?? (_activities = new InputList<object>());
-            set => _activities = value;
-        }
-
-        [Input("annotations")]
-        private InputList<object>? _annotations;
-
-        /// <summary>
-        /// List of tags that can be used for describing the Pipeline.
-        /// </summary>
-        public InputList<object> Annotations
-        {
-            get => _annotations ?? (_annotations = new InputList<object>());
-            set => _annotations = value;
-        }
-
-        /// <summary>
-        /// The max number of concurrent runs for the pipeline.
-        /// </summary>
-        [Input("concurrency")]
-        public Input<int>? Concurrency { get; set; }
-
-        /// <summary>
-        /// The description of the pipeline.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
         /// <summary>
         /// The factory name.
         /// </summary>
         [Input("factoryName", required: true)]
         public Input<string> FactoryName { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
-
-        /// <summary>
-        /// List of parameters for pipeline.
-        /// </summary>
-        public InputMap<Inputs.ParameterSpecificationArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterSpecificationArgs>());
-            set => _parameters = value;
-        }
-
         /// <summary>
         /// The pipeline name.
         /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
+
+        /// <summary>
+        /// Properties of the pipeline.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PipelineArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -94,17 +94,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The schedules.
+        /// The properties of the bandwidth setting.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BandwidthScheduleResponse> Schedules;
+        public readonly Outputs.BandwidthRateSettingPropertiesResponse Properties;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The number of volumes that uses the bandwidth setting.
-        /// </summary>
-        public readonly int VolumeCount;
 
         [OutputConstructor]
         private GetBandwidthSettingResult(
@@ -114,18 +110,15 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
 
             string name,
 
-            ImmutableArray<Outputs.BandwidthScheduleResponse> schedules,
+            Outputs.BandwidthRateSettingPropertiesResponse properties,
 
-            string type,
-
-            int volumeCount)
+            string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
-            Schedules = schedules;
+            Properties = properties;
             Type = type;
-            VolumeCount = volumeCount;
         }
     }
 }

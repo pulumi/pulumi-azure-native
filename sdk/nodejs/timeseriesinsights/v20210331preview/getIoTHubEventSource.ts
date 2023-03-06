@@ -40,38 +40,14 @@ export interface GetIoTHubEventSourceArgs {
  */
 export interface GetIoTHubEventSourceResult {
     /**
-     * The name of the iot hub's consumer group that holds the partitions from which events will be read.
-     */
-    readonly consumerGroupName: string;
-    /**
-     * The time the resource was created.
-     */
-    readonly creationTime: string;
-    /**
-     * The resource id of the event source in Azure Resource Manager.
-     */
-    readonly eventSourceResourceId: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The name of the iot hub.
-     */
-    readonly iotHubName: string;
-    /**
-     * The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-     */
-    readonly keyName: string;
     /**
      * The kind of the event source.
      * Expected value is 'Microsoft.IoTHub'.
      */
     readonly kind: "Microsoft.IoTHub";
-    /**
-     * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-     */
-    readonly localTimestamp?: outputs.timeseriesinsights.v20210331preview.LocalTimestampResponse;
     /**
      * Resource location
      */
@@ -81,21 +57,13 @@ export interface GetIoTHubEventSourceResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Properties of the IoTHub event source resource.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.timeseriesinsights.v20210331preview.IoTHubEventSourceResourcePropertiesResponse;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-     */
-    readonly time?: string;
-    /**
-     * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-     */
-    readonly timestampPropertyName?: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

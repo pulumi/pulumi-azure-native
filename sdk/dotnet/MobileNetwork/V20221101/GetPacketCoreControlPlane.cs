@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public sealed class GetPacketCoreControlPlaneResult
     {
         /// <summary>
-        /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
-        /// </summary>
-        public readonly Outputs.InterfacePropertiesResponse ControlPlaneAccessInterface;
-        /// <summary>
-        /// The core network technology generation (5G core or EPC / 4G core).
-        /// </summary>
-        public readonly string? CoreNetworkTechnology;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -85,18 +77,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// The identity used to retrieve the ingress certificate from Azure key vault.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
-        /// <summary>
-        /// The installation state of the packet core control plane resource.
-        /// </summary>
-        public readonly Outputs.InstallationResponse Installation;
-        /// <summary>
-        /// Settings to allow interoperability with third party components e.g. RANs and UEs.
-        /// </summary>
-        public readonly object? InteropSettings;
-        /// <summary>
-        /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-        /// </summary>
-        public readonly Outputs.LocalDiagnosticsAccessConfigurationResponse LocalDiagnosticsAccess;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -106,25 +86,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The platform where the packet core is deployed.
+        /// Packet core control plane Properties.
         /// </summary>
-        public readonly Outputs.PlatformConfigurationResponse Platform;
-        /// <summary>
-        /// The provisioning state of the packet core control plane resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The previous version of the packet core software that was deployed. Used when performing the rollback action.
-        /// </summary>
-        public readonly string RollbackVersion;
-        /// <summary>
-        /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SiteResourceIdResponse> Sites;
-        /// <summary>
-        /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
-        /// </summary>
-        public readonly string Sku;
+        public readonly Outputs.PacketCoreControlPlanePropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -137,74 +101,33 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
-        /// </summary>
-        public readonly int? UeMtu;
-        /// <summary>
-        /// The version of the packet core software that is deployed.
-        /// </summary>
-        public readonly string? Version;
 
         [OutputConstructor]
         private GetPacketCoreControlPlaneResult(
-            Outputs.InterfacePropertiesResponse controlPlaneAccessInterface,
-
-            string? coreNetworkTechnology,
-
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
-
-            Outputs.InstallationResponse installation,
-
-            object? interopSettings,
-
-            Outputs.LocalDiagnosticsAccessConfigurationResponse localDiagnosticsAccess,
 
             string location,
 
             string name,
 
-            Outputs.PlatformConfigurationResponse platform,
-
-            string provisioningState,
-
-            string rollbackVersion,
-
-            ImmutableArray<Outputs.SiteResourceIdResponse> sites,
-
-            string sku,
+            Outputs.PacketCoreControlPlanePropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            int? ueMtu,
-
-            string? version)
+            string type)
         {
-            ControlPlaneAccessInterface = controlPlaneAccessInterface;
-            CoreNetworkTechnology = coreNetworkTechnology;
             Id = id;
             Identity = identity;
-            Installation = installation;
-            InteropSettings = interopSettings;
-            LocalDiagnosticsAccess = localDiagnosticsAccess;
             Location = location;
             Name = name;
-            Platform = platform;
-            ProvisioningState = provisioningState;
-            RollbackVersion = rollbackVersion;
-            Sites = sites;
-            Sku = sku;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UeMtu = ueMtu;
-            Version = version;
         }
     }
 }

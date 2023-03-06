@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class DynamicsAXLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specify the resource you are requesting authorization. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("aadResourceId", required: true)]
-        public Input<object> AadResourceId { get; set; } = null!;
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -45,12 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -64,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Specify the application's client ID. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId", required: true)]
-        public Input<object> ServicePrincipalId { get; set; } = null!;
-
-        /// <summary>
-        /// Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or reference a secret stored in Azure Key Vault. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalKey", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ServicePrincipalKey { get; set; } = null!;
-
-        /// <summary>
-        /// Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tenant", required: true)]
-        public Input<object> Tenant { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'DynamicsAX'.
         /// </summary>
@@ -89,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
+        /// Dynamics AX linked service properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DynamicsAXLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public DynamicsAXLinkedServiceArgs()
         {

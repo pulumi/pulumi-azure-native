@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,14 +45,6 @@ export interface GetBlobContainerImmutabilityPolicyArgs {
  */
 export interface GetBlobContainerImmutabilityPolicyResult {
     /**
-     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
-     */
-    readonly allowProtectedAppendWrites?: boolean;
-    /**
-     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
-     */
-    readonly allowProtectedAppendWritesAll?: boolean;
-    /**
      * Resource Etag.
      */
     readonly etag: string;
@@ -58,17 +53,13 @@ export interface GetBlobContainerImmutabilityPolicyResult {
      */
     readonly id: string;
     /**
-     * The immutability period for the blobs in the container since the policy creation, in days.
-     */
-    readonly immutabilityPeriodSinceCreationInDays?: number;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+     * The properties of an ImmutabilityPolicy of a blob container.
      */
-    readonly state: string;
+    readonly properties: outputs.storage.v20210901.ImmutabilityPolicyPropertyResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -8,75 +8,37 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['FileShareArgs', 'FileShare']
 
 @pulumi.input_type
 class FileShareArgs:
     def __init__(__self__, *,
-                 admin_user: pulumi.Input[str],
-                 data_policy: pulumi.Input['DataPolicy'],
                  device_name: pulumi.Input[str],
                  file_server_name: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
-                 monitoring_status: pulumi.Input['MonitoringStatus'],
-                 provisioned_capacity_in_bytes: pulumi.Input[float],
+                 properties: pulumi.Input['FileSharePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 share_status: pulumi.Input['ShareStatus'],
-                 description: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FileShare resource.
-        :param pulumi.Input[str] admin_user: The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-        :param pulumi.Input['DataPolicy'] data_policy: The data policy
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] file_server_name: The file server name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status
-        :param pulumi.Input[float] provisioned_capacity_in_bytes: The total provisioned capacity in Bytes
+        :param pulumi.Input['FileSharePropertiesArgs'] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input['ShareStatus'] share_status: The Share Status
-        :param pulumi.Input[str] description: Description for file share
         :param pulumi.Input[str] share_name: The file share name.
         """
-        pulumi.set(__self__, "admin_user", admin_user)
-        pulumi.set(__self__, "data_policy", data_policy)
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "file_server_name", file_server_name)
         pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
-        pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_status", share_status)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if share_name is not None:
             pulumi.set(__self__, "share_name", share_name)
-
-    @property
-    @pulumi.getter(name="adminUser")
-    def admin_user(self) -> pulumi.Input[str]:
-        """
-        The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-        """
-        return pulumi.get(self, "admin_user")
-
-    @admin_user.setter
-    def admin_user(self, value: pulumi.Input[str]):
-        pulumi.set(self, "admin_user", value)
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> pulumi.Input['DataPolicy']:
-        """
-        The data policy
-        """
-        return pulumi.get(self, "data_policy")
-
-    @data_policy.setter
-    def data_policy(self, value: pulumi.Input['DataPolicy']):
-        pulumi.set(self, "data_policy", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -115,28 +77,16 @@ class FileShareArgs:
         pulumi.set(self, "manager_name", value)
 
     @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> pulumi.Input['MonitoringStatus']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['FileSharePropertiesArgs']:
         """
-        The monitoring status
+        The properties.
         """
-        return pulumi.get(self, "monitoring_status")
+        return pulumi.get(self, "properties")
 
-    @monitoring_status.setter
-    def monitoring_status(self, value: pulumi.Input['MonitoringStatus']):
-        pulumi.set(self, "monitoring_status", value)
-
-    @property
-    @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> pulumi.Input[float]:
-        """
-        The total provisioned capacity in Bytes
-        """
-        return pulumi.get(self, "provisioned_capacity_in_bytes")
-
-    @provisioned_capacity_in_bytes.setter
-    def provisioned_capacity_in_bytes(self, value: pulumi.Input[float]):
-        pulumi.set(self, "provisioned_capacity_in_bytes", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['FileSharePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -149,30 +99,6 @@ class FileShareArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Input['ShareStatus']:
-        """
-        The Share Status
-        """
-        return pulumi.get(self, "share_status")
-
-    @share_status.setter
-    def share_status(self, value: pulumi.Input['ShareStatus']):
-        pulumi.set(self, "share_status", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for file share
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="shareName")
@@ -197,34 +123,24 @@ class FileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_user: Optional[pulumi.Input[str]] = None,
-                 data_policy: Optional[pulumi.Input['DataPolicy']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  file_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
-                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['FileSharePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 share_status: Optional[pulumi.Input['ShareStatus']] = None,
                  __props__=None):
         """
         The File Share.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_user: The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-        :param pulumi.Input['DataPolicy'] data_policy: The data policy
-        :param pulumi.Input[str] description: Description for file share
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] file_server_name: The file server name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status
-        :param pulumi.Input[float] provisioned_capacity_in_bytes: The total provisioned capacity in Bytes
+        :param pulumi.Input[pulumi.InputType['FileSharePropertiesArgs']] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] share_name: The file share name.
-        :param pulumi.Input['ShareStatus'] share_status: The Share Status
         """
         ...
     @overload
@@ -250,17 +166,12 @@ class FileShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_user: Optional[pulumi.Input[str]] = None,
-                 data_policy: Optional[pulumi.Input['DataPolicy']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  file_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
-                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['FileSharePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 share_status: Optional[pulumi.Input['ShareStatus']] = None,
                  __props__=None):
         pulumi.log.warn("""FileShare is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -271,13 +182,6 @@ class FileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FileShareArgs.__new__(FileShareArgs)
 
-            if admin_user is None and not opts.urn:
-                raise TypeError("Missing required property 'admin_user'")
-            __props__.__dict__["admin_user"] = admin_user
-            if data_policy is None and not opts.urn:
-                raise TypeError("Missing required property 'data_policy'")
-            __props__.__dict__["data_policy"] = data_policy
-            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
@@ -287,23 +191,15 @@ class FileShare(pulumi.CustomResource):
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
-            if monitoring_status is None and not opts.urn:
-                raise TypeError("Missing required property 'monitoring_status'")
-            __props__.__dict__["monitoring_status"] = monitoring_status
-            if provisioned_capacity_in_bytes is None and not opts.urn:
-                raise TypeError("Missing required property 'provisioned_capacity_in_bytes'")
-            __props__.__dict__["provisioned_capacity_in_bytes"] = provisioned_capacity_in_bytes
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["share_name"] = share_name
-            if share_status is None and not opts.urn:
-                raise TypeError("Missing required property 'share_status'")
-            __props__.__dict__["share_status"] = share_status
-            __props__.__dict__["local_used_capacity_in_bytes"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["used_capacity_in_bytes"] = None
         super(FileShare, __self__).__init__(
             'azure-native:storsimple/v20161001:FileShare',
             resource_name,
@@ -326,57 +222,10 @@ class FileShare(pulumi.CustomResource):
 
         __props__ = FileShareArgs.__new__(FileShareArgs)
 
-        __props__.__dict__["admin_user"] = None
-        __props__.__dict__["data_policy"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["local_used_capacity_in_bytes"] = None
-        __props__.__dict__["monitoring_status"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioned_capacity_in_bytes"] = None
-        __props__.__dict__["share_status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["used_capacity_in_bytes"] = None
         return FileShare(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="adminUser")
-    def admin_user(self) -> pulumi.Output[str]:
-        """
-        The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-        """
-        return pulumi.get(self, "admin_user")
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> pulumi.Output[str]:
-        """
-        The data policy
-        """
-        return pulumi.get(self, "data_policy")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description for file share
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> pulumi.Output[float]:
-        """
-        The local used capacity in Bytes.
-        """
-        return pulumi.get(self, "local_used_capacity_in_bytes")
-
-    @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> pulumi.Output[str]:
-        """
-        The monitoring status
-        """
-        return pulumi.get(self, "monitoring_status")
 
     @property
     @pulumi.getter
@@ -387,20 +236,12 @@ class FileShare(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> pulumi.Output[float]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.FileSharePropertiesResponse']:
         """
-        The total provisioned capacity in Bytes
+        The properties.
         """
-        return pulumi.get(self, "provisioned_capacity_in_bytes")
-
-    @property
-    @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Output[str]:
-        """
-        The Share Status
-        """
-        return pulumi.get(self, "share_status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -409,12 +250,4 @@ class FileShare(pulumi.CustomResource):
         The type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> pulumi.Output[float]:
-        """
-        The used capacity in Bytes.
-        """
-        return pulumi.get(self, "used_capacity_in_bytes")
 

@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class ImpalaLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        /// </summary>
-        [Input("allowHostNameCNMismatch")]
-        public Input<object>? AllowHostNameCNMismatch { get; set; }
-
-        /// <summary>
-        /// Specifies whether to allow self-signed certificates from the server. The default value is false.
-        /// </summary>
-        [Input("allowSelfSignedServerCert")]
-        public Input<object>? AllowSelfSignedServerCert { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The authentication type to use.
-        /// </summary>
-        [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.ImpalaAuthenticationType> AuthenticationType { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -56,24 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        /// </summary>
-        [Input("enableSsl")]
-        public Input<object>? EnableSsl { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The IP address or host name of the Impala server. (i.e. 192.168.222.160)
-        /// </summary>
-        [Input("host", required: true)]
-        public Input<object> Host { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -88,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The password corresponding to the user name when using UsernameAndPassword.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
-        /// </summary>
-        [Input("port")]
-        public Input<object>? Port { get; set; }
-
-        /// <summary>
-        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        /// </summary>
-        [Input("trustedCertPath")]
-        public Input<object>? TrustedCertPath { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Impala'.
         /// </summary>
@@ -113,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        /// Impala server linked service properties.
         /// </summary>
-        [Input("useSystemTrustStore")]
-        public Input<object>? UseSystemTrustStore { get; set; }
-
-        /// <summary>
-        /// The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
-        /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ImpalaLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ImpalaLinkedServiceArgs()
         {

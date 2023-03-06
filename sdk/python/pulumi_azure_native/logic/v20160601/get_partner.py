@@ -22,61 +22,25 @@ class GetPartnerResult:
     """
     The integration account partner.
     """
-    def __init__(__self__, changed_time=None, content=None, created_time=None, id=None, location=None, metadata=None, name=None, partner_type=None, tags=None, type=None):
-        if changed_time and not isinstance(changed_time, str):
-            raise TypeError("Expected argument 'changed_time' to be a str")
-        pulumi.set(__self__, "changed_time", changed_time)
-        if content and not isinstance(content, dict):
-            raise TypeError("Expected argument 'content' to be a dict")
-        pulumi.set(__self__, "content", content)
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        pulumi.set(__self__, "created_time", created_time)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if partner_type and not isinstance(partner_type, str):
-            raise TypeError("Expected argument 'partner_type' to be a str")
-        pulumi.set(__self__, "partner_type", partner_type)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
-        """
-        The changed time.
-        """
-        return pulumi.get(self, "changed_time")
-
-    @property
-    @pulumi.getter
-    def content(self) -> 'outputs.PartnerContentResponse':
-        """
-        The partner content.
-        """
-        return pulumi.get(self, "content")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        The created time.
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -96,14 +60,6 @@ class GetPartnerResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        The metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         Gets the resource name.
@@ -111,12 +67,12 @@ class GetPartnerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="partnerType")
-    def partner_type(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.IntegrationAccountPartnerPropertiesResponse':
         """
-        The partner type.
+        The integration account partner properties.
         """
-        return pulumi.get(self, "partner_type")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -141,14 +97,10 @@ class AwaitableGetPartnerResult(GetPartnerResult):
         if False:
             yield self
         return GetPartnerResult(
-            changed_time=self.changed_time,
-            content=self.content,
-            created_time=self.created_time,
             id=self.id,
             location=self.location,
-            metadata=self.metadata,
             name=self.name,
-            partner_type=self.partner_type,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -173,14 +125,10 @@ def get_partner(integration_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20160601:getPartner', __args__, opts=opts, typ=GetPartnerResult).value
 
     return AwaitableGetPartnerResult(
-        changed_time=__ret__.changed_time,
-        content=__ret__.content,
-        created_time=__ret__.created_time,
         id=__ret__.id,
         location=__ret__.location,
-        metadata=__ret__.metadata,
         name=__ret__.name,
-        partner_type=__ret__.partner_type,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

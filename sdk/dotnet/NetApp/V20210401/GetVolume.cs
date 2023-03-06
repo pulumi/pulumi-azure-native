@@ -94,229 +94,57 @@ namespace Pulumi.AzureNative.NetApp.V20210401
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
-        /// </summary>
-        public readonly string? BackupId;
-        /// <summary>
-        /// Unique Baremetal Tenant Identifier.
-        /// </summary>
-        public readonly string BaremetalTenantId;
-        /// <summary>
-        /// Specifies whether Cool Access(tiering) is enabled for the volume.
-        /// </summary>
-        public readonly bool? CoolAccess;
-        /// <summary>
-        /// Specifies the number of days after which data that is not accessed by clients will be tiered.
-        /// </summary>
-        public readonly int? CoolnessPeriod;
-        /// <summary>
-        /// A unique file path for the volume. Used when creating mount targets
-        /// </summary>
-        public readonly string CreationToken;
-        /// <summary>
-        /// DataProtection type volumes include an object containing details of the replication
-        /// </summary>
-        public readonly Outputs.VolumePropertiesResponseDataProtection? DataProtection;
-        /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-        /// </summary>
-        public readonly string? EncryptionKeySource;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// Set of export policy rules
-        /// </summary>
-        public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
-        /// <summary>
-        /// Unique FileSystem Identifier.
-        /// </summary>
-        public readonly string FileSystemId;
         /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Restoring
-        /// </summary>
-        public readonly bool? IsRestoring;
-        /// <summary>
-        /// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        public readonly bool? KerberosEnabled;
-        /// <summary>
-        /// Specifies whether LDAP is enabled or not for a given NFS volume.
-        /// </summary>
-        public readonly bool? LdapEnabled;
-        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// List of mount targets
-        /// </summary>
-        public readonly ImmutableArray<Outputs.MountTargetPropertiesResponse> MountTargets;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
+        /// Volume properties
         /// </summary>
-        public readonly ImmutableArray<string> ProtocolTypes;
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-        /// </summary>
-        public readonly string? SecurityStyle;
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        public readonly string? ServiceLevel;
-        /// <summary>
-        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
-        /// </summary>
-        public readonly bool? SmbContinuouslyAvailable;
-        /// <summary>
-        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        /// </summary>
-        public readonly bool? SmbEncryption;
-        /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
-        /// </summary>
-        public readonly bool? SnapshotDirectoryVisible;
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
-        /// </summary>
-        public readonly string? SnapshotId;
-        /// <summary>
-        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        /// </summary>
-        public readonly string SubnetId;
+        public readonly Outputs.VolumePropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        public readonly double? ThroughputMibps;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-        /// </summary>
-        public readonly string? UnixPermissions;
-        /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        /// </summary>
-        public readonly double UsageThreshold;
-        /// <summary>
-        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
-        /// </summary>
-        public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetVolumeResult(
-            string? backupId,
-
-            string baremetalTenantId,
-
-            bool? coolAccess,
-
-            int? coolnessPeriod,
-
-            string creationToken,
-
-            Outputs.VolumePropertiesResponseDataProtection? dataProtection,
-
-            string? encryptionKeySource,
-
             string etag,
-
-            Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
-
-            string fileSystemId,
 
             string id,
 
-            bool? isRestoring,
-
-            bool? kerberosEnabled,
-
-            bool? ldapEnabled,
-
             string location,
-
-            ImmutableArray<Outputs.MountTargetPropertiesResponse> mountTargets,
 
             string name,
 
-            ImmutableArray<string> protocolTypes,
-
-            string provisioningState,
-
-            string? securityStyle,
-
-            string? serviceLevel,
-
-            bool? smbContinuouslyAvailable,
-
-            bool? smbEncryption,
-
-            bool? snapshotDirectoryVisible,
-
-            string? snapshotId,
-
-            string subnetId,
+            Outputs.VolumePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            double? throughputMibps,
-
-            string type,
-
-            string? unixPermissions,
-
-            double usageThreshold,
-
-            string? volumeType)
+            string type)
         {
-            BackupId = backupId;
-            BaremetalTenantId = baremetalTenantId;
-            CoolAccess = coolAccess;
-            CoolnessPeriod = coolnessPeriod;
-            CreationToken = creationToken;
-            DataProtection = dataProtection;
-            EncryptionKeySource = encryptionKeySource;
             Etag = etag;
-            ExportPolicy = exportPolicy;
-            FileSystemId = fileSystemId;
             Id = id;
-            IsRestoring = isRestoring;
-            KerberosEnabled = kerberosEnabled;
-            LdapEnabled = ldapEnabled;
             Location = location;
-            MountTargets = mountTargets;
             Name = name;
-            ProtocolTypes = protocolTypes;
-            ProvisioningState = provisioningState;
-            SecurityStyle = securityStyle;
-            ServiceLevel = serviceLevel;
-            SmbContinuouslyAvailable = smbContinuouslyAvailable;
-            SmbEncryption = smbEncryption;
-            SnapshotDirectoryVisible = snapshotDirectoryVisible;
-            SnapshotId = snapshotId;
-            SubnetId = subnetId;
+            Properties = properties;
             Tags = tags;
-            ThroughputMibps = throughputMibps;
             Type = type;
-            UnixPermissions = unixPermissions;
-            UsageThreshold = usageThreshold;
-            VolumeType = volumeType;
         }
     }
 }

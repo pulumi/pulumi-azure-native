@@ -15,65 +15,17 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
     /// </summary>
     public sealed class ServiceResourceDescriptionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("codePackages", required: true)]
-        private InputList<Inputs.ContainerCodePackagePropertiesArgs>? _codePackages;
-
-        /// <summary>
-        /// Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-        /// </summary>
-        public InputList<Inputs.ContainerCodePackagePropertiesArgs> CodePackages
-        {
-            get => _codePackages ?? (_codePackages = new InputList<Inputs.ContainerCodePackagePropertiesArgs>());
-            set => _codePackages = value;
-        }
-
-        /// <summary>
-        /// User readable description of the service.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Reference to sinks in DiagnosticsDescription.
-        /// </summary>
-        [Input("diagnostics")]
-        public Input<Inputs.DiagnosticsRefArgs>? Diagnostics { get; set; }
-
-        /// <summary>
-        /// The health state of a resource such as Application, Service, or Network.
-        /// </summary>
-        [Input("healthState")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.HealthState>? HealthState { get; set; }
-
         /// <summary>
         /// The name of the resource
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("networkRefs")]
-        private InputList<Inputs.NetworkRefArgs>? _networkRefs;
-
         /// <summary>
-        /// The names of the private networks that this service needs to be part of.
+        /// This type describes properties of a service resource.
         /// </summary>
-        public InputList<Inputs.NetworkRefArgs> NetworkRefs
-        {
-            get => _networkRefs ?? (_networkRefs = new InputList<Inputs.NetworkRefArgs>());
-            set => _networkRefs = value;
-        }
-
-        /// <summary>
-        /// The Operating system type required by the code in service.
-        /// </summary>
-        [Input("osType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.OperatingSystemTypes> OsType { get; set; } = null!;
-
-        /// <summary>
-        /// The number of replicas of the service to create. Defaults to 1 if not specified.
-        /// </summary>
-        [Input("replicaCount")]
-        public Input<int>? ReplicaCount { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ServiceResourcePropertiesArgs> Properties { get; set; } = null!;
 
         public ServiceResourceDescriptionArgs()
         {

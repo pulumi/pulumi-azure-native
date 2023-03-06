@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Network.V20220701
     public partial class DnsForwardingRuleset : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-        /// </summary>
-        [Output("dnsResolverOutboundEndpoints")]
-        public Output<ImmutableArray<Outputs.SubResourceResponse>> DnsResolverOutboundEndpoints { get; private set; } = null!;
-
-        /// <summary>
         /// ETag of the DNS forwarding ruleset.
         /// </summary>
         [Output("etag")]
@@ -40,16 +34,10 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The current provisioning state of the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the DNS forwarding ruleset.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resourceGuid for the DNS forwarding ruleset.
-        /// </summary>
-        [Output("resourceGuid")]
-        public Output<string> ResourceGuid { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DnsForwardingRulesetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -125,23 +113,17 @@ namespace Pulumi.AzureNative.Network.V20220701
         [Input("dnsForwardingRulesetName")]
         public Input<string>? DnsForwardingRulesetName { get; set; }
 
-        [Input("dnsResolverOutboundEndpoints", required: true)]
-        private InputList<Inputs.SubResourceArgs>? _dnsResolverOutboundEndpoints;
-
-        /// <summary>
-        /// The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-        /// </summary>
-        public InputList<Inputs.SubResourceArgs> DnsResolverOutboundEndpoints
-        {
-            get => _dnsResolverOutboundEndpoints ?? (_dnsResolverOutboundEndpoints = new InputList<Inputs.SubResourceArgs>());
-            set => _dnsResolverOutboundEndpoints = value;
-        }
-
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties of the DNS forwarding ruleset.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.DnsForwardingRulesetPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

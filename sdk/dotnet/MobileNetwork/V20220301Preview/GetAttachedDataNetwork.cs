@@ -130,14 +130,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Network Address and Port Translation configuration.
-        /// If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        /// Data network properties.
         /// </summary>
-        public readonly Outputs.NaptConfigurationResponse? NaptConfiguration;
-        /// <summary>
-        /// The provisioning state of the attached data network resource.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.AttachedDataNetworkPropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -150,21 +145,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        /// </summary>
-        public readonly ImmutableArray<string> UserEquipmentAddressPoolPrefix;
-        /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        /// The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        /// </summary>
-        public readonly ImmutableArray<string> UserEquipmentStaticAddressPoolPrefix;
-        /// <summary>
-        /// The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
-        /// </summary>
-        public readonly Outputs.InterfacePropertiesResponse UserPlaneDataInterface;
 
         [OutputConstructor]
         private GetAttachedDataNetworkResult(
@@ -186,21 +166,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 
             string name,
 
-            Outputs.NaptConfigurationResponse? naptConfiguration,
-
-            string provisioningState,
+            Outputs.AttachedDataNetworkPropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> userEquipmentAddressPoolPrefix,
-
-            ImmutableArray<string> userEquipmentStaticAddressPoolPrefix,
-
-            Outputs.InterfacePropertiesResponse userPlaneDataInterface)
+            string type)
         {
             CreatedAt = createdAt;
             CreatedBy = createdBy;
@@ -211,14 +183,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
             LastModifiedByType = lastModifiedByType;
             Location = location;
             Name = name;
-            NaptConfiguration = naptConfiguration;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserEquipmentAddressPoolPrefix = userEquipmentAddressPoolPrefix;
-            UserEquipmentStaticAddressPoolPrefix = userEquipmentStaticAddressPoolPrefix;
-            UserPlaneDataInterface = userPlaneDataInterface;
         }
     }
 }

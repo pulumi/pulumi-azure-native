@@ -52,10 +52,6 @@ export interface GetSliceResult {
      */
     readonly createdByType?: string;
     /**
-     * An optional description for this network slice.
-     */
-    readonly description?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -80,13 +76,9 @@ export interface GetSliceResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the network slice resource.
+     * Slice properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-     */
-    readonly snssai: outputs.mobilenetwork.v20220401preview.SnssaiResponse;
+    readonly properties: outputs.mobilenetwork.v20220401preview.SlicePropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

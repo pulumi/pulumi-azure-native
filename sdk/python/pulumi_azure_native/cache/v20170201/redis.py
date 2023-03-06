@@ -17,51 +17,39 @@ __all__ = ['RedisArgs', 'Redis']
 @pulumi.input_type
 class RedisArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['RedisCreatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 sku: pulumi.Input['SkuArgs'],
-                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 shard_count: Optional[pulumi.Input[int]] = None,
-                 static_ip: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Redis resource.
+        :param pulumi.Input['RedisCreatePropertiesArgs'] properties: Redis cache properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input['SkuArgs'] sku: The SKU of the Redis cache to deploy.
-        :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
-        :param pulumi.Input[str] static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-        :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: tenantSettings
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        if enable_non_ssl_port is not None:
-            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if redis_configuration is not None:
-            pulumi.set(__self__, "redis_configuration", redis_configuration)
-        if shard_count is not None:
-            pulumi.set(__self__, "shard_count", shard_count)
-        if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tenant_settings is not None:
-            pulumi.set(__self__, "tenant_settings", tenant_settings)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RedisCreatePropertiesArgs']:
+        """
+        Redis cache properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['RedisCreatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -74,30 +62,6 @@ class RedisArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Input['SkuArgs']:
-        """
-        The SKU of the Redis cache to deploy.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: pulumi.Input['SkuArgs']):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="enableNonSslPort")
-    def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether the non-ssl Redis server port (6379) is enabled.
-        """
-        return pulumi.get(self, "enable_non_ssl_port")
-
-    @enable_non_ssl_port.setter
-    def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_non_ssl_port", value)
 
     @property
     @pulumi.getter
@@ -124,54 +88,6 @@ class RedisArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        """
-        return pulumi.get(self, "redis_configuration")
-
-    @redis_configuration.setter
-    def redis_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "redis_configuration", value)
-
-    @property
-    @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of shards to be created on a Premium Cluster Cache.
-        """
-        return pulumi.get(self, "shard_count")
-
-    @shard_count.setter
-    def shard_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "shard_count", value)
-
-    @property
-    @pulumi.getter(name="staticIP")
-    def static_ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-        """
-        return pulumi.get(self, "static_ip")
-
-    @static_ip.setter
-    def static_ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "static_ip", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -182,18 +98,6 @@ class RedisArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tenantSettings")
-    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        tenantSettings
-        """
-        return pulumi.get(self, "tenant_settings")
-
-    @tenant_settings.setter
-    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tenant_settings", value)
 
 
 warnings.warn("""Version 2017-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
@@ -206,34 +110,22 @@ class Redis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RedisCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shard_count: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 static_ip: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A single Redis item in List or Get Operation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[pulumi.InputType['RedisCreatePropertiesArgs']] properties: Redis cache properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Redis cache to deploy.
-        :param pulumi.Input[str] static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-        :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: tenantSettings
         """
         ...
     @overload
@@ -259,17 +151,11 @@ class Redis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RedisCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shard_count: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 static_ip: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Redis is deprecated: Version 2017-02-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -280,28 +166,29 @@ class Redis(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RedisArgs.__new__(RedisArgs)
 
-            __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            __props__.__dict__["redis_configuration"] = redis_configuration
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["shard_count"] = shard_count
-            if sku is None and not opts.urn:
-                raise TypeError("Missing required property 'sku'")
-            __props__.__dict__["sku"] = sku
-            __props__.__dict__["static_ip"] = static_ip
-            __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tenant_settings"] = tenant_settings
             __props__.__dict__["access_keys"] = None
+            __props__.__dict__["enable_non_ssl_port"] = None
             __props__.__dict__["host_name"] = None
             __props__.__dict__["linked_servers"] = None
             __props__.__dict__["port"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["redis_configuration"] = None
             __props__.__dict__["redis_version"] = None
+            __props__.__dict__["shard_count"] = None
+            __props__.__dict__["sku"] = None
             __props__.__dict__["ssl_port"] = None
+            __props__.__dict__["static_ip"] = None
+            __props__.__dict__["subnet_id"] = None
+            __props__.__dict__["tenant_settings"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:Redis"), pulumi.Alias(type_="azure-native:cache/v20150801:Redis"), pulumi.Alias(type_="azure-native:cache/v20160401:Redis"), pulumi.Alias(type_="azure-native:cache/v20171001:Redis"), pulumi.Alias(type_="azure-native:cache/v20180301:Redis"), pulumi.Alias(type_="azure-native:cache/v20190701:Redis"), pulumi.Alias(type_="azure-native:cache/v20200601:Redis"), pulumi.Alias(type_="azure-native:cache/v20201201:Redis"), pulumi.Alias(type_="azure-native:cache/v20210601:Redis"), pulumi.Alias(type_="azure-native:cache/v20220501:Redis"), pulumi.Alias(type_="azure-native:cache/v20220601:Redis")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

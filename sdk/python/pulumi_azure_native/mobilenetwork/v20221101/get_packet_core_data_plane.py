@@ -22,7 +22,7 @@ class GetPacketCoreDataPlaneResult:
     """
     Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, user_plane_access_interface=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,9 +32,9 @@ class GetPacketCoreDataPlaneResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -44,9 +44,6 @@ class GetPacketCoreDataPlaneResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_plane_access_interface and not isinstance(user_plane_access_interface, dict):
-            raise TypeError("Expected argument 'user_plane_access_interface' to be a dict")
-        pulumi.set(__self__, "user_plane_access_interface", user_plane_access_interface)
 
     @property
     @pulumi.getter
@@ -73,12 +70,12 @@ class GetPacketCoreDataPlaneResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.PacketCoreDataPlanePropertiesFormatResponse':
         """
-        The provisioning state of the packet core data plane resource.
+        Packet core data plane Properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -104,14 +101,6 @@ class GetPacketCoreDataPlaneResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="userPlaneAccessInterface")
-    def user_plane_access_interface(self) -> 'outputs.InterfacePropertiesResponse':
-        """
-        The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-        """
-        return pulumi.get(self, "user_plane_access_interface")
-
 
 class AwaitableGetPacketCoreDataPlaneResult(GetPacketCoreDataPlaneResult):
     # pylint: disable=using-constant-test
@@ -122,11 +111,10 @@ class AwaitableGetPacketCoreDataPlaneResult(GetPacketCoreDataPlaneResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            user_plane_access_interface=self.user_plane_access_interface)
+            type=self.type)
 
 
 def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = None,
@@ -152,11 +140,10 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        user_plane_access_interface=__ret__.user_plane_access_interface)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_packet_core_data_plane)

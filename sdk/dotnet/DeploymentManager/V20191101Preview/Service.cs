@@ -28,22 +28,16 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The properties that define a service in a service topology.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.ServiceResourceResponseProperties> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure location to which the resources in the service belong to or should be deployed to.
-        /// </summary>
-        [Output("targetLocation")]
-        public Output<string> TargetLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The subscription to which the resources in the service belong to or should be deployed to.
-        /// </summary>
-        [Output("targetSubscriptionId")]
-        public Output<string> TargetSubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -108,6 +102,12 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The properties that define a service in a service topology.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ServiceResourcePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -136,18 +136,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The Azure location to which the resources in the service belong to or should be deployed to.
-        /// </summary>
-        [Input("targetLocation", required: true)]
-        public Input<string> TargetLocation { get; set; } = null!;
-
-        /// <summary>
-        /// The subscription to which the resources in the service belong to or should be deployed to.
-        /// </summary>
-        [Input("targetSubscriptionId", required: true)]
-        public Input<string> TargetSubscriptionId { get; set; } = null!;
 
         public ServiceArgs()
         {

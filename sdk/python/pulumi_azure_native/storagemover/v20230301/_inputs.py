@@ -11,9 +11,64 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgentPropertiesArgs',
     'AzureStorageBlobContainerEndpointPropertiesArgs',
+    'JobDefinitionPropertiesArgs',
     'NfsMountEndpointPropertiesArgs',
 ]
+
+@pulumi.input_type
+class AgentPropertiesArgs:
+    def __init__(__self__, *,
+                 arc_resource_id: pulumi.Input[str],
+                 arc_vm_uuid: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] arc_resource_id: The fully qualified resource ID of the Hybrid Compute resource for the Agent.
+        :param pulumi.Input[str] arc_vm_uuid: The VM UUID of the Hybrid Compute resource for the Agent.
+        :param pulumi.Input[str] description: A description for the Agent.
+        """
+        pulumi.set(__self__, "arc_resource_id", arc_resource_id)
+        pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="arcResourceId")
+    def arc_resource_id(self) -> pulumi.Input[str]:
+        """
+        The fully qualified resource ID of the Hybrid Compute resource for the Agent.
+        """
+        return pulumi.get(self, "arc_resource_id")
+
+    @arc_resource_id.setter
+    def arc_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arc_resource_id", value)
+
+    @property
+    @pulumi.getter(name="arcVmUuid")
+    def arc_vm_uuid(self) -> pulumi.Input[str]:
+        """
+        The VM UUID of the Hybrid Compute resource for the Agent.
+        """
+        return pulumi.get(self, "arc_vm_uuid")
+
+    @arc_vm_uuid.setter
+    def arc_vm_uuid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arc_vm_uuid", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the Agent.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
 
 @pulumi.input_type
 class AzureStorageBlobContainerEndpointPropertiesArgs:
@@ -83,6 +138,123 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class JobDefinitionPropertiesArgs:
+    def __init__(__self__, *,
+                 copy_mode: pulumi.Input[Union[str, 'CopyMode']],
+                 source_name: pulumi.Input[str],
+                 target_name: pulumi.Input[str],
+                 agent_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 source_subpath: Optional[pulumi.Input[str]] = None,
+                 target_subpath: Optional[pulumi.Input[str]] = None):
+        """
+        Job definition properties.
+        :param pulumi.Input[Union[str, 'CopyMode']] copy_mode: Strategy to use for copy.
+        :param pulumi.Input[str] source_name: The name of the source Endpoint.
+        :param pulumi.Input[str] target_name: The name of the target Endpoint.
+        :param pulumi.Input[str] agent_name: Name of the Agent to assign for new Job Runs of this Job Definition.
+        :param pulumi.Input[str] description: A description for the Job Definition.
+        :param pulumi.Input[str] source_subpath: The subpath to use when reading from the source Endpoint.
+        :param pulumi.Input[str] target_subpath: The subpath to use when writing to the target Endpoint.
+        """
+        pulumi.set(__self__, "copy_mode", copy_mode)
+        pulumi.set(__self__, "source_name", source_name)
+        pulumi.set(__self__, "target_name", target_name)
+        if agent_name is not None:
+            pulumi.set(__self__, "agent_name", agent_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if source_subpath is not None:
+            pulumi.set(__self__, "source_subpath", source_subpath)
+        if target_subpath is not None:
+            pulumi.set(__self__, "target_subpath", target_subpath)
+
+    @property
+    @pulumi.getter(name="copyMode")
+    def copy_mode(self) -> pulumi.Input[Union[str, 'CopyMode']]:
+        """
+        Strategy to use for copy.
+        """
+        return pulumi.get(self, "copy_mode")
+
+    @copy_mode.setter
+    def copy_mode(self, value: pulumi.Input[Union[str, 'CopyMode']]):
+        pulumi.set(self, "copy_mode", value)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> pulumi.Input[str]:
+        """
+        The name of the source Endpoint.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[str]:
+        """
+        The name of the target Endpoint.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_name", value)
+
+    @property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Agent to assign for new Job Runs of this Job Definition.
+        """
+        return pulumi.get(self, "agent_name")
+
+    @agent_name.setter
+    def agent_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the Job Definition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="sourceSubpath")
+    def source_subpath(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subpath to use when reading from the source Endpoint.
+        """
+        return pulumi.get(self, "source_subpath")
+
+    @source_subpath.setter
+    def source_subpath(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_subpath", value)
+
+    @property
+    @pulumi.getter(name="targetSubpath")
+    def target_subpath(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subpath to use when writing to the target Endpoint.
+        """
+        return pulumi.get(self, "target_subpath")
+
+    @target_subpath.setter
+    def target_subpath(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_subpath", value)
 
 
 @pulumi.input_type

@@ -72,25 +72,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetResourcePoolResult
     {
         /// <summary>
-        /// Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
-        /// Utilization will not exceed this limit even if there are available resources.
-        /// </summary>
-        public readonly double CpuLimitMHz;
-        /// <summary>
-        /// Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
-        /// to be available.
-        /// </summary>
-        public readonly double CpuReservationMHz;
-        /// <summary>
-        /// Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
-        /// This property is used in relative allocation between resource consumers.
-        /// </summary>
-        public readonly string CpuSharesLevel;
-        /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        public readonly string CustomResourceName;
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -98,10 +79,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Gets or sets the Id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the resource pool.
-        /// </summary>
-        public readonly string? InventoryItemId;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -111,40 +88,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
-        /// Utilization will not exceed the specified limit even if there are available resources.
-        /// </summary>
-        public readonly double MemLimitMB;
-        /// <summary>
-        /// Gets or sets MemReservationMB which specifies the guaranteed available memory in
-        /// megabytes.
-        /// </summary>
-        public readonly double MemReservationMB;
-        /// <summary>
-        /// Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
-        /// This property is used in relative allocation between resource consumers.
-        /// </summary>
-        public readonly string MemSharesLevel;
-        /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the resource pool.
-        /// </summary>
-        public readonly string MoName;
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
-        /// </summary>
-        public readonly string? MoRefId;
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
+        public readonly Outputs.ResourcePoolPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -157,83 +107,36 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Gets or sets the type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        public readonly string Uuid;
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        /// </summary>
-        public readonly string? VCenterId;
 
         [OutputConstructor]
         private GetResourcePoolResult(
-            double cpuLimitMHz,
-
-            double cpuReservationMHz,
-
-            string cpuSharesLevel,
-
-            string customResourceName,
-
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
-
-            string? inventoryItemId,
 
             string? kind,
 
             string location,
 
-            double memLimitMB,
-
-            double memReservationMB,
-
-            string memSharesLevel,
-
-            string moName,
-
-            string? moRefId,
-
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<Outputs.ResourceStatusResponse> statuses,
+            Outputs.ResourcePoolPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uuid,
-
-            string? vCenterId)
+            string type)
         {
-            CpuLimitMHz = cpuLimitMHz;
-            CpuReservationMHz = cpuReservationMHz;
-            CpuSharesLevel = cpuSharesLevel;
-            CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;
             Id = id;
-            InventoryItemId = inventoryItemId;
             Kind = kind;
             Location = location;
-            MemLimitMB = memLimitMB;
-            MemReservationMB = memReservationMB;
-            MemSharesLevel = memSharesLevel;
-            MoName = moName;
-            MoRefId = moRefId;
             Name = name;
-            ProvisioningState = provisioningState;
-            Statuses = statuses;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            VCenterId = vCenterId;
         }
     }
 }

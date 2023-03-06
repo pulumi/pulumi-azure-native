@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,18 +38,6 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
     }
 
     /**
-     * The changed time.
-     */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
-    /**
-     * The session content.
-     */
-    public readonly content!: pulumi.Output<any | undefined>;
-    /**
-     * The created time.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -54,6 +45,10 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
      * Gets the resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The integration account session properties.
+     */
+    public readonly properties!: pulumi.Output<outputs.logic.v20180701preview.IntegrationAccountSessionPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -77,25 +72,24 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sessionName"] = args ? args.sessionName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["content"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -111,10 +105,6 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
  */
 export interface IntegrationAccountSessionArgs {
     /**
-     * The session content.
-     */
-    content?: any;
-    /**
      * The integration account name.
      */
     integrationAccountName: pulumi.Input<string>;
@@ -122,6 +112,10 @@ export interface IntegrationAccountSessionArgs {
      * The resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The integration account session properties.
+     */
+    properties: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountSessionPropertiesArgs>;
     /**
      * The resource group name.
      */

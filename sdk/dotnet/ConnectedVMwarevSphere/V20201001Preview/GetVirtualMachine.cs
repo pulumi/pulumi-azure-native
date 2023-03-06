@@ -70,29 +70,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     public sealed class GetVirtualMachineResult
     {
         /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        public readonly string CustomResourceName;
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
-        /// <summary>
-        /// Firmware type
-        /// </summary>
-        public readonly string? FirmwareType;
-        /// <summary>
-        /// Gets or sets the folder path of the vm.
-        /// </summary>
-        public readonly string FolderPath;
-        /// <summary>
-        /// Guest agent status properties.
-        /// </summary>
-        public readonly Outputs.GuestAgentProfileResponse? GuestAgentProfile;
-        /// <summary>
-        /// Hardware properties.
-        /// </summary>
-        public readonly Outputs.HardwareProfileResponse? HardwareProfile;
         /// <summary>
         /// Gets or sets the Id.
         /// </summary>
@@ -102,14 +82,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
-        /// Gets or sets the instance uuid of the vm.
-        /// </summary>
-        public readonly string InstanceUuid;
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the virtual machine.
-        /// </summary>
-        public readonly string? InventoryItemId;
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         public readonly string? Kind;
@@ -118,54 +90,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the virtual machine.
-        /// </summary>
-        public readonly string MoName;
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
-        /// </summary>
-        public readonly string? MoRefId;
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network properties.
+        /// Resource properties.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
-        /// <summary>
-        /// OS properties.
-        /// </summary>
-        public readonly Outputs.OsProfileResponse? OsProfile;
-        /// <summary>
-        /// Placement properties.
-        /// </summary>
-        public readonly Outputs.PlacementProfileResponse? PlacementProfile;
-        /// <summary>
-        /// Gets the power state of the virtual machine.
-        /// </summary>
-        public readonly string PowerState;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
-        /// deploy.
-        /// </summary>
-        public readonly string? ResourcePoolId;
-        /// <summary>
-        /// Gets or sets the SMBIOS UUID of the vm.
-        /// </summary>
-        public readonly string? SmbiosUuid;
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
-        /// <summary>
-        /// Storage properties.
-        /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.VirtualMachinePropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -175,121 +106,42 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Gets or sets the ARM Id of the template resource to deploy the virtual machine.
-        /// </summary>
-        public readonly string? TemplateId;
-        /// <summary>
         /// Gets or sets the type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        public readonly string Uuid;
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        /// </summary>
-        public readonly string? VCenterId;
-        /// <summary>
-        /// Gets or sets a unique identifier for the vm resource.
-        /// </summary>
-        public readonly string VmId;
 
         [OutputConstructor]
         private GetVirtualMachineResult(
-            string customResourceName,
-
             Outputs.ExtendedLocationResponse? extendedLocation,
-
-            string? firmwareType,
-
-            string folderPath,
-
-            Outputs.GuestAgentProfileResponse? guestAgentProfile,
-
-            Outputs.HardwareProfileResponse? hardwareProfile,
 
             string id,
 
             Outputs.IdentityResponse? identity,
 
-            string instanceUuid,
-
-            string? inventoryItemId,
-
             string? kind,
 
             string location,
 
-            string moName,
-
-            string? moRefId,
-
             string name,
 
-            Outputs.NetworkProfileResponse? networkProfile,
-
-            Outputs.OsProfileResponse? osProfile,
-
-            Outputs.PlacementProfileResponse? placementProfile,
-
-            string powerState,
-
-            string provisioningState,
-
-            string? resourcePoolId,
-
-            string? smbiosUuid,
-
-            ImmutableArray<Outputs.ResourceStatusResponse> statuses,
-
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.VirtualMachinePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? templateId,
-
-            string type,
-
-            string uuid,
-
-            string? vCenterId,
-
-            string vmId)
+            string type)
         {
-            CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;
-            FirmwareType = firmwareType;
-            FolderPath = folderPath;
-            GuestAgentProfile = guestAgentProfile;
-            HardwareProfile = hardwareProfile;
             Id = id;
             Identity = identity;
-            InstanceUuid = instanceUuid;
-            InventoryItemId = inventoryItemId;
             Kind = kind;
             Location = location;
-            MoName = moName;
-            MoRefId = moRefId;
             Name = name;
-            NetworkProfile = networkProfile;
-            OsProfile = osProfile;
-            PlacementProfile = placementProfile;
-            PowerState = powerState;
-            ProvisioningState = provisioningState;
-            ResourcePoolId = resourcePoolId;
-            SmbiosUuid = smbiosUuid;
-            Statuses = statuses;
-            StorageProfile = storageProfile;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            TemplateId = templateId;
             Type = type;
-            Uuid = uuid;
-            VCenterId = vCenterId;
-            VmId = vmId;
         }
     }
 }

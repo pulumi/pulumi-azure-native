@@ -16,29 +16,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     public partial class KustoTableDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'KustoTable'.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource id of the kusto database.
-        /// </summary>
-        [Output("kustoDatabaseResourceId")]
-        public Output<string> KustoDatabaseResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Location of the kusto cluster.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Name of the azure resource
@@ -47,22 +29,16 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the kusto table data set.
+        /// Kusto table data set properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.KustoTableDataSetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// Table level sharing properties for kusto database
-        /// </summary>
-        [Output("tableLevelSharingProperties")]
-        public Output<Outputs.TableLevelSharingPropertiesResponse> TableLevelSharingProperties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
@@ -150,10 +126,10 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource id of the kusto database.
+        /// Kusto table data set properties.
         /// </summary>
-        [Input("kustoDatabaseResourceId", required: true)]
-        public Input<string> KustoDatabaseResourceId { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.KustoTableDataSetPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -166,12 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
-
-        /// <summary>
-        /// Table level sharing properties for kusto database
-        /// </summary>
-        [Input("tableLevelSharingProperties", required: true)]
-        public Input<Inputs.TableLevelSharingPropertiesArgs> TableLevelSharingProperties { get; set; } = null!;
 
         public KustoTableDataSetArgs()
         {

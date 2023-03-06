@@ -178,12 +178,6 @@ namespace Pulumi.AzureNative.Cache.V20160401
     public sealed class RedisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the non-ssl Redis server port (6379) is enabled.
-        /// </summary>
-        [Input("enableNonSslPort")]
-        public Input<bool>? EnableNonSslPort { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -195,47 +189,17 @@ namespace Pulumi.AzureNative.Cache.V20160401
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("redisConfiguration")]
-        private InputMap<string>? _redisConfiguration;
-
         /// <summary>
-        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        /// Redis cache properties.
         /// </summary>
-        public InputMap<string> RedisConfiguration
-        {
-            get => _redisConfiguration ?? (_redisConfiguration = new InputMap<string>());
-            set => _redisConfiguration = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.RedisCreatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The number of shards to be created on a Premium Cluster Cache.
-        /// </summary>
-        [Input("shardCount")]
-        public Input<int>? ShardCount { get; set; }
-
-        /// <summary>
-        /// The SKU of the Redis cache to deploy.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-        /// </summary>
-        [Input("staticIP")]
-        public Input<string>? StaticIP { get; set; }
-
-        /// <summary>
-        /// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -247,18 +211,6 @@ namespace Pulumi.AzureNative.Cache.V20160401
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tenantSettings")]
-        private InputMap<string>? _tenantSettings;
-
-        /// <summary>
-        /// tenantSettings
-        /// </summary>
-        public InputMap<string> TenantSettings
-        {
-            get => _tenantSettings ?? (_tenantSettings = new InputMap<string>());
-            set => _tenantSettings = value;
         }
 
         public RedisArgs()

@@ -16,16 +16,16 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
     public sealed class CreateTrustedIdProviderWithAccountParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL of this trusted identity provider.
-        /// </summary>
-        [Input("idProvider", required: true)]
-        public Input<string> IdProvider { get; set; } = null!;
-
-        /// <summary>
         /// The unique name of the trusted identity provider to create.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The trusted identity provider properties to use when creating a new trusted identity provider.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.CreateOrUpdateTrustedIdProviderPropertiesArgs> Properties { get; set; } = null!;
 
         public CreateTrustedIdProviderWithAccountParametersArgs()
         {

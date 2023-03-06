@@ -42,10 +42,6 @@ export class InboundEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * IP configurations for the inbound endpoint.
-     */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20220701.InboundEndpointIPConfigurationResponse[]>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -54,13 +50,9 @@ export class InboundEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the inbound endpoint.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resourceGuid property of the inbound endpoint resource.
-     */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.network.v20220701.InboundEndpointPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -88,31 +80,27 @@ export class InboundEndpoint extends pulumi.CustomResource {
             if ((!args || args.dnsResolverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverName'");
             }
-            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ipConfigurations'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["dnsResolverName"] = args ? args.dnsResolverName : undefined;
             resourceInputs["inboundEndpointName"] = args ? args.inboundEndpointName : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -137,13 +125,13 @@ export interface InboundEndpointArgs {
      */
     inboundEndpointName?: pulumi.Input<string>;
     /**
-     * IP configurations for the inbound endpoint.
-     */
-    ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.v20220701.InboundEndpointIPConfigurationArgs>[]>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Properties of the inbound endpoint.
+     */
+    properties: pulumi.Input<inputs.network.v20220701.InboundEndpointPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

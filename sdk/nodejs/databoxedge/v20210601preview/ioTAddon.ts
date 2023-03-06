@@ -38,22 +38,6 @@ export class IoTAddon extends pulumi.CustomResource {
     }
 
     /**
-     * Host OS supported by the IoT addon.
-     */
-    public /*out*/ readonly hostPlatform!: pulumi.Output<string>;
-    /**
-     * Platform where the runtime is hosted.
-     */
-    public /*out*/ readonly hostPlatformType!: pulumi.Output<string>;
-    /**
-     * IoT device metadata to which appliance needs to be connected.
-     */
-    public readonly ioTDeviceDetails!: pulumi.Output<outputs.databoxedge.v20210601preview.IoTDeviceInfoResponse>;
-    /**
-     * IoT edge device to which the IoT Addon needs to be configured.
-     */
-    public readonly ioTEdgeDeviceDetails!: pulumi.Output<outputs.databoxedge.v20210601preview.IoTDeviceInfoResponse>;
-    /**
      * Addon type.
      * Expected value is 'IotEdge'.
      */
@@ -63,9 +47,9 @@ export class IoTAddon extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Addon Provisioning State
+     * Properties specific to IOT addon.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.databoxedge.v20210601preview.IoTAddonPropertiesResponse>;
     /**
      * Addon type
      */
@@ -74,10 +58,6 @@ export class IoTAddon extends pulumi.CustomResource {
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Version of IoT running on the appliance.
-     */
-    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a IoTAddon resource with the given unique name, arguments, and options.
@@ -93,14 +73,11 @@ export class IoTAddon extends pulumi.CustomResource {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.ioTDeviceDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ioTDeviceDetails'");
-            }
-            if ((!args || args.ioTEdgeDeviceDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ioTEdgeDeviceDetails'");
-            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -110,29 +87,19 @@ export class IoTAddon extends pulumi.CustomResource {
             }
             resourceInputs["addonName"] = args ? args.addonName : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["ioTDeviceDetails"] = args ? args.ioTDeviceDetails : undefined;
-            resourceInputs["ioTEdgeDeviceDetails"] = args ? args.ioTEdgeDeviceDetails : undefined;
             resourceInputs["kind"] = "IotEdge";
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["hostPlatform"] = undefined /*out*/;
-            resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         } else {
-            resourceInputs["hostPlatform"] = undefined /*out*/;
-            resourceInputs["hostPlatformType"] = undefined /*out*/;
-            resourceInputs["ioTDeviceDetails"] = undefined /*out*/;
-            resourceInputs["ioTEdgeDeviceDetails"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:IoTAddon" }, { type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201preview:IoTAddon" }, { type: "azure-native:databoxedge/v20210601:IoTAddon" }, { type: "azure-native:databoxedge/v20220301:IoTAddon" }, { type: "azure-native:databoxedge/v20220401preview:IoTAddon" }, { type: "azure-native:databoxedge/v20221201preview:IoTAddon" }, { type: "azure-native:databoxedge/v20230101preview:IoTAddon" }] };
@@ -154,18 +121,14 @@ export interface IoTAddonArgs {
      */
     deviceName: pulumi.Input<string>;
     /**
-     * IoT device metadata to which appliance needs to be connected.
-     */
-    ioTDeviceDetails: pulumi.Input<inputs.databoxedge.v20210601preview.IoTDeviceInfoArgs>;
-    /**
-     * IoT edge device to which the IoT Addon needs to be configured.
-     */
-    ioTEdgeDeviceDetails: pulumi.Input<inputs.databoxedge.v20210601preview.IoTDeviceInfoArgs>;
-    /**
      * Addon type.
      * Expected value is 'IotEdge'.
      */
     kind: pulumi.Input<"IotEdge">;
+    /**
+     * Properties specific to IOT addon.
+     */
+    properties: pulumi.Input<inputs.databoxedge.v20210601preview.IoTAddonPropertiesArgs>;
     /**
      * The resource group name.
      */

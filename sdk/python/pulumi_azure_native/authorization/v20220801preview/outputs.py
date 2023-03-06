@@ -8,10 +8,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'PolicyVariableColumnResponse',
+    'PolicyVariablePropertiesResponse',
     'PolicyVariableValueColumnValueResponse',
+    'PolicyVariableValuePropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -52,6 +55,28 @@ class PolicyVariableColumnResponse(dict):
         The name of this policy variable column.
         """
         return pulumi.get(self, "column_name")
+
+
+@pulumi.output_type
+class PolicyVariablePropertiesResponse(dict):
+    """
+    The variable properties.
+    """
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.PolicyVariableColumnResponse']):
+        """
+        The variable properties.
+        :param Sequence['PolicyVariableColumnResponse'] columns: Variable column definitions.
+        """
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.PolicyVariableColumnResponse']:
+        """
+        Variable column definitions.
+        """
+        return pulumi.get(self, "columns")
 
 
 @pulumi.output_type
@@ -104,6 +129,28 @@ class PolicyVariableValueColumnValueResponse(dict):
         Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
         return pulumi.get(self, "column_value")
+
+
+@pulumi.output_type
+class PolicyVariableValuePropertiesResponse(dict):
+    """
+    The variable value properties.
+    """
+    def __init__(__self__, *,
+                 values: Sequence['outputs.PolicyVariableValueColumnValueResponse']):
+        """
+        The variable value properties.
+        :param Sequence['PolicyVariableValueColumnValueResponse'] values: Variable value column value array.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['outputs.PolicyVariableValueColumnValueResponse']:
+        """
+        Variable value column value array.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

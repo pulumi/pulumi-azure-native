@@ -22,100 +22,22 @@ class GetAgentResult:
     """
     The Agent resource.
     """
-    def __init__(__self__, agent_status=None, agent_version=None, arc_resource_id=None, arc_vm_uuid=None, description=None, error_details=None, id=None, last_status_update=None, local_ip_address=None, memory_in_mb=None, name=None, number_of_cores=None, provisioning_state=None, system_data=None, type=None, uptime_in_seconds=None):
-        if agent_status and not isinstance(agent_status, str):
-            raise TypeError("Expected argument 'agent_status' to be a str")
-        pulumi.set(__self__, "agent_status", agent_status)
-        if agent_version and not isinstance(agent_version, str):
-            raise TypeError("Expected argument 'agent_version' to be a str")
-        pulumi.set(__self__, "agent_version", agent_version)
-        if arc_resource_id and not isinstance(arc_resource_id, str):
-            raise TypeError("Expected argument 'arc_resource_id' to be a str")
-        pulumi.set(__self__, "arc_resource_id", arc_resource_id)
-        if arc_vm_uuid and not isinstance(arc_vm_uuid, str):
-            raise TypeError("Expected argument 'arc_vm_uuid' to be a str")
-        pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if error_details and not isinstance(error_details, dict):
-            raise TypeError("Expected argument 'error_details' to be a dict")
-        pulumi.set(__self__, "error_details", error_details)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_status_update and not isinstance(last_status_update, str):
-            raise TypeError("Expected argument 'last_status_update' to be a str")
-        pulumi.set(__self__, "last_status_update", last_status_update)
-        if local_ip_address and not isinstance(local_ip_address, str):
-            raise TypeError("Expected argument 'local_ip_address' to be a str")
-        pulumi.set(__self__, "local_ip_address", local_ip_address)
-        if memory_in_mb and not isinstance(memory_in_mb, float):
-            raise TypeError("Expected argument 'memory_in_mb' to be a float")
-        pulumi.set(__self__, "memory_in_mb", memory_in_mb)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if number_of_cores and not isinstance(number_of_cores, float):
-            raise TypeError("Expected argument 'number_of_cores' to be a float")
-        pulumi.set(__self__, "number_of_cores", number_of_cores)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if uptime_in_seconds and not isinstance(uptime_in_seconds, float):
-            raise TypeError("Expected argument 'uptime_in_seconds' to be a float")
-        pulumi.set(__self__, "uptime_in_seconds", uptime_in_seconds)
-
-    @property
-    @pulumi.getter(name="agentStatus")
-    def agent_status(self) -> str:
-        """
-        The Agent status.
-        """
-        return pulumi.get(self, "agent_status")
-
-    @property
-    @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> str:
-        """
-        The Agent version.
-        """
-        return pulumi.get(self, "agent_version")
-
-    @property
-    @pulumi.getter(name="arcResourceId")
-    def arc_resource_id(self) -> str:
-        """
-        The fully qualified resource ID of the Hybrid Compute resource for the Agent.
-        """
-        return pulumi.get(self, "arc_resource_id")
-
-    @property
-    @pulumi.getter(name="arcVmUuid")
-    def arc_vm_uuid(self) -> str:
-        """
-        The VM UUID of the Hybrid Compute resource for the Agent.
-        """
-        return pulumi.get(self, "arc_vm_uuid")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        A description for the Agent.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="errorDetails")
-    def error_details(self) -> 'outputs.AgentPropertiesResponseErrorDetails':
-        return pulumi.get(self, "error_details")
 
     @property
     @pulumi.getter
@@ -126,30 +48,6 @@ class GetAgentResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="lastStatusUpdate")
-    def last_status_update(self) -> str:
-        """
-        The last updated time of the Agent status.
-        """
-        return pulumi.get(self, "last_status_update")
-
-    @property
-    @pulumi.getter(name="localIPAddress")
-    def local_ip_address(self) -> str:
-        """
-        Local IP address reported by the Agent.
-        """
-        return pulumi.get(self, "local_ip_address")
-
-    @property
-    @pulumi.getter(name="memoryInMB")
-    def memory_in_mb(self) -> float:
-        """
-        Available memory reported by the Agent, in MB.
-        """
-        return pulumi.get(self, "memory_in_mb")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -158,20 +56,9 @@ class GetAgentResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="numberOfCores")
-    def number_of_cores(self) -> float:
-        """
-        Available compute cores reported by the Agent.
-        """
-        return pulumi.get(self, "number_of_cores")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of this resource.
-        """
-        return pulumi.get(self, "provisioning_state")
+    @pulumi.getter
+    def properties(self) -> 'outputs.AgentPropertiesResponse':
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -189,14 +76,6 @@ class GetAgentResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="uptimeInSeconds")
-    def uptime_in_seconds(self) -> float:
-        """
-        Uptime of the Agent in seconds.
-        """
-        return pulumi.get(self, "uptime_in_seconds")
-
 
 class AwaitableGetAgentResult(GetAgentResult):
     # pylint: disable=using-constant-test
@@ -204,22 +83,11 @@ class AwaitableGetAgentResult(GetAgentResult):
         if False:
             yield self
         return GetAgentResult(
-            agent_status=self.agent_status,
-            agent_version=self.agent_version,
-            arc_resource_id=self.arc_resource_id,
-            arc_vm_uuid=self.arc_vm_uuid,
-            description=self.description,
-            error_details=self.error_details,
             id=self.id,
-            last_status_update=self.last_status_update,
-            local_ip_address=self.local_ip_address,
-            memory_in_mb=self.memory_in_mb,
             name=self.name,
-            number_of_cores=self.number_of_cores,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            uptime_in_seconds=self.uptime_in_seconds)
+            type=self.type)
 
 
 def get_agent(agent_name: Optional[str] = None,
@@ -242,22 +110,11 @@ def get_agent(agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagemover/v20220701preview:getAgent', __args__, opts=opts, typ=GetAgentResult).value
 
     return AwaitableGetAgentResult(
-        agent_status=__ret__.agent_status,
-        agent_version=__ret__.agent_version,
-        arc_resource_id=__ret__.arc_resource_id,
-        arc_vm_uuid=__ret__.arc_vm_uuid,
-        description=__ret__.description,
-        error_details=__ret__.error_details,
         id=__ret__.id,
-        last_status_update=__ret__.last_status_update,
-        local_ip_address=__ret__.local_ip_address,
-        memory_in_mb=__ret__.memory_in_mb,
         name=__ret__.name,
-        number_of_cores=__ret__.number_of_cores,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        uptime_in_seconds=__ret__.uptime_in_seconds)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_agent)

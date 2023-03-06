@@ -70,25 +70,9 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
     public sealed class GetPrometheusRuleGroupResult
     {
         /// <summary>
-        /// the cluster name of the rule group evaluation.
-        /// </summary>
-        public readonly string? ClusterName;
-        /// <summary>
-        /// the description of the Prometheus rule group that will be included in the alert email.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// the flag that indicates whether the Prometheus rule group is enabled.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-        /// </summary>
-        public readonly string? Interval;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -98,13 +82,9 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// defines the rules in the Prometheus rule group.
+        /// The Prometheus rule group properties of the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrometheusRuleResponse> Rules;
-        /// <summary>
-        /// the list of resource id's that this rule group is scoped to.
-        /// </summary>
-        public readonly ImmutableArray<string> Scopes;
+        public readonly Outputs.PrometheusRuleGroupPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -120,23 +100,13 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
 
         [OutputConstructor]
         private GetPrometheusRuleGroupResult(
-            string? clusterName,
-
-            string? description,
-
-            bool? enabled,
-
             string id,
-
-            string? interval,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.PrometheusRuleResponse> rules,
-
-            ImmutableArray<string> scopes,
+            Outputs.PrometheusRuleGroupPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -144,15 +114,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
 
             string type)
         {
-            ClusterName = clusterName;
-            Description = description;
-            Enabled = enabled;
             Id = id;
-            Interval = interval;
             Location = location;
             Name = name;
-            Rules = rules;
-            Scopes = scopes;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

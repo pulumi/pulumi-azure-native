@@ -90,21 +90,9 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the operation on the resource.
+        /// Properties for iSCSI target operations.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Operational status of the iSCSI target.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        /// </summary>
-        public readonly string TargetIqn;
-        /// <summary>
-        /// List of iSCSI target portal groups. Can have 1 portal group at most.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TargetPortalGroupResponse> Tpgs;
+        public readonly Outputs.IscsiTargetPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -116,22 +104,13 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
 
             string name,
 
-            string provisioningState,
-
-            string status,
-
-            string targetIqn,
-
-            ImmutableArray<Outputs.TargetPortalGroupResponse> tpgs,
+            Outputs.IscsiTargetPropertiesResponse properties,
 
             string type)
         {
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            Status = status;
-            TargetIqn = targetIqn;
-            Tpgs = tpgs;
+            Properties = properties;
             Type = type;
         }
     }

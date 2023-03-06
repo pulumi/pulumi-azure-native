@@ -13,40 +13,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
     public partial class IncidentTask : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        [Output("createdBy")]
-        public Output<Outputs.ClientInfoResponse?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The time the task was created
-        /// </summary>
-        [Output("createdTimeUtc")]
-        public Output<string> CreatedTimeUtc { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the task
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<Outputs.ClientInfoResponse?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The last time the task was updated
-        /// </summary>
-        [Output("lastModifiedTimeUtc")]
-        public Output<string> LastModifiedTimeUtc { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -54,20 +24,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IncidentTaskPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// The title of the task
-        /// </summary>
-        [Output("title")]
-        public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -125,18 +89,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
     public sealed class IncidentTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        [Input("createdBy")]
-        public Input<Inputs.ClientInfoArgs>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The description of the task
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// Incident ID
         /// </summary>
         [Input("incidentId", required: true)]
@@ -148,26 +100,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
         [Input("incidentTaskId")]
         public Input<string>? IncidentTaskId { get; set; }
 
-        /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<Inputs.ClientInfoArgs>? LastModifiedBy { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.IncidentTaskPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20230201Preview.IncidentTaskStatus> Status { get; set; } = null!;
-
-        /// <summary>
-        /// The title of the task
-        /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

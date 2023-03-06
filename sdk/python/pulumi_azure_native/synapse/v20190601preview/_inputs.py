@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AutoPausePropertiesArgs',
     'AutoScalePropertiesArgs',
+    'CmdkeySetupTypePropertiesArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
     'CustomerManagedKeyDetailsArgs',
@@ -20,6 +21,7 @@ __all__ = [
     'DynamicExecutorAllocationArgs',
     'EncryptionDetailsArgs',
     'EntityReferenceArgs',
+    'EnvironmentVariableSetupTypePropertiesArgs',
     'EnvironmentVariableSetupArgs',
     'GitHubClientSecretArgs',
     'IntegrationRuntimeComputePropertiesArgs',
@@ -31,9 +33,11 @@ __all__ = [
     'IntegrationRuntimeVNetPropertiesArgs',
     'LibraryInfoArgs',
     'LibraryRequirementsArgs',
+    'LicensedComponentSetupTypePropertiesArgs',
     'LinkedIntegrationRuntimeKeyAuthorizationArgs',
     'LinkedIntegrationRuntimeRbacAuthorizationArgs',
     'ManagedIdentityArgs',
+    'ManagedIntegrationRuntimeTypePropertiesArgs',
     'ManagedIntegrationRuntimeArgs',
     'ManagedVirtualNetworkReferenceArgs',
     'ManagedVirtualNetworkSettingsArgs',
@@ -147,23 +151,19 @@ class AutoScalePropertiesArgs:
 
 
 @pulumi.input_type
-class CmdkeySetupArgs:
+class CmdkeySetupTypePropertiesArgs:
     def __init__(__self__, *,
                  password: pulumi.Input['SecureStringArgs'],
                  target_name: Any,
-                 type: pulumi.Input[str],
                  user_name: Any):
         """
-        The custom setup of running cmdkey commands.
+        Cmdkey command custom setup type properties.
         :param pulumi.Input['SecureStringArgs'] password: The password of data source access.
         :param Any target_name: The server name of data source access.
-        :param pulumi.Input[str] type: The type of custom setup.
-               Expected value is 'CmdkeySetup'.
         :param Any user_name: The user name of data source access.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "target_name", target_name)
-        pulumi.set(__self__, "type", 'CmdkeySetup')
         pulumi.set(__self__, "user_name", user_name)
 
     @property
@@ -191,19 +191,6 @@ class CmdkeySetupArgs:
         pulumi.set(self, "target_name", value)
 
     @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of custom setup.
-        Expected value is 'CmdkeySetup'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Any:
         """
@@ -217,34 +204,58 @@ class CmdkeySetupArgs:
 
 
 @pulumi.input_type
-class ComponentSetupArgs:
+class CmdkeySetupArgs:
     def __init__(__self__, *,
-                 component_name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 license_key: Optional[pulumi.Input['SecureStringArgs']] = None):
+                 type_properties: pulumi.Input['CmdkeySetupTypePropertiesArgs']):
         """
-        The custom setup of installing 3rd party components.
-        :param pulumi.Input[str] component_name: The name of the 3rd party component.
+        The custom setup of running cmdkey commands.
         :param pulumi.Input[str] type: The type of custom setup.
-               Expected value is 'ComponentSetup'.
-        :param pulumi.Input['SecureStringArgs'] license_key: The license key to activate the component.
+               Expected value is 'CmdkeySetup'.
+        :param pulumi.Input['CmdkeySetupTypePropertiesArgs'] type_properties: Cmdkey command custom setup type properties.
         """
-        pulumi.set(__self__, "component_name", component_name)
-        pulumi.set(__self__, "type", 'ComponentSetup')
-        if license_key is not None:
-            pulumi.set(__self__, "license_key", license_key)
+        pulumi.set(__self__, "type", 'CmdkeySetup')
+        pulumi.set(__self__, "type_properties", type_properties)
 
     @property
-    @pulumi.getter(name="componentName")
-    def component_name(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
         """
-        The name of the 3rd party component.
+        The type of custom setup.
+        Expected value is 'CmdkeySetup'.
         """
-        return pulumi.get(self, "component_name")
+        return pulumi.get(self, "type")
 
-    @component_name.setter
-    def component_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "component_name", value)
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> pulumi.Input['CmdkeySetupTypePropertiesArgs']:
+        """
+        Cmdkey command custom setup type properties.
+        """
+        return pulumi.get(self, "type_properties")
+
+    @type_properties.setter
+    def type_properties(self, value: pulumi.Input['CmdkeySetupTypePropertiesArgs']):
+        pulumi.set(self, "type_properties", value)
+
+
+@pulumi.input_type
+class ComponentSetupArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 type_properties: pulumi.Input['LicensedComponentSetupTypePropertiesArgs']):
+        """
+        The custom setup of installing 3rd party components.
+        :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'ComponentSetup'.
+        :param pulumi.Input['LicensedComponentSetupTypePropertiesArgs'] type_properties: Install 3rd party component type properties.
+        """
+        pulumi.set(__self__, "type", 'ComponentSetup')
+        pulumi.set(__self__, "type_properties", type_properties)
 
     @property
     @pulumi.getter
@@ -260,16 +271,16 @@ class ComponentSetupArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="licenseKey")
-    def license_key(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> pulumi.Input['LicensedComponentSetupTypePropertiesArgs']:
         """
-        The license key to activate the component.
+        Install 3rd party component type properties.
         """
-        return pulumi.get(self, "license_key")
+        return pulumi.get(self, "type_properties")
 
-    @license_key.setter
-    def license_key(self, value: Optional[pulumi.Input['SecureStringArgs']]):
-        pulumi.set(self, "license_key", value)
+    @type_properties.setter
+    def type_properties(self, value: pulumi.Input['LicensedComponentSetupTypePropertiesArgs']):
+        pulumi.set(self, "type_properties", value)
 
 
 @pulumi.input_type
@@ -425,34 +436,17 @@ class EntityReferenceArgs:
 
 
 @pulumi.input_type
-class EnvironmentVariableSetupArgs:
+class EnvironmentVariableSetupTypePropertiesArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
                  variable_name: pulumi.Input[str],
                  variable_value: pulumi.Input[str]):
         """
-        The custom setup of setting environment variable.
-        :param pulumi.Input[str] type: The type of custom setup.
-               Expected value is 'EnvironmentVariableSetup'.
+        Environment variable custom setup type properties.
         :param pulumi.Input[str] variable_name: The name of the environment variable.
         :param pulumi.Input[str] variable_value: The value of the environment variable.
         """
-        pulumi.set(__self__, "type", 'EnvironmentVariableSetup')
         pulumi.set(__self__, "variable_name", variable_name)
         pulumi.set(__self__, "variable_value", variable_value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of custom setup.
-        Expected value is 'EnvironmentVariableSetup'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="variableName")
@@ -477,6 +471,46 @@ class EnvironmentVariableSetupArgs:
     @variable_value.setter
     def variable_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "variable_value", value)
+
+
+@pulumi.input_type
+class EnvironmentVariableSetupArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 type_properties: pulumi.Input['EnvironmentVariableSetupTypePropertiesArgs']):
+        """
+        The custom setup of setting environment variable.
+        :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'EnvironmentVariableSetup'.
+        :param pulumi.Input['EnvironmentVariableSetupTypePropertiesArgs'] type_properties: Add environment variable type properties.
+        """
+        pulumi.set(__self__, "type", 'EnvironmentVariableSetup')
+        pulumi.set(__self__, "type_properties", type_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of custom setup.
+        Expected value is 'EnvironmentVariableSetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> pulumi.Input['EnvironmentVariableSetupTypePropertiesArgs']:
+        """
+        Add environment variable type properties.
+        """
+        return pulumi.get(self, "type_properties")
+
+    @type_properties.setter
+    def type_properties(self, value: pulumi.Input['EnvironmentVariableSetupTypePropertiesArgs']):
+        pulumi.set(self, "type_properties", value)
 
 
 @pulumi.input_type
@@ -1152,6 +1186,45 @@ class LibraryRequirementsArgs:
 
 
 @pulumi.input_type
+class LicensedComponentSetupTypePropertiesArgs:
+    def __init__(__self__, *,
+                 component_name: pulumi.Input[str],
+                 license_key: Optional[pulumi.Input['SecureStringArgs']] = None):
+        """
+        Installation of licensed component setup type properties.
+        :param pulumi.Input[str] component_name: The name of the 3rd party component.
+        :param pulumi.Input['SecureStringArgs'] license_key: The license key to activate the component.
+        """
+        pulumi.set(__self__, "component_name", component_name)
+        if license_key is not None:
+            pulumi.set(__self__, "license_key", license_key)
+
+    @property
+    @pulumi.getter(name="componentName")
+    def component_name(self) -> pulumi.Input[str]:
+        """
+        The name of the 3rd party component.
+        """
+        return pulumi.get(self, "component_name")
+
+    @component_name.setter
+    def component_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_name", value)
+
+    @property
+    @pulumi.getter(name="licenseKey")
+    def license_key(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        The license key to activate the component.
+        """
+        return pulumi.get(self, "license_key")
+
+    @license_key.setter
+    def license_key(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "license_key", value)
+
+
+@pulumi.input_type
 class LinkedIntegrationRuntimeKeyAuthorizationArgs:
     def __init__(__self__, *,
                  authorization_type: pulumi.Input[str],
@@ -1256,31 +1329,66 @@ class ManagedIdentityArgs:
 
 
 @pulumi.input_type
+class ManagedIntegrationRuntimeTypePropertiesArgs:
+    def __init__(__self__, *,
+                 compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
+                 ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
+        """
+        Managed integration runtime type properties.
+        :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
+        :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
+        """
+        if compute_properties is not None:
+            pulumi.set(__self__, "compute_properties", compute_properties)
+        if ssis_properties is not None:
+            pulumi.set(__self__, "ssis_properties", ssis_properties)
+
+    @property
+    @pulumi.getter(name="computeProperties")
+    def compute_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]:
+        """
+        The compute resource for managed integration runtime.
+        """
+        return pulumi.get(self, "compute_properties")
+
+    @compute_properties.setter
+    def compute_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]):
+        pulumi.set(self, "compute_properties", value)
+
+    @property
+    @pulumi.getter(name="ssisProperties")
+    def ssis_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]:
+        """
+        SSIS properties for managed integration runtime.
+        """
+        return pulumi.get(self, "ssis_properties")
+
+    @ssis_properties.setter
+    def ssis_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]):
+        pulumi.set(self, "ssis_properties", value)
+
+
+@pulumi.input_type
 class ManagedIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
+                 type_properties: pulumi.Input['ManagedIntegrationRuntimeTypePropertiesArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 managed_virtual_network: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']] = None,
-                 ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
+                 managed_virtual_network: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'Managed'.
-        :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
+        :param pulumi.Input['ManagedIntegrationRuntimeTypePropertiesArgs'] type_properties: Managed integration runtime properties.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input['ManagedVirtualNetworkReferenceArgs'] managed_virtual_network: Managed Virtual Network reference.
-        :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "type", 'Managed')
-        if compute_properties is not None:
-            pulumi.set(__self__, "compute_properties", compute_properties)
+        pulumi.set(__self__, "type_properties", type_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if managed_virtual_network is not None:
             pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
-        if ssis_properties is not None:
-            pulumi.set(__self__, "ssis_properties", ssis_properties)
 
     @property
     @pulumi.getter
@@ -1296,16 +1404,16 @@ class ManagedIntegrationRuntimeArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="computeProperties")
-    def compute_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]:
+    @pulumi.getter(name="typeProperties")
+    def type_properties(self) -> pulumi.Input['ManagedIntegrationRuntimeTypePropertiesArgs']:
         """
-        The compute resource for managed integration runtime.
+        Managed integration runtime properties.
         """
-        return pulumi.get(self, "compute_properties")
+        return pulumi.get(self, "type_properties")
 
-    @compute_properties.setter
-    def compute_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]):
-        pulumi.set(self, "compute_properties", value)
+    @type_properties.setter
+    def type_properties(self, value: pulumi.Input['ManagedIntegrationRuntimeTypePropertiesArgs']):
+        pulumi.set(self, "type_properties", value)
 
     @property
     @pulumi.getter
@@ -1330,18 +1438,6 @@ class ManagedIntegrationRuntimeArgs:
     @managed_virtual_network.setter
     def managed_virtual_network(self, value: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']]):
         pulumi.set(self, "managed_virtual_network", value)
-
-    @property
-    @pulumi.getter(name="ssisProperties")
-    def ssis_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]:
-        """
-        SSIS properties for managed integration runtime.
-        """
-        return pulumi.get(self, "ssis_properties")
-
-    @ssis_properties.setter
-    def ssis_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]):
-        pulumi.set(self, "ssis_properties", value)
 
 
 @pulumi.input_type

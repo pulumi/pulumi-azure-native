@@ -16,64 +16,10 @@ namespace Pulumi.AzureNative.Network.V20180701
     public partial class VirtualNetworkGatewayConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authorizationKey.
-        /// </summary>
-        [Output("authorizationKey")]
-        public Output<string?> AuthorizationKey { get; private set; } = null!;
-
-        /// <summary>
-        /// Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
-        /// </summary>
-        [Output("connectionStatus")]
-        public Output<string> ConnectionStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
-        /// </summary>
-        [Output("connectionType")]
-        public Output<string> ConnectionType { get; private set; } = null!;
-
-        /// <summary>
-        /// The egress bytes transferred in this connection.
-        /// </summary>
-        [Output("egressBytesTransferred")]
-        public Output<double> EgressBytesTransferred { get; private set; } = null!;
-
-        /// <summary>
-        /// EnableBgp flag
-        /// </summary>
-        [Output("enableBgp")]
-        public Output<bool?> EnableBgp { get; private set; } = null!;
-
-        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Bypass ExpressRoute Gateway for data forwarding
-        /// </summary>
-        [Output("expressRouteGatewayBypass")]
-        public Output<bool?> ExpressRouteGatewayBypass { get; private set; } = null!;
-
-        /// <summary>
-        /// The ingress bytes transferred in this connection.
-        /// </summary>
-        [Output("ingressBytesTransferred")]
-        public Output<double> IngressBytesTransferred { get; private set; } = null!;
-
-        /// <summary>
-        /// The IPSec Policies to be considered by this connection.
-        /// </summary>
-        [Output("ipsecPolicies")]
-        public Output<ImmutableArray<Outputs.IpsecPolicyResponse>> IpsecPolicies { get; private set; } = null!;
-
-        /// <summary>
-        /// The reference to local network gateway resource.
-        /// </summary>
-        [Output("localNetworkGateway2")]
-        public Output<Outputs.LocalNetworkGatewayResponse?> LocalNetworkGateway2 { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -88,34 +34,10 @@ namespace Pulumi.AzureNative.Network.V20180701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The reference to peerings resource.
+        /// Properties of the virtual network gateway connection.
         /// </summary>
-        [Output("peer")]
-        public Output<Outputs.SubResourceResponse?> Peer { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource GUID property of the VirtualNetworkGatewayConnection resource.
-        /// </summary>
-        [Output("resourceGuid")]
-        public Output<string?> ResourceGuid { get; private set; } = null!;
-
-        /// <summary>
-        /// The routing weight.
-        /// </summary>
-        [Output("routingWeight")]
-        public Output<int?> RoutingWeight { get; private set; } = null!;
-
-        /// <summary>
-        /// The IPSec shared key.
-        /// </summary>
-        [Output("sharedKey")]
-        public Output<string?> SharedKey { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -124,34 +46,10 @@ namespace Pulumi.AzureNative.Network.V20180701
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Collection of all tunnels' connection health status.
-        /// </summary>
-        [Output("tunnelConnectionStatus")]
-        public Output<ImmutableArray<Outputs.TunnelConnectionHealthResponse>> TunnelConnectionStatus { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Enable policy-based traffic selectors.
-        /// </summary>
-        [Output("usePolicyBasedTrafficSelectors")]
-        public Output<bool?> UsePolicyBasedTrafficSelectors { get; private set; } = null!;
-
-        /// <summary>
-        /// The reference to virtual network gateway resource.
-        /// </summary>
-        [Output("virtualNetworkGateway1")]
-        public Output<Outputs.VirtualNetworkGatewayResponse> VirtualNetworkGateway1 { get; private set; } = null!;
-
-        /// <summary>
-        /// The reference to virtual network gateway resource.
-        /// </summary>
-        [Output("virtualNetworkGateway2")]
-        public Output<Outputs.VirtualNetworkGatewayResponse?> VirtualNetworkGateway2 { get; private set; } = null!;
 
 
         /// <summary>
@@ -245,52 +143,10 @@ namespace Pulumi.AzureNative.Network.V20180701
     public sealed class VirtualNetworkGatewayConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authorizationKey.
-        /// </summary>
-        [Input("authorizationKey")]
-        public Input<string>? AuthorizationKey { get; set; }
-
-        /// <summary>
-        /// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
-        /// </summary>
-        [Input("connectionType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20180701.VirtualNetworkGatewayConnectionType> ConnectionType { get; set; } = null!;
-
-        /// <summary>
-        /// EnableBgp flag
-        /// </summary>
-        [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
-
-        /// <summary>
-        /// Bypass ExpressRoute Gateway for data forwarding
-        /// </summary>
-        [Input("expressRouteGatewayBypass")]
-        public Input<bool>? ExpressRouteGatewayBypass { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
-
-        [Input("ipsecPolicies")]
-        private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;
-
-        /// <summary>
-        /// The IPSec Policies to be considered by this connection.
-        /// </summary>
-        public InputList<Inputs.IpsecPolicyArgs> IpsecPolicies
-        {
-            get => _ipsecPolicies ?? (_ipsecPolicies = new InputList<Inputs.IpsecPolicyArgs>());
-            set => _ipsecPolicies = value;
-        }
-
-        /// <summary>
-        /// The reference to local network gateway resource.
-        /// </summary>
-        [Input("localNetworkGateway2")]
-        public Input<Inputs.LocalNetworkGatewayArgs>? LocalNetworkGateway2 { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -299,34 +155,16 @@ namespace Pulumi.AzureNative.Network.V20180701
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The reference to peerings resource.
+        /// Properties of the virtual network gateway connection.
         /// </summary>
-        [Input("peer")]
-        public Input<Inputs.SubResourceArgs>? Peer { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.VirtualNetworkGatewayConnectionPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The resource GUID property of the VirtualNetworkGatewayConnection resource.
-        /// </summary>
-        [Input("resourceGuid")]
-        public Input<string>? ResourceGuid { get; set; }
-
-        /// <summary>
-        /// The routing weight.
-        /// </summary>
-        [Input("routingWeight")]
-        public Input<int>? RoutingWeight { get; set; }
-
-        /// <summary>
-        /// The IPSec shared key.
-        /// </summary>
-        [Input("sharedKey")]
-        public Input<string>? SharedKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -339,24 +177,6 @@ namespace Pulumi.AzureNative.Network.V20180701
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Enable policy-based traffic selectors.
-        /// </summary>
-        [Input("usePolicyBasedTrafficSelectors")]
-        public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
-
-        /// <summary>
-        /// The reference to virtual network gateway resource.
-        /// </summary>
-        [Input("virtualNetworkGateway1", required: true)]
-        public Input<Inputs.VirtualNetworkGatewayArgs> VirtualNetworkGateway1 { get; set; } = null!;
-
-        /// <summary>
-        /// The reference to virtual network gateway resource.
-        /// </summary>
-        [Input("virtualNetworkGateway2")]
-        public Input<Inputs.VirtualNetworkGatewayArgs>? VirtualNetworkGateway2 { get; set; }
 
         /// <summary>
         /// The name of the virtual network gateway connection.

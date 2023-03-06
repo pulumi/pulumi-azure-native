@@ -88,25 +88,13 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the provisioned cluster.
-        /// </summary>
-        public readonly Outputs.ProvisionedClusterIdentityResponse? Identity;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// provisioning state of the hybridIdentityMetadata resource.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
-        /// </summary>
-        public readonly string? PublicKey;
-        /// <summary>
-        /// Unique id of the parent provisioned cluster resource.
-        /// </summary>
-        public readonly string? ResourceUid;
+        public readonly Outputs.HybridIdentityMetadataPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -120,26 +108,17 @@ namespace Pulumi.AzureNative.HybridContainerService
         private GetHybridIdentityMetadatumResult(
             string id,
 
-            Outputs.ProvisionedClusterIdentityResponse? identity,
-
             string name,
 
-            string provisioningState,
-
-            string? publicKey,
-
-            string? resourceUid,
+            Outputs.HybridIdentityMetadataPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
-            Identity = identity;
             Name = name;
-            ProvisioningState = provisioningState;
-            PublicKey = publicKey;
-            ResourceUid = resourceUid;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

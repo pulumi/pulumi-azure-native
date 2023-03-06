@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("keyspace")]
-        public Input<object>? Keyspace { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName", required: true)]
@@ -64,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The table name of the Cassandra database. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableName")]
-        public Input<object>? TableName { get; set; }
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'CassandraTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Cassandra dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CassandraTableDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public CassandraTableDatasetArgs()
         {

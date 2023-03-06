@@ -25,30 +25,22 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object ConnectionString;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The Azure key vault secret reference of password in connection string.
-        /// </summary>
-        public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Password;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureMySql'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure MySQL database linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureMySqlLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureMySqlLinkedServiceResponse(
@@ -56,26 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object connectionString,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Outputs.AzureKeyVaultSecretReferenceResponse? password,
+            string type,
 
-            string type)
+            Outputs.AzureMySqlLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

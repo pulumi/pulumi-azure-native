@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class AzureDataExplorerCommandActivityResponse
     {
         /// <summary>
-        /// A control command, according to the Azure Data Explorer command syntax. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Command;
-        /// <summary>
-        /// Control command timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9]))..)
-        /// </summary>
-        public readonly object? CommandTimeout;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -50,16 +42,16 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Azure Data Explorer command activity properties.
+        /// </summary>
+        public readonly Outputs.AzureDataExplorerCommandActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
 
         [OutputConstructor]
         private AzureDataExplorerCommandActivityResponse(
-            object command,
-
-            object? commandTimeout,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
@@ -72,16 +64,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
+            Outputs.AzureDataExplorerCommandActivityTypePropertiesResponse typeProperties,
+
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Command = command;
-            CommandTimeout = commandTimeout;
             DependsOn = dependsOn;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

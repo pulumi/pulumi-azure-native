@@ -77,6 +77,7 @@ __all__ = [
     'SysctlConfigArgs',
     'TimeInWeekArgs',
     'TimeSpanArgs',
+    'TrustedAccessRoleBindingPropertiesArgs',
     'UserAssignedIdentityArgs',
     'WindowsGmsaProfileArgs',
 ]
@@ -4821,6 +4822,44 @@ class TimeSpanArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class TrustedAccessRoleBindingPropertiesArgs:
+    def __init__(__self__, *,
+                 roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 source_resource_id: pulumi.Input[str]):
+        """
+        Properties for trusted access role binding
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
+        :param pulumi.Input[str] source_resource_id: The ARM resource ID of source resource that trusted access is configured for.
+        """
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> pulumi.Input[str]:
+        """
+        The ARM resource ID of source resource that trusted access is configured for.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_resource_id", value)
 
 
 @pulumi.input_type

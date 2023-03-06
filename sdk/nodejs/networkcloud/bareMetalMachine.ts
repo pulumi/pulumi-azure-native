@@ -38,112 +38,21 @@ export class BareMetalMachine extends pulumi.CustomResource {
     }
 
     /**
-     * The connection string for the baseboard management controller including IP address and protocol.
-     */
-    public readonly bmcConnectionString!: pulumi.Output<string>;
-    public readonly bmcCredentials!: pulumi.Output<outputs.networkcloud.AdministrativeCredentialsResponse>;
-    /**
-     * The MAC address of the BMC device.
-     */
-    public readonly bmcMacAddress!: pulumi.Output<string>;
-    /**
-     * The MAC address of a NIC connected to the PXE network.
-     */
-    public readonly bootMacAddress!: pulumi.Output<string>;
-    /**
-     * The resource ID of the cluster this bare metal machine is associated with.
-     */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
-    /**
-     * The cordon status of the bare metal machine.
-     */
-    public /*out*/ readonly cordonStatus!: pulumi.Output<string>;
-    /**
-     * The more detailed status of the bare metal machine.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
-    public /*out*/ readonly hardwareInventory!: pulumi.Output<outputs.networkcloud.HardwareInventoryResponse | undefined>;
-    public /*out*/ readonly hardwareValidationStatus!: pulumi.Output<outputs.networkcloud.HardwareValidationStatusResponse | undefined>;
-    /**
-     * The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
-     */
-    public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
-    /**
-     * The name of this machine represented by the host object in the Cluster's Kubernetes control plane.
-     */
-    public /*out*/ readonly kubernetesNodeName!: pulumi.Output<string>;
-    /**
-     * The version of Kubernetes running on this machine.
-     */
-    public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The custom details provided by the customer.
-     */
-    public readonly machineDetails!: pulumi.Output<string>;
-    /**
-     * The OS-level hostname assigned to this machine.
-     */
-    public readonly machineName!: pulumi.Output<string>;
-    /**
-     * The unique internal identifier of the bare metal machine SKU.
-     */
-    public readonly machineSkuId!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The IPv4 address that is assigned to the bare metal machine during the cluster deployment.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly oamIpv4Address!: pulumi.Output<string>;
-    /**
-     * The IPv6 address that is assigned to the bare metal machine during the cluster deployment.
-     */
-    public /*out*/ readonly oamIpv6Address!: pulumi.Output<string>;
-    /**
-     * The image that is currently provisioned to the OS disk.
-     */
-    public /*out*/ readonly osImage!: pulumi.Output<string>;
-    /**
-     * The power state derived from the baseboard management controller.
-     */
-    public /*out*/ readonly powerState!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the bare metal machine.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resource ID of the rack where this bare metal machine resides.
-     */
-    public readonly rackId!: pulumi.Output<string>;
-    /**
-     * The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
-     */
-    public readonly rackSlot!: pulumi.Output<number>;
-    /**
-     * The indicator of whether the bare metal machine is ready to receive workloads.
-     */
-    public /*out*/ readonly readyState!: pulumi.Output<string>;
-    /**
-     * The serial number of the bare metal machine.
-     */
-    public readonly serialNumber!: pulumi.Output<string>;
-    /**
-     * The discovered value of the machine's service tag.
-     */
-    public /*out*/ readonly serviceTag!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.BareMetalMachinePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -156,10 +65,6 @@ export class BareMetalMachine extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
-     */
-    public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
 
     /**
      * Create a BareMetalMachine resource with the given unique name, arguments, and options.
@@ -172,111 +77,32 @@ export class BareMetalMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bmcConnectionString === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bmcConnectionString'");
-            }
-            if ((!args || args.bmcCredentials === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bmcCredentials'");
-            }
-            if ((!args || args.bmcMacAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bmcMacAddress'");
-            }
-            if ((!args || args.bootMacAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bootMacAddress'");
-            }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.machineDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'machineDetails'");
-            }
-            if ((!args || args.machineName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'machineName'");
-            }
-            if ((!args || args.machineSkuId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'machineSkuId'");
-            }
-            if ((!args || args.rackId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rackId'");
-            }
-            if ((!args || args.rackSlot === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rackSlot'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialNumber === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serialNumber'");
-            }
             resourceInputs["bareMetalMachineName"] = args ? args.bareMetalMachineName : undefined;
-            resourceInputs["bmcConnectionString"] = args ? args.bmcConnectionString : undefined;
-            resourceInputs["bmcCredentials"] = args ? args.bmcCredentials : undefined;
-            resourceInputs["bmcMacAddress"] = args ? args.bmcMacAddress : undefined;
-            resourceInputs["bootMacAddress"] = args ? args.bootMacAddress : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineDetails"] = args ? args.machineDetails : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["machineSkuId"] = args ? args.machineSkuId : undefined;
-            resourceInputs["rackId"] = args ? args.rackId : undefined;
-            resourceInputs["rackSlot"] = args ? args.rackSlot : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["cordonStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["hardwareInventory"] = undefined /*out*/;
-            resourceInputs["hardwareValidationStatus"] = undefined /*out*/;
-            resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
-            resourceInputs["kubernetesNodeName"] = undefined /*out*/;
-            resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["oamIpv4Address"] = undefined /*out*/;
-            resourceInputs["oamIpv6Address"] = undefined /*out*/;
-            resourceInputs["osImage"] = undefined /*out*/;
-            resourceInputs["powerState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["readyState"] = undefined /*out*/;
-            resourceInputs["serviceTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
-            resourceInputs["bmcConnectionString"] = undefined /*out*/;
-            resourceInputs["bmcCredentials"] = undefined /*out*/;
-            resourceInputs["bmcMacAddress"] = undefined /*out*/;
-            resourceInputs["bootMacAddress"] = undefined /*out*/;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["cordonStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["hardwareInventory"] = undefined /*out*/;
-            resourceInputs["hardwareValidationStatus"] = undefined /*out*/;
-            resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
-            resourceInputs["kubernetesNodeName"] = undefined /*out*/;
-            resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["machineDetails"] = undefined /*out*/;
-            resourceInputs["machineName"] = undefined /*out*/;
-            resourceInputs["machineSkuId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["oamIpv4Address"] = undefined /*out*/;
-            resourceInputs["oamIpv6Address"] = undefined /*out*/;
-            resourceInputs["osImage"] = undefined /*out*/;
-            resourceInputs["powerState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["rackId"] = undefined /*out*/;
-            resourceInputs["rackSlot"] = undefined /*out*/;
-            resourceInputs["readyState"] = undefined /*out*/;
-            resourceInputs["serialNumber"] = undefined /*out*/;
-            resourceInputs["serviceTag"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:BareMetalMachine" }] };
@@ -294,19 +120,6 @@ export interface BareMetalMachineArgs {
      */
     bareMetalMachineName?: pulumi.Input<string>;
     /**
-     * The connection string for the baseboard management controller including IP address and protocol.
-     */
-    bmcConnectionString: pulumi.Input<string>;
-    bmcCredentials: pulumi.Input<inputs.networkcloud.AdministrativeCredentialsArgs>;
-    /**
-     * The MAC address of the BMC device.
-     */
-    bmcMacAddress: pulumi.Input<string>;
-    /**
-     * The MAC address of a NIC connected to the PXE network.
-     */
-    bootMacAddress: pulumi.Input<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
@@ -315,33 +128,13 @@ export interface BareMetalMachineArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The custom details provided by the customer.
+     * The list of the resource properties.
      */
-    machineDetails: pulumi.Input<string>;
-    /**
-     * The OS-level hostname assigned to this machine.
-     */
-    machineName: pulumi.Input<string>;
-    /**
-     * The unique internal identifier of the bare metal machine SKU.
-     */
-    machineSkuId: pulumi.Input<string>;
-    /**
-     * The resource ID of the rack where this bare metal machine resides.
-     */
-    rackId: pulumi.Input<string>;
-    /**
-     * The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
-     */
-    rackSlot: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.networkcloud.BareMetalMachinePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The serial number of the bare metal machine.
-     */
-    serialNumber: pulumi.Input<string>;
     /**
      * Resource tags.
      */

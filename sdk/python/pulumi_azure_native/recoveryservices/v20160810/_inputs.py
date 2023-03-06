@@ -33,6 +33,7 @@ __all__ = [
     'InMageEnableProtectionInputArgs',
     'InMagePolicyInputArgs',
     'InMageVolumeExclusionOptionsArgs',
+    'RecoveryPlanActionDetailsArgs',
     'RecoveryPlanActionArgs',
     'RecoveryPlanGroupArgs',
     'RecoveryPlanProtectedItemArgs',
@@ -2279,18 +2280,30 @@ class InMageVolumeExclusionOptionsArgs:
 
 
 @pulumi.input_type
+class RecoveryPlanActionDetailsArgs:
+    def __init__(__self__):
+        """
+        Recovery plan action custom details.
+        """
+        pass
+
+
+@pulumi.input_type
 class RecoveryPlanActionArgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[str],
+                 custom_details: pulumi.Input['RecoveryPlanActionDetailsArgs'],
                  failover_directions: pulumi.Input[Sequence[pulumi.Input['PossibleOperationsDirections']]],
                  failover_types: pulumi.Input[Sequence[pulumi.Input['ReplicationProtectedItemOperation']]]):
         """
         Recovery plan action details.
         :param pulumi.Input[str] action_name: The action name.
+        :param pulumi.Input['RecoveryPlanActionDetailsArgs'] custom_details: The custom details.
         :param pulumi.Input[Sequence[pulumi.Input['PossibleOperationsDirections']]] failover_directions: The list of failover directions.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationProtectedItemOperation']]] failover_types: The list of failover types.
         """
         pulumi.set(__self__, "action_name", action_name)
+        pulumi.set(__self__, "custom_details", custom_details)
         pulumi.set(__self__, "failover_directions", failover_directions)
         pulumi.set(__self__, "failover_types", failover_types)
 
@@ -2305,6 +2318,18 @@ class RecoveryPlanActionArgs:
     @action_name.setter
     def action_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_name", value)
+
+    @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> pulumi.Input['RecoveryPlanActionDetailsArgs']:
+        """
+        The custom details.
+        """
+        return pulumi.get(self, "custom_details")
+
+    @custom_details.setter
+    def custom_details(self, value: pulumi.Input['RecoveryPlanActionDetailsArgs']):
+        pulumi.set(self, "custom_details", value)
 
     @property
     @pulumi.getter(name="failoverDirections")

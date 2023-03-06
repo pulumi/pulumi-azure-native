@@ -46,18 +46,6 @@ export interface GetADLSGen2FileDataSetArgs {
  */
 export interface GetADLSGen2FileDataSetResult {
     /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
-     * File path within the file system.
-     */
-    readonly filePath: string;
-    /**
-     * File system to which the file belongs.
-     */
-    readonly fileSystem: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -71,17 +59,9 @@ export interface GetADLSGen2FileDataSetResult {
      */
     readonly name: string;
     /**
-     * Resource group of storage account
+     * ADLS Gen 2 file data set properties.
      */
-    readonly resourceGroup: string;
-    /**
-     * Storage account name of the source data set
-     */
-    readonly storageAccountName: string;
-    /**
-     * Subscription id of storage account
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.ADLSGen2FilePropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

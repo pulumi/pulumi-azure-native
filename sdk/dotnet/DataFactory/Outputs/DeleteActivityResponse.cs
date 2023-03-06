@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class DeleteActivityResponse
     {
         /// <summary>
-        /// Delete activity dataset reference.
-        /// </summary>
-        public readonly Outputs.DatasetReferenceResponse Dataset;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -29,21 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Whether to record detailed logs of delete-activity execution. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? EnableLogging;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
-        /// <summary>
-        /// Log storage settings customer need to provide when enableLogging is true.
-        /// </summary>
-        public readonly Outputs.LogStorageSettingsResponse? LogStorageSettings;
-        /// <summary>
-        /// The max concurrent connections to connect data source at the same time.
-        /// </summary>
-        public readonly int? MaxConcurrentConnections;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -53,18 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? Recursive;
-        /// <summary>
-        /// Delete activity store settings.
-        /// </summary>
-        public readonly object? StoreSettings;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Delete'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Delete activity properties.
+        /// </summary>
+        public readonly Outputs.DeleteActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -72,44 +52,29 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DeleteActivityResponse(
-            Outputs.DatasetReferenceResponse dataset,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
-            object? enableLogging,
-
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
-
-            Outputs.LogStorageSettingsResponse? logStorageSettings,
-
-            int? maxConcurrentConnections,
 
             string name,
 
             Outputs.ActivityPolicyResponse? policy,
 
-            object? recursive,
-
-            object? storeSettings,
-
             string type,
+
+            Outputs.DeleteActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Dataset = dataset;
             DependsOn = dependsOn;
             Description = description;
-            EnableLogging = enableLogging;
             LinkedServiceName = linkedServiceName;
-            LogStorageSettings = logStorageSettings;
-            MaxConcurrentConnections = maxConcurrentConnections;
             Name = name;
             Policy = policy;
-            Recursive = recursive;
-            StoreSettings = storeSettings;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

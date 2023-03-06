@@ -16,36 +16,6 @@ namespace Pulumi.AzureNative.NetApp.V20201201
     public partial class Backup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// UUID v4 used to identify the Backup
-        /// </summary>
-        [Output("backupId")]
-        public Output<string> BackupId { get; private set; } = null!;
-
-        /// <summary>
-        /// Type of backup Manual or Scheduled
-        /// </summary>
-        [Output("backupType")]
-        public Output<string> BackupType { get; private set; } = null!;
-
-        /// <summary>
-        /// The creation date of the backup
-        /// </summary>
-        [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// Failure reason
-        /// </summary>
-        [Output("failureReason")]
-        public Output<string> FailureReason { get; private set; } = null!;
-
-        /// <summary>
-        /// Label for backup
-        /// </summary>
-        [Output("label")]
-        public Output<string?> Label { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -58,28 +28,16 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup Properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Size of backup
-        /// </summary>
-        [Output("size")]
-        public Output<double> Size { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Volume name
-        /// </summary>
-        [Output("volumeName")]
-        public Output<string> VolumeName { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,12 +117,6 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         public Input<string>? BackupName { get; set; }
 
         /// <summary>
-        /// Label for backup
-        /// </summary>
-        [Input("label")]
-        public Input<string>? Label { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
@@ -175,6 +127,12 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         /// </summary>
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// Backup Properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.BackupPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -15,6 +15,7 @@ __all__ = [
     'AlertDetailsOverrideArgs',
     'AlertsDataTypeOfDataConnectorArgs',
     'AutomationRuleModifyPropertiesActionArgs',
+    'AutomationRulePropertiesArgs',
     'AutomationRulePropertyValuesConditionArgs',
     'AutomationRuleRunPlaybookActionArgs',
     'AutomationRuleTriggeringLogicArgs',
@@ -259,6 +260,74 @@ class AutomationRuleModifyPropertiesActionArgs:
     @action_configuration.setter
     def action_configuration(self, value: Optional[pulumi.Input['IncidentPropertiesActionArgs']]):
         pulumi.set(self, "action_configuration", value)
+
+
+@pulumi.input_type
+class AutomationRulePropertiesArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
+                 display_name: pulumi.Input[str],
+                 order: pulumi.Input[int],
+                 triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs']):
+        """
+        Automation rule properties
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered
+        :param pulumi.Input[str] display_name: The display name of the automation rule
+        :param pulumi.Input[int] order: The order of execution of the automation rule
+        :param pulumi.Input['AutomationRuleTriggeringLogicArgs'] triggering_logic: Describes automation rule triggering logic
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "triggering_logic", triggering_logic)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]:
+        """
+        The actions to execute when the automation rule is triggered
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the automation rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        The order of execution of the automation rule
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="triggeringLogic")
+    def triggering_logic(self) -> pulumi.Input['AutomationRuleTriggeringLogicArgs']:
+        """
+        Describes automation rule triggering logic
+        """
+        return pulumi.get(self, "triggering_logic")
+
+    @triggering_logic.setter
+    def triggering_logic(self, value: pulumi.Input['AutomationRuleTriggeringLogicArgs']):
+        pulumi.set(self, "triggering_logic", value)
 
 
 @pulumi.input_type

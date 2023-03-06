@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     public partial class SynapseWorkspaceSqlPoolTableDataSetMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        [Output("dataSetMappingStatus")]
-        public Output<string> DataSetMappingStatus { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set mapping.
         /// Expected value is 'SynapseWorkspaceSqlPoolTable'.
         /// </summary>
@@ -41,16 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// A Synapse Workspace Sql Pool Table data set mapping properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource id of the Synapse Workspace SQL Pool Table
-        /// </summary>
-        [Output("synapseWorkspaceSqlPoolTableResourceId")]
-        public Output<string> SynapseWorkspaceSqlPoolTableResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -131,12 +113,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        [Input("dataSetId", required: true)]
-        public Input<string> DataSetId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
         [Input("dataSetMappingName")]
@@ -150,6 +126,12 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
+        /// A Synapse Workspace Sql Pool Table data set mapping properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -160,12 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         /// </summary>
         [Input("shareSubscriptionName", required: true)]
         public Input<string> ShareSubscriptionName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource id of the Synapse Workspace SQL Pool Table
-        /// </summary>
-        [Input("synapseWorkspaceSqlPoolTableResourceId", required: true)]
-        public Input<string> SynapseWorkspaceSqlPoolTableResourceId { get; set; } = null!;
 
         public SynapseWorkspaceSqlPoolTableDataSetMappingArgs()
         {

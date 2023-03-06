@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -38,22 +41,6 @@ export class Backup extends pulumi.CustomResource {
     }
 
     /**
-     * UUID v4 used to identify the Backup
-     */
-    public /*out*/ readonly backupId!: pulumi.Output<string>;
-    /**
-     * Type of backup Manual or Scheduled
-     */
-    public /*out*/ readonly backupType!: pulumi.Output<string>;
-    /**
-     * The creation date of the backup
-     */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    /**
-     * Label for backup
-     */
-    public readonly label!: pulumi.Output<string | undefined>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -62,13 +49,9 @@ export class Backup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure lifecycle management
+     * Backup Properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Size of backup
-     */
-    public /*out*/ readonly size!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20200801.BackupPropertiesResponse>;
     /**
      * Resource type
      */
@@ -93,6 +76,9 @@ export class Backup extends pulumi.CustomResource {
             if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -101,27 +87,17 @@ export class Backup extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["backupName"] = args ? args.backupName : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["backupId"] = undefined /*out*/;
-            resourceInputs["backupType"] = undefined /*out*/;
-            resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["size"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["backupId"] = undefined /*out*/;
-            resourceInputs["backupType"] = undefined /*out*/;
-            resourceInputs["creationDate"] = undefined /*out*/;
-            resourceInputs["label"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -144,10 +120,6 @@ export interface BackupArgs {
      */
     backupName?: pulumi.Input<string>;
     /**
-     * Label for backup
-     */
-    label?: pulumi.Input<string>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
@@ -155,6 +127,10 @@ export interface BackupArgs {
      * The name of the capacity pool
      */
     poolName: pulumi.Input<string>;
+    /**
+     * Backup Properties
+     */
+    properties: pulumi.Input<inputs.netapp.v20200801.BackupPropertiesArgs>;
     /**
      * The name of the resource group.
      */

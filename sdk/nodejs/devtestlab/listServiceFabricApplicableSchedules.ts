@@ -50,14 +50,6 @@ export interface ListServiceFabricApplicableSchedulesResult {
      */
     readonly id: string;
     /**
-     * The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-     */
-    readonly labVmsShutdown?: outputs.devtestlab.ScheduleResponse;
-    /**
-     * The auto-startup schedule, if one has been set at the lab or lab resource level.
-     */
-    readonly labVmsStartup?: outputs.devtestlab.ScheduleResponse;
-    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -65,6 +57,10 @@ export interface ListServiceFabricApplicableSchedulesResult {
      * The name of the resource.
      */
     readonly name: string;
+    /**
+     * The properties of the resource.
+     */
+    readonly properties: outputs.devtestlab.ApplicableSchedulePropertiesResponse;
     /**
      * The tags of the resource.
      */

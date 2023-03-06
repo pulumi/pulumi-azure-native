@@ -11,8 +11,10 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AdaptiveApplicationControlGroupDataArgs',
     'AssessmentStatusArgs',
     'AzureResourceDetailsArgs',
+    'JitNetworkAccessPolicyPropertiesArgs',
     'JitNetworkAccessPolicyVirtualMachineArgs',
     'JitNetworkAccessPortRuleArgs',
     'JitNetworkAccessRequestPortArgs',
@@ -29,6 +31,70 @@ __all__ = [
     'UserRecommendationArgs',
     'VmRecommendationArgs',
 ]
+
+@pulumi.input_type
+class AdaptiveApplicationControlGroupDataArgs:
+    def __init__(__self__, *,
+                 enforcement_mode: Optional[pulumi.Input[str]] = None,
+                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input['PathRecommendationArgs']]]] = None,
+                 protection_mode: Optional[pulumi.Input['ProtectionModeArgs']] = None,
+                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input['VmRecommendationArgs']]]] = None):
+        """
+        Represents a machines group and set of rules to be allowed running on a machine
+        :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the machine group
+        :param pulumi.Input['ProtectionModeArgs'] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        if enforcement_mode is not None:
+            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if path_recommendations is not None:
+            pulumi.set(__self__, "path_recommendations", path_recommendations)
+        if protection_mode is not None:
+            pulumi.set(__self__, "protection_mode", protection_mode)
+        if vm_recommendations is not None:
+            pulumi.set(__self__, "vm_recommendations", vm_recommendations)
+
+    @property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+        return pulumi.get(self, "enforcement_mode")
+
+    @enforcement_mode.setter
+    def enforcement_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enforcement_mode", value)
+
+    @property
+    @pulumi.getter(name="pathRecommendations")
+    def path_recommendations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PathRecommendationArgs']]]]:
+        return pulumi.get(self, "path_recommendations")
+
+    @path_recommendations.setter
+    def path_recommendations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PathRecommendationArgs']]]]):
+        pulumi.set(self, "path_recommendations", value)
+
+    @property
+    @pulumi.getter(name="protectionMode")
+    def protection_mode(self) -> Optional[pulumi.Input['ProtectionModeArgs']]:
+        """
+        The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        return pulumi.get(self, "protection_mode")
+
+    @protection_mode.setter
+    def protection_mode(self, value: Optional[pulumi.Input['ProtectionModeArgs']]):
+        pulumi.set(self, "protection_mode", value)
+
+    @property
+    @pulumi.getter(name="vmRecommendations")
+    def vm_recommendations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmRecommendationArgs']]]]:
+        return pulumi.get(self, "vm_recommendations")
+
+    @vm_recommendations.setter
+    def vm_recommendations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmRecommendationArgs']]]]):
+        pulumi.set(self, "vm_recommendations", value)
+
 
 @pulumi.input_type
 class AssessmentStatusArgs:
@@ -108,6 +174,40 @@ class AzureResourceDetailsArgs:
     @source.setter
     def source(self, value: pulumi.Input[str]):
         pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
+class JitNetworkAccessPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]],
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
+        """
+        pulumi.set(__self__, "virtual_machines", virtual_machines)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]:
+        """
+        Configurations for Microsoft.Compute/virtualMachines resource type.
+        """
+        return pulumi.get(self, "virtual_machines")
+
+    @virtual_machines.setter
+    def virtual_machines(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]):
+        pulumi.set(self, "virtual_machines", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]):
+        pulumi.set(self, "requests", value)
 
 
 @pulumi.input_type

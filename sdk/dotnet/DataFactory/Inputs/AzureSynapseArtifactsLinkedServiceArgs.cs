@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Required to specify MSI, if using system assigned managed identity as authentication method. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("authentication")]
-        public Input<object>? Authentication { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// https://&lt;workspacename&gt;.dev.azuresynapse.net, Azure Synapse Analytics workspace URL. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<object> Endpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -71,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
+        /// Azure Synapse Analytics (Artifacts) linked service properties.
         /// </summary>
-        [Input("workspaceResourceId")]
-        public Input<object>? WorkspaceResourceId { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureSynapseArtifactsLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureSynapseArtifactsLinkedServiceArgs()
         {

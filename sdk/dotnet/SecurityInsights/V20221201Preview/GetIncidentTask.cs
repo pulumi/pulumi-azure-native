@@ -94,18 +94,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     public sealed class GetIncidentTaskResult
     {
         /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        public readonly Outputs.ClientInfoResponse? CreatedBy;
-        /// <summary>
-        /// The time the task was created
-        /// </summary>
-        public readonly string CreatedTimeUtc;
-        /// <summary>
-        /// The description of the task
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
@@ -114,26 +102,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Information on the client (user or application) that made some action
-        /// </summary>
-        public readonly Outputs.ClientInfoResponse? LastModifiedBy;
-        /// <summary>
-        /// The last time the task was updated
-        /// </summary>
-        public readonly string LastModifiedTimeUtc;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly string Status;
+        public readonly Outputs.IncidentTaskPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// The title of the task
-        /// </summary>
-        public readonly string Title;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -141,41 +117,23 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
 
         [OutputConstructor]
         private GetIncidentTaskResult(
-            Outputs.ClientInfoResponse? createdBy,
-
-            string createdTimeUtc,
-
-            string? description,
-
             string? etag,
 
             string id,
 
-            Outputs.ClientInfoResponse? lastModifiedBy,
-
-            string lastModifiedTimeUtc,
-
             string name,
 
-            string status,
+            Outputs.IncidentTaskPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string title,
-
             string type)
         {
-            CreatedBy = createdBy;
-            CreatedTimeUtc = createdTimeUtc;
-            Description = description;
             Etag = etag;
             Id = id;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedTimeUtc = lastModifiedTimeUtc;
             Name = name;
-            Status = status;
+            Properties = properties;
             SystemData = systemData;
-            Title = title;
             Type = type;
         }
     }

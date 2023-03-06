@@ -23,16 +23,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The name of the environment variable.
+        /// Add environment variable type properties.
         /// </summary>
-        [Input("variableName", required: true)]
-        public Input<string> VariableName { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the environment variable.
-        /// </summary>
-        [Input("variableValue", required: true)]
-        public Input<string> VariableValue { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.EnvironmentVariableSetupTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public EnvironmentVariableSetupArgs()
         {

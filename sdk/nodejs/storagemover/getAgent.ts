@@ -41,54 +41,14 @@ export interface GetAgentArgs {
  */
 export interface GetAgentResult {
     /**
-     * The Agent status.
-     */
-    readonly agentStatus: string;
-    /**
-     * The Agent version.
-     */
-    readonly agentVersion: string;
-    /**
-     * The fully qualified resource ID of the Hybrid Compute resource for the Agent.
-     */
-    readonly arcResourceId: string;
-    /**
-     * The VM UUID of the Hybrid Compute resource for the Agent.
-     */
-    readonly arcVmUuid: string;
-    /**
-     * A description for the Agent.
-     */
-    readonly description?: string;
-    readonly errorDetails: outputs.storagemover.AgentPropertiesResponseErrorDetails;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The last updated time of the Agent status.
-     */
-    readonly lastStatusUpdate: string;
-    /**
-     * Local IP address reported by the Agent.
-     */
-    readonly localIPAddress: string;
-    /**
-     * Available memory reported by the Agent, in MB.
-     */
-    readonly memoryInMB: number;
-    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * Available compute cores reported by the Agent.
-     */
-    readonly numberOfCores: number;
-    /**
-     * The provisioning state of this resource.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.storagemover.AgentPropertiesResponse;
     /**
      * Resource system metadata.
      */
@@ -97,10 +57,6 @@ export interface GetAgentResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Uptime of the Agent in seconds.
-     */
-    readonly uptimeInSeconds: number;
 }
 /**
  * Gets an Agent resource.

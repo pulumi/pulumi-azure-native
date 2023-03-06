@@ -149,58 +149,22 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the expiry time.
-        /// </summary>
-        [Input("expiryTime")]
-        public Input<string>? ExpiryTime { get; set; }
-
-        /// <summary>
-        /// Gets or sets the value of the enabled flag of webhook.
-        /// </summary>
-        [Input("isEnabled")]
-        public Input<bool>? IsEnabled { get; set; }
-
-        /// <summary>
         /// Gets or sets the name of the webhook.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<string>? _parameters;
-
         /// <summary>
-        /// Gets or sets the parameters of the job.
+        /// Gets or sets the properties of the webhook.
         /// </summary>
-        public InputMap<string> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<string>());
-            set => _parameters = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.WebhookCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the name of the hybrid worker group the webhook job will run on.
-        /// </summary>
-        [Input("runOn")]
-        public Input<string>? RunOn { get; set; }
-
-        /// <summary>
-        /// Gets or sets the runbook.
-        /// </summary>
-        [Input("runbook")]
-        public Input<Inputs.RunbookAssociationPropertyArgs>? Runbook { get; set; }
-
-        /// <summary>
-        /// Gets or sets the uri.
-        /// </summary>
-        [Input("uri")]
-        public Input<string>? Uri { get; set; }
 
         /// <summary>
         /// The webhook name.

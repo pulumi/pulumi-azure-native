@@ -82,34 +82,9 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
     public sealed class GetKeyResult
     {
         /// <summary>
-        /// The attributes of the key.
-        /// </summary>
-        public readonly Outputs.KeyAttributesResponse? Attributes;
-        /// <summary>
-        /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-        /// </summary>
-        public readonly string? CurveName;
-        /// <summary>
         /// Fully qualified identifier of the key vault resource.
         /// </summary>
         public readonly string Id;
-        public readonly ImmutableArray<string> KeyOps;
-        /// <summary>
-        /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-        /// </summary>
-        public readonly int? KeySize;
-        /// <summary>
-        /// The URI to retrieve the current version of the key.
-        /// </summary>
-        public readonly string KeyUri;
-        /// <summary>
-        /// The URI to retrieve the specific version of the key.
-        /// </summary>
-        public readonly string KeyUriWithVersion;
-        /// <summary>
-        /// The type of the key. For valid values, see JsonWebKeyType.
-        /// </summary>
-        public readonly string? Kty;
         /// <summary>
         /// Azure location of the key vault resource.
         /// </summary>
@@ -118,6 +93,10 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
         /// Name of the key vault resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The properties of the key.
+        /// </summary>
+        public readonly Outputs.KeyPropertiesResponse Properties;
         /// <summary>
         /// Tags assigned to the key vault resource.
         /// </summary>
@@ -129,40 +108,22 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
 
         [OutputConstructor]
         private GetKeyResult(
-            Outputs.KeyAttributesResponse? attributes,
-
-            string? curveName,
-
             string id,
-
-            ImmutableArray<string> keyOps,
-
-            int? keySize,
-
-            string keyUri,
-
-            string keyUriWithVersion,
-
-            string? kty,
 
             string location,
 
             string name,
 
+            Outputs.KeyPropertiesResponse properties,
+
             ImmutableDictionary<string, string> tags,
 
             string type)
         {
-            Attributes = attributes;
-            CurveName = curveName;
             Id = id;
-            KeyOps = keyOps;
-            KeySize = keySize;
-            KeyUri = keyUri;
-            KeyUriWithVersion = keyUriWithVersion;
-            Kty = kty;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

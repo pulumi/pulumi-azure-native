@@ -43,6 +43,7 @@ __all__ = [
     'SUCSchedulePropertiesResponse',
     'ScheduleAssociationPropertyResponse',
     'SkuResponse',
+    'SoftwareUpdateConfigurationPropertiesResponse',
     'SoftwareUpdateConfigurationTasksResponse',
     'SystemDataResponse',
     'TagSettingsPropertiesResponse',
@@ -1891,6 +1892,147 @@ class SkuResponse(dict):
         Gets or sets the SKU family.
         """
         return pulumi.get(self, "family")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationPropertiesResponse(dict):
+    """
+    Software update configuration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "scheduleInfo":
+            suggest = "schedule_info"
+        elif key == "updateConfiguration":
+            suggest = "update_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_by: str,
+                 creation_time: str,
+                 last_modified_by: str,
+                 last_modified_time: str,
+                 provisioning_state: str,
+                 schedule_info: 'outputs.SUCSchedulePropertiesResponse',
+                 update_configuration: 'outputs.UpdateConfigurationResponse',
+                 error: Optional['outputs.ErrorResponseResponse'] = None,
+                 tasks: Optional['outputs.SoftwareUpdateConfigurationTasksResponse'] = None):
+        """
+        Software update configuration properties.
+        :param str created_by: CreatedBy property, which only appears in the response.
+        :param str creation_time: Creation time of the resource, which only appears in the response.
+        :param str last_modified_by: LastModifiedBy property, which only appears in the response.
+        :param str last_modified_time: Last time resource was modified, which only appears in the response.
+        :param str provisioning_state: Provisioning state for the software update configuration, which only appears in the response.
+        :param 'SUCSchedulePropertiesResponse' schedule_info: Schedule information for the Software update configuration
+        :param 'UpdateConfigurationResponse' update_configuration: update specific properties for the Software update configuration
+        :param 'ErrorResponseResponse' error: Details of provisioning error
+        :param 'SoftwareUpdateConfigurationTasksResponse' tasks: Tasks information for the Software update configuration.
+        """
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "schedule_info", schedule_info)
+        pulumi.set(__self__, "update_configuration", update_configuration)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if tasks is not None:
+            pulumi.set(__self__, "tasks", tasks)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        CreatedBy property, which only appears in the response.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Creation time of the resource, which only appears in the response.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> str:
+        """
+        LastModifiedBy property, which only appears in the response.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        Last time resource was modified, which only appears in the response.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the software update configuration, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="scheduleInfo")
+    def schedule_info(self) -> 'outputs.SUCSchedulePropertiesResponse':
+        """
+        Schedule information for the Software update configuration
+        """
+        return pulumi.get(self, "schedule_info")
+
+    @property
+    @pulumi.getter(name="updateConfiguration")
+    def update_configuration(self) -> 'outputs.UpdateConfigurationResponse':
+        """
+        update specific properties for the Software update configuration
+        """
+        return pulumi.get(self, "update_configuration")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorResponseResponse']:
+        """
+        Details of provisioning error
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def tasks(self) -> Optional['outputs.SoftwareUpdateConfigurationTasksResponse']:
+        """
+        Tasks information for the Software update configuration.
+        """
+        return pulumi.get(self, "tasks")
 
 
 @pulumi.output_type

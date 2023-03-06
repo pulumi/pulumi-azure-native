@@ -33,14 +33,6 @@ export interface GetControllerArgs {
 
 export interface GetControllerResult {
     /**
-     * DNS name for accessing DataPlane services
-     */
-    readonly dataPlaneFqdn: string;
-    /**
-     * DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-     */
-    readonly hostSuffix: string;
-    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
@@ -52,10 +44,7 @@ export interface GetControllerResult {
      * The name of the resource.
      */
     readonly name: string;
-    /**
-     * Provisioning state of the Azure Dev Spaces Controller.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.devspaces.ControllerPropertiesResponse;
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */
@@ -64,14 +53,6 @@ export interface GetControllerResult {
      * Tags for the Azure resource.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * DNS of the target container host's API server
-     */
-    readonly targetContainerHostApiServerFqdn: string;
-    /**
-     * Resource ID of the target container host
-     */
-    readonly targetContainerHostResourceId: string;
     /**
      * The type of the resource.
      */

@@ -84,14 +84,6 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRCustomDomainResult
     {
         /// <summary>
-        /// Reference to a resource.
-        /// </summary>
-        public readonly Outputs.ResourceReferenceResponse CustomCertificate;
-        /// <summary>
-        /// The custom domain name.
-        /// </summary>
-        public readonly string DomainName;
-        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -100,9 +92,9 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of a custom domain.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.CustomDomainPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -114,25 +106,19 @@ namespace Pulumi.AzureNative.SignalRService
 
         [OutputConstructor]
         private GetSignalRCustomDomainResult(
-            Outputs.ResourceReferenceResponse customCertificate,
-
-            string domainName,
-
             string id,
 
             string name,
 
-            string provisioningState,
+            Outputs.CustomDomainPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            CustomCertificate = customCertificate;
-            DomainName = domainName;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

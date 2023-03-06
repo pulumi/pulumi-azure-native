@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'AccessModeSettingsExclusionResponse',
     'AccessModeSettingsResponse',
+    'AzureMonitorPrivateLinkScopePropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -150,6 +151,71 @@ class AccessModeSettingsResponse(dict):
         List of exclusions that override the default access mode settings for specific private endpoint connections.
         """
         return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
+class AzureMonitorPrivateLinkScopePropertiesResponse(dict):
+    """
+    Properties that define a Azure Monitor PrivateLinkScope resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessModeSettings":
+            suggest = "access_mode_settings"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorPrivateLinkScopePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorPrivateLinkScopePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorPrivateLinkScopePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_mode_settings: 'outputs.AccessModeSettingsResponse',
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 provisioning_state: str):
+        """
+        Properties that define a Azure Monitor PrivateLinkScope resource.
+        :param 'AccessModeSettingsResponse' access_mode_settings: Access mode settings
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of private endpoint connections.
+        :param str provisioning_state: Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        """
+        pulumi.set(__self__, "access_mode_settings", access_mode_settings)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="accessModeSettings")
+    def access_mode_settings(self) -> 'outputs.AccessModeSettingsResponse':
+        """
+        Access mode settings
+        """
+        return pulumi.get(self, "access_mode_settings")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

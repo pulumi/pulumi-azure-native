@@ -16,64 +16,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class HybridAksCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
-        /// </summary>
-        [Output("associatedNetworkIds")]
-        public Output<ImmutableArray<string>> AssociatedNetworkIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the associated cloud services network.
-        /// </summary>
-        [Output("cloudServicesNetworkId")]
-        public Output<string> CloudServicesNetworkId { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the Network Cloud cluster hosting the Hybrid AKS cluster.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of control plane node VMs.
-        /// </summary>
-        [Output("controlPlaneCount")]
-        public Output<double> ControlPlaneCount { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of node configurations detailing associated VMs that are part of the control plane nodes of this Hybrid AKS cluster.
-        /// </summary>
-        [Output("controlPlaneNodes")]
-        public Output<ImmutableArray<Outputs.NodeConfigurationResponse>> ControlPlaneNodes { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the associated default CNI network.
-        /// </summary>
-        [Output("defaultCniNetworkId")]
-        public Output<string> DefaultCniNetworkId { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of this Hybrid AKS cluster.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the Hybrid AKS cluster that this additional information is for.
-        /// </summary>
-        [Output("hybridAksProvisionedClusterId")]
-        public Output<string> HybridAksProvisionedClusterId { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -88,10 +34,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the Hybrid AKS cluster resource.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.HybridAksClusterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -110,24 +56,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource IDs of volumes that are attached to the Hybrid AKS cluster.
-        /// </summary>
-        [Output("volumes")]
-        public Output<ImmutableArray<string>> Volumes { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of worker node VMs.
-        /// </summary>
-        [Output("workerCount")]
-        public Output<double> WorkerCount { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of node configurations detailing associated VMs that are part of the worker nodes of this Hybrid AKS cluster.
-        /// </summary>
-        [Output("workerNodes")]
-        public Output<ImmutableArray<Outputs.NodeConfigurationResponse>> WorkerNodes { get; private set; } = null!;
 
 
         /// <summary>
@@ -178,24 +106,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
     public sealed class HybridAksClusterArgs : global::Pulumi.ResourceArgs
     {
-        [Input("associatedNetworkIds", required: true)]
-        private InputList<string>? _associatedNetworkIds;
-
-        /// <summary>
-        /// The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
-        /// </summary>
-        public InputList<string> AssociatedNetworkIds
-        {
-            get => _associatedNetworkIds ?? (_associatedNetworkIds = new InputList<string>());
-            set => _associatedNetworkIds = value;
-        }
-
-        /// <summary>
-        /// The number of control plane node VMs.
-        /// </summary>
-        [Input("controlPlaneCount", required: true)]
-        public Input<double> ControlPlaneCount { get; set; } = null!;
-
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -209,16 +119,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string>? HybridAksClusterName { get; set; }
 
         /// <summary>
-        /// The resource ID of the Hybrid AKS cluster that this additional information is for.
-        /// </summary>
-        [Input("hybridAksProvisionedClusterId", required: true)]
-        public Input<string> HybridAksProvisionedClusterId { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The list of the resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.HybridAksClusterPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -237,12 +147,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The number of worker node VMs.
-        /// </summary>
-        [Input("workerCount", required: true)]
-        public Input<double> WorkerCount { get; set; } = null!;
 
         public HybridAksClusterArgs()
         {

@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("clientId", required: true)]
-        public Input<object> ClientId { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -64,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// Password to access the SAP BW server.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// Host name of the SAP BW instance. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("server", required: true)]
-        public Input<object> Server { get; set; } = null!;
-
-        /// <summary>
-        /// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("systemNumber", required: true)]
-        public Input<object> SystemNumber { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapBW'.
         /// </summary>
@@ -89,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username to access the SAP BW server. Type: string (or Expression with resultType string).
+        /// Properties specific to this linked service type.
         /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapBWLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapBWLinkedServiceArgs()
         {

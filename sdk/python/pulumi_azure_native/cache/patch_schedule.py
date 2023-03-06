@@ -18,19 +18,19 @@ __all__ = ['PatchScheduleArgs', 'PatchSchedule']
 class PatchScheduleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 properties: pulumi.Input['ScheduleEntriesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]],
                  default: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PatchSchedule resource.
         :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input['ScheduleEntriesArgs'] properties: List of patch schedules for a Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedule_entries", schedule_entries)
         if default is not None:
             pulumi.set(__self__, "default", default)
 
@@ -47,6 +47,18 @@ class PatchScheduleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ScheduleEntriesArgs']:
+        """
+        List of patch schedules for a Redis cache.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ScheduleEntriesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -57,18 +69,6 @@ class PatchScheduleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="scheduleEntries")
-    def schedule_entries(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]:
-        """
-        List of patch schedules for a Redis cache.
-        """
-        return pulumi.get(self, "schedule_entries")
-
-    @schedule_entries.setter
-    def schedule_entries(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
-        pulumi.set(self, "schedule_entries", value)
 
     @property
     @pulumi.getter
@@ -90,8 +90,8 @@ class PatchSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ScheduleEntriesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
                  __props__=None):
         """
         Response to put/get patch schedules for Redis cache.
@@ -101,8 +101,8 @@ class PatchSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input[pulumi.InputType['ScheduleEntriesArgs']] properties: List of patch schedules for a Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
         ...
     @overload
@@ -131,8 +131,8 @@ class PatchSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ScheduleEntriesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -146,12 +146,12 @@ class PatchSchedule(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schedule_entries is None and not opts.urn:
-                raise TypeError("Missing required property 'schedule_entries'")
-            __props__.__dict__["schedule_entries"] = schedule_entries
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20171001:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20180301:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20190701:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20200601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20201201:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20210601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220501:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220601:PatchSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -178,7 +178,7 @@ class PatchSchedule(pulumi.CustomResource):
         __props__ = PatchScheduleArgs.__new__(PatchScheduleArgs)
 
         __props__.__dict__["name"] = None
-        __props__.__dict__["schedule_entries"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return PatchSchedule(resource_name, opts=opts, __props__=__props__)
 
@@ -191,12 +191,12 @@ class PatchSchedule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="scheduleEntries")
-    def schedule_entries(self) -> pulumi.Output[Sequence['outputs.ScheduleEntryResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ScheduleEntriesResponse']:
         """
         List of patch schedules for a Redis cache.
         """
-        return pulumi.get(self, "schedule_entries")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

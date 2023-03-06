@@ -83,10 +83,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     public sealed class GetUserResult
     {
         /// <summary>
-        /// The password details.
-        /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptedPassword;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -95,9 +91,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of shares that the user has rights on. This field should not be specified during user creation.
+        /// The storage account credential properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ShareAccessRightResponse> ShareAccessRights;
+        public readonly Outputs.UserPropertiesResponse Properties;
         /// <summary>
         /// User in DataBoxEdge Resource
         /// </summary>
@@ -106,34 +102,24 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Type of the user.
-        /// </summary>
-        public readonly string? UserType;
 
         [OutputConstructor]
         private GetUserResult(
-            Outputs.AsymmetricEncryptedSecretResponse? encryptedPassword,
-
             string id,
 
             string name,
 
-            ImmutableArray<Outputs.ShareAccessRightResponse> shareAccessRights,
+            Outputs.UserPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string? userType)
+            string type)
         {
-            EncryptedPassword = encryptedPassword;
             Id = id;
             Name = name;
-            ShareAccessRights = shareAccessRights;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            UserType = userType;
         }
     }
 }

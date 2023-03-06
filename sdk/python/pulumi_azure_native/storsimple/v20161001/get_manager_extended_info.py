@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetManagerExtendedInfoResult',
@@ -23,61 +24,22 @@ class GetManagerExtendedInfoResult:
     """
     The extended info of the manager.
     """
-    def __init__(__self__, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, id=None, integrity_key=None, name=None, portal_certificate_thumbprint=None, type=None, version=None):
-        if algorithm and not isinstance(algorithm, str):
-            raise TypeError("Expected argument 'algorithm' to be a str")
-        pulumi.set(__self__, "algorithm", algorithm)
-        if encryption_key and not isinstance(encryption_key, str):
-            raise TypeError("Expected argument 'encryption_key' to be a str")
-        pulumi.set(__self__, "encryption_key", encryption_key)
-        if encryption_key_thumbprint and not isinstance(encryption_key_thumbprint, str):
-            raise TypeError("Expected argument 'encryption_key_thumbprint' to be a str")
-        pulumi.set(__self__, "encryption_key_thumbprint", encryption_key_thumbprint)
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if integrity_key and not isinstance(integrity_key, str):
-            raise TypeError("Expected argument 'integrity_key' to be a str")
-        pulumi.set(__self__, "integrity_key", integrity_key)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if portal_certificate_thumbprint and not isinstance(portal_certificate_thumbprint, str):
-            raise TypeError("Expected argument 'portal_certificate_thumbprint' to be a str")
-        pulumi.set(__self__, "portal_certificate_thumbprint", portal_certificate_thumbprint)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def algorithm(self) -> str:
-        """
-        Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-        """
-        return pulumi.get(self, "algorithm")
-
-    @property
-    @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[str]:
-        """
-        Represents the CEK of the resource
-        """
-        return pulumi.get(self, "encryption_key")
-
-    @property
-    @pulumi.getter(name="encryptionKeyThumbprint")
-    def encryption_key_thumbprint(self) -> Optional[str]:
-        """
-        Represents the Cert thumbprint that was used to encrypt the CEK
-        """
-        return pulumi.get(self, "encryption_key_thumbprint")
 
     @property
     @pulumi.getter
@@ -96,14 +58,6 @@ class GetManagerExtendedInfoResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="integrityKey")
-    def integrity_key(self) -> str:
-        """
-        Represents the CIK of the resource
-        """
-        return pulumi.get(self, "integrity_key")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -112,12 +66,12 @@ class GetManagerExtendedInfoResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="portalCertificateThumbprint")
-    def portal_certificate_thumbprint(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ManagerExtendedInfoPropertiesResponse':
         """
-        Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+        The extended info properties.
         """
-        return pulumi.get(self, "portal_certificate_thumbprint")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -127,14 +81,6 @@ class GetManagerExtendedInfoResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        """
-        Represents the version of the ExtendedInfo object being persisted
-        """
-        return pulumi.get(self, "version")
-
 
 class AwaitableGetManagerExtendedInfoResult(GetManagerExtendedInfoResult):
     # pylint: disable=using-constant-test
@@ -142,16 +88,11 @@ class AwaitableGetManagerExtendedInfoResult(GetManagerExtendedInfoResult):
         if False:
             yield self
         return GetManagerExtendedInfoResult(
-            algorithm=self.algorithm,
-            encryption_key=self.encryption_key,
-            encryption_key_thumbprint=self.encryption_key_thumbprint,
             etag=self.etag,
             id=self.id,
-            integrity_key=self.integrity_key,
             name=self.name,
-            portal_certificate_thumbprint=self.portal_certificate_thumbprint,
-            type=self.type,
-            version=self.version)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_manager_extended_info(manager_name: Optional[str] = None,
@@ -172,16 +113,11 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20161001:getManagerExtendedInfo', __args__, opts=opts, typ=GetManagerExtendedInfoResult).value
 
     return AwaitableGetManagerExtendedInfoResult(
-        algorithm=__ret__.algorithm,
-        encryption_key=__ret__.encryption_key,
-        encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
         etag=__ret__.etag,
         id=__ret__.id,
-        integrity_key=__ret__.integrity_key,
         name=__ret__.name,
-        portal_certificate_thumbprint=__ret__.portal_certificate_thumbprint,
-        type=__ret__.type,
-        version=__ret__.version)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_manager_extended_info)

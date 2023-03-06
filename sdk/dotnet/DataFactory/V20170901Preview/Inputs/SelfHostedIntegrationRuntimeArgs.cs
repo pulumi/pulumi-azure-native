@@ -22,17 +22,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The base definition of a secret type.
-        /// </summary>
-        [Input("linkedInfo")]
-        public InputUnion<Inputs.LinkedIntegrationRuntimeKeyArgs, Inputs.LinkedIntegrationRuntimeRbacArgs>? LinkedInfo { get; set; }
-
-        /// <summary>
         /// The type of integration runtime.
         /// Expected value is 'SelfHosted'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// When this property is not null, means this is a linked integration runtime. The property is used to access original integration runtime.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.LinkedIntegrationRuntimeTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SelfHostedIntegrationRuntimeArgs()
         {

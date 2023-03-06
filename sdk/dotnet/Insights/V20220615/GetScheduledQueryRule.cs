@@ -70,57 +70,13 @@ namespace Pulumi.AzureNative.Insights.V20220615
     public sealed class GetScheduledQueryRuleResult
     {
         /// <summary>
-        /// Actions to invoke when the alert fires.
-        /// </summary>
-        public readonly Outputs.ActionsResponse? Actions;
-        /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
-        /// </summary>
-        public readonly bool? AutoMitigate;
-        /// <summary>
-        /// The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
-        /// </summary>
-        public readonly bool? CheckWorkspaceAlertsStorageConfigured;
-        /// <summary>
-        /// The api-version used when creating this alert rule
-        /// </summary>
-        public readonly string CreatedWithApiVersion;
-        /// <summary>
-        /// The rule criteria that defines the conditions of the scheduled query rule.
-        /// </summary>
-        public readonly Outputs.ScheduledQueryRuleCriteriaResponse Criteria;
-        /// <summary>
-        /// The description of the scheduled query rule.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The display name of the alert rule
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
-        /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
-        /// </summary>
-        public readonly string? EvaluationFrequency;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// True if alert rule is legacy Log Analytic rule
-        /// </summary>
-        public readonly bool IsLegacyLogAnalyticsRule;
-        /// <summary>
-        /// The flag which indicates whether this scheduled query rule has been configured to be stored in the customer's storage. The default is false.
-        /// </summary>
-        public readonly bool IsWorkspaceAlertsStorageConfigured;
         /// <summary>
         /// Indicates the type of scheduled query rule. The default is LogAlert.
         /// </summary>
@@ -130,29 +86,13 @@ namespace Pulumi.AzureNative.Insights.V20220615
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
-        /// </summary>
-        public readonly string? MuteActionsDuration;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
+        /// The rule properties of the resource.
         /// </summary>
-        public readonly string? OverrideQueryTimeRange;
-        /// <summary>
-        /// The list of resource id's that this scheduled query rule is scoped to.
-        /// </summary>
-        public readonly ImmutableArray<string> Scopes;
-        /// <summary>
-        /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
-        /// </summary>
-        public readonly double? Severity;
-        /// <summary>
-        /// The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
-        /// </summary>
-        public readonly bool? SkipQueryValidation;
+        public readonly Outputs.ScheduledQueryRulePropertiesResponse Properties;
         /// <summary>
         /// SystemData of ScheduledQueryRule.
         /// </summary>
@@ -162,98 +102,39 @@ namespace Pulumi.AzureNative.Insights.V20220615
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
-        /// </summary>
-        public readonly ImmutableArray<string> TargetResourceTypes;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
-        /// </summary>
-        public readonly string? WindowSize;
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
-            Outputs.ActionsResponse? actions,
-
-            bool? autoMitigate,
-
-            bool? checkWorkspaceAlertsStorageConfigured,
-
-            string createdWithApiVersion,
-
-            Outputs.ScheduledQueryRuleCriteriaResponse criteria,
-
-            string? description,
-
-            string? displayName,
-
-            bool enabled,
-
             string etag,
 
-            string? evaluationFrequency,
-
             string id,
-
-            bool isLegacyLogAnalyticsRule,
-
-            bool isWorkspaceAlertsStorageConfigured,
 
             string? kind,
 
             string location,
 
-            string? muteActionsDuration,
-
             string name,
 
-            string? overrideQueryTimeRange,
-
-            ImmutableArray<string> scopes,
-
-            double? severity,
-
-            bool? skipQueryValidation,
+            Outputs.ScheduledQueryRulePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<string> targetResourceTypes,
-
-            string type,
-
-            string? windowSize)
+            string type)
         {
-            Actions = actions;
-            AutoMitigate = autoMitigate;
-            CheckWorkspaceAlertsStorageConfigured = checkWorkspaceAlertsStorageConfigured;
-            CreatedWithApiVersion = createdWithApiVersion;
-            Criteria = criteria;
-            Description = description;
-            DisplayName = displayName;
-            Enabled = enabled;
             Etag = etag;
-            EvaluationFrequency = evaluationFrequency;
             Id = id;
-            IsLegacyLogAnalyticsRule = isLegacyLogAnalyticsRule;
-            IsWorkspaceAlertsStorageConfigured = isWorkspaceAlertsStorageConfigured;
             Kind = kind;
             Location = location;
-            MuteActionsDuration = muteActionsDuration;
             Name = name;
-            OverrideQueryTimeRange = overrideQueryTimeRange;
-            Scopes = scopes;
-            Severity = severity;
-            SkipQueryValidation = skipQueryValidation;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            TargetResourceTypes = targetResourceTypes;
             Type = type;
-            WindowSize = windowSize;
         }
     }
 }

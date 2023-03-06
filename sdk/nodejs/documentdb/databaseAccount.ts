@@ -41,39 +41,39 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * API specific properties.
      */
-    public readonly apiProperties!: pulumi.Output<outputs.documentdb.ApiPropertiesResponse | undefined>;
+    public /*out*/ readonly apiProperties!: pulumi.Output<outputs.documentdb.ApiPropertiesResponse | undefined>;
     /**
      * The object representing the policy for taking backups on an account.
      */
-    public readonly backupPolicy!: pulumi.Output<outputs.documentdb.ContinuousModeBackupPolicyResponse | outputs.documentdb.PeriodicModeBackupPolicyResponse | undefined>;
+    public /*out*/ readonly backupPolicy!: pulumi.Output<outputs.documentdb.ContinuousModeBackupPolicyResponse | outputs.documentdb.PeriodicModeBackupPolicyResponse | undefined>;
     /**
      * List of Cosmos DB capabilities for the account
      */
-    public readonly capabilities!: pulumi.Output<outputs.documentdb.CapabilityResponse[] | undefined>;
+    public /*out*/ readonly capabilities!: pulumi.Output<outputs.documentdb.CapabilityResponse[] | undefined>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
-    public readonly connectorOffer!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly connectorOffer!: pulumi.Output<string | undefined>;
     /**
      * The consistency policy for the Cosmos DB database account.
      */
-    public readonly consistencyPolicy!: pulumi.Output<outputs.documentdb.ConsistencyPolicyResponse | undefined>;
+    public /*out*/ readonly consistencyPolicy!: pulumi.Output<outputs.documentdb.ConsistencyPolicyResponse | undefined>;
     /**
      * The CORS policy for the Cosmos DB database account.
      */
-    public readonly cors!: pulumi.Output<outputs.documentdb.CorsPolicyResponse[] | undefined>;
+    public /*out*/ readonly cors!: pulumi.Output<outputs.documentdb.CorsPolicyResponse[] | undefined>;
     /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
-    public readonly databaseAccountOfferType!: pulumi.Output<string>;
+    public /*out*/ readonly databaseAccountOfferType!: pulumi.Output<string>;
     /**
      * The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
      */
-    public readonly defaultIdentity!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly defaultIdentity!: pulumi.Output<string | undefined>;
     /**
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
-    public readonly disableKeyBasedMetadataWriteAccess!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly disableKeyBasedMetadataWriteAccess!: pulumi.Output<boolean | undefined>;
     /**
      * The connection endpoint for the Cosmos DB database account.
      */
@@ -81,23 +81,23 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * Flag to indicate whether to enable storage analytics.
      */
-    public readonly enableAnalyticalStorage!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enableAnalyticalStorage!: pulumi.Output<boolean | undefined>;
     /**
      * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
      */
-    public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
     /**
      * Enables the cassandra connector on the Cosmos DB C* account
      */
-    public readonly enableCassandraConnector!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enableCassandraConnector!: pulumi.Output<boolean | undefined>;
     /**
      * Flag to indicate whether Free Tier is enabled.
      */
-    public readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
     /**
      * Enables the account to write in multiple locations
      */
-    public readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
     /**
      * An array that contains the regions ordered by their failover priorities.
      */
@@ -109,15 +109,15 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * List of IpRules.
      */
-    public readonly ipRules!: pulumi.Output<outputs.documentdb.IpAddressOrRangeResponse[] | undefined>;
+    public /*out*/ readonly ipRules!: pulumi.Output<outputs.documentdb.IpAddressOrRangeResponse[] | undefined>;
     /**
      * Flag to indicate whether to enable/disable Virtual Network ACL rules.
      */
-    public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The URI of the key vault
      */
-    public readonly keyVaultKeyUri!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly keyVaultKeyUri!: pulumi.Output<string | undefined>;
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
@@ -129,7 +129,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * An array that contains all of the locations enabled for the Cosmos DB account.
      */
-    public readonly locations!: pulumi.Output<outputs.documentdb.LocationResponse[]>;
+    public /*out*/ readonly locations!: pulumi.Output<outputs.documentdb.LocationResponse[]>;
     /**
      * The name of the ARM resource.
      */
@@ -137,11 +137,11 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * Indicates what services are allowed to bypass firewall checks.
      */
-    public readonly networkAclBypass!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly networkAclBypass!: pulumi.Output<string | undefined>;
     /**
      * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
      */
-    public readonly networkAclBypassResourceIds!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly networkAclBypassResourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * List of Private Endpoint Connections configured for the Cosmos DB account.
      */
@@ -153,7 +153,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * Whether requests from Public Network are allowed
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */
@@ -169,7 +169,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    public readonly virtualNetworkRules!: pulumi.Output<outputs.documentdb.VirtualNetworkRuleResponse[] | undefined>;
+    public /*out*/ readonly virtualNetworkRules!: pulumi.Output<outputs.documentdb.VirtualNetworkRuleResponse[] | undefined>;
     /**
      * An array that contains the write location for the Cosmos DB account.
      */
@@ -186,50 +186,48 @@ export class DatabaseAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseAccountOfferType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'databaseAccountOfferType'");
-            }
-            if ((!args || args.locations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'locations'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["apiProperties"] = args ? args.apiProperties : undefined;
-            resourceInputs["backupPolicy"] = args ? args.backupPolicy : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["connectorOffer"] = args ? args.connectorOffer : undefined;
-            resourceInputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
-            resourceInputs["defaultIdentity"] = args ? args.defaultIdentity : undefined;
-            resourceInputs["disableKeyBasedMetadataWriteAccess"] = args ? args.disableKeyBasedMetadataWriteAccess : undefined;
-            resourceInputs["enableAnalyticalStorage"] = args ? args.enableAnalyticalStorage : undefined;
-            resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
-            resourceInputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
-            resourceInputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
-            resourceInputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
-            resourceInputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
-            resourceInputs["keyVaultKeyUri"] = args ? args.keyVaultKeyUri : undefined;
             resourceInputs["kind"] = (args ? args.kind : undefined) ?? "GlobalDocumentDB";
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["networkAclBypass"] = args ? args.networkAclBypass : undefined;
-            resourceInputs["networkAclBypassResourceIds"] = args ? args.networkAclBypassResourceIds : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["apiProperties"] = undefined /*out*/;
+            resourceInputs["backupPolicy"] = undefined /*out*/;
+            resourceInputs["capabilities"] = undefined /*out*/;
+            resourceInputs["connectorOffer"] = undefined /*out*/;
+            resourceInputs["consistencyPolicy"] = undefined /*out*/;
+            resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["databaseAccountOfferType"] = undefined /*out*/;
+            resourceInputs["defaultIdentity"] = undefined /*out*/;
+            resourceInputs["disableKeyBasedMetadataWriteAccess"] = undefined /*out*/;
             resourceInputs["documentEndpoint"] = undefined /*out*/;
+            resourceInputs["enableAnalyticalStorage"] = undefined /*out*/;
+            resourceInputs["enableAutomaticFailover"] = undefined /*out*/;
+            resourceInputs["enableCassandraConnector"] = undefined /*out*/;
+            resourceInputs["enableFreeTier"] = undefined /*out*/;
+            resourceInputs["enableMultipleWriteLocations"] = undefined /*out*/;
             resourceInputs["failoverPolicies"] = undefined /*out*/;
+            resourceInputs["ipRules"] = undefined /*out*/;
+            resourceInputs["isVirtualNetworkFilterEnabled"] = undefined /*out*/;
+            resourceInputs["keyVaultKeyUri"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkAclBypass"] = undefined /*out*/;
+            resourceInputs["networkAclBypassResourceIds"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["readLocations"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkRules"] = undefined /*out*/;
             resourceInputs["writeLocations"] = undefined /*out*/;
         } else {
             resourceInputs["apiProperties"] = undefined /*out*/;
@@ -283,77 +281,9 @@ export interface DatabaseAccountArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * API specific properties. Currently, supported only for MongoDB API.
-     */
-    apiProperties?: pulumi.Input<inputs.documentdb.ApiPropertiesArgs>;
-    /**
-     * The object representing the policy for taking backups on an account.
-     */
-    backupPolicy?: pulumi.Input<inputs.documentdb.ContinuousModeBackupPolicyArgs | inputs.documentdb.PeriodicModeBackupPolicyArgs>;
-    /**
-     * List of Cosmos DB capabilities for the account
-     */
-    capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.CapabilityArgs>[]>;
-    /**
-     * The cassandra connector offer type for the Cosmos DB database C* account.
-     */
-    connectorOffer?: pulumi.Input<string | enums.documentdb.ConnectorOffer>;
-    /**
-     * The consistency policy for the Cosmos DB account.
-     */
-    consistencyPolicy?: pulumi.Input<inputs.documentdb.ConsistencyPolicyArgs>;
-    /**
-     * The CORS policy for the Cosmos DB database account.
-     */
-    cors?: pulumi.Input<pulumi.Input<inputs.documentdb.CorsPolicyArgs>[]>;
-    /**
-     * The offer type for the database
-     */
-    databaseAccountOfferType: pulumi.Input<enums.documentdb.DatabaseAccountOfferType>;
-    /**
-     * The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
-     */
-    defaultIdentity?: pulumi.Input<string>;
-    /**
-     * Disable write operations on metadata resources (databases, containers, throughput) via account keys
-     */
-    disableKeyBasedMetadataWriteAccess?: pulumi.Input<boolean>;
-    /**
-     * Flag to indicate whether to enable storage analytics.
-     */
-    enableAnalyticalStorage?: pulumi.Input<boolean>;
-    /**
-     * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-     */
-    enableAutomaticFailover?: pulumi.Input<boolean>;
-    /**
-     * Enables the cassandra connector on the Cosmos DB C* account
-     */
-    enableCassandraConnector?: pulumi.Input<boolean>;
-    /**
-     * Flag to indicate whether Free Tier is enabled.
-     */
-    enableFreeTier?: pulumi.Input<boolean>;
-    /**
-     * Enables the account to write in multiple locations
-     */
-    enableMultipleWriteLocations?: pulumi.Input<boolean>;
-    /**
      * Identity for the resource.
      */
     identity?: pulumi.Input<inputs.documentdb.ManagedServiceIdentityArgs>;
-    /**
-     * List of IpRules.
-     */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.documentdb.IpAddressOrRangeArgs>[]>;
-    /**
-     * Flag to indicate whether to enable/disable Virtual Network ACL rules.
-     */
-    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
-    /**
-     * The URI of the key vault
-     */
-    keyVaultKeyUri?: pulumi.Input<string>;
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
@@ -363,21 +293,9 @@ export interface DatabaseAccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * An array that contains the georeplication locations enabled for the Cosmos DB account.
+     * Properties to create and update Azure Cosmos DB database accounts.
      */
-    locations: pulumi.Input<pulumi.Input<inputs.documentdb.LocationArgs>[]>;
-    /**
-     * Indicates what services are allowed to bypass firewall checks.
-     */
-    networkAclBypass?: pulumi.Input<enums.documentdb.NetworkAclBypass>;
-    /**
-     * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
-     */
-    networkAclBypassResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Whether requests from Public Network are allowed
-     */
-    publicNetworkAccess?: pulumi.Input<string | enums.documentdb.PublicNetworkAccess>;
+    properties: pulumi.Input<inputs.documentdb.DatabaseAccountCreateUpdatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -386,8 +304,4 @@ export interface DatabaseAccountArgs {
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * List of Virtual Network ACL rules configured for the Cosmos DB account.
-     */
-    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.VirtualNetworkRuleArgs>[]>;
 }

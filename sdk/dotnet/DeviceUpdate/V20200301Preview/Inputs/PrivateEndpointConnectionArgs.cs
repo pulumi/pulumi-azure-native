@@ -15,23 +15,11 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Inputs
     /// </summary>
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("groupIds")]
-        private InputList<string>? _groupIds;
-
         /// <summary>
-        /// Array of group IDs.
+        /// Resource properties.
         /// </summary>
-        public InputList<string> GroupIds
-        {
-            get => _groupIds ?? (_groupIds = new InputList<string>());
-            set => _groupIds = value;
-        }
-
-        /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
-        /// </summary>
-        [Input("privateLinkServiceConnectionState", required: true)]
-        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;
 
         public PrivateEndpointConnectionArgs()
         {

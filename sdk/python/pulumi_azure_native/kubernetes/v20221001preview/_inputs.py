@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ConnectedClusterIdentityArgs',
+    'ConnectedClusterPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -37,5 +38,144 @@ class ConnectedClusterIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input['ResourceIdentityType']):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ConnectedClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 agent_public_key_certificate: pulumi.Input[str],
+                 azure_hybrid_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridBenefit']]] = None,
+                 distribution: Optional[pulumi.Input[str]] = None,
+                 distribution_version: Optional[pulumi.Input[str]] = None,
+                 infrastructure: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
+                 private_link_state: Optional[pulumi.Input[Union[str, 'PrivateLinkState']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
+        """
+        Properties of the connected cluster.
+        :param pulumi.Input[str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        :param pulumi.Input[Union[str, 'AzureHybridBenefit']] azure_hybrid_benefit: Indicates whether Azure Hybrid Benefit is opted in
+        :param pulumi.Input[str] distribution: The Kubernetes distribution running on this connected cluster.
+        :param pulumi.Input[str] distribution_version: The Kubernetes distribution version on this connected cluster.
+        :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this connected cluster is assigned to, if any.
+        :param pulumi.Input[Union[str, 'PrivateLinkState']] private_link_state: Property which describes the state of private link on a connected cluster resource.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
+        """
+        pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
+        if azure_hybrid_benefit is None:
+            azure_hybrid_benefit = 'NotApplicable'
+        if azure_hybrid_benefit is not None:
+            pulumi.set(__self__, "azure_hybrid_benefit", azure_hybrid_benefit)
+        if distribution is not None:
+            pulumi.set(__self__, "distribution", distribution)
+        if distribution_version is not None:
+            pulumi.set(__self__, "distribution_version", distribution_version)
+        if infrastructure is not None:
+            pulumi.set(__self__, "infrastructure", infrastructure)
+        if private_link_scope_resource_id is not None:
+            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+        if private_link_state is None:
+            private_link_state = 'Disabled'
+        if private_link_state is not None:
+            pulumi.set(__self__, "private_link_state", private_link_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="agentPublicKeyCertificate")
+    def agent_public_key_certificate(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        """
+        return pulumi.get(self, "agent_public_key_certificate")
+
+    @agent_public_key_certificate.setter
+    def agent_public_key_certificate(self, value: pulumi.Input[str]):
+        pulumi.set(self, "agent_public_key_certificate", value)
+
+    @property
+    @pulumi.getter(name="azureHybridBenefit")
+    def azure_hybrid_benefit(self) -> Optional[pulumi.Input[Union[str, 'AzureHybridBenefit']]]:
+        """
+        Indicates whether Azure Hybrid Benefit is opted in
+        """
+        return pulumi.get(self, "azure_hybrid_benefit")
+
+    @azure_hybrid_benefit.setter
+    def azure_hybrid_benefit(self, value: Optional[pulumi.Input[Union[str, 'AzureHybridBenefit']]]):
+        pulumi.set(self, "azure_hybrid_benefit", value)
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kubernetes distribution running on this connected cluster.
+        """
+        return pulumi.get(self, "distribution")
+
+    @distribution.setter
+    def distribution(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution", value)
+
+    @property
+    @pulumi.getter(name="distributionVersion")
+    def distribution_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kubernetes distribution version on this connected cluster.
+        """
+        return pulumi.get(self, "distribution_version")
+
+    @distribution_version.setter
+    def distribution_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution_version", value)
+
+    @property
+    @pulumi.getter
+    def infrastructure(self) -> Optional[pulumi.Input[str]]:
+        """
+        The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        """
+        return pulumi.get(self, "infrastructure")
+
+    @infrastructure.setter
+    def infrastructure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "infrastructure", value)
+
+    @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the private link scope this connected cluster is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
+
+    @private_link_scope_resource_id.setter
+    def private_link_scope_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_scope_resource_id", value)
+
+    @property
+    @pulumi.getter(name="privateLinkState")
+    def private_link_state(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkState']]]:
+        """
+        Property which describes the state of private link on a connected cluster resource.
+        """
+        return pulumi.get(self, "private_link_state")
+
+    @private_link_state.setter
+    def private_link_state(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkState']]]):
+        pulumi.set(self, "private_link_state", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        Provisioning state of the connected cluster resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
 

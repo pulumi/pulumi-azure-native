@@ -29,34 +29,18 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EnvironmentUrl;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password for Basic authentication of the Salesforce instance.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
-        /// <summary>
-        /// The security token is required to remotely access Salesforce instance.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SecurityToken;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Salesforce'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        /// Salesforce linked service properties.
         /// </summary>
-        public readonly object? Username;
+        public readonly Outputs.SalesforceLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SalesforceLinkedServiceResponse(
@@ -66,30 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            object? encryptedCredential,
-
-            object? environmentUrl,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? securityToken,
 
             string type,
 
-            object? username)
+            Outputs.SalesforceLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            EnvironmentUrl = environmentUrl;
             Parameters = parameters;
-            Password = password;
-            SecurityToken = securityToken;
             Type = type;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

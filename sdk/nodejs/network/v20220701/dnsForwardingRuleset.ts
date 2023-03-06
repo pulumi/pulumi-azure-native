@@ -38,10 +38,6 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-     */
-    public readonly dnsResolverOutboundEndpoints!: pulumi.Output<outputs.network.v20220701.SubResourceResponse[]>;
-    /**
      * ETag of the DNS forwarding ruleset.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -54,13 +50,9 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The current provisioning state of the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the DNS forwarding ruleset.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resourceGuid for the DNS forwarding ruleset.
-     */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.network.v20220701.DnsForwardingRulesetPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -85,30 +77,26 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsResolverOutboundEndpoints === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dnsResolverOutboundEndpoints'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
-            resourceInputs["dnsResolverOutboundEndpoints"] = args ? args.dnsResolverOutboundEndpoints : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dnsResolverOutboundEndpoints"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -129,13 +117,13 @@ export interface DnsForwardingRulesetArgs {
      */
     dnsForwardingRulesetName?: pulumi.Input<string>;
     /**
-     * The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-     */
-    dnsResolverOutboundEndpoints: pulumi.Input<pulumi.Input<inputs.network.v20220701.SubResourceArgs>[]>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Properties of the DNS forwarding ruleset.
+     */
+    properties: pulumi.Input<inputs.network.v20220701.DnsForwardingRulesetPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

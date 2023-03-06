@@ -17,36 +17,29 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SSISLogLocationResponse
     {
         /// <summary>
-        /// The package execution log access credential.
-        /// </summary>
-        public readonly Outputs.SSISAccessCredentialResponse? AccessCredential;
-        /// <summary>
         /// The SSIS package execution log path. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object LogPath;
         /// <summary>
-        /// Specifies the interval to refresh log. The default interval is 5 minutes. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        /// </summary>
-        public readonly object? LogRefreshInterval;
-        /// <summary>
         /// The type of SSIS log location.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// SSIS package execution log location properties.
+        /// </summary>
+        public readonly Outputs.SSISLogLocationTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SSISLogLocationResponse(
-            Outputs.SSISAccessCredentialResponse? accessCredential,
-
             object logPath,
 
-            object? logRefreshInterval,
+            string type,
 
-            string type)
+            Outputs.SSISLogLocationTypePropertiesResponse typeProperties)
         {
-            AccessCredential = accessCredential;
             LogPath = logPath;
-            LogRefreshInterval = logRefreshInterval;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

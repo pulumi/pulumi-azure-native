@@ -13,59 +13,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class ClusterManager : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID of the Log Analytics workspace that is used for the logs collection.
-        /// </summary>
-        [Output("analyticsWorkspaceId")]
-        public Output<string?> AnalyticsWorkspaceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-        /// </summary>
-        [Output("availabilityZones")]
-        public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
-        /// </summary>
-        [Output("clusterVersions")]
-        public Output<ImmutableArray<Outputs.ClusterAvailableVersionResponse>> ClusterVersions { get; private set; } = null!;
-
-        /// <summary>
-        /// The detailed status that provides additional information about the cluster manager.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-        /// </summary>
-        [Output("fabricControllerId")]
-        public Output<string> FabricControllerId { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The configuration of the managed resource group associated with the resource.
-        /// </summary>
-        [Output("managedResourceGroupConfiguration")]
-        public Output<Outputs.ManagedResourceGroupConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// The extended location (custom location) that represents the cluster manager's control plane location.
-        ///  This extended location is used when creating cluster and rack manifest resources.
-        /// </summary>
-        [Output("managerExtendedLocation")]
-        public Output<Outputs.ExtendedLocationResponse> ManagerExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -74,10 +25,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the cluster manager.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ClusterManagerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -96,12 +47,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-        /// </summary>
-        [Output("vmSize")]
-        public Output<string?> VmSize { get; private set; } = null!;
 
 
         /// <summary>
@@ -153,34 +98,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public sealed class ClusterManagerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource ID of the Log Analytics workspace that is used for the logs collection.
-        /// </summary>
-        [Input("analyticsWorkspaceId")]
-        public Input<string>? AnalyticsWorkspaceId { get; set; }
-
-        [Input("availabilityZones")]
-        private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-        /// </summary>
-        public InputList<string> AvailabilityZones
-        {
-            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
-            set => _availabilityZones = value;
-        }
-
-        /// <summary>
         /// The name of the cluster manager.
         /// </summary>
         [Input("clusterManagerName")]
         public Input<string>? ClusterManagerName { get; set; }
-
-        /// <summary>
-        /// The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-        /// </summary>
-        [Input("fabricControllerId", required: true)]
-        public Input<string> FabricControllerId { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -189,10 +110,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The configuration of the managed resource group associated with the resource.
+        /// The list of the resource properties.
         /// </summary>
-        [Input("managedResourceGroupConfiguration")]
-        public Input<Inputs.ManagedResourceGroupConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ClusterManagerPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -211,12 +132,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-        /// </summary>
-        [Input("vmSize")]
-        public Input<string>? VmSize { get; set; }
 
         public ClusterManagerArgs()
         {

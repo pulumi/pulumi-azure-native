@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RoleAssignmentArtifactArgs', 'RoleAssignmentArtifact']
 
@@ -17,42 +19,23 @@ class RoleAssignmentArtifactArgs:
                  blueprint_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
                  management_group_name: pulumi.Input[str],
-                 principal_ids: Any,
-                 role_definition_id: pulumi.Input[str],
-                 artifact_name: Optional[pulumi.Input[str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None):
+                 properties: pulumi.Input['RoleAssignmentArtifactPropertiesArgs'],
+                 artifact_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RoleAssignmentArtifact resource.
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
         :param pulumi.Input[str] kind: Specifies the kind of Blueprint artifact.
                Expected value is 'roleAssignment'.
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
-        :param Any principal_ids: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
-        :param pulumi.Input[str] role_definition_id: Azure resource ID of the RoleDefinition.
+        :param pulumi.Input['RoleAssignmentArtifactPropertiesArgs'] properties: Properties for roleAssignment artifact.
         :param pulumi.Input[str] artifact_name: name of the artifact.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before the specified artifact.
-        :param pulumi.Input[str] description: Multi-line explain this resource.
-        :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param pulumi.Input[str] resource_group: RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
         """
         pulumi.set(__self__, "blueprint_name", blueprint_name)
         pulumi.set(__self__, "kind", 'roleAssignment')
         pulumi.set(__self__, "management_group_name", management_group_name)
-        pulumi.set(__self__, "principal_ids", principal_ids)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        pulumi.set(__self__, "properties", properties)
         if artifact_name is not None:
             pulumi.set(__self__, "artifact_name", artifact_name)
-        if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
 
     @property
     @pulumi.getter(name="blueprintName")
@@ -92,28 +75,16 @@ class RoleAssignmentArtifactArgs:
         pulumi.set(self, "management_group_name", value)
 
     @property
-    @pulumi.getter(name="principalIds")
-    def principal_ids(self) -> Any:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RoleAssignmentArtifactPropertiesArgs']:
         """
-        Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+        Properties for roleAssignment artifact.
         """
-        return pulumi.get(self, "principal_ids")
+        return pulumi.get(self, "properties")
 
-    @principal_ids.setter
-    def principal_ids(self, value: Any):
-        pulumi.set(self, "principal_ids", value)
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[str]:
-        """
-        Azure resource ID of the RoleDefinition.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_definition_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['RoleAssignmentArtifactPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="artifactName")
@@ -127,54 +98,6 @@ class RoleAssignmentArtifactArgs:
     def artifact_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "artifact_name", value)
 
-    @property
-    @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Artifacts which need to be deployed before the specified artifact.
-        """
-        return pulumi.get(self, "depends_on")
-
-    @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "depends_on", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Multi-line explain this resource.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        One-liner string explain this resource.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group", value)
-
 
 class RoleAssignmentArtifact(pulumi.CustomResource):
     @overload
@@ -183,14 +106,9 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: Optional[pulumi.Input[str]] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  management_group_name: Optional[pulumi.Input[str]] = None,
-                 principal_ids: Optional[Any] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentArtifactPropertiesArgs']]] = None,
                  __props__=None):
         """
         Blueprint artifact applies Azure role assignment.
@@ -199,15 +117,10 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: name of the artifact.
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before the specified artifact.
-        :param pulumi.Input[str] description: Multi-line explain this resource.
-        :param pulumi.Input[str] display_name: One-liner string explain this resource.
         :param pulumi.Input[str] kind: Specifies the kind of Blueprint artifact.
                Expected value is 'roleAssignment'.
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
-        :param Any principal_ids: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
-        :param pulumi.Input[str] resource_group: RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-        :param pulumi.Input[str] role_definition_id: Azure resource ID of the RoleDefinition.
+        :param pulumi.Input[pulumi.InputType['RoleAssignmentArtifactPropertiesArgs']] properties: Properties for roleAssignment artifact.
         """
         ...
     @overload
@@ -235,14 +148,9 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: Optional[pulumi.Input[str]] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  management_group_name: Optional[pulumi.Input[str]] = None,
-                 principal_ids: Optional[Any] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentArtifactPropertiesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,22 +164,15 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
             if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")
             __props__.__dict__["blueprint_name"] = blueprint_name
-            __props__.__dict__["depends_on"] = depends_on
-            __props__.__dict__["description"] = description
-            __props__.__dict__["display_name"] = display_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'roleAssignment'
             if management_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_name'")
             __props__.__dict__["management_group_name"] = management_group_name
-            if principal_ids is None and not opts.urn:
-                raise TypeError("Missing required property 'principal_ids'")
-            __props__.__dict__["principal_ids"] = principal_ids
-            __props__.__dict__["resource_group"] = resource_group
-            if role_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'role_definition_id'")
-            __props__.__dict__["role_definition_id"] = role_definition_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         super(RoleAssignmentArtifact, __self__).__init__(
@@ -296,40 +197,11 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
 
         __props__ = RoleAssignmentArtifactArgs.__new__(RoleAssignmentArtifactArgs)
 
-        __props__.__dict__["depends_on"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["principal_ids"] = None
-        __props__.__dict__["resource_group"] = None
-        __props__.__dict__["role_definition_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return RoleAssignmentArtifact(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Artifacts which need to be deployed before the specified artifact.
-        """
-        return pulumi.get(self, "depends_on")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Multi-line explain this resource.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        One-liner string explain this resource.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -349,28 +221,12 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="principalIds")
-    def principal_ids(self) -> pulumi.Output[Any]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.RoleAssignmentArtifactPropertiesResponse']:
         """
-        Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+        Properties for roleAssignment artifact.
         """
-        return pulumi.get(self, "principal_ids")
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Output[Optional[str]]:
-        """
-        RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Output[str]:
-        """
-        Azure resource ID of the RoleDefinition.
-        """
-        return pulumi.get(self, "role_definition_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

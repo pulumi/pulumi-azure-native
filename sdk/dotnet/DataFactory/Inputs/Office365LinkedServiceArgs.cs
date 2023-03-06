@@ -39,18 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// Azure tenant ID to which the Office 365 account belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("office365TenantId", required: true)]
-        public Input<object> Office365TenantId { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -64,29 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Specify the application's client ID. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId", required: true)]
-        public Input<object> ServicePrincipalId { get; set; } = null!;
-
-        /// <summary>
-        /// Specify the application's key.
-        /// </summary>
-        [Input("servicePrincipalKey", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ServicePrincipalKey { get; set; } = null!;
-
-        /// <summary>
-        /// Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalTenantId", required: true)]
-        public Input<object> ServicePrincipalTenantId { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Office365'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Office365 linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.Office365LinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public Office365LinkedServiceArgs()
         {

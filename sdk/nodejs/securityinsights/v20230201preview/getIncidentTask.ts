@@ -42,18 +42,6 @@ export interface GetIncidentTaskArgs {
 
 export interface GetIncidentTaskResult {
     /**
-     * Information on the client (user or application) that made some action
-     */
-    readonly createdBy?: outputs.securityinsights.v20230201preview.ClientInfoResponse;
-    /**
-     * The time the task was created
-     */
-    readonly createdTimeUtc: string;
-    /**
-     * The description of the task
-     */
-    readonly description?: string;
-    /**
      * Etag of the azure resource
      */
     readonly etag?: string;
@@ -62,26 +50,14 @@ export interface GetIncidentTaskResult {
      */
     readonly id: string;
     /**
-     * Information on the client (user or application) that made some action
-     */
-    readonly lastModifiedBy?: outputs.securityinsights.v20230201preview.ClientInfoResponse;
-    /**
-     * The last time the task was updated
-     */
-    readonly lastModifiedTimeUtc: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
-    readonly status: string;
+    readonly properties: outputs.securityinsights.v20230201preview.IncidentTaskPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.securityinsights.v20230201preview.SystemDataResponse;
-    /**
-     * The title of the task
-     */
-    readonly title: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

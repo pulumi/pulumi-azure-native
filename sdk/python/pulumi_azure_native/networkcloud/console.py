@@ -17,51 +17,33 @@ __all__ = ['ConsoleArgs', 'Console']
 @pulumi.input_type
 class ConsoleArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[Union[str, 'ConsoleEnabled']],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 properties: pulumi.Input['ConsolePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 ssh_public_key: pulumi.Input['SshPublicKeyArgs'],
                  virtual_machine_name: pulumi.Input[str],
                  console_name: Optional[pulumi.Input[str]] = None,
-                 expiration: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Console resource.
-        :param pulumi.Input[Union[str, 'ConsoleEnabled']] enabled: The indicator of whether the console access is enabled.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
+        :param pulumi.Input['ConsolePropertiesArgs'] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[str] console_name: The name of the virtual machine console.
-        :param pulumi.Input[str] expiration: The date and time after which the key will be disallowed access.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if console_name is not None:
             pulumi.set(__self__, "console_name", console_name)
-        if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Union[str, 'ConsoleEnabled']]:
-        """
-        The indicator of whether the console access is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Union[str, 'ConsoleEnabled']]):
-        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -76,6 +58,18 @@ class ConsoleArgs:
         pulumi.set(self, "extended_location", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ConsolePropertiesArgs']:
+        """
+        The list of the resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ConsolePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -86,15 +80,6 @@ class ConsoleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sshPublicKey")
-    def ssh_public_key(self) -> pulumi.Input['SshPublicKeyArgs']:
-        return pulumi.get(self, "ssh_public_key")
-
-    @ssh_public_key.setter
-    def ssh_public_key(self, value: pulumi.Input['SshPublicKeyArgs']):
-        pulumi.set(self, "ssh_public_key", value)
 
     @property
     @pulumi.getter(name="virtualMachineName")
@@ -119,18 +104,6 @@ class ConsoleArgs:
     @console_name.setter
     def console_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "console_name", value)
-
-    @property
-    @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input[str]]:
-        """
-        The date and time after which the key will be disallowed access.
-        """
-        return pulumi.get(self, "expiration")
-
-    @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "expiration", value)
 
     @property
     @pulumi.getter
@@ -163,12 +136,10 @@ class Console(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  console_name: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[Union[str, 'ConsoleEnabled']]] = None,
-                 expiration: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConsolePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_public_key: Optional[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -178,10 +149,9 @@ class Console(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] console_name: The name of the virtual machine console.
-        :param pulumi.Input[Union[str, 'ConsoleEnabled']] enabled: The indicator of whether the console access is enabled.
-        :param pulumi.Input[str] expiration: The date and time after which the key will be disallowed access.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['ConsolePropertiesArgs']] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
@@ -211,12 +181,10 @@ class Console(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  console_name: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[Union[str, 'ConsoleEnabled']]] = None,
-                 expiration: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConsolePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_public_key: Optional[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -229,32 +197,23 @@ class Console(pulumi.CustomResource):
             __props__ = ConsoleArgs.__new__(ConsoleArgs)
 
             __props__.__dict__["console_name"] = console_name
-            if enabled is None and not opts.urn:
-                raise TypeError("Missing required property 'enabled'")
-            __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["expiration"] = expiration
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if ssh_public_key is None and not opts.urn:
-                raise TypeError("Missing required property 'ssh_public_key'")
-            __props__.__dict__["ssh_public_key"] = ssh_public_key
             __props__.__dict__["tags"] = tags
             if virtual_machine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_name'")
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
-            __props__.__dict__["detailed_status"] = None
-            __props__.__dict__["detailed_status_message"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["private_link_service_id"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["virtual_machine_access_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:Console")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Console, __self__).__init__(
@@ -279,53 +238,14 @@ class Console(pulumi.CustomResource):
 
         __props__ = ConsoleArgs.__new__(ConsoleArgs)
 
-        __props__.__dict__["detailed_status"] = None
-        __props__.__dict__["detailed_status_message"] = None
-        __props__.__dict__["enabled"] = None
-        __props__.__dict__["expiration"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["private_link_service_id"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["ssh_public_key"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_machine_access_id"] = None
         return Console(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> pulumi.Output[str]:
-        """
-        The more detailed status of the console.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> pulumi.Output[str]:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Output[str]:
-        """
-        The indicator of whether the console access is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def expiration(self) -> pulumi.Output[Optional[str]]:
-        """
-        The date and time after which the key will be disallowed access.
-        """
-        return pulumi.get(self, "expiration")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -352,25 +272,12 @@ class Console(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateLinkServiceId")
-    def private_link_service_id(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ConsolePropertiesResponse']:
         """
-        The resource ID of the private link service that is used to provide virtual machine console access.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "private_link_service_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state of the virtual machine console.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sshPublicKey")
-    def ssh_public_key(self) -> pulumi.Output['outputs.SshPublicKeyResponse']:
-        return pulumi.get(self, "ssh_public_key")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -395,12 +302,4 @@ class Console(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualMachineAccessId")
-    def virtual_machine_access_id(self) -> pulumi.Output[str]:
-        """
-        The unique identifier for the virtual machine that is used to access the console.
-        """
-        return pulumi.get(self, "virtual_machine_access_id")
 

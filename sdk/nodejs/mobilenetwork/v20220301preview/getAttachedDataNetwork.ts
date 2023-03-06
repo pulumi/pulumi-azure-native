@@ -81,14 +81,9 @@ export interface GetAttachedDataNetworkResult {
      */
     readonly name: string;
     /**
-     * The Network Address and Port Translation configuration.
-     * If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+     * Data network properties.
      */
-    readonly naptConfiguration?: outputs.mobilenetwork.v20220301preview.NaptConfigurationResponse;
-    /**
-     * The provisioning state of the attached data network resource.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.mobilenetwork.v20220301preview.AttachedDataNetworkPropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -101,21 +96,6 @@ export interface GetAttachedDataNetworkResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-     * At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-     */
-    readonly userEquipmentAddressPoolPrefix?: string[];
-    /**
-     * The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-     * The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-     * At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-     */
-    readonly userEquipmentStaticAddressPoolPrefix?: string[];
-    /**
-     * The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
-     */
-    readonly userPlaneDataInterface: outputs.mobilenetwork.v20220301preview.InterfacePropertiesResponse;
 }
 /**
  * Gets information about the specified attached data network.

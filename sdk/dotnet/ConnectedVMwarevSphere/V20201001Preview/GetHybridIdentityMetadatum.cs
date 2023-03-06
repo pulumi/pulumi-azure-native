@@ -86,21 +86,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the resource.
-        /// </summary>
-        public readonly Outputs.IdentityResponse Identity;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Gets or sets the Public Key.
-        /// </summary>
-        public readonly string? PublicKey;
+        public readonly Outputs.HybridIdentityMetadataPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -109,37 +101,24 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets the Vm Id.
-        /// </summary>
-        public readonly string? VmId;
 
         [OutputConstructor]
         private GetHybridIdentityMetadatumResult(
             string id,
 
-            Outputs.IdentityResponse identity,
-
             string name,
 
-            string provisioningState,
-
-            string? publicKey,
+            Outputs.HybridIdentityMetadataPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string? vmId)
+            string type)
         {
             Id = id;
-            Identity = identity;
             Name = name;
-            ProvisioningState = provisioningState;
-            PublicKey = publicKey;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            VmId = vmId;
         }
     }
 }

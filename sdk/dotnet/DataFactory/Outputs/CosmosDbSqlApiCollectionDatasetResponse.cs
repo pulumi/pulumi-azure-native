@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// CosmosDB (SQL API) collection name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object CollectionName;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
@@ -53,12 +49,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'CosmosDbSqlApiCollection'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// CosmosDB (SQL API) Collection dataset properties.
+        /// </summary>
+        public readonly Outputs.CosmosDbSqlApiCollectionDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CosmosDbSqlApiCollectionDatasetResponse(
             ImmutableArray<object> annotations,
-
-            object collectionName,
 
             string? description,
 
@@ -72,10 +70,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.CosmosDbSqlApiCollectionDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            CollectionName = collectionName;
             Description = description;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
@@ -83,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Schema = schema;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

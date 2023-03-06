@@ -13,61 +13,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the administrator to which the ssh public keys will be added into the authorized keys.
-        /// </summary>
-        [Output("adminUsername")]
-        public Output<string> AdminUsername { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the bare metal machine the virtual machine has landed to.
-        /// </summary>
-        [Output("bareMetalMachineId")]
-        public Output<string> BareMetalMachineId { get; private set; } = null!;
-
-        /// <summary>
-        /// Selects the boot method for the virtual machine.
-        /// </summary>
-        [Output("bootMethod")]
-        public Output<string?> BootMethod { get; private set; } = null!;
-
-        [Output("cloudServicesNetworkAttachment")]
-        public Output<Outputs.NetworkAttachmentResponse> CloudServicesNetworkAttachment { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the cluster the virtual machine is created for.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of CPU cores in the virtual machine.
-        /// </summary>
-        [Output("cpuCores")]
-        public Output<double> CpuCores { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the virtual machine.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
-        /// </summary>
-        [Output("isolateEmulatorThread")]
-        public Output<string?> IsolateEmulatorThread { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,55 +25,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The memory size of the virtual machine in GB.
-        /// </summary>
-        [Output("memorySizeGB")]
-        public Output<double> MemorySizeGB { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The list of network attachments to the virtual machine.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("networkAttachments")]
-        public Output<ImmutableArray<Outputs.NetworkAttachmentResponse>> NetworkAttachments { get; private set; } = null!;
-
-        /// <summary>
-        /// The Base64 encoded cloud-init network data.
-        /// </summary>
-        [Output("networkData")]
-        public Output<string?> NetworkData { get; private set; } = null!;
-
-        /// <summary>
-        /// The scheduling hints for the virtual machine.
-        /// </summary>
-        [Output("placementHints")]
-        public Output<ImmutableArray<Outputs.VirtualMachinePlacementHintResponse>> PlacementHints { get; private set; } = null!;
-
-        /// <summary>
-        /// The power state of the virtual machine.
-        /// </summary>
-        [Output("powerState")]
-        public Output<string> PowerState { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the virtual machine.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
-        /// </summary>
-        [Output("sshPublicKeys")]
-        public Output<ImmutableArray<Outputs.SshPublicKeyResponse>> SshPublicKeys { get; private set; } = null!;
-
-        [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponse> StorageProfile { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VirtualMachinePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -143,39 +53,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The Base64 encoded cloud-init user data.
-        /// </summary>
-        [Output("userData")]
-        public Output<string?> UserData { get; private set; } = null!;
-
-        /// <summary>
-        /// Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
-        /// </summary>
-        [Output("virtioInterface")]
-        public Output<string?> VirtioInterface { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the device model to use.
-        /// </summary>
-        [Output("vmDeviceModel")]
-        public Output<string?> VmDeviceModel { get; private set; } = null!;
-
-        /// <summary>
-        /// The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
-        /// </summary>
-        [Output("vmImage")]
-        public Output<string> VmImage { get; private set; } = null!;
-
-        [Output("vmImageRepositoryCredentials")]
-        public Output<Outputs.ImageRepositoryCredentialsResponse?> VmImageRepositoryCredentials { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource IDs of volumes that are attached to the virtual machine.
-        /// </summary>
-        [Output("volumes")]
-        public Output<ImmutableArray<string>> Volumes { get; private set; } = null!;
 
 
         /// <summary>
@@ -227,37 +104,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the administrator to which the ssh public keys will be added into the authorized keys.
-        /// </summary>
-        [Input("adminUsername", required: true)]
-        public Input<string> AdminUsername { get; set; } = null!;
-
-        /// <summary>
-        /// Selects the boot method for the virtual machine.
-        /// </summary>
-        [Input("bootMethod")]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.V20221212Preview.VirtualMachineBootMethod>? BootMethod { get; set; }
-
-        [Input("cloudServicesNetworkAttachment", required: true)]
-        public Input<Inputs.NetworkAttachmentArgs> CloudServicesNetworkAttachment { get; set; } = null!;
-
-        /// <summary>
-        /// The number of CPU cores in the virtual machine.
-        /// </summary>
-        [Input("cpuCores", required: true)]
-        public Input<double> CpuCores { get; set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Input("extendedLocation", required: true)]
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
-
-        /// <summary>
-        /// Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
-        /// </summary>
-        [Input("isolateEmulatorThread")]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.V20221212Preview.VirtualMachineIsolateEmulatorThread>? IsolateEmulatorThread { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -266,61 +116,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The memory size of the virtual machine in GB.
+        /// The list of the resource properties.
         /// </summary>
-        [Input("memorySizeGB", required: true)]
-        public Input<double> MemorySizeGB { get; set; } = null!;
-
-        [Input("networkAttachments")]
-        private InputList<Inputs.NetworkAttachmentArgs>? _networkAttachments;
-
-        /// <summary>
-        /// The list of network attachments to the virtual machine.
-        /// </summary>
-        public InputList<Inputs.NetworkAttachmentArgs> NetworkAttachments
-        {
-            get => _networkAttachments ?? (_networkAttachments = new InputList<Inputs.NetworkAttachmentArgs>());
-            set => _networkAttachments = value;
-        }
-
-        /// <summary>
-        /// The Base64 encoded cloud-init network data.
-        /// </summary>
-        [Input("networkData")]
-        public Input<string>? NetworkData { get; set; }
-
-        [Input("placementHints")]
-        private InputList<Inputs.VirtualMachinePlacementHintArgs>? _placementHints;
-
-        /// <summary>
-        /// The scheduling hints for the virtual machine.
-        /// </summary>
-        public InputList<Inputs.VirtualMachinePlacementHintArgs> PlacementHints
-        {
-            get => _placementHints ?? (_placementHints = new InputList<Inputs.VirtualMachinePlacementHintArgs>());
-            set => _placementHints = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.VirtualMachinePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("sshPublicKeys")]
-        private InputList<Inputs.SshPublicKeyArgs>? _sshPublicKeys;
-
-        /// <summary>
-        /// The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
-        /// </summary>
-        public InputList<Inputs.SshPublicKeyArgs> SshPublicKeys
-        {
-            get => _sshPublicKeys ?? (_sshPublicKeys = new InputList<Inputs.SshPublicKeyArgs>());
-            set => _sshPublicKeys = value;
-        }
-
-        [Input("storageProfile", required: true)]
-        public Input<Inputs.StorageProfileArgs> StorageProfile { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -335,44 +140,13 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         }
 
         /// <summary>
-        /// The Base64 encoded cloud-init user data.
-        /// </summary>
-        [Input("userData")]
-        public Input<string>? UserData { get; set; }
-
-        /// <summary>
-        /// Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
-        /// </summary>
-        [Input("virtioInterface")]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.V20221212Preview.VirtualMachineVirtioInterfaceType>? VirtioInterface { get; set; }
-
-        /// <summary>
         /// The name of the virtual machine.
         /// </summary>
         [Input("virtualMachineName")]
         public Input<string>? VirtualMachineName { get; set; }
 
-        /// <summary>
-        /// The type of the device model to use.
-        /// </summary>
-        [Input("vmDeviceModel")]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.V20221212Preview.VirtualMachineDeviceModelType>? VmDeviceModel { get; set; }
-
-        /// <summary>
-        /// The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
-        /// </summary>
-        [Input("vmImage", required: true)]
-        public Input<string> VmImage { get; set; } = null!;
-
-        [Input("vmImageRepositoryCredentials")]
-        public Input<Inputs.ImageRepositoryCredentialsArgs>? VmImageRepositoryCredentials { get; set; }
-
         public VirtualMachineArgs()
         {
-            BootMethod = "UEFI";
-            IsolateEmulatorThread = "True";
-            VirtioInterface = "Modern";
-            VmDeviceModel = "T2";
         }
         public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }

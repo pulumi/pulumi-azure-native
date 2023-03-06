@@ -90,17 +90,13 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Metadata attached to the virtual network link.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the virtual network link.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.VirtualNetworkLinkPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -109,10 +105,6 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The reference to the virtual network. This cannot be changed after creation.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse VirtualNetwork;
 
         [OutputConstructor]
         private GetVirtualNetworkLinkResult(
@@ -120,26 +112,20 @@ namespace Pulumi.AzureNative.Network.V20220701
 
             string id,
 
-            ImmutableDictionary<string, string>? metadata,
-
             string name,
 
-            string provisioningState,
+            Outputs.VirtualNetworkLinkPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            Outputs.SubResourceResponse virtualNetwork)
+            string type)
         {
             Etag = etag;
             Id = id;
-            Metadata = metadata;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            VirtualNetwork = virtualNetwork;
         }
     }
 }

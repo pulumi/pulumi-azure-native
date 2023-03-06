@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetSupportPlanTypeResult',
@@ -23,16 +24,16 @@ class GetSupportPlanTypeResult:
     """
     The status of the Canonical support plan.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -54,12 +55,12 @@ class GetSupportPlanTypeResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.CanonicalSupportPlanPropertiesResponse':
         """
-        The provisioning state of the resource.
+        Describes Canonical support plan type and status.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -78,7 +79,7 @@ class AwaitableGetSupportPlanTypeResult(GetSupportPlanTypeResult):
         return GetSupportPlanTypeResult(
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             type=self.type)
 
 
@@ -102,7 +103,7 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
     return AwaitableGetSupportPlanTypeResult(
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

@@ -17,28 +17,16 @@ namespace Pulumi.AzureNative.SignalRService
     public partial class SignalRCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Reference to a resource.
-        /// </summary>
-        [Output("customCertificate")]
-        public Output<Outputs.ResourceReferenceResponse> CustomCertificate { get; private set; } = null!;
-
-        /// <summary>
-        /// The custom domain name.
-        /// </summary>
-        [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of a custom domain.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.CustomDomainPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -103,22 +91,16 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class SignalRCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Reference to a resource.
-        /// </summary>
-        [Input("customCertificate", required: true)]
-        public Input<Inputs.ResourceReferenceArgs> CustomCertificate { get; set; } = null!;
-
-        /// <summary>
-        /// The custom domain name.
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
         /// Custom domain name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Properties of a custom domain.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.CustomDomainPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

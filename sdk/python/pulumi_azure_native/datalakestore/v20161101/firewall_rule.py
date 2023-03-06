@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from ._inputs import *
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
 
@@ -15,22 +16,19 @@ __all__ = ['FirewallRuleArgs', 'FirewallRule']
 class FirewallRuleArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 end_ip_address: pulumi.Input[str],
+                 properties: pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 start_ip_address: pulumi.Input[str],
                  firewall_rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
-        :param pulumi.Input[str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        :param pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs'] properties: The firewall rule properties to use when creating a new firewall rule.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-        :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param pulumi.Input[str] firewall_rule_name: The name of the firewall rule to create or update.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
         if firewall_rule_name is not None:
             pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
 
@@ -47,16 +45,16 @@ class FirewallRuleArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs']:
         """
-        The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        The firewall rule properties to use when creating a new firewall rule.
         """
-        return pulumi.get(self, "end_ip_address")
+        return pulumi.get(self, "properties")
 
-    @end_ip_address.setter
-    def end_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_ip_address", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -69,18 +67,6 @@ class FirewallRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Input[str]:
-        """
-        The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-        """
-        return pulumi.get(self, "start_ip_address")
-
-    @start_ip_address.setter
-    def start_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_ip_address", value)
 
     @property
     @pulumi.getter(name="firewallRuleName")
@@ -101,10 +87,9 @@ class FirewallRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateFirewallRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Data Lake Store firewall rule information.
@@ -112,10 +97,9 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
-        :param pulumi.Input[str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param pulumi.Input[str] firewall_rule_name: The name of the firewall rule to create or update.
+        :param pulumi.Input[pulumi.InputType['CreateOrUpdateFirewallRulePropertiesArgs']] properties: The firewall rule properties to use when creating a new firewall rule.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-        :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
         ...
     @overload
@@ -142,10 +126,9 @@ class FirewallRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateFirewallRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,17 +141,16 @@ class FirewallRule(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if end_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'end_ip_address'")
-            __props__.__dict__["end_ip_address"] = end_ip_address
             __props__.__dict__["firewall_rule_name"] = firewall_rule_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if start_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'start_ip_address'")
-            __props__.__dict__["start_ip_address"] = start_ip_address
+            __props__.__dict__["end_ip_address"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["start_ip_address"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakestore:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

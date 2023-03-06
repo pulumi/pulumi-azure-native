@@ -25,14 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object ErrorCode;
-        /// <summary>
-        /// The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Message;
-        /// <summary>
         /// Activity name.
         /// </summary>
         public readonly string Name;
@@ -41,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'Fail'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Fail activity properties.
+        /// </summary>
+        public readonly Outputs.FailActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -52,22 +48,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            object errorCode,
-
-            object message,
-
             string name,
 
             string type,
+
+            Outputs.FailActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
-            ErrorCode = errorCode;
-            Message = message;
             Name = name;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

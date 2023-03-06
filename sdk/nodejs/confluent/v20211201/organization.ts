@@ -38,10 +38,6 @@ export class Organization extends pulumi.CustomResource {
     }
 
     /**
-     * The creation time of the resource.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
      * Location of Organization resource
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -50,21 +46,9 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Confluent offer detail
+     * Organization resource properties
      */
-    public readonly offerDetail!: pulumi.Output<outputs.confluent.v20211201.OfferDetailResponse>;
-    /**
-     * Id of the Confluent organization.
-     */
-    public /*out*/ readonly organizationId!: pulumi.Output<string>;
-    /**
-     * Provision states for confluent RP
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * SSO url for the Confluent organization.
-     */
-    public /*out*/ readonly ssoUrl!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.confluent.v20211201.OrganizationResourcePropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
@@ -77,10 +61,6 @@ export class Organization extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Subscriber detail
-     */
-    public readonly userDetail!: pulumi.Output<outputs.confluent.v20211201.UserDetailResponse>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -93,40 +73,27 @@ export class Organization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.offerDetail === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'offerDetail'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userDetail === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userDetail'");
-            }
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["offerDetail"] = args ? args.offerDetail : undefined;
             resourceInputs["organizationName"] = args ? args.organizationName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userDetail"] = args ? args.userDetail : undefined;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["organizationId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["ssoUrl"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["offerDetail"] = undefined /*out*/;
-            resourceInputs["organizationId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["ssoUrl"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userDetail"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:confluent:Organization" }, { type: "azure-native:confluent/v20200301:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-native:confluent/v20210301preview:Organization" }, { type: "azure-native:confluent/v20210901preview:Organization" }] };
@@ -144,13 +111,13 @@ export interface OrganizationArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Confluent offer detail
-     */
-    offerDetail: pulumi.Input<inputs.confluent.v20211201.OfferDetailArgs>;
-    /**
      * Organization resource name
      */
     organizationName?: pulumi.Input<string>;
+    /**
+     * Organization resource properties
+     */
+    properties: pulumi.Input<inputs.confluent.v20211201.OrganizationResourcePropertiesArgs>;
     /**
      * Resource group name
      */
@@ -159,8 +126,4 @@ export interface OrganizationArgs {
      * Organization resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Subscriber detail
-     */
-    userDetail: pulumi.Input<inputs.confluent.v20211201.UserDetailArgs>;
 }

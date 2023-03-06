@@ -230,72 +230,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
-        [Input("capabilities")]
-        private InputList<Inputs.CapabilityArgs>? _capabilities;
-
-        /// <summary>
-        /// List of Cosmos DB capabilities for the account
-        /// </summary>
-        public InputList<Inputs.CapabilityArgs> Capabilities
-        {
-            get => _capabilities ?? (_capabilities = new InputList<Inputs.CapabilityArgs>());
-            set => _capabilities = value;
-        }
-
-        /// <summary>
-        /// The cassandra connector offer type for the Cosmos DB database C* account.
-        /// </summary>
-        [Input("connectorOffer")]
-        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20190801.ConnectorOffer>? ConnectorOffer { get; set; }
-
-        /// <summary>
-        /// The consistency policy for the Cosmos DB account.
-        /// </summary>
-        [Input("consistencyPolicy")]
-        public Input<Inputs.ConsistencyPolicyArgs>? ConsistencyPolicy { get; set; }
-
-        /// <summary>
-        /// The offer type for the database
-        /// </summary>
-        [Input("databaseAccountOfferType", required: true)]
-        public Input<Pulumi.AzureNative.DocumentDB.V20190801.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
-
-        /// <summary>
-        /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
-        /// </summary>
-        [Input("disableKeyBasedMetadataWriteAccess")]
-        public Input<bool>? DisableKeyBasedMetadataWriteAccess { get; set; }
-
-        /// <summary>
-        /// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        /// </summary>
-        [Input("enableAutomaticFailover")]
-        public Input<bool>? EnableAutomaticFailover { get; set; }
-
-        /// <summary>
-        /// Enables the cassandra connector on the Cosmos DB C* account
-        /// </summary>
-        [Input("enableCassandraConnector")]
-        public Input<bool>? EnableCassandraConnector { get; set; }
-
-        /// <summary>
-        /// Enables the account to write in multiple locations
-        /// </summary>
-        [Input("enableMultipleWriteLocations")]
-        public Input<bool>? EnableMultipleWriteLocations { get; set; }
-
-        /// <summary>
-        /// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-        /// </summary>
-        [Input("ipRangeFilter")]
-        public Input<string>? IpRangeFilter { get; set; }
-
-        /// <summary>
-        /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
-        /// </summary>
-        [Input("isVirtualNetworkFilterEnabled")]
-        public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
-
         /// <summary>
         /// Indicates the type of database account. This can only be set at database account creation.
         /// </summary>
@@ -308,17 +242,11 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("locations", required: true)]
-        private InputList<Inputs.LocationArgs>? _locations;
-
         /// <summary>
-        /// An array that contains the georeplication locations enabled for the Cosmos DB account.
+        /// Properties to create and update Azure Cosmos DB database accounts.
         /// </summary>
-        public InputList<Inputs.LocationArgs> Locations
-        {
-            get => _locations ?? (_locations = new InputList<Inputs.LocationArgs>());
-            set => _locations = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.DatabaseAccountCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.
@@ -336,18 +264,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("virtualNetworkRules")]
-        private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
-
-        /// <summary>
-        /// List of Virtual Network ACL rules configured for the Cosmos DB account.
-        /// </summary>
-        public InputList<Inputs.VirtualNetworkRuleArgs> VirtualNetworkRules
-        {
-            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.VirtualNetworkRuleArgs>());
-            set => _virtualNetworkRules = value;
         }
 
         public DatabaseAccountArgs()

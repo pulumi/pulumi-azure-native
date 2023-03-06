@@ -32,18 +32,6 @@ export interface GetVolumeArgs {
 
 export interface GetVolumeResult {
     /**
-     * The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
-     */
-    readonly attachedTo: string[];
-    /**
-     * The more detailed status of the volume.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
@@ -60,17 +48,9 @@ export interface GetVolumeResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the volume.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The unique identifier of the volume.
-     */
-    readonly serialNumber: string;
-    /**
-     * The size of the allocation for this volume in Mebibytes.
-     */
-    readonly sizeMiB: number;
+    readonly properties: outputs.networkcloud.v20221212preview.VolumePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

@@ -41,29 +41,13 @@ export class DataStore extends pulumi.CustomResource {
     }
 
     /**
-     * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-     */
-    public readonly customerSecrets!: pulumi.Output<outputs.hybriddata.v20160601.CustomerSecretResponse[] | undefined>;
-    /**
-     * The arm id of the data store type.
-     */
-    public readonly dataStoreTypeId!: pulumi.Output<string>;
-    /**
-     * A generic json used differently by each data source type.
-     */
-    public readonly extendedProperties!: pulumi.Output<any | undefined>;
-    /**
      * Name of the object.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Arm Id for the manager resource to which the data source is associated. This is optional.
+     * DataStore properties.
      */
-    public readonly repositoryId!: pulumi.Output<string | undefined>;
-    /**
-     * State of the data source.
-     */
-    public readonly state!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hybriddata.v20160601.DataStorePropertiesResponse>;
     /**
      * Type of the object.
      */
@@ -85,32 +69,21 @@ export class DataStore extends pulumi.CustomResource {
             if ((!args || args.dataManagerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.dataStoreTypeId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataStoreTypeId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'state'");
-            }
-            resourceInputs["customerSecrets"] = args ? args.customerSecrets : undefined;
             resourceInputs["dataManagerName"] = args ? args.dataManagerName : undefined;
             resourceInputs["dataStoreName"] = args ? args.dataStoreName : undefined;
-            resourceInputs["dataStoreTypeId"] = args ? args.dataStoreTypeId : undefined;
-            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["customerSecrets"] = undefined /*out*/;
-            resourceInputs["dataStoreTypeId"] = undefined /*out*/;
-            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["repositoryId"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -125,10 +98,6 @@ export class DataStore extends pulumi.CustomResource {
  */
 export interface DataStoreArgs {
     /**
-     * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-     */
-    customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20160601.CustomerSecretArgs>[]>;
-    /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
     dataManagerName: pulumi.Input<string>;
@@ -137,23 +106,11 @@ export interface DataStoreArgs {
      */
     dataStoreName?: pulumi.Input<string>;
     /**
-     * The arm id of the data store type.
+     * DataStore properties.
      */
-    dataStoreTypeId: pulumi.Input<string>;
-    /**
-     * A generic json used differently by each data source type.
-     */
-    extendedProperties?: any;
-    /**
-     * Arm Id for the manager resource to which the data source is associated. This is optional.
-     */
-    repositoryId?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.hybriddata.v20160601.DataStorePropertiesArgs>;
     /**
      * The Resource Group Name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * State of the data source.
-     */
-    state: pulumi.Input<enums.hybriddata.v20160601.State>;
 }

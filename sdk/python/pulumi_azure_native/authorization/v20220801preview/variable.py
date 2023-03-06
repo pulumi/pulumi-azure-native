@@ -16,28 +16,28 @@ __all__ = ['VariableArgs', 'Variable']
 @pulumi.input_type
 class VariableArgs:
     def __init__(__self__, *,
-                 columns: pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]],
+                 properties: pulumi.Input['PolicyVariablePropertiesArgs'],
                  variable_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Variable resource.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]] columns: Variable column definitions.
+        :param pulumi.Input['PolicyVariablePropertiesArgs'] properties: Properties for the variable.
         :param pulumi.Input[str] variable_name: The name of the variable to operate on.
         """
-        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "properties", properties)
         if variable_name is not None:
             pulumi.set(__self__, "variable_name", variable_name)
 
     @property
     @pulumi.getter
-    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]]:
+    def properties(self) -> pulumi.Input['PolicyVariablePropertiesArgs']:
         """
-        Variable column definitions.
+        Properties for the variable.
         """
-        return pulumi.get(self, "columns")
+        return pulumi.get(self, "properties")
 
-    @columns.setter
-    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]]):
-        pulumi.set(self, "columns", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['PolicyVariablePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="variableName")
@@ -57,7 +57,7 @@ class Variable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableColumnArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PolicyVariablePropertiesArgs']]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -65,7 +65,7 @@ class Variable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableColumnArgs']]]] columns: Variable column definitions.
+        :param pulumi.Input[pulumi.InputType['PolicyVariablePropertiesArgs']] properties: Properties for the variable.
         :param pulumi.Input[str] variable_name: The name of the variable to operate on.
         """
         ...
@@ -92,7 +92,7 @@ class Variable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableColumnArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PolicyVariablePropertiesArgs']]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -103,9 +103,9 @@ class Variable(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VariableArgs.__new__(VariableArgs)
 
-            if columns is None and not opts.urn:
-                raise TypeError("Missing required property 'columns'")
-            __props__.__dict__["columns"] = columns
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["variable_name"] = variable_name
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -132,19 +132,11 @@ class Variable(pulumi.CustomResource):
 
         __props__ = VariableArgs.__new__(VariableArgs)
 
-        __props__.__dict__["columns"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Variable(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> pulumi.Output[Sequence['outputs.PolicyVariableColumnResponse']]:
-        """
-        Variable column definitions.
-        """
-        return pulumi.get(self, "columns")
 
     @property
     @pulumi.getter
@@ -153,6 +145,14 @@ class Variable(pulumi.CustomResource):
         The name of the variable.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.PolicyVariablePropertiesResponse']:
+        """
+        Properties for the variable.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

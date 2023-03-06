@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class ForEachActivityResponse
     {
         /// <summary>
-        /// List of activities to execute .
-        /// </summary>
-        public readonly ImmutableArray<object> Activities;
-        /// <summary>
-        /// Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
-        /// </summary>
-        public readonly int? BatchCount;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -32,14 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Should the loop be executed in sequence or in parallel (max 50)
-        /// </summary>
-        public readonly bool? IsSequential;
-        /// <summary>
-        /// Collection to iterate.
-        /// </summary>
-        public readonly Outputs.ExpressionResponse Items;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -49,33 +33,28 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'ForEach'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// ForEach activity properties.
+        /// </summary>
+        public readonly Outputs.ForEachActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ForEachActivityResponse(
-            ImmutableArray<object> activities,
-
-            int? batchCount,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
-            bool? isSequential,
-
-            Outputs.ExpressionResponse items,
-
             string name,
 
-            string type)
+            string type,
+
+            Outputs.ForEachActivityTypePropertiesResponse typeProperties)
         {
-            Activities = activities;
-            BatchCount = batchCount;
             DependsOn = dependsOn;
             Description = description;
-            IsSequential = isSequential;
-            Items = items;
             Name = name;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

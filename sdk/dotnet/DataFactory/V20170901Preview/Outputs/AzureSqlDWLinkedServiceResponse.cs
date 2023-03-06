@@ -25,38 +25,22 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object ConnectionString;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ServicePrincipalId;
-        /// <summary>
-        /// The key of the service principal used to authenticate against Azure SQL Data Warehouse.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Tenant;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureSqlDW'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure SQL Data Warehouse linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureSqlDWLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureSqlDWLinkedServiceResponse(
@@ -64,32 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object connectionString,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? servicePrincipalId,
+            string type,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
-
-            object? tenant,
-
-            string type)
+            Outputs.AzureSqlDWLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            ServicePrincipalId = servicePrincipalId;
-            ServicePrincipalKey = servicePrincipalKey;
-            Tenant = tenant;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -38,29 +38,9 @@ export class VCenter extends pulumi.CustomResource {
     }
 
     /**
-     * Gets or sets the connection status to the vCenter.
-     */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
-    /**
-     * Username / Password Credentials to connect to vcenter.
-     */
-    public readonly credentials!: pulumi.Output<outputs.connectedvmwarevsphere.v20220715preview.VICredentialResponse | undefined>;
-    /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
-    /**
      * Gets or sets the extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.v20220715preview.ExtendedLocationResponse | undefined>;
-    /**
-     * Gets or sets the FQDN/IPAddress of the vCenter.
-     */
-    public readonly fqdn!: pulumi.Output<string>;
-    /**
-     * Gets or sets the instance UUID of the vCenter.
-     */
-    public /*out*/ readonly instanceUuid!: pulumi.Output<string>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -74,17 +54,9 @@ export class VCenter extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the port of the vCenter.
+     * Resource properties.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resource status information.
-     */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.v20220715preview.ResourceStatusResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.connectedvmwarevsphere.v20220715preview.VCenterPropertiesResponse>;
     /**
      * The system data.
      */
@@ -97,14 +69,6 @@ export class VCenter extends pulumi.CustomResource {
      * Gets or sets the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
-    /**
-     * Gets or sets the version of the vCenter.
-     */
-    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a VCenter resource with the given unique name, arguments, and options.
@@ -117,49 +81,31 @@ export class VCenter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fqdn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fqdn'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
-            resourceInputs["connectionStatus"] = undefined /*out*/;
-            resourceInputs["customResourceName"] = undefined /*out*/;
-            resourceInputs["instanceUuid"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         } else {
-            resourceInputs["connectionStatus"] = undefined /*out*/;
-            resourceInputs["credentials"] = undefined /*out*/;
-            resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["fqdn"] = undefined /*out*/;
-            resourceInputs["instanceUuid"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["port"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:VCenter" }] };
@@ -173,17 +119,9 @@ export class VCenter extends pulumi.CustomResource {
  */
 export interface VCenterArgs {
     /**
-     * Username / Password Credentials to connect to vcenter.
-     */
-    credentials?: pulumi.Input<inputs.connectedvmwarevsphere.v20220715preview.VICredentialArgs>;
-    /**
      * Gets or sets the extended location.
      */
     extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.v20220715preview.ExtendedLocationArgs>;
-    /**
-     * Gets or sets the FQDN/IPAddress of the vCenter.
-     */
-    fqdn: pulumi.Input<string>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -193,9 +131,9 @@ export interface VCenterArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Gets or sets the port of the vCenter.
+     * Resource properties.
      */
-    port?: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.connectedvmwarevsphere.v20220715preview.VCenterPropertiesArgs>;
     /**
      * The Resource Group Name.
      */

@@ -25,21 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object? ConnectionString;
-        /// <summary>
-        /// The Azure key vault secret reference of credString in connection string.
-        /// </summary>
-        public readonly Outputs.AzureKeyVaultSecretReferenceResponse? CredString;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -49,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'Couchbase'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Couchbase server linked service properties.
+        /// </summary>
+        public readonly Outputs.CouchbaseLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CouchbaseLinkedServiceResponse(
@@ -56,26 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? connectionString,
-
-            Outputs.AzureKeyVaultSecretReferenceResponse? credString,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            Outputs.CouchbaseLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
-            CredString = credString;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

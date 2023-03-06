@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetDisasterRecoveryConfigurationResult',
@@ -21,56 +22,22 @@ class GetDisasterRecoveryConfigurationResult:
     """
     Represents a disaster recovery configuration.
     """
-    def __init__(__self__, auto_failover=None, failover_policy=None, id=None, location=None, logical_server_name=None, name=None, partner_logical_server_name=None, partner_server_id=None, role=None, status=None, type=None):
-        if auto_failover and not isinstance(auto_failover, str):
-            raise TypeError("Expected argument 'auto_failover' to be a str")
-        pulumi.set(__self__, "auto_failover", auto_failover)
-        if failover_policy and not isinstance(failover_policy, str):
-            raise TypeError("Expected argument 'failover_policy' to be a str")
-        pulumi.set(__self__, "failover_policy", failover_policy)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if logical_server_name and not isinstance(logical_server_name, str):
-            raise TypeError("Expected argument 'logical_server_name' to be a str")
-        pulumi.set(__self__, "logical_server_name", logical_server_name)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if partner_logical_server_name and not isinstance(partner_logical_server_name, str):
-            raise TypeError("Expected argument 'partner_logical_server_name' to be a str")
-        pulumi.set(__self__, "partner_logical_server_name", partner_logical_server_name)
-        if partner_server_id and not isinstance(partner_server_id, str):
-            raise TypeError("Expected argument 'partner_server_id' to be a str")
-        pulumi.set(__self__, "partner_server_id", partner_server_id)
-        if role and not isinstance(role, str):
-            raise TypeError("Expected argument 'role' to be a str")
-        pulumi.set(__self__, "role", role)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="autoFailover")
-    def auto_failover(self) -> str:
-        """
-        Whether or not failover can be done automatically.
-        """
-        return pulumi.get(self, "auto_failover")
-
-    @property
-    @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> str:
-        """
-        How aggressive the automatic failover should be.
-        """
-        return pulumi.get(self, "failover_policy")
 
     @property
     @pulumi.getter
@@ -89,14 +56,6 @@ class GetDisasterRecoveryConfigurationResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="logicalServerName")
-    def logical_server_name(self) -> str:
-        """
-        Logical name of the server.
-        """
-        return pulumi.get(self, "logical_server_name")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -105,36 +64,12 @@ class GetDisasterRecoveryConfigurationResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="partnerLogicalServerName")
-    def partner_logical_server_name(self) -> str:
-        """
-        Logical name of the partner server.
-        """
-        return pulumi.get(self, "partner_logical_server_name")
-
-    @property
-    @pulumi.getter(name="partnerServerId")
-    def partner_server_id(self) -> str:
-        """
-        Id of the partner server.
-        """
-        return pulumi.get(self, "partner_server_id")
-
-    @property
     @pulumi.getter
-    def role(self) -> str:
+    def properties(self) -> 'outputs.DisasterRecoveryConfigurationPropertiesResponse':
         """
-        The role of the current server in the disaster recovery configuration.
+        The properties representing the resource.
         """
-        return pulumi.get(self, "role")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The status of the disaster recovery configuration.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -151,16 +86,10 @@ class AwaitableGetDisasterRecoveryConfigurationResult(GetDisasterRecoveryConfigu
         if False:
             yield self
         return GetDisasterRecoveryConfigurationResult(
-            auto_failover=self.auto_failover,
-            failover_policy=self.failover_policy,
             id=self.id,
             location=self.location,
-            logical_server_name=self.logical_server_name,
             name=self.name,
-            partner_logical_server_name=self.partner_logical_server_name,
-            partner_server_id=self.partner_server_id,
-            role=self.role,
-            status=self.status,
+            properties=self.properties,
             type=self.type)
 
 
@@ -185,16 +114,10 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getDisasterRecoveryConfiguration', __args__, opts=opts, typ=GetDisasterRecoveryConfigurationResult).value
 
     return AwaitableGetDisasterRecoveryConfigurationResult(
-        auto_failover=__ret__.auto_failover,
-        failover_policy=__ret__.failover_policy,
         id=__ret__.id,
         location=__ret__.location,
-        logical_server_name=__ret__.logical_server_name,
         name=__ret__.name,
-        partner_logical_server_name=__ret__.partner_logical_server_name,
-        partner_server_id=__ret__.partner_server_id,
-        role=__ret__.role,
-        status=__ret__.status,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

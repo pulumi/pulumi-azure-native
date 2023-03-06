@@ -17,32 +17,24 @@ __all__ = ['ConnectionArgs', 'Connection']
 class ConnectionArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
-                 connection_type: pulumi.Input['ConnectionTypeAssociationPropertyArgs'],
                  name: pulumi.Input[str],
+                 properties: pulumi.Input['ConnectionCreateOrUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 connection_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input['ConnectionTypeAssociationPropertyArgs'] connection_type: Gets or sets the connectionType of the connection.
         :param pulumi.Input[str] name: Gets or sets the name of the connection.
+        :param pulumi.Input['ConnectionCreateOrUpdatePropertiesArgs'] properties: Gets or sets the properties of the connection.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] connection_name: The parameters supplied to the create or update connection operation.
-        :param pulumi.Input[str] description: Gets or sets the description of the connection.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] field_definition_values: Gets or sets the field definition properties of the connection.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "connection_type", connection_type)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if field_definition_values is not None:
-            pulumi.set(__self__, "field_definition_values", field_definition_values)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -57,18 +49,6 @@ class ConnectionArgs:
         pulumi.set(self, "automation_account_name", value)
 
     @property
-    @pulumi.getter(name="connectionType")
-    def connection_type(self) -> pulumi.Input['ConnectionTypeAssociationPropertyArgs']:
-        """
-        Gets or sets the connectionType of the connection.
-        """
-        return pulumi.get(self, "connection_type")
-
-    @connection_type.setter
-    def connection_type(self, value: pulumi.Input['ConnectionTypeAssociationPropertyArgs']):
-        pulumi.set(self, "connection_type", value)
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
@@ -79,6 +59,18 @@ class ConnectionArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ConnectionCreateOrUpdatePropertiesArgs']:
+        """
+        Gets or sets the properties of the connection.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ConnectionCreateOrUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,30 +96,6 @@ class ConnectionArgs:
     def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
 
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the description of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="fieldDefinitionValues")
-    def field_definition_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Gets or sets the field definition properties of the connection.
-        """
-        return pulumi.get(self, "field_definition_values")
-
-    @field_definition_values.setter
-    def field_definition_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "field_definition_values", value)
-
 
 class Connection(pulumi.CustomResource):
     @overload
@@ -136,10 +104,8 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 connection_type: Optional[pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -149,10 +115,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] connection_name: The parameters supplied to the create or update connection operation.
-        :param pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']] connection_type: Gets or sets the connectionType of the connection.
-        :param pulumi.Input[str] description: Gets or sets the description of the connection.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] field_definition_values: Gets or sets the field definition properties of the connection.
         :param pulumi.Input[str] name: Gets or sets the name of the connection.
+        :param pulumi.Input[pulumi.InputType['ConnectionCreateOrUpdatePropertiesArgs']] properties: Gets or sets the properties of the connection.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         """
         ...
@@ -181,10 +145,8 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 connection_type: Optional[pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -199,18 +161,19 @@ class Connection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["connection_name"] = connection_name
-            if connection_type is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_type'")
-            __props__.__dict__["connection_type"] = connection_type
-            __props__.__dict__["description"] = description
-            __props__.__dict__["field_definition_values"] = field_definition_values
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["connection_type"] = None
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["field_definition_values"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Connection"), pulumi.Alias(type_="azure-native:automation/v20151031:Connection"), pulumi.Alias(type_="azure-native:automation/v20190601:Connection"), pulumi.Alias(type_="azure-native:automation/v20220808:Connection")])

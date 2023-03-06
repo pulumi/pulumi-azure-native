@@ -17,46 +17,22 @@ namespace Pulumi.AzureNative.NetApp.V20200801
     public partial class SnapshotPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Schedule for daily snapshots
-        /// </summary>
-        [Output("dailySchedule")]
-        public Output<Outputs.DailyScheduleResponse?> DailySchedule { get; private set; } = null!;
-
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Schedule for hourly snapshots
-        /// </summary>
-        [Output("hourlySchedule")]
-        public Output<Outputs.HourlyScheduleResponse?> HourlySchedule { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Schedule for monthly snapshots
-        /// </summary>
-        [Output("monthlySchedule")]
-        public Output<Outputs.MonthlyScheduleResponse?> MonthlySchedule { get; private set; } = null!;
-
-        /// <summary>
-        /// Snapshot policy name
+        /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure lifecycle management
+        /// Snapshot policy Properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SnapshotPolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -69,12 +45,6 @@ namespace Pulumi.AzureNative.NetApp.V20200801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Schedule for weekly snapshots
-        /// </summary>
-        [Output("weeklySchedule")]
-        public Output<Outputs.WeeklyScheduleResponse?> WeeklySchedule { get; private set; } = null!;
 
 
         /// <summary>
@@ -148,34 +118,16 @@ namespace Pulumi.AzureNative.NetApp.V20200801
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Schedule for daily snapshots
-        /// </summary>
-        [Input("dailySchedule")]
-        public Input<Inputs.DailyScheduleArgs>? DailySchedule { get; set; }
-
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Schedule for hourly snapshots
-        /// </summary>
-        [Input("hourlySchedule")]
-        public Input<Inputs.HourlyScheduleArgs>? HourlySchedule { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Schedule for monthly snapshots
+        /// Snapshot policy Properties
         /// </summary>
-        [Input("monthlySchedule")]
-        public Input<Inputs.MonthlyScheduleArgs>? MonthlySchedule { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SnapshotPolicyPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -200,12 +152,6 @@ namespace Pulumi.AzureNative.NetApp.V20200801
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Schedule for weekly snapshots
-        /// </summary>
-        [Input("weeklySchedule")]
-        public Input<Inputs.WeeklyScheduleArgs>? WeeklySchedule { get; set; }
 
         public SnapshotPolicyArgs()
         {

@@ -17,55 +17,43 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 @pulumi.input_type
 class WorkspaceArgs:
     def __init__(__self__, *,
-                 managed_resource_group_id: pulumi.Input[str],
+                 properties: pulumi.Input['WorkspacePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_definition_uri: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
-        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
+        :param pulumi.Input['WorkspacePropertiesArgs'] properties: The workspace properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]] authorizations: The workspace provider authorizations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['WorkspaceCustomParametersArgs'] parameters: The workspace's custom parameters.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if ui_definition_uri is not None:
-            pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
         if workspace_name is not None:
             pulumi.set(__self__, "workspace_name", workspace_name)
 
     @property
-    @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['WorkspacePropertiesArgs']:
         """
-        The managed resource group Id.
+        The workspace properties.
         """
-        return pulumi.get(self, "managed_resource_group_id")
+        return pulumi.get(self, "properties")
 
-    @managed_resource_group_id.setter
-    def managed_resource_group_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "managed_resource_group_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['WorkspacePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -81,18 +69,6 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]]:
-        """
-        The workspace provider authorizations.
-        """
-        return pulumi.get(self, "authorizations")
-
-    @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]]):
-        pulumi.set(self, "authorizations", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -102,18 +78,6 @@ class WorkspaceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['WorkspaceCustomParametersArgs']]:
-        """
-        The workspace's custom parameters.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['WorkspaceCustomParametersArgs']]):
-        pulumi.set(self, "parameters", value)
 
     @property
     @pulumi.getter
@@ -140,18 +104,6 @@ class WorkspaceArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="uiDefinitionUri")
-    def ui_definition_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The blob URI where the UI definition file is located.
-        """
-        return pulumi.get(self, "ui_definition_uri")
-
-    @ui_definition_uri.setter
-    def ui_definition_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ui_definition_uri", value)
-
-    @property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -169,14 +121,11 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_definition_uri: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -184,14 +133,11 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
-        :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] parameters: The workspace's custom parameters.
+        :param pulumi.Input[pulumi.InputType['WorkspacePropertiesArgs']] properties: The workspace properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -218,14 +164,11 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_definition_uri: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,28 +179,18 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            __props__.__dict__["authorizations"] = authorizations
             __props__.__dict__["location"] = location
-            if managed_resource_group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_resource_group_id'")
-            __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
-            __props__.__dict__["parameters"] = parameters
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["ui_definition_uri"] = ui_definition_uri
             __props__.__dict__["workspace_name"] = workspace_name
-            __props__.__dict__["created_by"] = None
-            __props__.__dict__["created_date_time"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["storage_account_identity"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["updated_by"] = None
-            __props__.__dict__["workspace_id"] = None
-            __props__.__dict__["workspace_url"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20230201:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
@@ -282,47 +215,13 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-        __props__.__dict__["authorizations"] = None
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_date_time"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["managed_resource_group_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["parameters"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["storage_account_identity"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["ui_definition_uri"] = None
-        __props__.__dict__["updated_by"] = None
-        __props__.__dict__["workspace_id"] = None
-        __props__.__dict__["workspace_url"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.WorkspaceProviderAuthorizationResponse']]]:
-        """
-        The workspace provider authorizations.
-        """
-        return pulumi.get(self, "authorizations")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional['outputs.CreatedByResponse']]:
-        """
-        Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> pulumi.Output[str]:
-        """
-        Specifies the date and time when the workspace is created.
-        """
-        return pulumi.get(self, "created_date_time")
 
     @property
     @pulumi.getter
@@ -331,14 +230,6 @@ class Workspace(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> pulumi.Output[str]:
-        """
-        The managed resource group Id.
-        """
-        return pulumi.get(self, "managed_resource_group_id")
 
     @property
     @pulumi.getter
@@ -350,19 +241,11 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional['outputs.WorkspaceCustomParametersResponse']]:
+    def properties(self) -> pulumi.Output['outputs.WorkspacePropertiesResponse']:
         """
-        The workspace's custom parameters.
+        The workspace properties.
         """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The workspace provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -371,14 +254,6 @@ class Workspace(pulumi.CustomResource):
         The SKU of the resource.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="storageAccountIdentity")
-    def storage_account_identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityConfigurationResponse']]:
-        """
-        The details of Managed Identity of Storage Account
-        """
-        return pulumi.get(self, "storage_account_identity")
 
     @property
     @pulumi.getter
@@ -395,36 +270,4 @@ class Workspace(pulumi.CustomResource):
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uiDefinitionUri")
-    def ui_definition_uri(self) -> pulumi.Output[Optional[str]]:
-        """
-        The blob URI where the UI definition file is located.
-        """
-        return pulumi.get(self, "ui_definition_uri")
-
-    @property
-    @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> pulumi.Output[Optional['outputs.CreatedByResponse']]:
-        """
-        Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-        """
-        return pulumi.get(self, "updated_by")
-
-    @property
-    @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> pulumi.Output[str]:
-        """
-        The unique identifier of the databricks workspace in databricks control plane.
-        """
-        return pulumi.get(self, "workspace_id")
-
-    @property
-    @pulumi.getter(name="workspaceUrl")
-    def workspace_url(self) -> pulumi.Output[str]:
-        """
-        The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-        """
-        return pulumi.get(self, "workspace_url")
 

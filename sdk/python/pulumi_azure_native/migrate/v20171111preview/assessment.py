@@ -8,150 +8,38 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['AssessmentArgs', 'Assessment']
 
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 azure_hybrid_use_benefit: pulumi.Input[Union[str, 'AzureHybridUseBenefit']],
-                 azure_location: pulumi.Input[Union[str, 'AzureLocation']],
-                 azure_offer_code: pulumi.Input[Union[str, 'AzureOfferCode']],
-                 azure_pricing_tier: pulumi.Input[Union[str, 'AzurePricingTier']],
-                 azure_storage_redundancy: pulumi.Input[Union[str, 'AzureStorageRedundancy']],
-                 currency: pulumi.Input[Union[str, 'Currency']],
-                 discount_percentage: pulumi.Input[float],
                  group_name: pulumi.Input[str],
-                 percentile: pulumi.Input[Union[str, 'Percentile']],
                  project_name: pulumi.Input[str],
+                 properties: pulumi.Input['AssessmentPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 scaling_factor: pulumi.Input[float],
-                 stage: pulumi.Input[Union[str, 'AssessmentStage']],
-                 time_range: pulumi.Input[Union[str, 'TimeRange']],
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Assessment resource.
-        :param pulumi.Input[Union[str, 'AzureHybridUseBenefit']] azure_hybrid_use_benefit: AHUB discount on windows virtual machines.
-        :param pulumi.Input[Union[str, 'AzureLocation']] azure_location: Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-        :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Offer code according to which cost estimation is done.
-        :param pulumi.Input[Union[str, 'AzurePricingTier']] azure_pricing_tier: Pricing tier for Size evaluation.
-        :param pulumi.Input[Union[str, 'AzureStorageRedundancy']] azure_storage_redundancy: Storage Redundancy type offered by Azure.
-        :param pulumi.Input[Union[str, 'Currency']] currency: Currency to report prices in.
-        :param pulumi.Input[float] discount_percentage: Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
-        :param pulumi.Input[Union[str, 'Percentile']] percentile: Percentile of performance data used to recommend Azure size.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input['AssessmentPropertiesArgs'] properties: Properties of the assessment.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-        :param pulumi.Input[float] scaling_factor: Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-        :param pulumi.Input[Union[str, 'AssessmentStage']] stage: User configurable setting that describes the status of the assessment.
-        :param pulumi.Input[Union[str, 'TimeRange']] time_range: Time range of performance data used to recommend a size.
         :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         """
-        pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_offer_code", azure_offer_code)
-        pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
-        pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
-        pulumi.set(__self__, "currency", currency)
-        pulumi.set(__self__, "discount_percentage", discount_percentage)
         pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "percentile", percentile)
         pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scaling_factor", scaling_factor)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "time_range", time_range)
         if assessment_name is not None:
             pulumi.set(__self__, "assessment_name", assessment_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
-
-    @property
-    @pulumi.getter(name="azureHybridUseBenefit")
-    def azure_hybrid_use_benefit(self) -> pulumi.Input[Union[str, 'AzureHybridUseBenefit']]:
-        """
-        AHUB discount on windows virtual machines.
-        """
-        return pulumi.get(self, "azure_hybrid_use_benefit")
-
-    @azure_hybrid_use_benefit.setter
-    def azure_hybrid_use_benefit(self, value: pulumi.Input[Union[str, 'AzureHybridUseBenefit']]):
-        pulumi.set(self, "azure_hybrid_use_benefit", value)
-
-    @property
-    @pulumi.getter(name="azureLocation")
-    def azure_location(self) -> pulumi.Input[Union[str, 'AzureLocation']]:
-        """
-        Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-        """
-        return pulumi.get(self, "azure_location")
-
-    @azure_location.setter
-    def azure_location(self, value: pulumi.Input[Union[str, 'AzureLocation']]):
-        pulumi.set(self, "azure_location", value)
-
-    @property
-    @pulumi.getter(name="azureOfferCode")
-    def azure_offer_code(self) -> pulumi.Input[Union[str, 'AzureOfferCode']]:
-        """
-        Offer code according to which cost estimation is done.
-        """
-        return pulumi.get(self, "azure_offer_code")
-
-    @azure_offer_code.setter
-    def azure_offer_code(self, value: pulumi.Input[Union[str, 'AzureOfferCode']]):
-        pulumi.set(self, "azure_offer_code", value)
-
-    @property
-    @pulumi.getter(name="azurePricingTier")
-    def azure_pricing_tier(self) -> pulumi.Input[Union[str, 'AzurePricingTier']]:
-        """
-        Pricing tier for Size evaluation.
-        """
-        return pulumi.get(self, "azure_pricing_tier")
-
-    @azure_pricing_tier.setter
-    def azure_pricing_tier(self, value: pulumi.Input[Union[str, 'AzurePricingTier']]):
-        pulumi.set(self, "azure_pricing_tier", value)
-
-    @property
-    @pulumi.getter(name="azureStorageRedundancy")
-    def azure_storage_redundancy(self) -> pulumi.Input[Union[str, 'AzureStorageRedundancy']]:
-        """
-        Storage Redundancy type offered by Azure.
-        """
-        return pulumi.get(self, "azure_storage_redundancy")
-
-    @azure_storage_redundancy.setter
-    def azure_storage_redundancy(self, value: pulumi.Input[Union[str, 'AzureStorageRedundancy']]):
-        pulumi.set(self, "azure_storage_redundancy", value)
-
-    @property
-    @pulumi.getter
-    def currency(self) -> pulumi.Input[Union[str, 'Currency']]:
-        """
-        Currency to report prices in.
-        """
-        return pulumi.get(self, "currency")
-
-    @currency.setter
-    def currency(self, value: pulumi.Input[Union[str, 'Currency']]):
-        pulumi.set(self, "currency", value)
-
-    @property
-    @pulumi.getter(name="discountPercentage")
-    def discount_percentage(self) -> pulumi.Input[float]:
-        """
-        Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-        """
-        return pulumi.get(self, "discount_percentage")
-
-    @discount_percentage.setter
-    def discount_percentage(self, value: pulumi.Input[float]):
-        pulumi.set(self, "discount_percentage", value)
 
     @property
     @pulumi.getter(name="groupName")
@@ -166,18 +54,6 @@ class AssessmentArgs:
         pulumi.set(self, "group_name", value)
 
     @property
-    @pulumi.getter
-    def percentile(self) -> pulumi.Input[Union[str, 'Percentile']]:
-        """
-        Percentile of performance data used to recommend Azure size.
-        """
-        return pulumi.get(self, "percentile")
-
-    @percentile.setter
-    def percentile(self, value: pulumi.Input[Union[str, 'Percentile']]):
-        pulumi.set(self, "percentile", value)
-
-    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Input[str]:
         """
@@ -190,6 +66,18 @@ class AssessmentArgs:
         pulumi.set(self, "project_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['AssessmentPropertiesArgs']:
+        """
+        Properties of the assessment.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['AssessmentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -200,42 +88,6 @@ class AssessmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="scalingFactor")
-    def scaling_factor(self) -> pulumi.Input[float]:
-        """
-        Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-        """
-        return pulumi.get(self, "scaling_factor")
-
-    @scaling_factor.setter
-    def scaling_factor(self, value: pulumi.Input[float]):
-        pulumi.set(self, "scaling_factor", value)
-
-    @property
-    @pulumi.getter
-    def stage(self) -> pulumi.Input[Union[str, 'AssessmentStage']]:
-        """
-        User configurable setting that describes the status of the assessment.
-        """
-        return pulumi.get(self, "stage")
-
-    @stage.setter
-    def stage(self, value: pulumi.Input[Union[str, 'AssessmentStage']]):
-        pulumi.set(self, "stage", value)
-
-    @property
-    @pulumi.getter(name="timeRange")
-    def time_range(self) -> pulumi.Input[Union[str, 'TimeRange']]:
-        """
-        Time range of performance data used to recommend a size.
-        """
-        return pulumi.get(self, "time_range")
-
-    @time_range.setter
-    def time_range(self, value: pulumi.Input[Union[str, 'TimeRange']]):
-        pulumi.set(self, "time_range", value)
 
     @property
     @pulumi.getter(name="assessmentName")
@@ -273,21 +125,11 @@ class Assessment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
-                 azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
-                 azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
-                 azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
-                 azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
-                 currency: Optional[pulumi.Input[Union[str, 'Currency']]] = None,
-                 discount_percentage: Optional[pulumi.Input[float]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AssessmentPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scaling_factor: Optional[pulumi.Input[float]] = None,
-                 stage: Optional[pulumi.Input[Union[str, 'AssessmentStage']]] = None,
-                 time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
                  __props__=None):
         """
         An assessment created for a group in the Migration project.
@@ -295,21 +137,11 @@ class Assessment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.
-        :param pulumi.Input[Union[str, 'AzureHybridUseBenefit']] azure_hybrid_use_benefit: AHUB discount on windows virtual machines.
-        :param pulumi.Input[Union[str, 'AzureLocation']] azure_location: Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-        :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Offer code according to which cost estimation is done.
-        :param pulumi.Input[Union[str, 'AzurePricingTier']] azure_pricing_tier: Pricing tier for Size evaluation.
-        :param pulumi.Input[Union[str, 'AzureStorageRedundancy']] azure_storage_redundancy: Storage Redundancy type offered by Azure.
-        :param pulumi.Input[Union[str, 'Currency']] currency: Currency to report prices in.
-        :param pulumi.Input[float] discount_percentage: Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
-        :param pulumi.Input[Union[str, 'Percentile']] percentile: Percentile of performance data used to recommend Azure size.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input[pulumi.InputType['AssessmentPropertiesArgs']] properties: Properties of the assessment.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-        :param pulumi.Input[float] scaling_factor: Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-        :param pulumi.Input[Union[str, 'AssessmentStage']] stage: User configurable setting that describes the status of the assessment.
-        :param pulumi.Input[Union[str, 'TimeRange']] time_range: Time range of performance data used to recommend a size.
         """
         ...
     @overload
@@ -336,21 +168,11 @@ class Assessment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
-                 azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
-                 azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
-                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
-                 azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
-                 azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
-                 currency: Optional[pulumi.Input[Union[str, 'Currency']]] = None,
-                 discount_percentage: Optional[pulumi.Input[float]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AssessmentPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scaling_factor: Optional[pulumi.Input[float]] = None,
-                 stage: Optional[pulumi.Input[Union[str, 'AssessmentStage']]] = None,
-                 time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
                  __props__=None):
         pulumi.log.warn("""Assessment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -362,59 +184,21 @@ class Assessment(pulumi.CustomResource):
             __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
             __props__.__dict__["assessment_name"] = assessment_name
-            if azure_hybrid_use_benefit is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_hybrid_use_benefit'")
-            __props__.__dict__["azure_hybrid_use_benefit"] = azure_hybrid_use_benefit
-            if azure_location is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_location'")
-            __props__.__dict__["azure_location"] = azure_location
-            if azure_offer_code is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_offer_code'")
-            __props__.__dict__["azure_offer_code"] = azure_offer_code
-            if azure_pricing_tier is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_pricing_tier'")
-            __props__.__dict__["azure_pricing_tier"] = azure_pricing_tier
-            if azure_storage_redundancy is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_storage_redundancy'")
-            __props__.__dict__["azure_storage_redundancy"] = azure_storage_redundancy
-            if currency is None and not opts.urn:
-                raise TypeError("Missing required property 'currency'")
-            __props__.__dict__["currency"] = currency
-            if discount_percentage is None and not opts.urn:
-                raise TypeError("Missing required property 'discount_percentage'")
-            __props__.__dict__["discount_percentage"] = discount_percentage
             __props__.__dict__["e_tag"] = e_tag
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
-            if percentile is None and not opts.urn:
-                raise TypeError("Missing required property 'percentile'")
-            __props__.__dict__["percentile"] = percentile
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if scaling_factor is None and not opts.urn:
-                raise TypeError("Missing required property 'scaling_factor'")
-            __props__.__dict__["scaling_factor"] = scaling_factor
-            if stage is None and not opts.urn:
-                raise TypeError("Missing required property 'stage'")
-            __props__.__dict__["stage"] = stage
-            if time_range is None and not opts.urn:
-                raise TypeError("Missing required property 'time_range'")
-            __props__.__dict__["time_range"] = time_range
-            __props__.__dict__["created_timestamp"] = None
-            __props__.__dict__["monthly_bandwidth_cost"] = None
-            __props__.__dict__["monthly_compute_cost"] = None
-            __props__.__dict__["monthly_storage_cost"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["number_of_machines"] = None
-            __props__.__dict__["prices_timestamp"] = None
-            __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["updated_timestamp"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180202:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
@@ -439,93 +223,11 @@ class Assessment(pulumi.CustomResource):
 
         __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-        __props__.__dict__["azure_hybrid_use_benefit"] = None
-        __props__.__dict__["azure_location"] = None
-        __props__.__dict__["azure_offer_code"] = None
-        __props__.__dict__["azure_pricing_tier"] = None
-        __props__.__dict__["azure_storage_redundancy"] = None
-        __props__.__dict__["created_timestamp"] = None
-        __props__.__dict__["currency"] = None
-        __props__.__dict__["discount_percentage"] = None
         __props__.__dict__["e_tag"] = None
-        __props__.__dict__["monthly_bandwidth_cost"] = None
-        __props__.__dict__["monthly_compute_cost"] = None
-        __props__.__dict__["monthly_storage_cost"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["number_of_machines"] = None
-        __props__.__dict__["percentile"] = None
-        __props__.__dict__["prices_timestamp"] = None
-        __props__.__dict__["scaling_factor"] = None
-        __props__.__dict__["stage"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["time_range"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["updated_timestamp"] = None
         return Assessment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="azureHybridUseBenefit")
-    def azure_hybrid_use_benefit(self) -> pulumi.Output[str]:
-        """
-        AHUB discount on windows virtual machines.
-        """
-        return pulumi.get(self, "azure_hybrid_use_benefit")
-
-    @property
-    @pulumi.getter(name="azureLocation")
-    def azure_location(self) -> pulumi.Output[str]:
-        """
-        Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-        """
-        return pulumi.get(self, "azure_location")
-
-    @property
-    @pulumi.getter(name="azureOfferCode")
-    def azure_offer_code(self) -> pulumi.Output[str]:
-        """
-        Offer code according to which cost estimation is done.
-        """
-        return pulumi.get(self, "azure_offer_code")
-
-    @property
-    @pulumi.getter(name="azurePricingTier")
-    def azure_pricing_tier(self) -> pulumi.Output[str]:
-        """
-        Pricing tier for Size evaluation.
-        """
-        return pulumi.get(self, "azure_pricing_tier")
-
-    @property
-    @pulumi.getter(name="azureStorageRedundancy")
-    def azure_storage_redundancy(self) -> pulumi.Output[str]:
-        """
-        Storage Redundancy type offered by Azure.
-        """
-        return pulumi.get(self, "azure_storage_redundancy")
-
-    @property
-    @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> pulumi.Output[str]:
-        """
-        Time when this project was created. Date-Time represented in ISO-8601 format.
-        """
-        return pulumi.get(self, "created_timestamp")
-
-    @property
-    @pulumi.getter
-    def currency(self) -> pulumi.Output[str]:
-        """
-        Currency to report prices in.
-        """
-        return pulumi.get(self, "currency")
-
-    @property
-    @pulumi.getter(name="discountPercentage")
-    def discount_percentage(self) -> pulumi.Output[float]:
-        """
-        Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-        """
-        return pulumi.get(self, "discount_percentage")
 
     @property
     @pulumi.getter(name="eTag")
@@ -536,30 +238,6 @@ class Assessment(pulumi.CustomResource):
         return pulumi.get(self, "e_tag")
 
     @property
-    @pulumi.getter(name="monthlyBandwidthCost")
-    def monthly_bandwidth_cost(self) -> pulumi.Output[float]:
-        """
-        Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-        """
-        return pulumi.get(self, "monthly_bandwidth_cost")
-
-    @property
-    @pulumi.getter(name="monthlyComputeCost")
-    def monthly_compute_cost(self) -> pulumi.Output[float]:
-        """
-        Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-        """
-        return pulumi.get(self, "monthly_compute_cost")
-
-    @property
-    @pulumi.getter(name="monthlyStorageCost")
-    def monthly_storage_cost(self) -> pulumi.Output[float]:
-        """
-        Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-        """
-        return pulumi.get(self, "monthly_storage_cost")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -568,60 +246,12 @@ class Assessment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="numberOfMachines")
-    def number_of_machines(self) -> pulumi.Output[int]:
-        """
-        Number of assessed machines part of this assessment.
-        """
-        return pulumi.get(self, "number_of_machines")
-
-    @property
     @pulumi.getter
-    def percentile(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.AssessmentPropertiesResponse']:
         """
-        Percentile of performance data used to recommend Azure size.
+        Properties of the assessment.
         """
-        return pulumi.get(self, "percentile")
-
-    @property
-    @pulumi.getter(name="pricesTimestamp")
-    def prices_timestamp(self) -> pulumi.Output[str]:
-        """
-        Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
-        """
-        return pulumi.get(self, "prices_timestamp")
-
-    @property
-    @pulumi.getter(name="scalingFactor")
-    def scaling_factor(self) -> pulumi.Output[float]:
-        """
-        Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-        """
-        return pulumi.get(self, "scaling_factor")
-
-    @property
-    @pulumi.getter
-    def stage(self) -> pulumi.Output[str]:
-        """
-        User configurable setting that describes the status of the assessment.
-        """
-        return pulumi.get(self, "stage")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        """
-        Whether the assessment has been created and is valid.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="timeRange")
-    def time_range(self) -> pulumi.Output[str]:
-        """
-        Time range of performance data used to recommend a size.
-        """
-        return pulumi.get(self, "time_range")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -630,12 +260,4 @@ class Assessment(pulumi.CustomResource):
         Type of the object = [Microsoft.Migrate/projects/groups/assessments].
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="updatedTimestamp")
-    def updated_timestamp(self) -> pulumi.Output[str]:
-        """
-        Time when this project was last updated. Date-Time represented in ISO-8601 format.
-        """
-        return pulumi.get(self, "updated_timestamp")
 

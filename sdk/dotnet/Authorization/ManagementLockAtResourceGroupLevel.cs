@@ -17,28 +17,16 @@ namespace Pulumi.AzureNative.Authorization
     public partial class ManagementLockAtResourceGroupLevel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-        /// </summary>
-        [Output("level")]
-        public Output<string> Level { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the lock.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Notes about the lock. Maximum of 512 characters.
+        /// The properties of the lock.
         /// </summary>
-        [Output("notes")]
-        public Output<string?> Notes { get; private set; } = null!;
-
-        /// <summary>
-        /// The owners of the lock.
-        /// </summary>
-        [Output("owners")]
-        public Output<ImmutableArray<Outputs.ManagementLockOwnerResponse>> Owners { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ManagementLockPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.
@@ -99,34 +87,16 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class ManagementLockAtResourceGroupLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-        /// </summary>
-        [Input("level", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.LockLevel> Level { get; set; } = null!;
-
-        /// <summary>
         /// The lock name. The lock name can be a maximum of 260 characters. It cannot contain &lt;, &gt; %, &amp;, :, \, ?, /, or any control characters.
         /// </summary>
         [Input("lockName")]
         public Input<string>? LockName { get; set; }
 
         /// <summary>
-        /// Notes about the lock. Maximum of 512 characters.
+        /// The properties of the lock.
         /// </summary>
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
-
-        [Input("owners")]
-        private InputList<Inputs.ManagementLockOwnerArgs>? _owners;
-
-        /// <summary>
-        /// The owners of the lock.
-        /// </summary>
-        public InputList<Inputs.ManagementLockOwnerArgs> Owners
-        {
-            get => _owners ?? (_owners = new InputList<Inputs.ManagementLockOwnerArgs>());
-            set => _owners = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.ManagementLockPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to lock.

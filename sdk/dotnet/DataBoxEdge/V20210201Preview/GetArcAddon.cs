@@ -94,14 +94,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
     public sealed class GetArcAddonResult
     {
         /// <summary>
-        /// Host OS supported by the Arc addon.
-        /// </summary>
-        public readonly string HostPlatform;
-        /// <summary>
-        /// Platform where the runtime is hosted.
-        /// </summary>
-        public readonly string HostPlatformType;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -115,25 +107,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Addon Provisioning State
+        /// Properties specific to Arc addon.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Arc resource group name
-        /// </summary>
-        public readonly string ResourceGroupName;
-        /// <summary>
-        /// Arc resource location
-        /// </summary>
-        public readonly string ResourceLocation;
-        /// <summary>
-        /// Arc resource Name
-        /// </summary>
-        public readonly string ResourceName;
-        /// <summary>
-        /// Arc resource subscription Id
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ArcAddonPropertiesResponse Properties;
         /// <summary>
         /// Addon type
         /// </summary>
@@ -142,52 +118,27 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Arc resource version
-        /// </summary>
-        public readonly string Version;
 
         [OutputConstructor]
         private GetArcAddonResult(
-            string hostPlatform,
-
-            string hostPlatformType,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
-
-            string resourceGroupName,
-
-            string resourceLocation,
-
-            string resourceName,
-
-            string subscriptionId,
+            Outputs.ArcAddonPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string version)
+            string type)
         {
-            HostPlatform = hostPlatform;
-            HostPlatformType = hostPlatformType;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceGroupName = resourceGroupName;
-            ResourceLocation = resourceLocation;
-            ResourceName = resourceName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            Version = version;
         }
     }
 }

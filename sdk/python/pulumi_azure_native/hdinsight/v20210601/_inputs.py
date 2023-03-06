@@ -35,6 +35,8 @@ __all__ = [
     'LinuxOperatingSystemProfileArgs',
     'NetworkPropertiesArgs',
     'OsProfileArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateLinkConfigurationPropertiesArgs',
     'PrivateLinkConfigurationArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ResourceIdArgs',
@@ -1482,20 +1484,40 @@ class OsProfileArgs:
 
 
 @pulumi.input_type
-class PrivateLinkConfigurationArgs:
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        """
+        The private endpoint connection properties.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The private link service connection state.
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        The private link service connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
+class PrivateLinkConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[str],
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]],
-                 name: pulumi.Input[str]):
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]):
         """
-        The private link configuration.
+        The private link configuration properties.
         :param pulumi.Input[str] group_id: The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
         :param pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]] ip_configurations: The IP configurations for the private link service.
-        :param pulumi.Input[str] name: The name of private link configuration.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "ip_configurations", ip_configurations)
-        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="groupId")
@@ -1521,6 +1543,20 @@ class PrivateLinkConfigurationArgs:
     def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
+
+@pulumi.input_type
+class PrivateLinkConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 properties: pulumi.Input['PrivateLinkConfigurationPropertiesArgs']):
+        """
+        The private link configuration.
+        :param pulumi.Input[str] name: The name of private link configuration.
+        :param pulumi.Input['PrivateLinkConfigurationPropertiesArgs'] properties: The private link configuration properties.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
@@ -1532,6 +1568,18 @@ class PrivateLinkConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PrivateLinkConfigurationPropertiesArgs']:
+        """
+        The private link configuration properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['PrivateLinkConfigurationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

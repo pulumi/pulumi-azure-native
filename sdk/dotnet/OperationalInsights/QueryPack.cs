@@ -29,34 +29,16 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        /// Properties that define a Log Analytics QueryPack resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique ID of your application. This field cannot be changed.
-        /// </summary>
-        [Output("queryPackId")]
-        public Output<string> QueryPackId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LogAnalyticsQueryPackPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-        /// </summary>
-        [Output("timeCreated")]
-        public Output<string> TimeCreated { get; private set; } = null!;
-
-        /// <summary>
-        /// Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-        /// </summary>
-        [Output("timeModified")]
-        public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type
@@ -119,6 +101,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties that define a Log Analytics QueryPack resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LogAnalyticsQueryPackPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.

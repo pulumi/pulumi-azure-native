@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.Relay.V20170401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The rights associated with the rule.
+        /// Authorization rule properties.
         /// </summary>
-        [Output("rights")]
-        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AuthorizationRuleResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -103,22 +103,16 @@ namespace Pulumi.AzureNative.Relay.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
+        /// Authorization rule properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.AuthorizationRulePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("rights", required: true)]
-        private InputList<Pulumi.AzureNative.Relay.V20170401.AccessRights>? _rights;
-
-        /// <summary>
-        /// The rights associated with the rule.
-        /// </summary>
-        public InputList<Pulumi.AzureNative.Relay.V20170401.AccessRights> Rights
-        {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.Relay.V20170401.AccessRights>());
-            set => _rights = value;
-        }
 
         public HybridConnectionAuthorizationRuleArgs()
         {

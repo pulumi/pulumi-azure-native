@@ -19,46 +19,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetBareMetalMachineKeySetResult:
-    def __init__(__self__, azure_group_id=None, detailed_status=None, detailed_status_message=None, expiration=None, extended_location=None, id=None, jump_hosts_allowed=None, last_validation=None, location=None, name=None, os_group_name=None, privilege_level=None, provisioning_state=None, system_data=None, tags=None, type=None, user_list=None, user_list_status=None):
-        if azure_group_id and not isinstance(azure_group_id, str):
-            raise TypeError("Expected argument 'azure_group_id' to be a str")
-        pulumi.set(__self__, "azure_group_id", azure_group_id)
-        if detailed_status and not isinstance(detailed_status, str):
-            raise TypeError("Expected argument 'detailed_status' to be a str")
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        if detailed_status_message and not isinstance(detailed_status_message, str):
-            raise TypeError("Expected argument 'detailed_status_message' to be a str")
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
-        if expiration and not isinstance(expiration, str):
-            raise TypeError("Expected argument 'expiration' to be a str")
-        pulumi.set(__self__, "expiration", expiration)
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if jump_hosts_allowed and not isinstance(jump_hosts_allowed, list):
-            raise TypeError("Expected argument 'jump_hosts_allowed' to be a list")
-        pulumi.set(__self__, "jump_hosts_allowed", jump_hosts_allowed)
-        if last_validation and not isinstance(last_validation, str):
-            raise TypeError("Expected argument 'last_validation' to be a str")
-        pulumi.set(__self__, "last_validation", last_validation)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if os_group_name and not isinstance(os_group_name, str):
-            raise TypeError("Expected argument 'os_group_name' to be a str")
-        pulumi.set(__self__, "os_group_name", os_group_name)
-        if privilege_level and not isinstance(privilege_level, str):
-            raise TypeError("Expected argument 'privilege_level' to be a str")
-        pulumi.set(__self__, "privilege_level", privilege_level)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -68,44 +44,6 @@ class GetBareMetalMachineKeySetResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_list and not isinstance(user_list, list):
-            raise TypeError("Expected argument 'user_list' to be a list")
-        pulumi.set(__self__, "user_list", user_list)
-        if user_list_status and not isinstance(user_list_status, list):
-            raise TypeError("Expected argument 'user_list_status' to be a list")
-        pulumi.set(__self__, "user_list_status", user_list_status)
-
-    @property
-    @pulumi.getter(name="azureGroupId")
-    def azure_group_id(self) -> str:
-        """
-        The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-        """
-        return pulumi.get(self, "azure_group_id")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> str:
-        """
-        The more detailed status of the key set.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> str:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
-
-    @property
-    @pulumi.getter
-    def expiration(self) -> str:
-        """
-        The date and time after which the users in this key set will be removed from the bare metal machines.
-        """
-        return pulumi.get(self, "expiration")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -124,22 +62,6 @@ class GetBareMetalMachineKeySetResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="jumpHostsAllowed")
-    def jump_hosts_allowed(self) -> Sequence[str]:
-        """
-        The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
-        """
-        return pulumi.get(self, "jump_hosts_allowed")
-
-    @property
-    @pulumi.getter(name="lastValidation")
-    def last_validation(self) -> str:
-        """
-        The last time this key set was validated.
-        """
-        return pulumi.get(self, "last_validation")
-
-    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -156,28 +78,12 @@ class GetBareMetalMachineKeySetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="osGroupName")
-    def os_group_name(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.BareMetalMachineKeySetPropertiesResponse':
         """
-        The name of the group that users will be assigned to on the operating system of the machines.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "os_group_name")
-
-    @property
-    @pulumi.getter(name="privilegeLevel")
-    def privilege_level(self) -> str:
-        """
-        The access level allowed for the users in this key set.
-        """
-        return pulumi.get(self, "privilege_level")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the bare metal machine key set.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -203,22 +109,6 @@ class GetBareMetalMachineKeySetResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="userList")
-    def user_list(self) -> Sequence['outputs.KeySetUserResponse']:
-        """
-        The unique list of permitted users.
-        """
-        return pulumi.get(self, "user_list")
-
-    @property
-    @pulumi.getter(name="userListStatus")
-    def user_list_status(self) -> Sequence['outputs.KeySetUserStatusResponse']:
-        """
-        The status evaluation of each user.
-        """
-        return pulumi.get(self, "user_list_status")
-
 
 class AwaitableGetBareMetalMachineKeySetResult(GetBareMetalMachineKeySetResult):
     # pylint: disable=using-constant-test
@@ -226,24 +116,14 @@ class AwaitableGetBareMetalMachineKeySetResult(GetBareMetalMachineKeySetResult):
         if False:
             yield self
         return GetBareMetalMachineKeySetResult(
-            azure_group_id=self.azure_group_id,
-            detailed_status=self.detailed_status,
-            detailed_status_message=self.detailed_status_message,
-            expiration=self.expiration,
             extended_location=self.extended_location,
             id=self.id,
-            jump_hosts_allowed=self.jump_hosts_allowed,
-            last_validation=self.last_validation,
             location=self.location,
             name=self.name,
-            os_group_name=self.os_group_name,
-            privilege_level=self.privilege_level,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            user_list=self.user_list,
-            user_list_status=self.user_list_status)
+            type=self.type)
 
 
 def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[str] = None,
@@ -266,24 +146,14 @@ def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud/v20221212preview:getBareMetalMachineKeySet', __args__, opts=opts, typ=GetBareMetalMachineKeySetResult).value
 
     return AwaitableGetBareMetalMachineKeySetResult(
-        azure_group_id=__ret__.azure_group_id,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        expiration=__ret__.expiration,
         extended_location=__ret__.extended_location,
         id=__ret__.id,
-        jump_hosts_allowed=__ret__.jump_hosts_allowed,
-        last_validation=__ret__.last_validation,
         location=__ret__.location,
         name=__ret__.name,
-        os_group_name=__ret__.os_group_name,
-        privilege_level=__ret__.privilege_level,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        user_list=__ret__.user_list,
-        user_list_status=__ret__.user_list_status)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_bare_metal_machine_key_set)

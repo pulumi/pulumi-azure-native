@@ -16,28 +16,10 @@ namespace Pulumi.AzureNative.Network.V20220701
     public partial class ForwardingRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The domain name for the forwarding rule.
-        /// </summary>
-        [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
-
-        /// <summary>
         /// ETag of the forwarding rule.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// The state of forwarding rule.
-        /// </summary>
-        [Output("forwardingRuleState")]
-        public Output<string?> ForwardingRuleState { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata attached to the forwarding rule.
-        /// </summary>
-        [Output("metadata")]
-        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -46,22 +28,16 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the forwarding rule.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ForwardingRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// DNS servers to forward the DNS query to.
-        /// </summary>
-        [Output("targetDnsServers")]
-        public Output<ImmutableArray<Outputs.TargetDnsServerResponse>> TargetDnsServers { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -126,52 +102,22 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Input<string> DnsForwardingRulesetName { get; set; } = null!;
 
         /// <summary>
-        /// The domain name for the forwarding rule.
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the forwarding rule.
         /// </summary>
         [Input("forwardingRuleName")]
         public Input<string>? ForwardingRuleName { get; set; }
 
         /// <summary>
-        /// The state of forwarding rule.
+        /// Properties of the forwarding rule.
         /// </summary>
-        [Input("forwardingRuleState")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20220701.ForwardingRuleState>? ForwardingRuleState { get; set; }
-
-        [Input("metadata")]
-        private InputMap<string>? _metadata;
-
-        /// <summary>
-        /// Metadata attached to the forwarding rule.
-        /// </summary>
-        public InputMap<string> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<string>());
-            set => _metadata = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.ForwardingRulePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("targetDnsServers", required: true)]
-        private InputList<Inputs.TargetDnsServerArgs>? _targetDnsServers;
-
-        /// <summary>
-        /// DNS servers to forward the DNS query to.
-        /// </summary>
-        public InputList<Inputs.TargetDnsServerArgs> TargetDnsServers
-        {
-            get => _targetDnsServers ?? (_targetDnsServers = new InputList<Inputs.TargetDnsServerArgs>());
-            set => _targetDnsServers = value;
-        }
 
         public ForwardingRuleArgs()
         {

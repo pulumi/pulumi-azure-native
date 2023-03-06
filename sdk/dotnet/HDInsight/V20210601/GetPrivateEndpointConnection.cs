@@ -86,25 +86,13 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The link identifier.
-        /// </summary>
-        public readonly string LinkIdentifier;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The private endpoint of the private endpoint connection
+        /// The private endpoint connection properties.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
-        /// <summary>
-        /// The private link service connection state.
-        /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
-        /// <summary>
-        /// The provisioning state, which only appears in the response.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -118,26 +106,17 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         private GetPrivateEndpointConnectionResult(
             string id,
 
-            string linkIdentifier,
-
             string name,
 
-            Outputs.PrivateEndpointResponse privateEndpoint,
-
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
-
-            string provisioningState,
+            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
-            LinkIdentifier = linkIdentifier;
             Name = name;
-            PrivateEndpoint = privateEndpoint;
-            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

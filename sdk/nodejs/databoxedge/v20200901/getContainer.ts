@@ -47,18 +47,6 @@ export interface GetContainerArgs {
  */
 export interface GetContainerResult {
     /**
-     * Current status of the container.
-     */
-    readonly containerStatus: string;
-    /**
-     * The UTC time when container got created.
-     */
-    readonly createdDateTime: string;
-    /**
-     * DataFormat for Container
-     */
-    readonly dataFormat: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -67,9 +55,9 @@ export interface GetContainerResult {
      */
     readonly name: string;
     /**
-     * Details of the refresh job on this container.
+     * The container properties.
      */
-    readonly refreshDetails: outputs.databoxedge.v20200901.RefreshDetailsResponse;
+    readonly properties: outputs.databoxedge.v20200901.ContainerPropertiesResponse;
     /**
      * Container in DataBoxEdge Resource
      */

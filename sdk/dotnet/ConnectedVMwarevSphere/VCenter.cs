@@ -17,40 +17,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public partial class VCenter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets the connection status to the vCenter.
-        /// </summary>
-        [Output("connectionStatus")]
-        public Output<string> ConnectionStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Username / Password Credentials to connect to vcenter.
-        /// </summary>
-        [Output("credentials")]
-        public Output<Outputs.VICredentialResponse?> Credentials { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        [Output("customResourceName")]
-        public Output<string> CustomResourceName { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the FQDN/IPAddress of the vCenter.
-        /// </summary>
-        [Output("fqdn")]
-        public Output<string> Fqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the instance UUID of the vCenter.
-        /// </summary>
-        [Output("instanceUuid")]
-        public Output<string> InstanceUuid { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -71,22 +41,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the port of the vCenter.
+        /// Resource properties.
         /// </summary>
-        [Output("port")]
-        public Output<int?> Port { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        [Output("statuses")]
-        public Output<ImmutableArray<Outputs.ResourceStatusResponse>> Statuses { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VCenterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -105,18 +63,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the version of the vCenter.
-        /// </summary>
-        [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -170,22 +116,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class VCenterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Username / Password Credentials to connect to vcenter.
-        /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.VICredentialArgs>? Credentials { get; set; }
-
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         [Input("extendedLocation")]
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
-
-        /// <summary>
-        /// Gets or sets the FQDN/IPAddress of the vCenter.
-        /// </summary>
-        [Input("fqdn", required: true)]
-        public Input<string> Fqdn { get; set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -200,10 +134,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets or sets the port of the vCenter.
+        /// Resource properties.
         /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.VCenterPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = ['SupportPlanTypeArgs', 'SupportPlanType']
 
@@ -106,7 +107,7 @@ class SupportPlanType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'provider_name'")
             __props__.__dict__["provider_name"] = provider_name
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:addons:SupportPlanType"), pulumi.Alias(type_="azure-native:addons/v20170515:SupportPlanType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -133,7 +134,7 @@ class SupportPlanType(pulumi.CustomResource):
         __props__ = SupportPlanTypeArgs.__new__(SupportPlanTypeArgs)
 
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return SupportPlanType(resource_name, opts=opts, __props__=__props__)
 
@@ -146,12 +147,12 @@ class SupportPlanType(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.CanonicalSupportPlanPropertiesResponse']:
         """
-        The provisioning state of the resource.
+        Describes Canonical support plan type and status.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

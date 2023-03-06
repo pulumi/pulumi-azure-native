@@ -46,18 +46,6 @@ export interface GetADLSGen1FolderDataSetArgs {
  */
 export interface GetADLSGen1FolderDataSetResult {
     /**
-     * The ADLS account name.
-     */
-    readonly accountName: string;
-    /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
-     * The folder path within the ADLS account.
-     */
-    readonly folderPath: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -71,13 +59,9 @@ export interface GetADLSGen1FolderDataSetResult {
      */
     readonly name: string;
     /**
-     * Resource group of ADLS account.
+     * ADLS Gen 1 folder data set properties.
      */
-    readonly resourceGroup: string;
-    /**
-     * Subscription id of ADLS account.
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.ADLSGen1FolderPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

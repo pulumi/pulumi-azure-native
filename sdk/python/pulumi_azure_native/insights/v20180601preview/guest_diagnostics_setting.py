@@ -16,35 +16,39 @@ __all__ = ['GuestDiagnosticsSettingArgs', 'GuestDiagnosticsSetting']
 @pulumi.input_type
 class GuestDiagnosticsSettingArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['GuestDiagnosticSettingsArgs'],
                  resource_group_name: pulumi.Input[str],
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]] = None,
                  diagnostic_settings_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
-                 proxy_setting: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GuestDiagnosticsSetting resource.
+        :param pulumi.Input['GuestDiagnosticSettingsArgs'] properties: The diagnostic settings to be applied to azure resources.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]] data_sources: the array of data source object which are configured to collect and send data
         :param pulumi.Input[str] diagnostic_settings_name: The name of the diagnostic setting.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] os_type: Operating system type for the configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
         if diagnostic_settings_name is not None:
             pulumi.set(__self__, "diagnostic_settings_name", diagnostic_settings_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if proxy_setting is not None:
-            pulumi.set(__self__, "proxy_setting", proxy_setting)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['GuestDiagnosticSettingsArgs']:
+        """
+        The diagnostic settings to be applied to azure resources.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['GuestDiagnosticSettingsArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -57,18 +61,6 @@ class GuestDiagnosticsSettingArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]]:
-        """
-        the array of data source object which are configured to collect and send data
-        """
-        return pulumi.get(self, "data_sources")
-
-    @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]]):
-        pulumi.set(self, "data_sources", value)
 
     @property
     @pulumi.getter(name="diagnosticSettingsName")
@@ -95,27 +87,6 @@ class GuestDiagnosticsSettingArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Operating system type for the configuration
-        """
-        return pulumi.get(self, "os_type")
-
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "os_type", value)
-
-    @property
-    @pulumi.getter(name="proxySetting")
-    def proxy_setting(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "proxy_setting")
-
-    @proxy_setting.setter
-    def proxy_setting(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "proxy_setting", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -133,11 +104,9 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceArgs']]]]] = None,
                  diagnostic_settings_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
-                 proxy_setting: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GuestDiagnosticSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -146,10 +115,9 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceArgs']]]] data_sources: the array of data source object which are configured to collect and send data
         :param pulumi.Input[str] diagnostic_settings_name: The name of the diagnostic setting.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] os_type: Operating system type for the configuration
+        :param pulumi.Input[pulumi.InputType['GuestDiagnosticSettingsArgs']] properties: The diagnostic settings to be applied to azure resources.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -177,11 +145,9 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceArgs']]]]] = None,
                  diagnostic_settings_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
-                 proxy_setting: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GuestDiagnosticSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -193,11 +159,11 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GuestDiagnosticsSettingArgs.__new__(GuestDiagnosticsSettingArgs)
 
-            __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["diagnostic_settings_name"] = diagnostic_settings_name
             __props__.__dict__["location"] = location
-            __props__.__dict__["os_type"] = os_type
-            __props__.__dict__["proxy_setting"] = proxy_setting
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -228,22 +194,12 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
 
         __props__ = GuestDiagnosticsSettingArgs.__new__(GuestDiagnosticsSettingArgs)
 
-        __props__.__dict__["data_sources"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["os_type"] = None
-        __props__.__dict__["proxy_setting"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GuestDiagnosticsSetting(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSources")
-    def data_sources(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceResponse']]]:
-        """
-        the array of data source object which are configured to collect and send data
-        """
-        return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter
@@ -262,17 +218,12 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.GuestDiagnosticSettingsResponse']:
         """
-        Operating system type for the configuration
+        The diagnostic settings to be applied to azure resources.
         """
-        return pulumi.get(self, "os_type")
-
-    @property
-    @pulumi.getter(name="proxySetting")
-    def proxy_setting(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "proxy_setting")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

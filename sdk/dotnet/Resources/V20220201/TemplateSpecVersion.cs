@@ -16,40 +16,22 @@ namespace Pulumi.AzureNative.Resources.V20220201
     public partial class TemplateSpecVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Template Spec version description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// An array of linked template artifacts.
-        /// </summary>
-        [Output("linkedTemplates")]
-        public Output<ImmutableArray<Outputs.LinkedTemplateArtifactResponse>> LinkedTemplates { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The main Azure Resource Manager template content.
-        /// </summary>
-        [Output("mainTemplate")]
-        public Output<object?> MainTemplate { get; private set; } = null!;
-
-        /// <summary>
-        /// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        /// </summary>
-        [Output("metadata")]
-        public Output<object?> Metadata { get; private set; } = null!;
-
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Template Spec Version properties.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.TemplateSpecVersionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -68,12 +50,6 @@ namespace Pulumi.AzureNative.Resources.V20220201
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure Resource Manager template UI definition content.
-        /// </summary>
-        [Output("uiFormDefinition")]
-        public Output<object?> UiFormDefinition { get; private set; } = null!;
 
 
         /// <summary>
@@ -128,40 +104,16 @@ namespace Pulumi.AzureNative.Resources.V20220201
     public sealed class TemplateSpecVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Template Spec version description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("linkedTemplates")]
-        private InputList<Inputs.LinkedTemplateArtifactArgs>? _linkedTemplates;
-
-        /// <summary>
-        /// An array of linked template artifacts.
-        /// </summary>
-        public InputList<Inputs.LinkedTemplateArtifactArgs> LinkedTemplates
-        {
-            get => _linkedTemplates ?? (_linkedTemplates = new InputList<Inputs.LinkedTemplateArtifactArgs>());
-            set => _linkedTemplates = value;
-        }
-
-        /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The main Azure Resource Manager template content.
+        /// Template Spec Version properties.
         /// </summary>
-        [Input("mainTemplate")]
-        public Input<object>? MainTemplate { get; set; }
-
-        /// <summary>
-        /// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.TemplateSpecVersionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -192,12 +144,6 @@ namespace Pulumi.AzureNative.Resources.V20220201
         /// </summary>
         [Input("templateSpecVersion")]
         public Input<string>? TemplateSpecVersion { get; set; }
-
-        /// <summary>
-        /// The Azure Resource Manager template UI definition content.
-        /// </summary>
-        [Input("uiFormDefinition")]
-        public Input<object>? UiFormDefinition { get; set; }
 
         public TemplateSpecVersionArgs()
         {

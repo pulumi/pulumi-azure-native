@@ -33,22 +33,6 @@ export interface GetRackArgs {
 
 export interface GetRackResult {
     /**
-     * The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
-     */
-    readonly availabilityZone: string;
-    /**
-     * The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
-     */
-    readonly clusterId: string;
-    /**
-     * The more detailed status of the rack.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
@@ -65,21 +49,9 @@ export interface GetRackResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the rack resource.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
-     */
-    readonly rackLocation: string;
-    /**
-     * The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
-     */
-    readonly rackSerialNumber: string;
-    /**
-     * The SKU for the rack.
-     */
-    readonly rackSkuId: string;
+    readonly properties: outputs.networkcloud.RackPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

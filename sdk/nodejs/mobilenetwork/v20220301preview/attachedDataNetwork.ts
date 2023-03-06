@@ -70,14 +70,9 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The Network Address and Port Translation configuration.
-     * If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+     * Data network properties.
      */
-    public readonly naptConfiguration!: pulumi.Output<outputs.mobilenetwork.v20220301preview.NaptConfigurationResponse | undefined>;
-    /**
-     * The provisioning state of the attached data network resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.v20220301preview.AttachedDataNetworkPropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -90,21 +85,6 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-     * At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-     */
-    public readonly userEquipmentAddressPoolPrefix!: pulumi.Output<string[] | undefined>;
-    /**
-     * The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-     * The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-     * At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-     */
-    public readonly userEquipmentStaticAddressPoolPrefix!: pulumi.Output<string[] | undefined>;
-    /**
-     * The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
-     */
-    public readonly userPlaneDataInterface!: pulumi.Output<outputs.mobilenetwork.v20220301preview.InterfacePropertiesResponse>;
 
     /**
      * Create a AttachedDataNetwork resource with the given unique name, arguments, and options.
@@ -123,11 +103,11 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
             if ((!args || args.packetCoreDataPlaneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreDataPlaneName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.userPlaneDataInterface === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userPlaneDataInterface'");
             }
             resourceInputs["attachedDataNetworkName"] = args ? args.attachedDataNetworkName : undefined;
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
@@ -137,16 +117,12 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["naptConfiguration"] = args ? (args.naptConfiguration ? pulumi.output(args.naptConfiguration).apply(inputs.mobilenetwork.v20220301preview.naptConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
             resourceInputs["packetCoreDataPlaneName"] = args ? args.packetCoreDataPlaneName : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.mobilenetwork.v20220301preview.attachedDataNetworkPropertiesFormatArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEquipmentAddressPoolPrefix"] = args ? args.userEquipmentAddressPoolPrefix : undefined;
-            resourceInputs["userEquipmentStaticAddressPoolPrefix"] = args ? args.userEquipmentStaticAddressPoolPrefix : undefined;
-            resourceInputs["userPlaneDataInterface"] = args ? args.userPlaneDataInterface : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -158,14 +134,10 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["naptConfiguration"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userEquipmentAddressPoolPrefix"] = undefined /*out*/;
-            resourceInputs["userEquipmentStaticAddressPoolPrefix"] = undefined /*out*/;
-            resourceInputs["userPlaneDataInterface"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:AttachedDataNetwork" }, { type: "azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork" }, { type: "azure-native:mobilenetwork/v20221101:AttachedDataNetwork" }] };
@@ -211,11 +183,6 @@ export interface AttachedDataNetworkArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The Network Address and Port Translation configuration.
-     * If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
-     */
-    naptConfiguration?: pulumi.Input<inputs.mobilenetwork.v20220301preview.NaptConfigurationArgs>;
-    /**
      * The name of the packet core control plane.
      */
     packetCoreControlPlaneName: pulumi.Input<string>;
@@ -224,6 +191,10 @@ export interface AttachedDataNetworkArgs {
      */
     packetCoreDataPlaneName: pulumi.Input<string>;
     /**
+     * Data network properties.
+     */
+    properties: pulumi.Input<inputs.mobilenetwork.v20220301preview.AttachedDataNetworkPropertiesFormatArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -231,19 +202,4 @@ export interface AttachedDataNetworkArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-     * At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-     */
-    userEquipmentAddressPoolPrefix?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-     * The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-     * At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-     */
-    userEquipmentStaticAddressPoolPrefix?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
-     */
-    userPlaneDataInterface: pulumi.Input<inputs.mobilenetwork.v20220301preview.InterfacePropertiesArgs>;
 }

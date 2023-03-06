@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,10 +41,6 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
-     * The end IP address of the server firewall rule. Must be IPv4 format.
-     */
-    readonly endIpAddress: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -50,9 +49,9 @@ export interface GetFirewallRuleResult {
      */
     readonly name: string;
     /**
-     * The start IP address of the server firewall rule. Must be IPv4 format.
+     * The properties of a firewall rule.
      */
-    readonly startIpAddress: string;
+    readonly properties: outputs.dbforpostgresql.FirewallRulePropertiesResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

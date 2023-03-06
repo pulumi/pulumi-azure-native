@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class MongoDbLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("allowSelfSignedServerCert")]
-        public Input<object>? AllowSelfSignedServerCert { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -34,46 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Database to verify the username and password. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("authSource")]
-        public Input<object>? AuthSource { get; set; }
-
-        /// <summary>
-        /// The authentication type to be used to connect to the MongoDB database.
-        /// </summary>
-        [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.MongoDbAuthenticationType>? AuthenticationType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<object> DatabaseName { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("enableSsl")]
-        public Input<object>? EnableSsl { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -88,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Password for authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        [Input("port")]
-        public Input<object>? Port { get; set; }
-
-        /// <summary>
-        /// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("server", required: true)]
-        public Input<object> Server { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'MongoDb'.
         /// </summary>
@@ -113,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username for authentication. Type: string (or Expression with resultType string).
+        /// MongoDB linked service properties.
         /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.MongoDbLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public MongoDbLinkedServiceArgs()
         {

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,14 +45,6 @@ export interface GetBlobContainerDataSetArgs {
  */
 export interface GetBlobContainerDataSetResult {
     /**
-     * BLOB Container name.
-     */
-    readonly containerName: string;
-    /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -63,17 +58,9 @@ export interface GetBlobContainerDataSetResult {
      */
     readonly name: string;
     /**
-     * Resource group of storage account
+     * Blob container data set properties.
      */
-    readonly resourceGroup: string;
-    /**
-     * Storage account name of the source data set
-     */
-    readonly storageAccountName: string;
-    /**
-     * Subscription id of storage account
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.v20181101preview.BlobContainerPropertiesResponse;
     /**
      * Type of the azure resource
      */

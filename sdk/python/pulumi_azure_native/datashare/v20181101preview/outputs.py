@@ -11,12 +11,1606 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ADLSGen1FilePropertiesResponse',
+    'ADLSGen1FolderPropertiesResponse',
+    'ADLSGen2FileDataSetMappingPropertiesResponse',
+    'ADLSGen2FilePropertiesResponse',
+    'ADLSGen2FileSystemDataSetMappingPropertiesResponse',
+    'ADLSGen2FileSystemPropertiesResponse',
+    'ADLSGen2FolderDataSetMappingPropertiesResponse',
+    'ADLSGen2FolderPropertiesResponse',
+    'BlobContainerMappingPropertiesResponse',
+    'BlobContainerPropertiesResponse',
+    'BlobFolderMappingPropertiesResponse',
+    'BlobFolderPropertiesResponse',
+    'BlobMappingPropertiesResponse',
+    'BlobPropertiesResponse',
     'IdentityResponse',
+    'KustoClusterDataSetMappingPropertiesResponse',
+    'KustoClusterDataSetPropertiesResponse',
+    'KustoDatabaseDataSetMappingPropertiesResponse',
+    'KustoDatabaseDataSetPropertiesResponse',
     'ScheduledSourceSynchronizationSettingResponse',
+    'ScheduledSynchronizationSettingPropertiesResponse',
+    'ScheduledTriggerPropertiesResponse',
+    'ShareSubscriptionPropertiesResponse',
     'ShareSubscriptionSynchronizationResponse',
     'ShareSynchronizationResponse',
+    'SqlDBTableDataSetMappingPropertiesResponse',
+    'SqlDWTableDataSetMappingPropertiesResponse',
     'SynchronizationDetailsResponse',
 ]
+
+@pulumi.output_type
+class ADLSGen1FilePropertiesResponse(dict):
+    """
+    Properties of the ADLS Gen1 file data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "fileName":
+            suggest = "file_name"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen1FilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen1FilePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen1FilePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_name: str,
+                 data_set_id: str,
+                 file_name: str,
+                 folder_path: str,
+                 resource_group: str,
+                 subscription_id: str):
+        """
+        Properties of the ADLS Gen1 file data set.
+        :param str account_name: The ADLS account name.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str file_name: The file name in the ADLS account.
+        :param str folder_path: The folder path within the ADLS account.
+        :param str resource_group: Resource group of ADLS account.
+        :param str subscription_id: Subscription id of ADLS account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_name", file_name)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The ADLS account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> str:
+        """
+        The file name in the ADLS account.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> str:
+        """
+        The folder path within the ADLS account.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of ADLS account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of ADLS account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class ADLSGen1FolderPropertiesResponse(dict):
+    """
+    Properties of the ADLS Gen1 folder data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen1FolderPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen1FolderPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen1FolderPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_name: str,
+                 data_set_id: str,
+                 folder_path: str,
+                 resource_group: str,
+                 subscription_id: str):
+        """
+        Properties of the ADLS Gen1 folder data set.
+        :param str account_name: The ADLS account name.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str folder_path: The folder path within the ADLS account.
+        :param str resource_group: Resource group of ADLS account.
+        :param str subscription_id: Subscription id of ADLS account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The ADLS account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> str:
+        """
+        The folder path within the ADLS account.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of ADLS account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of ADLS account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class ADLSGen2FileDataSetMappingPropertiesResponse(dict):
+    """
+    ADLS Gen 2 file data set mapping property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "filePath":
+            suggest = "file_path"
+        elif key == "fileSystem":
+            suggest = "file_system"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "outputType":
+            suggest = "output_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen2FileDataSetMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen2FileDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen2FileDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 file_path: str,
+                 file_system: str,
+                 provisioning_state: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str,
+                 output_type: Optional[str] = None):
+        """
+        ADLS Gen 2 file data set mapping property bag.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str file_path: File path within the file system.
+        :param str file_system: File system to which the file belongs.
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str resource_group: Resource group of storage account.
+        :param str storage_account_name: Storage account name of the source data set.
+        :param str subscription_id: Subscription id of storage account.
+        :param str output_type: Type of output file
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if output_type is not None:
+            pulumi.set(__self__, "output_type", output_type)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> str:
+        """
+        File path within the file system.
+        """
+        return pulumi.get(self, "file_path")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> str:
+        """
+        File system to which the file belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="outputType")
+    def output_type(self) -> Optional[str]:
+        """
+        Type of output file
+        """
+        return pulumi.get(self, "output_type")
+
+
+@pulumi.output_type
+class ADLSGen2FilePropertiesResponse(dict):
+    """
+    Properties of the ADLS Gen2 file data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "filePath":
+            suggest = "file_path"
+        elif key == "fileSystem":
+            suggest = "file_system"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen2FilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen2FilePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen2FilePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 file_path: str,
+                 file_system: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Properties of the ADLS Gen2 file data set.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str file_path: File path within the file system.
+        :param str file_system: File system to which the file belongs.
+        :param str resource_group: Resource group of storage account
+        :param str storage_account_name: Storage account name of the source data set
+        :param str subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> str:
+        """
+        File path within the file system.
+        """
+        return pulumi.get(self, "file_path")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> str:
+        """
+        File system to which the file belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class ADLSGen2FileSystemDataSetMappingPropertiesResponse(dict):
+    """
+    ADLS Gen 2 file system data set mapping property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "fileSystem":
+            suggest = "file_system"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen2FileSystemDataSetMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen2FileSystemDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen2FileSystemDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 file_system: str,
+                 provisioning_state: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        ADLS Gen 2 file system data set mapping property bag.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str file_system: The file system name.
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str resource_group: Resource group of storage account.
+        :param str storage_account_name: Storage account name of the source data set.
+        :param str subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> str:
+        """
+        The file system name.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class ADLSGen2FileSystemPropertiesResponse(dict):
+    """
+    Properties of the ADLS Gen2 file system data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "fileSystem":
+            suggest = "file_system"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen2FileSystemPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen2FileSystemPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen2FileSystemPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 file_system: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Properties of the ADLS Gen2 file system data set.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str file_system: The file system name.
+        :param str resource_group: Resource group of storage account
+        :param str storage_account_name: Storage account name of the source data set
+        :param str subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> str:
+        """
+        The file system name.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class ADLSGen2FolderDataSetMappingPropertiesResponse(dict):
+    """
+    ADLS Gen 2 folder data set mapping property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "fileSystem":
+            suggest = "file_system"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen2FolderDataSetMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen2FolderDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen2FolderDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 file_system: str,
+                 folder_path: str,
+                 provisioning_state: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        ADLS Gen 2 folder data set mapping property bag.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str file_system: File system to which the folder belongs.
+        :param str folder_path: Folder path within the file system.
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str resource_group: Resource group of storage account.
+        :param str storage_account_name: Storage account name of the source data set.
+        :param str subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> str:
+        """
+        File system to which the folder belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> str:
+        """
+        Folder path within the file system.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class ADLSGen2FolderPropertiesResponse(dict):
+    """
+    Properties of the ADLS Gen2 folder data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "fileSystem":
+            suggest = "file_system"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen2FolderPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen2FolderPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen2FolderPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 file_system: str,
+                 folder_path: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Properties of the ADLS Gen2 folder data set.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str file_system: File system to which the folder belongs.
+        :param str folder_path: Folder path within the file system.
+        :param str resource_group: Resource group of storage account
+        :param str storage_account_name: Storage account name of the source data set
+        :param str subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> str:
+        """
+        File system to which the folder belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> str:
+        """
+        Folder path within the file system.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class BlobContainerMappingPropertiesResponse(dict):
+    """
+    Azure storage Blob container data set mapping property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobContainerMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobContainerMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobContainerMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 provisioning_state: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Azure storage Blob container data set mapping property bag.
+        :param str container_name: BLOB Container name.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str resource_group: Resource group of storage account.
+        :param str storage_account_name: Storage account name of the source data set.
+        :param str subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        BLOB Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class BlobContainerPropertiesResponse(dict):
+    """
+    Properties of the BLOB container data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobContainerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobContainerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 data_set_id: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Properties of the BLOB container data set.
+        :param str container_name: BLOB Container name.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str resource_group: Resource group of storage account
+        :param str storage_account_name: Storage account name of the source data set
+        :param str subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        BLOB Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class BlobFolderMappingPropertiesResponse(dict):
+    """
+    Azure storage Blob folder data set mapping property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobFolderMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobFolderMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobFolderMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 prefix: str,
+                 provisioning_state: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Azure storage Blob folder data set mapping property bag.
+        :param str container_name: Container that has the file path.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str prefix: Prefix for blob folder
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str resource_group: Resource group of storage account.
+        :param str storage_account_name: Storage account name of the source data set.
+        :param str subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        Prefix for blob folder
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class BlobFolderPropertiesResponse(dict):
+    """
+    Properties of the blob folder data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobFolderPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobFolderPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobFolderPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 data_set_id: str,
+                 prefix: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Properties of the blob folder data set.
+        :param str container_name: Container that has the file path.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str prefix: Prefix for blob folder
+        :param str resource_group: Resource group of storage account
+        :param str storage_account_name: Storage account name of the source data set
+        :param str subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        Prefix for blob folder
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class BlobMappingPropertiesResponse(dict):
+    """
+    Azure storage Blob data set mapping property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "filePath":
+            suggest = "file_path"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "outputType":
+            suggest = "output_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 file_path: str,
+                 provisioning_state: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str,
+                 output_type: Optional[str] = None):
+        """
+        Azure storage Blob data set mapping property bag.
+        :param str container_name: Container that has the file path.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str file_path: File path within the source data set
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str resource_group: Resource group of storage account.
+        :param str storage_account_name: Storage account name of the source data set.
+        :param str subscription_id: Subscription id of storage account.
+        :param str output_type: File output type
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if output_type is not None:
+            pulumi.set(__self__, "output_type", output_type)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> str:
+        """
+        File path within the source data set
+        """
+        return pulumi.get(self, "file_path")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="outputType")
+    def output_type(self) -> Optional[str]:
+        """
+        File output type
+        """
+        return pulumi.get(self, "output_type")
+
+
+@pulumi.output_type
+class BlobPropertiesResponse(dict):
+    """
+    Properties of the blob data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "filePath":
+            suggest = "file_path"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 data_set_id: str,
+                 file_path: str,
+                 resource_group: str,
+                 storage_account_name: str,
+                 subscription_id: str):
+        """
+        Properties of the blob data set.
+        :param str container_name: Container that has the file path.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str file_path: File path within the source data set
+        :param str resource_group: Resource group of storage account
+        :param str storage_account_name: Storage account name of the source data set
+        :param str subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> str:
+        """
+        File path within the source data set
+        """
+        return pulumi.get(self, "file_path")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
 
 @pulumi.output_type
 class IdentityResponse(dict):
@@ -83,6 +1677,336 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
+class KustoClusterDataSetMappingPropertiesResponse(dict):
+    """
+    Properties of the Kusto cluster data set mapping
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "kustoClusterResourceId":
+            suggest = "kusto_cluster_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KustoClusterDataSetMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KustoClusterDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KustoClusterDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 kusto_cluster_resource_id: str,
+                 location: str,
+                 provisioning_state: str):
+        """
+        Properties of the Kusto cluster data set mapping
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str kusto_cluster_resource_id: Resource id of the sink kusto cluster.
+        :param str location: Location of the sink kusto cluster.
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="kustoClusterResourceId")
+    def kusto_cluster_resource_id(self) -> str:
+        """
+        Resource id of the sink kusto cluster.
+        """
+        return pulumi.get(self, "kusto_cluster_resource_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the sink kusto cluster.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class KustoClusterDataSetPropertiesResponse(dict):
+    """
+    Properties of the kusto cluster data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "kustoClusterResourceId":
+            suggest = "kusto_cluster_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KustoClusterDataSetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KustoClusterDataSetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KustoClusterDataSetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 kusto_cluster_resource_id: str,
+                 location: str,
+                 provisioning_state: str):
+        """
+        Properties of the kusto cluster data set.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str kusto_cluster_resource_id: Resource id of the kusto cluster.
+        :param str location: Location of the kusto cluster.
+        :param str provisioning_state: Provisioning state of the kusto cluster data set.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="kustoClusterResourceId")
+    def kusto_cluster_resource_id(self) -> str:
+        """
+        Resource id of the kusto cluster.
+        """
+        return pulumi.get(self, "kusto_cluster_resource_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the kusto cluster.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the kusto cluster data set.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class KustoDatabaseDataSetMappingPropertiesResponse(dict):
+    """
+    Properties of the Kusto database data set mapping
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "kustoClusterResourceId":
+            suggest = "kusto_cluster_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KustoDatabaseDataSetMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KustoDatabaseDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KustoDatabaseDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 kusto_cluster_resource_id: str,
+                 location: str,
+                 provisioning_state: str):
+        """
+        Properties of the Kusto database data set mapping
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str kusto_cluster_resource_id: Resource id of the sink kusto cluster.
+        :param str location: Location of the sink kusto cluster.
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="kustoClusterResourceId")
+    def kusto_cluster_resource_id(self) -> str:
+        """
+        Resource id of the sink kusto cluster.
+        """
+        return pulumi.get(self, "kusto_cluster_resource_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the sink kusto cluster.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class KustoDatabaseDataSetPropertiesResponse(dict):
+    """
+    Properties of the kusto database data set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "kustoDatabaseResourceId":
+            suggest = "kusto_database_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KustoDatabaseDataSetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KustoDatabaseDataSetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KustoDatabaseDataSetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 kusto_database_resource_id: str,
+                 location: str,
+                 provisioning_state: str):
+        """
+        Properties of the kusto database data set.
+        :param str data_set_id: Unique id for identifying a data set resource
+        :param str kusto_database_resource_id: Resource id of the kusto database.
+        :param str location: Location of the kusto cluster.
+        :param str provisioning_state: Provisioning state of the kusto database data set.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        Unique id for identifying a data set resource
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="kustoDatabaseResourceId")
+    def kusto_database_resource_id(self) -> str:
+        """
+        Resource id of the kusto database.
+        """
+        return pulumi.get(self, "kusto_database_resource_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the kusto cluster.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the kusto database data set.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
 class ScheduledSourceSynchronizationSettingResponse(dict):
     """
     A type of synchronization setting based on schedule
@@ -128,6 +2052,410 @@ class ScheduledSourceSynchronizationSettingResponse(dict):
         Synchronization time
         """
         return pulumi.get(self, "synchronization_time")
+
+
+@pulumi.output_type
+class ScheduledSynchronizationSettingPropertiesResponse(dict):
+    """
+    A Scheduled synchronization setting data transfer object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "recurrenceInterval":
+            suggest = "recurrence_interval"
+        elif key == "synchronizationTime":
+            suggest = "synchronization_time"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledSynchronizationSettingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledSynchronizationSettingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledSynchronizationSettingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: str,
+                 provisioning_state: str,
+                 recurrence_interval: str,
+                 synchronization_time: str,
+                 user_name: str):
+        """
+        A Scheduled synchronization setting data transfer object.
+        :param str created_at: Time at which the synchronization setting was created.
+        :param str provisioning_state: Gets or sets the provisioning state
+        :param str recurrence_interval: Recurrence Interval
+        :param str synchronization_time: Synchronization time
+        :param str user_name: Name of the user who created the synchronization setting.
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "recurrence_interval", recurrence_interval)
+        pulumi.set(__self__, "synchronization_time", synchronization_time)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Time at which the synchronization setting was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets or sets the provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="recurrenceInterval")
+    def recurrence_interval(self) -> str:
+        """
+        Recurrence Interval
+        """
+        return pulumi.get(self, "recurrence_interval")
+
+    @property
+    @pulumi.getter(name="synchronizationTime")
+    def synchronization_time(self) -> str:
+        """
+        Synchronization time
+        """
+        return pulumi.get(self, "synchronization_time")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Name of the user who created the synchronization setting.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class ScheduledTriggerPropertiesResponse(dict):
+    """
+    A Scheduled trigger data transfer object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "recurrenceInterval":
+            suggest = "recurrence_interval"
+        elif key == "synchronizationTime":
+            suggest = "synchronization_time"
+        elif key == "triggerStatus":
+            suggest = "trigger_status"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "synchronizationMode":
+            suggest = "synchronization_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledTriggerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledTriggerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledTriggerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: str,
+                 provisioning_state: str,
+                 recurrence_interval: str,
+                 synchronization_time: str,
+                 trigger_status: str,
+                 user_name: str,
+                 synchronization_mode: Optional[str] = None):
+        """
+        A Scheduled trigger data transfer object.
+        :param str created_at: Time at which the trigger was created.
+        :param str provisioning_state: Gets the provisioning state
+        :param str recurrence_interval: Recurrence Interval
+        :param str synchronization_time: Synchronization time
+        :param str trigger_status: Gets the trigger state
+        :param str user_name: Name of the user who created the trigger.
+        :param str synchronization_mode: Synchronization mode
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "recurrence_interval", recurrence_interval)
+        pulumi.set(__self__, "synchronization_time", synchronization_time)
+        pulumi.set(__self__, "trigger_status", trigger_status)
+        pulumi.set(__self__, "user_name", user_name)
+        if synchronization_mode is not None:
+            pulumi.set(__self__, "synchronization_mode", synchronization_mode)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Time at which the trigger was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="recurrenceInterval")
+    def recurrence_interval(self) -> str:
+        """
+        Recurrence Interval
+        """
+        return pulumi.get(self, "recurrence_interval")
+
+    @property
+    @pulumi.getter(name="synchronizationTime")
+    def synchronization_time(self) -> str:
+        """
+        Synchronization time
+        """
+        return pulumi.get(self, "synchronization_time")
+
+    @property
+    @pulumi.getter(name="triggerStatus")
+    def trigger_status(self) -> str:
+        """
+        Gets the trigger state
+        """
+        return pulumi.get(self, "trigger_status")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Name of the user who created the trigger.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="synchronizationMode")
+    def synchronization_mode(self) -> Optional[str]:
+        """
+        Synchronization mode
+        """
+        return pulumi.get(self, "synchronization_mode")
+
+
+@pulumi.output_type
+class ShareSubscriptionPropertiesResponse(dict):
+    """
+    Share subscription property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "invitationId":
+            suggest = "invitation_id"
+        elif key == "providerEmail":
+            suggest = "provider_email"
+        elif key == "providerName":
+            suggest = "provider_name"
+        elif key == "providerTenantName":
+            suggest = "provider_tenant_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "shareDescription":
+            suggest = "share_description"
+        elif key == "shareKind":
+            suggest = "share_kind"
+        elif key == "shareName":
+            suggest = "share_name"
+        elif key == "shareSubscriptionStatus":
+            suggest = "share_subscription_status"
+        elif key == "shareTerms":
+            suggest = "share_terms"
+        elif key == "userEmail":
+            suggest = "user_email"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShareSubscriptionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShareSubscriptionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShareSubscriptionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: str,
+                 invitation_id: str,
+                 provider_email: str,
+                 provider_name: str,
+                 provider_tenant_name: str,
+                 provisioning_state: str,
+                 share_description: str,
+                 share_kind: str,
+                 share_name: str,
+                 share_subscription_status: str,
+                 share_terms: str,
+                 user_email: str,
+                 user_name: str):
+        """
+        Share subscription property bag.
+        :param str created_at: Time at which the share subscription was created.
+        :param str invitation_id: The invitation id.
+        :param str provider_email: Email of the provider who created the resource
+        :param str provider_name: Name of the provider who created the resource
+        :param str provider_tenant_name: Tenant name of the provider who created the resource
+        :param str provisioning_state: Provisioning state of the share subscription
+        :param str share_description: Description of share
+        :param str share_kind: Kind of share
+        :param str share_name: Name of the share
+        :param str share_subscription_status: Gets the current status of share subscription.
+        :param str share_terms: Terms of a share
+        :param str user_email: Email of the user who created the resource
+        :param str user_name: Name of the user who created the resource
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "invitation_id", invitation_id)
+        pulumi.set(__self__, "provider_email", provider_email)
+        pulumi.set(__self__, "provider_name", provider_name)
+        pulumi.set(__self__, "provider_tenant_name", provider_tenant_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "share_description", share_description)
+        pulumi.set(__self__, "share_kind", share_kind)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "share_subscription_status", share_subscription_status)
+        pulumi.set(__self__, "share_terms", share_terms)
+        pulumi.set(__self__, "user_email", user_email)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Time at which the share subscription was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> str:
+        """
+        The invitation id.
+        """
+        return pulumi.get(self, "invitation_id")
+
+    @property
+    @pulumi.getter(name="providerEmail")
+    def provider_email(self) -> str:
+        """
+        Email of the provider who created the resource
+        """
+        return pulumi.get(self, "provider_email")
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> str:
+        """
+        Name of the provider who created the resource
+        """
+        return pulumi.get(self, "provider_name")
+
+    @property
+    @pulumi.getter(name="providerTenantName")
+    def provider_tenant_name(self) -> str:
+        """
+        Tenant name of the provider who created the resource
+        """
+        return pulumi.get(self, "provider_tenant_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the share subscription
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="shareDescription")
+    def share_description(self) -> str:
+        """
+        Description of share
+        """
+        return pulumi.get(self, "share_description")
+
+    @property
+    @pulumi.getter(name="shareKind")
+    def share_kind(self) -> str:
+        """
+        Kind of share
+        """
+        return pulumi.get(self, "share_kind")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> str:
+        """
+        Name of the share
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter(name="shareSubscriptionStatus")
+    def share_subscription_status(self) -> str:
+        """
+        Gets the current status of share subscription.
+        """
+        return pulumi.get(self, "share_subscription_status")
+
+    @property
+    @pulumi.getter(name="shareTerms")
+    def share_terms(self) -> str:
+        """
+        Terms of a share
+        """
+        return pulumi.get(self, "share_terms")
+
+    @property
+    @pulumi.getter(name="userEmail")
+    def user_email(self) -> str:
+        """
+        Email of the user who created the resource
+        """
+        return pulumi.get(self, "user_email")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Name of the user who created the resource
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -346,6 +2674,240 @@ class ShareSynchronizationResponse(dict):
         Synchronization id
         """
         return pulumi.get(self, "synchronization_id")
+
+
+@pulumi.output_type
+class SqlDBTableDataSetMappingPropertiesResponse(dict):
+    """
+    Properties of the SQL DB table data set mapping.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "sqlServerResourceId":
+            suggest = "sql_server_resource_id"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDBTableDataSetMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDBTableDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDBTableDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 database_name: str,
+                 provisioning_state: str,
+                 schema_name: str,
+                 sql_server_resource_id: str,
+                 table_name: str):
+        """
+        Properties of the SQL DB table data set mapping.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str database_name: DatabaseName name of the sink data set
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str schema_name: Schema of the table. Default value is dbo.
+        :param str sql_server_resource_id: Resource id of SQL server
+        :param str table_name: SQL DB table name.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        DatabaseName name of the sink data set
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        """
+        Schema of the table. Default value is dbo.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="sqlServerResourceId")
+    def sql_server_resource_id(self) -> str:
+        """
+        Resource id of SQL server
+        """
+        return pulumi.get(self, "sql_server_resource_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        SQL DB table name.
+        """
+        return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class SqlDWTableDataSetMappingPropertiesResponse(dict):
+    """
+    Properties of the SQL DW table data set mapping.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetId":
+            suggest = "data_set_id"
+        elif key == "dataSetMappingStatus":
+            suggest = "data_set_mapping_status"
+        elif key == "dataWarehouseName":
+            suggest = "data_warehouse_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "sqlServerResourceId":
+            suggest = "sql_server_resource_id"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDWTableDataSetMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDWTableDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDWTableDataSetMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_id: str,
+                 data_set_mapping_status: str,
+                 data_warehouse_name: str,
+                 provisioning_state: str,
+                 schema_name: str,
+                 sql_server_resource_id: str,
+                 table_name: str):
+        """
+        Properties of the SQL DW table data set mapping.
+        :param str data_set_id: The id of the source data set.
+        :param str data_set_mapping_status: Gets the status of the data set mapping.
+        :param str data_warehouse_name: DataWarehouse name of the source data set
+        :param str provisioning_state: Provisioning state of the data set mapping.
+        :param str schema_name: Schema of the table. Default value is dbo.
+        :param str sql_server_resource_id: Resource id of SQL server
+        :param str table_name: SQL DW table name.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
+        pulumi.set(__self__, "data_warehouse_name", data_warehouse_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> str:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetMappingStatus")
+    def data_set_mapping_status(self) -> str:
+        """
+        Gets the status of the data set mapping.
+        """
+        return pulumi.get(self, "data_set_mapping_status")
+
+    @property
+    @pulumi.getter(name="dataWarehouseName")
+    def data_warehouse_name(self) -> str:
+        """
+        DataWarehouse name of the source data set
+        """
+        return pulumi.get(self, "data_warehouse_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the data set mapping.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        """
+        Schema of the table. Default value is dbo.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="sqlServerResourceId")
+    def sql_server_resource_id(self) -> str:
+        """
+        Resource id of SQL server
+        """
+        return pulumi.get(self, "sql_server_resource_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        SQL DW table name.
+        """
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type

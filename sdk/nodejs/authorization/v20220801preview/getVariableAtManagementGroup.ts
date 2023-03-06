@@ -35,10 +35,6 @@ export interface GetVariableAtManagementGroupArgs {
  */
 export interface GetVariableAtManagementGroupResult {
     /**
-     * Variable column definitions.
-     */
-    readonly columns: outputs.authorization.v20220801preview.PolicyVariableColumnResponse[];
-    /**
      * The ID of the variable.
      */
     readonly id: string;
@@ -46,6 +42,10 @@ export interface GetVariableAtManagementGroupResult {
      * The name of the variable.
      */
     readonly name: string;
+    /**
+     * Properties for the variable.
+     */
+    readonly properties: outputs.authorization.v20220801preview.PolicyVariablePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

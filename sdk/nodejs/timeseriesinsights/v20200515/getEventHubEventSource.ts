@@ -40,38 +40,14 @@ export interface GetEventHubEventSourceArgs {
  */
 export interface GetEventHubEventSourceResult {
     /**
-     * The name of the event hub's consumer group that holds the partitions from which events will be read.
-     */
-    readonly consumerGroupName: string;
-    /**
-     * The time the resource was created.
-     */
-    readonly creationTime: string;
-    /**
-     * The name of the event hub.
-     */
-    readonly eventHubName: string;
-    /**
-     * The resource id of the event source in Azure Resource Manager.
-     */
-    readonly eventSourceResourceId: string;
-    /**
      * Resource Id
      */
     readonly id: string;
-    /**
-     * The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
-     */
-    readonly keyName: string;
     /**
      * The kind of the event source.
      * Expected value is 'Microsoft.EventHub'.
      */
     readonly kind: "Microsoft.EventHub";
-    /**
-     * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-     */
-    readonly localTimestamp?: outputs.timeseriesinsights.v20200515.LocalTimestampResponse;
     /**
      * Resource location
      */
@@ -81,25 +57,13 @@ export interface GetEventHubEventSourceResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Properties of the EventHub event source resource.
      */
-    readonly provisioningState: string;
-    /**
-     * The name of the service bus that contains the event hub.
-     */
-    readonly serviceBusNamespace: string;
+    readonly properties: outputs.timeseriesinsights.v20200515.EventHubEventSourceResourcePropertiesResponse;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-     */
-    readonly time?: string;
-    /**
-     * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-     */
-    readonly timestampPropertyName?: string;
     /**
      * Resource type
      */

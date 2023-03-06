@@ -38,21 +38,9 @@ export class Host extends pulumi.CustomResource {
     }
 
     /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
-    /**
-     * Gets or sets the datastore ARM ids.
-     */
-    public /*out*/ readonly datastoreIds!: pulumi.Output<string[]>;
-    /**
      * Gets or sets the extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.v20220715preview.ExtendedLocationResponse | undefined>;
-    /**
-     * Gets or sets the inventory Item ID for the host.
-     */
-    public readonly inventoryItemId!: pulumi.Output<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -62,29 +50,13 @@ export class Host extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Gets or sets the vCenter Managed Object name for the host.
-     */
-    public /*out*/ readonly moName!: pulumi.Output<string>;
-    /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
-     */
-    public readonly moRefId!: pulumi.Output<string | undefined>;
-    /**
      * Gets or sets the name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the network ARM ids.
+     * Resource properties.
      */
-    public /*out*/ readonly networkIds!: pulumi.Output<string[]>;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resource status information.
-     */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.v20220715preview.ResourceStatusResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.connectedvmwarevsphere.v20220715preview.HostPropertiesResponse>;
     /**
      * The system data.
      */
@@ -97,14 +69,6 @@ export class Host extends pulumi.CustomResource {
      * Gets or sets the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this host resides.
-     */
-    public readonly vCenterId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -117,46 +81,31 @@ export class Host extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
-            resourceInputs["customResourceName"] = undefined /*out*/;
-            resourceInputs["datastoreIds"] = undefined /*out*/;
-            resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkIds"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
         } else {
-            resourceInputs["customResourceName"] = undefined /*out*/;
-            resourceInputs["datastoreIds"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["moName"] = undefined /*out*/;
-            resourceInputs["moRefId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkIds"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["vCenterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:Host" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:Host" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:Host" }] };
@@ -178,10 +127,6 @@ export interface HostArgs {
      */
     hostName?: pulumi.Input<string>;
     /**
-     * Gets or sets the inventory Item ID for the host.
-     */
-    inventoryItemId?: pulumi.Input<string>;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     kind?: pulumi.Input<string>;
@@ -190,9 +135,9 @@ export interface HostArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
+     * Resource properties.
      */
-    moRefId?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.connectedvmwarevsphere.v20220715preview.HostPropertiesArgs>;
     /**
      * The Resource Group Name.
      */
@@ -201,8 +146,4 @@ export interface HostArgs {
      * Gets or sets the Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this host resides.
-     */
-    vCenterId?: pulumi.Input<string>;
 }

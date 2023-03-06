@@ -96,18 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetBlobContainerDataSetMappingResult
     {
         /// <summary>
-        /// BLOB Container name.
-        /// </summary>
-        public readonly string ContainerName;
-        /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -121,21 +109,9 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Blob container data set mapping properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource group of storage account.
-        /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.BlobContainerMappingPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -147,40 +123,22 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetBlobContainerDataSetMappingResult(
-            string containerName,
-
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
-
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.BlobContainerMappingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ContainerName = containerName;
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

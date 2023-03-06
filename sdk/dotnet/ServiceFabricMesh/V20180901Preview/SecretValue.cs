@@ -28,10 +28,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the resource.
+        /// This type describes properties of a secret value resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SecretValueResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -44,12 +44,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The actual value of the secret.
-        /// </summary>
-        [Output("value")]
-        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>
@@ -107,6 +101,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// This type describes properties of a secret value resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.SecretValueResourcePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Azure resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -135,12 +135,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The actual value of the secret.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
 
         public SecretValueArgs()
         {

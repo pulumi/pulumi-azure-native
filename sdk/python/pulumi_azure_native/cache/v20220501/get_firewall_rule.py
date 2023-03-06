@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetFirewallRuleResult',
@@ -21,30 +22,19 @@ class GetFirewallRuleResult:
     """
     A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     """
-    def __init__(__self__, end_ip=None, id=None, name=None, start_ip=None, type=None):
-        if end_ip and not isinstance(end_ip, str):
-            raise TypeError("Expected argument 'end_ip' to be a str")
-        pulumi.set(__self__, "end_ip", end_ip)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if start_ip and not isinstance(start_ip, str):
-            raise TypeError("Expected argument 'start_ip' to be a str")
-        pulumi.set(__self__, "start_ip", start_ip)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="endIP")
-    def end_ip(self) -> str:
-        """
-        highest IP address included in the range
-        """
-        return pulumi.get(self, "end_ip")
 
     @property
     @pulumi.getter
@@ -63,12 +53,12 @@ class GetFirewallRuleResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="startIP")
-    def start_ip(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.RedisFirewallRulePropertiesResponse':
         """
-        lowest IP address included in the range
+        redis cache firewall rule properties
         """
-        return pulumi.get(self, "start_ip")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -85,10 +75,9 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
         if False:
             yield self
         return GetFirewallRuleResult(
-            end_ip=self.end_ip,
             id=self.id,
             name=self.name,
-            start_ip=self.start_ip,
+            properties=self.properties,
             type=self.type)
 
 
@@ -112,10 +101,9 @@ def get_firewall_rule(cache_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20220501:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
-        end_ip=__ret__.end_ip,
         id=__ret__.id,
         name=__ret__.name,
-        start_ip=__ret__.start_ip,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

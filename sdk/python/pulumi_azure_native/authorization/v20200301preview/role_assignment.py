@@ -9,146 +9,50 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
 
 @pulumi.input_type
 class RoleAssignmentArgs:
     def __init__(__self__, *,
-                 principal_id: pulumi.Input[str],
-                 role_definition_id: pulumi.Input[str],
+                 properties: pulumi.Input['RoleAssignmentPropertiesArgs'],
                  scope: pulumi.Input[str],
-                 can_delegate: Optional[pulumi.Input[bool]] = None,
-                 condition: Optional[pulumi.Input[str]] = None,
-                 condition_version: Optional[pulumi.Input[str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
-        :param pulumi.Input[str] principal_id: The principal ID.
-        :param pulumi.Input[str] role_definition_id: The role definition ID.
-        :param pulumi.Input[str] scope: The role assignment scope.
-        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
-        :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
-        :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
-        :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
+        :param pulumi.Input['RoleAssignmentPropertiesArgs'] properties: Role assignment properties.
+        :param pulumi.Input[str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "scope", scope)
-        if can_delegate is not None:
-            pulumi.set(__self__, "can_delegate", can_delegate)
-        if condition is not None:
-            pulumi.set(__self__, "condition", condition)
-        if condition_version is not None:
-            pulumi.set(__self__, "condition_version", condition_version)
-        if delegated_managed_identity_resource_id is not None:
-            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
-        if principal_type is None:
-            principal_type = 'User'
-        if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
         if role_assignment_name is not None:
             pulumi.set(__self__, "role_assignment_name", role_assignment_name)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RoleAssignmentPropertiesArgs']:
         """
-        The principal ID.
+        Role assignment properties.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "properties")
 
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[str]:
-        """
-        The role definition ID.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_definition_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['RoleAssignmentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        The role assignment scope.
+        The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
     def scope(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope", value)
-
-    @property
-    @pulumi.getter(name="canDelegate")
-    def can_delegate(self) -> Optional[pulumi.Input[bool]]:
-        """
-        The delegation flag used for creating a role assignment
-        """
-        return pulumi.get(self, "can_delegate")
-
-    @can_delegate.setter
-    def can_delegate(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "can_delegate", value)
-
-    @property
-    @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[str]]:
-        """
-        The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-        """
-        return pulumi.get(self, "condition")
-
-    @condition.setter
-    def condition(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "condition", value)
-
-    @property
-    @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Version of the condition. Currently accepted value is '2.0'
-        """
-        return pulumi.get(self, "condition_version")
-
-    @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "condition_version", value)
-
-    @property
-    @pulumi.getter(name="delegatedManagedIdentityResourceId")
-    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id of the delegated managed identity resource
-        """
-        return pulumi.get(self, "delegated_managed_identity_resource_id")
-
-    @delegated_managed_identity_resource_id.setter
-    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "delegated_managed_identity_resource_id", value)
-
-    @property
-    @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[Union[str, 'PrincipalType']]]:
-        """
-        The principal type of the assigned principal ID.
-        """
-        return pulumi.get(self, "principal_type")
-
-    @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[Union[str, 'PrincipalType']]]):
-        pulumi.set(self, "principal_type", value)
 
     @property
     @pulumi.getter(name="roleAssignmentName")
@@ -168,14 +72,8 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 can_delegate: Optional[pulumi.Input[bool]] = None,
-                 condition: Optional[pulumi.Input[str]] = None,
-                 condition_version: Optional[pulumi.Input[str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -183,15 +81,9 @@ class RoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
-        :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
-        :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
-        :param pulumi.Input[str] principal_id: The principal ID.
-        :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
+        :param pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']] properties: Role assignment properties.
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
-        :param pulumi.Input[str] role_definition_id: The role definition ID.
-        :param pulumi.Input[str] scope: The role assignment scope.
+        :param pulumi.Input[str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         ...
     @overload
@@ -217,14 +109,8 @@ class RoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 can_delegate: Optional[pulumi.Input[bool]] = None,
-                 condition: Optional[pulumi.Input[str]] = None,
-                 condition_version: Optional[pulumi.Input[str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -235,26 +121,23 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
-            __props__.__dict__["can_delegate"] = can_delegate
-            __props__.__dict__["condition"] = condition
-            __props__.__dict__["condition_version"] = condition_version
-            __props__.__dict__["delegated_managed_identity_resource_id"] = delegated_managed_identity_resource_id
-            if principal_id is None and not opts.urn:
-                raise TypeError("Missing required property 'principal_id'")
-            __props__.__dict__["principal_id"] = principal_id
-            if principal_type is None:
-                principal_type = 'User'
-            __props__.__dict__["principal_type"] = principal_type
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["role_assignment_name"] = role_assignment_name
-            if role_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'role_definition_id'")
-            __props__.__dict__["role_definition_id"] = role_definition_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["can_delegate"] = None
+            __props__.__dict__["condition"] = None
+            __props__.__dict__["condition_version"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["delegated_managed_identity_resource_id"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["principal_id"] = None
+            __props__.__dict__["principal_type"] = None
+            __props__.__dict__["role_definition_id"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
             __props__.__dict__["updated_on"] = None

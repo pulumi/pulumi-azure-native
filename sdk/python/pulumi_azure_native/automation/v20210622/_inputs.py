@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'EncryptionPropertiesIdentityArgs',
     'EncryptionPropertiesArgs',
+    'HybridRunbookWorkerCreateOrUpdateParametersArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'RunAsCredentialAssociationPropertyArgs',
@@ -97,6 +98,30 @@ class EncryptionPropertiesArgs:
     @key_vault_properties.setter
     def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
+
+
+@pulumi.input_type
+class HybridRunbookWorkerCreateOrUpdateParametersArgs:
+    def __init__(__self__, *,
+                 vm_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The parameters supplied to the create or update hybrid runbook worker operation.
+        :param pulumi.Input[str] vm_resource_id: Azure Resource Manager Id for a virtual machine.
+        """
+        if vm_resource_id is not None:
+            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+
+    @property
+    @pulumi.getter(name="vmResourceId")
+    def vm_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Manager Id for a virtual machine.
+        """
+        return pulumi.get(self, "vm_resource_id")
+
+    @vm_resource_id.setter
+    def vm_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_resource_id", value)
 
 
 @pulumi.input_type

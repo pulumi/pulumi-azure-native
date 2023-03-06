@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public partial class NotificationChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The creation date of the notification channel.
-        /// </summary>
-        [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
-
-        /// <summary>
-        /// Description of notification.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of event for which this notification is enabled.
-        /// </summary>
-        [Output("events")]
-        public Output<ImmutableArray<Outputs.EventResponse>> Events { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -47,10 +29,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.NotificationChannelPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -63,18 +45,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string?> UniqueIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// The webhook URL to send notifications to.
-        /// </summary>
-        [Output("webHookUrl")]
-        public Output<string?> WebHookUrl { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,24 +97,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of notification.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("events")]
-        private InputList<Inputs.EventArgs>? _events;
-
-        /// <summary>
-        /// The list of event for which this notification is enabled.
-        /// </summary>
-        public InputList<Inputs.EventArgs> Events
-        {
-            get => _events ?? (_events = new InputList<Inputs.EventArgs>());
-            set => _events = value;
-        }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -163,10 +115,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.NotificationChannelPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -185,18 +137,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Input("uniqueIdentifier")]
-        public Input<string>? UniqueIdentifier { get; set; }
-
-        /// <summary>
-        /// The webhook URL to send notifications to.
-        /// </summary>
-        [Input("webHookUrl")]
-        public Input<string>? WebHookUrl { get; set; }
 
         public NotificationChannelArgs()
         {

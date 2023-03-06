@@ -17,46 +17,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public partial class StorageAccountCredential : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The details of the storage account password
-        /// </summary>
-        [Output("accessKey")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponse?> AccessKey { get; private set; } = null!;
-
-        /// <summary>
-        /// The cloud service provider
-        /// </summary>
-        [Output("cloudType")]
-        public Output<string> CloudType { get; private set; } = null!;
-
-        /// <summary>
-        /// SSL needs to be enabled or not
-        /// </summary>
-        [Output("enableSSL")]
-        public Output<string> EnableSSL { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage endpoint
-        /// </summary>
-        [Output("endPoint")]
-        public Output<string> EndPoint { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage account's geo location
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage account login
-        /// </summary>
-        [Output("login")]
-        public Output<string> Login { get; private set; } = null!;
-
-        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Credential properties
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.StorageAccountCredentialPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
@@ -115,52 +85,22 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class StorageAccountCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The details of the storage account password
-        /// </summary>
-        [Input("accessKey")]
-        public Input<Inputs.AsymmetricEncryptedSecretArgs>? AccessKey { get; set; }
-
-        /// <summary>
-        /// The cloud service provider
-        /// </summary>
-        [Input("cloudType", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.CloudType> CloudType { get; set; } = null!;
-
-        /// <summary>
         /// The credential name.
         /// </summary>
         [Input("credentialName")]
         public Input<string>? CredentialName { get; set; }
 
         /// <summary>
-        /// SSL needs to be enabled or not
-        /// </summary>
-        [Input("enableSSL", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20161001.SslStatus> EnableSSL { get; set; } = null!;
-
-        /// <summary>
-        /// The storage endpoint
-        /// </summary>
-        [Input("endPoint", required: true)]
-        public Input<string> EndPoint { get; set; } = null!;
-
-        /// <summary>
-        /// The storage account's geo location
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The storage account login
-        /// </summary>
-        [Input("login", required: true)]
-        public Input<string> Login { get; set; } = null!;
-
-        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// Credential properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.StorageAccountCredentialPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

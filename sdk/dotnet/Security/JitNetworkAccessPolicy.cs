@@ -33,26 +33,14 @@ namespace Pulumi.AzureNative.Security
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Gets the provisioning state of the Just-in-Time policy.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        [Output("requests")]
-        public Output<ImmutableArray<Outputs.JitNetworkAccessRequestResponse>> Requests { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.JitNetworkAccessPolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Configurations for Microsoft.Compute/virtualMachines resource type.
-        /// </summary>
-        [Output("virtualMachines")]
-        public Output<ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponse>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,31 +110,14 @@ namespace Pulumi.AzureNative.Security
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        [Input("requests")]
-        private InputList<Inputs.JitNetworkAccessRequestArgs>? _requests;
-        public InputList<Inputs.JitNetworkAccessRequestArgs> Requests
-        {
-            get => _requests ?? (_requests = new InputList<Inputs.JitNetworkAccessRequestArgs>());
-            set => _requests = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.JitNetworkAccessPolicyPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("virtualMachines", required: true)]
-        private InputList<Inputs.JitNetworkAccessPolicyVirtualMachineArgs>? _virtualMachines;
-
-        /// <summary>
-        /// Configurations for Microsoft.Compute/virtualMachines resource type.
-        /// </summary>
-        public InputList<Inputs.JitNetworkAccessPolicyVirtualMachineArgs> VirtualMachines
-        {
-            get => _virtualMachines ?? (_virtualMachines = new InputList<Inputs.JitNetworkAccessPolicyVirtualMachineArgs>());
-            set => _virtualMachines = value;
-        }
 
         public JitNetworkAccessPolicyArgs()
         {

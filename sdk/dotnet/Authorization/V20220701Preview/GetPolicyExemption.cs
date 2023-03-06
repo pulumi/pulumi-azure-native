@@ -70,49 +70,17 @@ namespace Pulumi.AzureNative.Authorization.V20220701Preview
     public sealed class GetPolicyExemptionResult
     {
         /// <summary>
-        /// The option whether validate the exemption is at or under the assignment scope.
-        /// </summary>
-        public readonly string? AssignmentScopeValidation;
-        /// <summary>
-        /// The description of the policy exemption.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The display name of the policy exemption.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
-        /// The policy exemption category. Possible values are Waiver and Mitigated.
-        /// </summary>
-        public readonly string ExemptionCategory;
-        /// <summary>
-        /// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
-        /// </summary>
-        public readonly string? ExpiresOn;
-        /// <summary>
         /// The ID of the policy exemption.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-        /// </summary>
-        public readonly object? Metadata;
         /// <summary>
         /// The name of the policy exemption.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ID of the policy assignment that is being exempted.
+        /// Properties for the policy exemption.
         /// </summary>
-        public readonly string PolicyAssignmentId;
-        /// <summary>
-        /// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
-        /// </summary>
-        public readonly ImmutableArray<string> PolicyDefinitionReferenceIds;
-        /// <summary>
-        /// The resource selector list to filter policies by resource properties.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceSelectorResponse> ResourceSelectors;
+        public readonly Outputs.PolicyExemptionPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -124,43 +92,19 @@ namespace Pulumi.AzureNative.Authorization.V20220701Preview
 
         [OutputConstructor]
         private GetPolicyExemptionResult(
-            string? assignmentScopeValidation,
-
-            string? description,
-
-            string? displayName,
-
-            string exemptionCategory,
-
-            string? expiresOn,
-
             string id,
-
-            object? metadata,
 
             string name,
 
-            string policyAssignmentId,
-
-            ImmutableArray<string> policyDefinitionReferenceIds,
-
-            ImmutableArray<Outputs.ResourceSelectorResponse> resourceSelectors,
+            Outputs.PolicyExemptionPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            AssignmentScopeValidation = assignmentScopeValidation;
-            Description = description;
-            DisplayName = displayName;
-            ExemptionCategory = exemptionCategory;
-            ExpiresOn = expiresOn;
             Id = id;
-            Metadata = metadata;
             Name = name;
-            PolicyAssignmentId = policyAssignmentId;
-            PolicyDefinitionReferenceIds = policyDefinitionReferenceIds;
-            ResourceSelectors = resourceSelectors;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

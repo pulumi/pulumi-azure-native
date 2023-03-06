@@ -16,21 +16,6 @@ namespace Pulumi.AzureNative.Security
     public partial class AdaptiveApplicationControl : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The configuration status of the machines group or machine or rule
-        /// </summary>
-        [Output("configurationStatus")]
-        public Output<string> ConfigurationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The application control policy enforcement/protection mode of the machine group
-        /// </summary>
-        [Output("enforcementMode")]
-        public Output<string?> EnforcementMode { get; private set; } = null!;
-
-        [Output("issues")]
-        public Output<ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponse>> Issues { get; private set; } = null!;
-
-        /// <summary>
         /// Location where the resource is stored
         /// </summary>
         [Output("location")]
@@ -42,35 +27,17 @@ namespace Pulumi.AzureNative.Security
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("pathRecommendations")]
-        public Output<ImmutableArray<Outputs.PathRecommendationResponse>> PathRecommendations { get; private set; } = null!;
-
         /// <summary>
-        /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        /// Represents a machines group and set of rules to be allowed running on a machine
         /// </summary>
-        [Output("protectionMode")]
-        public Output<Outputs.ProtectionModeResponse?> ProtectionMode { get; private set; } = null!;
-
-        /// <summary>
-        /// The initial recommendation status of the machine group or machine
-        /// </summary>
-        [Output("recommendationStatus")]
-        public Output<string> RecommendationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The source type of the machine group
-        /// </summary>
-        [Output("sourceSystem")]
-        public Output<string> SourceSystem { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AdaptiveApplicationControlGroupDataResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        [Output("vmRecommendations")]
-        public Output<ImmutableArray<Outputs.VmRecommendationResponse>> VmRecommendations { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,38 +96,16 @@ namespace Pulumi.AzureNative.Security
         public Input<string> AscLocation { get; set; } = null!;
 
         /// <summary>
-        /// The application control policy enforcement/protection mode of the machine group
-        /// </summary>
-        [Input("enforcementMode")]
-        public Input<string>? EnforcementMode { get; set; }
-
-        /// <summary>
         /// Name of an application control machine group
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        [Input("pathRecommendations")]
-        private InputList<Inputs.PathRecommendationArgs>? _pathRecommendations;
-        public InputList<Inputs.PathRecommendationArgs> PathRecommendations
-        {
-            get => _pathRecommendations ?? (_pathRecommendations = new InputList<Inputs.PathRecommendationArgs>());
-            set => _pathRecommendations = value;
-        }
-
         /// <summary>
-        /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        /// Represents a machines group and set of rules to be allowed running on a machine
         /// </summary>
-        [Input("protectionMode")]
-        public Input<Inputs.ProtectionModeArgs>? ProtectionMode { get; set; }
-
-        [Input("vmRecommendations")]
-        private InputList<Inputs.VmRecommendationArgs>? _vmRecommendations;
-        public InputList<Inputs.VmRecommendationArgs> VmRecommendations
-        {
-            get => _vmRecommendations ?? (_vmRecommendations = new InputList<Inputs.VmRecommendationArgs>());
-            set => _vmRecommendations = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.AdaptiveApplicationControlGroupDataArgs> Properties { get; set; } = null!;
 
         public AdaptiveApplicationControlArgs()
         {

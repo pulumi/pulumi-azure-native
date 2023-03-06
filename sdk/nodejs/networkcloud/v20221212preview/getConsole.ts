@@ -37,22 +37,6 @@ export interface GetConsoleArgs {
 
 export interface GetConsoleResult {
     /**
-     * The more detailed status of the console.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
-     * The indicator of whether the console access is enabled.
-     */
-    readonly enabled: string;
-    /**
-     * The date and time after which the key will be disallowed access.
-     */
-    readonly expiration?: string;
-    /**
      * The extended location of the cluster manager associated with the cluster this virtual machine is created on.
      */
     readonly extendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
@@ -69,14 +53,9 @@ export interface GetConsoleResult {
      */
     readonly name: string;
     /**
-     * The resource ID of the private link service that is used to provide virtual machine console access.
+     * The list of the resource properties.
      */
-    readonly privateLinkServiceId: string;
-    /**
-     * The provisioning state of the virtual machine console.
-     */
-    readonly provisioningState: string;
-    readonly sshPublicKey: outputs.networkcloud.v20221212preview.SshPublicKeyResponse;
+    readonly properties: outputs.networkcloud.v20221212preview.ConsolePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -89,10 +68,6 @@ export interface GetConsoleResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The unique identifier for the virtual machine that is used to access the console.
-     */
-    readonly virtualMachineAccessId: string;
 }
 /**
  * Get properties of the provided virtual machine console.

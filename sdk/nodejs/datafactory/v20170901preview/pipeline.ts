@@ -41,22 +41,6 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /**
-     * List of activities in pipeline.
-     */
-    public readonly activities!: pulumi.Output<(outputs.datafactory.v20170901preview.AzureMLBatchExecutionActivityResponse | outputs.datafactory.v20170901preview.AzureMLUpdateResourceActivityResponse | outputs.datafactory.v20170901preview.ControlActivityResponse | outputs.datafactory.v20170901preview.CopyActivityResponse | outputs.datafactory.v20170901preview.CustomActivityResponse | outputs.datafactory.v20170901preview.DataLakeAnalyticsUSQLActivityResponse | outputs.datafactory.v20170901preview.DatabricksNotebookActivityResponse | outputs.datafactory.v20170901preview.ExecutePipelineActivityResponse | outputs.datafactory.v20170901preview.ExecuteSSISPackageActivityResponse | outputs.datafactory.v20170901preview.ExecutionActivityResponse | outputs.datafactory.v20170901preview.FilterActivityResponse | outputs.datafactory.v20170901preview.ForEachActivityResponse | outputs.datafactory.v20170901preview.GetMetadataActivityResponse | outputs.datafactory.v20170901preview.HDInsightHiveActivityResponse | outputs.datafactory.v20170901preview.HDInsightMapReduceActivityResponse | outputs.datafactory.v20170901preview.HDInsightPigActivityResponse | outputs.datafactory.v20170901preview.HDInsightSparkActivityResponse | outputs.datafactory.v20170901preview.HDInsightStreamingActivityResponse | outputs.datafactory.v20170901preview.IfConditionActivityResponse | outputs.datafactory.v20170901preview.LookupActivityResponse | outputs.datafactory.v20170901preview.SqlServerStoredProcedureActivityResponse | outputs.datafactory.v20170901preview.UntilActivityResponse | outputs.datafactory.v20170901preview.WaitActivityResponse | outputs.datafactory.v20170901preview.WebActivityResponse)[] | undefined>;
-    /**
-     * List of tags that can be used for describing the Pipeline.
-     */
-    public readonly annotations!: pulumi.Output<any[] | undefined>;
-    /**
-     * The max number of concurrent runs for the pipeline.
-     */
-    public readonly concurrency!: pulumi.Output<number | undefined>;
-    /**
-     * The description of the pipeline.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
      * Etag identifies change in the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -65,9 +49,9 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of parameters for pipeline.
+     * Properties of the pipeline.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.datafactory.v20170901preview.ParameterSpecificationResponse} | undefined>;
+    public readonly properties!: pulumi.Output<outputs.datafactory.v20170901preview.PipelineResponse>;
     /**
      * The resource type.
      */
@@ -89,28 +73,23 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.factoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activities"] = args ? args.activities : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["concurrency"] = args ? args.concurrency : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["factoryName"] = args ? args.factoryName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["activities"] = undefined /*out*/;
-            resourceInputs["annotations"] = undefined /*out*/;
-            resourceInputs["concurrency"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -125,33 +104,17 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineArgs {
     /**
-     * List of activities in pipeline.
-     */
-    activities?: pulumi.Input<pulumi.Input<inputs.datafactory.v20170901preview.AzureMLBatchExecutionActivityArgs | inputs.datafactory.v20170901preview.AzureMLUpdateResourceActivityArgs | inputs.datafactory.v20170901preview.ControlActivityArgs | inputs.datafactory.v20170901preview.CopyActivityArgs | inputs.datafactory.v20170901preview.CustomActivityArgs | inputs.datafactory.v20170901preview.DataLakeAnalyticsUSQLActivityArgs | inputs.datafactory.v20170901preview.DatabricksNotebookActivityArgs | inputs.datafactory.v20170901preview.ExecutePipelineActivityArgs | inputs.datafactory.v20170901preview.ExecuteSSISPackageActivityArgs | inputs.datafactory.v20170901preview.ExecutionActivityArgs | inputs.datafactory.v20170901preview.FilterActivityArgs | inputs.datafactory.v20170901preview.ForEachActivityArgs | inputs.datafactory.v20170901preview.GetMetadataActivityArgs | inputs.datafactory.v20170901preview.HDInsightHiveActivityArgs | inputs.datafactory.v20170901preview.HDInsightMapReduceActivityArgs | inputs.datafactory.v20170901preview.HDInsightPigActivityArgs | inputs.datafactory.v20170901preview.HDInsightSparkActivityArgs | inputs.datafactory.v20170901preview.HDInsightStreamingActivityArgs | inputs.datafactory.v20170901preview.IfConditionActivityArgs | inputs.datafactory.v20170901preview.LookupActivityArgs | inputs.datafactory.v20170901preview.SqlServerStoredProcedureActivityArgs | inputs.datafactory.v20170901preview.UntilActivityArgs | inputs.datafactory.v20170901preview.WaitActivityArgs | inputs.datafactory.v20170901preview.WebActivityArgs>[]>;
-    /**
-     * List of tags that can be used for describing the Pipeline.
-     */
-    annotations?: pulumi.Input<any[]>;
-    /**
-     * The max number of concurrent runs for the pipeline.
-     */
-    concurrency?: pulumi.Input<number>;
-    /**
-     * The description of the pipeline.
-     */
-    description?: pulumi.Input<string>;
-    /**
      * The factory name.
      */
     factoryName: pulumi.Input<string>;
     /**
-     * List of parameters for pipeline.
-     */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20170901preview.ParameterSpecificationArgs>}>;
-    /**
      * The pipeline name.
      */
     pipelineName?: pulumi.Input<string>;
+    /**
+     * Properties of the pipeline.
+     */
+    properties: pulumi.Input<inputs.datafactory.v20170901preview.PipelineArgs>;
     /**
      * The resource group name.
      */

@@ -18,8 +18,7 @@ class CassandraResourceCassandraTableArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  keyspace_name: pulumi.Input[str],
-                 options: pulumi.Input['CreateUpdateOptionsArgs'],
-                 resource: pulumi.Input['CassandraTableResourceArgs'],
+                 properties: pulumi.Input['CassandraTableCreateUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -28,8 +27,7 @@ class CassandraResourceCassandraTableArgs:
         The set of arguments for constructing a CassandraResourceCassandraTable resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] keyspace_name: Cosmos DB keyspace name.
-        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input['CassandraTableResourceArgs'] resource: The standard JSON format of a Cassandra table
+        :param pulumi.Input['CassandraTableCreateUpdatePropertiesArgs'] properties: Properties to create and update Azure Cosmos DB Cassandra table.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[str] table_name: Cosmos DB table name.
@@ -37,8 +35,7 @@ class CassandraResourceCassandraTableArgs:
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "keyspace_name", keyspace_name)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -73,27 +70,15 @@ class CassandraResourceCassandraTableArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input['CreateUpdateOptionsArgs']:
+    def properties(self) -> pulumi.Input['CassandraTableCreateUpdatePropertiesArgs']:
         """
-        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        Properties to create and update Azure Cosmos DB Cassandra table.
         """
-        return pulumi.get(self, "options")
+        return pulumi.get(self, "properties")
 
-    @options.setter
-    def options(self, value: pulumi.Input['CreateUpdateOptionsArgs']):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> pulumi.Input['CassandraTableResourceArgs']:
-        """
-        The standard JSON format of a Cassandra table
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: pulumi.Input['CassandraTableResourceArgs']):
-        pulumi.set(self, "resource", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CassandraTableCreateUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -157,8 +142,7 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CassandraTableCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -171,8 +155,7 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] keyspace_name: Cosmos DB keyspace name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']] resource: The standard JSON format of a Cassandra table
+        :param pulumi.Input[pulumi.InputType['CassandraTableCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB Cassandra table.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] table_name: Cosmos DB table name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -204,8 +187,7 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['CassandraTableResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CassandraTableCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -226,18 +208,16 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'keyspace_name'")
             __props__.__dict__["keyspace_name"] = keyspace_name
             __props__.__dict__["location"] = location
-            if options is None and not opts.urn:
-                raise TypeError("Missing required property 'options'")
-            __props__.__dict__["options"] = options
-            if resource is None and not opts.urn:
-                raise TypeError("Missing required property 'resource'")
-            __props__.__dict__["resource"] = resource
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["resource"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20150401:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20150408:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20151106:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20160319:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20160331:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20190801:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20200301:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20200401:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20200901:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210115:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210315:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210415:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210515:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210615:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20211015:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20220515:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20220815:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable"), pulumi.Alias(type_="azure-native:documentdb/v20221115:CassandraResourceCassandraTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

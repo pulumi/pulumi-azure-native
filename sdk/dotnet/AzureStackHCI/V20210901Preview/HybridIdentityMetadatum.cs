@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Identity for the resource.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponse> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The Public Key.
-        /// </summary>
-        [Output("publicKey")]
-        public Output<string?> PublicKey { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique identifier for the resource.
-        /// </summary>
-        [Output("resourceUid")]
-        public Output<string?> ResourceUid { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.HybridIdentityMetadataPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -109,22 +91,16 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         public Input<string>? MetadataName { get; set; }
 
         /// <summary>
-        /// The Public Key.
+        /// Resource properties.
         /// </summary>
-        [Input("publicKey")]
-        public Input<string>? PublicKey { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.HybridIdentityMetadataPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The unique identifier for the resource.
-        /// </summary>
-        [Input("resourceUid")]
-        public Input<string>? ResourceUid { get; set; }
 
         /// <summary>
         /// Name of the vm.

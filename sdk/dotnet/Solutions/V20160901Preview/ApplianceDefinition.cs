@@ -17,30 +17,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
     public partial class ApplianceDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-        /// </summary>
-        [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ApplianceArtifactResponse>> Artifacts { get; private set; } = null!;
-
-        /// <summary>
-        /// The appliance provider authorizations.
-        /// </summary>
-        [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse>> Authorizations { get; private set; } = null!;
-
-        /// <summary>
-        /// The appliance definition description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The appliance definition display name.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
@@ -51,12 +27,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The appliance lock level.
-        /// </summary>
-        [Output("lockLevel")]
-        public Output<string> LockLevel { get; private set; } = null!;
 
         /// <summary>
         /// ID of the resource that manages this resource.
@@ -71,10 +41,10 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The appliance definition package file Uri.
+        /// The appliance definition properties.
         /// </summary>
-        [Output("packageFileUri")]
-        public Output<string> PackageFileUri { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ApplianceDefinitionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
@@ -159,42 +129,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         [Input("applianceDefinitionName")]
         public Input<string>? ApplianceDefinitionName { get; set; }
 
-        [Input("artifacts")]
-        private InputList<Inputs.ApplianceArtifactArgs>? _artifacts;
-
-        /// <summary>
-        /// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-        /// </summary>
-        public InputList<Inputs.ApplianceArtifactArgs> Artifacts
-        {
-            get => _artifacts ?? (_artifacts = new InputList<Inputs.ApplianceArtifactArgs>());
-            set => _artifacts = value;
-        }
-
-        [Input("authorizations", required: true)]
-        private InputList<Inputs.ApplianceProviderAuthorizationArgs>? _authorizations;
-
-        /// <summary>
-        /// The appliance provider authorizations.
-        /// </summary>
-        public InputList<Inputs.ApplianceProviderAuthorizationArgs> Authorizations
-        {
-            get => _authorizations ?? (_authorizations = new InputList<Inputs.ApplianceProviderAuthorizationArgs>());
-            set => _authorizations = value;
-        }
-
-        /// <summary>
-        /// The appliance definition description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The appliance definition display name.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
         /// <summary>
         /// The identity of the resource.
         /// </summary>
@@ -208,22 +142,16 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The appliance lock level.
-        /// </summary>
-        [Input("lockLevel", required: true)]
-        public Input<Pulumi.AzureNative.Solutions.V20160901Preview.ApplianceLockLevel> LockLevel { get; set; } = null!;
-
-        /// <summary>
         /// ID of the resource that manages this resource.
         /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
-        /// The appliance definition package file Uri.
+        /// The appliance definition properties.
         /// </summary>
-        [Input("packageFileUri", required: true)]
-        public Input<string> PackageFileUri { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ApplianceDefinitionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

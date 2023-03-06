@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdaptiveApplicationControlGroupDataResponse',
     'AdaptiveApplicationControlIssueSummaryResponse',
     'AdditionalWorkspacesPropertiesResponse',
     'AllowlistCustomAlertRuleResponse',
@@ -47,6 +48,7 @@ __all__ = [
     'InformationProtectionAwsOfferingResponse',
     'InformationProtectionAwsOfferingResponseInformationProtection',
     'IngestionConnectionStringResponse',
+    'JitNetworkAccessPolicyPropertiesResponse',
     'JitNetworkAccessPolicyVirtualMachineResponse',
     'JitNetworkAccessPortRuleResponse',
     'JitNetworkAccessRequestPortResponse',
@@ -77,6 +79,126 @@ __all__ = [
     'UserRecommendationResponse',
     'VmRecommendationResponse',
 ]
+
+@pulumi.output_type
+class AdaptiveApplicationControlGroupDataResponse(dict):
+    """
+    Represents a machines group and set of rules to be allowed running on a machine
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationStatus":
+            suggest = "configuration_status"
+        elif key == "recommendationStatus":
+            suggest = "recommendation_status"
+        elif key == "sourceSystem":
+            suggest = "source_system"
+        elif key == "enforcementMode":
+            suggest = "enforcement_mode"
+        elif key == "pathRecommendations":
+            suggest = "path_recommendations"
+        elif key == "protectionMode":
+            suggest = "protection_mode"
+        elif key == "vmRecommendations":
+            suggest = "vm_recommendations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdaptiveApplicationControlGroupDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdaptiveApplicationControlGroupDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdaptiveApplicationControlGroupDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_status: str,
+                 issues: Sequence['outputs.AdaptiveApplicationControlIssueSummaryResponse'],
+                 recommendation_status: str,
+                 source_system: str,
+                 enforcement_mode: Optional[str] = None,
+                 path_recommendations: Optional[Sequence['outputs.PathRecommendationResponse']] = None,
+                 protection_mode: Optional['outputs.ProtectionModeResponse'] = None,
+                 vm_recommendations: Optional[Sequence['outputs.VmRecommendationResponse']] = None):
+        """
+        Represents a machines group and set of rules to be allowed running on a machine
+        :param str configuration_status: The configuration status of the machines group or machine or rule
+        :param str recommendation_status: The initial recommendation status of the machine group or machine
+        :param str source_system: The source type of the machine group
+        :param str enforcement_mode: The application control policy enforcement/protection mode of the machine group
+        :param 'ProtectionModeResponse' protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        pulumi.set(__self__, "configuration_status", configuration_status)
+        pulumi.set(__self__, "issues", issues)
+        pulumi.set(__self__, "recommendation_status", recommendation_status)
+        pulumi.set(__self__, "source_system", source_system)
+        if enforcement_mode is not None:
+            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if path_recommendations is not None:
+            pulumi.set(__self__, "path_recommendations", path_recommendations)
+        if protection_mode is not None:
+            pulumi.set(__self__, "protection_mode", protection_mode)
+        if vm_recommendations is not None:
+            pulumi.set(__self__, "vm_recommendations", vm_recommendations)
+
+    @property
+    @pulumi.getter(name="configurationStatus")
+    def configuration_status(self) -> str:
+        """
+        The configuration status of the machines group or machine or rule
+        """
+        return pulumi.get(self, "configuration_status")
+
+    @property
+    @pulumi.getter
+    def issues(self) -> Sequence['outputs.AdaptiveApplicationControlIssueSummaryResponse']:
+        return pulumi.get(self, "issues")
+
+    @property
+    @pulumi.getter(name="recommendationStatus")
+    def recommendation_status(self) -> str:
+        """
+        The initial recommendation status of the machine group or machine
+        """
+        return pulumi.get(self, "recommendation_status")
+
+    @property
+    @pulumi.getter(name="sourceSystem")
+    def source_system(self) -> str:
+        """
+        The source type of the machine group
+        """
+        return pulumi.get(self, "source_system")
+
+    @property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional[str]:
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+        return pulumi.get(self, "enforcement_mode")
+
+    @property
+    @pulumi.getter(name="pathRecommendations")
+    def path_recommendations(self) -> Optional[Sequence['outputs.PathRecommendationResponse']]:
+        return pulumi.get(self, "path_recommendations")
+
+    @property
+    @pulumi.getter(name="protectionMode")
+    def protection_mode(self) -> Optional['outputs.ProtectionModeResponse']:
+        """
+        The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        return pulumi.get(self, "protection_mode")
+
+    @property
+    @pulumi.getter(name="vmRecommendations")
+    def vm_recommendations(self) -> Optional[Sequence['outputs.VmRecommendationResponse']]:
+        return pulumi.get(self, "vm_recommendations")
+
 
 @pulumi.output_type
 class AdaptiveApplicationControlIssueSummaryResponse(dict):
@@ -2296,6 +2418,62 @@ class IngestionConnectionStringResponse(dict):
         Connection string value
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JitNetworkAccessPolicyPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "virtualMachines":
+            suggest = "virtual_machines"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JitNetworkAccessPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JitNetworkAccessPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JitNetworkAccessPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 virtual_machines: Sequence['outputs.JitNetworkAccessPolicyVirtualMachineResponse'],
+                 requests: Optional[Sequence['outputs.JitNetworkAccessRequestResponse']] = None):
+        """
+        :param str provisioning_state: Gets the provisioning state of the Just-in-Time policy.
+        :param Sequence['JitNetworkAccessPolicyVirtualMachineResponse'] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "virtual_machines", virtual_machines)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the provisioning state of the Just-in-Time policy.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> Sequence['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
+        """
+        Configurations for Microsoft.Compute/virtualMachines resource type.
+        """
+        return pulumi.get(self, "virtual_machines")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.JitNetworkAccessRequestResponse']]:
+        return pulumi.get(self, "requests")
 
 
 @pulumi.output_type

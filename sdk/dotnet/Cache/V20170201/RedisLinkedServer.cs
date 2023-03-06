@@ -110,18 +110,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
     public sealed class RedisLinkedServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified resourceId of the linked redis cache.
-        /// </summary>
-        [Input("linkedRedisCacheId", required: true)]
-        public Input<string> LinkedRedisCacheId { get; set; } = null!;
-
-        /// <summary>
-        /// Location of the linked redis cache.
-        /// </summary>
-        [Input("linkedRedisCacheLocation", required: true)]
-        public Input<string> LinkedRedisCacheLocation { get; set; } = null!;
-
-        /// <summary>
         /// The name of the linked server that is being added to the Redis cache.
         /// </summary>
         [Input("linkedServerName")]
@@ -134,16 +122,16 @@ namespace Pulumi.AzureNative.Cache.V20170201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Properties required to create a linked server.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.RedisLinkedServerCreatePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Role of the linked server.
-        /// </summary>
-        [Input("serverRole", required: true)]
-        public Input<Pulumi.AzureNative.Cache.V20170201.ReplicationRole> ServerRole { get; set; } = null!;
 
         public RedisLinkedServerArgs()
         {

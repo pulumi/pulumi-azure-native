@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("libraries")]
-        private InputList<ImmutableDictionary<string, object>>? _libraries;
-
-        /// <summary>
-        /// A list of libraries to be installed on the cluster that will execute the job.
-        /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Libraries
-        {
-            get => _libraries ?? (_libraries = new InputList<ImmutableDictionary<string, object>>());
-            set => _libraries = value;
-        }
-
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -57,18 +45,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputList<object>? _parameters;
-
-        /// <summary>
-        /// Command line parameters that will be passed to the Python file.
-        /// </summary>
-        public InputList<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<object>());
-            set => _parameters = value;
-        }
-
         /// <summary>
         /// Activity policy.
         /// </summary>
@@ -76,17 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// The URI of the Python file to be executed. DBFS paths are supported. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("pythonFile", required: true)]
-        public Input<object> PythonFile { get; set; } = null!;
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'DatabricksSparkPython'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Databricks SparkPython activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DatabricksSparkPythonActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

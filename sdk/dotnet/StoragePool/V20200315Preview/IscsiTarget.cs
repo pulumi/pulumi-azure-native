@@ -22,28 +22,10 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the operation on the resource.
+        /// Properties for iSCSI target operations.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Operational status of the iSCSI target.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        /// </summary>
-        [Output("targetIqn")]
-        public Output<string> TargetIqn { get; private set; } = null!;
-
-        /// <summary>
-        /// List of iSCSI target portal groups. Can have 1 portal group at most.
-        /// </summary>
-        [Output("tpgs")]
-        public Output<ImmutableArray<Outputs.TargetPortalGroupResponse>> Tpgs { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IscsiTargetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -115,28 +97,16 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
         public Input<string>? IscsiTargetName { get; set; }
 
         /// <summary>
+        /// Properties for iSCSI target create request.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.IscsiTargetCreatePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        /// </summary>
-        [Input("targetIqn")]
-        public Input<string>? TargetIqn { get; set; }
-
-        [Input("tpgs", required: true)]
-        private InputList<Inputs.TargetPortalGroupCreateArgs>? _tpgs;
-
-        /// <summary>
-        /// List of iSCSI target portal groups. Can have 1 portal group at most.
-        /// </summary>
-        public InputList<Inputs.TargetPortalGroupCreateArgs> Tpgs
-        {
-            get => _tpgs ?? (_tpgs = new InputList<Inputs.TargetPortalGroupCreateArgs>());
-            set => _tpgs = value;
-        }
 
         public IscsiTargetArgs()
         {

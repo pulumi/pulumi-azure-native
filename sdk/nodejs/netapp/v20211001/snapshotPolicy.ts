@@ -38,37 +38,21 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Schedule for daily snapshots
-     */
-    public readonly dailySchedule!: pulumi.Output<outputs.netapp.v20211001.DailyScheduleResponse | undefined>;
-    /**
-     * The property to decide policy is enabled or not
-     */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * Schedule for hourly snapshots
-     */
-    public readonly hourlySchedule!: pulumi.Output<outputs.netapp.v20211001.HourlyScheduleResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Schedule for monthly snapshots
-     */
-    public readonly monthlySchedule!: pulumi.Output<outputs.netapp.v20211001.MonthlyScheduleResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure lifecycle management
+     * Snapshot policy Properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20211001.SnapshotPolicyPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -81,10 +65,6 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Schedule for weekly snapshots
-     */
-    public readonly weeklySchedule!: pulumi.Output<outputs.netapp.v20211001.WeeklyScheduleResponse | undefined>;
 
     /**
      * Create a SnapshotPolicy resource with the given unique name, arguments, and options.
@@ -100,37 +80,30 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dailySchedule"] = args ? args.dailySchedule : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dailySchedule"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["hourlySchedule"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["monthlySchedule"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["weeklySchedule"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:SnapshotPolicy" }, { type: "azure-native:netapp/v20200501:SnapshotPolicy" }, { type: "azure-native:netapp/v20200601:SnapshotPolicy" }, { type: "azure-native:netapp/v20200701:SnapshotPolicy" }, { type: "azure-native:netapp/v20200801:SnapshotPolicy" }, { type: "azure-native:netapp/v20200901:SnapshotPolicy" }, { type: "azure-native:netapp/v20201101:SnapshotPolicy" }, { type: "azure-native:netapp/v20201201:SnapshotPolicy" }, { type: "azure-native:netapp/v20210201:SnapshotPolicy" }, { type: "azure-native:netapp/v20210401:SnapshotPolicy" }, { type: "azure-native:netapp/v20210401preview:SnapshotPolicy" }, { type: "azure-native:netapp/v20210601:SnapshotPolicy" }, { type: "azure-native:netapp/v20210801:SnapshotPolicy" }, { type: "azure-native:netapp/v20220101:SnapshotPolicy" }, { type: "azure-native:netapp/v20220301:SnapshotPolicy" }, { type: "azure-native:netapp/v20220501:SnapshotPolicy" }, { type: "azure-native:netapp/v20220901:SnapshotPolicy" }] };
@@ -148,25 +121,13 @@ export interface SnapshotPolicyArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Schedule for daily snapshots
-     */
-    dailySchedule?: pulumi.Input<inputs.netapp.v20211001.DailyScheduleArgs>;
-    /**
-     * The property to decide policy is enabled or not
-     */
-    enabled?: pulumi.Input<boolean>;
-    /**
-     * Schedule for hourly snapshots
-     */
-    hourlySchedule?: pulumi.Input<inputs.netapp.v20211001.HourlyScheduleArgs>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Schedule for monthly snapshots
+     * Snapshot policy Properties
      */
-    monthlySchedule?: pulumi.Input<inputs.netapp.v20211001.MonthlyScheduleArgs>;
+    properties: pulumi.Input<inputs.netapp.v20211001.SnapshotPolicyPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -179,8 +140,4 @@ export interface SnapshotPolicyArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Schedule for weekly snapshots
-     */
-    weeklySchedule?: pulumi.Input<inputs.netapp.v20211001.WeeklyScheduleArgs>;
 }

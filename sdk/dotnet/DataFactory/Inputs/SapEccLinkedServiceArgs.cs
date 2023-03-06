@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<string>? EncryptedCredential { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -58,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The password for Basic authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapEcc'.
         /// </summary>
@@ -71,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
+        /// SAP ECC linked service properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        /// <summary>
-        /// The username for Basic authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapEccLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapEccLinkedServiceArgs()
         {

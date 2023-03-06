@@ -116,34 +116,22 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the description of the variable.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the encrypted flag of the variable.
-        /// </summary>
-        [Input("isEncrypted")]
-        public Input<bool>? IsEncrypted { get; set; }
-
-        /// <summary>
         /// Gets or sets the name of the variable.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets the properties of the variable.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.VariableCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the value of the variable.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
 
         /// <summary>
         /// The variable name.

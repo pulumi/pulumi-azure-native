@@ -38,32 +38,9 @@ export class ResourcePool extends pulumi.CustomResource {
     }
 
     /**
-     * Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
-     * Utilization will not exceed this limit even if there are available resources.
-     */
-    public /*out*/ readonly cpuLimitMHz!: pulumi.Output<number>;
-    /**
-     * Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
-     * to be available.
-     */
-    public /*out*/ readonly cpuReservationMHz!: pulumi.Output<number>;
-    /**
-     * Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
-     * This property is used in relative allocation between resource consumers.
-     */
-    public /*out*/ readonly cpuSharesLevel!: pulumi.Output<string>;
-    /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
-    /**
      * Gets or sets the extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.v20201001preview.ExtendedLocationResponse | undefined>;
-    /**
-     * Gets or sets the inventory Item ID for the resource pool.
-     */
-    public readonly inventoryItemId!: pulumi.Output<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -73,40 +50,13 @@ export class ResourcePool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
-     * Utilization will not exceed the specified limit even if there are available resources.
-     */
-    public /*out*/ readonly memLimitMB!: pulumi.Output<number>;
-    /**
-     * Gets or sets MemReservationMB which specifies the guaranteed available memory in
-     * megabytes.
-     */
-    public /*out*/ readonly memReservationMB!: pulumi.Output<number>;
-    /**
-     * Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
-     * This property is used in relative allocation between resource consumers.
-     */
-    public /*out*/ readonly memSharesLevel!: pulumi.Output<string>;
-    /**
-     * Gets or sets the vCenter Managed Object name for the resource pool.
-     */
-    public /*out*/ readonly moName!: pulumi.Output<string>;
-    /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
-     */
-    public readonly moRefId!: pulumi.Output<string | undefined>;
-    /**
      * Gets or sets the name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resource status information.
-     */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.v20201001preview.ResourceStatusResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.connectedvmwarevsphere.v20201001preview.ResourcePoolPropertiesResponse>;
     /**
      * The system data.
      */
@@ -119,14 +69,6 @@ export class ResourcePool extends pulumi.CustomResource {
      * Gets or sets the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-     */
-    public readonly vCenterId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResourcePool resource with the given unique name, arguments, and options.
@@ -139,54 +81,31 @@ export class ResourcePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourcePoolName"] = args ? args.resourcePoolName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
-            resourceInputs["cpuLimitMHz"] = undefined /*out*/;
-            resourceInputs["cpuReservationMHz"] = undefined /*out*/;
-            resourceInputs["cpuSharesLevel"] = undefined /*out*/;
-            resourceInputs["customResourceName"] = undefined /*out*/;
-            resourceInputs["memLimitMB"] = undefined /*out*/;
-            resourceInputs["memReservationMB"] = undefined /*out*/;
-            resourceInputs["memSharesLevel"] = undefined /*out*/;
-            resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
         } else {
-            resourceInputs["cpuLimitMHz"] = undefined /*out*/;
-            resourceInputs["cpuReservationMHz"] = undefined /*out*/;
-            resourceInputs["cpuSharesLevel"] = undefined /*out*/;
-            resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["memLimitMB"] = undefined /*out*/;
-            resourceInputs["memReservationMB"] = undefined /*out*/;
-            resourceInputs["memSharesLevel"] = undefined /*out*/;
-            resourceInputs["moName"] = undefined /*out*/;
-            resourceInputs["moRefId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["vCenterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:ResourcePool" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool" }] };
@@ -204,10 +123,6 @@ export interface ResourcePoolArgs {
      */
     extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.v20201001preview.ExtendedLocationArgs>;
     /**
-     * Gets or sets the inventory Item ID for the resource pool.
-     */
-    inventoryItemId?: pulumi.Input<string>;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     kind?: pulumi.Input<string>;
@@ -216,9 +131,9 @@ export interface ResourcePoolArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+     * Resource properties.
      */
-    moRefId?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.connectedvmwarevsphere.v20201001preview.ResourcePoolPropertiesArgs>;
     /**
      * The Resource Group Name.
      */
@@ -231,8 +146,4 @@ export interface ResourcePoolArgs {
      * Gets or sets the Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-     */
-    vCenterId?: pulumi.Input<string>;
 }

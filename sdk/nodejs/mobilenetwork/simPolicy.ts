@@ -51,10 +51,6 @@ export class SimPolicy extends pulumi.CustomResource {
      */
     public readonly createdByType!: pulumi.Output<string | undefined>;
     /**
-     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
-     */
-    public readonly defaultSlice!: pulumi.Output<outputs.mobilenetwork.SliceResourceIdResponse>;
-    /**
      * The timestamp of resource last modification (UTC)
      */
     public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
@@ -75,21 +71,9 @@ export class SimPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the SIM policy resource.
+     * SIM policy Properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Interval for the UE periodic registration update procedure, in seconds.
-     */
-    public readonly registrationTimer!: pulumi.Output<number | undefined>;
-    /**
-     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
-     */
-    public readonly rfspIndex!: pulumi.Output<number | undefined>;
-    /**
-     * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-     */
-    public readonly sliceConfigurations!: pulumi.Output<outputs.mobilenetwork.SliceConfigurationResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.SimPolicyPropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -102,10 +86,6 @@ export class SimPolicy extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-     */
-    public readonly ueAmbr!: pulumi.Output<outputs.mobilenetwork.AmbrResponse>;
 
     /**
      * Create a SimPolicy resource with the given unique name, arguments, and options.
@@ -118,59 +98,43 @@ export class SimPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultSlice === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'defaultSlice'");
-            }
             if ((!args || args.mobileNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sliceConfigurations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sliceConfigurations'");
-            }
-            if ((!args || args.ueAmbr === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ueAmbr'");
-            }
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["defaultSlice"] = args ? args.defaultSlice : undefined;
             resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
-            resourceInputs["registrationTimer"] = (args ? args.registrationTimer : undefined) ?? 3240;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.mobilenetwork.simPolicyPropertiesFormatArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rfspIndex"] = args ? args.rfspIndex : undefined;
             resourceInputs["simPolicyName"] = args ? args.simPolicyName : undefined;
-            resourceInputs["sliceConfigurations"] = args ? args.sliceConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ueAmbr"] = args ? args.ueAmbr : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;
-            resourceInputs["defaultSlice"] = undefined /*out*/;
             resourceInputs["lastModifiedAt"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["registrationTimer"] = undefined /*out*/;
-            resourceInputs["rfspIndex"] = undefined /*out*/;
-            resourceInputs["sliceConfigurations"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["ueAmbr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20220401preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20221101:SimPolicy" }] };
@@ -196,10 +160,6 @@ export interface SimPolicyArgs {
      */
     createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
-     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
-     */
-    defaultSlice: pulumi.Input<inputs.mobilenetwork.SliceResourceIdArgs>;
-    /**
      * The timestamp of resource last modification (UTC)
      */
     lastModifiedAt?: pulumi.Input<string>;
@@ -220,31 +180,19 @@ export interface SimPolicyArgs {
      */
     mobileNetworkName: pulumi.Input<string>;
     /**
-     * Interval for the UE periodic registration update procedure, in seconds.
+     * SIM policy Properties.
      */
-    registrationTimer?: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.mobilenetwork.SimPolicyPropertiesFormatArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
-     */
-    rfspIndex?: pulumi.Input<number>;
-    /**
      * The name of the SIM policy.
      */
     simPolicyName?: pulumi.Input<string>;
     /**
-     * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-     */
-    sliceConfigurations: pulumi.Input<pulumi.Input<inputs.mobilenetwork.SliceConfigurationArgs>[]>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-     */
-    ueAmbr: pulumi.Input<inputs.mobilenetwork.AmbrArgs>;
 }

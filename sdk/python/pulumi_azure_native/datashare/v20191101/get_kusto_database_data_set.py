@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetKustoDatabaseDataSetResult',
@@ -21,39 +22,22 @@ class GetKustoDatabaseDataSetResult:
     """
     A kusto database data set.
     """
-    def __init__(__self__, data_set_id=None, id=None, kind=None, kusto_database_resource_id=None, location=None, name=None, provisioning_state=None, type=None):
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
-        if kusto_database_resource_id and not isinstance(kusto_database_resource_id, str):
-            raise TypeError("Expected argument 'kusto_database_resource_id' to be a str")
-        pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -73,22 +57,6 @@ class GetKustoDatabaseDataSetResult:
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="kustoDatabaseResourceId")
-    def kusto_database_resource_id(self) -> str:
-        """
-        Resource id of the kusto database.
-        """
-        return pulumi.get(self, "kusto_database_resource_id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        Location of the kusto cluster.
-        """
-        return pulumi.get(self, "location")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -97,12 +65,12 @@ class GetKustoDatabaseDataSetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.KustoDatabaseDataSetPropertiesResponse':
         """
-        Provisioning state of the kusto database data set.
+        Kusto database data set properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -119,13 +87,10 @@ class AwaitableGetKustoDatabaseDataSetResult(GetKustoDatabaseDataSetResult):
         if False:
             yield self
         return GetKustoDatabaseDataSetResult(
-            data_set_id=self.data_set_id,
             id=self.id,
             kind=self.kind,
-            kusto_database_resource_id=self.kusto_database_resource_id,
-            location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             type=self.type)
 
 
@@ -152,13 +117,10 @@ def get_kusto_database_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20191101:getKustoDatabaseDataSet', __args__, opts=opts, typ=GetKustoDatabaseDataSetResult).value
 
     return AwaitableGetKustoDatabaseDataSetResult(
-        data_set_id=__ret__.data_set_id,
         id=__ret__.id,
         kind=__ret__.kind,
-        kusto_database_resource_id=__ret__.kusto_database_resource_id,
-        location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

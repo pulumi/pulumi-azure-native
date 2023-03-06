@@ -78,15 +78,17 @@ export class B2CTenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -118,17 +120,10 @@ export class B2CTenant extends pulumi.CustomResource {
  */
 export interface B2CTenantArgs {
     /**
-     * Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
-     */
-    countryCode?: pulumi.Input<string>;
-    /**
-     * The display name of the Azure AD B2C tenant.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     location?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.azureactivedirectory.v20210401.CreateTenantRequestBodyPropertiesArgs>;
     /**
      * The name of the resource group.
      */

@@ -16,40 +16,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
     public partial class ScalingPlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Description of scaling plan.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Exclusion tag for scaling plan.
-        /// </summary>
-        [Output("exclusionTag")]
-        public Output<string?> ExclusionTag { get; private set; } = null!;
-
-        /// <summary>
-        /// User friendly name of scaling plan.
-        /// </summary>
-        [Output("friendlyName")]
-        public Output<string?> FriendlyName { get; private set; } = null!;
-
-        /// <summary>
-        /// List of ScalingHostPoolReference definitions.
-        /// </summary>
-        [Output("hostPoolReferences")]
-        public Output<ImmutableArray<Outputs.ScalingHostPoolReferenceResponse>> HostPoolReferences { get; private set; } = null!;
-
-        /// <summary>
-        /// HostPool type for desktop.
-        /// </summary>
-        [Output("hostPoolType")]
-        public Output<string?> HostPoolType { get; private set; } = null!;
 
         [Output("identity")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
@@ -78,20 +48,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// ObjectId of scaling plan. (internal use)
-        /// </summary>
-        [Output("objectId")]
-        public Output<string> ObjectId { get; private set; } = null!;
-
         [Output("plan")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// List of ScalingPlanPooledSchedule definitions.
+        /// Detailed properties for scaling plan.
         /// </summary>
-        [Output("schedules")]
-        public Output<ImmutableArray<Outputs.ScalingScheduleResponse>> Schedules { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ScalingPlanPropertiesResponse> Properties { get; private set; } = null!;
 
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
@@ -107,12 +71,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Timezone of the scaling plan.
-        /// </summary>
-        [Output("timeZone")]
-        public Output<string> TimeZone { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -179,42 +137,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
 
     public sealed class ScalingPlanArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of scaling plan.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Exclusion tag for scaling plan.
-        /// </summary>
-        [Input("exclusionTag")]
-        public Input<string>? ExclusionTag { get; set; }
-
-        /// <summary>
-        /// User friendly name of scaling plan.
-        /// </summary>
-        [Input("friendlyName")]
-        public Input<string>? FriendlyName { get; set; }
-
-        [Input("hostPoolReferences")]
-        private InputList<Inputs.ScalingHostPoolReferenceArgs>? _hostPoolReferences;
-
-        /// <summary>
-        /// List of ScalingHostPoolReference definitions.
-        /// </summary>
-        public InputList<Inputs.ScalingHostPoolReferenceArgs> HostPoolReferences
-        {
-            get => _hostPoolReferences ?? (_hostPoolReferences = new InputList<Inputs.ScalingHostPoolReferenceArgs>());
-            set => _hostPoolReferences = value;
-        }
-
-        /// <summary>
-        /// HostPool type for desktop.
-        /// </summary>
-        [Input("hostPoolType")]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20220909.ScalingHostPoolType>? HostPoolType { get; set; }
-
         [Input("identity")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
 
@@ -240,6 +162,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
         public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
 
         /// <summary>
+        /// Detailed properties for scaling plan.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ScalingPlanPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -250,18 +178,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
         /// </summary>
         [Input("scalingPlanName")]
         public Input<string>? ScalingPlanName { get; set; }
-
-        [Input("schedules")]
-        private InputList<Inputs.ScalingScheduleArgs>? _schedules;
-
-        /// <summary>
-        /// List of ScalingPlanPooledSchedule definitions.
-        /// </summary>
-        public InputList<Inputs.ScalingScheduleArgs> Schedules
-        {
-            get => _schedules ?? (_schedules = new InputList<Inputs.ScalingScheduleArgs>());
-            set => _schedules = value;
-        }
 
         [Input("sku")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
@@ -278,15 +194,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Timezone of the scaling plan.
-        /// </summary>
-        [Input("timeZone", required: true)]
-        public Input<string> TimeZone { get; set; } = null!;
-
         public ScalingPlanArgs()
         {
-            HostPoolType = "Pooled";
         }
         public static new ScalingPlanArgs Empty => new ScalingPlanArgs();
     }

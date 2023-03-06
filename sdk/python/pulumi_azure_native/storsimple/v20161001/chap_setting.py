@@ -19,20 +19,20 @@ class ChapSettingArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
-                 password: pulumi.Input['AsymmetricEncryptedSecretArgs'],
+                 properties: pulumi.Input['ChapPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  chap_user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ChapSetting resource.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] password: The chap password.
+        :param pulumi.Input['ChapPropertiesArgs'] properties: Chap properties
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] chap_user_name: The chap user name.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if chap_user_name is not None:
             pulumi.set(__self__, "chap_user_name", chap_user_name)
@@ -63,15 +63,15 @@ class ChapSettingArgs:
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input['AsymmetricEncryptedSecretArgs']:
+    def properties(self) -> pulumi.Input['ChapPropertiesArgs']:
         """
-        The chap password.
+        Chap properties
         """
-        return pulumi.get(self, "password")
+        return pulumi.get(self, "properties")
 
-    @password.setter
-    def password(self, value: pulumi.Input['AsymmetricEncryptedSecretArgs']):
-        pulumi.set(self, "password", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ChapPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -111,7 +111,7 @@ class ChapSetting(pulumi.CustomResource):
                  chap_user_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ChapPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -122,7 +122,7 @@ class ChapSetting(pulumi.CustomResource):
         :param pulumi.Input[str] chap_user_name: The chap user name.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] password: The chap password.
+        :param pulumi.Input[pulumi.InputType['ChapPropertiesArgs']] properties: Chap properties
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         ...
@@ -152,7 +152,7 @@ class ChapSetting(pulumi.CustomResource):
                  chap_user_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ChapPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""ChapSetting is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
@@ -171,9 +171,9 @@ class ChapSetting(pulumi.CustomResource):
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -202,7 +202,7 @@ class ChapSetting(pulumi.CustomResource):
         __props__ = ChapSettingArgs.__new__(ChapSettingArgs)
 
         __props__.__dict__["name"] = None
-        __props__.__dict__["password"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ChapSetting(resource_name, opts=opts, __props__=__props__)
 
@@ -216,11 +216,11 @@ class ChapSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output['outputs.AsymmetricEncryptedSecretResponse']:
+    def properties(self) -> pulumi.Output['outputs.ChapPropertiesResponse']:
         """
-        The chap password.
+        Chap properties
         """
-        return pulumi.get(self, "password")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

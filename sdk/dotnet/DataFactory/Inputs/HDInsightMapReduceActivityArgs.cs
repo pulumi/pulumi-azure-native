@@ -15,36 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class HDInsightMapReduceActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("arguments")]
-        private InputList<object>? _arguments;
-
-        /// <summary>
-        /// User specified arguments to HDInsightActivity.
-        /// </summary>
-        public InputList<object> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputList<object>());
-            set => _arguments = value;
-        }
-
-        /// <summary>
-        /// Class name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("className", required: true)]
-        public Input<object> ClassName { get; set; } = null!;
-
-        [Input("defines")]
-        private InputMap<object>? _defines;
-
-        /// <summary>
-        /// Allows user to specify defines for the MapReduce job request.
-        /// </summary>
-        public InputMap<object> Defines
-        {
-            get => _defines ?? (_defines = new InputMap<object>());
-            set => _defines = value;
-        }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -64,36 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Debug info option.
-        /// </summary>
-        [Input("getDebugInfo")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.HDInsightActivityDebugInfoOption>? GetDebugInfo { get; set; }
-
-        /// <summary>
-        /// Jar path. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("jarFilePath", required: true)]
-        public Input<object> JarFilePath { get; set; } = null!;
-
-        [Input("jarLibs")]
-        private InputList<object>? _jarLibs;
-
-        /// <summary>
-        /// Jar libs.
-        /// </summary>
-        public InputList<object> JarLibs
-        {
-            get => _jarLibs ?? (_jarLibs = new InputList<object>());
-            set => _jarLibs = value;
-        }
-
-        /// <summary>
-        /// Jar linked service reference.
-        /// </summary>
-        [Input("jarLinkedService")]
-        public Input<Inputs.LinkedServiceReferenceArgs>? JarLinkedService { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName")]
@@ -111,24 +51,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
-        [Input("storageLinkedServices")]
-        private InputList<Inputs.LinkedServiceReferenceArgs>? _storageLinkedServices;
-
-        /// <summary>
-        /// Storage linked service references.
-        /// </summary>
-        public InputList<Inputs.LinkedServiceReferenceArgs> StorageLinkedServices
-        {
-            get => _storageLinkedServices ?? (_storageLinkedServices = new InputList<Inputs.LinkedServiceReferenceArgs>());
-            set => _storageLinkedServices = value;
-        }
-
         /// <summary>
         /// Type of activity.
         /// Expected value is 'HDInsightMapReduce'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// HDInsight MapReduce activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HDInsightMapReduceActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

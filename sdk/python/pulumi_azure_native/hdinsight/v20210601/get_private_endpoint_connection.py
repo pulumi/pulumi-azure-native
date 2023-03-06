@@ -22,25 +22,16 @@ class GetPrivateEndpointConnectionResult:
     """
     The private endpoint connection.
     """
-    def __init__(__self__, id=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if link_identifier and not isinstance(link_identifier, str):
-            raise TypeError("Expected argument 'link_identifier' to be a str")
-        pulumi.set(__self__, "link_identifier", link_identifier)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if private_endpoint and not isinstance(private_endpoint, dict):
-            raise TypeError("Expected argument 'private_endpoint' to be a dict")
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
-            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -57,14 +48,6 @@ class GetPrivateEndpointConnectionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="linkIdentifier")
-    def link_identifier(self) -> str:
-        """
-        The link identifier.
-        """
-        return pulumi.get(self, "link_identifier")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -73,28 +56,12 @@ class GetPrivateEndpointConnectionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
-        The private endpoint of the private endpoint connection
+        The private endpoint connection properties.
         """
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
-        """
-        The private link service connection state.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state, which only appears in the response.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -120,11 +87,8 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             yield self
         return GetPrivateEndpointConnectionResult(
             id=self.id,
-            link_identifier=self.link_identifier,
             name=self.name,
-            private_endpoint=self.private_endpoint,
-            private_link_service_connection_state=self.private_link_service_connection_state,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -150,11 +114,8 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
 
     return AwaitableGetPrivateEndpointConnectionResult(
         id=__ret__.id,
-        link_identifier=__ret__.link_identifier,
         name=__ret__.name,
-        private_endpoint=__ret__.private_endpoint,
-        private_link_service_connection_state=__ret__.private_link_service_connection_state,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

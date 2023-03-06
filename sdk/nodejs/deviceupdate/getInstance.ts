@@ -41,25 +41,9 @@ export interface GetInstanceArgs {
  */
 export interface GetInstanceResult {
     /**
-     * Parent Device Update Account name which Instance belongs to.
-     */
-    readonly accountName: string;
-    /**
-     * Customer-initiated diagnostic log collection storage properties
-     */
-    readonly diagnosticStorageProperties?: outputs.deviceupdate.DiagnosticStoragePropertiesResponse;
-    /**
-     * Enables or Disables the diagnostic logs collection
-     */
-    readonly enableDiagnostics?: boolean;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * List of IoT Hubs associated with the account.
-     */
-    readonly iotHubs?: outputs.deviceupdate.IotHubSettingsResponse[];
     /**
      * The geo-location where the resource lives
      */
@@ -69,9 +53,9 @@ export interface GetInstanceResult {
      */
     readonly name: string;
     /**
-     * Provisioning state.
+     * Device Update instance properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.deviceupdate.InstanceResponseProperties;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

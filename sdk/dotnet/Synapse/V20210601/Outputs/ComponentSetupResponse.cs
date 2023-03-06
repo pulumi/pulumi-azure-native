@@ -17,30 +17,23 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
     public sealed class ComponentSetupResponse
     {
         /// <summary>
-        /// The name of the 3rd party component.
-        /// </summary>
-        public readonly string ComponentName;
-        /// <summary>
-        /// The license key to activate the component.
-        /// </summary>
-        public readonly Outputs.SecureStringResponse? LicenseKey;
-        /// <summary>
         /// The type of custom setup.
         /// Expected value is 'ComponentSetup'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Install 3rd party component type properties.
+        /// </summary>
+        public readonly Outputs.LicensedComponentSetupTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ComponentSetupResponse(
-            string componentName,
+            string type,
 
-            Outputs.SecureStringResponse? licenseKey,
-
-            string type)
+            Outputs.LicensedComponentSetupTypePropertiesResponse typeProperties)
         {
-            ComponentName = componentName;
-            LicenseKey = licenseKey;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The logical name of the entity. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("entityName")]
-        public Input<object>? EntityName { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName", required: true)]
@@ -69,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Dynamics entity dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DynamicsEntityDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public DynamicsEntityDatasetArgs()
         {

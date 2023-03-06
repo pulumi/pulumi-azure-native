@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class CopyActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of cloud data movement units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        [Input("cloudDataMovementUnits")]
-        public Input<object>? CloudDataMovementUnits { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -38,18 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("enableSkipIncompatibleRow")]
-        public Input<object>? EnableSkipIncompatibleRow { get; set; }
-
-        /// <summary>
-        /// Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("enableStaging")]
-        public Input<object>? EnableStaging { get; set; }
 
         [Input("inputs")]
         private InputList<Inputs.DatasetReferenceArgs>? _inputs;
@@ -88,46 +70,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        [Input("parallelCopies")]
-        public Input<object>? ParallelCopies { get; set; }
-
-        /// <summary>
         /// Activity policy.
         /// </summary>
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
-
-        /// <summary>
-        /// Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
-        /// </summary>
-        [Input("redirectIncompatibleRowSettings")]
-        public Input<Inputs.RedirectIncompatibleRowSettingsArgs>? RedirectIncompatibleRowSettings { get; set; }
-
-        /// <summary>
-        /// Copy activity sink.
-        /// </summary>
-        [Input("sink", required: true)]
-        public object Sink { get; set; } = null!;
-
-        /// <summary>
-        /// Copy activity source.
-        /// </summary>
-        [Input("source", required: true)]
-        public object Source { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies interim staging settings when EnableStaging is true.
-        /// </summary>
-        [Input("stagingSettings")]
-        public Input<Inputs.StagingSettingsArgs>? StagingSettings { get; set; }
-
-        /// <summary>
-        /// Copy activity translator. If not specified, tabular translator is used.
-        /// </summary>
-        [Input("translator")]
-        public Input<object>? Translator { get; set; }
 
         /// <summary>
         /// Type of activity.
@@ -135,6 +81,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Copy activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CopyActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public CopyActivityArgs()
         {

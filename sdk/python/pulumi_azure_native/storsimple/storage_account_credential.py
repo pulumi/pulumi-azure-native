@@ -17,45 +17,26 @@ __all__ = ['StorageAccountCredentialArgs', 'StorageAccountCredential']
 @pulumi.input_type
 class StorageAccountCredentialArgs:
     def __init__(__self__, *,
-                 end_point: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
+                 properties: pulumi.Input['StorageAccountCredentialPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 ssl_status: pulumi.Input['SslStatus'],
-                 access_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  storage_account_credential_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StorageAccountCredential resource.
-        :param pulumi.Input[str] end_point: The storage endpoint
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['StorageAccountCredentialPropertiesArgs'] properties: The storage account credential properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input['SslStatus'] ssl_status: Signifies whether SSL needs to be enabled or not.
-        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] access_key: The details of the storage account password.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] storage_account_credential_name: The storage account credential name.
         """
-        pulumi.set(__self__, "end_point", end_point)
         pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "ssl_status", ssl_status)
-        if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if storage_account_credential_name is not None:
             pulumi.set(__self__, "storage_account_credential_name", storage_account_credential_name)
-
-    @property
-    @pulumi.getter(name="endPoint")
-    def end_point(self) -> pulumi.Input[str]:
-        """
-        The storage endpoint
-        """
-        return pulumi.get(self, "end_point")
-
-    @end_point.setter
-    def end_point(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_point", value)
 
     @property
     @pulumi.getter(name="managerName")
@@ -70,6 +51,18 @@ class StorageAccountCredentialArgs:
         pulumi.set(self, "manager_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['StorageAccountCredentialPropertiesArgs']:
+        """
+        The storage account credential properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['StorageAccountCredentialPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -80,30 +73,6 @@ class StorageAccountCredentialArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sslStatus")
-    def ssl_status(self) -> pulumi.Input['SslStatus']:
-        """
-        Signifies whether SSL needs to be enabled or not.
-        """
-        return pulumi.get(self, "ssl_status")
-
-    @ssl_status.setter
-    def ssl_status(self, value: pulumi.Input['SslStatus']):
-        pulumi.set(self, "ssl_status", value)
-
-    @property
-    @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
-        """
-        The details of the storage account password.
-        """
-        return pulumi.get(self, "access_key")
-
-    @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
-        pulumi.set(self, "access_key", value)
 
     @property
     @pulumi.getter
@@ -135,12 +104,10 @@ class StorageAccountCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 end_point: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['StorageAccountCredentialPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssl_status: Optional[pulumi.Input['SslStatus']] = None,
                  storage_account_credential_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -149,12 +116,10 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] access_key: The details of the storage account password.
-        :param pulumi.Input[str] end_point: The storage endpoint
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[pulumi.InputType['StorageAccountCredentialPropertiesArgs']] properties: The storage account credential properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input['SslStatus'] ssl_status: Signifies whether SSL needs to be enabled or not.
         :param pulumi.Input[str] storage_account_credential_name: The storage account credential name.
         """
         ...
@@ -182,12 +147,10 @@ class StorageAccountCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 end_point: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['StorageAccountCredentialPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssl_status: Optional[pulumi.Input['SslStatus']] = None,
                  storage_account_credential_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -198,24 +161,19 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-            __props__.__dict__["access_key"] = access_key
-            if end_point is None and not opts.urn:
-                raise TypeError("Missing required property 'end_point'")
-            __props__.__dict__["end_point"] = end_point
             __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if ssl_status is None and not opts.urn:
-                raise TypeError("Missing required property 'ssl_status'")
-            __props__.__dict__["ssl_status"] = ssl_status
             __props__.__dict__["storage_account_credential_name"] = storage_account_credential_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["volumes_count"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple/v20161001:StorageAccountCredential"), pulumi.Alias(type_="azure-native:storsimple/v20170601:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
@@ -240,30 +198,11 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-        __props__.__dict__["access_key"] = None
-        __props__.__dict__["end_point"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["ssl_status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["volumes_count"] = None
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accessKey")
-    def access_key(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
-        """
-        The details of the storage account password.
-        """
-        return pulumi.get(self, "access_key")
-
-    @property
-    @pulumi.getter(name="endPoint")
-    def end_point(self) -> pulumi.Output[str]:
-        """
-        The storage endpoint
-        """
-        return pulumi.get(self, "end_point")
 
     @property
     @pulumi.getter
@@ -282,12 +221,12 @@ class StorageAccountCredential(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="sslStatus")
-    def ssl_status(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.StorageAccountCredentialPropertiesResponse']:
         """
-        Signifies whether SSL needs to be enabled or not.
+        The storage account credential properties.
         """
-        return pulumi.get(self, "ssl_status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -296,12 +235,4 @@ class StorageAccountCredential(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumesCount")
-    def volumes_count(self) -> pulumi.Output[int]:
-        """
-        The count of volumes using this storage account credential.
-        """
-        return pulumi.get(self, "volumes_count")
 

@@ -17,70 +17,22 @@ namespace Pulumi.AzureNative.Automation
     public partial class SoftwareUpdateConfigurationByName : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// CreatedBy property, which only appears in the response.
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// Creation time of the resource, which only appears in the response.
-        /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Details of provisioning error
-        /// </summary>
-        [Output("error")]
-        public Output<Outputs.ErrorResponseResponse?> Error { get; private set; } = null!;
-
-        /// <summary>
-        /// LastModifiedBy property, which only appears in the response.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// Last time resource was modified, which only appears in the response.
-        /// </summary>
-        [Output("lastModifiedTime")]
-        public Output<string> LastModifiedTime { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state for the software update configuration, which only appears in the response.
+        /// Software update configuration properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Schedule information for the Software update configuration
-        /// </summary>
-        [Output("scheduleInfo")]
-        public Output<Outputs.SUCSchedulePropertiesResponse> ScheduleInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// Tasks information for the Software update configuration.
-        /// </summary>
-        [Output("tasks")]
-        public Output<Outputs.SoftwareUpdateConfigurationTasksResponse?> Tasks { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SoftwareUpdateConfigurationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// update specific properties for the Software update configuration
-        /// </summary>
-        [Output("updateConfiguration")]
-        public Output<Outputs.UpdateConfigurationResponse> UpdateConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,10 +91,10 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Details of provisioning error
+        /// Software update configuration properties.
         /// </summary>
-        [Input("error")]
-        public Input<Inputs.ErrorResponseArgs>? Error { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SoftwareUpdateConfigurationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -151,28 +103,10 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schedule information for the Software update configuration
-        /// </summary>
-        [Input("scheduleInfo", required: true)]
-        public Input<Inputs.SUCSchedulePropertiesArgs> ScheduleInfo { get; set; } = null!;
-
-        /// <summary>
         /// The name of the software update configuration to be created.
         /// </summary>
         [Input("softwareUpdateConfigurationName")]
         public Input<string>? SoftwareUpdateConfigurationName { get; set; }
-
-        /// <summary>
-        /// Tasks information for the Software update configuration.
-        /// </summary>
-        [Input("tasks")]
-        public Input<Inputs.SoftwareUpdateConfigurationTasksArgs>? Tasks { get; set; }
-
-        /// <summary>
-        /// update specific properties for the Software update configuration
-        /// </summary>
-        [Input("updateConfiguration", required: true)]
-        public Input<Inputs.UpdateConfigurationArgs> UpdateConfiguration { get; set; } = null!;
 
         public SoftwareUpdateConfigurationByNameArgs()
         {

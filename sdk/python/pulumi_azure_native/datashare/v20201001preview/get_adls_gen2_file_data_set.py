@@ -22,16 +22,7 @@ class GetADLSGen2FileDataSetResult:
     """
     An ADLS Gen 2 file data set.
     """
-    def __init__(__self__, data_set_id=None, file_path=None, file_system=None, id=None, kind=None, name=None, resource_group=None, storage_account_name=None, subscription_id=None, system_data=None, type=None):
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        if file_path and not isinstance(file_path, str):
-            raise TypeError("Expected argument 'file_path' to be a str")
-        pulumi.set(__self__, "file_path", file_path)
-        if file_system and not isinstance(file_system, str):
-            raise TypeError("Expected argument 'file_system' to be a str")
-        pulumi.set(__self__, "file_system", file_system)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,45 +32,15 @@ class GetADLSGen2FileDataSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if resource_group and not isinstance(resource_group, str):
-            raise TypeError("Expected argument 'resource_group' to be a str")
-        pulumi.set(__self__, "resource_group", resource_group)
-        if storage_account_name and not isinstance(storage_account_name, str):
-            raise TypeError("Expected argument 'storage_account_name' to be a str")
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if subscription_id and not isinstance(subscription_id, str):
-            raise TypeError("Expected argument 'subscription_id' to be a str")
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> str:
-        """
-        File path within the file system.
-        """
-        return pulumi.get(self, "file_path")
-
-    @property
-    @pulumi.getter(name="fileSystem")
-    def file_system(self) -> str:
-        """
-        File system to which the file belongs.
-        """
-        return pulumi.get(self, "file_system")
 
     @property
     @pulumi.getter
@@ -107,28 +68,12 @@ class GetADLSGen2FileDataSetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ADLSGen2FilePropertiesResponse':
         """
-        Resource group of storage account
+        ADLS Gen 2 file data set properties.
         """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
-        """
-        Storage account name of the source data set
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        Subscription id of storage account
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -153,15 +98,10 @@ class AwaitableGetADLSGen2FileDataSetResult(GetADLSGen2FileDataSetResult):
         if False:
             yield self
         return GetADLSGen2FileDataSetResult(
-            data_set_id=self.data_set_id,
-            file_path=self.file_path,
-            file_system=self.file_system,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            resource_group=self.resource_group,
-            storage_account_name=self.storage_account_name,
-            subscription_id=self.subscription_id,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -189,15 +129,10 @@ def get_adls_gen2_file_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20201001preview:getADLSGen2FileDataSet', __args__, opts=opts, typ=GetADLSGen2FileDataSetResult).value
 
     return AwaitableGetADLSGen2FileDataSetResult(
-        data_set_id=__ret__.data_set_id,
-        file_path=__ret__.file_path,
-        file_system=__ret__.file_system,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        resource_group=__ret__.resource_group,
-        storage_account_name=__ret__.storage_account_name,
-        subscription_id=__ret__.subscription_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

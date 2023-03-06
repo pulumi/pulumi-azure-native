@@ -194,40 +194,10 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the description of the runbook.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the draft runbook properties.
-        /// </summary>
-        [Input("draft")]
-        public Input<Inputs.RunbookDraftArgs>? Draft { get; set; }
-
-        /// <summary>
         /// Gets or sets the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Gets or sets the activity-level tracing options of the runbook.
-        /// </summary>
-        [Input("logActivityTrace")]
-        public Input<int>? LogActivityTrace { get; set; }
-
-        /// <summary>
-        /// Gets or sets progress log option.
-        /// </summary>
-        [Input("logProgress")]
-        public Input<bool>? LogProgress { get; set; }
-
-        /// <summary>
-        /// Gets or sets verbose log option.
-        /// </summary>
-        [Input("logVerbose")]
-        public Input<bool>? LogVerbose { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the resource.
@@ -236,10 +206,10 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the published runbook content link.
+        /// Gets or sets runbook create or update properties.
         /// </summary>
-        [Input("publishContentLink")]
-        public Input<Inputs.ContentLinkArgs>? PublishContentLink { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.RunbookCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -252,12 +222,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// </summary>
         [Input("runbookName")]
         public Input<string>? RunbookName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of the runbook.
-        /// </summary>
-        [Input("runbookType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Automation.V20190601.RunbookTypeEnum> RunbookType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -22,37 +22,10 @@ class GetHybridAksClusterResult:
     """
     The details are specific to the Network Cloud use of the Hybrid AKS cluster.
     """
-    def __init__(__self__, associated_network_ids=None, cloud_services_network_id=None, cluster_id=None, control_plane_count=None, control_plane_nodes=None, default_cni_network_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_provisioned_cluster_id=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volumes=None, worker_count=None, worker_nodes=None):
-        if associated_network_ids and not isinstance(associated_network_ids, list):
-            raise TypeError("Expected argument 'associated_network_ids' to be a list")
-        pulumi.set(__self__, "associated_network_ids", associated_network_ids)
-        if cloud_services_network_id and not isinstance(cloud_services_network_id, str):
-            raise TypeError("Expected argument 'cloud_services_network_id' to be a str")
-        pulumi.set(__self__, "cloud_services_network_id", cloud_services_network_id)
-        if cluster_id and not isinstance(cluster_id, str):
-            raise TypeError("Expected argument 'cluster_id' to be a str")
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        if control_plane_count and not isinstance(control_plane_count, float):
-            raise TypeError("Expected argument 'control_plane_count' to be a float")
-        pulumi.set(__self__, "control_plane_count", control_plane_count)
-        if control_plane_nodes and not isinstance(control_plane_nodes, list):
-            raise TypeError("Expected argument 'control_plane_nodes' to be a list")
-        pulumi.set(__self__, "control_plane_nodes", control_plane_nodes)
-        if default_cni_network_id and not isinstance(default_cni_network_id, str):
-            raise TypeError("Expected argument 'default_cni_network_id' to be a str")
-        pulumi.set(__self__, "default_cni_network_id", default_cni_network_id)
-        if detailed_status and not isinstance(detailed_status, str):
-            raise TypeError("Expected argument 'detailed_status' to be a str")
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        if detailed_status_message and not isinstance(detailed_status_message, str):
-            raise TypeError("Expected argument 'detailed_status_message' to be a str")
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
-        if hybrid_aks_provisioned_cluster_id and not isinstance(hybrid_aks_provisioned_cluster_id, str):
-            raise TypeError("Expected argument 'hybrid_aks_provisioned_cluster_id' to be a str")
-        pulumi.set(__self__, "hybrid_aks_provisioned_cluster_id", hybrid_aks_provisioned_cluster_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -62,9 +35,9 @@ class GetHybridAksClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -74,79 +47,6 @@ class GetHybridAksClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volumes and not isinstance(volumes, list):
-            raise TypeError("Expected argument 'volumes' to be a list")
-        pulumi.set(__self__, "volumes", volumes)
-        if worker_count and not isinstance(worker_count, float):
-            raise TypeError("Expected argument 'worker_count' to be a float")
-        pulumi.set(__self__, "worker_count", worker_count)
-        if worker_nodes and not isinstance(worker_nodes, list):
-            raise TypeError("Expected argument 'worker_nodes' to be a list")
-        pulumi.set(__self__, "worker_nodes", worker_nodes)
-
-    @property
-    @pulumi.getter(name="associatedNetworkIds")
-    def associated_network_ids(self) -> Sequence[str]:
-        """
-        The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
-        """
-        return pulumi.get(self, "associated_network_ids")
-
-    @property
-    @pulumi.getter(name="cloudServicesNetworkId")
-    def cloud_services_network_id(self) -> str:
-        """
-        The resource ID of the associated cloud services network.
-        """
-        return pulumi.get(self, "cloud_services_network_id")
-
-    @property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
-        """
-        The resource ID of the Network Cloud cluster hosting the Hybrid AKS cluster.
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @property
-    @pulumi.getter(name="controlPlaneCount")
-    def control_plane_count(self) -> float:
-        """
-        The number of control plane node VMs.
-        """
-        return pulumi.get(self, "control_plane_count")
-
-    @property
-    @pulumi.getter(name="controlPlaneNodes")
-    def control_plane_nodes(self) -> Sequence['outputs.NodeConfigurationResponse']:
-        """
-        The list of node configurations detailing associated VMs that are part of the control plane nodes of this Hybrid AKS cluster.
-        """
-        return pulumi.get(self, "control_plane_nodes")
-
-    @property
-    @pulumi.getter(name="defaultCniNetworkId")
-    def default_cni_network_id(self) -> str:
-        """
-        The resource ID of the associated default CNI network.
-        """
-        return pulumi.get(self, "default_cni_network_id")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> str:
-        """
-        The more detailed status of this Hybrid AKS cluster.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> str:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -155,14 +55,6 @@ class GetHybridAksClusterResult:
         The extended location of the cluster associated with the resource.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="hybridAksProvisionedClusterId")
-    def hybrid_aks_provisioned_cluster_id(self) -> str:
-        """
-        The resource ID of the Hybrid AKS cluster that this additional information is for.
-        """
-        return pulumi.get(self, "hybrid_aks_provisioned_cluster_id")
 
     @property
     @pulumi.getter
@@ -189,12 +81,12 @@ class GetHybridAksClusterResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.HybridAksClusterPropertiesResponse':
         """
-        The provisioning state of the Hybrid AKS cluster resource.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -220,30 +112,6 @@ class GetHybridAksClusterResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def volumes(self) -> Sequence[str]:
-        """
-        The resource IDs of volumes that are attached to the Hybrid AKS cluster.
-        """
-        return pulumi.get(self, "volumes")
-
-    @property
-    @pulumi.getter(name="workerCount")
-    def worker_count(self) -> float:
-        """
-        The number of worker node VMs.
-        """
-        return pulumi.get(self, "worker_count")
-
-    @property
-    @pulumi.getter(name="workerNodes")
-    def worker_nodes(self) -> Sequence['outputs.NodeConfigurationResponse']:
-        """
-        The list of node configurations detailing associated VMs that are part of the worker nodes of this Hybrid AKS cluster.
-        """
-        return pulumi.get(self, "worker_nodes")
-
 
 class AwaitableGetHybridAksClusterResult(GetHybridAksClusterResult):
     # pylint: disable=using-constant-test
@@ -251,26 +119,14 @@ class AwaitableGetHybridAksClusterResult(GetHybridAksClusterResult):
         if False:
             yield self
         return GetHybridAksClusterResult(
-            associated_network_ids=self.associated_network_ids,
-            cloud_services_network_id=self.cloud_services_network_id,
-            cluster_id=self.cluster_id,
-            control_plane_count=self.control_plane_count,
-            control_plane_nodes=self.control_plane_nodes,
-            default_cni_network_id=self.default_cni_network_id,
-            detailed_status=self.detailed_status,
-            detailed_status_message=self.detailed_status_message,
             extended_location=self.extended_location,
-            hybrid_aks_provisioned_cluster_id=self.hybrid_aks_provisioned_cluster_id,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            volumes=self.volumes,
-            worker_count=self.worker_count,
-            worker_nodes=self.worker_nodes)
+            type=self.type)
 
 
 def get_hybrid_aks_cluster(hybrid_aks_cluster_name: Optional[str] = None,
@@ -290,26 +146,14 @@ def get_hybrid_aks_cluster(hybrid_aks_cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud/v20221212preview:getHybridAksCluster', __args__, opts=opts, typ=GetHybridAksClusterResult).value
 
     return AwaitableGetHybridAksClusterResult(
-        associated_network_ids=__ret__.associated_network_ids,
-        cloud_services_network_id=__ret__.cloud_services_network_id,
-        cluster_id=__ret__.cluster_id,
-        control_plane_count=__ret__.control_plane_count,
-        control_plane_nodes=__ret__.control_plane_nodes,
-        default_cni_network_id=__ret__.default_cni_network_id,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
         extended_location=__ret__.extended_location,
-        hybrid_aks_provisioned_cluster_id=__ret__.hybrid_aks_provisioned_cluster_id,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        volumes=__ret__.volumes,
-        worker_count=__ret__.worker_count,
-        worker_nodes=__ret__.worker_nodes)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_hybrid_aks_cluster)

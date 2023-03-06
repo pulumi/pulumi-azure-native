@@ -8,10 +8,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'RedisAccessKeysResponse',
+    'RedisFirewallRulePropertiesResponse',
+    'ScheduleEntriesResponse',
     'ScheduleEntryResponse',
     'SkuResponse',
 ]
@@ -66,6 +69,97 @@ class RedisAccessKeysResponse(dict):
         The current secondary key that clients can use to authenticate with Redis cache.
         """
         return pulumi.get(self, "secondary_key")
+
+
+@pulumi.output_type
+class RedisFirewallRulePropertiesResponse(dict):
+    """
+    Specifies a range of IP addresses permitted to connect to the cache
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIP":
+            suggest = "end_ip"
+        elif key == "startIP":
+            suggest = "start_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedisFirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedisFirewallRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedisFirewallRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip: str,
+                 start_ip: str):
+        """
+        Specifies a range of IP addresses permitted to connect to the cache
+        :param str end_ip: highest IP address included in the range
+        :param str start_ip: lowest IP address included in the range
+        """
+        pulumi.set(__self__, "end_ip", end_ip)
+        pulumi.set(__self__, "start_ip", start_ip)
+
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> str:
+        """
+        highest IP address included in the range
+        """
+        return pulumi.get(self, "end_ip")
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> str:
+        """
+        lowest IP address included in the range
+        """
+        return pulumi.get(self, "start_ip")
+
+
+@pulumi.output_type
+class ScheduleEntriesResponse(dict):
+    """
+    List of patch schedules for a Redis cache.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleEntries":
+            suggest = "schedule_entries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleEntriesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleEntriesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleEntriesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_entries: Sequence['outputs.ScheduleEntryResponse']):
+        """
+        List of patch schedules for a Redis cache.
+        :param Sequence['ScheduleEntryResponse'] schedule_entries: List of patch schedules for a Redis cache.
+        """
+        pulumi.set(__self__, "schedule_entries", schedule_entries)
+
+    @property
+    @pulumi.getter(name="scheduleEntries")
+    def schedule_entries(self) -> Sequence['outputs.ScheduleEntryResponse']:
+        """
+        List of patch schedules for a Redis cache.
+        """
+        return pulumi.get(self, "schedule_entries")
 
 
 @pulumi.output_type

@@ -82,29 +82,9 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
     public sealed class GetEventHubEventSourceResult
     {
         /// <summary>
-        /// The name of the event hub's consumer group that holds the partitions from which events will be read.
-        /// </summary>
-        public readonly string ConsumerGroupName;
-        /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        public readonly string CreationTime;
-        /// <summary>
-        /// The name of the event hub.
-        /// </summary>
-        public readonly string EventHubName;
-        /// <summary>
-        /// The resource id of the event source in Azure Resource Manager.
-        /// </summary>
-        public readonly string EventSourceResourceId;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
-        /// </summary>
-        public readonly string KeyName;
         /// <summary>
         /// The kind of the event source.
         /// Expected value is 'Microsoft.EventHub'.
@@ -119,21 +99,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of the EventHub event source resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The name of the service bus that contains the event hub.
-        /// </summary>
-        public readonly string ServiceBusNamespace;
+        public readonly Outputs.EventHubEventSourceResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-        /// </summary>
-        public readonly string? TimestampPropertyName;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -141,17 +113,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 
         [OutputConstructor]
         private GetEventHubEventSourceResult(
-            string consumerGroupName,
-
-            string creationTime,
-
-            string eventHubName,
-
-            string eventSourceResourceId,
-
             string id,
-
-            string keyName,
 
             string kind,
 
@@ -159,29 +121,18 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 
             string name,
 
-            string provisioningState,
-
-            string serviceBusNamespace,
+            Outputs.EventHubEventSourceResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? timestampPropertyName,
-
             string type)
         {
-            ConsumerGroupName = consumerGroupName;
-            CreationTime = creationTime;
-            EventHubName = eventHubName;
-            EventSourceResourceId = eventSourceResourceId;
             Id = id;
-            KeyName = keyName;
             Kind = kind;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            ServiceBusNamespace = serviceBusNamespace;
+            Properties = properties;
             Tags = tags;
-            TimestampPropertyName = timestampPropertyName;
             Type = type;
         }
     }

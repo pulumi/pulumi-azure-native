@@ -34,34 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// Properties used to connect to Xero. It is mutually exclusive with any other properties in the linked service. Type: object.
-        /// </summary>
-        [Input("connectionProperties")]
-        public Input<object>? ConnectionProperties { get; set; }
-
-        /// <summary>
-        /// The consumer key associated with the Xero application.
-        /// </summary>
-        [Input("consumerKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ConsumerKey { get; set; }
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The endpoint of the Xero server. (i.e. api.xero.com)
-        /// </summary>
-        [Input("host")]
-        public Input<object>? Host { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -76,13 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
-        /// ).
-        /// </summary>
-        [Input("privateKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? PrivateKey { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Xero'.
         /// </summary>
@@ -90,22 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Xero Service linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
-
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("useHostVerification")]
-        public Input<object>? UseHostVerification { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("usePeerVerification")]
-        public Input<object>? UsePeerVerification { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.XeroLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public XeroLinkedServiceArgs()
         {

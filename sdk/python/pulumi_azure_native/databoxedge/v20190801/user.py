@@ -18,29 +18,21 @@ __all__ = ['UserArgs', 'User']
 class UserArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
+                 properties: pulumi.Input['UserPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 user_type: pulumi.Input[Union[str, 'UserType']],
-                 encrypted_password: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 share_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAccessRightArgs']]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input['UserPropertiesArgs'] properties: The storage account credential properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Union[str, 'UserType']] user_type: Type of the user.
-        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
-        :param pulumi.Input[Sequence[pulumi.Input['ShareAccessRightArgs']]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
         """
         pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_type", user_type)
-        if encrypted_password is not None:
-            pulumi.set(__self__, "encrypted_password", encrypted_password)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if share_access_rights is not None:
-            pulumi.set(__self__, "share_access_rights", share_access_rights)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -55,6 +47,18 @@ class UserArgs:
         pulumi.set(self, "device_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['UserPropertiesArgs']:
+        """
+        The storage account credential properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['UserPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -65,30 +69,6 @@ class UserArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="userType")
-    def user_type(self) -> pulumi.Input[Union[str, 'UserType']]:
-        """
-        Type of the user.
-        """
-        return pulumi.get(self, "user_type")
-
-    @user_type.setter
-    def user_type(self, value: pulumi.Input[Union[str, 'UserType']]):
-        pulumi.set(self, "user_type", value)
-
-    @property
-    @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
-        """
-        The password details.
-        """
-        return pulumi.get(self, "encrypted_password")
-
-    @encrypted_password.setter
-    def encrypted_password(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
-        pulumi.set(self, "encrypted_password", value)
 
     @property
     @pulumi.getter
@@ -102,18 +82,6 @@ class UserArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ShareAccessRightArgs']]]]:
-        """
-        List of shares that the user has rights on. This field should not be specified during user creation.
-        """
-        return pulumi.get(self, "share_access_rights")
-
-    @share_access_rights.setter
-    def share_access_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAccessRightArgs']]]]):
-        pulumi.set(self, "share_access_rights", value)
-
 
 warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -126,11 +94,9 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['UserPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
-                 user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None,
                  __props__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
@@ -138,11 +104,9 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
+        :param pulumi.Input[pulumi.InputType['UserPropertiesArgs']] properties: The storage account credential properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
-        :param pulumi.Input[Union[str, 'UserType']] user_type: Type of the user.
         """
         ...
     @overload
@@ -169,11 +133,9 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['UserPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
-                 user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None,
                  __props__=None):
         pulumi.log.warn("""User is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -187,15 +149,13 @@ class User(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
-            __props__.__dict__["encrypted_password"] = encrypted_password
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["share_access_rights"] = share_access_rights
-            if user_type is None and not opts.urn:
-                raise TypeError("Missing required property 'user_type'")
-            __props__.__dict__["user_type"] = user_type
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -221,20 +181,10 @@ class User(pulumi.CustomResource):
 
         __props__ = UserArgs.__new__(UserArgs)
 
-        __props__.__dict__["encrypted_password"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["share_access_rights"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_type"] = None
         return User(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
-        """
-        The password details.
-        """
-        return pulumi.get(self, "encrypted_password")
 
     @property
     @pulumi.getter
@@ -245,12 +195,12 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> pulumi.Output[Optional[Sequence['outputs.ShareAccessRightResponse']]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.UserPropertiesResponse']:
         """
-        List of shares that the user has rights on. This field should not be specified during user creation.
+        The storage account credential properties.
         """
-        return pulumi.get(self, "share_access_rights")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -259,12 +209,4 @@ class User(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userType")
-    def user_type(self) -> pulumi.Output[str]:
-        """
-        Type of the user.
-        """
-        return pulumi.get(self, "user_type")
 

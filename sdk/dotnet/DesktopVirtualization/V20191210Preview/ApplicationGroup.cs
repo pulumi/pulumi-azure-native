@@ -17,30 +17,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20191210Preview
     public partial class ApplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource Type of ApplicationGroup.
-        /// </summary>
-        [Output("applicationGroupType")]
-        public Output<string> ApplicationGroupType { get; private set; } = null!;
-
-        /// <summary>
-        /// Description of ApplicationGroup.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// Friendly name of ApplicationGroup.
-        /// </summary>
-        [Output("friendlyName")]
-        public Output<string?> FriendlyName { get; private set; } = null!;
-
-        /// <summary>
-        /// HostPool arm path of ApplicationGroup.
-        /// </summary>
-        [Output("hostPoolArmPath")]
-        public Output<string> HostPoolArmPath { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -53,6 +29,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20191210Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Detailed properties for ApplicationGroup
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.ApplicationGroupPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -63,12 +45,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20191210Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Workspace arm path of ApplicationGroup.
-        /// </summary>
-        [Output("workspaceArmPath")]
-        public Output<string> WorkspaceArmPath { get; private set; } = null!;
 
 
         /// <summary>
@@ -142,34 +118,16 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20191210Preview
         public Input<string>? ApplicationGroupName { get; set; }
 
         /// <summary>
-        /// Resource Type of ApplicationGroup.
-        /// </summary>
-        [Input("applicationGroupType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20191210Preview.ApplicationGroupType> ApplicationGroupType { get; set; } = null!;
-
-        /// <summary>
-        /// Description of ApplicationGroup.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Friendly name of ApplicationGroup.
-        /// </summary>
-        [Input("friendlyName")]
-        public Input<string>? FriendlyName { get; set; }
-
-        /// <summary>
-        /// HostPool arm path of ApplicationGroup.
-        /// </summary>
-        [Input("hostPoolArmPath", required: true)]
-        public Input<string> HostPoolArmPath { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Detailed properties for ApplicationGroup
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ApplicationGroupPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -35,49 +35,21 @@ export class AutomationRule extends pulumi.CustomResource {
     }
 
     /**
-     * The actions to execute when the automation rule is triggered.
-     */
-    public readonly actions!: pulumi.Output<(outputs.securityinsights.v20221101.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.v20221101.AutomationRuleRunPlaybookActionResponse)[]>;
-    /**
-     * Information on the client (user or application) that made some action
-     */
-    public /*out*/ readonly createdBy!: pulumi.Output<outputs.securityinsights.v20221101.ClientInfoResponse>;
-    /**
-     * The time the automation rule was created.
-     */
-    public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
-    /**
-     * The display name of the automation rule.
-     */
-    public readonly displayName!: pulumi.Output<string>;
-    /**
      * Etag of the azure resource
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
-    /**
-     * Information on the client (user or application) that made some action
-     */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<outputs.securityinsights.v20221101.ClientInfoResponse>;
-    /**
-     * The last time the automation rule was updated.
-     */
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The order of execution of the automation rule.
+     * Automation rule properties
      */
-    public readonly order!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.securityinsights.v20221101.AutomationRulePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.v20221101.SystemDataResponse>;
-    /**
-     * Describes automation rule triggering logic.
-     */
-    public readonly triggeringLogic!: pulumi.Output<outputs.securityinsights.v20221101.AutomationRuleTriggeringLogicResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -94,51 +66,28 @@ export class AutomationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'actions'");
-            }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
-            }
-            if ((!args || args.order === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'order'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.triggeringLogic === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'triggeringLogic'");
-            }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["automationRuleId"] = args ? args.automationRuleId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["triggeringLogic"] = args ? args.triggeringLogic : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["actions"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdTimeUtc"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["order"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["triggeringLogic"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,29 +102,17 @@ export class AutomationRule extends pulumi.CustomResource {
  */
 export interface AutomationRuleArgs {
     /**
-     * The actions to execute when the automation rule is triggered.
-     */
-    actions: pulumi.Input<pulumi.Input<inputs.securityinsights.v20221101.AutomationRuleModifyPropertiesActionArgs | inputs.securityinsights.v20221101.AutomationRuleRunPlaybookActionArgs>[]>;
-    /**
      * Automation rule ID
      */
     automationRuleId?: pulumi.Input<string>;
     /**
-     * The display name of the automation rule.
+     * Automation rule properties
      */
-    displayName: pulumi.Input<string>;
-    /**
-     * The order of execution of the automation rule.
-     */
-    order: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.securityinsights.v20221101.AutomationRulePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Describes automation rule triggering logic.
-     */
-    triggeringLogic: pulumi.Input<inputs.securityinsights.v20221101.AutomationRuleTriggeringLogicArgs>;
     /**
      * The name of the workspace.
      */

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,41 +38,17 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Whether or not failover can be done automatically.
-     */
-    public /*out*/ readonly autoFailover!: pulumi.Output<string>;
-    /**
-     * How aggressive the automatic failover should be.
-     */
-    public /*out*/ readonly failoverPolicy!: pulumi.Output<string>;
-    /**
      * Location of the server that contains this disaster recovery configuration.
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
-     * Logical name of the server.
-     */
-    public /*out*/ readonly logicalServerName!: pulumi.Output<string>;
     /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Logical name of the partner server.
+     * The properties representing the resource.
      */
-    public /*out*/ readonly partnerLogicalServerName!: pulumi.Output<string>;
-    /**
-     * Id of the partner server.
-     */
-    public /*out*/ readonly partnerServerId!: pulumi.Output<string>;
-    /**
-     * The role of the current server in the disaster recovery configuration.
-     */
-    public /*out*/ readonly role!: pulumi.Output<string>;
-    /**
-     * The status of the disaster recovery configuration.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.DisasterRecoveryConfigurationPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -95,26 +74,14 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
             resourceInputs["disasterRecoveryConfigurationName"] = args ? args.disasterRecoveryConfigurationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["autoFailover"] = undefined /*out*/;
-            resourceInputs["failoverPolicy"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["logicalServerName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["partnerLogicalServerName"] = undefined /*out*/;
-            resourceInputs["partnerServerId"] = undefined /*out*/;
-            resourceInputs["role"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["autoFailover"] = undefined /*out*/;
-            resourceInputs["failoverPolicy"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["logicalServerName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["partnerLogicalServerName"] = undefined /*out*/;
-            resourceInputs["partnerServerId"] = undefined /*out*/;
-            resourceInputs["role"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -47,18 +47,6 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * A unique file path for the volume. Used when creating mount targets
-     */
-    readonly creationToken: string;
-    /**
-     * Export policy rule
-     */
-    readonly exportPolicy?: outputs.netapp.v20170815.VolumePropertiesResponseExportPolicy;
-    /**
-     * Unique FileSystem Identifier.
-     */
-    readonly fileSystemId: string;
-    /**
      * Resource Id
      */
     readonly id: string;
@@ -71,17 +59,9 @@ export interface GetVolumeResult {
      */
     readonly name: string;
     /**
-     * Azure lifecycle management
+     * Volume properties
      */
-    readonly provisioningState: string;
-    /**
-     * The service level of the file system
-     */
-    readonly serviceLevel: string;
-    /**
-     * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-     */
-    readonly subnetId?: string;
+    readonly properties: outputs.netapp.v20170815.VolumePropertiesResponse;
     /**
      * Resource tags
      */
@@ -90,10 +70,6 @@ export interface GetVolumeResult {
      * Resource type
      */
     readonly type: string;
-    /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-     */
-    readonly usageThreshold?: number;
 }
 /**
  * Get a volume

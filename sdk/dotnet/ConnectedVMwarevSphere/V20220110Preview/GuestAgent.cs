@@ -16,52 +16,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public partial class GuestAgent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Username / Password Credentials to provision guest agent.
-        /// </summary>
-        [Output("credentials")]
-        public Output<Outputs.GuestCredentialResponse?> Credentials { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        [Output("customResourceName")]
-        public Output<string> CustomResourceName { get; private set; } = null!;
-
-        /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        [Output("httpProxyConfig")]
-        public Output<Outputs.HttpProxyConfigurationResponse?> HttpProxyConfig { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the guest agent provisioning action.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningAction")]
-        public Output<string?> ProvisioningAction { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the guest agent status.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        [Output("statuses")]
-        public Output<ImmutableArray<Outputs.ResourceStatusResponse>> Statuses { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.GuestAgentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -74,12 +38,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,28 +91,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public sealed class GuestAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Username / Password Credentials to provision guest agent.
-        /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.GuestCredentialArgs>? Credentials { get; set; }
-
-        /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        [Input("httpProxyConfig")]
-        public Input<Inputs.HttpProxyConfigurationArgs>? HttpProxyConfig { get; set; }
-
-        /// <summary>
         /// Name of the guestAgents.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the guest agent provisioning action.
+        /// Resource properties.
         /// </summary>
-        [Input("provisioningAction")]
-        public InputUnion<string, Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview.ProvisioningAction>? ProvisioningAction { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.GuestAgentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.

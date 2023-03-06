@@ -17,6 +17,7 @@ __all__ = [
     'AccessReviewScopeArgs',
     'IdentityArgs',
     'ManagementLockOwnerArgs',
+    'ManagementLockPropertiesArgs',
     'NonComplianceMessageArgs',
     'ParameterDefinitionsValueMetadataArgs',
     'ParameterDefinitionsValueArgs',
@@ -24,7 +25,9 @@ __all__ = [
     'PermissionArgs',
     'PolicyDefinitionGroupArgs',
     'PolicyDefinitionReferenceArgs',
+    'PolicyExemptionPropertiesArgs',
     'PrivateLinkAssociationPropertiesArgs',
+    'RoleAssignmentPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -377,6 +380,61 @@ class ManagementLockOwnerArgs:
     @application_id.setter
     def application_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_id", value)
+
+
+@pulumi.input_type
+class ManagementLockPropertiesArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[Union[str, 'LockLevel']],
+                 notes: Optional[pulumi.Input[str]] = None,
+                 owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
+        """
+        The lock properties.
+        :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]] owners: The owners of the lock.
+        """
+        pulumi.set(__self__, "level", level)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if owners is not None:
+            pulumi.set(__self__, "owners", owners)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Union[str, 'LockLevel']]:
+        """
+        The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Union[str, 'LockLevel']]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Notes about the lock. Maximum of 512 characters.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter
+    def owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]:
+        """
+        The owners of the lock.
+        """
+        return pulumi.get(self, "owners")
+
+    @owners.setter
+    def owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]):
+        pulumi.set(self, "owners", value)
 
 
 @pulumi.input_type
@@ -817,6 +875,124 @@ class PolicyDefinitionReferenceArgs:
 
 
 @pulumi.input_type
+class PolicyExemptionPropertiesArgs:
+    def __init__(__self__, *,
+                 exemption_category: pulumi.Input[Union[str, 'ExemptionCategory']],
+                 policy_assignment_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 expires_on: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The policy exemption properties.
+        :param pulumi.Input[Union[str, 'ExemptionCategory']] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
+        :param pulumi.Input[str] description: The description of the policy exemption.
+        :param pulumi.Input[str] display_name: The display name of the policy exemption.
+        :param pulumi.Input[str] expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        :param Any metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        """
+        pulumi.set(__self__, "exemption_category", exemption_category)
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if expires_on is not None:
+            pulumi.set(__self__, "expires_on", expires_on)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if policy_definition_reference_ids is not None:
+            pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
+
+    @property
+    @pulumi.getter(name="exemptionCategory")
+    def exemption_category(self) -> pulumi.Input[Union[str, 'ExemptionCategory']]:
+        """
+        The policy exemption category. Possible values are Waiver and Mitigated.
+        """
+        return pulumi.get(self, "exemption_category")
+
+    @exemption_category.setter
+    def exemption_category(self, value: pulumi.Input[Union[str, 'ExemptionCategory']]):
+        pulumi.set(self, "exemption_category", value)
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the policy assignment that is being exempted.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @policy_assignment_id.setter
+    def policy_assignment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_assignment_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the policy exemption.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the policy exemption.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        """
+        return pulumi.get(self, "expires_on")
+
+    @expires_on.setter
+    def expires_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expires_on", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceIds")
+    def policy_definition_reference_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_ids")
+
+    @policy_definition_reference_ids.setter
+    def policy_definition_reference_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "policy_definition_reference_ids", value)
+
+
+@pulumi.input_type
 class PrivateLinkAssociationPropertiesArgs:
     def __init__(__self__, *,
                  private_link: Optional[pulumi.Input[str]] = None,
@@ -849,5 +1025,125 @@ class PrivateLinkAssociationPropertiesArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]]):
         pulumi.set(self, "public_network_access", value)
+
+
+@pulumi.input_type
+class RoleAssignmentPropertiesArgs:
+    def __init__(__self__, *,
+                 principal_id: pulumi.Input[str],
+                 role_definition_id: pulumi.Input[str],
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None):
+        """
+        Role assignment properties.
+        :param pulumi.Input[str] principal_id: The principal ID.
+        :param pulumi.Input[str] role_definition_id: The role definition ID.
+        :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
+        :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
+        :param pulumi.Input[str] description: Description of role assignment
+        :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
+        if delegated_managed_identity_resource_id is not None:
+            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if principal_type is None:
+            principal_type = 'User'
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        The principal ID.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Input[str]:
+        """
+        The role definition ID.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the condition. Currently accepted value is '2.0'
+        """
+        return pulumi.get(self, "condition_version")
+
+    @condition_version.setter
+    def condition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_version", value)
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the delegated managed identity resource
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
+
+    @delegated_managed_identity_resource_id.setter
+    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegated_managed_identity_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of role assignment
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[pulumi.Input[Union[str, 'PrincipalType']]]:
+        """
+        The principal type of the assigned principal ID.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: Optional[pulumi.Input[Union[str, 'PrincipalType']]]):
+        pulumi.set(self, "principal_type", value)
 
 

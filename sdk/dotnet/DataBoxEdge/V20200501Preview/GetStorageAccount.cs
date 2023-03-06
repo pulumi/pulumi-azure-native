@@ -83,22 +83,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
     public sealed class GetStorageAccountResult
     {
         /// <summary>
-        /// BlobEndpoint of Storage Account
-        /// </summary>
-        public readonly string BlobEndpoint;
-        /// <summary>
-        /// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-        /// </summary>
-        public readonly int ContainerCount;
-        /// <summary>
-        /// Data policy of the storage Account.
-        /// </summary>
-        public readonly string? DataPolicy;
-        /// <summary>
-        /// Description for the storage Account.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -107,13 +91,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Storage Account Credential Id
+        /// The Storage Account properties.
         /// </summary>
-        public readonly string? StorageAccountCredentialId;
-        /// <summary>
-        /// Current status of the storage account
-        /// </summary>
-        public readonly string? StorageAccountStatus;
+        public readonly Outputs.StorageAccountPropertiesResponse Properties;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -121,32 +101,17 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 
         [OutputConstructor]
         private GetStorageAccountResult(
-            string blobEndpoint,
-
-            int containerCount,
-
-            string? dataPolicy,
-
-            string? description,
-
             string id,
 
             string name,
 
-            string? storageAccountCredentialId,
-
-            string? storageAccountStatus,
+            Outputs.StorageAccountPropertiesResponse properties,
 
             string type)
         {
-            BlobEndpoint = blobEndpoint;
-            ContainerCount = containerCount;
-            DataPolicy = dataPolicy;
-            Description = description;
             Id = id;
             Name = name;
-            StorageAccountCredentialId = storageAccountCredentialId;
-            StorageAccountStatus = storageAccountStatus;
+            Properties = properties;
             Type = type;
         }
     }

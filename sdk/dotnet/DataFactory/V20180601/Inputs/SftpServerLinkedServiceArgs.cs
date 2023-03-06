@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The authentication type to be used to connect to the FTP server.
-        /// </summary>
-        [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.SftpAuthenticationType>? AuthenticationType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,24 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The SFTP server host name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("host", required: true)]
-        public Input<object> Host { get; set; } = null!;
-
-        /// <summary>
-        /// The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("hostKeyFingerprint")]
-        public Input<object>? HostKeyFingerprint { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -76,42 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The password to decrypt the SSH private key if the SSH private key is encrypted.
-        /// </summary>
-        [Input("passPhrase")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? PassPhrase { get; set; }
-
-        /// <summary>
-        /// Password to logon the SFTP server for Basic authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        [Input("port")]
-        public Input<object>? Port { get; set; }
-
-        /// <summary>
-        /// Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
-        /// </summary>
-        [Input("privateKeyContent")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? PrivateKeyContent { get; set; }
-
-        /// <summary>
-        /// The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("privateKeyPath")]
-        public Input<object>? PrivateKeyPath { get; set; }
-
-        /// <summary>
-        /// If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("skipHostKeyValidation")]
-        public Input<object>? SkipHostKeyValidation { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Sftp'.
         /// </summary>
@@ -119,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
+        /// Properties specific to this linked service type.
         /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SftpServerLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SftpServerLinkedServiceArgs()
         {

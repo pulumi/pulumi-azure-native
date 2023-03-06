@@ -71,30 +71,6 @@ namespace Pulumi.AzureNative.Solutions.V20180201
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// The fully qualified path of managed application definition Id.
-        /// </summary>
-        public readonly string? ApplicationDefinitionId;
-        /// <summary>
-        /// The collection of managed application artifacts.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationArtifactResponse> Artifacts;
-        /// <summary>
-        /// The  read-only authorizations property that is retrieved from the application package.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponse> Authorizations;
-        /// <summary>
-        /// The managed application billing details.
-        /// </summary>
-        public readonly Outputs.ApplicationBillingDetailsDefinitionResponse BillingDetails;
-        /// <summary>
-        /// The client entity that created the JIT request.
-        /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponse CreatedBy;
-        /// <summary>
-        /// The read-only customer support property that is retrieved from the application package.
-        /// </summary>
-        public readonly Outputs.ApplicationPackageContactResponse CustomerSupport;
-        /// <summary>
         /// Resource ID
         /// </summary>
         public readonly string Id;
@@ -115,45 +91,21 @@ namespace Pulumi.AzureNative.Solutions.V20180201
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
-        /// The managed resource group Id.
-        /// </summary>
-        public readonly string? ManagedResourceGroupId;
-        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Name and value pairs that define the managed application outputs.
-        /// </summary>
-        public readonly object Outputs;
-        /// <summary>
-        /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-        /// </summary>
-        public readonly object? Parameters;
         /// <summary>
         /// The plan information.
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// The managed application provisioning state.
+        /// The managed application properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The publisher package Id.
-        /// </summary>
-        public readonly string? PublisherPackageId;
-        /// <summary>
-        /// The publisher tenant Id.
-        /// </summary>
-        public readonly string PublisherTenantId;
+        public readonly Outputs.ApplicationPropertiesResponse Properties;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// The read-only support URLs property that is retrieved from the application package.
-        /// </summary>
-        public readonly Outputs.ApplicationPackageSupportUrlsResponse SupportUrls;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -162,25 +114,9 @@ namespace Pulumi.AzureNative.Solutions.V20180201
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The client entity that last updated the JIT request.
-        /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponse UpdatedBy;
 
         [OutputConstructor]
         private GetApplicationResult(
-            string? applicationDefinitionId,
-
-            ImmutableArray<Outputs.ApplicationArtifactResponse> artifacts,
-
-            ImmutableArray<Outputs.ApplicationAuthorizationResponse> authorizations,
-
-            Outputs.ApplicationBillingDetailsDefinitionResponse billingDetails,
-
-            Outputs.ApplicationClientDetailsResponse createdBy,
-
-            Outputs.ApplicationPackageContactResponse customerSupport,
-
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -191,56 +127,29 @@ namespace Pulumi.AzureNative.Solutions.V20180201
 
             string? managedBy,
 
-            string? managedResourceGroupId,
-
             string name,
-
-            object outputs,
-
-            object? parameters,
 
             Outputs.PlanResponse? plan,
 
-            string provisioningState,
-
-            string? publisherPackageId,
-
-            string publisherTenantId,
+            Outputs.ApplicationPropertiesResponse properties,
 
             Outputs.SkuResponse? sku,
 
-            Outputs.ApplicationPackageSupportUrlsResponse supportUrls,
-
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.ApplicationClientDetailsResponse updatedBy)
+            string type)
         {
-            ApplicationDefinitionId = applicationDefinitionId;
-            Artifacts = artifacts;
-            Authorizations = authorizations;
-            BillingDetails = billingDetails;
-            CreatedBy = createdBy;
-            CustomerSupport = customerSupport;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             ManagedBy = managedBy;
-            ManagedResourceGroupId = managedResourceGroupId;
             Name = name;
-            Outputs = outputs;
-            Parameters = parameters;
             Plan = plan;
-            ProvisioningState = provisioningState;
-            PublisherPackageId = publisherPackageId;
-            PublisherTenantId = publisherTenantId;
+            Properties = properties;
             Sku = sku;
-            SupportUrls = supportUrls;
             Tags = tags;
             Type = type;
-            UpdatedBy = updatedBy;
         }
     }
 }

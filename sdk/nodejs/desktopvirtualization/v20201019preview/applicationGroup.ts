@@ -41,22 +41,6 @@ export class ApplicationGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Resource Type of ApplicationGroup.
-     */
-    public readonly applicationGroupType!: pulumi.Output<string>;
-    /**
-     * Description of ApplicationGroup.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Friendly name of ApplicationGroup.
-     */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
-    /**
-     * HostPool arm path of ApplicationGroup.
-     */
-    public readonly hostPoolArmPath!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -65,6 +49,10 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Detailed properties for ApplicationGroup
+     */
+    public readonly properties!: pulumi.Output<outputs.desktopvirtualization.v20201019preview.ApplicationGroupPropertiesResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -72,10 +60,6 @@ export class ApplicationGroup extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Workspace arm path of ApplicationGroup.
-     */
-    public /*out*/ readonly workspaceArmPath!: pulumi.Output<string>;
 
     /**
      * Create a ApplicationGroup resource with the given unique name, arguments, and options.
@@ -90,36 +74,25 @@ export class ApplicationGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationGroupType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'applicationGroupType'");
-            }
-            if ((!args || args.hostPoolArmPath === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'hostPoolArmPath'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
-            resourceInputs["applicationGroupType"] = args ? args.applicationGroupType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostPoolArmPath"] = args ? args.hostPoolArmPath : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["workspaceArmPath"] = undefined /*out*/;
         } else {
-            resourceInputs["applicationGroupType"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["friendlyName"] = undefined /*out*/;
-            resourceInputs["hostPoolArmPath"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["workspaceArmPath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20190924preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20191210preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20200921preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201102preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210114preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210201preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210309preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210401preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210712:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210903preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20220210preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20220401preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20220909:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20221014preview:ApplicationGroup" }] };
@@ -137,25 +110,13 @@ export interface ApplicationGroupArgs {
      */
     applicationGroupName?: pulumi.Input<string>;
     /**
-     * Resource Type of ApplicationGroup.
-     */
-    applicationGroupType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.ApplicationGroupType>;
-    /**
-     * Description of ApplicationGroup.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Friendly name of ApplicationGroup.
-     */
-    friendlyName?: pulumi.Input<string>;
-    /**
-     * HostPool arm path of ApplicationGroup.
-     */
-    hostPoolArmPath: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Detailed properties for ApplicationGroup
+     */
+    properties: pulumi.Input<inputs.desktopvirtualization.v20201019preview.ApplicationGroupPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

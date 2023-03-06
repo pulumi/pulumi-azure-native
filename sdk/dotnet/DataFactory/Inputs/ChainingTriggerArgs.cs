@@ -27,18 +27,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             set => _annotations = value;
         }
 
-        [Input("dependsOn", required: true)]
-        private InputList<Inputs.PipelineReferenceArgs>? _dependsOn;
-
-        /// <summary>
-        /// Upstream Pipelines.
-        /// </summary>
-        public InputList<Inputs.PipelineReferenceArgs> DependsOn
-        {
-            get => _dependsOn ?? (_dependsOn = new InputList<Inputs.PipelineReferenceArgs>());
-            set => _dependsOn = value;
-        }
-
         /// <summary>
         /// Trigger description.
         /// </summary>
@@ -52,17 +40,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.TriggerPipelineReferenceArgs> Pipeline { get; set; } = null!;
 
         /// <summary>
-        /// Run Dimension property that needs to be emitted by upstream pipelines.
-        /// </summary>
-        [Input("runDimension", required: true)]
-        public Input<string> RunDimension { get; set; } = null!;
-
-        /// <summary>
         /// Trigger type.
         /// Expected value is 'ChainingTrigger'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Chaining Trigger properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ChainingTriggerTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ChainingTriggerArgs()
         {

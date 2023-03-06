@@ -11,8 +11,46 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ControllerPropertiesArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class ControllerPropertiesArgs:
+    def __init__(__self__, *,
+                 target_container_host_credentials_base64: pulumi.Input[str],
+                 target_container_host_resource_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
+        :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
+        """
+        pulumi.set(__self__, "target_container_host_credentials_base64", target_container_host_credentials_base64)
+        pulumi.set(__self__, "target_container_host_resource_id", target_container_host_resource_id)
+
+    @property
+    @pulumi.getter(name="targetContainerHostCredentialsBase64")
+    def target_container_host_credentials_base64(self) -> pulumi.Input[str]:
+        """
+        Credentials of the target container host (base64).
+        """
+        return pulumi.get(self, "target_container_host_credentials_base64")
+
+    @target_container_host_credentials_base64.setter
+    def target_container_host_credentials_base64(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_container_host_credentials_base64", value)
+
+    @property
+    @pulumi.getter(name="targetContainerHostResourceId")
+    def target_container_host_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the target container host
+        """
+        return pulumi.get(self, "target_container_host_resource_id")
+
+    @target_container_host_resource_id.setter
+    def target_container_host_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_container_host_resource_id", value)
+
 
 @pulumi.input_type
 class SkuArgs:

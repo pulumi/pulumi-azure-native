@@ -150,12 +150,6 @@ namespace Pulumi.AzureNative.AzureStack
     public sealed class LinkedSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier associated with the device subscription.
-        /// </summary>
-        [Input("linkedSubscriptionId", required: true)]
-        public Input<string> LinkedSubscriptionId { get; set; } = null!;
-
-        /// <summary>
         /// Name of the Linked Subscription resource.
         /// </summary>
         [Input("linkedSubscriptionName")]
@@ -168,10 +162,10 @@ namespace Pulumi.AzureNative.AzureStack
         public InputUnion<string, Pulumi.AzureNative.AzureStack.Location>? Location { get; set; }
 
         /// <summary>
-        /// The identifier associated with the device registration.
+        /// Properties of the Linked Subscription resource
         /// </summary>
-        [Input("registrationResourceId", required: true)]
-        public Input<string> RegistrationResourceId { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.LinkedSubscriptionParameterPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group.

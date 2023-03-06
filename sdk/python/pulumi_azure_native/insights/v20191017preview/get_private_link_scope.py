@@ -22,7 +22,7 @@ class GetPrivateLinkScopeResult:
     """
     An Azure Monitor PrivateLinkScope definition.
     """
-    def __init__(__self__, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,12 +32,9 @@ class GetPrivateLinkScopeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
-            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -70,20 +67,12 @@ class GetPrivateLinkScopeResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.AzureMonitorPrivateLinkScopePropertiesResponse':
         """
-        List of private endpoint connections.
+        Properties that define a Azure Monitor PrivateLinkScope resource.
         """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -111,8 +100,7 @@ class AwaitableGetPrivateLinkScopeResult(GetPrivateLinkScopeResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            private_endpoint_connections=self.private_endpoint_connections,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -137,8 +125,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

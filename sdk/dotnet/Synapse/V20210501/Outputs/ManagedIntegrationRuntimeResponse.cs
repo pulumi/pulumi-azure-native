@@ -17,17 +17,9 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
     public sealed class ManagedIntegrationRuntimeResponse
     {
         /// <summary>
-        /// The compute resource for managed integration runtime.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeComputePropertiesResponse? ComputeProperties;
-        /// <summary>
         /// Integration runtime description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// SSIS properties for managed integration runtime.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeSsisPropertiesResponse? SsisProperties;
         /// <summary>
         /// Integration runtime state, only valid for managed dedicated integration runtime.
         /// </summary>
@@ -37,24 +29,25 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
         /// Expected value is 'Managed'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Managed integration runtime properties.
+        /// </summary>
+        public readonly Outputs.ManagedIntegrationRuntimeTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ManagedIntegrationRuntimeResponse(
-            Outputs.IntegrationRuntimeComputePropertiesResponse? computeProperties,
-
             string? description,
-
-            Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
 
             string state,
 
-            string type)
+            string type,
+
+            Outputs.ManagedIntegrationRuntimeTypePropertiesResponse typeProperties)
         {
-            ComputeProperties = computeProperties;
             Description = description;
-            SsisProperties = ssisProperties;
             State = state;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

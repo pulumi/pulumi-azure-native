@@ -90,9 +90,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource id of the resource that will be linked to the workspace.
+        /// The properties of the linked service.
         /// </summary>
-        public readonly string ResourceId;
+        public readonly Outputs.LinkedServicePropertiesResponse Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -104,13 +104,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 
             string name,
 
-            string resourceId,
+            Outputs.LinkedServicePropertiesResponse properties,
 
             string type)
         {
             Id = id;
             Name = name;
-            ResourceId = resourceId;
+            Properties = properties;
             Type = type;
         }
     }

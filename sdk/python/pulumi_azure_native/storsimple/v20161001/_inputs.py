@@ -11,11 +11,44 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessControlRecordPropertiesArgs',
     'AsymmetricEncryptedSecretArgs',
+    'BackupScheduleGroupPropertiesArgs',
+    'ChapPropertiesArgs',
+    'FileServerPropertiesArgs',
+    'FileSharePropertiesArgs',
+    'ISCSIDiskPropertiesArgs',
+    'ISCSIServerPropertiesArgs',
+    'ManagerExtendedInfoPropertiesArgs',
     'ManagerIntrinsicSettingsArgs',
     'ManagerSkuArgs',
+    'StorageAccountCredentialPropertiesArgs',
+    'StorageDomainPropertiesArgs',
     'TimeArgs',
 ]
+
+@pulumi.input_type
+class AccessControlRecordPropertiesArgs:
+    def __init__(__self__, *,
+                 initiator_name: pulumi.Input[str]):
+        """
+        Properties of access control record
+        :param pulumi.Input[str] initiator_name: The Iscsi initiator name (IQN)
+        """
+        pulumi.set(__self__, "initiator_name", initiator_name)
+
+    @property
+    @pulumi.getter(name="initiatorName")
+    def initiator_name(self) -> pulumi.Input[str]:
+        """
+        The Iscsi initiator name (IQN)
+        """
+        return pulumi.get(self, "initiator_name")
+
+    @initiator_name.setter
+    def initiator_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "initiator_name", value)
+
 
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
@@ -72,6 +105,507 @@ class AsymmetricEncryptedSecretArgs:
 
 
 @pulumi.input_type
+class BackupScheduleGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 start_time: pulumi.Input['TimeArgs']):
+        """
+        The Backup Schedule Group Properties
+        :param pulumi.Input['TimeArgs'] start_time: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+        """
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input['TimeArgs']:
+        """
+        The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input['TimeArgs']):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class ChapPropertiesArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input['AsymmetricEncryptedSecretArgs']):
+        """
+        Chap properties
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] password: The chap password.
+        """
+        pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input['AsymmetricEncryptedSecretArgs']:
+        """
+        The chap password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input['AsymmetricEncryptedSecretArgs']):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class FileServerPropertiesArgs:
+    def __init__(__self__, *,
+                 backup_schedule_group_id: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
+                 storage_domain_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The file server properties.
+        :param pulumi.Input[str] backup_schedule_group_id: The backup policy id.
+        :param pulumi.Input[str] domain_name: Domain of the file server
+        :param pulumi.Input[str] storage_domain_id: The storage domain id.
+        :param pulumi.Input[str] description: The description of the file server
+        """
+        pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "storage_domain_id", storage_domain_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="backupScheduleGroupId")
+    def backup_schedule_group_id(self) -> pulumi.Input[str]:
+        """
+        The backup policy id.
+        """
+        return pulumi.get(self, "backup_schedule_group_id")
+
+    @backup_schedule_group_id.setter
+    def backup_schedule_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_schedule_group_id", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        Domain of the file server
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="storageDomainId")
+    def storage_domain_id(self) -> pulumi.Input[str]:
+        """
+        The storage domain id.
+        """
+        return pulumi.get(self, "storage_domain_id")
+
+    @storage_domain_id.setter
+    def storage_domain_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_domain_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the file server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class FileSharePropertiesArgs:
+    def __init__(__self__, *,
+                 admin_user: pulumi.Input[str],
+                 data_policy: pulumi.Input['DataPolicy'],
+                 monitoring_status: pulumi.Input['MonitoringStatus'],
+                 provisioned_capacity_in_bytes: pulumi.Input[float],
+                 share_status: pulumi.Input['ShareStatus'],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The File Share.
+        :param pulumi.Input[str] admin_user: The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
+        :param pulumi.Input['DataPolicy'] data_policy: The data policy
+        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status
+        :param pulumi.Input[float] provisioned_capacity_in_bytes: The total provisioned capacity in Bytes
+        :param pulumi.Input['ShareStatus'] share_status: The Share Status
+        :param pulumi.Input[str] description: Description for file share
+        """
+        pulumi.set(__self__, "admin_user", admin_user)
+        pulumi.set(__self__, "data_policy", data_policy)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
+        pulumi.set(__self__, "share_status", share_status)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="adminUser")
+    def admin_user(self) -> pulumi.Input[str]:
+        """
+        The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
+        """
+        return pulumi.get(self, "admin_user")
+
+    @admin_user.setter
+    def admin_user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "admin_user", value)
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> pulumi.Input['DataPolicy']:
+        """
+        The data policy
+        """
+        return pulumi.get(self, "data_policy")
+
+    @data_policy.setter
+    def data_policy(self, value: pulumi.Input['DataPolicy']):
+        pulumi.set(self, "data_policy", value)
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> pulumi.Input['MonitoringStatus']:
+        """
+        The monitoring status
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @monitoring_status.setter
+    def monitoring_status(self, value: pulumi.Input['MonitoringStatus']):
+        pulumi.set(self, "monitoring_status", value)
+
+    @property
+    @pulumi.getter(name="provisionedCapacityInBytes")
+    def provisioned_capacity_in_bytes(self) -> pulumi.Input[float]:
+        """
+        The total provisioned capacity in Bytes
+        """
+        return pulumi.get(self, "provisioned_capacity_in_bytes")
+
+    @provisioned_capacity_in_bytes.setter
+    def provisioned_capacity_in_bytes(self, value: pulumi.Input[float]):
+        pulumi.set(self, "provisioned_capacity_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> pulumi.Input['ShareStatus']:
+        """
+        The Share Status
+        """
+        return pulumi.get(self, "share_status")
+
+    @share_status.setter
+    def share_status(self, value: pulumi.Input['ShareStatus']):
+        pulumi.set(self, "share_status", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for file share
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class ISCSIDiskPropertiesArgs:
+    def __init__(__self__, *,
+                 access_control_records: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 data_policy: pulumi.Input['DataPolicy'],
+                 disk_status: pulumi.Input['DiskStatus'],
+                 monitoring_status: pulumi.Input['MonitoringStatus'],
+                 provisioned_capacity_in_bytes: pulumi.Input[float],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The iSCSI disk properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_records: The access control records.
+        :param pulumi.Input['DataPolicy'] data_policy: The data policy.
+        :param pulumi.Input['DiskStatus'] disk_status: The disk status.
+        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring.
+        :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
+        :param pulumi.Input[str] description: The description.
+        """
+        pulumi.set(__self__, "access_control_records", access_control_records)
+        pulumi.set(__self__, "data_policy", data_policy)
+        pulumi.set(__self__, "disk_status", disk_status)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="accessControlRecords")
+    def access_control_records(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The access control records.
+        """
+        return pulumi.get(self, "access_control_records")
+
+    @access_control_records.setter
+    def access_control_records(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "access_control_records", value)
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> pulumi.Input['DataPolicy']:
+        """
+        The data policy.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @data_policy.setter
+    def data_policy(self, value: pulumi.Input['DataPolicy']):
+        pulumi.set(self, "data_policy", value)
+
+    @property
+    @pulumi.getter(name="diskStatus")
+    def disk_status(self) -> pulumi.Input['DiskStatus']:
+        """
+        The disk status.
+        """
+        return pulumi.get(self, "disk_status")
+
+    @disk_status.setter
+    def disk_status(self, value: pulumi.Input['DiskStatus']):
+        pulumi.set(self, "disk_status", value)
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> pulumi.Input['MonitoringStatus']:
+        """
+        The monitoring.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @monitoring_status.setter
+    def monitoring_status(self, value: pulumi.Input['MonitoringStatus']):
+        pulumi.set(self, "monitoring_status", value)
+
+    @property
+    @pulumi.getter(name="provisionedCapacityInBytes")
+    def provisioned_capacity_in_bytes(self) -> pulumi.Input[float]:
+        """
+        The provisioned capacity in bytes.
+        """
+        return pulumi.get(self, "provisioned_capacity_in_bytes")
+
+    @provisioned_capacity_in_bytes.setter
+    def provisioned_capacity_in_bytes(self, value: pulumi.Input[float]):
+        pulumi.set(self, "provisioned_capacity_in_bytes", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class ISCSIServerPropertiesArgs:
+    def __init__(__self__, *,
+                 backup_schedule_group_id: pulumi.Input[str],
+                 storage_domain_id: pulumi.Input[str],
+                 chap_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 reverse_chap_id: Optional[pulumi.Input[str]] = None):
+        """
+        The iSCSI server properties.
+        :param pulumi.Input[str] backup_schedule_group_id: The backup policy id.
+        :param pulumi.Input[str] storage_domain_id: The storage domain id.
+        :param pulumi.Input[str] chap_id: The chap id.
+        :param pulumi.Input[str] description: The description.
+        :param pulumi.Input[str] reverse_chap_id: The reverse chap id.
+        """
+        pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
+        pulumi.set(__self__, "storage_domain_id", storage_domain_id)
+        if chap_id is not None:
+            pulumi.set(__self__, "chap_id", chap_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if reverse_chap_id is not None:
+            pulumi.set(__self__, "reverse_chap_id", reverse_chap_id)
+
+    @property
+    @pulumi.getter(name="backupScheduleGroupId")
+    def backup_schedule_group_id(self) -> pulumi.Input[str]:
+        """
+        The backup policy id.
+        """
+        return pulumi.get(self, "backup_schedule_group_id")
+
+    @backup_schedule_group_id.setter
+    def backup_schedule_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_schedule_group_id", value)
+
+    @property
+    @pulumi.getter(name="storageDomainId")
+    def storage_domain_id(self) -> pulumi.Input[str]:
+        """
+        The storage domain id.
+        """
+        return pulumi.get(self, "storage_domain_id")
+
+    @storage_domain_id.setter
+    def storage_domain_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_domain_id", value)
+
+    @property
+    @pulumi.getter(name="chapId")
+    def chap_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The chap id.
+        """
+        return pulumi.get(self, "chap_id")
+
+    @chap_id.setter
+    def chap_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chap_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="reverseChapId")
+    def reverse_chap_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reverse chap id.
+        """
+        return pulumi.get(self, "reverse_chap_id")
+
+    @reverse_chap_id.setter
+    def reverse_chap_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reverse_chap_id", value)
+
+
+@pulumi.input_type
+class ManagerExtendedInfoPropertiesArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[str],
+                 integrity_key: pulumi.Input[str],
+                 encryption_key: Optional[pulumi.Input[str]] = None,
+                 encryption_key_thumbprint: Optional[pulumi.Input[str]] = None,
+                 portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the ManagerExtendedInfo
+        :param pulumi.Input[str] algorithm: Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+        :param pulumi.Input[str] integrity_key: Represents the CIK of the resource
+        :param pulumi.Input[str] encryption_key: Represents the CEK of the resource
+        :param pulumi.Input[str] encryption_key_thumbprint: Represents the Cert thumbprint that was used to encrypt the CEK
+        :param pulumi.Input[str] portal_certificate_thumbprint: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+        :param pulumi.Input[str] version: Represents the version of the ExtendedInfo object being persisted
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "integrity_key", integrity_key)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if encryption_key_thumbprint is not None:
+            pulumi.set(__self__, "encryption_key_thumbprint", encryption_key_thumbprint)
+        if portal_certificate_thumbprint is not None:
+            pulumi.set(__self__, "portal_certificate_thumbprint", portal_certificate_thumbprint)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[str]:
+        """
+        Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter(name="integrityKey")
+    def integrity_key(self) -> pulumi.Input[str]:
+        """
+        Represents the CIK of the resource
+        """
+        return pulumi.get(self, "integrity_key")
+
+    @integrity_key.setter
+    def integrity_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "integrity_key", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents the CEK of the resource
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key", value)
+
+    @property
+    @pulumi.getter(name="encryptionKeyThumbprint")
+    def encryption_key_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents the Cert thumbprint that was used to encrypt the CEK
+        """
+        return pulumi.get(self, "encryption_key_thumbprint")
+
+    @encryption_key_thumbprint.setter
+    def encryption_key_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="portalCertificateThumbprint")
+    def portal_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+        """
+        return pulumi.get(self, "portal_certificate_thumbprint")
+
+    @portal_certificate_thumbprint.setter
+    def portal_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "portal_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents the version of the ExtendedInfo object being persisted
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
 class ManagerIntrinsicSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ManagerType']):
@@ -115,6 +649,160 @@ class ManagerSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input['ManagerSkuType']):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class StorageAccountCredentialPropertiesArgs:
+    def __init__(__self__, *,
+                 cloud_type: pulumi.Input['CloudType'],
+                 enable_ssl: pulumi.Input['SslStatus'],
+                 end_point: pulumi.Input[str],
+                 login: pulumi.Input[str],
+                 access_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None):
+        """
+        Storage account properties
+        :param pulumi.Input['CloudType'] cloud_type: The cloud service provider
+        :param pulumi.Input['SslStatus'] enable_ssl: SSL needs to be enabled or not
+        :param pulumi.Input[str] end_point: The storage endpoint
+        :param pulumi.Input[str] login: The storage account login
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] access_key: The details of the storage account password
+        :param pulumi.Input[str] location: The storage account's geo location
+        """
+        pulumi.set(__self__, "cloud_type", cloud_type)
+        pulumi.set(__self__, "enable_ssl", enable_ssl)
+        pulumi.set(__self__, "end_point", end_point)
+        pulumi.set(__self__, "login", login)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+
+    @property
+    @pulumi.getter(name="cloudType")
+    def cloud_type(self) -> pulumi.Input['CloudType']:
+        """
+        The cloud service provider
+        """
+        return pulumi.get(self, "cloud_type")
+
+    @cloud_type.setter
+    def cloud_type(self, value: pulumi.Input['CloudType']):
+        pulumi.set(self, "cloud_type", value)
+
+    @property
+    @pulumi.getter(name="enableSSL")
+    def enable_ssl(self) -> pulumi.Input['SslStatus']:
+        """
+        SSL needs to be enabled or not
+        """
+        return pulumi.get(self, "enable_ssl")
+
+    @enable_ssl.setter
+    def enable_ssl(self, value: pulumi.Input['SslStatus']):
+        pulumi.set(self, "enable_ssl", value)
+
+    @property
+    @pulumi.getter(name="endPoint")
+    def end_point(self) -> pulumi.Input[str]:
+        """
+        The storage endpoint
+        """
+        return pulumi.get(self, "end_point")
+
+    @end_point.setter
+    def end_point(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_point", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input[str]:
+        """
+        The storage account login
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input[str]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        The details of the storage account password
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage account's geo location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+
+@pulumi.input_type
+class StorageDomainPropertiesArgs:
+    def __init__(__self__, *,
+                 encryption_status: pulumi.Input['EncryptionStatus'],
+                 storage_account_credential_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 encryption_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
+        """
+        The storage domain properties.
+        :param pulumi.Input['EncryptionStatus'] encryption_status: The encryption status "Enabled | Disabled".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] encryption_key: The encryption key used to encrypt the data. This is a user secret.
+        """
+        pulumi.set(__self__, "encryption_status", encryption_status)
+        pulumi.set(__self__, "storage_account_credential_ids", storage_account_credential_ids)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+
+    @property
+    @pulumi.getter(name="encryptionStatus")
+    def encryption_status(self) -> pulumi.Input['EncryptionStatus']:
+        """
+        The encryption status "Enabled | Disabled".
+        """
+        return pulumi.get(self, "encryption_status")
+
+    @encryption_status.setter
+    def encryption_status(self, value: pulumi.Input['EncryptionStatus']):
+        pulumi.set(self, "encryption_status", value)
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialIds")
+    def storage_account_credential_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The storage account credentials.
+        """
+        return pulumi.get(self, "storage_account_credential_ids")
+
+    @storage_account_credential_ids.setter
+    def storage_account_credential_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "storage_account_credential_ids", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        The encryption key used to encrypt the data. This is a user secret.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "encryption_key", value)
 
 
 @pulumi.input_type

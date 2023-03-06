@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,18 +45,6 @@ export interface GetSqlDBTableDataSetMappingArgs {
  */
 export interface GetSqlDBTableDataSetMappingResult {
     /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
-     * DatabaseName name of the sink data set
-     */
-    readonly databaseName: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -67,21 +58,9 @@ export interface GetSqlDBTableDataSetMappingResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the data set mapping.
+     * Sql DB data set mapping properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Schema of the table. Default value is dbo.
-     */
-    readonly schemaName: string;
-    /**
-     * Resource id of SQL server
-     */
-    readonly sqlServerResourceId: string;
-    /**
-     * SQL DB table name.
-     */
-    readonly tableName: string;
+    readonly properties: outputs.datashare.v20191101.SqlDBTableDataSetMappingPropertiesResponse;
     /**
      * Type of the azure resource
      */

@@ -21,25 +21,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
-        /// </summary>
-        public readonly string? BlobPathBeginsWith;
-        /// <summary>
-        /// The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
-        /// </summary>
-        public readonly string? BlobPathEndsWith;
-        /// <summary>
         /// Trigger description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The type of events that cause this trigger to fire.
-        /// </summary>
-        public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// If set to true, blobs with zero bytes will be ignored.
-        /// </summary>
-        public readonly bool? IgnoreEmptyBlobs;
         /// <summary>
         /// Pipelines that need to be started.
         /// </summary>
@@ -49,47 +33,35 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string RuntimeState;
         /// <summary>
-        /// The ARM resource ID of the Storage Account.
-        /// </summary>
-        public readonly string Scope;
-        /// <summary>
         /// Trigger type.
         /// Expected value is 'BlobEventsTrigger'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Blob Events Trigger properties.
+        /// </summary>
+        public readonly Outputs.BlobEventsTriggerResponseTypeProperties TypeProperties;
 
         [OutputConstructor]
         private BlobEventsTriggerResponse(
             ImmutableArray<object> annotations,
 
-            string? blobPathBeginsWith,
-
-            string? blobPathEndsWith,
-
             string? description,
-
-            ImmutableArray<string> events,
-
-            bool? ignoreEmptyBlobs,
 
             ImmutableArray<Outputs.TriggerPipelineReferenceResponse> pipelines,
 
             string runtimeState,
 
-            string scope,
+            string type,
 
-            string type)
+            Outputs.BlobEventsTriggerResponseTypeProperties typeProperties)
         {
             Annotations = annotations;
-            BlobPathBeginsWith = blobPathBeginsWith;
-            BlobPathEndsWith = blobPathEndsWith;
             Description = description;
-            Events = events;
-            IgnoreEmptyBlobs = ignoreEmptyBlobs;
             Pipelines = pipelines;
             RuntimeState = runtimeState;
-            Scope = scope;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -40,7 +40,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Gets or sets the connectionType of the connection.
      */
-    public readonly connectionType!: pulumi.Output<outputs.automation.v20200113preview.ConnectionTypeAssociationPropertyResponse | undefined>;
+    public /*out*/ readonly connectionType!: pulumi.Output<outputs.automation.v20200113preview.ConnectionTypeAssociationPropertyResponse | undefined>;
     /**
      * Gets the creation time.
      */
@@ -48,11 +48,11 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Gets the field definition values of the connection.
      */
-    public readonly fieldDefinitionValues!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly fieldDefinitionValues!: pulumi.Output<{[key: string]: string}>;
     /**
      * Gets the last modified time.
      */
@@ -80,23 +80,24 @@ export class Connection extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.connectionType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionType'");
-            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fieldDefinitionValues"] = args ? args.fieldDefinitionValues : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectionType"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fieldDefinitionValues"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -128,21 +129,13 @@ export interface ConnectionArgs {
      */
     connectionName?: pulumi.Input<string>;
     /**
-     * Gets or sets the connectionType of the connection.
-     */
-    connectionType: pulumi.Input<inputs.automation.v20200113preview.ConnectionTypeAssociationPropertyArgs>;
-    /**
-     * Gets or sets the description of the connection.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Gets or sets the field definition properties of the connection.
-     */
-    fieldDefinitionValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * Gets or sets the name of the connection.
      */
     name: pulumi.Input<string>;
+    /**
+     * Gets or sets the properties of the connection.
+     */
+    properties: pulumi.Input<inputs.automation.v20200113preview.ConnectionCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */

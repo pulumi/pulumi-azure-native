@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'CustomDataset'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Custom dataset properties.
+        /// </summary>
+        public readonly object TypeProperties;
 
         [OutputConstructor]
         private CustomDatasetResponse(
@@ -54,7 +58,9 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             object? structure,
 
-            string type)
+            string type,
+
+            object typeProperties)
         {
             Annotations = annotations;
             Description = description;
@@ -62,6 +68,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
             Parameters = parameters;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

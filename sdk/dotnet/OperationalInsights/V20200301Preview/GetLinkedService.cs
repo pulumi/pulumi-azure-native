@@ -90,13 +90,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the linked service.
+        /// The properties of the linked service.
         /// </summary>
-        public readonly string? ProvisioningState;
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-        /// </summary>
-        public readonly string? ResourceId;
+        public readonly Outputs.LinkedServicePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -105,10 +101,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-        /// </summary>
-        public readonly string? WriteAccessResourceId;
 
         [OutputConstructor]
         private GetLinkedServiceResult(
@@ -116,23 +108,17 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
 
             string name,
 
-            string? provisioningState,
-
-            string? resourceId,
+            Outputs.LinkedServicePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? writeAccessResourceId)
+            string type)
         {
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceId = resourceId;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            WriteAccessResourceId = writeAccessResourceId;
         }
     }
 }

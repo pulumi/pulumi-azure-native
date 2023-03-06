@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("authenticationType")]
-        public Input<object>? AuthenticationType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,18 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// Host name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("host", required: true)]
-        public Input<object> Host { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -70,18 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Password for authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The port for the connection. Type: integer (or Expression with resultType integer).
-        /// </summary>
-        [Input("port")]
-        public Input<object>? Port { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Cassandra'.
         /// </summary>
@@ -89,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username for authentication. Type: string (or Expression with resultType string).
+        /// Cassandra linked service properties.
         /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CassandraLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public CassandraLinkedServiceArgs()
         {

@@ -48,21 +48,9 @@ export interface GetIscsiTargetResult {
      */
     readonly name: string;
     /**
-     * State of the operation on the resource.
+     * Properties for iSCSI target operations.
      */
-    readonly provisioningState: string;
-    /**
-     * Operational status of the iSCSI target.
-     */
-    readonly status: string;
-    /**
-     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-     */
-    readonly targetIqn: string;
-    /**
-     * List of iSCSI target portal groups. Can have 1 portal group at most.
-     */
-    readonly tpgs: outputs.storagepool.v20200315preview.TargetPortalGroupResponse[];
+    readonly properties: outputs.storagepool.v20200315preview.IscsiTargetPropertiesResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

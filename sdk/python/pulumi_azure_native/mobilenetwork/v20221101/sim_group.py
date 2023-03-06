@@ -17,36 +17,43 @@ __all__ = ['SimGroupArgs', 'SimGroup']
 @pulumi.input_type
 class SimGroupArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['SimGroupPropertiesFormatArgs'],
                  resource_group_name: pulumi.Input[str],
-                 encryption_key: Optional[pulumi.Input['KeyVaultKeyArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input['MobileNetworkResourceIdArgs']] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SimGroup resource.
+        :param pulumi.Input['SimGroupPropertiesFormatArgs'] properties: SIM group Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['KeyVaultKeyArgs'] encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity used to retrieve the encryption key from Azure key vault.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['MobileNetworkResourceIdArgs'] mobile_network: Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if mobile_network is not None:
-            pulumi.set(__self__, "mobile_network", mobile_network)
         if sim_group_name is not None:
             pulumi.set(__self__, "sim_group_name", sim_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SimGroupPropertiesFormatArgs']:
+        """
+        SIM group Properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SimGroupPropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -59,18 +66,6 @@ class SimGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input['KeyVaultKeyArgs']]:
-        """
-        A key to encrypt the SIM data that belongs to this SIM group.
-        """
-        return pulumi.get(self, "encryption_key")
-
-    @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input['KeyVaultKeyArgs']]):
-        pulumi.set(self, "encryption_key", value)
 
     @property
     @pulumi.getter
@@ -95,18 +90,6 @@ class SimGroupArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> Optional[pulumi.Input['MobileNetworkResourceIdArgs']]:
-        """
-        Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @mobile_network.setter
-    def mobile_network(self, value: Optional[pulumi.Input['MobileNetworkResourceIdArgs']]):
-        pulumi.set(self, "mobile_network", value)
 
     @property
     @pulumi.getter(name="simGroupName")
@@ -138,10 +121,9 @@ class SimGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SimGroupPropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -151,10 +133,9 @@ class SimGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']] encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity used to retrieve the encryption key from Azure key vault.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
+        :param pulumi.Input[pulumi.InputType['SimGroupPropertiesFormatArgs']] properties: SIM group Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -183,10 +164,9 @@ class SimGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SimGroupPropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -199,17 +179,17 @@ class SimGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SimGroupArgs.__new__(SimGroupArgs)
 
-            __props__.__dict__["encryption_key"] = encryption_key
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["mobile_network"] = mobile_network
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sim_group_name"] = sim_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:SimGroup"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:SimGroup")])
@@ -236,24 +216,14 @@ class SimGroup(pulumi.CustomResource):
 
         __props__ = SimGroupArgs.__new__(SimGroupArgs)
 
-        __props__.__dict__["encryption_key"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["mobile_network"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SimGroup(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> pulumi.Output[Optional['outputs.KeyVaultKeyResponse']]:
-        """
-        A key to encrypt the SIM data that belongs to this SIM group.
-        """
-        return pulumi.get(self, "encryption_key")
 
     @property
     @pulumi.getter
@@ -272,14 +242,6 @@ class SimGroup(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> pulumi.Output[Optional['outputs.MobileNetworkResourceIdResponse']]:
-        """
-        Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -288,12 +250,12 @@ class SimGroup(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SimGroupPropertiesFormatResponse']:
         """
-        The provisioning state of the SIM group resource.
+        SIM group Properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

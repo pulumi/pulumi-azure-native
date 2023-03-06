@@ -11,8 +11,10 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AlertRuleArgs',
     'AutoscaleNotificationArgs',
     'AutoscaleProfileArgs',
+    'AutoscaleSettingArgs',
     'EmailNotificationArgs',
     'LocationThresholdRuleConditionArgs',
     'ManagementEventAggregationConditionArgs',
@@ -33,6 +35,123 @@ __all__ = [
     'TimeWindowArgs',
     'WebhookNotificationArgs',
 ]
+
+@pulumi.input_type
+class AlertRuleArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']],
+                 is_enabled: pulumi.Input[bool],
+                 name: pulumi.Input[str],
+                 action: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None):
+        """
+        An alert rule.
+        :param pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']] condition: the condition that results in the alert rule being activated.
+        :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
+        :param pulumi.Input[str] name: the name of the alert rule.
+        :param pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
+        :param pulumi.Input[str] provisioning_state: the provisioning state.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]:
+        """
+        the condition that results in the alert rule being activated.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        the name of the alert rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
 
 @pulumi.input_type
 class AutoscaleNotificationArgs:
@@ -172,6 +291,111 @@ class AutoscaleProfileArgs:
     @recurrence.setter
     def recurrence(self, value: Optional[pulumi.Input['RecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
+
+
+@pulumi.input_type
+class AutoscaleSettingArgs:
+    def __init__(__self__, *,
+                 profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
+                 target_resource_uri: Optional[pulumi.Input[str]] = None):
+        """
+        A setting that contains all of the configuration for the automatic scaling of a resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        :param pulumi.Input[str] name: the name of the autoscale setting.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]] notifications: the collection of notifications.
+        :param pulumi.Input[str] target_resource_location: the location of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        pulumi.set(__self__, "profiles", profiles)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
+        if target_resource_uri is not None:
+            pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]]:
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]]):
+        pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the name of the autoscale setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]:
+        """
+        the collection of notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]):
+        pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @target_resource_location.setter
+    def target_resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_location", value)
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_uri")
+
+    @target_resource_uri.setter
+    def target_resource_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_uri", value)
 
 
 @pulumi.input_type

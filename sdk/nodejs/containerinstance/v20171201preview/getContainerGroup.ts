@@ -37,25 +37,9 @@ export interface GetContainerGroupArgs {
  */
 export interface GetContainerGroupResult {
     /**
-     * The containers within the container group.
-     */
-    readonly containers: outputs.containerinstance.v20171201preview.ContainerResponse[];
-    /**
      * The resource id.
      */
     readonly id: string;
-    /**
-     * The image registry credentials by which the container group is created from.
-     */
-    readonly imageRegistryCredentials?: outputs.containerinstance.v20171201preview.ImageRegistryCredentialResponse[];
-    /**
-     * The instance view of the container group. Only valid in response.
-     */
-    readonly instanceView: outputs.containerinstance.v20171201preview.ContainerGroupResponseInstanceView;
-    /**
-     * The IP address type of the container group.
-     */
-    readonly ipAddress?: outputs.containerinstance.v20171201preview.IpAddressResponse;
     /**
      * The resource location.
      */
@@ -64,21 +48,7 @@ export interface GetContainerGroupResult {
      * The resource name.
      */
     readonly name: string;
-    /**
-     * The operating system type required by the containers in the container group.
-     */
-    readonly osType: string;
-    /**
-     * The provisioning state of the container group. This only appears in the response.
-     */
-    readonly provisioningState: string;
-    /**
-     * Restart policy for all containers within the container group. 
-     * - `Always` Always restart
-     * - `OnFailure` Restart on failure
-     * - `Never` Never restart
-     */
-    readonly restartPolicy?: string;
+    readonly properties: outputs.containerinstance.v20171201preview.ContainerGroupResponseProperties;
     /**
      * The resource tags.
      */
@@ -87,10 +57,6 @@ export interface GetContainerGroupResult {
      * The resource type.
      */
     readonly type: string;
-    /**
-     * The list of volumes that can be mounted by containers in this container group.
-     */
-    readonly volumes?: outputs.containerinstance.v20171201preview.VolumeResponse[];
 }
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.

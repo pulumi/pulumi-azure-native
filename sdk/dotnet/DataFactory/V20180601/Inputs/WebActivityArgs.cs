@@ -15,36 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class WebActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication method used for calling the endpoint.
-        /// </summary>
-        [Input("authentication")]
-        public Input<Inputs.WebActivityAuthenticationArgs>? Authentication { get; set; }
-
-        /// <summary>
-        /// Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("body")]
-        public Input<object>? Body { get; set; }
-
-        /// <summary>
-        /// The integration runtime reference.
-        /// </summary>
-        [Input("connectVia")]
-        public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
-
-        [Input("datasets")]
-        private InputList<Inputs.DatasetReferenceArgs>? _datasets;
-
-        /// <summary>
-        /// List of datasets passed to web endpoint.
-        /// </summary>
-        public InputList<Inputs.DatasetReferenceArgs> Datasets
-        {
-            get => _datasets ?? (_datasets = new InputList<Inputs.DatasetReferenceArgs>());
-            set => _datasets = value;
-        }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -64,40 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to true, Certificate validation will be disabled.
-        /// </summary>
-        [Input("disableCertValidation")]
-        public Input<bool>? DisableCertValidation { get; set; }
-
-        /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("headers")]
-        public Input<object>? Headers { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName")]
         public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
-
-        [Input("linkedServices")]
-        private InputList<Inputs.LinkedServiceReferenceArgs>? _linkedServices;
-
-        /// <summary>
-        /// List of linked services passed to web endpoint.
-        /// </summary>
-        public InputList<Inputs.LinkedServiceReferenceArgs> LinkedServices
-        {
-            get => _linkedServices ?? (_linkedServices = new InputList<Inputs.LinkedServiceReferenceArgs>());
-            set => _linkedServices = value;
-        }
-
-        /// <summary>
-        /// Rest API method for target endpoint.
-        /// </summary>
-        [Input("method", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.WebActivityMethod> Method { get; set; } = null!;
 
         /// <summary>
         /// Activity name.
@@ -119,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Web activity target endpoint and path. Type: string (or Expression with resultType string).
+        /// Web activity properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.WebActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

@@ -35,14 +35,6 @@ export interface GetLinkerArgs {
  */
 export interface GetLinkerResult {
     /**
-     * The authentication type.
-     */
-    readonly authInfo?: outputs.servicelinker.v20220501.SecretAuthInfoResponse | outputs.servicelinker.v20220501.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.v20220501.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.v20220501.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.v20220501.UserAssignedIdentityAuthInfoResponse;
-    /**
-     * The application client type
-     */
-    readonly clientType?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -51,33 +43,17 @@ export interface GetLinkerResult {
      */
     readonly name: string;
     /**
-     * The provisioning state. 
+     * The properties of the linker.
      */
-    readonly provisioningState: string;
-    /**
-     * connection scope in source service.
-     */
-    readonly scope?: string;
-    /**
-     * An option to store secret value in secure place
-     */
-    readonly secretStore?: outputs.servicelinker.v20220501.SecretStoreResponse;
+    readonly properties: outputs.servicelinker.v20220501.LinkerPropertiesResponse;
     /**
      * The system data.
      */
     readonly systemData: outputs.servicelinker.v20220501.SystemDataResponse;
     /**
-     * The target service properties
-     */
-    readonly targetService?: outputs.servicelinker.v20220501.AzureResourceResponse | outputs.servicelinker.v20220501.ConfluentBootstrapServerResponse | outputs.servicelinker.v20220501.ConfluentSchemaRegistryResponse;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The VNet solution.
-     */
-    readonly vNetSolution?: outputs.servicelinker.v20220501.VNetSolutionResponse;
 }
 /**
  * Returns Linker resource for a given name.

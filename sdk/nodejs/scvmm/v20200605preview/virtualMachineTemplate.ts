@@ -38,81 +38,21 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * Gets or sets computer name.
-     */
-    public /*out*/ readonly computerName!: pulumi.Output<string>;
-    /**
-     * Gets or sets the desired number of vCPUs for the vm.
-     */
-    public /*out*/ readonly cpuCount!: pulumi.Output<number>;
-    /**
-     * Gets or sets the disks of the template.
-     */
-    public /*out*/ readonly disks!: pulumi.Output<outputs.scvmm.v20200605preview.VirtualDiskResponse[]>;
-    /**
-     * Gets or sets a value indicating whether to enable dynamic memory or not.
-     */
-    public /*out*/ readonly dynamicMemoryEnabled!: pulumi.Output<string>;
-    /**
-     * Gets or sets the max dynamic memory for the vm.
-     */
-    public /*out*/ readonly dynamicMemoryMaxMB!: pulumi.Output<number>;
-    /**
-     * Gets or sets the min dynamic memory for the vm.
-     */
-    public /*out*/ readonly dynamicMemoryMinMB!: pulumi.Output<number>;
-    /**
      * The extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.scvmm.v20200605preview.ExtendedLocationResponse>;
-    /**
-     * Gets or sets the generation for the vm.
-     */
-    public /*out*/ readonly generation!: pulumi.Output<number>;
-    /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    public readonly inventoryItemId!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets a value indicating whether the vm template is customizable or not.
-     */
-    public /*out*/ readonly isCustomizable!: pulumi.Output<string>;
-    /**
-     * Gets highly available property.
-     */
-    public /*out*/ readonly isHighlyAvailable!: pulumi.Output<string>;
-    /**
-     * Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
-     */
-    public /*out*/ readonly limitCpuForMigration!: pulumi.Output<string>;
     /**
      * Gets or sets the location.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * MemoryMB is the desired size of a virtual machine's memory, in MB.
-     */
-    public /*out*/ readonly memoryMB!: pulumi.Output<number>;
-    /**
      * Resource Name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the network interfaces of the template.
+     * Resource properties.
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.scvmm.v20200605preview.NetworkInterfacesResponse[]>;
-    /**
-     * Gets or sets os name.
-     */
-    public /*out*/ readonly osName!: pulumi.Output<string>;
-    /**
-     * Gets or sets the type of the os.
-     */
-    public /*out*/ readonly osType!: pulumi.Output<string>;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.scvmm.v20200605preview.VirtualMachineTemplatePropertiesResponse>;
     /**
      * The system data.
      */
@@ -125,14 +65,6 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
      * Resource Type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Unique ID of the virtual machine template.
-     */
-    public readonly uuid!: pulumi.Output<string | undefined>;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    public readonly vmmServerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualMachineTemplate resource with the given unique name, arguments, and options.
@@ -148,60 +80,29 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uuid"] = args ? args.uuid : undefined;
             resourceInputs["virtualMachineTemplateName"] = args ? args.virtualMachineTemplateName : undefined;
-            resourceInputs["vmmServerId"] = args ? args.vmmServerId : undefined;
-            resourceInputs["computerName"] = undefined /*out*/;
-            resourceInputs["cpuCount"] = undefined /*out*/;
-            resourceInputs["disks"] = undefined /*out*/;
-            resourceInputs["dynamicMemoryEnabled"] = undefined /*out*/;
-            resourceInputs["dynamicMemoryMaxMB"] = undefined /*out*/;
-            resourceInputs["dynamicMemoryMinMB"] = undefined /*out*/;
-            resourceInputs["generation"] = undefined /*out*/;
-            resourceInputs["isCustomizable"] = undefined /*out*/;
-            resourceInputs["isHighlyAvailable"] = undefined /*out*/;
-            resourceInputs["limitCpuForMigration"] = undefined /*out*/;
-            resourceInputs["memoryMB"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkInterfaces"] = undefined /*out*/;
-            resourceInputs["osName"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["computerName"] = undefined /*out*/;
-            resourceInputs["cpuCount"] = undefined /*out*/;
-            resourceInputs["disks"] = undefined /*out*/;
-            resourceInputs["dynamicMemoryEnabled"] = undefined /*out*/;
-            resourceInputs["dynamicMemoryMaxMB"] = undefined /*out*/;
-            resourceInputs["dynamicMemoryMinMB"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["generation"] = undefined /*out*/;
-            resourceInputs["inventoryItemId"] = undefined /*out*/;
-            resourceInputs["isCustomizable"] = undefined /*out*/;
-            resourceInputs["isHighlyAvailable"] = undefined /*out*/;
-            resourceInputs["limitCpuForMigration"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["memoryMB"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkInterfaces"] = undefined /*out*/;
-            resourceInputs["osName"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:scvmm:VirtualMachineTemplate" }] };
@@ -219,13 +120,13 @@ export interface VirtualMachineTemplateArgs {
      */
     extendedLocation: pulumi.Input<inputs.scvmm.v20200605preview.ExtendedLocationArgs>;
     /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    inventoryItemId?: pulumi.Input<string>;
-    /**
      * Gets or sets the location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Resource properties.
+     */
+    properties: pulumi.Input<inputs.scvmm.v20200605preview.VirtualMachineTemplatePropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -235,15 +136,7 @@ export interface VirtualMachineTemplateArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Unique ID of the virtual machine template.
-     */
-    uuid?: pulumi.Input<string>;
-    /**
      * Name of the VirtualMachineTemplate.
      */
     virtualMachineTemplateName?: pulumi.Input<string>;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    vmmServerId?: pulumi.Input<string>;
 }

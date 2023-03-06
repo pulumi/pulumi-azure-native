@@ -145,16 +145,16 @@ namespace Pulumi.AzureNative.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Gets or sets hybrid runbook worker group create or update properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.HybridRunbookWorkerCreateOrUpdateParametersArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Azure Resource Manager Id for a virtual machine.
-        /// </summary>
-        [Input("vmResourceId")]
-        public Input<string>? VmResourceId { get; set; }
 
         public HybridRunbookWorkerArgs()
         {

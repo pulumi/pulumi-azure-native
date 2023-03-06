@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public partial class BlobContainerDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// BLOB Container name.
-        /// </summary>
-        [Output("containerName")]
-        public Output<string> ContainerName { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'Container'.
         /// </summary>
@@ -41,22 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account
+        /// Blob container data set properties.
         /// </summary>
-        [Output("resourceGroup")]
-        public Output<string> ResourceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BlobContainerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -137,12 +113,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// BLOB Container name.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the dataSet.
         /// </summary>
         [Input("dataSetName")]
@@ -156,10 +126,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account
+        /// Blob container data set properties.
         /// </summary>
-        [Input("resourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.BlobContainerPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -172,18 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
 
         public BlobContainerDataSetArgs()
         {

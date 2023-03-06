@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SnapshotArgs', 'Snapshot']
 
@@ -15,8 +17,8 @@ __all__ = ['SnapshotArgs', 'Snapshot']
 class SnapshotArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 file_system_id: pulumi.Input[str],
                  pool_name: pulumi.Input[str],
+                 properties: pulumi.Input['SnapshotPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  volume_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -24,16 +26,16 @@ class SnapshotArgs:
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[str] file_system_id: UUID v4 used to identify the FileSystem
         :param pulumi.Input[str] pool_name: The name of the capacity pool
+        :param pulumi.Input['SnapshotPropertiesArgs'] properties: Snapshot Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] snapshot_name: The name of the mount target
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "pool_name", pool_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "volume_name", volume_name)
         if location is not None:
@@ -54,18 +56,6 @@ class SnapshotArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Input[str]:
-        """
-        UUID v4 used to identify the FileSystem
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @file_system_id.setter
-    def file_system_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_system_id", value)
-
-    @property
     @pulumi.getter(name="poolName")
     def pool_name(self) -> pulumi.Input[str]:
         """
@@ -76,6 +66,18 @@ class SnapshotArgs:
     @pool_name.setter
     def pool_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "pool_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SnapshotPropertiesArgs']:
+        """
+        Snapshot Properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SnapshotPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -137,9 +139,9 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 file_system_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SnapshotPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
@@ -150,9 +152,9 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[str] file_system_id: UUID v4 used to identify the FileSystem
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
+        :param pulumi.Input[pulumi.InputType['SnapshotPropertiesArgs']] properties: Snapshot Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] snapshot_name: The name of the mount target
         :param pulumi.Input[str] volume_name: The name of the volume
@@ -182,9 +184,9 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 file_system_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SnapshotPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
@@ -201,13 +203,13 @@ class Snapshot(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if file_system_id is None and not opts.urn:
-                raise TypeError("Missing required property 'file_system_id'")
-            __props__.__dict__["file_system_id"] = file_system_id
             __props__.__dict__["location"] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -215,10 +217,7 @@ class Snapshot(pulumi.CustomResource):
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
-            __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["snapshot_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190701:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20191001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20191101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200301:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200701:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200901:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20201101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20201201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20211001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220301:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220901:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -244,30 +243,11 @@ class Snapshot(pulumi.CustomResource):
 
         __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
-        __props__.__dict__["creation_date"] = None
-        __props__.__dict__["file_system_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["snapshot_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
-        """
-        The creation date of the snapshot
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Output[str]:
-        """
-        UUID v4 used to identify the FileSystem
-        """
-        return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter
@@ -286,20 +266,12 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SnapshotPropertiesResponse']:
         """
-        Azure lifecycle management
+        Snapshot Properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> pulumi.Output[str]:
-        """
-        UUID v4 used to identify the Snapshot
-        """
-        return pulumi.get(self, "snapshot_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

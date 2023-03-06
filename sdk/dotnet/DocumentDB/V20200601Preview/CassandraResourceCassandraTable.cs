@@ -153,16 +153,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        /// Properties to create and update Azure Cosmos DB Cassandra table.
         /// </summary>
-        [Input("options", required: true)]
-        public Input<Inputs.CreateUpdateOptionsArgs> Options { get; set; } = null!;
-
-        /// <summary>
-        /// The standard JSON format of a Cassandra table
-        /// </summary>
-        [Input("resource", required: true)]
-        public Input<Inputs.CassandraTableResourceArgs> Resource { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.CassandraTableCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

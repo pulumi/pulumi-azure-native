@@ -38,38 +38,22 @@ export class KustoTableDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'KustoTable'.
      */
     public readonly kind!: pulumi.Output<"KustoTable">;
     /**
-     * Resource id of the kusto database.
-     */
-    public readonly kustoDatabaseResourceId!: pulumi.Output<string>;
-    /**
-     * Location of the kusto cluster.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * Name of the azure resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the kusto table data set.
+     * Kusto table data set properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20210801.KustoTableDataSetPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.v20210801.SystemDataResponse>;
-    /**
-     * Table level sharing properties for kusto database
-     */
-    public readonly tableLevelSharingProperties!: pulumi.Output<outputs.datashare.v20210801.TableLevelSharingPropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -92,8 +76,8 @@ export class KustoTableDataSet extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoDatabaseResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'kustoDatabaseResourceId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -101,31 +85,20 @@ export class KustoTableDataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.tableLevelSharingProperties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'tableLevelSharingProperties'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
             resourceInputs["kind"] = "KustoTable";
-            resourceInputs["kustoDatabaseResourceId"] = args ? args.kustoDatabaseResourceId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["kustoDatabaseResourceId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,9 +126,9 @@ export interface KustoTableDataSetArgs {
      */
     kind: pulumi.Input<"KustoTable">;
     /**
-     * Resource id of the kusto database.
+     * Kusto table data set properties.
      */
-    kustoDatabaseResourceId: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.v20210801.KustoTableDataSetPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -164,8 +137,4 @@ export interface KustoTableDataSetArgs {
      * The name of the share to add the data set to.
      */
     shareName: pulumi.Input<string>;
-    /**
-     * Table level sharing properties for kusto database
-     */
-    tableLevelSharingProperties: pulumi.Input<inputs.datashare.v20210801.TableLevelSharingPropertiesArgs>;
 }

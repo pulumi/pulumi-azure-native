@@ -17,170 +17,51 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class RestServiceLinkedServiceResponse
     {
         /// <summary>
-        /// The resource you are requesting authorization to use.
-        /// </summary>
-        public readonly object? AadResourceId;
-        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
-        /// <summary>
-        /// The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
-        /// </summary>
-        public readonly object? AuthHeaders;
-        /// <summary>
-        /// Type of authentication used to connect to the REST service.
-        /// </summary>
-        public readonly string AuthenticationType;
-        /// <summary>
-        /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? AzureCloudType;
-        /// <summary>
-        /// The client ID associated with your application. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ClientId;
-        /// <summary>
-        /// The client secret associated with your application.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ClientSecret;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        public readonly Outputs.CredentialReferenceResponse? Credential;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Whether to validate server side SSL certificate when connecting to the endpoint.The default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? EnableServerCertificateValidation;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password used in Basic authentication type.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
-        /// <summary>
-        /// The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Resource;
-        /// <summary>
-        /// The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Scope;
-        /// <summary>
-        /// The application's client ID used in AadServicePrincipal authentication type.
-        /// </summary>
-        public readonly object? ServicePrincipalId;
-        /// <summary>
-        /// The application's key used in AadServicePrincipal authentication type.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
-        /// <summary>
-        /// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
-        /// </summary>
-        public readonly object? Tenant;
-        /// <summary>
-        /// The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? TokenEndpoint;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'RestService'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The base URL of the REST service.
+        /// Rest Service linked service properties.
         /// </summary>
-        public readonly object Url;
-        /// <summary>
-        /// The user name used in Basic authentication type.
-        /// </summary>
-        public readonly object? UserName;
+        public readonly Outputs.RestServiceLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private RestServiceLinkedServiceResponse(
-            object? aadResourceId,
-
             ImmutableArray<object> annotations,
-
-            object? authHeaders,
-
-            string authenticationType,
-
-            object? azureCloudType,
-
-            object? clientId,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            Outputs.CredentialReferenceResponse? credential,
-
             string? description,
-
-            object? enableServerCertificateValidation,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
-            object? resource,
-
-            object? scope,
-
-            object? servicePrincipalId,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
-
-            object? tenant,
-
-            object? tokenEndpoint,
-
             string type,
 
-            object url,
-
-            object? userName)
+            Outputs.RestServiceLinkedServiceTypePropertiesResponse typeProperties)
         {
-            AadResourceId = aadResourceId;
             Annotations = annotations;
-            AuthHeaders = authHeaders;
-            AuthenticationType = authenticationType;
-            AzureCloudType = azureCloudType;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
             ConnectVia = connectVia;
-            Credential = credential;
             Description = description;
-            EnableServerCertificateValidation = enableServerCertificateValidation;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
-            Resource = resource;
-            Scope = scope;
-            ServicePrincipalId = servicePrincipalId;
-            ServicePrincipalKey = servicePrincipalKey;
-            Tenant = tenant;
-            TokenEndpoint = tokenEndpoint;
             Type = type;
-            Url = url;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

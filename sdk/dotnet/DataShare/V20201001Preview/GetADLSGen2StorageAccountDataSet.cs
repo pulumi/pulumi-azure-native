@@ -94,10 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public sealed class GetADLSGen2StorageAccountDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -107,21 +103,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Location of the ADLSGen2 storage account.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of ADLSGen2 storage account paths.
+        /// ADLSGen2 storage account data set properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ADLSGen2StorageAccountPathResponse> Paths;
-        /// <summary>
-        /// Resource id of the ADLSGen2 storage account.
-        /// </summary>
-        public readonly string StorageAccountResourceId;
+        public readonly Outputs.ADLSGen2StorageAccountDataSetPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -133,31 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 
         [OutputConstructor]
         private GetADLSGen2StorageAccountDataSetResult(
-            string dataSetId,
-
             string id,
 
             string kind,
 
-            string location,
-
             string name,
 
-            ImmutableArray<Outputs.ADLSGen2StorageAccountPathResponse> paths,
-
-            string storageAccountResourceId,
+            Outputs.ADLSGen2StorageAccountDataSetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
-            Location = location;
             Name = name;
-            Paths = paths;
-            StorageAccountResourceId = storageAccountResourceId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

@@ -84,10 +84,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetPeriodicTimerEventTriggerResult
     {
         /// <summary>
-        /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-        /// </summary>
-        public readonly string? CustomContextTag;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -101,13 +97,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Role Sink information.
+        /// Periodic timer trigger properties.
         /// </summary>
-        public readonly Outputs.RoleSinkInfoResponse SinkInfo;
-        /// <summary>
-        /// Periodic timer details.
-        /// </summary>
-        public readonly Outputs.PeriodicTimerSourceInfoResponse SourceInfo;
+        public readonly Outputs.PeriodicTimerPropertiesResponse Properties;
         /// <summary>
         /// Trigger in DataBoxEdge Resource
         /// </summary>
@@ -119,28 +111,22 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetPeriodicTimerEventTriggerResult(
-            string? customContextTag,
-
             string id,
 
             string kind,
 
             string name,
 
-            Outputs.RoleSinkInfoResponse sinkInfo,
-
-            Outputs.PeriodicTimerSourceInfoResponse sourceInfo,
+            Outputs.PeriodicTimerPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            CustomContextTag = customContextTag;
             Id = id;
             Kind = kind;
             Name = name;
-            SinkInfo = sinkInfo;
-            SourceInfo = sourceInfo;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

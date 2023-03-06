@@ -40,37 +40,21 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
-     * The changed time.
-     */
-    readonly changedTime: string;
-    /**
-     * The created time.
-     */
-    readonly createdTime: string;
-    /**
      * The resource id.
      */
     readonly id: string;
-    /**
-     * The key details in the key vault.
-     */
-    readonly key?: outputs.logic.v20160601.KeyVaultKeyReferenceResponse;
     /**
      * The resource location.
      */
     readonly location?: string;
     /**
-     * The metadata.
-     */
-    readonly metadata?: any;
-    /**
      * Gets the resource name.
      */
     readonly name: string;
     /**
-     * The public certificate.
+     * The integration account certificate properties.
      */
-    readonly publicCertificate?: string;
+    readonly properties: outputs.logic.v20160601.IntegrationAccountCertificatePropertiesResponse;
     /**
      * The resource tags.
      */

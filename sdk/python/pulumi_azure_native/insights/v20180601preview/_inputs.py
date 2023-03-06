@@ -15,6 +15,8 @@ __all__ = [
     'EtwEventConfigurationArgs',
     'EtwProviderConfigurationArgs',
     'EventLogConfigurationArgs',
+    'GuestDiagnosticSettingsAssociationArgs',
+    'GuestDiagnosticSettingsArgs',
     'PerformanceCounterConfigurationArgs',
     'SinkConfigurationArgs',
 ]
@@ -211,6 +213,81 @@ class EventLogConfigurationArgs:
     @filter.setter
     def filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
+class GuestDiagnosticSettingsAssociationArgs:
+    def __init__(__self__, *,
+                 guest_diagnostic_settings_name: pulumi.Input[str]):
+        """
+        A guest diagnostic settings association.
+        :param pulumi.Input[str] guest_diagnostic_settings_name: The guest diagnostic settings name.
+        """
+        pulumi.set(__self__, "guest_diagnostic_settings_name", guest_diagnostic_settings_name)
+
+    @property
+    @pulumi.getter(name="guestDiagnosticSettingsName")
+    def guest_diagnostic_settings_name(self) -> pulumi.Input[str]:
+        """
+        The guest diagnostic settings name.
+        """
+        return pulumi.get(self, "guest_diagnostic_settings_name")
+
+    @guest_diagnostic_settings_name.setter
+    def guest_diagnostic_settings_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "guest_diagnostic_settings_name", value)
+
+
+@pulumi.input_type
+class GuestDiagnosticSettingsArgs:
+    def __init__(__self__, *,
+                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 proxy_setting: Optional[pulumi.Input[str]] = None):
+        """
+        Virtual machine diagnostic settings
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]] data_sources: the array of data source object which are configured to collect and send data
+        :param pulumi.Input[str] os_type: Operating system type for the configuration
+        """
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if proxy_setting is not None:
+            pulumi.set(__self__, "proxy_setting", proxy_setting)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]]:
+        """
+        the array of data source object which are configured to collect and send data
+        """
+        return pulumi.get(self, "data_sources")
+
+    @data_sources.setter
+    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]]):
+        pulumi.set(self, "data_sources", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operating system type for the configuration
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="proxySetting")
+    def proxy_setting(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "proxy_setting")
+
+    @proxy_setting.setter
+    def proxy_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy_setting", value)
 
 
 @pulumi.input_type

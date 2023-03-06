@@ -52,29 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// Stored procedure name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("storedProcedureName", required: true)]
-        public Input<object> StoredProcedureName { get; set; } = null!;
-
-        [Input("storedProcedureParameters")]
-        private InputMap<Inputs.StoredProcedureParameterArgs>? _storedProcedureParameters;
-
-        /// <summary>
-        /// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
-        /// </summary>
-        public InputMap<Inputs.StoredProcedureParameterArgs> StoredProcedureParameters
-        {
-            get => _storedProcedureParameters ?? (_storedProcedureParameters = new InputMap<Inputs.StoredProcedureParameterArgs>());
-            set => _storedProcedureParameters = value;
-        }
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'SqlServerStoredProcedure'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// SQL stored procedure activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SqlServerStoredProcedureActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SqlServerStoredProcedureActivityArgs()
         {

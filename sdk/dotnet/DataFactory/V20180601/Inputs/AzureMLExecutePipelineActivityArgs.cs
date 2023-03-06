@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class AzureMLExecutePipelineActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to continue execution of other steps in the PipelineRun if a step fails. This information will be passed in the continueOnStepFailure property of the published pipeline execution request. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("continueOnStepFailure")]
-        public Input<object>? ContinueOnStepFailure { get; set; }
-
-        /// <summary>
-        /// Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
-        /// </summary>
-        [Input("dataPathAssignments")]
-        public Input<object>? DataPathAssignments { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -46,40 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Run history experiment name of the pipeline run. This information will be passed in the ExperimentName property of the published pipeline execution request. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("experimentName")]
-        public Input<object>? ExperimentName { get; set; }
-
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedServiceName")]
         public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
-
-        /// <summary>
-        /// The parent Azure ML Service pipeline run id. This information will be passed in the ParentRunId property of the published pipeline execution request. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("mlParentRunId")]
-        public Input<object>? MlParentRunId { get; set; }
-
-        /// <summary>
-        /// ID of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("mlPipelineEndpointId")]
-        public Input<object>? MlPipelineEndpointId { get; set; }
-
-        /// <summary>
-        /// ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("mlPipelineId")]
-        public Input<object>? MlPipelineId { get; set; }
-
-        /// <summary>
-        /// Key,Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published pipeline. Values will be passed in the ParameterAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
-        /// </summary>
-        [Input("mlPipelineParameters")]
-        public Input<object>? MlPipelineParameters { get; set; }
 
         /// <summary>
         /// Activity name.
@@ -100,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Azure ML Execute Pipeline activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureMLExecutePipelineActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
+
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;
 
@@ -111,12 +75,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
             get => _userProperties ?? (_userProperties = new InputList<Inputs.UserPropertyArgs>());
             set => _userProperties = value;
         }
-
-        /// <summary>
-        /// Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("version")]
-        public Input<object>? Version { get; set; }
 
         public AzureMLExecutePipelineActivityArgs()
         {

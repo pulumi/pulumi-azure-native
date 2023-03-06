@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AmbrArgs',
+    'AttachedDataNetworkPropertiesFormatArgs',
     'AttachedDataNetworkResourceIdArgs',
     'AzureStackEdgeDeviceResourceIdArgs',
     'ConnectedClusterResourceIdArgs',
@@ -23,8 +24,11 @@ __all__ = [
     'KeyVaultKeyArgs',
     'LocalDiagnosticsAccessConfigurationArgs',
     'ManagedServiceIdentityArgs',
+    'MobileNetworkPropertiesFormatArgs',
     'MobileNetworkResourceIdArgs',
     'NaptConfigurationArgs',
+    'PacketCoreControlPlanePropertiesFormatArgs',
+    'PacketCoreDataPlanePropertiesFormatArgs',
     'PccRuleConfigurationArgs',
     'PccRuleQosPolicyArgs',
     'PinholeTimeoutsArgs',
@@ -34,11 +38,16 @@ __all__ = [
     'PortReuseHoldTimesArgs',
     'QosPolicyArgs',
     'ServiceDataFlowTemplateArgs',
+    'ServicePropertiesFormatArgs',
     'ServiceResourceIdArgs',
+    'SimGroupPropertiesFormatArgs',
+    'SimPolicyPropertiesFormatArgs',
     'SimPolicyResourceIdArgs',
+    'SimPropertiesFormatArgs',
     'SimStaticIpPropertiesStaticIpArgs',
     'SimStaticIpPropertiesArgs',
     'SliceConfigurationArgs',
+    'SlicePropertiesFormatArgs',
     'SliceResourceIdArgs',
     'SnssaiArgs',
     'SubResourceArgs',
@@ -80,6 +89,103 @@ class AmbrArgs:
     @uplink.setter
     def uplink(self, value: pulumi.Input[str]):
         pulumi.set(self, "uplink", value)
+
+
+@pulumi.input_type
+class AttachedDataNetworkPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 user_plane_data_interface: pulumi.Input['InterfacePropertiesArgs'],
+                 dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 napt_configuration: Optional[pulumi.Input['NaptConfigurationArgs']] = None,
+                 user_equipment_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_equipment_static_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Data network properties.
+        :param pulumi.Input['InterfacePropertiesArgs'] user_plane_data_interface: The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_addresses: The DNS servers to signal to UEs to use for this attached data network.
+        :param pulumi.Input['NaptConfigurationArgs'] napt_configuration: The network address and port translation (NAPT) configuration.
+               If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefix: The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+               The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+                You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefix: The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+               The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+               At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
+        """
+        pulumi.set(__self__, "user_plane_data_interface", user_plane_data_interface)
+        if dns_addresses is not None:
+            pulumi.set(__self__, "dns_addresses", dns_addresses)
+        if napt_configuration is not None:
+            pulumi.set(__self__, "napt_configuration", napt_configuration)
+        if user_equipment_address_pool_prefix is not None:
+            pulumi.set(__self__, "user_equipment_address_pool_prefix", user_equipment_address_pool_prefix)
+        if user_equipment_static_address_pool_prefix is not None:
+            pulumi.set(__self__, "user_equipment_static_address_pool_prefix", user_equipment_static_address_pool_prefix)
+
+    @property
+    @pulumi.getter(name="userPlaneDataInterface")
+    def user_plane_data_interface(self) -> pulumi.Input['InterfacePropertiesArgs']:
+        """
+        The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
+        """
+        return pulumi.get(self, "user_plane_data_interface")
+
+    @user_plane_data_interface.setter
+    def user_plane_data_interface(self, value: pulumi.Input['InterfacePropertiesArgs']):
+        pulumi.set(self, "user_plane_data_interface", value)
+
+    @property
+    @pulumi.getter(name="dnsAddresses")
+    def dns_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The DNS servers to signal to UEs to use for this attached data network.
+        """
+        return pulumi.get(self, "dns_addresses")
+
+    @dns_addresses.setter
+    def dns_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_addresses", value)
+
+    @property
+    @pulumi.getter(name="naptConfiguration")
+    def napt_configuration(self) -> Optional[pulumi.Input['NaptConfigurationArgs']]:
+        """
+        The network address and port translation (NAPT) configuration.
+        If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
+        """
+        return pulumi.get(self, "napt_configuration")
+
+    @napt_configuration.setter
+    def napt_configuration(self, value: Optional[pulumi.Input['NaptConfigurationArgs']]):
+        pulumi.set(self, "napt_configuration", value)
+
+    @property
+    @pulumi.getter(name="userEquipmentAddressPoolPrefix")
+    def user_equipment_address_pool_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
+         You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
+        """
+        return pulumi.get(self, "user_equipment_address_pool_prefix")
+
+    @user_equipment_address_pool_prefix.setter
+    def user_equipment_address_pool_prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_equipment_address_pool_prefix", value)
+
+    @property
+    @pulumi.getter(name="userEquipmentStaticAddressPoolPrefix")
+    def user_equipment_static_address_pool_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
+        The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
+        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
+        """
+        return pulumi.get(self, "user_equipment_static_address_pool_prefix")
+
+    @user_equipment_static_address_pool_prefix.setter
+    def user_equipment_static_address_pool_prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_equipment_static_address_pool_prefix", value)
 
 
 @pulumi.input_type
@@ -540,6 +646,29 @@ class ManagedServiceIdentityArgs:
 
 
 @pulumi.input_type
+class MobileNetworkPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 public_land_mobile_network_identifier: pulumi.Input['PlmnIdArgs']):
+        """
+        Mobile network properties.
+        :param pulumi.Input['PlmnIdArgs'] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        """
+        pulumi.set(__self__, "public_land_mobile_network_identifier", public_land_mobile_network_identifier)
+
+    @property
+    @pulumi.getter(name="publicLandMobileNetworkIdentifier")
+    def public_land_mobile_network_identifier(self) -> pulumi.Input['PlmnIdArgs']:
+        """
+        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        """
+        return pulumi.get(self, "public_land_mobile_network_identifier")
+
+    @public_land_mobile_network_identifier.setter
+    def public_land_mobile_network_identifier(self, value: pulumi.Input['PlmnIdArgs']):
+        pulumi.set(self, "public_land_mobile_network_identifier", value)
+
+
+@pulumi.input_type
 class MobileNetworkResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -654,6 +783,162 @@ class NaptConfigurationArgs:
     @port_reuse_hold_time.setter
     def port_reuse_hold_time(self, value: Optional[pulumi.Input['PortReuseHoldTimesArgs']]):
         pulumi.set(self, "port_reuse_hold_time", value)
+
+
+@pulumi.input_type
+class PacketCoreControlPlanePropertiesFormatArgs:
+    def __init__(__self__, *,
+                 control_plane_access_interface: pulumi.Input['InterfacePropertiesArgs'],
+                 mobile_network: pulumi.Input['MobileNetworkResourceIdArgs'],
+                 sku: pulumi.Input[Union[str, 'BillingSku']],
+                 core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
+                 interop_settings: Optional[Any] = None,
+                 local_diagnostics_access: Optional[pulumi.Input['LocalDiagnosticsAccessConfigurationArgs']] = None,
+                 platform: Optional[pulumi.Input['PlatformConfigurationArgs']] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Packet core control plane properties.
+        :param pulumi.Input['InterfacePropertiesArgs'] control_plane_access_interface: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
+        :param pulumi.Input['MobileNetworkResourceIdArgs'] mobile_network: Mobile network in which this packet core control plane is deployed.
+        :param pulumi.Input[Union[str, 'BillingSku']] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+        :param pulumi.Input[Union[str, 'CoreNetworkType']] core_network_technology: The core network technology generation (5G core or EPC / 4G core).
+        :param Any interop_settings: Settings to allow interoperability with third party components e.g. RANs and UEs.
+        :param pulumi.Input['LocalDiagnosticsAccessConfigurationArgs'] local_diagnostics_access: The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        :param pulumi.Input['PlatformConfigurationArgs'] platform: The platform where the packet core is deployed.
+        :param pulumi.Input[str] version: The version of the packet core software that is deployed.
+        """
+        pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
+        pulumi.set(__self__, "mobile_network", mobile_network)
+        pulumi.set(__self__, "sku", sku)
+        if core_network_technology is not None:
+            pulumi.set(__self__, "core_network_technology", core_network_technology)
+        if interop_settings is not None:
+            pulumi.set(__self__, "interop_settings", interop_settings)
+        if local_diagnostics_access is not None:
+            pulumi.set(__self__, "local_diagnostics_access", local_diagnostics_access)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="controlPlaneAccessInterface")
+    def control_plane_access_interface(self) -> pulumi.Input['InterfacePropertiesArgs']:
+        """
+        The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
+        """
+        return pulumi.get(self, "control_plane_access_interface")
+
+    @control_plane_access_interface.setter
+    def control_plane_access_interface(self, value: pulumi.Input['InterfacePropertiesArgs']):
+        pulumi.set(self, "control_plane_access_interface", value)
+
+    @property
+    @pulumi.getter(name="mobileNetwork")
+    def mobile_network(self) -> pulumi.Input['MobileNetworkResourceIdArgs']:
+        """
+        Mobile network in which this packet core control plane is deployed.
+        """
+        return pulumi.get(self, "mobile_network")
+
+    @mobile_network.setter
+    def mobile_network(self, value: pulumi.Input['MobileNetworkResourceIdArgs']):
+        pulumi.set(self, "mobile_network", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input[Union[str, 'BillingSku']]:
+        """
+        The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input[Union[str, 'BillingSku']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="coreNetworkTechnology")
+    def core_network_technology(self) -> Optional[pulumi.Input[Union[str, 'CoreNetworkType']]]:
+        """
+        The core network technology generation (5G core or EPC / 4G core).
+        """
+        return pulumi.get(self, "core_network_technology")
+
+    @core_network_technology.setter
+    def core_network_technology(self, value: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]]):
+        pulumi.set(self, "core_network_technology", value)
+
+    @property
+    @pulumi.getter(name="interopSettings")
+    def interop_settings(self) -> Optional[Any]:
+        """
+        Settings to allow interoperability with third party components e.g. RANs and UEs.
+        """
+        return pulumi.get(self, "interop_settings")
+
+    @interop_settings.setter
+    def interop_settings(self, value: Optional[Any]):
+        pulumi.set(self, "interop_settings", value)
+
+    @property
+    @pulumi.getter(name="localDiagnosticsAccess")
+    def local_diagnostics_access(self) -> Optional[pulumi.Input['LocalDiagnosticsAccessConfigurationArgs']]:
+        """
+        The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        """
+        return pulumi.get(self, "local_diagnostics_access")
+
+    @local_diagnostics_access.setter
+    def local_diagnostics_access(self, value: Optional[pulumi.Input['LocalDiagnosticsAccessConfigurationArgs']]):
+        pulumi.set(self, "local_diagnostics_access", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['PlatformConfigurationArgs']]:
+        """
+        The platform where the packet core is deployed.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['PlatformConfigurationArgs']]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the packet core software that is deployed.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class PacketCoreDataPlanePropertiesFormatArgs:
+    def __init__(__self__, *,
+                 user_plane_access_interface: pulumi.Input['InterfacePropertiesArgs']):
+        """
+        Packet core data plane properties.
+        :param pulumi.Input['InterfacePropertiesArgs'] user_plane_access_interface: The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
+        """
+        pulumi.set(__self__, "user_plane_access_interface", user_plane_access_interface)
+
+    @property
+    @pulumi.getter(name="userPlaneAccessInterface")
+    def user_plane_access_interface(self) -> pulumi.Input['InterfacePropertiesArgs']:
+        """
+        The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
+        """
+        return pulumi.get(self, "user_plane_access_interface")
+
+    @user_plane_access_interface.setter
+    def user_plane_access_interface(self, value: pulumi.Input['InterfacePropertiesArgs']):
+        pulumi.set(self, "user_plane_access_interface", value)
 
 
 @pulumi.input_type
@@ -1295,6 +1580,60 @@ class ServiceDataFlowTemplateArgs:
 
 
 @pulumi.input_type
+class ServicePropertiesFormatArgs:
+    def __init__(__self__, *,
+                 pcc_rules: pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]],
+                 service_precedence: pulumi.Input[int],
+                 service_qos_policy: Optional[pulumi.Input['QosPolicyArgs']] = None):
+        """
+        Service properties.
+        :param pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]] pcc_rules: The set of data flow policy rules that make up this service.
+        :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
+        :param pulumi.Input['QosPolicyArgs'] service_qos_policy: The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
+        """
+        pulumi.set(__self__, "pcc_rules", pcc_rules)
+        pulumi.set(__self__, "service_precedence", service_precedence)
+        if service_qos_policy is not None:
+            pulumi.set(__self__, "service_qos_policy", service_qos_policy)
+
+    @property
+    @pulumi.getter(name="pccRules")
+    def pcc_rules(self) -> pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]]:
+        """
+        The set of data flow policy rules that make up this service.
+        """
+        return pulumi.get(self, "pcc_rules")
+
+    @pcc_rules.setter
+    def pcc_rules(self, value: pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]]):
+        pulumi.set(self, "pcc_rules", value)
+
+    @property
+    @pulumi.getter(name="servicePrecedence")
+    def service_precedence(self) -> pulumi.Input[int]:
+        """
+        A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
+        """
+        return pulumi.get(self, "service_precedence")
+
+    @service_precedence.setter
+    def service_precedence(self, value: pulumi.Input[int]):
+        pulumi.set(self, "service_precedence", value)
+
+    @property
+    @pulumi.getter(name="serviceQosPolicy")
+    def service_qos_policy(self) -> Optional[pulumi.Input['QosPolicyArgs']]:
+        """
+        The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
+        """
+        return pulumi.get(self, "service_qos_policy")
+
+    @service_qos_policy.setter
+    def service_qos_policy(self, value: Optional[pulumi.Input['QosPolicyArgs']]):
+        pulumi.set(self, "service_qos_policy", value)
+
+
+@pulumi.input_type
 class ServiceResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1318,6 +1657,133 @@ class ServiceResourceIdArgs:
 
 
 @pulumi.input_type
+class SimGroupPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 encryption_key: Optional[pulumi.Input['KeyVaultKeyArgs']] = None,
+                 mobile_network: Optional[pulumi.Input['MobileNetworkResourceIdArgs']] = None):
+        """
+        SIM group properties.
+        :param pulumi.Input['KeyVaultKeyArgs'] encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
+        :param pulumi.Input['MobileNetworkResourceIdArgs'] mobile_network: Mobile network that this SIM belongs to
+        """
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if mobile_network is not None:
+            pulumi.set(__self__, "mobile_network", mobile_network)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input['KeyVaultKeyArgs']]:
+        """
+        A key to encrypt the SIM data that belongs to this SIM group.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input['KeyVaultKeyArgs']]):
+        pulumi.set(self, "encryption_key", value)
+
+    @property
+    @pulumi.getter(name="mobileNetwork")
+    def mobile_network(self) -> Optional[pulumi.Input['MobileNetworkResourceIdArgs']]:
+        """
+        Mobile network that this SIM belongs to
+        """
+        return pulumi.get(self, "mobile_network")
+
+    @mobile_network.setter
+    def mobile_network(self, value: Optional[pulumi.Input['MobileNetworkResourceIdArgs']]):
+        pulumi.set(self, "mobile_network", value)
+
+
+@pulumi.input_type
+class SimPolicyPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 default_slice: pulumi.Input['SliceResourceIdArgs'],
+                 slice_configurations: pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]],
+                 ue_ambr: pulumi.Input['AmbrArgs'],
+                 registration_timer: Optional[pulumi.Input[int]] = None,
+                 rfsp_index: Optional[pulumi.Input[int]] = None):
+        """
+        SIM policy properties.
+        :param pulumi.Input['SliceResourceIdArgs'] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        :param pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]] slice_configurations: The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input['AmbrArgs'] ue_ambr: Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
+        :param pulumi.Input[int] registration_timer: Interval for the UE periodic registration update procedure, in seconds.
+        :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
+        """
+        pulumi.set(__self__, "default_slice", default_slice)
+        pulumi.set(__self__, "slice_configurations", slice_configurations)
+        pulumi.set(__self__, "ue_ambr", ue_ambr)
+        if registration_timer is None:
+            registration_timer = 3240
+        if registration_timer is not None:
+            pulumi.set(__self__, "registration_timer", registration_timer)
+        if rfsp_index is not None:
+            pulumi.set(__self__, "rfsp_index", rfsp_index)
+
+    @property
+    @pulumi.getter(name="defaultSlice")
+    def default_slice(self) -> pulumi.Input['SliceResourceIdArgs']:
+        """
+        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        """
+        return pulumi.get(self, "default_slice")
+
+    @default_slice.setter
+    def default_slice(self, value: pulumi.Input['SliceResourceIdArgs']):
+        pulumi.set(self, "default_slice", value)
+
+    @property
+    @pulumi.getter(name="sliceConfigurations")
+    def slice_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]]:
+        """
+        The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        """
+        return pulumi.get(self, "slice_configurations")
+
+    @slice_configurations.setter
+    def slice_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]]):
+        pulumi.set(self, "slice_configurations", value)
+
+    @property
+    @pulumi.getter(name="ueAmbr")
+    def ue_ambr(self) -> pulumi.Input['AmbrArgs']:
+        """
+        Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
+        """
+        return pulumi.get(self, "ue_ambr")
+
+    @ue_ambr.setter
+    def ue_ambr(self, value: pulumi.Input['AmbrArgs']):
+        pulumi.set(self, "ue_ambr", value)
+
+    @property
+    @pulumi.getter(name="registrationTimer")
+    def registration_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Interval for the UE periodic registration update procedure, in seconds.
+        """
+        return pulumi.get(self, "registration_timer")
+
+    @registration_timer.setter
+    def registration_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "registration_timer", value)
+
+    @property
+    @pulumi.getter(name="rfspIndex")
+    def rfsp_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
+        """
+        return pulumi.get(self, "rfsp_index")
+
+    @rfsp_index.setter
+    def rfsp_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rfsp_index", value)
+
+
+@pulumi.input_type
 class SimPolicyResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1338,6 +1804,125 @@ class SimPolicyResourceIdArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SimPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 international_mobile_subscriber_identity: pulumi.Input[str],
+                 authentication_key: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[str]] = None,
+                 integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
+                 operator_key_code: Optional[pulumi.Input[str]] = None,
+                 sim_policy: Optional[pulumi.Input['SimPolicyResourceIdArgs']] = None,
+                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]] = None):
+        """
+        SIM properties.
+        :param pulumi.Input[str] international_mobile_subscriber_identity: The international mobile subscriber identity (IMSI) for the SIM.
+        :param pulumi.Input[str] authentication_key: The Ki value for the SIM.
+        :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
+        :param pulumi.Input[str] integrated_circuit_card_identifier: The integrated circuit card ID (ICCID) for the SIM.
+        :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
+        :param pulumi.Input['SimPolicyResourceIdArgs'] sim_policy: The SIM policy used by this SIM.
+        :param pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+        """
+        pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
+        if authentication_key is not None:
+            pulumi.set(__self__, "authentication_key", authentication_key)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
+        if integrated_circuit_card_identifier is not None:
+            pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
+        if operator_key_code is not None:
+            pulumi.set(__self__, "operator_key_code", operator_key_code)
+        if sim_policy is not None:
+            pulumi.set(__self__, "sim_policy", sim_policy)
+        if static_ip_configuration is not None:
+            pulumi.set(__self__, "static_ip_configuration", static_ip_configuration)
+
+    @property
+    @pulumi.getter(name="internationalMobileSubscriberIdentity")
+    def international_mobile_subscriber_identity(self) -> pulumi.Input[str]:
+        """
+        The international mobile subscriber identity (IMSI) for the SIM.
+        """
+        return pulumi.get(self, "international_mobile_subscriber_identity")
+
+    @international_mobile_subscriber_identity.setter
+    def international_mobile_subscriber_identity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "international_mobile_subscriber_identity", value)
+
+    @property
+    @pulumi.getter(name="authenticationKey")
+    def authentication_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Ki value for the SIM.
+        """
+        return pulumi.get(self, "authentication_key")
+
+    @authentication_key.setter
+    def authentication_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_key", value)
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
+        """
+        return pulumi.get(self, "device_type")
+
+    @device_type.setter
+    def device_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_type", value)
+
+    @property
+    @pulumi.getter(name="integratedCircuitCardIdentifier")
+    def integrated_circuit_card_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The integrated circuit card ID (ICCID) for the SIM.
+        """
+        return pulumi.get(self, "integrated_circuit_card_identifier")
+
+    @integrated_circuit_card_identifier.setter
+    def integrated_circuit_card_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integrated_circuit_card_identifier", value)
+
+    @property
+    @pulumi.getter(name="operatorKeyCode")
+    def operator_key_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Opc value for the SIM.
+        """
+        return pulumi.get(self, "operator_key_code")
+
+    @operator_key_code.setter
+    def operator_key_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator_key_code", value)
+
+    @property
+    @pulumi.getter(name="simPolicy")
+    def sim_policy(self) -> Optional[pulumi.Input['SimPolicyResourceIdArgs']]:
+        """
+        The SIM policy used by this SIM.
+        """
+        return pulumi.get(self, "sim_policy")
+
+    @sim_policy.setter
+    def sim_policy(self, value: Optional[pulumi.Input['SimPolicyResourceIdArgs']]):
+        pulumi.set(self, "sim_policy", value)
+
+    @property
+    @pulumi.getter(name="staticIpConfiguration")
+    def static_ip_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]]:
+        """
+        A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+        """
+        return pulumi.get(self, "static_ip_configuration")
+
+    @static_ip_configuration.setter
+    def static_ip_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]]]):
+        pulumi.set(self, "static_ip_configuration", value)
 
 
 @pulumi.input_type
@@ -1471,6 +2056,45 @@ class SliceConfigurationArgs:
     @slice.setter
     def slice(self, value: pulumi.Input['SliceResourceIdArgs']):
         pulumi.set(self, "slice", value)
+
+
+@pulumi.input_type
+class SlicePropertiesFormatArgs:
+    def __init__(__self__, *,
+                 snssai: pulumi.Input['SnssaiArgs'],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Network slice properties.
+        :param pulumi.Input['SnssaiArgs'] snssai: Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        :param pulumi.Input[str] description: An optional description for this network slice.
+        """
+        pulumi.set(__self__, "snssai", snssai)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def snssai(self) -> pulumi.Input['SnssaiArgs']:
+        """
+        Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        """
+        return pulumi.get(self, "snssai")
+
+    @snssai.setter
+    def snssai(self, value: pulumi.Input['SnssaiArgs']):
+        pulumi.set(self, "snssai", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description for this network slice.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

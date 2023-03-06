@@ -72,18 +72,6 @@ namespace Pulumi.AzureNative.ElasticSan
     public sealed class GetElasticSanResult
     {
         /// <summary>
-        /// Logical zone for Elastic San resource; example: ["1"].
-        /// </summary>
-        public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// Base size of the Elastic San appliance in TiB.
-        /// </summary>
-        public readonly double BaseSizeTiB;
-        /// <summary>
-        /// Extended size of the Elastic San appliance in TiB.
-        /// </summary>
-        public readonly double ExtendedCapacitySizeTiB;
-        /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
@@ -96,13 +84,9 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the operation on the resource.
+        /// Properties of ElasticSan.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// resource sku
-        /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.ElasticSanPropertiesResponse Properties;
         /// <summary>
         /// Resource metadata required by ARM RPC
         /// </summary>
@@ -112,80 +96,33 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Total Provisioned IOPS of the Elastic San appliance.
-        /// </summary>
-        public readonly double TotalIops;
-        /// <summary>
-        /// Total Provisioned MBps Elastic San appliance.
-        /// </summary>
-        public readonly double TotalMBps;
-        /// <summary>
-        /// Total size of the Elastic San appliance in TB.
-        /// </summary>
-        public readonly double TotalSizeTiB;
-        /// <summary>
-        /// Total size of the provisioned Volumes in GiB.
-        /// </summary>
-        public readonly double TotalVolumeSizeGiB;
-        /// <summary>
         /// Azure resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Total number of volume groups in this Elastic San appliance.
-        /// </summary>
-        public readonly double VolumeGroupCount;
 
         [OutputConstructor]
         private GetElasticSanResult(
-            ImmutableArray<string> availabilityZones,
-
-            double baseSizeTiB,
-
-            double extendedCapacitySizeTiB,
-
             string id,
 
             string? location,
 
             string name,
 
-            string provisioningState,
-
-            Outputs.SkuResponse sku,
+            Outputs.ElasticSanPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            double totalIops,
-
-            double totalMBps,
-
-            double totalSizeTiB,
-
-            double totalVolumeSizeGiB,
-
-            string type,
-
-            double volumeGroupCount)
+            string type)
         {
-            AvailabilityZones = availabilityZones;
-            BaseSizeTiB = baseSizeTiB;
-            ExtendedCapacitySizeTiB = extendedCapacitySizeTiB;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Sku = sku;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            TotalIops = totalIops;
-            TotalMBps = totalMBps;
-            TotalSizeTiB = totalSizeTiB;
-            TotalVolumeSizeGiB = totalVolumeSizeGiB;
             Type = type;
-            VolumeGroupCount = volumeGroupCount;
         }
     }
 }

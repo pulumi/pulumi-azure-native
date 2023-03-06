@@ -82,10 +82,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
     public sealed class GetLinkedStorageAccountResult
     {
         /// <summary>
-        /// Linked storage accounts type.
-        /// </summary>
-        public readonly string DataSourceType;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -94,9 +90,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Linked storage accounts resources ids.
+        /// Linked storage accounts properties.
         /// </summary>
-        public readonly ImmutableArray<string> StorageAccountIds;
+        public readonly Outputs.LinkedStorageAccountsPropertiesResponse Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -104,20 +100,17 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
 
         [OutputConstructor]
         private GetLinkedStorageAccountResult(
-            string dataSourceType,
-
             string id,
 
             string name,
 
-            ImmutableArray<string> storageAccountIds,
+            Outputs.LinkedStorageAccountsPropertiesResponse properties,
 
             string type)
         {
-            DataSourceType = dataSourceType;
             Id = id;
             Name = name;
-            StorageAccountIds = storageAccountIds;
+            Properties = properties;
             Type = type;
         }
     }

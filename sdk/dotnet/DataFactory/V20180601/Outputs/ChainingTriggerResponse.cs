@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// Upstream Pipelines.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PipelineReferenceResponse> DependsOn;
-        /// <summary>
         /// Trigger description.
         /// </summary>
         public readonly string? Description;
@@ -32,10 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Pipeline for which runs are created when all upstream pipelines complete successfully.
         /// </summary>
         public readonly Outputs.TriggerPipelineReferenceResponse Pipeline;
-        /// <summary>
-        /// Run Dimension property that needs to be emitted by upstream pipelines.
-        /// </summary>
-        public readonly string RunDimension;
         /// <summary>
         /// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         /// </summary>
@@ -45,30 +37,31 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'ChainingTrigger'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Chaining Trigger properties.
+        /// </summary>
+        public readonly Outputs.ChainingTriggerResponseTypeProperties TypeProperties;
 
         [OutputConstructor]
         private ChainingTriggerResponse(
             ImmutableArray<object> annotations,
 
-            ImmutableArray<Outputs.PipelineReferenceResponse> dependsOn,
-
             string? description,
 
             Outputs.TriggerPipelineReferenceResponse pipeline,
 
-            string runDimension,
-
             string runtimeState,
 
-            string type)
+            string type,
+
+            Outputs.ChainingTriggerResponseTypeProperties typeProperties)
         {
             Annotations = annotations;
-            DependsOn = dependsOn;
             Description = description;
             Pipeline = pipeline;
-            RunDimension = runDimension;
             RuntimeState = runtimeState;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

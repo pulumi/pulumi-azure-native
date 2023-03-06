@@ -37,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The Azure MySQL database table name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureMySqlTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure MySQL database dataset properties.
+        /// </summary>
+        public readonly Outputs.AzureMySqlTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureMySqlTableDatasetResponse(
@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             object? structure,
 
-            object? tableName,
+            string type,
 
-            string type)
+            Outputs.AzureMySqlTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

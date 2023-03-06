@@ -23,46 +23,16 @@ namespace Pulumi.AzureNative.LabServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Notes for this schedule.
+        /// Schedule resource properties
         /// </summary>
-        [Output("notes")]
-        public Output<string?> Notes { get; private set; } = null!;
-
-        /// <summary>
-        /// Current provisioning state of the schedule.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The recurrence pattern of the scheduled actions.
-        /// </summary>
-        [Output("recurrencePattern")]
-        public Output<Outputs.RecurrencePatternResponse?> RecurrencePattern { get; private set; } = null!;
-
-        /// <summary>
-        /// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-        /// </summary>
-        [Output("startAt")]
-        public Output<string?> StartAt { get; private set; } = null!;
-
-        /// <summary>
-        /// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-        /// </summary>
-        [Output("stopAt")]
-        public Output<string> StopAt { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SchedulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the schedule.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// The IANA timezone id for the schedule.
-        /// </summary>
-        [Output("timeZoneId")]
-        public Output<string> TimeZoneId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -128,16 +98,10 @@ namespace Pulumi.AzureNative.LabServices
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// Notes for this schedule.
+        /// Schedule resource properties
         /// </summary>
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
-
-        /// <summary>
-        /// The recurrence pattern of the scheduled actions.
-        /// </summary>
-        [Input("recurrencePattern")]
-        public Input<Inputs.RecurrencePatternArgs>? RecurrencePattern { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SchedulePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -150,24 +114,6 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Input("scheduleName")]
         public Input<string>? ScheduleName { get; set; }
-
-        /// <summary>
-        /// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-        /// </summary>
-        [Input("startAt")]
-        public Input<string>? StartAt { get; set; }
-
-        /// <summary>
-        /// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-        /// </summary>
-        [Input("stopAt", required: true)]
-        public Input<string> StopAt { get; set; } = null!;
-
-        /// <summary>
-        /// The IANA timezone id for the schedule.
-        /// </summary>
-        [Input("timeZoneId", required: true)]
-        public Input<string> TimeZoneId { get; set; } = null!;
 
         public ScheduleArgs()
         {

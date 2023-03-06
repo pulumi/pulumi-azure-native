@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ADLSGen1FolderDataSetArgs', 'ADLSGen1FolderDataSet']
 
@@ -15,32 +17,26 @@ __all__ = ['ADLSGen1FolderDataSetArgs', 'ADLSGen1FolderDataSet']
 class ADLSGen1FolderDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 folder_path: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 resource_group: pulumi.Input[str],
+                 properties: pulumi.Input['ADLSGen1FolderPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
-                 subscription_id: pulumi.Input[str],
                  data_set_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ADLSGen1FolderDataSet resource.
-        :param pulumi.Input[str] account_name: The ADLS account name.
-        :param pulumi.Input[str] folder_path: The folder path within the ADLS account.
+        :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'AdlsGen1Folder'.
-        :param pulumi.Input[str] resource_group: Resource group of ADLS account.
+        :param pulumi.Input['ADLSGen1FolderPropertiesArgs'] properties: ADLS Gen 1 folder data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] subscription_id: Subscription id of ADLS account.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "folder_path", folder_path)
         pulumi.set(__self__, "kind", 'AdlsGen1Folder')
-        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
         if data_set_name is not None:
             pulumi.set(__self__, "data_set_name", data_set_name)
 
@@ -48,25 +44,13 @@ class ADLSGen1FolderDataSetArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[str]:
         """
-        The ADLS account name.
+        The name of the share account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
     def account_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_name", value)
-
-    @property
-    @pulumi.getter(name="folderPath")
-    def folder_path(self) -> pulumi.Input[str]:
-        """
-        The folder path within the ADLS account.
-        """
-        return pulumi.get(self, "folder_path")
-
-    @folder_path.setter
-    def folder_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "folder_path", value)
 
     @property
     @pulumi.getter
@@ -82,16 +66,16 @@ class ADLSGen1FolderDataSetArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ADLSGen1FolderPropertiesArgs']:
         """
-        Resource group of ADLS account.
+        ADLS Gen 1 folder data set properties.
         """
-        return pulumi.get(self, "resource_group")
+        return pulumi.get(self, "properties")
 
-    @resource_group.setter
-    def resource_group(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ADLSGen1FolderPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -118,18 +102,6 @@ class ADLSGen1FolderDataSetArgs:
         pulumi.set(self, "share_name", value)
 
     @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[str]:
-        """
-        Subscription id of ADLS account.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subscription_id", value)
-
-    @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -149,27 +121,23 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
-                 folder_path: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ADLSGen1FolderPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An ADLS Gen 1 folder data set.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_name: The ADLS account name.
+        :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
-        :param pulumi.Input[str] folder_path: The folder path within the ADLS account.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'AdlsGen1Folder'.
-        :param pulumi.Input[str] resource_group: Resource group of ADLS account.
+        :param pulumi.Input[pulumi.InputType['ADLSGen1FolderPropertiesArgs']] properties: ADLS Gen 1 folder data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] subscription_id: Subscription id of ADLS account.
         """
         ...
     @overload
@@ -197,12 +165,10 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
-                 folder_path: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ADLSGen1FolderPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -216,25 +182,18 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["data_set_name"] = data_set_name
-            if folder_path is None and not opts.urn:
-                raise TypeError("Missing required property 'folder_path'")
-            __props__.__dict__["folder_path"] = folder_path
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'AdlsGen1Folder'
-            if resource_group is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group'")
-            __props__.__dict__["resource_group"] = resource_group
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            if subscription_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subscription_id'")
-            __props__.__dict__["subscription_id"] = subscription_id
-            __props__.__dict__["data_set_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ADLSGen1FolderDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ADLSGen1FolderDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen1FolderDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen1FolderDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen1FolderDataSet")])
@@ -261,39 +220,11 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
 
         __props__ = ADLSGen1FolderDataSetArgs.__new__(ADLSGen1FolderDataSetArgs)
 
-        __props__.__dict__["account_name"] = None
-        __props__.__dict__["data_set_id"] = None
-        __props__.__dict__["folder_path"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["resource_group"] = None
-        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ADLSGen1FolderDataSet(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Output[str]:
-        """
-        The ADLS account name.
-        """
-        return pulumi.get(self, "account_name")
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="folderPath")
-    def folder_path(self) -> pulumi.Output[str]:
-        """
-        The folder path within the ADLS account.
-        """
-        return pulumi.get(self, "folder_path")
 
     @property
     @pulumi.getter
@@ -313,20 +244,12 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ADLSGen1FolderPropertiesResponse']:
         """
-        Resource group of ADLS account.
+        ADLS Gen 1 folder data set properties.
         """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Output[str]:
-        """
-        Subscription id of ADLS account.
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

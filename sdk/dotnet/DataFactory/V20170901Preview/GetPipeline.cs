@@ -83,22 +83,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     public sealed class GetPipelineResult
     {
         /// <summary>
-        /// List of activities in pipeline.
-        /// </summary>
-        public readonly ImmutableArray<object> Activities;
-        /// <summary>
-        /// List of tags that can be used for describing the Pipeline.
-        /// </summary>
-        public readonly ImmutableArray<object> Annotations;
-        /// <summary>
-        /// The max number of concurrent runs for the pipeline.
-        /// </summary>
-        public readonly int? Concurrency;
-        /// <summary>
-        /// The description of the pipeline.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         public readonly string Etag;
@@ -111,9 +95,9 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of parameters for pipeline.
+        /// Properties of the pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
+        public readonly Outputs.PipelineResponse Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -121,32 +105,20 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 
         [OutputConstructor]
         private GetPipelineResult(
-            ImmutableArray<object> activities,
-
-            ImmutableArray<object> annotations,
-
-            int? concurrency,
-
-            string? description,
-
             string etag,
 
             string id,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
+            Outputs.PipelineResponse properties,
 
             string type)
         {
-            Activities = activities;
-            Annotations = annotations;
-            Concurrency = concurrency;
-            Description = description;
             Etag = etag;
             Id = id;
             Name = name;
-            Parameters = parameters;
+            Properties = properties;
             Type = type;
         }
     }

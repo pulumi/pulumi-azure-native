@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +45,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * The resource identifier for the subnet.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public /*out*/ readonly subnetId!: pulumi.Output<string>;
     /**
      * The resource type.
      */
@@ -62,17 +65,18 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnetId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
@@ -95,13 +99,13 @@ export interface VirtualNetworkRuleArgs {
      */
     accountName: pulumi.Input<string>;
     /**
+     * The virtual network rule properties to use when creating a new virtual network rule.
+     */
+    properties: pulumi.Input<inputs.datalakestore.CreateOrUpdateVirtualNetworkRulePropertiesArgs>;
+    /**
      * The name of the Azure resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The resource identifier for the subnet.
-     */
-    subnetId: pulumi.Input<string>;
     /**
      * The name of the virtual network rule to create or update.
      */

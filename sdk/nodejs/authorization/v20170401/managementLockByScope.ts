@@ -38,21 +38,13 @@ export class ManagementLockByScope extends pulumi.CustomResource {
     }
 
     /**
-     * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-     */
-    public readonly level!: pulumi.Output<string>;
-    /**
      * The name of the lock.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Notes about the lock. Maximum of 512 characters.
+     * The properties of the lock.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
-    /**
-     * The owners of the lock.
-     */
-    public readonly owners!: pulumi.Output<outputs.authorization.v20170401.ManagementLockOwnerResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.authorization.v20170401.ManagementLockPropertiesResponse>;
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */
@@ -69,24 +61,20 @@ export class ManagementLockByScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.level === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'level'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["level"] = args ? args.level : undefined;
             resourceInputs["lockName"] = args ? args.lockName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["owners"] = args ? args.owners : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["level"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["notes"] = undefined /*out*/;
-            resourceInputs["owners"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -101,21 +89,13 @@ export class ManagementLockByScope extends pulumi.CustomResource {
  */
 export interface ManagementLockByScopeArgs {
     /**
-     * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-     */
-    level: pulumi.Input<string | enums.authorization.v20170401.LockLevel>;
-    /**
      * The name of lock.
      */
     lockName?: pulumi.Input<string>;
     /**
-     * Notes about the lock. Maximum of 512 characters.
+     * The properties of the lock.
      */
-    notes?: pulumi.Input<string>;
-    /**
-     * The owners of the lock.
-     */
-    owners?: pulumi.Input<pulumi.Input<inputs.authorization.v20170401.ManagementLockOwnerArgs>[]>;
+    properties: pulumi.Input<inputs.authorization.v20170401.ManagementLockPropertiesArgs>;
     /**
      * The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
      */

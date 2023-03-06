@@ -11,6 +11,7 @@ from ... import _utilities
 
 __all__ = [
     'PrometheusRuleGroupActionArgs',
+    'PrometheusRuleGroupPropertiesArgs',
     'PrometheusRuleResolveConfigurationArgs',
     'PrometheusRuleArgs',
 ]
@@ -53,6 +54,108 @@ class PrometheusRuleGroupActionArgs:
     @action_properties.setter
     def action_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "action_properties", value)
+
+
+@pulumi.input_type
+class PrometheusRuleGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 interval: Optional[pulumi.Input[str]] = None):
+        """
+        An alert rule.
+        :param pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]] rules: defines the rules in the Prometheus rule group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this rule group is scoped to.
+        :param pulumi.Input[str] cluster_name: the cluster name of the rule group evaluation.
+        :param pulumi.Input[str] description: the description of the Prometheus rule group that will be included in the alert email.
+        :param pulumi.Input[bool] enabled: the flag that indicates whether the Prometheus rule group is enabled.
+        :param pulumi.Input[str] interval: the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
+        """
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "scopes", scopes)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]]:
+        """
+        defines the rules in the Prometheus rule group.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['PrometheusRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        the list of resource id's that this rule group is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the cluster name of the rule group evaluation.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        the description of the Prometheus rule group that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        the flag that indicates whether the Prometheus rule group is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interval", value)
 
 
 @pulumi.input_type

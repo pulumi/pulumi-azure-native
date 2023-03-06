@@ -38,18 +38,6 @@ export class ServiceFabric extends pulumi.CustomResource {
     }
 
     /**
-     * The applicable schedule for the virtual machine.
-     */
-    public /*out*/ readonly applicableSchedule!: pulumi.Output<outputs.devtestlab.v20180915.ApplicableScheduleResponse>;
-    /**
-     * The resource id of the environment under which the service fabric resource is present
-     */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
-    /**
-     * The backing service fabric resource's id
-     */
-    public readonly externalServiceFabricId!: pulumi.Output<string | undefined>;
-    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -58,9 +46,9 @@ export class ServiceFabric extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.ServiceFabricPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -69,10 +57,6 @@ export class ServiceFabric extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a ServiceFabric resource with the given unique name, arguments, and options.
@@ -88,34 +72,29 @@ export class ServiceFabric extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["externalServiceFabricId"] = args ? args.externalServiceFabricId : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["applicableSchedule"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            resourceInputs["applicableSchedule"] = undefined /*out*/;
-            resourceInputs["environmentId"] = undefined /*out*/;
-            resourceInputs["externalServiceFabricId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ServiceFabric" }] };
@@ -129,14 +108,6 @@ export class ServiceFabric extends pulumi.CustomResource {
  */
 export interface ServiceFabricArgs {
     /**
-     * The resource id of the environment under which the service fabric resource is present
-     */
-    environmentId?: pulumi.Input<string>;
-    /**
-     * The backing service fabric resource's id
-     */
-    externalServiceFabricId?: pulumi.Input<string>;
-    /**
      * The name of the lab.
      */
     labName: pulumi.Input<string>;
@@ -148,6 +119,10 @@ export interface ServiceFabricArgs {
      * The name of the service fabric.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The properties of the resource.
+     */
+    properties: pulumi.Input<inputs.devtestlab.v20180915.ServiceFabricPropertiesArgs>;
     /**
      * The name of the resource group.
      */

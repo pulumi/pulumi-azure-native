@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The client key for the AppFigures source.
-        /// </summary>
-        [Input("clientKey", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ClientKey { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -58,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The password of the AppFigures source.
-        /// </summary>
-        [Input("password", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> Password { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AppFigures'.
         /// </summary>
@@ -71,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The username of the Appfigures source.
+        /// AppFigures linked service properties.
         /// </summary>
-        [Input("userName", required: true)]
-        public Input<object> UserName { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AppFiguresLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AppFiguresLinkedServiceArgs()
         {

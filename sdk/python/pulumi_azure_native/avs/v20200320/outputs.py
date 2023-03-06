@@ -8,13 +8,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'CircuitResponse',
+    'ClusterPropertiesResponse',
     'EndpointsResponse',
     'IdentitySourceResponse',
     'ManagementClusterResponse',
+    'PrivateCloudPropertiesResponse',
     'SkuResponse',
 ]
 
@@ -94,6 +97,82 @@ class CircuitResponse(dict):
         CIDR of secondary subnet
         """
         return pulumi.get(self, "secondary_subnet")
+
+
+@pulumi.output_type
+class ClusterPropertiesResponse(dict):
+    """
+    The properties of a cluster
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "clusterSize":
+            suggest = "cluster_size"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_id: int,
+                 cluster_size: int,
+                 hosts: Sequence[str],
+                 provisioning_state: str):
+        """
+        The properties of a cluster
+        :param int cluster_id: The identity
+        :param int cluster_size: The cluster size
+        :param Sequence[str] hosts: The hosts
+        :param str provisioning_state: The state of the cluster provisioning
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "cluster_size", cluster_size)
+        pulumi.set(__self__, "hosts", hosts)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> int:
+        """
+        The identity
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> int:
+        """
+        The cluster size
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @property
+    @pulumi.getter
+    def hosts(self) -> Sequence[str]:
+        """
+        The hosts
+        """
+        return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The state of the cluster provisioning
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -387,6 +466,215 @@ class ManagementClusterResponse(dict):
         The state of the cluster provisioning
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class PrivateCloudPropertiesResponse(dict):
+    """
+    The properties of a private cloud resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementCluster":
+            suggest = "management_cluster"
+        elif key == "managementNetwork":
+            suggest = "management_network"
+        elif key == "networkBlock":
+            suggest = "network_block"
+        elif key == "nsxtCertificateThumbprint":
+            suggest = "nsxt_certificate_thumbprint"
+        elif key == "provisioningNetwork":
+            suggest = "provisioning_network"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "vcenterCertificateThumbprint":
+            suggest = "vcenter_certificate_thumbprint"
+        elif key == "vmotionNetwork":
+            suggest = "vmotion_network"
+        elif key == "identitySources":
+            suggest = "identity_sources"
+        elif key == "nsxtPassword":
+            suggest = "nsxt_password"
+        elif key == "vcenterPassword":
+            suggest = "vcenter_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateCloudPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateCloudPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateCloudPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoints: 'outputs.EndpointsResponse',
+                 management_cluster: 'outputs.ManagementClusterResponse',
+                 management_network: str,
+                 network_block: str,
+                 nsxt_certificate_thumbprint: str,
+                 provisioning_network: str,
+                 provisioning_state: str,
+                 vcenter_certificate_thumbprint: str,
+                 vmotion_network: str,
+                 circuit: Optional['outputs.CircuitResponse'] = None,
+                 identity_sources: Optional[Sequence['outputs.IdentitySourceResponse']] = None,
+                 internet: Optional[str] = None,
+                 nsxt_password: Optional[str] = None,
+                 vcenter_password: Optional[str] = None):
+        """
+        The properties of a private cloud resource
+        :param 'EndpointsResponse' endpoints: The endpoints
+        :param 'ManagementClusterResponse' management_cluster: The default cluster used for management
+        :param str management_network: Network used to access vCenter Server and NSX-T Manager
+        :param str network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        :param str nsxt_certificate_thumbprint: Thumbprint of the NSX-T Manager SSL certificate
+        :param str provisioning_network: Used for virtual machine cold migration, cloning, and snapshot migration
+        :param str provisioning_state: The provisioning state
+        :param str vcenter_certificate_thumbprint: Thumbprint of the vCenter Server SSL certificate
+        :param str vmotion_network: Used for live migration of virtual machines
+        :param 'CircuitResponse' circuit: An ExpressRoute Circuit
+        :param Sequence['IdentitySourceResponse'] identity_sources: vCenter Single Sign On Identity Sources
+        :param str internet: Connectivity to internet is enabled or disabled
+        :param str nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
+        :param str vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
+        """
+        pulumi.set(__self__, "endpoints", endpoints)
+        pulumi.set(__self__, "management_cluster", management_cluster)
+        pulumi.set(__self__, "management_network", management_network)
+        pulumi.set(__self__, "network_block", network_block)
+        pulumi.set(__self__, "nsxt_certificate_thumbprint", nsxt_certificate_thumbprint)
+        pulumi.set(__self__, "provisioning_network", provisioning_network)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "vcenter_certificate_thumbprint", vcenter_certificate_thumbprint)
+        pulumi.set(__self__, "vmotion_network", vmotion_network)
+        if circuit is not None:
+            pulumi.set(__self__, "circuit", circuit)
+        if identity_sources is not None:
+            pulumi.set(__self__, "identity_sources", identity_sources)
+        if internet is None:
+            internet = 'Disabled'
+        if internet is not None:
+            pulumi.set(__self__, "internet", internet)
+        if nsxt_password is not None:
+            pulumi.set(__self__, "nsxt_password", nsxt_password)
+        if vcenter_password is not None:
+            pulumi.set(__self__, "vcenter_password", vcenter_password)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> 'outputs.EndpointsResponse':
+        """
+        The endpoints
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="managementCluster")
+    def management_cluster(self) -> 'outputs.ManagementClusterResponse':
+        """
+        The default cluster used for management
+        """
+        return pulumi.get(self, "management_cluster")
+
+    @property
+    @pulumi.getter(name="managementNetwork")
+    def management_network(self) -> str:
+        """
+        Network used to access vCenter Server and NSX-T Manager
+        """
+        return pulumi.get(self, "management_network")
+
+    @property
+    @pulumi.getter(name="networkBlock")
+    def network_block(self) -> str:
+        """
+        The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        """
+        return pulumi.get(self, "network_block")
+
+    @property
+    @pulumi.getter(name="nsxtCertificateThumbprint")
+    def nsxt_certificate_thumbprint(self) -> str:
+        """
+        Thumbprint of the NSX-T Manager SSL certificate
+        """
+        return pulumi.get(self, "nsxt_certificate_thumbprint")
+
+    @property
+    @pulumi.getter(name="provisioningNetwork")
+    def provisioning_network(self) -> str:
+        """
+        Used for virtual machine cold migration, cloning, and snapshot migration
+        """
+        return pulumi.get(self, "provisioning_network")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="vcenterCertificateThumbprint")
+    def vcenter_certificate_thumbprint(self) -> str:
+        """
+        Thumbprint of the vCenter Server SSL certificate
+        """
+        return pulumi.get(self, "vcenter_certificate_thumbprint")
+
+    @property
+    @pulumi.getter(name="vmotionNetwork")
+    def vmotion_network(self) -> str:
+        """
+        Used for live migration of virtual machines
+        """
+        return pulumi.get(self, "vmotion_network")
+
+    @property
+    @pulumi.getter
+    def circuit(self) -> Optional['outputs.CircuitResponse']:
+        """
+        An ExpressRoute Circuit
+        """
+        return pulumi.get(self, "circuit")
+
+    @property
+    @pulumi.getter(name="identitySources")
+    def identity_sources(self) -> Optional[Sequence['outputs.IdentitySourceResponse']]:
+        """
+        vCenter Single Sign On Identity Sources
+        """
+        return pulumi.get(self, "identity_sources")
+
+    @property
+    @pulumi.getter
+    def internet(self) -> Optional[str]:
+        """
+        Connectivity to internet is enabled or disabled
+        """
+        return pulumi.get(self, "internet")
+
+    @property
+    @pulumi.getter(name="nsxtPassword")
+    def nsxt_password(self) -> Optional[str]:
+        """
+        Optionally, set the NSX-T Manager password when the private cloud is created
+        """
+        return pulumi.get(self, "nsxt_password")
+
+    @property
+    @pulumi.getter(name="vcenterPassword")
+    def vcenter_password(self) -> Optional[str]:
+        """
+        Optionally, set the vCenter admin password when the private cloud is created
+        """
+        return pulumi.get(self, "vcenter_password")
 
 
 @pulumi.output_type

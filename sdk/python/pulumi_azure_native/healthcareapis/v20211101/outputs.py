@@ -19,6 +19,7 @@ __all__ = [
     'FhirServiceCorsConfigurationResponse',
     'FhirServiceExportConfigurationResponse',
     'IotEventHubIngestionEndpointConfigurationResponse',
+    'IotFhirDestinationPropertiesResponse',
     'IotMappingPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -425,6 +426,71 @@ class IotEventHubIngestionEndpointConfigurationResponse(dict):
         Fully qualified namespace of the Event Hub to connect to.
         """
         return pulumi.get(self, "fully_qualified_event_hub_namespace")
+
+
+@pulumi.output_type
+class IotFhirDestinationPropertiesResponse(dict):
+    """
+    IoT Connector destination properties for an Azure FHIR service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fhirMapping":
+            suggest = "fhir_mapping"
+        elif key == "fhirServiceResourceId":
+            suggest = "fhir_service_resource_id"
+        elif key == "resourceIdentityResolutionType":
+            suggest = "resource_identity_resolution_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotFhirDestinationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotFhirDestinationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotFhirDestinationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fhir_mapping: 'outputs.IotMappingPropertiesResponse',
+                 fhir_service_resource_id: str,
+                 resource_identity_resolution_type: str):
+        """
+        IoT Connector destination properties for an Azure FHIR service.
+        :param 'IotMappingPropertiesResponse' fhir_mapping: FHIR Mappings
+        :param str fhir_service_resource_id: Fully qualified resource id of the FHIR service to connect to.
+        :param str resource_identity_resolution_type: Determines how resource identity is resolved on the destination.
+        """
+        pulumi.set(__self__, "fhir_mapping", fhir_mapping)
+        pulumi.set(__self__, "fhir_service_resource_id", fhir_service_resource_id)
+        pulumi.set(__self__, "resource_identity_resolution_type", resource_identity_resolution_type)
+
+    @property
+    @pulumi.getter(name="fhirMapping")
+    def fhir_mapping(self) -> 'outputs.IotMappingPropertiesResponse':
+        """
+        FHIR Mappings
+        """
+        return pulumi.get(self, "fhir_mapping")
+
+    @property
+    @pulumi.getter(name="fhirServiceResourceId")
+    def fhir_service_resource_id(self) -> str:
+        """
+        Fully qualified resource id of the FHIR service to connect to.
+        """
+        return pulumi.get(self, "fhir_service_resource_id")
+
+    @property
+    @pulumi.getter(name="resourceIdentityResolutionType")
+    def resource_identity_resolution_type(self) -> str:
+        """
+        Determines how resource identity is resolved on the destination.
+        """
+        return pulumi.get(self, "resource_identity_resolution_type")
 
 
 @pulumi.output_type

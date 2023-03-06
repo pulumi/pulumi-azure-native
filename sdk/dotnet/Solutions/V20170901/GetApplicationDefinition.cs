@@ -71,26 +71,6 @@ namespace Pulumi.AzureNative.Solutions.V20170901
     public sealed class GetApplicationDefinitionResult
     {
         /// <summary>
-        /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationArtifactResponse> Artifacts;
-        /// <summary>
-        /// The managed application provider authorizations.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> Authorizations;
-        /// <summary>
-        /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-        /// </summary>
-        public readonly object? CreateUiDefinition;
-        /// <summary>
-        /// The managed application definition description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The managed application definition display name.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// Resource ID
         /// </summary>
         public readonly string Id;
@@ -99,21 +79,9 @@ namespace Pulumi.AzureNative.Solutions.V20170901
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
-        /// A value indicating whether the package is enabled or not.
-        /// </summary>
-        public readonly string? IsEnabled;
-        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
-        /// <summary>
-        /// The managed application lock level.
-        /// </summary>
-        public readonly string LockLevel;
-        /// <summary>
-        /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-        /// </summary>
-        public readonly object? MainTemplate;
         /// <summary>
         /// ID of the resource that manages this resource.
         /// </summary>
@@ -123,9 +91,9 @@ namespace Pulumi.AzureNative.Solutions.V20170901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The managed application definition package file Uri. Use this element
+        /// The managed application definition properties.
         /// </summary>
-        public readonly string? PackageFileUri;
+        public readonly Outputs.ApplicationDefinitionPropertiesResponse Properties;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
@@ -141,33 +109,17 @@ namespace Pulumi.AzureNative.Solutions.V20170901
 
         [OutputConstructor]
         private GetApplicationDefinitionResult(
-            ImmutableArray<Outputs.ApplicationArtifactResponse> artifacts,
-
-            ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> authorizations,
-
-            object? createUiDefinition,
-
-            string? description,
-
-            string? displayName,
-
             string id,
 
             Outputs.IdentityResponse? identity,
 
-            string? isEnabled,
-
             string? location,
-
-            string lockLevel,
-
-            object? mainTemplate,
 
             string? managedBy,
 
             string name,
 
-            string? packageFileUri,
+            Outputs.ApplicationDefinitionPropertiesResponse properties,
 
             Outputs.SkuResponse? sku,
 
@@ -175,20 +127,12 @@ namespace Pulumi.AzureNative.Solutions.V20170901
 
             string type)
         {
-            Artifacts = artifacts;
-            Authorizations = authorizations;
-            CreateUiDefinition = createUiDefinition;
-            Description = description;
-            DisplayName = displayName;
             Id = id;
             Identity = identity;
-            IsEnabled = isEnabled;
             Location = location;
-            LockLevel = lockLevel;
-            MainTemplate = mainTemplate;
             ManagedBy = managedBy;
             Name = name;
-            PackageFileUri = packageFileUri;
+            Properties = properties;
             Sku = sku;
             Tags = tags;
             Type = type;

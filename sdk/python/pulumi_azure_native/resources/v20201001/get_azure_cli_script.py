@@ -22,25 +22,7 @@ class GetAzureCliScriptResult:
     """
     Object model for the Azure CLI script.
     """
-    def __init__(__self__, arguments=None, az_cli_version=None, cleanup_preference=None, container_settings=None, environment_variables=None, force_update_tag=None, id=None, identity=None, kind=None, location=None, name=None, outputs=None, primary_script_uri=None, provisioning_state=None, retention_interval=None, script_content=None, status=None, storage_account_settings=None, supporting_script_uris=None, system_data=None, tags=None, timeout=None, type=None):
-        if arguments and not isinstance(arguments, str):
-            raise TypeError("Expected argument 'arguments' to be a str")
-        pulumi.set(__self__, "arguments", arguments)
-        if az_cli_version and not isinstance(az_cli_version, str):
-            raise TypeError("Expected argument 'az_cli_version' to be a str")
-        pulumi.set(__self__, "az_cli_version", az_cli_version)
-        if cleanup_preference and not isinstance(cleanup_preference, str):
-            raise TypeError("Expected argument 'cleanup_preference' to be a str")
-        pulumi.set(__self__, "cleanup_preference", cleanup_preference)
-        if container_settings and not isinstance(container_settings, dict):
-            raise TypeError("Expected argument 'container_settings' to be a dict")
-        pulumi.set(__self__, "container_settings", container_settings)
-        if environment_variables and not isinstance(environment_variables, list):
-            raise TypeError("Expected argument 'environment_variables' to be a list")
-        pulumi.set(__self__, "environment_variables", environment_variables)
-        if force_update_tag and not isinstance(force_update_tag, str):
-            raise TypeError("Expected argument 'force_update_tag' to be a str")
-        pulumi.set(__self__, "force_update_tag", force_update_tag)
+    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,90 +38,18 @@ class GetAzureCliScriptResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if outputs and not isinstance(outputs, dict):
-            raise TypeError("Expected argument 'outputs' to be a dict")
-        pulumi.set(__self__, "outputs", outputs)
-        if primary_script_uri and not isinstance(primary_script_uri, str):
-            raise TypeError("Expected argument 'primary_script_uri' to be a str")
-        pulumi.set(__self__, "primary_script_uri", primary_script_uri)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if retention_interval and not isinstance(retention_interval, str):
-            raise TypeError("Expected argument 'retention_interval' to be a str")
-        pulumi.set(__self__, "retention_interval", retention_interval)
-        if script_content and not isinstance(script_content, str):
-            raise TypeError("Expected argument 'script_content' to be a str")
-        pulumi.set(__self__, "script_content", script_content)
-        if status and not isinstance(status, dict):
-            raise TypeError("Expected argument 'status' to be a dict")
-        pulumi.set(__self__, "status", status)
-        if storage_account_settings and not isinstance(storage_account_settings, dict):
-            raise TypeError("Expected argument 'storage_account_settings' to be a dict")
-        pulumi.set(__self__, "storage_account_settings", storage_account_settings)
-        if supporting_script_uris and not isinstance(supporting_script_uris, list):
-            raise TypeError("Expected argument 'supporting_script_uris' to be a list")
-        pulumi.set(__self__, "supporting_script_uris", supporting_script_uris)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if timeout and not isinstance(timeout, str):
-            raise TypeError("Expected argument 'timeout' to be a str")
-        pulumi.set(__self__, "timeout", timeout)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def arguments(self) -> Optional[str]:
-        """
-        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
-        """
-        return pulumi.get(self, "arguments")
-
-    @property
-    @pulumi.getter(name="azCliVersion")
-    def az_cli_version(self) -> str:
-        """
-        Azure CLI module version to be used.
-        """
-        return pulumi.get(self, "az_cli_version")
-
-    @property
-    @pulumi.getter(name="cleanupPreference")
-    def cleanup_preference(self) -> Optional[str]:
-        """
-        The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-        """
-        return pulumi.get(self, "cleanup_preference")
-
-    @property
-    @pulumi.getter(name="containerSettings")
-    def container_settings(self) -> Optional['outputs.ContainerConfigurationResponse']:
-        """
-        Container settings.
-        """
-        return pulumi.get(self, "container_settings")
-
-    @property
-    @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
-        """
-        The environment variables to pass over to the script.
-        """
-        return pulumi.get(self, "environment_variables")
-
-    @property
-    @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[str]:
-        """
-        Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-        """
-        return pulumi.get(self, "force_update_tag")
 
     @property
     @pulumi.getter
@@ -184,67 +94,11 @@ class GetAzureCliScriptResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def properties(self) -> 'outputs.AzureCliScriptPropertiesResponse':
         """
-        List of script outputs.
+        Properties of the Azure CLI script object.
         """
-        return pulumi.get(self, "outputs")
-
-    @property
-    @pulumi.getter(name="primaryScriptUri")
-    def primary_script_uri(self) -> Optional[str]:
-        """
-        Uri for the script. This is the entry point for the external script.
-        """
-        return pulumi.get(self, "primary_script_uri")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the script execution. This only appears in the response.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="retentionInterval")
-    def retention_interval(self) -> str:
-        """
-        Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-        """
-        return pulumi.get(self, "retention_interval")
-
-    @property
-    @pulumi.getter(name="scriptContent")
-    def script_content(self) -> Optional[str]:
-        """
-        Script body.
-        """
-        return pulumi.get(self, "script_content")
-
-    @property
-    @pulumi.getter
-    def status(self) -> 'outputs.ScriptStatusResponse':
-        """
-        Contains the results of script execution.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageAccountSettings")
-    def storage_account_settings(self) -> Optional['outputs.StorageAccountConfigurationResponse']:
-        """
-        Storage Account settings.
-        """
-        return pulumi.get(self, "storage_account_settings")
-
-    @property
-    @pulumi.getter(name="supportingScriptUris")
-    def supporting_script_uris(self) -> Optional[Sequence[str]]:
-        """
-        Supporting files for the external script.
-        """
-        return pulumi.get(self, "supporting_script_uris")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -264,14 +118,6 @@ class GetAzureCliScriptResult:
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[str]:
-        """
-        Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-        """
-        return pulumi.get(self, "timeout")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         Type of this resource.
@@ -285,28 +131,14 @@ class AwaitableGetAzureCliScriptResult(GetAzureCliScriptResult):
         if False:
             yield self
         return GetAzureCliScriptResult(
-            arguments=self.arguments,
-            az_cli_version=self.az_cli_version,
-            cleanup_preference=self.cleanup_preference,
-            container_settings=self.container_settings,
-            environment_variables=self.environment_variables,
-            force_update_tag=self.force_update_tag,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            outputs=self.outputs,
-            primary_script_uri=self.primary_script_uri,
-            provisioning_state=self.provisioning_state,
-            retention_interval=self.retention_interval,
-            script_content=self.script_content,
-            status=self.status,
-            storage_account_settings=self.storage_account_settings,
-            supporting_script_uris=self.supporting_script_uris,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            timeout=self.timeout,
             type=self.type)
 
 
@@ -327,28 +159,14 @@ def get_azure_cli_script(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources/v20201001:getAzureCliScript', __args__, opts=opts, typ=GetAzureCliScriptResult).value
 
     return AwaitableGetAzureCliScriptResult(
-        arguments=__ret__.arguments,
-        az_cli_version=__ret__.az_cli_version,
-        cleanup_preference=__ret__.cleanup_preference,
-        container_settings=__ret__.container_settings,
-        environment_variables=__ret__.environment_variables,
-        force_update_tag=__ret__.force_update_tag,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        outputs=__ret__.outputs,
-        primary_script_uri=__ret__.primary_script_uri,
-        provisioning_state=__ret__.provisioning_state,
-        retention_interval=__ret__.retention_interval,
-        script_content=__ret__.script_content,
-        status=__ret__.status,
-        storage_account_settings=__ret__.storage_account_settings,
-        supporting_script_uris=__ret__.supporting_script_uris,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        timeout=__ret__.timeout,
         type=__ret__.type)
 
 

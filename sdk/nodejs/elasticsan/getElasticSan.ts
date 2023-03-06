@@ -36,18 +36,6 @@ export interface GetElasticSanArgs {
  */
 export interface GetElasticSanResult {
     /**
-     * Logical zone for Elastic San resource; example: ["1"].
-     */
-    readonly availabilityZones?: string[];
-    /**
-     * Base size of the Elastic San appliance in TiB.
-     */
-    readonly baseSizeTiB: number;
-    /**
-     * Extended size of the Elastic San appliance in TiB.
-     */
-    readonly extendedCapacitySizeTiB: number;
-    /**
      * Azure resource identifier.
      */
     readonly id: string;
@@ -60,13 +48,9 @@ export interface GetElasticSanResult {
      */
     readonly name: string;
     /**
-     * State of the operation on the resource.
+     * Properties of ElasticSan.
      */
-    readonly provisioningState: string;
-    /**
-     * resource sku
-     */
-    readonly sku: outputs.elasticsan.SkuResponse;
+    readonly properties: outputs.elasticsan.ElasticSanPropertiesResponse;
     /**
      * Resource metadata required by ARM RPC
      */
@@ -76,29 +60,9 @@ export interface GetElasticSanResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Total Provisioned IOPS of the Elastic San appliance.
-     */
-    readonly totalIops: number;
-    /**
-     * Total Provisioned MBps Elastic San appliance.
-     */
-    readonly totalMBps: number;
-    /**
-     * Total size of the Elastic San appliance in TB.
-     */
-    readonly totalSizeTiB: number;
-    /**
-     * Total size of the provisioned Volumes in GiB.
-     */
-    readonly totalVolumeSizeGiB: number;
-    /**
      * Azure resource type.
      */
     readonly type: string;
-    /**
-     * Total number of volume groups in this Elastic San appliance.
-     */
-    readonly volumeGroupCount: number;
 }
 /**
  * Get a ElasticSan.

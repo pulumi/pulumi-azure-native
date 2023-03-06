@@ -22,46 +22,22 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the management network interfaces of the dedicated hsm.
-        /// </summary>
-        [Output("managementNetworkProfile")]
-        public Output<Outputs.NetworkProfileResponse?> ManagementNetworkProfile { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the dedicated HSM.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the network interfaces of the dedicated hsm.
+        /// Properties of the dedicated HSM
         /// </summary>
-        [Output("networkProfile")]
-        public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DedicatedHsmPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// SKU details
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// This field will be used when RP does not support Availability zones.
-        /// </summary>
-        [Output("stampId")]
-        public Output<string?> StampId { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource Status Message.
-        /// </summary>
-        [Output("statusMessage")]
-        public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
@@ -144,22 +120,16 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the management network interfaces of the dedicated hsm.
-        /// </summary>
-        [Input("managementNetworkProfile")]
-        public Input<Inputs.NetworkProfileArgs>? ManagementNetworkProfile { get; set; }
-
-        /// <summary>
         /// Name of the dedicated Hsm
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the network interfaces of the dedicated hsm.
+        /// Properties of the dedicated HSM
         /// </summary>
-        [Input("networkProfile")]
-        public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.DedicatedHsmPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group to which the resource belongs.
@@ -172,12 +142,6 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// This field will be used when RP does not support Availability zones.
-        /// </summary>
-        [Input("stampId")]
-        public Input<string>? StampId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -24,19 +24,7 @@ class GetApplianceDefinitionResult:
     """
     Information about appliance definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, description=None, display_name=None, id=None, identity=None, location=None, lock_level=None, managed_by=None, name=None, package_file_uri=None, sku=None, tags=None, type=None):
-        if artifacts and not isinstance(artifacts, list):
-            raise TypeError("Expected argument 'artifacts' to be a list")
-        pulumi.set(__self__, "artifacts", artifacts)
-        if authorizations and not isinstance(authorizations, list):
-            raise TypeError("Expected argument 'authorizations' to be a list")
-        pulumi.set(__self__, "authorizations", authorizations)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
+    def __init__(__self__, id=None, identity=None, location=None, managed_by=None, name=None, properties=None, sku=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,18 +34,15 @@ class GetApplianceDefinitionResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if lock_level and not isinstance(lock_level, str):
-            raise TypeError("Expected argument 'lock_level' to be a str")
-        pulumi.set(__self__, "lock_level", lock_level)
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
         pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if package_file_uri and not isinstance(package_file_uri, str):
-            raise TypeError("Expected argument 'package_file_uri' to be a str")
-        pulumi.set(__self__, "package_file_uri", package_file_uri)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -67,38 +52,6 @@ class GetApplianceDefinitionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.ApplianceArtifactResponse']]:
-        """
-        The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-        """
-        return pulumi.get(self, "artifacts")
-
-    @property
-    @pulumi.getter
-    def authorizations(self) -> Sequence['outputs.ApplianceProviderAuthorizationResponse']:
-        """
-        The appliance provider authorizations.
-        """
-        return pulumi.get(self, "authorizations")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The appliance definition description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        The appliance definition display name.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -125,14 +78,6 @@ class GetApplianceDefinitionResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="lockLevel")
-    def lock_level(self) -> str:
-        """
-        The appliance lock level.
-        """
-        return pulumi.get(self, "lock_level")
-
-    @property
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> Optional[str]:
         """
@@ -149,12 +94,12 @@ class GetApplianceDefinitionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="packageFileUri")
-    def package_file_uri(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ApplianceDefinitionPropertiesResponse':
         """
-        The appliance definition package file Uri.
+        The appliance definition properties.
         """
-        return pulumi.get(self, "package_file_uri")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -187,17 +132,12 @@ class AwaitableGetApplianceDefinitionResult(GetApplianceDefinitionResult):
         if False:
             yield self
         return GetApplianceDefinitionResult(
-            artifacts=self.artifacts,
-            authorizations=self.authorizations,
-            description=self.description,
-            display_name=self.display_name,
             id=self.id,
             identity=self.identity,
             location=self.location,
-            lock_level=self.lock_level,
             managed_by=self.managed_by,
             name=self.name,
-            package_file_uri=self.package_file_uri,
+            properties=self.properties,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -221,17 +161,12 @@ def get_appliance_definition(appliance_definition_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:solutions/v20160901preview:getApplianceDefinition', __args__, opts=opts, typ=GetApplianceDefinitionResult).value
 
     return AwaitableGetApplianceDefinitionResult(
-        artifacts=__ret__.artifacts,
-        authorizations=__ret__.authorizations,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
-        lock_level=__ret__.lock_level,
         managed_by=__ret__.managed_by,
         name=__ret__.name,
-        package_file_uri=__ret__.package_file_uri,
+        properties=__ret__.properties,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)

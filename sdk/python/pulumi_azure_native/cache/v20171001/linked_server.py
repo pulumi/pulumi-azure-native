@@ -9,58 +9,29 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['LinkedServerArgs', 'LinkedServer']
 
 @pulumi.input_type
 class LinkedServerArgs:
     def __init__(__self__, *,
-                 linked_redis_cache_id: pulumi.Input[str],
-                 linked_redis_cache_location: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 properties: pulumi.Input['RedisLinkedServerCreatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 server_role: pulumi.Input['ReplicationRole'],
                  linked_server_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinkedServer resource.
-        :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
-        :param pulumi.Input[str] linked_redis_cache_location: Location of the linked redis cache.
         :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input['RedisLinkedServerCreatePropertiesArgs'] properties: Properties required to create a linked server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
         :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
         """
-        pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
-        pulumi.set(__self__, "linked_redis_cache_location", linked_redis_cache_location)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_role", server_role)
         if linked_server_name is not None:
             pulumi.set(__self__, "linked_server_name", linked_server_name)
-
-    @property
-    @pulumi.getter(name="linkedRedisCacheId")
-    def linked_redis_cache_id(self) -> pulumi.Input[str]:
-        """
-        Fully qualified resourceId of the linked redis cache.
-        """
-        return pulumi.get(self, "linked_redis_cache_id")
-
-    @linked_redis_cache_id.setter
-    def linked_redis_cache_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "linked_redis_cache_id", value)
-
-    @property
-    @pulumi.getter(name="linkedRedisCacheLocation")
-    def linked_redis_cache_location(self) -> pulumi.Input[str]:
-        """
-        Location of the linked redis cache.
-        """
-        return pulumi.get(self, "linked_redis_cache_location")
-
-    @linked_redis_cache_location.setter
-    def linked_redis_cache_location(self, value: pulumi.Input[str]):
-        pulumi.set(self, "linked_redis_cache_location", value)
 
     @property
     @pulumi.getter
@@ -75,6 +46,18 @@ class LinkedServerArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RedisLinkedServerCreatePropertiesArgs']:
+        """
+        Properties required to create a linked server.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['RedisLinkedServerCreatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -85,18 +68,6 @@ class LinkedServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="serverRole")
-    def server_role(self) -> pulumi.Input['ReplicationRole']:
-        """
-        Role of the linked server.
-        """
-        return pulumi.get(self, "server_role")
-
-    @server_role.setter
-    def server_role(self, value: pulumi.Input['ReplicationRole']):
-        pulumi.set(self, "server_role", value)
 
     @property
     @pulumi.getter(name="linkedServerName")
@@ -121,24 +92,20 @@ class LinkedServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
-                 linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
                  linked_server_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RedisLinkedServerCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
         """
         Response to put/get linked server (with properties) for Redis cache.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
-        :param pulumi.Input[str] linked_redis_cache_location: Location of the linked redis cache.
         :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
         :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input[pulumi.InputType['RedisLinkedServerCreatePropertiesArgs']] properties: Properties required to create a linked server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
         """
         ...
     @overload
@@ -164,12 +131,10 @@ class LinkedServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
-                 linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
                  linked_server_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RedisLinkedServerCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
         pulumi.log.warn("""LinkedServer is deprecated: Version 2017-10-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -180,23 +145,20 @@ class LinkedServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkedServerArgs.__new__(LinkedServerArgs)
 
-            if linked_redis_cache_id is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_redis_cache_id'")
-            __props__.__dict__["linked_redis_cache_id"] = linked_redis_cache_id
-            if linked_redis_cache_location is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_redis_cache_location'")
-            __props__.__dict__["linked_redis_cache_location"] = linked_redis_cache_location
             __props__.__dict__["linked_server_name"] = linked_server_name
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if server_role is None and not opts.urn:
-                raise TypeError("Missing required property 'server_role'")
-            __props__.__dict__["server_role"] = server_role
+            __props__.__dict__["linked_redis_cache_id"] = None
+            __props__.__dict__["linked_redis_cache_location"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["server_role"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20180301:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20190701:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20200601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20201201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20210601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220501:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220601:LinkedServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

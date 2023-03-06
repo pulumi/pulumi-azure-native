@@ -8,69 +8,48 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ApplicationGroupArgs', 'ApplicationGroup']
 
 @pulumi.input_type
 class ApplicationGroupArgs:
     def __init__(__self__, *,
-                 application_group_type: pulumi.Input[Union[str, 'ApplicationGroupType']],
-                 host_pool_arm_path: pulumi.Input[str],
+                 properties: pulumi.Input['ApplicationGroupPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  application_group_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ApplicationGroup resource.
-        :param pulumi.Input[Union[str, 'ApplicationGroupType']] application_group_type: Resource Type of ApplicationGroup.
-        :param pulumi.Input[str] host_pool_arm_path: HostPool arm path of ApplicationGroup.
+        :param pulumi.Input['ApplicationGroupPropertiesArgs'] properties: Detailed properties for ApplicationGroup
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] application_group_name: The name of the application group
-        :param pulumi.Input[str] description: Description of ApplicationGroup.
-        :param pulumi.Input[str] friendly_name: Friendly name of ApplicationGroup.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "application_group_type", application_group_type)
-        pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_group_name is not None:
             pulumi.set(__self__, "application_group_name", application_group_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="applicationGroupType")
-    def application_group_type(self) -> pulumi.Input[Union[str, 'ApplicationGroupType']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ApplicationGroupPropertiesArgs']:
         """
-        Resource Type of ApplicationGroup.
+        Detailed properties for ApplicationGroup
         """
-        return pulumi.get(self, "application_group_type")
+        return pulumi.get(self, "properties")
 
-    @application_group_type.setter
-    def application_group_type(self, value: pulumi.Input[Union[str, 'ApplicationGroupType']]):
-        pulumi.set(self, "application_group_type", value)
-
-    @property
-    @pulumi.getter(name="hostPoolArmPath")
-    def host_pool_arm_path(self) -> pulumi.Input[str]:
-        """
-        HostPool arm path of ApplicationGroup.
-        """
-        return pulumi.get(self, "host_pool_arm_path")
-
-    @host_pool_arm_path.setter
-    def host_pool_arm_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "host_pool_arm_path", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ApplicationGroupPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -95,30 +74,6 @@ class ApplicationGroupArgs:
     @application_group_name.setter
     def application_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_group_name", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of ApplicationGroup.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Friendly name of ApplicationGroup.
-        """
-        return pulumi.get(self, "friendly_name")
-
-    @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "friendly_name", value)
 
     @property
     @pulumi.getter
@@ -156,11 +111,8 @@ class ApplicationGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_group_name: Optional[pulumi.Input[str]] = None,
-                 application_group_type: Optional[pulumi.Input[Union[str, 'ApplicationGroupType']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 friendly_name: Optional[pulumi.Input[str]] = None,
-                 host_pool_arm_path: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationGroupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -170,11 +122,8 @@ class ApplicationGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_group_name: The name of the application group
-        :param pulumi.Input[Union[str, 'ApplicationGroupType']] application_group_type: Resource Type of ApplicationGroup.
-        :param pulumi.Input[str] description: Description of ApplicationGroup.
-        :param pulumi.Input[str] friendly_name: Friendly name of ApplicationGroup.
-        :param pulumi.Input[str] host_pool_arm_path: HostPool arm path of ApplicationGroup.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['ApplicationGroupPropertiesArgs']] properties: Detailed properties for ApplicationGroup
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -203,11 +152,8 @@ class ApplicationGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_group_name: Optional[pulumi.Input[str]] = None,
-                 application_group_type: Optional[pulumi.Input[Union[str, 'ApplicationGroupType']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 friendly_name: Optional[pulumi.Input[str]] = None,
-                 host_pool_arm_path: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationGroupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -221,22 +167,16 @@ class ApplicationGroup(pulumi.CustomResource):
             __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
 
             __props__.__dict__["application_group_name"] = application_group_name
-            if application_group_type is None and not opts.urn:
-                raise TypeError("Missing required property 'application_group_type'")
-            __props__.__dict__["application_group_type"] = application_group_type
-            __props__.__dict__["description"] = description
-            __props__.__dict__["friendly_name"] = friendly_name
-            if host_pool_arm_path is None and not opts.urn:
-                raise TypeError("Missing required property 'host_pool_arm_path'")
-            __props__.__dict__["host_pool_arm_path"] = host_pool_arm_path
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["workspace_arm_path"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ApplicationGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGroup, __self__).__init__(
@@ -261,48 +201,12 @@ class ApplicationGroup(pulumi.CustomResource):
 
         __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
 
-        __props__.__dict__["application_group_type"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["friendly_name"] = None
-        __props__.__dict__["host_pool_arm_path"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["workspace_arm_path"] = None
         return ApplicationGroup(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="applicationGroupType")
-    def application_group_type(self) -> pulumi.Output[str]:
-        """
-        Resource Type of ApplicationGroup.
-        """
-        return pulumi.get(self, "application_group_type")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of ApplicationGroup.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Friendly name of ApplicationGroup.
-        """
-        return pulumi.get(self, "friendly_name")
-
-    @property
-    @pulumi.getter(name="hostPoolArmPath")
-    def host_pool_arm_path(self) -> pulumi.Output[str]:
-        """
-        HostPool arm path of ApplicationGroup.
-        """
-        return pulumi.get(self, "host_pool_arm_path")
 
     @property
     @pulumi.getter
@@ -322,6 +226,14 @@ class ApplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ApplicationGroupPropertiesResponse']:
+        """
+        Detailed properties for ApplicationGroup
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
@@ -335,12 +247,4 @@ class ApplicationGroup(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="workspaceArmPath")
-    def workspace_arm_path(self) -> pulumi.Output[str]:
-        """
-        Workspace arm path of ApplicationGroup.
-        """
-        return pulumi.get(self, "workspace_arm_path")
 

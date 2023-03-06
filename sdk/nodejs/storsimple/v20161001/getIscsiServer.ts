@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -44,18 +47,6 @@ export interface GetIscsiServerArgs {
  */
 export interface GetIscsiServerResult {
     /**
-     * The backup policy id.
-     */
-    readonly backupScheduleGroupId: string;
-    /**
-     * The chap id.
-     */
-    readonly chapId?: string;
-    /**
-     * The description.
-     */
-    readonly description?: string;
-    /**
      * The identifier.
      */
     readonly id: string;
@@ -64,13 +55,9 @@ export interface GetIscsiServerResult {
      */
     readonly name: string;
     /**
-     * The reverse chap id.
+     * The properties.
      */
-    readonly reverseChapId?: string;
-    /**
-     * The storage domain id.
-     */
-    readonly storageDomainId: string;
+    readonly properties: outputs.storsimple.v20161001.ISCSIServerPropertiesResponse;
     /**
      * The type.
      */

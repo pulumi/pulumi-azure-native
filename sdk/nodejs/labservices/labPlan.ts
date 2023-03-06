@@ -39,26 +39,6 @@ export class LabPlan extends pulumi.CustomResource {
     }
 
     /**
-     * The allowed regions for the lab creator to use when creating labs using this lab plan.
-     */
-    public readonly allowedRegions!: pulumi.Output<string[] | undefined>;
-    /**
-     * The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-     */
-    public readonly defaultAutoShutdownProfile!: pulumi.Output<outputs.labservices.AutoShutdownProfileResponse | undefined>;
-    /**
-     * The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-     */
-    public readonly defaultConnectionProfile!: pulumi.Output<outputs.labservices.ConnectionProfileResponse | undefined>;
-    /**
-     * The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-     */
-    public readonly defaultNetworkProfile!: pulumi.Output<outputs.labservices.LabPlanNetworkProfileResponse | undefined>;
-    /**
-     * Base Url of the lms instance this lab plan can link lab rosters against.
-     */
-    public readonly linkedLmsInstance!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -67,17 +47,9 @@ export class LabPlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Current provisioning state of the lab plan.
+     * Lab plan resource properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-     */
-    public readonly sharedGalleryId!: pulumi.Output<string | undefined>;
-    /**
-     * Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-     */
-    public readonly supportInfo!: pulumi.Output<outputs.labservices.SupportInfoResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.labservices.LabPlanPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the lab plan.
      */
@@ -102,35 +74,24 @@ export class LabPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedRegions"] = args ? args.allowedRegions : undefined;
-            resourceInputs["defaultAutoShutdownProfile"] = args ? (args.defaultAutoShutdownProfile ? pulumi.output(args.defaultAutoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["defaultConnectionProfile"] = args ? (args.defaultConnectionProfile ? pulumi.output(args.defaultConnectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["defaultNetworkProfile"] = args ? args.defaultNetworkProfile : undefined;
             resourceInputs["labPlanName"] = args ? args.labPlanName : undefined;
-            resourceInputs["linkedLmsInstance"] = args ? args.linkedLmsInstance : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.labservices.labPlanPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedGalleryId"] = args ? args.sharedGalleryId : undefined;
-            resourceInputs["supportInfo"] = args ? args.supportInfo : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["allowedRegions"] = undefined /*out*/;
-            resourceInputs["defaultAutoShutdownProfile"] = undefined /*out*/;
-            resourceInputs["defaultConnectionProfile"] = undefined /*out*/;
-            resourceInputs["defaultNetworkProfile"] = undefined /*out*/;
-            resourceInputs["linkedLmsInstance"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sharedGalleryId"] = undefined /*out*/;
-            resourceInputs["supportInfo"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -147,45 +108,21 @@ export class LabPlan extends pulumi.CustomResource {
  */
 export interface LabPlanArgs {
     /**
-     * The allowed regions for the lab creator to use when creating labs using this lab plan.
-     */
-    allowedRegions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-     */
-    defaultAutoShutdownProfile?: pulumi.Input<inputs.labservices.AutoShutdownProfileArgs>;
-    /**
-     * The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-     */
-    defaultConnectionProfile?: pulumi.Input<inputs.labservices.ConnectionProfileArgs>;
-    /**
-     * The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-     */
-    defaultNetworkProfile?: pulumi.Input<inputs.labservices.LabPlanNetworkProfileArgs>;
-    /**
      * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
      */
     labPlanName?: pulumi.Input<string>;
-    /**
-     * Base Url of the lms instance this lab plan can link lab rosters against.
-     */
-    linkedLmsInstance?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
+     * Lab plan resource properties
+     */
+    properties: pulumi.Input<inputs.labservices.LabPlanPropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-     */
-    sharedGalleryId?: pulumi.Input<string>;
-    /**
-     * Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-     */
-    supportInfo?: pulumi.Input<inputs.labservices.SupportInfoArgs>;
     /**
      * Resource tags.
      */

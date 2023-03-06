@@ -70,23 +70,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The name of Azure MySQL database table. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("table")]
-        public Input<object>? Table { get; set; }
-
-        /// <summary>
-        /// The Azure MySQL database table name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableName")]
-        public Input<object>? TableName { get; set; }
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureMySqlTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure MySQL database dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureMySqlTableDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureMySqlTableDatasetArgs()
         {

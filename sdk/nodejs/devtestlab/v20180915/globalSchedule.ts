@@ -38,18 +38,6 @@ export class GlobalSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * The creation date of the schedule.
-     */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
-    /**
-     * If the schedule will occur once each day of the week, specify the daily recurrence.
-     */
-    public readonly dailyRecurrence!: pulumi.Output<outputs.devtestlab.v20180915.DayDetailsResponse | undefined>;
-    /**
-     * If the schedule will occur multiple times a day, specify the hourly recurrence.
-     */
-    public readonly hourlyRecurrence!: pulumi.Output<outputs.devtestlab.v20180915.HourDetailsResponse | undefined>;
-    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -58,45 +46,17 @@ export class GlobalSchedule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Notification settings.
+     * The properties of the resource.
      */
-    public readonly notificationSettings!: pulumi.Output<outputs.devtestlab.v20180915.NotificationSettingsResponse | undefined>;
-    /**
-     * The provisioning status of the resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The status of the schedule (i.e. Enabled, Disabled)
-     */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.SchedulePropertiesResponse>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The resource ID to which the schedule belongs
-     */
-    public readonly targetResourceId!: pulumi.Output<string | undefined>;
-    /**
-     * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-     */
-    public readonly taskType!: pulumi.Output<string | undefined>;
-    /**
-     * The time zone ID (e.g. Pacific Standard time).
-     */
-    public readonly timeZoneId!: pulumi.Output<string | undefined>;
-    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
-    /**
-     * If the schedule will occur only some days of the week, specify the weekly recurrence.
-     */
-    public readonly weeklyRecurrence!: pulumi.Output<outputs.devtestlab.v20180915.WeekDetailsResponse | undefined>;
 
     /**
      * Create a GlobalSchedule resource with the given unique name, arguments, and options.
@@ -109,41 +69,24 @@ export class GlobalSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
-            resourceInputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationSettings"] = args ? (args.notificationSettings ? pulumi.output(args.notificationSettings).apply(inputs.devtestlab.v20180915.notificationSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.devtestlab.v20180915.schedulePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = (args ? args.status : undefined) ?? "Disabled";
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["taskType"] = args ? args.taskType : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
-            resourceInputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["dailyRecurrence"] = undefined /*out*/;
-            resourceInputs["hourlyRecurrence"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["notificationSettings"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["targetResourceId"] = undefined /*out*/;
-            resourceInputs["taskType"] = undefined /*out*/;
-            resourceInputs["timeZoneId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
-            resourceInputs["weeklyRecurrence"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:GlobalSchedule" }, { type: "azure-native:devtestlab/v20160515:GlobalSchedule" }] };
@@ -157,14 +100,6 @@ export class GlobalSchedule extends pulumi.CustomResource {
  */
 export interface GlobalScheduleArgs {
     /**
-     * If the schedule will occur once each day of the week, specify the daily recurrence.
-     */
-    dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.DayDetailsArgs>;
-    /**
-     * If the schedule will occur multiple times a day, specify the hourly recurrence.
-     */
-    hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.HourDetailsArgs>;
-    /**
      * The location of the resource.
      */
     location?: pulumi.Input<string>;
@@ -173,35 +108,15 @@ export interface GlobalScheduleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Notification settings.
+     * The properties of the resource.
      */
-    notificationSettings?: pulumi.Input<inputs.devtestlab.v20180915.NotificationSettingsArgs>;
+    properties: pulumi.Input<inputs.devtestlab.v20180915.SchedulePropertiesArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The status of the schedule (i.e. Enabled, Disabled)
-     */
-    status?: pulumi.Input<string | enums.devtestlab.v20180915.EnableStatus>;
-    /**
      * The tags of the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The resource ID to which the schedule belongs
-     */
-    targetResourceId?: pulumi.Input<string>;
-    /**
-     * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-     */
-    taskType?: pulumi.Input<string>;
-    /**
-     * The time zone ID (e.g. Pacific Standard time).
-     */
-    timeZoneId?: pulumi.Input<string>;
-    /**
-     * If the schedule will occur only some days of the week, specify the weekly recurrence.
-     */
-    weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.WeekDetailsArgs>;
 }

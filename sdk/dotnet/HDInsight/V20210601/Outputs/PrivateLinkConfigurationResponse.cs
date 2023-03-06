@@ -17,25 +17,17 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Outputs
     public sealed class PrivateLinkConfigurationResponse
     {
         /// <summary>
-        /// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
-        /// </summary>
-        public readonly string GroupId;
-        /// <summary>
         /// The private link configuration id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The IP configurations for the private link service.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// The name of private link configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The private link configuration provisioning state, which only appears in the response.
+        /// The private link configuration properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PrivateLinkConfigurationPropertiesResponse Properties;
         /// <summary>
         /// The type of the private link configuration.
         /// </summary>
@@ -43,23 +35,17 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Outputs
 
         [OutputConstructor]
         private PrivateLinkConfigurationResponse(
-            string groupId,
-
             string id,
-
-            ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
 
             string name,
 
-            string provisioningState,
+            Outputs.PrivateLinkConfigurationPropertiesResponse properties,
 
             string type)
         {
-            GroupId = groupId;
             Id = id;
-            IpConfigurations = ipConfigurations;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Type = type;
         }
     }

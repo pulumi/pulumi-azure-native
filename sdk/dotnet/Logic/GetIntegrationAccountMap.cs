@@ -84,26 +84,6 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountMapResult
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        public readonly string ChangedTime;
-        /// <summary>
-        /// The content.
-        /// </summary>
-        public readonly string? Content;
-        /// <summary>
-        /// The content link.
-        /// </summary>
-        public readonly Outputs.ContentLinkResponse ContentLink;
-        /// <summary>
-        /// The content type.
-        /// </summary>
-        public readonly string? ContentType;
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -112,21 +92,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The map type.
-        /// </summary>
-        public readonly string MapType;
-        /// <summary>
-        /// The metadata.
-        /// </summary>
-        public readonly object? Metadata;
-        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The parameters schema of integration account map.
+        /// The integration account map properties.
         /// </summary>
-        public readonly Outputs.IntegrationAccountMapPropertiesResponseParametersSchema? ParametersSchema;
+        public readonly Outputs.IntegrationAccountMapPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -138,43 +110,22 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountMapResult(
-            string changedTime,
-
-            string? content,
-
-            Outputs.ContentLinkResponse contentLink,
-
-            string? contentType,
-
-            string createdTime,
-
             string id,
 
             string? location,
 
-            string mapType,
-
-            object? metadata,
-
             string name,
 
-            Outputs.IntegrationAccountMapPropertiesResponseParametersSchema? parametersSchema,
+            Outputs.IntegrationAccountMapPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ChangedTime = changedTime;
-            Content = content;
-            ContentLink = contentLink;
-            ContentType = contentType;
-            CreatedTime = createdTime;
             Id = id;
             Location = location;
-            MapType = mapType;
-            Metadata = metadata;
             Name = name;
-            ParametersSchema = parametersSchema;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

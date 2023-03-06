@@ -35,18 +35,6 @@ export interface GetRedisArgs {
  */
 export interface GetRedisResult {
     /**
-     * The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
-     */
-    readonly accessKeys: outputs.cache.v20220601.RedisAccessKeysResponse;
-    /**
-     * Specifies whether the non-ssl Redis server port (6379) is enabled.
-     */
-    readonly enableNonSslPort?: boolean;
-    /**
-     * Redis host name.
-     */
-    readonly hostName: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -55,85 +43,21 @@ export interface GetRedisResult {
      */
     readonly identity?: outputs.cache.v20220601.ManagedServiceIdentityResponse;
     /**
-     * List of the Redis instances associated with the cache
-     */
-    readonly instances: outputs.cache.v20220601.RedisInstanceDetailsResponse[];
-    /**
-     * List of the linked servers associated with the cache
-     */
-    readonly linkedServers: outputs.cache.v20220601.RedisLinkedServerResponse[];
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
-    /**
-     * Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-     */
-    readonly minimumTlsVersion?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Redis non-SSL port.
+     * Redis cache properties.
      */
-    readonly port: number;
-    /**
-     * List of private endpoint connection associated with the specified redis cache
-     */
-    readonly privateEndpointConnections: outputs.cache.v20220601.PrivateEndpointConnectionResponse[];
-    /**
-     * Redis instance provisioning status.
-     */
-    readonly provisioningState: string;
-    /**
-     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-     */
-    readonly publicNetworkAccess?: string;
-    /**
-     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-     */
-    readonly redisConfiguration?: outputs.cache.v20220601.RedisCommonPropertiesResponseRedisConfiguration;
-    /**
-     * Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
-     */
-    readonly redisVersion?: string;
-    /**
-     * The number of replicas to be created per primary.
-     */
-    readonly replicasPerMaster?: number;
-    /**
-     * The number of replicas to be created per primary.
-     */
-    readonly replicasPerPrimary?: number;
-    /**
-     * The number of shards to be created on a Premium Cluster Cache.
-     */
-    readonly shardCount?: number;
-    /**
-     * The SKU of the Redis cache to deploy.
-     */
-    readonly sku: outputs.cache.v20220601.SkuResponse;
-    /**
-     * Redis SSL port.
-     */
-    readonly sslPort: number;
-    /**
-     * Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
-     */
-    readonly staticIP?: string;
-    /**
-     * The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-     */
-    readonly subnetId?: string;
+    readonly properties: outputs.cache.v20220601.RedisPropertiesResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * A dictionary of tenant settings
-     */
-    readonly tenantSettings?: {[key: string]: string};
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

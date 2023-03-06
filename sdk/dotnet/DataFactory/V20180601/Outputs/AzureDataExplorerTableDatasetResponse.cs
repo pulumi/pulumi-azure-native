@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name of the Azure Data Explorer database. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Table;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureDataExplorerTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Data Explorer (Kusto) dataset properties.
+        /// </summary>
+        public readonly Outputs.AzureDataExplorerDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureDataExplorerTableDatasetResponse(
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? structure,
 
-            object? table,
+            string type,
 
-            string type)
+            Outputs.AzureDataExplorerDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
@@ -81,8 +81,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Parameters = parameters;
             Schema = schema;
             Structure = structure;
-            Table = table;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -84,19 +84,15 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
             if ((!args || args.keyspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'options'");
-            }
-            if ((!args || args.resource === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resource'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["defaultTtl"] = undefined /*out*/;
@@ -133,13 +129,9 @@ export interface DatabaseAccountCassandraTableArgs {
      */
     keyspaceName: pulumi.Input<string>;
     /**
-     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+     * Properties to create and update Azure Cosmos DB Cassandra table.
      */
-    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The standard JSON format of a Cassandra table
-     */
-    resource: pulumi.Input<inputs.documentdb.v20160319.CassandraTableResourceArgs>;
+    properties: pulumi.Input<inputs.documentdb.v20160319.CassandraTableCreateUpdatePropertiesArgs>;
     /**
      * Name of an Azure resource group.
      */

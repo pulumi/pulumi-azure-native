@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class AzureMLExecutePipelineActivityResponse
     {
         /// <summary>
-        /// Whether to continue execution of other steps in the PipelineRun if a step fails. This information will be passed in the continueOnStepFailure property of the published pipeline execution request. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? ContinueOnStepFailure;
-        /// <summary>
-        /// Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
-        /// </summary>
-        public readonly object? DataPathAssignments;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -33,29 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Run history experiment name of the pipeline run. This information will be passed in the ExperimentName property of the published pipeline execution request. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ExperimentName;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
-        /// <summary>
-        /// The parent Azure ML Service pipeline run id. This information will be passed in the ParentRunId property of the published pipeline execution request. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? MlParentRunId;
-        /// <summary>
-        /// ID of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? MlPipelineEndpointId;
-        /// <summary>
-        /// ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? MlPipelineId;
-        /// <summary>
-        /// Key,Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published pipeline. Values will be passed in the ParameterAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
-        /// </summary>
-        public readonly object? MlPipelineParameters;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -70,35 +42,21 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Azure ML Execute Pipeline activity properties.
+        /// </summary>
+        public readonly Outputs.AzureMLExecutePipelineActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
-        /// <summary>
-        /// Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Version;
 
         [OutputConstructor]
         private AzureMLExecutePipelineActivityResponse(
-            object? continueOnStepFailure,
-
-            object? dataPathAssignments,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
-            object? experimentName,
-
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
-
-            object? mlParentRunId,
-
-            object? mlPipelineEndpointId,
-
-            object? mlPipelineId,
-
-            object? mlPipelineParameters,
 
             string name,
 
@@ -106,25 +64,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            ImmutableArray<Outputs.UserPropertyResponse> userProperties,
+            Outputs.AzureMLExecutePipelineActivityTypePropertiesResponse typeProperties,
 
-            object? version)
+            ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            ContinueOnStepFailure = continueOnStepFailure;
-            DataPathAssignments = dataPathAssignments;
             DependsOn = dependsOn;
             Description = description;
-            ExperimentName = experimentName;
             LinkedServiceName = linkedServiceName;
-            MlParentRunId = mlParentRunId;
-            MlPipelineEndpointId = mlPipelineEndpointId;
-            MlPipelineId = mlPipelineId;
-            MlPipelineParameters = mlPipelineParameters;
             Name = name;
             Policy = policy;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
-            Version = version;
         }
     }
 }

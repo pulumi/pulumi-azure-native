@@ -35,10 +35,6 @@ export interface GetOrganizationArgs {
  */
 export interface GetOrganizationResult {
     /**
-     * The creation time of the resource.
-     */
-    readonly createdTime: string;
-    /**
      * The ARM id of the resource.
      */
     readonly id: string;
@@ -51,21 +47,9 @@ export interface GetOrganizationResult {
      */
     readonly name: string;
     /**
-     * Confluent offer detail
+     * Organization resource properties
      */
-    readonly offerDetail: outputs.confluent.v20210901preview.OfferDetailResponse;
-    /**
-     * Id of the Confluent organization.
-     */
-    readonly organizationId: string;
-    /**
-     * Provision states for confluent RP
-     */
-    readonly provisioningState: string;
-    /**
-     * SSO url for the Confluent organization.
-     */
-    readonly ssoUrl: string;
+    readonly properties: outputs.confluent.v20210901preview.OrganizationResourcePropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
@@ -78,10 +62,6 @@ export interface GetOrganizationResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * Subscriber detail
-     */
-    readonly userDetail: outputs.confluent.v20210901preview.UserDetailResponse;
 }
 /**
  * Organization resource.

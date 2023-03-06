@@ -22,93 +22,22 @@ class GetJobDefinitionResult:
     """
     The Job Definition resource.
     """
-    def __init__(__self__, agent_name=None, agent_resource_id=None, copy_mode=None, description=None, id=None, latest_job_run_name=None, latest_job_run_resource_id=None, latest_job_run_status=None, name=None, provisioning_state=None, source_name=None, source_resource_id=None, source_subpath=None, system_data=None, target_name=None, target_resource_id=None, target_subpath=None, type=None):
-        if agent_name and not isinstance(agent_name, str):
-            raise TypeError("Expected argument 'agent_name' to be a str")
-        pulumi.set(__self__, "agent_name", agent_name)
-        if agent_resource_id and not isinstance(agent_resource_id, str):
-            raise TypeError("Expected argument 'agent_resource_id' to be a str")
-        pulumi.set(__self__, "agent_resource_id", agent_resource_id)
-        if copy_mode and not isinstance(copy_mode, str):
-            raise TypeError("Expected argument 'copy_mode' to be a str")
-        pulumi.set(__self__, "copy_mode", copy_mode)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if latest_job_run_name and not isinstance(latest_job_run_name, str):
-            raise TypeError("Expected argument 'latest_job_run_name' to be a str")
-        pulumi.set(__self__, "latest_job_run_name", latest_job_run_name)
-        if latest_job_run_resource_id and not isinstance(latest_job_run_resource_id, str):
-            raise TypeError("Expected argument 'latest_job_run_resource_id' to be a str")
-        pulumi.set(__self__, "latest_job_run_resource_id", latest_job_run_resource_id)
-        if latest_job_run_status and not isinstance(latest_job_run_status, str):
-            raise TypeError("Expected argument 'latest_job_run_status' to be a str")
-        pulumi.set(__self__, "latest_job_run_status", latest_job_run_status)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if source_name and not isinstance(source_name, str):
-            raise TypeError("Expected argument 'source_name' to be a str")
-        pulumi.set(__self__, "source_name", source_name)
-        if source_resource_id and not isinstance(source_resource_id, str):
-            raise TypeError("Expected argument 'source_resource_id' to be a str")
-        pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if source_subpath and not isinstance(source_subpath, str):
-            raise TypeError("Expected argument 'source_subpath' to be a str")
-        pulumi.set(__self__, "source_subpath", source_subpath)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if target_name and not isinstance(target_name, str):
-            raise TypeError("Expected argument 'target_name' to be a str")
-        pulumi.set(__self__, "target_name", target_name)
-        if target_resource_id and not isinstance(target_resource_id, str):
-            raise TypeError("Expected argument 'target_resource_id' to be a str")
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        if target_subpath and not isinstance(target_subpath, str):
-            raise TypeError("Expected argument 'target_subpath' to be a str")
-        pulumi.set(__self__, "target_subpath", target_subpath)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[str]:
-        """
-        Name of the Agent to assign for new Job Runs of this Job Definition.
-        """
-        return pulumi.get(self, "agent_name")
-
-    @property
-    @pulumi.getter(name="agentResourceId")
-    def agent_resource_id(self) -> str:
-        """
-        Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
-        """
-        return pulumi.get(self, "agent_resource_id")
-
-    @property
-    @pulumi.getter(name="copyMode")
-    def copy_mode(self) -> str:
-        """
-        Strategy to use for copy.
-        """
-        return pulumi.get(self, "copy_mode")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        A description for the Job Definition.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -119,30 +48,6 @@ class GetJobDefinitionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="latestJobRunName")
-    def latest_job_run_name(self) -> str:
-        """
-        The name of the Job Run in a non-terminal state, if exists.
-        """
-        return pulumi.get(self, "latest_job_run_name")
-
-    @property
-    @pulumi.getter(name="latestJobRunResourceId")
-    def latest_job_run_resource_id(self) -> str:
-        """
-        The fully qualified resource ID of the Job Run in a non-terminal state, if exists.
-        """
-        return pulumi.get(self, "latest_job_run_resource_id")
-
-    @property
-    @pulumi.getter(name="latestJobRunStatus")
-    def latest_job_run_status(self) -> str:
-        """
-        The current status of the Job Run in a non-terminal state, if exists.
-        """
-        return pulumi.get(self, "latest_job_run_status")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -151,36 +56,12 @@ class GetJobDefinitionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.JobDefinitionPropertiesResponse':
         """
-        The provisioning state of this resource.
+        Job definition properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sourceName")
-    def source_name(self) -> str:
-        """
-        The name of the source Endpoint.
-        """
-        return pulumi.get(self, "source_name")
-
-    @property
-    @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> str:
-        """
-        Fully qualified resource ID of the source Endpoint.
-        """
-        return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="sourceSubpath")
-    def source_subpath(self) -> Optional[str]:
-        """
-        The subpath to use when reading from the source Endpoint.
-        """
-        return pulumi.get(self, "source_subpath")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -189,30 +70,6 @@ class GetJobDefinitionResult:
         Resource system metadata.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="targetName")
-    def target_name(self) -> str:
-        """
-        The name of the target Endpoint.
-        """
-        return pulumi.get(self, "target_name")
-
-    @property
-    @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> str:
-        """
-        Fully qualified resource ID of the target Endpoint.
-        """
-        return pulumi.get(self, "target_resource_id")
-
-    @property
-    @pulumi.getter(name="targetSubpath")
-    def target_subpath(self) -> Optional[str]:
-        """
-        The subpath to use when writing to the target Endpoint.
-        """
-        return pulumi.get(self, "target_subpath")
 
     @property
     @pulumi.getter
@@ -229,23 +86,10 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
         if False:
             yield self
         return GetJobDefinitionResult(
-            agent_name=self.agent_name,
-            agent_resource_id=self.agent_resource_id,
-            copy_mode=self.copy_mode,
-            description=self.description,
             id=self.id,
-            latest_job_run_name=self.latest_job_run_name,
-            latest_job_run_resource_id=self.latest_job_run_resource_id,
-            latest_job_run_status=self.latest_job_run_status,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            source_name=self.source_name,
-            source_resource_id=self.source_resource_id,
-            source_subpath=self.source_subpath,
+            properties=self.properties,
             system_data=self.system_data,
-            target_name=self.target_name,
-            target_resource_id=self.target_resource_id,
-            target_subpath=self.target_subpath,
             type=self.type)
 
 
@@ -272,23 +116,10 @@ def get_job_definition(job_definition_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagemover/v20230301:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
     return AwaitableGetJobDefinitionResult(
-        agent_name=__ret__.agent_name,
-        agent_resource_id=__ret__.agent_resource_id,
-        copy_mode=__ret__.copy_mode,
-        description=__ret__.description,
         id=__ret__.id,
-        latest_job_run_name=__ret__.latest_job_run_name,
-        latest_job_run_resource_id=__ret__.latest_job_run_resource_id,
-        latest_job_run_status=__ret__.latest_job_run_status,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source_name=__ret__.source_name,
-        source_resource_id=__ret__.source_resource_id,
-        source_subpath=__ret__.source_subpath,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        target_name=__ret__.target_name,
-        target_resource_id=__ret__.target_resource_id,
-        target_subpath=__ret__.target_subpath,
         type=__ret__.type)
 
 

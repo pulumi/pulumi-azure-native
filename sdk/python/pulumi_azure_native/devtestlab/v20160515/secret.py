@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SecretArgs', 'Secret']
 
@@ -15,41 +17,32 @@ __all__ = ['SecretArgs', 'Secret']
 class SecretArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[str],
+                 properties: pulumi.Input['SecretPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  user_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
         :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input['SecretPropertiesArgs'] properties: The properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] user_name: The name of the user profile.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the secret.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param pulumi.Input[str] value: The value of the secret for secret creation.
         """
         pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_name", user_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="labName")
@@ -62,6 +55,18 @@ class SecretArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SecretPropertiesArgs']:
+        """
+        The properties of the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SecretPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -112,18 +117,6 @@ class SecretArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning status of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -134,30 +127,6 @@ class SecretArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @unique_identifier.setter
-    def unique_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unique_identifier", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the secret for secret creation.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
@@ -173,12 +142,10 @@ class Secret(pulumi.CustomResource):
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SecretPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A secret.
@@ -188,12 +155,10 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the secret.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
+        :param pulumi.Input[pulumi.InputType['SecretPropertiesArgs']] properties: The properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] user_name: The name of the user profile.
-        :param pulumi.Input[str] value: The value of the secret for secret creation.
         """
         ...
     @overload
@@ -222,12 +187,10 @@ class Secret(pulumi.CustomResource):
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SecretPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Secret is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -243,16 +206,16 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            __props__.__dict__["provisioning_state"] = provisioning_state
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["unique_identifier"] = unique_identifier
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
-            __props__.__dict__["value"] = value
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:Secret"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Secret")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -280,11 +243,9 @@ class Secret(pulumi.CustomResource):
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["unique_identifier"] = None
-        __props__.__dict__["value"] = None
         return Secret(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -304,12 +265,12 @@ class Secret(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SecretPropertiesResponse']:
         """
-        The provisioning status of the resource.
+        The properties of the resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -326,20 +287,4 @@ class Secret(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Output[Optional[str]]:
-        """
-        The value of the secret for secret creation.
-        """
-        return pulumi.get(self, "value")
 

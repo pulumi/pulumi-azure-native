@@ -28,18 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The api token for the TeamDesk source.
-        /// </summary>
-        [Input("apiToken")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ApiToken { get; set; }
-
-        /// <summary>
-        /// The authentication type to use.
-        /// </summary>
-        [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.TeamDeskAuthenticationType> AuthenticationType { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -50,12 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -70,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The password of the TeamDesk source.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'TeamDesk'.
         /// </summary>
@@ -83,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+        /// TeamDesk linked service properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
-
-        /// <summary>
-        /// The username of the TeamDesk source. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.TeamDeskLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public TeamDeskLinkedServiceArgs()
         {

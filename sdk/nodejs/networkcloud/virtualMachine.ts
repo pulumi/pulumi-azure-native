@@ -38,79 +38,21 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the administrator to which the ssh public keys will be added into the authorized keys.
-     */
-    public readonly adminUsername!: pulumi.Output<string>;
-    /**
-     * The resource ID of the bare metal machine the virtual machine has landed to.
-     */
-    public /*out*/ readonly bareMetalMachineId!: pulumi.Output<string>;
-    /**
-     * Selects the boot method for the virtual machine.
-     */
-    public readonly bootMethod!: pulumi.Output<string | undefined>;
-    public readonly cloudServicesNetworkAttachment!: pulumi.Output<outputs.networkcloud.NetworkAttachmentResponse>;
-    /**
-     * The resource ID of the cluster the virtual machine is created for.
-     */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
-    /**
-     * The number of CPU cores in the virtual machine.
-     */
-    public readonly cpuCores!: pulumi.Output<number>;
-    /**
-     * The more detailed status of the virtual machine.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
-    /**
-     * Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
-     */
-    public readonly isolateEmulatorThread!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The memory size of the virtual machine in GB.
-     */
-    public readonly memorySizeGB!: pulumi.Output<number>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The list of network attachments to the virtual machine.
+     * The list of the resource properties.
      */
-    public readonly networkAttachments!: pulumi.Output<outputs.networkcloud.NetworkAttachmentResponse[] | undefined>;
-    /**
-     * The Base64 encoded cloud-init network data.
-     */
-    public readonly networkData!: pulumi.Output<string | undefined>;
-    /**
-     * The scheduling hints for the virtual machine.
-     */
-    public readonly placementHints!: pulumi.Output<outputs.networkcloud.VirtualMachinePlacementHintResponse[] | undefined>;
-    /**
-     * The power state of the virtual machine.
-     */
-    public /*out*/ readonly powerState!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the virtual machine.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
-     */
-    public readonly sshPublicKeys!: pulumi.Output<outputs.networkcloud.SshPublicKeyResponse[] | undefined>;
-    public readonly storageProfile!: pulumi.Output<outputs.networkcloud.StorageProfileResponse>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.VirtualMachinePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -123,27 +65,6 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The Base64 encoded cloud-init user data.
-     */
-    public readonly userData!: pulumi.Output<string | undefined>;
-    /**
-     * Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
-     */
-    public readonly virtioInterface!: pulumi.Output<string | undefined>;
-    /**
-     * The type of the device model to use.
-     */
-    public readonly vmDeviceModel!: pulumi.Output<string | undefined>;
-    /**
-     * The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
-     */
-    public readonly vmImage!: pulumi.Output<string>;
-    public readonly vmImageRepositoryCredentials!: pulumi.Output<outputs.networkcloud.ImageRepositoryCredentialsResponse | undefined>;
-    /**
-     * The resource IDs of volumes that are attached to the virtual machine.
-     */
-    public /*out*/ readonly volumes!: pulumi.Output<string[]>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -156,91 +77,32 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminUsername === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'adminUsername'");
-            }
-            if ((!args || args.cloudServicesNetworkAttachment === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cloudServicesNetworkAttachment'");
-            }
-            if ((!args || args.cpuCores === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cpuCores'");
-            }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.memorySizeGB === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'memorySizeGB'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageProfile === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageProfile'");
-            }
-            if ((!args || args.vmImage === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vmImage'");
-            }
-            resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
-            resourceInputs["bootMethod"] = (args ? args.bootMethod : undefined) ?? "UEFI";
-            resourceInputs["cloudServicesNetworkAttachment"] = args ? args.cloudServicesNetworkAttachment : undefined;
-            resourceInputs["cpuCores"] = args ? args.cpuCores : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["isolateEmulatorThread"] = (args ? args.isolateEmulatorThread : undefined) ?? "True";
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["memorySizeGB"] = args ? args.memorySizeGB : undefined;
-            resourceInputs["networkAttachments"] = args ? args.networkAttachments : undefined;
-            resourceInputs["networkData"] = args ? args.networkData : undefined;
-            resourceInputs["placementHints"] = args ? args.placementHints : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.networkcloud.virtualMachinePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
-            resourceInputs["storageProfile"] = args ? (args.storageProfile ? pulumi.output(args.storageProfile).apply(inputs.networkcloud.storageProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["virtioInterface"] = (args ? args.virtioInterface : undefined) ?? "Modern";
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["vmDeviceModel"] = (args ? args.vmDeviceModel : undefined) ?? "T2";
-            resourceInputs["vmImage"] = args ? args.vmImage : undefined;
-            resourceInputs["vmImageRepositoryCredentials"] = args ? args.vmImageRepositoryCredentials : undefined;
-            resourceInputs["bareMetalMachineId"] = undefined /*out*/;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["powerState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumes"] = undefined /*out*/;
         } else {
-            resourceInputs["adminUsername"] = undefined /*out*/;
-            resourceInputs["bareMetalMachineId"] = undefined /*out*/;
-            resourceInputs["bootMethod"] = undefined /*out*/;
-            resourceInputs["cloudServicesNetworkAttachment"] = undefined /*out*/;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["cpuCores"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["isolateEmulatorThread"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["memorySizeGB"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkAttachments"] = undefined /*out*/;
-            resourceInputs["networkData"] = undefined /*out*/;
-            resourceInputs["placementHints"] = undefined /*out*/;
-            resourceInputs["powerState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sshPublicKeys"] = undefined /*out*/;
-            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userData"] = undefined /*out*/;
-            resourceInputs["virtioInterface"] = undefined /*out*/;
-            resourceInputs["vmDeviceModel"] = undefined /*out*/;
-            resourceInputs["vmImage"] = undefined /*out*/;
-            resourceInputs["vmImageRepositoryCredentials"] = undefined /*out*/;
-            resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:VirtualMachine" }] };
@@ -254,78 +116,27 @@ export class VirtualMachine extends pulumi.CustomResource {
  */
 export interface VirtualMachineArgs {
     /**
-     * The name of the administrator to which the ssh public keys will be added into the authorized keys.
-     */
-    adminUsername: pulumi.Input<string>;
-    /**
-     * Selects the boot method for the virtual machine.
-     */
-    bootMethod?: pulumi.Input<string | enums.networkcloud.VirtualMachineBootMethod>;
-    cloudServicesNetworkAttachment: pulumi.Input<inputs.networkcloud.NetworkAttachmentArgs>;
-    /**
-     * The number of CPU cores in the virtual machine.
-     */
-    cpuCores: pulumi.Input<number>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
-    /**
-     * Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
-     */
-    isolateEmulatorThread?: pulumi.Input<string | enums.networkcloud.VirtualMachineIsolateEmulatorThread>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The memory size of the virtual machine in GB.
+     * The list of the resource properties.
      */
-    memorySizeGB: pulumi.Input<number>;
-    /**
-     * The list of network attachments to the virtual machine.
-     */
-    networkAttachments?: pulumi.Input<pulumi.Input<inputs.networkcloud.NetworkAttachmentArgs>[]>;
-    /**
-     * The Base64 encoded cloud-init network data.
-     */
-    networkData?: pulumi.Input<string>;
-    /**
-     * The scheduling hints for the virtual machine.
-     */
-    placementHints?: pulumi.Input<pulumi.Input<inputs.networkcloud.VirtualMachinePlacementHintArgs>[]>;
+    properties: pulumi.Input<inputs.networkcloud.VirtualMachinePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
-     */
-    sshPublicKeys?: pulumi.Input<pulumi.Input<inputs.networkcloud.SshPublicKeyArgs>[]>;
-    storageProfile: pulumi.Input<inputs.networkcloud.StorageProfileArgs>;
-    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Base64 encoded cloud-init user data.
-     */
-    userData?: pulumi.Input<string>;
-    /**
-     * Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
-     */
-    virtioInterface?: pulumi.Input<string | enums.networkcloud.VirtualMachineVirtioInterfaceType>;
-    /**
      * The name of the virtual machine.
      */
     virtualMachineName?: pulumi.Input<string>;
-    /**
-     * The type of the device model to use.
-     */
-    vmDeviceModel?: pulumi.Input<string | enums.networkcloud.VirtualMachineDeviceModelType>;
-    /**
-     * The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
-     */
-    vmImage: pulumi.Input<string>;
-    vmImageRepositoryCredentials?: pulumi.Input<inputs.networkcloud.ImageRepositoryCredentialsArgs>;
 }

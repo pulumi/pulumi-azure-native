@@ -49,6 +49,7 @@ __all__ = [
     'SubResourceArgs',
     'SubnetArgs',
     'UniformInt64RangePartitionSchemeArgs',
+    'VMSSExtensionPropertiesArgs',
     'VMSSExtensionArgs',
     'VaultCertificateArgs',
     'VaultSecretGroupArgs',
@@ -2782,9 +2783,8 @@ class UniformInt64RangePartitionSchemeArgs:
 
 
 @pulumi.input_type
-class VMSSExtensionArgs:
+class VMSSExtensionPropertiesArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  publisher: pulumi.Input[str],
                  type: pulumi.Input[str],
                  type_handler_version: pulumi.Input[str],
@@ -2795,8 +2795,7 @@ class VMSSExtensionArgs:
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[Any] = None):
         """
-        Specifies set of extensions that should be installed onto the virtual machines.
-        :param pulumi.Input[str] name: The name of the extension.
+        Describes the properties of a Virtual Machine Scale Set Extension.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
@@ -2807,7 +2806,6 @@ class VMSSExtensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param Any settings: Json formatted public settings for the extension.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "type_handler_version", type_handler_version)
@@ -2823,18 +2821,6 @@ class VMSSExtensionArgs:
             pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the extension.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -2943,6 +2929,44 @@ class VMSSExtensionArgs:
     @settings.setter
     def settings(self, value: Optional[Any]):
         pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
+class VMSSExtensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 properties: pulumi.Input['VMSSExtensionPropertiesArgs']):
+        """
+        Specifies set of extensions that should be installed onto the virtual machines.
+        :param pulumi.Input[str] name: The name of the extension.
+        :param pulumi.Input['VMSSExtensionPropertiesArgs'] properties: Describes the properties of a Virtual Machine Scale Set Extension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the extension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VMSSExtensionPropertiesArgs']:
+        """
+        Describes the properties of a Virtual Machine Scale Set Extension.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VMSSExtensionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

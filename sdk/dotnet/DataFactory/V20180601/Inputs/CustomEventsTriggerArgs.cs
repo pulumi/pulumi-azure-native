@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("events", required: true)]
-        private InputList<object>? _events;
-
-        /// <summary>
-        /// The list of event types that cause this trigger to fire.
-        /// </summary>
-        public InputList<object> Events
-        {
-            get => _events ?? (_events = new InputList<object>());
-            set => _events = value;
-        }
-
         [Input("pipelines")]
         private InputList<Inputs.TriggerPipelineReferenceArgs>? _pipelines;
 
@@ -58,29 +46,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The ARM resource ID of the Azure Event Grid Topic.
-        /// </summary>
-        [Input("scope", required: true)]
-        public Input<string> Scope { get; set; } = null!;
-
-        /// <summary>
-        /// The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
-        /// </summary>
-        [Input("subjectBeginsWith")]
-        public Input<string>? SubjectBeginsWith { get; set; }
-
-        /// <summary>
-        /// The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
-        /// </summary>
-        [Input("subjectEndsWith")]
-        public Input<string>? SubjectEndsWith { get; set; }
-
-        /// <summary>
         /// Trigger type.
         /// Expected value is 'CustomEventsTrigger'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Custom Events Trigger properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CustomEventsTriggerTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public CustomEventsTriggerArgs()
         {

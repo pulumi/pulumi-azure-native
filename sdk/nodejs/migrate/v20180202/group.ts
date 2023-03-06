@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,33 +38,21 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * List of References to Assessments created on this group.
-     */
-    public /*out*/ readonly assessments!: pulumi.Output<string[]>;
-    /**
-     * Time when this project was created. Date-Time represented in ISO-8601 format.
-     */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
-    /**
      * For optimistic concurrency control.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
-    /**
-     * List of machine names that are part of this group.
-     */
-    public readonly machines!: pulumi.Output<string[]>;
     /**
      * Name of the group.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Properties of the group.
+     */
+    public readonly properties!: pulumi.Output<outputs.migrate.v20180202.GroupPropertiesResponse>;
+    /**
      * Type of the object = [Microsoft.Migrate/projects/groups].
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
-     */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -74,33 +65,27 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.machines === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'machines'");
-            }
             if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["machines"] = args ? args.machines : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["assessments"] = undefined /*out*/;
-            resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
-            resourceInputs["assessments"] = undefined /*out*/;
-            resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
-            resourceInputs["machines"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20171111preview:Group" }] };
@@ -122,13 +107,13 @@ export interface GroupArgs {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * List of machine names that are part of this group.
-     */
-    machines: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Name of the Azure Migrate project.
      */
     projectName: pulumi.Input<string>;
+    /**
+     * Properties of the group.
+     */
+    properties: pulumi.Input<inputs.migrate.v20180202.GroupPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

@@ -107,14 +107,6 @@ namespace Pulumi.AzureNative.NetApp.V20170815
     public sealed class GetSnapshotResult
     {
         /// <summary>
-        /// The creation date of the snapshot
-        /// </summary>
-        public readonly string CreationDate;
-        /// <summary>
-        /// UUID v4 used to identify the FileSystem
-        /// </summary>
-        public readonly string FileSystemId;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -127,13 +119,9 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Snapshot Properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// UUID v4 used to identify the Snapshot
-        /// </summary>
-        public readonly string SnapshotId;
+        public readonly Outputs.SnapshotPropertiesResponse Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -141,29 +129,20 @@ namespace Pulumi.AzureNative.NetApp.V20170815
 
         [OutputConstructor]
         private GetSnapshotResult(
-            string creationDate,
-
-            string fileSystemId,
-
             string id,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            string snapshotId,
+            Outputs.SnapshotPropertiesResponse properties,
 
             string type)
         {
-            CreationDate = creationDate;
-            FileSystemId = fileSystemId;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            SnapshotId = snapshotId;
+            Properties = properties;
             Type = type;
         }
     }

@@ -25,42 +25,22 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Database;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password of the Amazon Redshift source.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
-        /// <summary>
-        /// The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
-        /// </summary>
-        public readonly object? Port;
-        /// <summary>
-        /// The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Server;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'AmazonRedshift'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
+        /// Amazon Redshift linked service properties.
         /// </summary>
-        public readonly object? Username;
+        public readonly Outputs.AmazonRedshiftLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AmazonRedshiftLinkedServiceResponse(
@@ -68,35 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object database,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
-            object? port,
-
-            object server,
-
             string type,
 
-            object? username)
+            Outputs.AmazonRedshiftLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            Database = database;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
-            Port = port;
-            Server = server;
             Type = type;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

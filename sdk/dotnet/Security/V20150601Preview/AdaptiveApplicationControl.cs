@@ -14,21 +14,6 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
     public partial class AdaptiveApplicationControl : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The configuration status of the VM/server group or machine or rule on the machine
-        /// </summary>
-        [Output("configurationStatus")]
-        public Output<string?> ConfigurationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
-        /// </summary>
-        [Output("enforcementMode")]
-        public Output<string?> EnforcementMode { get; private set; } = null!;
-
-        [Output("issues")]
-        public Output<ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponse>> Issues { get; private set; } = null!;
-
-        /// <summary>
         /// Location where the resource is stored
         /// </summary>
         [Output("location")]
@@ -40,35 +25,17 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("pathRecommendations")]
-        public Output<ImmutableArray<Outputs.PathRecommendationResponse>> PathRecommendations { get; private set; } = null!;
-
         /// <summary>
-        /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        /// Represents a VM/server group and set of rules that are Recommended by Microsoft Defender for Cloud to be allowed
         /// </summary>
-        [Output("protectionMode")]
-        public Output<Outputs.ProtectionModeResponse?> ProtectionMode { get; private set; } = null!;
-
-        /// <summary>
-        /// The recommendation status of the VM/server group or VM/server
-        /// </summary>
-        [Output("recommendationStatus")]
-        public Output<string?> RecommendationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The source type of the VM/server group
-        /// </summary>
-        [Output("sourceSystem")]
-        public Output<string?> SourceSystem { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AppWhitelistingGroupDataResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        [Output("vmRecommendations")]
-        public Output<ImmutableArray<Outputs.VmRecommendationResponse>> VmRecommendations { get; private set; } = null!;
 
 
         /// <summary>

@@ -39,18 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The endpoint of the Eloqua server. (i.e. eloqua.example.com)
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<object> Endpoint { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -64,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The password corresponding to the user name.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Eloqua'.
         /// </summary>
@@ -77,28 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Eloqua server linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
-
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("useHostVerification")]
-        public Input<object>? UseHostVerification { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("usePeerVerification")]
-        public Input<object>? UsePeerVerification { get; set; }
-
-        /// <summary>
-        /// The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<object> Username { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.EloquaLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public EloquaLinkedServiceArgs()
         {

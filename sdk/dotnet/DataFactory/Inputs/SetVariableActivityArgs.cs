@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Set Variable activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SetVariableActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
+
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;
 
@@ -57,18 +63,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             get => _userProperties ?? (_userProperties = new InputList<Inputs.UserPropertyArgs>());
             set => _userProperties = value;
         }
-
-        /// <summary>
-        /// Value to be set. Could be a static value or Expression
-        /// </summary>
-        [Input("value")]
-        public Input<object>? Value { get; set; }
-
-        /// <summary>
-        /// Name of the variable whose value needs to be set.
-        /// </summary>
-        [Input("variableName")]
-        public Input<string>? VariableName { get; set; }
 
         public SetVariableActivityArgs()
         {

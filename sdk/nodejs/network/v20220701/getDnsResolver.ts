@@ -35,10 +35,6 @@ export interface GetDnsResolverArgs {
  */
 export interface GetDnsResolverResult {
     /**
-     * The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
-     */
-    readonly dnsResolverState: string;
-    /**
      * ETag of the DNS resolver.
      */
     readonly etag: string;
@@ -55,13 +51,9 @@ export interface GetDnsResolverResult {
      */
     readonly name: string;
     /**
-     * The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the DNS resolver.
      */
-    readonly provisioningState: string;
-    /**
-     * The resourceGuid property of the DNS resolver resource.
-     */
-    readonly resourceGuid: string;
+    readonly properties: outputs.network.v20220701.DnsResolverPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -74,10 +66,6 @@ export interface GetDnsResolverResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The reference to the virtual network. This cannot be changed after creation.
-     */
-    readonly virtualNetwork: outputs.network.v20220701.SubResourceResponse;
 }
 /**
  * Gets properties of a DNS resolver.

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -38,41 +41,21 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     }
 
     /**
-     * Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-     */
-    public readonly algorithm!: pulumi.Output<string>;
-    /**
-     * Represents the CEK of the resource
-     */
-    public readonly encryptionKey!: pulumi.Output<string | undefined>;
-    /**
-     * Represents the Cert thumbprint that was used to encrypt the CEK
-     */
-    public readonly encryptionKeyThumbprint!: pulumi.Output<string | undefined>;
-    /**
      * ETag of the Resource
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
-    /**
-     * Represents the CIK of the resource
-     */
-    public readonly integrityKey!: pulumi.Output<string>;
     /**
      * The name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+     * The extended info properties.
      */
-    public readonly portalCertificateThumbprint!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ManagerExtendedInfoPropertiesResponse>;
     /**
      * The type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Represents the version of the ExtendedInfo object being persisted
-     */
-    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagerExtendedInfo resource with the given unique name, arguments, and options.
@@ -87,39 +70,26 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.algorithm === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'algorithm'");
-            }
-            if ((!args || args.integrityKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'integrityKey'");
-            }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["encryptionKeyThumbprint"] = args ? args.encryptionKeyThumbprint : undefined;
-            resourceInputs["integrityKey"] = args ? args.integrityKey : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["algorithm"] = undefined /*out*/;
-            resourceInputs["encryptionKey"] = undefined /*out*/;
-            resourceInputs["encryptionKeyThumbprint"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["integrityKey"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["portalCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:ManagerExtendedInfo" }, { type: "azure-native:storsimple/v20170601:ManagerExtendedInfo" }] };
@@ -133,35 +103,15 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
  */
 export interface ManagerExtendedInfoArgs {
     /**
-     * Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-     */
-    algorithm: pulumi.Input<string>;
-    /**
-     * Represents the CEK of the resource
-     */
-    encryptionKey?: pulumi.Input<string>;
-    /**
-     * Represents the Cert thumbprint that was used to encrypt the CEK
-     */
-    encryptionKeyThumbprint?: pulumi.Input<string>;
-    /**
-     * Represents the CIK of the resource
-     */
-    integrityKey: pulumi.Input<string>;
-    /**
      * The manager name
      */
     managerName: pulumi.Input<string>;
     /**
-     * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+     * The extended info properties.
      */
-    portalCertificateThumbprint?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.storsimple.v20161001.ManagerExtendedInfoPropertiesArgs>;
     /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Represents the version of the ExtendedInfo object being persisted
-     */
-    version?: pulumi.Input<string>;
 }

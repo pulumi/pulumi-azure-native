@@ -32,41 +32,13 @@ export interface GetL2NetworkArgs {
 
 export interface GetL2NetworkResult {
     /**
-     * The resource ID of the Network Cloud cluster this L2 network is associated with.
-     */
-    readonly clusterId: string;
-    /**
-     * The more detailed status of the L2 network.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
     /**
-     * The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
-     */
-    readonly hybridAksClustersAssociatedIds: string[];
-    /**
-     * The network plugin type for Hybrid AKS.
-     */
-    readonly hybridAksPluginType?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-     */
-    readonly interfaceName?: string;
-    /**
-     * The resource ID of the Network Fabric l2IsolationDomain.
-     */
-    readonly l2IsolationDomainId: string;
     /**
      * The geo-location where the resource lives
      */
@@ -76,9 +48,9 @@ export interface GetL2NetworkResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the L2 network.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.networkcloud.v20221212preview.L2NetworkPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -91,10 +63,6 @@ export interface GetL2NetworkResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
-     */
-    readonly virtualMachinesAssociatedIds: string[];
 }
 /**
  * Get properties of the provided layer 2 (L2) network.

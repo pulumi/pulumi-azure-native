@@ -38,81 +38,25 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-     */
-    public readonly artifacts!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationDefinitionArtifactResponse[] | undefined>;
-    /**
-     * The managed application provider authorizations.
-     */
-    public readonly authorizations!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationAuthorizationResponse[] | undefined>;
-    /**
-     * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-     */
-    public readonly createUiDefinition!: pulumi.Output<any | undefined>;
-    /**
-     * The managed application deployment policy.
-     */
-    public readonly deploymentPolicy!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationDeploymentPolicyResponse | undefined>;
-    /**
-     * The managed application definition description.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The managed application definition display name.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * A value indicating whether the package is enabled or not.
-     */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The managed application lock level.
-     */
-    public readonly lockLevel!: pulumi.Output<string>;
-    /**
-     * The managed application locking policy.
-     */
-    public readonly lockingPolicy!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationPackageLockingPolicyDefinitionResponse | undefined>;
-    /**
-     * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-     */
-    public readonly mainTemplate!: pulumi.Output<any | undefined>;
     /**
      * ID of the resource that manages this resource.
      */
     public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
-     * The managed application management policy that determines publisher's access to the managed resource group.
-     */
-    public readonly managementPolicy!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationManagementPolicyResponse | undefined>;
-    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The managed application notification policy.
+     * The managed application definition properties.
      */
-    public readonly notificationPolicy!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationNotificationPolicyResponse | undefined>;
-    /**
-     * The managed application definition package file Uri. Use this element
-     */
-    public readonly packageFileUri!: pulumi.Output<string | undefined>;
-    /**
-     * The managed application provider policies.
-     */
-    public readonly policies!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationPolicyResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.solutions.v20200821preview.ApplicationDefinitionPropertiesResponse>;
     /**
      * The SKU of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.solutions.v20200821preview.SkuResponse | undefined>;
-    /**
-     * The storage account id for bring your own storage scenario.
-     */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -133,55 +77,27 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.lockLevel === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'lockLevel'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["applicationDefinitionName"] = args ? args.applicationDefinitionName : undefined;
-            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
-            resourceInputs["deploymentPolicy"] = args ? args.deploymentPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
-            resourceInputs["lockingPolicy"] = args ? args.lockingPolicy : undefined;
-            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managementPolicy"] = args ? args.managementPolicy : undefined;
-            resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
-            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["artifacts"] = undefined /*out*/;
-            resourceInputs["authorizations"] = undefined /*out*/;
-            resourceInputs["createUiDefinition"] = undefined /*out*/;
-            resourceInputs["deploymentPolicy"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["lockLevel"] = undefined /*out*/;
-            resourceInputs["lockingPolicy"] = undefined /*out*/;
-            resourceInputs["mainTemplate"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
-            resourceInputs["managementPolicy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["notificationPolicy"] = undefined /*out*/;
-            resourceInputs["packageFileUri"] = undefined /*out*/;
-            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["storageAccountId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -201,69 +117,17 @@ export interface ApplicationDefinitionArgs {
      */
     applicationDefinitionName?: pulumi.Input<string>;
     /**
-     * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-     */
-    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20200821preview.ApplicationDefinitionArtifactArgs>[]>;
-    /**
-     * The managed application provider authorizations.
-     */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.solutions.v20200821preview.ApplicationAuthorizationArgs>[]>;
-    /**
-     * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-     */
-    createUiDefinition?: any;
-    /**
-     * The managed application deployment policy.
-     */
-    deploymentPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationDeploymentPolicyArgs>;
-    /**
-     * The managed application definition description.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The managed application definition display name.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * A value indicating whether the package is enabled or not.
-     */
-    isEnabled?: pulumi.Input<boolean>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
-    /**
-     * The managed application lock level.
-     */
-    lockLevel: pulumi.Input<enums.solutions.v20200821preview.ApplicationLockLevel>;
-    /**
-     * The managed application locking policy.
-     */
-    lockingPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationPackageLockingPolicyDefinitionArgs>;
-    /**
-     * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-     */
-    mainTemplate?: any;
     /**
      * ID of the resource that manages this resource.
      */
     managedBy?: pulumi.Input<string>;
     /**
-     * The managed application management policy that determines publisher's access to the managed resource group.
+     * The managed application definition properties.
      */
-    managementPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationManagementPolicyArgs>;
-    /**
-     * The managed application notification policy.
-     */
-    notificationPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationNotificationPolicyArgs>;
-    /**
-     * The managed application definition package file Uri. Use this element
-     */
-    packageFileUri?: pulumi.Input<string>;
-    /**
-     * The managed application provider policies.
-     */
-    policies?: pulumi.Input<pulumi.Input<inputs.solutions.v20200821preview.ApplicationPolicyArgs>[]>;
+    properties: pulumi.Input<inputs.solutions.v20200821preview.ApplicationDefinitionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -272,10 +136,6 @@ export interface ApplicationDefinitionArgs {
      * The SKU of the resource.
      */
     sku?: pulumi.Input<inputs.solutions.v20200821preview.SkuArgs>;
-    /**
-     * The storage account id for bring your own storage scenario.
-     */
-    storageAccountId?: pulumi.Input<string>;
     /**
      * Resource tags
      */

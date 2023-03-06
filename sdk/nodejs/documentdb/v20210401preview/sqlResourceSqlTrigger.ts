@@ -49,7 +49,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
      * The name of the ARM resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly resource!: pulumi.Output<outputs.documentdb.v20210401preview.SqlTriggerGetPropertiesResponseResource | undefined>;
+    public /*out*/ readonly resource!: pulumi.Output<outputs.documentdb.v20210401preview.SqlTriggerGetPropertiesResponseResource | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -79,8 +79,8 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resource'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -90,12 +90,12 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["triggerName"] = args ? args.triggerName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resource"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["identity"] = undefined /*out*/;
@@ -137,13 +137,9 @@ export interface SqlResourceSqlTriggerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+     * Properties to create and update Azure Cosmos DB trigger.
      */
-    options?: pulumi.Input<inputs.documentdb.v20210401preview.CreateUpdateOptionsArgs>;
-    /**
-     * The standard JSON format of a trigger
-     */
-    resource: pulumi.Input<inputs.documentdb.v20210401preview.SqlTriggerResourceArgs>;
+    properties: pulumi.Input<inputs.documentdb.v20210401preview.SqlTriggerCreateUpdatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

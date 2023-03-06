@@ -39,10 +39,6 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
     }
 
     /**
-     * Time at which the synchronization setting was created.
-     */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
      * Kind of synchronization setting.
      * Expected value is 'ScheduleBased'.
      */
@@ -52,17 +48,9 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state
+     * Properties of scheduled synchronization
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Recurrence Interval
-     */
-    public readonly recurrenceInterval!: pulumi.Output<string>;
-    /**
-     * Synchronization time
-     */
-    public readonly synchronizationTime!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.ScheduledSynchronizationSettingPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
@@ -71,10 +59,6 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Name of the user who created the synchronization setting.
-     */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a ScheduledSynchronizationSetting resource with the given unique name, arguments, and options.
@@ -93,8 +77,8 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.recurrenceInterval === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'recurrenceInterval'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -102,32 +86,21 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.synchronizationTime === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'synchronizationTime'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["kind"] = "ScheduleBased";
-            resourceInputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
             resourceInputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
-            resourceInputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
-            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["recurrenceInterval"] = undefined /*out*/;
-            resourceInputs["synchronizationTime"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20191101:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20200901:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20210801:ScheduledSynchronizationSetting" }] };
@@ -150,9 +123,9 @@ export interface ScheduledSynchronizationSettingArgs {
      */
     kind: pulumi.Input<"ScheduleBased">;
     /**
-     * Recurrence Interval
+     * Properties of scheduled synchronization
      */
-    recurrenceInterval: pulumi.Input<string | enums.datashare.RecurrenceInterval>;
+    properties: pulumi.Input<inputs.datashare.ScheduledSynchronizationSettingPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -165,8 +138,4 @@ export interface ScheduledSynchronizationSettingArgs {
      * The name of the synchronizationSetting.
      */
     synchronizationSettingName?: pulumi.Input<string>;
-    /**
-     * Synchronization time
-     */
-    synchronizationTime: pulumi.Input<string>;
 }

@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ApplianceArtifactArgs',
+    'ApplianceDefinitionPropertiesArgs',
     'ApplianceProviderAuthorizationArgs',
     'IdentityArgs',
     'PlanArgs',
@@ -72,6 +73,107 @@ class ApplianceArtifactArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class ApplianceDefinitionPropertiesArgs:
+    def __init__(__self__, *,
+                 authorizations: pulumi.Input[Sequence[pulumi.Input['ApplianceProviderAuthorizationArgs']]],
+                 lock_level: pulumi.Input['ApplianceLockLevel'],
+                 package_file_uri: pulumi.Input[str],
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ApplianceArtifactArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None):
+        """
+        The appliance definition properties.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplianceProviderAuthorizationArgs']]] authorizations: The appliance provider authorizations.
+        :param pulumi.Input['ApplianceLockLevel'] lock_level: The appliance lock level.
+        :param pulumi.Input[str] package_file_uri: The appliance definition package file Uri.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplianceArtifactArgs']]] artifacts: The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+        :param pulumi.Input[str] description: The appliance definition description.
+        :param pulumi.Input[str] display_name: The appliance definition display name.
+        """
+        pulumi.set(__self__, "authorizations", authorizations)
+        pulumi.set(__self__, "lock_level", lock_level)
+        pulumi.set(__self__, "package_file_uri", package_file_uri)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> pulumi.Input[Sequence[pulumi.Input['ApplianceProviderAuthorizationArgs']]]:
+        """
+        The appliance provider authorizations.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @authorizations.setter
+    def authorizations(self, value: pulumi.Input[Sequence[pulumi.Input['ApplianceProviderAuthorizationArgs']]]):
+        pulumi.set(self, "authorizations", value)
+
+    @property
+    @pulumi.getter(name="lockLevel")
+    def lock_level(self) -> pulumi.Input['ApplianceLockLevel']:
+        """
+        The appliance lock level.
+        """
+        return pulumi.get(self, "lock_level")
+
+    @lock_level.setter
+    def lock_level(self, value: pulumi.Input['ApplianceLockLevel']):
+        pulumi.set(self, "lock_level", value)
+
+    @property
+    @pulumi.getter(name="packageFileUri")
+    def package_file_uri(self) -> pulumi.Input[str]:
+        """
+        The appliance definition package file Uri.
+        """
+        return pulumi.get(self, "package_file_uri")
+
+    @package_file_uri.setter
+    def package_file_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "package_file_uri", value)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplianceArtifactArgs']]]]:
+        """
+        The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplianceArtifactArgs']]]]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The appliance definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The appliance definition display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
 
 @pulumi.input_type

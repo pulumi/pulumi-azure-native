@@ -39,37 +39,13 @@ export class GuestAgent extends pulumi.CustomResource {
     }
 
     /**
-     * Username / Password Credentials to provision guest agent.
-     */
-    public readonly credentials!: pulumi.Output<outputs.connectedvmwarevsphere.GuestCredentialResponse | undefined>;
-    /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
-    /**
-     * HTTP Proxy configuration for the VM.
-     */
-    public readonly httpProxyConfig!: pulumi.Output<outputs.connectedvmwarevsphere.HttpProxyConfigurationResponse | undefined>;
-    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the guest agent provisioning action.
+     * Resource properties.
      */
-    public readonly provisioningAction!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Gets or sets the guest agent status.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * The resource status information.
-     */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.connectedvmwarevsphere.GuestAgentPropertiesResponse>;
     /**
      * The system data.
      */
@@ -78,10 +54,6 @@ export class GuestAgent extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
 
     /**
      * Create a GuestAgent resource with the given unique name, arguments, and options.
@@ -94,37 +66,26 @@ export class GuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["customResourceName"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
         } else {
-            resourceInputs["credentials"] = undefined /*out*/;
-            resourceInputs["customResourceName"] = undefined /*out*/;
-            resourceInputs["httpProxyConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningAction"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent" }] };
@@ -138,21 +99,13 @@ export class GuestAgent extends pulumi.CustomResource {
  */
 export interface GuestAgentArgs {
     /**
-     * Username / Password Credentials to provision guest agent.
-     */
-    credentials?: pulumi.Input<inputs.connectedvmwarevsphere.GuestCredentialArgs>;
-    /**
-     * HTTP Proxy configuration for the VM.
-     */
-    httpProxyConfig?: pulumi.Input<inputs.connectedvmwarevsphere.HttpProxyConfigurationArgs>;
-    /**
      * Name of the guestAgents.
      */
     name?: pulumi.Input<string>;
     /**
-     * Gets or sets the guest agent provisioning action.
+     * Resource properties.
      */
-    provisioningAction?: pulumi.Input<string | enums.connectedvmwarevsphere.ProvisioningAction>;
+    properties: pulumi.Input<inputs.connectedvmwarevsphere.GuestAgentPropertiesArgs>;
     /**
      * The Resource Group Name.
      */

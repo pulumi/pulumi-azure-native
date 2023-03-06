@@ -17,30 +17,26 @@ __all__ = ['MetricsConfigurationArgs', 'MetricsConfiguration']
 class MetricsConfigurationArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
-                 collection_interval: pulumi.Input[float],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 properties: pulumi.Input['ClusterMetricsConfigurationPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metrics_configuration_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MetricsConfiguration resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[float] collection_interval: The interval in minutes by which metrics will be collected.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input['ClusterMetricsConfigurationPropertiesArgs'] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] metrics_configuration_name: The name of the metrics configuration for the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "collection_interval", collection_interval)
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if enabled_metrics is not None:
-            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metrics_configuration_name is not None:
@@ -61,18 +57,6 @@ class MetricsConfigurationArgs:
         pulumi.set(self, "cluster_name", value)
 
     @property
-    @pulumi.getter(name="collectionInterval")
-    def collection_interval(self) -> pulumi.Input[float]:
-        """
-        The interval in minutes by which metrics will be collected.
-        """
-        return pulumi.get(self, "collection_interval")
-
-    @collection_interval.setter
-    def collection_interval(self, value: pulumi.Input[float]):
-        pulumi.set(self, "collection_interval", value)
-
-    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> pulumi.Input['ExtendedLocationArgs']:
         """
@@ -85,6 +69,18 @@ class MetricsConfigurationArgs:
         pulumi.set(self, "extended_location", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ClusterMetricsConfigurationPropertiesArgs']:
+        """
+        The list of the resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ClusterMetricsConfigurationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -95,18 +91,6 @@ class MetricsConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-        """
-        return pulumi.get(self, "enabled_metrics")
-
-    @enabled_metrics.setter
-    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "enabled_metrics", value)
 
     @property
     @pulumi.getter
@@ -151,11 +135,10 @@ class MetricsConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 collection_interval: Optional[pulumi.Input[float]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metrics_configuration_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ClusterMetricsConfigurationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -165,11 +148,10 @@ class MetricsConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[float] collection_interval: The interval in minutes by which metrics will be collected.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] metrics_configuration_name: The name of the metrics configuration for the cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterMetricsConfigurationPropertiesArgs']] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -198,11 +180,10 @@ class MetricsConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 collection_interval: Optional[pulumi.Input[float]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metrics_configuration_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ClusterMetricsConfigurationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -217,24 +198,19 @@ class MetricsConfiguration(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if collection_interval is None and not opts.urn:
-                raise TypeError("Missing required property 'collection_interval'")
-            __props__.__dict__["collection_interval"] = collection_interval
-            __props__.__dict__["enabled_metrics"] = enabled_metrics
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             __props__.__dict__["metrics_configuration_name"] = metrics_configuration_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["detailed_status"] = None
-            __props__.__dict__["detailed_status_message"] = None
-            __props__.__dict__["disabled_metrics"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:MetricsConfiguration")])
@@ -261,59 +237,14 @@ class MetricsConfiguration(pulumi.CustomResource):
 
         __props__ = MetricsConfigurationArgs.__new__(MetricsConfigurationArgs)
 
-        __props__.__dict__["collection_interval"] = None
-        __props__.__dict__["detailed_status"] = None
-        __props__.__dict__["detailed_status_message"] = None
-        __props__.__dict__["disabled_metrics"] = None
-        __props__.__dict__["enabled_metrics"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return MetricsConfiguration(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="collectionInterval")
-    def collection_interval(self) -> pulumi.Output[float]:
-        """
-        The interval in minutes by which metrics will be collected.
-        """
-        return pulumi.get(self, "collection_interval")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> pulumi.Output[str]:
-        """
-        The more detailed status of the metrics configuration.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> pulumi.Output[str]:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
-
-    @property
-    @pulumi.getter(name="disabledMetrics")
-    def disabled_metrics(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The list of metrics that are available for the cluster but disabled at the moment.
-        """
-        return pulumi.get(self, "disabled_metrics")
-
-    @property
-    @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-        """
-        return pulumi.get(self, "enabled_metrics")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -340,12 +271,12 @@ class MetricsConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ClusterMetricsConfigurationPropertiesResponse']:
         """
-        The provisioning state of the metrics configuration.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

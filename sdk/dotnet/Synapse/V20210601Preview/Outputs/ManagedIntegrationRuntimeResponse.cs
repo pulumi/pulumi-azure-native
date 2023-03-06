@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
     public sealed class ManagedIntegrationRuntimeResponse
     {
         /// <summary>
-        /// The compute resource for managed integration runtime.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeComputePropertiesResponse? ComputeProperties;
-        /// <summary>
         /// Integration runtime description.
         /// </summary>
         public readonly string? Description;
@@ -33,10 +29,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// </summary>
         public readonly string? ReferenceName;
         /// <summary>
-        /// SSIS properties for managed integration runtime.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeSsisPropertiesResponse? SsisProperties;
-        /// <summary>
         /// Integration runtime state, only valid for managed dedicated integration runtime.
         /// </summary>
         public readonly string State;
@@ -45,30 +37,31 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// Expected value is 'Managed'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Managed integration runtime properties.
+        /// </summary>
+        public readonly Outputs.ManagedIntegrationRuntimeTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ManagedIntegrationRuntimeResponse(
-            Outputs.IntegrationRuntimeComputePropertiesResponse? computeProperties,
-
             string? description,
 
             string? id,
 
             string? referenceName,
 
-            Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
-
             string state,
 
-            string type)
+            string type,
+
+            Outputs.ManagedIntegrationRuntimeTypePropertiesResponse typeProperties)
         {
-            ComputeProperties = computeProperties;
             Description = description;
             Id = id;
             ReferenceName = referenceName;
-            SsisProperties = ssisProperties;
             State = state;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

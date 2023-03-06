@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.DevTestLab
     public partial class ServiceFabric : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The applicable schedule for the virtual machine.
-        /// </summary>
-        [Output("applicableSchedule")]
-        public Output<Outputs.ApplicableScheduleResponse> ApplicableSchedule { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource id of the environment under which the service fabric resource is present
-        /// </summary>
-        [Output("environmentId")]
-        public Output<string?> EnvironmentId { get; private set; } = null!;
-
-        /// <summary>
-        /// The backing service fabric resource's id
-        /// </summary>
-        [Output("externalServiceFabricId")]
-        public Output<string?> ExternalServiceFabricId { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -47,10 +29,10 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ServiceFabricPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -63,12 +45,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -120,18 +96,6 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class ServiceFabricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource id of the environment under which the service fabric resource is present
-        /// </summary>
-        [Input("environmentId")]
-        public Input<string>? EnvironmentId { get; set; }
-
-        /// <summary>
-        /// The backing service fabric resource's id
-        /// </summary>
-        [Input("externalServiceFabricId")]
-        public Input<string>? ExternalServiceFabricId { get; set; }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -148,6 +112,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The properties of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ServiceFabricPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

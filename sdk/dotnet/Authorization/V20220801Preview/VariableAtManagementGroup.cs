@@ -16,16 +16,16 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
     public partial class VariableAtManagementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Variable column definitions.
-        /// </summary>
-        [Output("columns")]
-        public Output<ImmutableArray<Outputs.PolicyVariableColumnResponse>> Columns { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the variable.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties for the variable.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.PolicyVariablePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -84,23 +84,17 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
 
     public sealed class VariableAtManagementGroupArgs : global::Pulumi.ResourceArgs
     {
-        [Input("columns", required: true)]
-        private InputList<Inputs.PolicyVariableColumnArgs>? _columns;
-
-        /// <summary>
-        /// Variable column definitions.
-        /// </summary>
-        public InputList<Inputs.PolicyVariableColumnArgs> Columns
-        {
-            get => _columns ?? (_columns = new InputList<Inputs.PolicyVariableColumnArgs>());
-            set => _columns = value;
-        }
-
         /// <summary>
         /// The ID of the management group.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// Properties for the variable.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PolicyVariablePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the variable to operate on.

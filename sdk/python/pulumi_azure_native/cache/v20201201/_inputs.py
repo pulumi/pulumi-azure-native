@@ -13,6 +13,10 @@ from ._enums import *
 __all__ = [
     'PrivateLinkServiceConnectionStateArgs',
     'RedisCommonPropertiesRedisConfigurationArgs',
+    'RedisCreatePropertiesArgs',
+    'RedisFirewallRulePropertiesArgs',
+    'RedisLinkedServerCreatePropertiesArgs',
+    'ScheduleEntriesArgs',
     'ScheduleEntryArgs',
     'SkuArgs',
 ]
@@ -271,6 +275,323 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @rdb_storage_connection_string.setter
     def rdb_storage_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rdb_storage_connection_string", value)
+
+
+@pulumi.input_type
+class RedisCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 sku: pulumi.Input['SkuArgs'],
+                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 redis_configuration: Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']] = None,
+                 redis_version: Optional[pulumi.Input[str]] = None,
+                 replicas_per_master: Optional[pulumi.Input[int]] = None,
+                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
+                 static_ip: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Properties supplied to Create Redis operation.
+        :param pulumi.Input['SkuArgs'] sku: The SKU of the Redis cache to deploy.
+        :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[str] redis_version: Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
+        :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
+        :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
+        :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
+        :param pulumi.Input[str] static_ip: Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
+        :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
+        """
+        pulumi.set(__self__, "sku", sku)
+        if enable_non_ssl_port is None:
+            enable_non_ssl_port = False
+        if enable_non_ssl_port is not None:
+            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if redis_configuration is not None:
+            pulumi.set(__self__, "redis_configuration", redis_configuration)
+        if redis_version is not None:
+            pulumi.set(__self__, "redis_version", redis_version)
+        if replicas_per_master is not None:
+            pulumi.set(__self__, "replicas_per_master", replicas_per_master)
+        if replicas_per_primary is not None:
+            pulumi.set(__self__, "replicas_per_primary", replicas_per_primary)
+        if shard_count is not None:
+            pulumi.set(__self__, "shard_count", shard_count)
+        if static_ip is not None:
+            pulumi.set(__self__, "static_ip", static_ip)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tenant_settings is not None:
+            pulumi.set(__self__, "tenant_settings", tenant_settings)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['SkuArgs']:
+        """
+        The SKU of the Redis cache to deploy.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="enableNonSslPort")
+    def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the non-ssl Redis server port (6379) is enabled.
+        """
+        return pulumi.get(self, "enable_non_ssl_port")
+
+    @enable_non_ssl_port.setter
+    def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_non_ssl_port", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[Union[str, 'TlsVersion']]]:
+        """
+        Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[Union[str, 'TlsVersion']]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="redisConfiguration")
+    def redis_configuration(self) -> Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']]:
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        """
+        return pulumi.get(self, "redis_configuration")
+
+    @redis_configuration.setter
+    def redis_configuration(self, value: Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']]):
+        pulumi.set(self, "redis_configuration", value)
+
+    @property
+    @pulumi.getter(name="redisVersion")
+    def redis_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redis version. This should be in the form 'major[.minor[.build]]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Only the major and minor version are used in a PUT/PATCH request. Supported versions: 4.0, 6.0.
+        """
+        return pulumi.get(self, "redis_version")
+
+    @redis_version.setter
+    def redis_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redis_version", value)
+
+    @property
+    @pulumi.getter(name="replicasPerMaster")
+    def replicas_per_master(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of replicas to be created per primary.
+        """
+        return pulumi.get(self, "replicas_per_master")
+
+    @replicas_per_master.setter
+    def replicas_per_master(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas_per_master", value)
+
+    @property
+    @pulumi.getter(name="replicasPerPrimary")
+    def replicas_per_primary(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of replicas to be created per primary.
+        """
+        return pulumi.get(self, "replicas_per_primary")
+
+    @replicas_per_primary.setter
+    def replicas_per_primary(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas_per_primary", value)
+
+    @property
+    @pulumi.getter(name="shardCount")
+    def shard_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of shards to be created on a Premium Cluster Cache.
+        """
+        return pulumi.get(self, "shard_count")
+
+    @shard_count.setter
+    def shard_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "shard_count", value)
+
+    @property
+    @pulumi.getter(name="staticIP")
+    def static_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
+        """
+        return pulumi.get(self, "static_ip")
+
+    @static_ip.setter
+    def static_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "static_ip", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="tenantSettings")
+    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A dictionary of tenant settings
+        """
+        return pulumi.get(self, "tenant_settings")
+
+    @tenant_settings.setter
+    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tenant_settings", value)
+
+
+@pulumi.input_type
+class RedisFirewallRulePropertiesArgs:
+    def __init__(__self__, *,
+                 end_ip: pulumi.Input[str],
+                 start_ip: pulumi.Input[str]):
+        """
+        Specifies a range of IP addresses permitted to connect to the cache
+        :param pulumi.Input[str] end_ip: highest IP address included in the range
+        :param pulumi.Input[str] start_ip: lowest IP address included in the range
+        """
+        pulumi.set(__self__, "end_ip", end_ip)
+        pulumi.set(__self__, "start_ip", start_ip)
+
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> pulumi.Input[str]:
+        """
+        highest IP address included in the range
+        """
+        return pulumi.get(self, "end_ip")
+
+    @end_ip.setter
+    def end_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_ip", value)
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> pulumi.Input[str]:
+        """
+        lowest IP address included in the range
+        """
+        return pulumi.get(self, "start_ip")
+
+    @start_ip.setter
+    def start_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_ip", value)
+
+
+@pulumi.input_type
+class RedisLinkedServerCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 linked_redis_cache_id: pulumi.Input[str],
+                 linked_redis_cache_location: pulumi.Input[str],
+                 server_role: pulumi.Input['ReplicationRole']):
+        """
+        Create properties for a linked server
+        :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
+        :param pulumi.Input[str] linked_redis_cache_location: Location of the linked redis cache.
+        :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
+        """
+        pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
+        pulumi.set(__self__, "linked_redis_cache_location", linked_redis_cache_location)
+        pulumi.set(__self__, "server_role", server_role)
+
+    @property
+    @pulumi.getter(name="linkedRedisCacheId")
+    def linked_redis_cache_id(self) -> pulumi.Input[str]:
+        """
+        Fully qualified resourceId of the linked redis cache.
+        """
+        return pulumi.get(self, "linked_redis_cache_id")
+
+    @linked_redis_cache_id.setter
+    def linked_redis_cache_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_redis_cache_id", value)
+
+    @property
+    @pulumi.getter(name="linkedRedisCacheLocation")
+    def linked_redis_cache_location(self) -> pulumi.Input[str]:
+        """
+        Location of the linked redis cache.
+        """
+        return pulumi.get(self, "linked_redis_cache_location")
+
+    @linked_redis_cache_location.setter
+    def linked_redis_cache_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_redis_cache_location", value)
+
+    @property
+    @pulumi.getter(name="serverRole")
+    def server_role(self) -> pulumi.Input['ReplicationRole']:
+        """
+        Role of the linked server.
+        """
+        return pulumi.get(self, "server_role")
+
+    @server_role.setter
+    def server_role(self, value: pulumi.Input['ReplicationRole']):
+        pulumi.set(self, "server_role", value)
+
+
+@pulumi.input_type
+class ScheduleEntriesArgs:
+    def __init__(__self__, *,
+                 schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
+        """
+        List of patch schedules for a Redis cache.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
+        """
+        pulumi.set(__self__, "schedule_entries", schedule_entries)
+
+    @property
+    @pulumi.getter(name="scheduleEntries")
+    def schedule_entries(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]:
+        """
+        List of patch schedules for a Redis cache.
+        """
+        return pulumi.get(self, "schedule_entries")
+
+    @schedule_entries.setter
+    def schedule_entries(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]]):
+        pulumi.set(self, "schedule_entries", value)
 
 
 @pulumi.input_type

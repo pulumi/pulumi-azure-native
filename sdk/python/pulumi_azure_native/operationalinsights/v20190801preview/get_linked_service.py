@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetLinkedServiceResult',
@@ -21,22 +22,19 @@ class GetLinkedServiceResult:
     """
     The top level Linked service resource container.
     """
-    def __init__(__self__, id=None, name=None, resource_id=None, type=None, write_access_resource_id=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if resource_id and not isinstance(resource_id, str):
-            raise TypeError("Expected argument 'resource_id' to be a str")
-        pulumi.set(__self__, "resource_id", resource_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if write_access_resource_id and not isinstance(write_access_resource_id, str):
-            raise TypeError("Expected argument 'write_access_resource_id' to be a str")
-        pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
 
     @property
     @pulumi.getter
@@ -55,12 +53,12 @@ class GetLinkedServiceResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.LinkedServicePropertiesResponse':
         """
-        The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+        The properties of the linked service.
         """
-        return pulumi.get(self, "resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -69,14 +67,6 @@ class GetLinkedServiceResult:
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="writeAccessResourceId")
-    def write_access_resource_id(self) -> Optional[str]:
-        """
-        The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-        """
-        return pulumi.get(self, "write_access_resource_id")
 
 
 class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
@@ -87,9 +77,8 @@ class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
         return GetLinkedServiceResult(
             id=self.id,
             name=self.name,
-            resource_id=self.resource_id,
-            type=self.type,
-            write_access_resource_id=self.write_access_resource_id)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_linked_service(linked_service_name: Optional[str] = None,
@@ -114,9 +103,8 @@ def get_linked_service(linked_service_name: Optional[str] = None,
     return AwaitableGetLinkedServiceResult(
         id=__ret__.id,
         name=__ret__.name,
-        resource_id=__ret__.resource_id,
-        type=__ret__.type,
-        write_access_resource_id=__ret__.write_access_resource_id)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_linked_service)

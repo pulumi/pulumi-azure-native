@@ -116,34 +116,22 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public Input<string>? CredentialName { get; set; }
 
         /// <summary>
-        /// Gets or sets the description of the credential.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// Gets or sets the name of the credential.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the password of the credential.
+        /// Gets or sets the properties of the credential.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.CredentialCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the user name of the credential.
-        /// </summary>
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
 
         public CredentialArgs()
         {

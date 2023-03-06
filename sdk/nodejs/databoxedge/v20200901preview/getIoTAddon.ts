@@ -45,25 +45,9 @@ export interface GetIoTAddonArgs {
  */
 export interface GetIoTAddonResult {
     /**
-     * Host OS supported by the IoT addon.
-     */
-    readonly hostPlatform: string;
-    /**
-     * Platform where the runtime is hosted.
-     */
-    readonly hostPlatformType: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
-    /**
-     * IoT device metadata to which appliance needs to be connected.
-     */
-    readonly ioTDeviceDetails: outputs.databoxedge.v20200901preview.IoTDeviceInfoResponse;
-    /**
-     * IoT edge device to which the IoT Addon needs to be configured.
-     */
-    readonly ioTEdgeDeviceDetails: outputs.databoxedge.v20200901preview.IoTDeviceInfoResponse;
     /**
      * Addon type.
      * Expected value is 'IotEdge'.
@@ -74,9 +58,9 @@ export interface GetIoTAddonResult {
      */
     readonly name: string;
     /**
-     * Addon Provisioning State
+     * Properties specific to IOT addon.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.databoxedge.v20200901preview.IoTAddonPropertiesResponse;
     /**
      * Addon type
      */
@@ -85,10 +69,6 @@ export interface GetIoTAddonResult {
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * Version of IoT running on the appliance.
-     */
-    readonly version: string;
 }
 /**
  * Gets a specific addon by name.

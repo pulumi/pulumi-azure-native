@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class CopyActivityResponse
     {
         /// <summary>
-        /// Maximum number of cloud data movement units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        public readonly object? CloudDataMovementUnits;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -28,14 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? EnableSkipIncompatibleRow;
-        /// <summary>
-        /// Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? EnableStaging;
         /// <summary>
         /// List of inputs for the activity.
         /// </summary>
@@ -53,50 +41,24 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetReferenceResponse> Outputs;
         /// <summary>
-        /// Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        public readonly object? ParallelCopies;
-        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
-        /// <summary>
-        /// Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
-        /// </summary>
-        public readonly Outputs.RedirectIncompatibleRowSettingsResponse? RedirectIncompatibleRowSettings;
-        /// <summary>
-        /// Copy activity sink.
-        /// </summary>
-        public readonly object Sink;
-        /// <summary>
-        /// Copy activity source.
-        /// </summary>
-        public readonly object Source;
-        /// <summary>
-        /// Specifies interim staging settings when EnableStaging is true.
-        /// </summary>
-        public readonly Outputs.StagingSettingsResponse? StagingSettings;
-        /// <summary>
-        /// Copy activity translator. If not specified, tabular translator is used.
-        /// </summary>
-        public readonly object? Translator;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'Copy'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Copy activity properties.
+        /// </summary>
+        public readonly Outputs.CopyActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CopyActivityResponse(
-            object? cloudDataMovementUnits,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            object? enableSkipIncompatibleRow,
-
-            object? enableStaging,
 
             ImmutableArray<Outputs.DatasetReferenceResponse> inputs,
 
@@ -106,39 +68,21 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             ImmutableArray<Outputs.DatasetReferenceResponse> outputs,
 
-            object? parallelCopies,
-
             Outputs.ActivityPolicyResponse? policy,
 
-            Outputs.RedirectIncompatibleRowSettingsResponse? redirectIncompatibleRowSettings,
+            string type,
 
-            object sink,
-
-            object source,
-
-            Outputs.StagingSettingsResponse? stagingSettings,
-
-            object? translator,
-
-            string type)
+            Outputs.CopyActivityTypePropertiesResponse typeProperties)
         {
-            CloudDataMovementUnits = cloudDataMovementUnits;
             DependsOn = dependsOn;
             Description = description;
-            EnableSkipIncompatibleRow = enableSkipIncompatibleRow;
-            EnableStaging = enableStaging;
             Inputs = inputs;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Outputs = outputs;
-            ParallelCopies = parallelCopies;
             Policy = policy;
-            RedirectIncompatibleRowSettings = redirectIncompatibleRowSettings;
-            Sink = sink;
-            Source = source;
-            StagingSettings = stagingSettings;
-            Translator = translator;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

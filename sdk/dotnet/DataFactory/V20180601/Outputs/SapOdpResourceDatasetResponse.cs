@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The context of the SAP ODP Object. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Context;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
@@ -36,10 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
-        /// <summary>
-        /// The name of the SAP ODP Object. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object ObjectName;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -57,12 +49,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'SapOdpResource'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// SAP ODP Resource properties.
+        /// </summary>
+        public readonly Outputs.SapOdpResourceDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapOdpResourceDatasetResponse(
             ImmutableArray<object> annotations,
-
-            object context,
 
             string? description,
 
@@ -70,26 +64,25 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            object objectName,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             object? schema,
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.SapOdpResourceDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            Context = context;
             Description = description;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
-            ObjectName = objectName;
             Parameters = parameters;
             Schema = schema;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

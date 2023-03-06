@@ -76,9 +76,9 @@ export interface GetPacketCoreDataPlaneResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the packet core data plane resource.
+     * Packet core data plane Properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.mobilenetwork.v20220401preview.PacketCoreDataPlanePropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -91,10 +91,6 @@ export interface GetPacketCoreDataPlaneResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
-     */
-    readonly userPlaneAccessInterface: outputs.mobilenetwork.v20220401preview.InterfacePropertiesResponse;
 }
 /**
  * Gets information about the specified packet core data plane.

@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     public partial class Console : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The more detailed status of the console.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
-        /// The indicator of whether the console access is enabled.
-        /// </summary>
-        [Output("enabled")]
-        public Output<string> Enabled { get; private set; } = null!;
-
-        /// <summary>
-        /// The date and time after which the key will be disallowed access.
-        /// </summary>
-        [Output("expiration")]
-        public Output<string?> Expiration { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         /// </summary>
         [Output("extendedLocation")]
@@ -58,19 +34,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the private link service that is used to provide virtual machine console access.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("privateLinkServiceId")]
-        public Output<string> PrivateLinkServiceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the virtual machine console.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        [Output("sshPublicKey")]
-        public Output<Outputs.SshPublicKeyResponse> SshPublicKey { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ConsolePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -89,12 +56,6 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique identifier for the virtual machine that is used to access the console.
-        /// </summary>
-        [Output("virtualMachineAccessId")]
-        public Output<string> VirtualMachineAccessId { get; private set; } = null!;
 
 
         /// <summary>
@@ -152,18 +113,6 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? ConsoleName { get; set; }
 
         /// <summary>
-        /// The indicator of whether the console access is enabled.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.ConsoleEnabled> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// The date and time after which the key will be disallowed access.
-        /// </summary>
-        [Input("expiration")]
-        public Input<string>? Expiration { get; set; }
-
-        /// <summary>
         /// The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         /// </summary>
         [Input("extendedLocation", required: true)]
@@ -176,13 +125,16 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The list of the resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ConsolePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("sshPublicKey", required: true)]
-        public Input<Inputs.SshPublicKeyArgs> SshPublicKey { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

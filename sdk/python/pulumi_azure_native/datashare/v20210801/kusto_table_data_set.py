@@ -18,28 +18,25 @@ class KustoTableDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 kusto_database_resource_id: pulumi.Input[str],
+                 properties: pulumi.Input['KustoTableDataSetPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
-                 table_level_sharing_properties: pulumi.Input['TableLevelSharingPropertiesArgs'],
                  data_set_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KustoTableDataSet resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'KustoTable'.
-        :param pulumi.Input[str] kusto_database_resource_id: Resource id of the kusto database.
+        :param pulumi.Input['KustoTableDataSetPropertiesArgs'] properties: Kusto table data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing properties for kusto database
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", 'KustoTable')
-        pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
         if data_set_name is not None:
             pulumi.set(__self__, "data_set_name", data_set_name)
 
@@ -69,16 +66,16 @@ class KustoTableDataSetArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="kustoDatabaseResourceId")
-    def kusto_database_resource_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['KustoTableDataSetPropertiesArgs']:
         """
-        Resource id of the kusto database.
+        Kusto table data set properties.
         """
-        return pulumi.get(self, "kusto_database_resource_id")
+        return pulumi.get(self, "properties")
 
-    @kusto_database_resource_id.setter
-    def kusto_database_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kusto_database_resource_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['KustoTableDataSetPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -105,18 +102,6 @@ class KustoTableDataSetArgs:
         pulumi.set(self, "share_name", value)
 
     @property
-    @pulumi.getter(name="tableLevelSharingProperties")
-    def table_level_sharing_properties(self) -> pulumi.Input['TableLevelSharingPropertiesArgs']:
-        """
-        Table level sharing properties for kusto database
-        """
-        return pulumi.get(self, "table_level_sharing_properties")
-
-    @table_level_sharing_properties.setter
-    def table_level_sharing_properties(self, value: pulumi.Input['TableLevelSharingPropertiesArgs']):
-        pulumi.set(self, "table_level_sharing_properties", value)
-
-    @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -137,10 +122,9 @@ class KustoTableDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kusto_database_resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['KustoTableDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
                  __props__=None):
         """
         A kusto table data set.
@@ -151,10 +135,9 @@ class KustoTableDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'KustoTable'.
-        :param pulumi.Input[str] kusto_database_resource_id: Resource id of the kusto database.
+        :param pulumi.Input[pulumi.InputType['KustoTableDataSetPropertiesArgs']] properties: Kusto table data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']] table_level_sharing_properties: Table level sharing properties for kusto database
         """
         ...
     @overload
@@ -183,10 +166,9 @@ class KustoTableDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kusto_database_resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['KustoTableDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,22 +185,16 @@ class KustoTableDataSet(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'KustoTable'
-            if kusto_database_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'kusto_database_resource_id'")
-            __props__.__dict__["kusto_database_resource_id"] = kusto_database_resource_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            if table_level_sharing_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'table_level_sharing_properties'")
-            __props__.__dict__["table_level_sharing_properties"] = table_level_sharing_properties
-            __props__.__dict__["data_set_id"] = None
-            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoTableDataSet")])
@@ -245,24 +221,12 @@ class KustoTableDataSet(pulumi.CustomResource):
 
         __props__ = KustoTableDataSetArgs.__new__(KustoTableDataSetArgs)
 
-        __props__.__dict__["data_set_id"] = None
         __props__.__dict__["kind"] = None
-        __props__.__dict__["kusto_database_resource_id"] = None
-        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["table_level_sharing_properties"] = None
         __props__.__dict__["type"] = None
         return KustoTableDataSet(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -274,22 +238,6 @@ class KustoTableDataSet(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="kustoDatabaseResourceId")
-    def kusto_database_resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource id of the kusto database.
-        """
-        return pulumi.get(self, "kusto_database_resource_id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Location of the kusto cluster.
-        """
-        return pulumi.get(self, "location")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -298,12 +246,12 @@ class KustoTableDataSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.KustoTableDataSetPropertiesResponse']:
         """
-        Provisioning state of the kusto table data set.
+        Kusto table data set properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -312,14 +260,6 @@ class KustoTableDataSet(pulumi.CustomResource):
         System Data of the Azure resource.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="tableLevelSharingProperties")
-    def table_level_sharing_properties(self) -> pulumi.Output['outputs.TableLevelSharingPropertiesResponse']:
-        """
-        Table level sharing properties for kusto database
-        """
-        return pulumi.get(self, "table_level_sharing_properties")
 
     @property
     @pulumi.getter

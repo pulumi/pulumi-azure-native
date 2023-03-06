@@ -36,30 +36,6 @@ export interface GetAzureCliScriptArgs {
  */
 export interface GetAzureCliScriptResult {
     /**
-     * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
-     */
-    readonly arguments?: string;
-    /**
-     * Azure CLI module version to be used.
-     */
-    readonly azCliVersion: string;
-    /**
-     * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-     */
-    readonly cleanupPreference?: string;
-    /**
-     * Container settings.
-     */
-    readonly containerSettings?: outputs.resources.ContainerConfigurationResponse;
-    /**
-     * The environment variables to pass over to the script.
-     */
-    readonly environmentVariables?: outputs.resources.EnvironmentVariableResponse[];
-    /**
-     * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-     */
-    readonly forceUpdateTag?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -81,37 +57,9 @@ export interface GetAzureCliScriptResult {
      */
     readonly name: string;
     /**
-     * List of script outputs.
+     * Properties of the Azure CLI script object.
      */
-    readonly outputs: {[key: string]: any};
-    /**
-     * Uri for the script. This is the entry point for the external script.
-     */
-    readonly primaryScriptUri?: string;
-    /**
-     * State of the script execution. This only appears in the response.
-     */
-    readonly provisioningState: string;
-    /**
-     * Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-     */
-    readonly retentionInterval: string;
-    /**
-     * Script body.
-     */
-    readonly scriptContent?: string;
-    /**
-     * Contains the results of script execution.
-     */
-    readonly status: outputs.resources.ScriptStatusResponse;
-    /**
-     * Storage Account settings.
-     */
-    readonly storageAccountSettings?: outputs.resources.StorageAccountConfigurationResponse;
-    /**
-     * Supporting files for the external script.
-     */
-    readonly supportingScriptUris?: string[];
+    readonly properties: outputs.resources.AzureCliScriptPropertiesResponse;
     /**
      * The system metadata related to this resource.
      */
@@ -120,10 +68,6 @@ export interface GetAzureCliScriptResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-     */
-    readonly timeout?: string;
     /**
      * Type of this resource.
      */

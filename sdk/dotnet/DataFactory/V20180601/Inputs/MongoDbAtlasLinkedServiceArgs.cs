@@ -34,18 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<object> ConnectionString { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("database", required: true)]
-        public Input<object> Database { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -69,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// MongoDB Atlas linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.MongoDbAtlasLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public MongoDbAtlasLinkedServiceArgs()
         {

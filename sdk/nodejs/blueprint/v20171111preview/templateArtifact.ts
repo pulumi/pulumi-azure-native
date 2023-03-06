@@ -38,18 +38,6 @@ export class TemplateArtifact extends pulumi.CustomResource {
     }
 
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    public readonly dependsOn!: pulumi.Output<string[] | undefined>;
-    /**
-     * Multi-line explain this resource.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * One-liner string explain this resource.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'template'.
      */
@@ -59,17 +47,9 @@ export class TemplateArtifact extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Template parameter values.
+     * Properties for template artifact
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ParameterValueBaseResponse}>;
-    /**
-     * If applicable, the name of the resource group placeholder to which the template will be deployed.
-     */
-    public readonly resourceGroup!: pulumi.Output<string | undefined>;
-    /**
-     * The Azure Resource Manager template body.
-     */
-    public readonly template!: pulumi.Output<any>;
+    public readonly properties!: pulumi.Output<outputs.blueprint.v20171111preview.TemplateArtifactPropertiesResponse>;
     /**
      * Type of this resource.
      */
@@ -95,33 +75,20 @@ export class TemplateArtifact extends pulumi.CustomResource {
             if ((!args || args.managementGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'parameters'");
-            }
-            if ((!args || args.template === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'template'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             resourceInputs["artifactName"] = args ? args.artifactName : undefined;
             resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["dependsOn"] = args ? args.dependsOn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["kind"] = "template";
             resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dependsOn"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
-            resourceInputs["resourceGroup"] = undefined /*out*/;
-            resourceInputs["template"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -142,18 +109,6 @@ export interface TemplateArtifactArgs {
      */
     blueprintName: pulumi.Input<string>;
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Multi-line explain this resource.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * One-liner string explain this resource.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'template'.
      */
@@ -163,15 +118,7 @@ export interface TemplateArtifactArgs {
      */
     managementGroupName: pulumi.Input<string>;
     /**
-     * Template parameter values.
+     * Properties for template artifact
      */
-    parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
-    /**
-     * If applicable, the name of the resource group placeholder to which the template will be deployed.
-     */
-    resourceGroup?: pulumi.Input<string>;
-    /**
-     * The Azure Resource Manager template body.
-     */
-    template: any;
+    properties: pulumi.Input<inputs.blueprint.v20171111preview.TemplateArtifactPropertiesArgs>;
 }

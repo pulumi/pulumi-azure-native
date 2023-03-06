@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
-        /// </summary>
-        public readonly object Index;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
@@ -36,10 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Parameters for dataset.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Path;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
@@ -49,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'WebTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Web table dataset properties.
+        /// </summary>
+        public readonly Outputs.WebTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private WebTableDatasetResponse(
@@ -56,26 +52,23 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            object index,
-
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? path,
-
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.WebTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
-            Index = index;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
-            Path = path;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -72,41 +72,13 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetL2NetworkResult
     {
         /// <summary>
-        /// The resource ID of the Network Cloud cluster this L2 network is associated with.
-        /// </summary>
-        public readonly string ClusterId;
-        /// <summary>
-        /// The more detailed status of the L2 network.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
-        /// </summary>
-        public readonly ImmutableArray<string> HybridAksClustersAssociatedIds;
-        /// <summary>
-        /// The network plugin type for Hybrid AKS.
-        /// </summary>
-        public readonly string? HybridAksPluginType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        /// </summary>
-        public readonly string? InterfaceName;
-        /// <summary>
-        /// The resource ID of the Network Fabric l2IsolationDomain.
-        /// </summary>
-        public readonly string L2IsolationDomainId;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -116,9 +88,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the L2 network.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.L2NetworkPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -131,61 +103,33 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
-        /// </summary>
-        public readonly ImmutableArray<string> VirtualMachinesAssociatedIds;
 
         [OutputConstructor]
         private GetL2NetworkResult(
-            string clusterId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
-            ImmutableArray<string> hybridAksClustersAssociatedIds,
-
-            string? hybridAksPluginType,
-
             string id,
-
-            string? interfaceName,
-
-            string l2IsolationDomainId,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.L2NetworkPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> virtualMachinesAssociatedIds)
+            string type)
         {
-            ClusterId = clusterId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
-            HybridAksClustersAssociatedIds = hybridAksClustersAssociatedIds;
-            HybridAksPluginType = hybridAksPluginType;
             Id = id;
-            InterfaceName = interfaceName;
-            L2IsolationDomainId = l2IsolationDomainId;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VirtualMachinesAssociatedIds = virtualMachinesAssociatedIds;
         }
     }
 }

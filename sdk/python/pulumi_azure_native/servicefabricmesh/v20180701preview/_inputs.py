@@ -11,6 +11,7 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationResourcePropertiesArgs',
     'AzureInternalMonitoringPipelineSinkDescriptionArgs',
     'ContainerCodePackagePropertiesArgs',
     'ContainerLabelArgs',
@@ -23,13 +24,88 @@ __all__ = [
     'IngressConfigArgs',
     'Layer4IngressConfigArgs',
     'NetworkRefArgs',
+    'NetworkResourcePropertiesArgs',
     'ResourceLimitsArgs',
     'ResourceRequestsArgs',
     'ResourceRequirementsArgs',
     'ServiceResourceDescriptionArgs',
+    'ServiceResourcePropertiesArgs',
     'SettingArgs',
     'VolumeProviderParametersAzureFileArgs',
+    'VolumeResourcePropertiesArgs',
 ]
+
+@pulumi.input_type
+class ApplicationResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 debug_params: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 diagnostics: Optional[pulumi.Input['DiagnosticsDescriptionArgs']] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]] = None):
+        """
+        This type describes properties of an application resource.
+        :param pulumi.Input[str] debug_params: Internal use.
+        :param pulumi.Input[str] description: User readable description of the application.
+        :param pulumi.Input['DiagnosticsDescriptionArgs'] diagnostics: Describes the diagnostics definition and usage for an application resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]] services: describes the services in the application.
+        """
+        if debug_params is not None:
+            pulumi.set(__self__, "debug_params", debug_params)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="debugParams")
+    def debug_params(self) -> Optional[pulumi.Input[str]]:
+        """
+        Internal use.
+        """
+        return pulumi.get(self, "debug_params")
+
+    @debug_params.setter
+    def debug_params(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "debug_params", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        User readable description of the application.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional[pulumi.Input['DiagnosticsDescriptionArgs']]:
+        """
+        Describes the diagnostics definition and usage for an application resource.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @diagnostics.setter
+    def diagnostics(self, value: Optional[pulumi.Input['DiagnosticsDescriptionArgs']]):
+        pulumi.set(self, "diagnostics", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]:
+        """
+        describes the services in the application.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]):
+        pulumi.set(self, "services", value)
+
 
 @pulumi.input_type
 class AzureInternalMonitoringPipelineSinkDescriptionArgs:
@@ -839,6 +915,61 @@ class NetworkRefArgs:
 
 
 @pulumi.input_type
+class NetworkResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 address_prefix: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 ingress_config: Optional[pulumi.Input['IngressConfigArgs']] = None):
+        """
+        Describes properties of a network resource.
+        :param pulumi.Input[str] address_prefix: the address prefix for this network.
+        :param pulumi.Input[str] description: User readable description of the network.
+        :param pulumi.Input['IngressConfigArgs'] ingress_config: Configuration for public connectivity for this network.
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ingress_config is not None:
+            pulumi.set(__self__, "ingress_config", ingress_config)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> pulumi.Input[str]:
+        """
+        the address prefix for this network.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        User readable description of the network.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ingressConfig")
+    def ingress_config(self) -> Optional[pulumi.Input['IngressConfigArgs']]:
+        """
+        Configuration for public connectivity for this network.
+        """
+        return pulumi.get(self, "ingress_config")
+
+    @ingress_config.setter
+    def ingress_config(self, value: Optional[pulumi.Input['IngressConfigArgs']]):
+        pulumi.set(self, "ingress_config", value)
+
+
+@pulumi.input_type
 class ResourceLimitsArgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[float]] = None,
@@ -959,22 +1090,59 @@ class ResourceRequirementsArgs:
 @pulumi.input_type
 class ServiceResourceDescriptionArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['ServiceResourcePropertiesArgs'],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        This type describes a service resource.
+        :param pulumi.Input['ServiceResourcePropertiesArgs'] properties: This type describes properties of a service resource.
+        :param pulumi.Input[str] name: The name of the resource
+        """
+        pulumi.set(__self__, "properties", properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ServiceResourcePropertiesArgs']:
+        """
+        This type describes properties of a service resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ServiceResourcePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ServiceResourcePropertiesArgs:
+    def __init__(__self__, *,
                  code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
                  os_type: pulumi.Input[Union[str, 'OperatingSystemTypes']],
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
                  health_state: Optional[pulumi.Input[Union[str, 'HealthState']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_refs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None):
         """
-        This type describes a service resource.
+        This type describes properties of a service resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The Operating system type required by the code in service.
         :param pulumi.Input[str] description: User readable description of the service.
         :param pulumi.Input['DiagnosticsRefArgs'] diagnostics: Reference to sinks in DiagnosticsDescription.
         :param pulumi.Input[Union[str, 'HealthState']] health_state: The health state of a resource such as Application, Service, or Network.
-        :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]] network_refs: The names of the private networks that this service needs to be part of.
         :param pulumi.Input[int] replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
@@ -986,8 +1154,6 @@ class ServiceResourceDescriptionArgs:
             pulumi.set(__self__, "diagnostics", diagnostics)
         if health_state is not None:
             pulumi.set(__self__, "health_state", health_state)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if network_refs is not None:
             pulumi.set(__self__, "network_refs", network_refs)
         if replica_count is not None:
@@ -1052,18 +1218,6 @@ class ServiceResourceDescriptionArgs:
     @health_state.setter
     def health_state(self, value: Optional[pulumi.Input[Union[str, 'HealthState']]]):
         pulumi.set(self, "health_state", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="networkRefs")
@@ -1182,5 +1336,60 @@ class VolumeProviderParametersAzureFileArgs:
     @account_key.setter
     def account_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_key", value)
+
+
+@pulumi.input_type
+class VolumeResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 provider: pulumi.Input[Union[str, 'VolumeProvider']],
+                 azure_file_parameters: Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Describes properties of a volume resource.
+        :param pulumi.Input[Union[str, 'VolumeProvider']] provider: Provider of the volume.
+        :param pulumi.Input['VolumeProviderParametersAzureFileArgs'] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
+        :param pulumi.Input[str] description: User readable description of the volume.
+        """
+        pulumi.set(__self__, "provider", provider)
+        if azure_file_parameters is not None:
+            pulumi.set(__self__, "azure_file_parameters", azure_file_parameters)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[Union[str, 'VolumeProvider']]:
+        """
+        Provider of the volume.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[Union[str, 'VolumeProvider']]):
+        pulumi.set(self, "provider", value)
+
+    @property
+    @pulumi.getter(name="azureFileParameters")
+    def azure_file_parameters(self) -> Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']]:
+        """
+        This type describes a volume provided by an Azure Files file share.
+        """
+        return pulumi.get(self, "azure_file_parameters")
+
+    @azure_file_parameters.setter
+    def azure_file_parameters(self, value: Optional[pulumi.Input['VolumeProviderParametersAzureFileArgs']]):
+        pulumi.set(self, "azure_file_parameters", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        User readable description of the volume.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 

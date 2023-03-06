@@ -11,9 +11,260 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'EventHubEventSourceResourcePropertiesResponse',
+    'IoTHubEventSourceResourcePropertiesResponse',
     'ReferenceDataSetKeyPropertyResponse',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class EventHubEventSourceResourcePropertiesResponse(dict):
+    """
+    Properties of the EventHub event source resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupName":
+            suggest = "consumer_group_name"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "eventSourceResourceId":
+            suggest = "event_source_resource_id"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceBusNamespace":
+            suggest = "service_bus_namespace"
+        elif key == "timestampPropertyName":
+            suggest = "timestamp_property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubEventSourceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_name: str,
+                 creation_time: str,
+                 event_hub_name: str,
+                 event_source_resource_id: str,
+                 key_name: str,
+                 provisioning_state: str,
+                 service_bus_namespace: str,
+                 timestamp_property_name: Optional[str] = None):
+        """
+        Properties of the EventHub event source resource.
+        :param str consumer_group_name: The name of the event hub's consumer group that holds the partitions from which events will be read.
+        :param str creation_time: The time the resource was created.
+        :param str event_hub_name: The name of the event hub.
+        :param str event_source_resource_id: The resource id of the event source in Azure Resource Manager.
+        :param str key_name: The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param str service_bus_namespace: The name of the service bus that contains the event hub.
+        :param str timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+        if timestamp_property_name is not None:
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+
+    @property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> str:
+        """
+        The name of the event hub's consumer group that holds the partitions from which events will be read.
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the resource was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> str:
+        """
+        The name of the event hub.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="eventSourceResourceId")
+    def event_source_resource_id(self) -> str:
+        """
+        The resource id of the event source in Azure Resource Manager.
+        """
+        return pulumi.get(self, "event_source_resource_id")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceBusNamespace")
+    def service_bus_namespace(self) -> str:
+        """
+        The name of the service bus that contains the event hub.
+        """
+        return pulumi.get(self, "service_bus_namespace")
+
+    @property
+    @pulumi.getter(name="timestampPropertyName")
+    def timestamp_property_name(self) -> Optional[str]:
+        """
+        The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        return pulumi.get(self, "timestamp_property_name")
+
+
+@pulumi.output_type
+class IoTHubEventSourceResourcePropertiesResponse(dict):
+    """
+    Properties of the IoTHub event source resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupName":
+            suggest = "consumer_group_name"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "eventSourceResourceId":
+            suggest = "event_source_resource_id"
+        elif key == "iotHubName":
+            suggest = "iot_hub_name"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "timestampPropertyName":
+            suggest = "timestamp_property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubEventSourceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubEventSourceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_name: str,
+                 creation_time: str,
+                 event_source_resource_id: str,
+                 iot_hub_name: str,
+                 key_name: str,
+                 provisioning_state: str,
+                 timestamp_property_name: Optional[str] = None):
+        """
+        Properties of the IoTHub event source resource.
+        :param str consumer_group_name: The name of the iot hub's consumer group that holds the partitions from which events will be read.
+        :param str creation_time: The time the resource was created.
+        :param str event_source_resource_id: The resource id of the event source in Azure Resource Manager.
+        :param str iot_hub_name: The name of the iot hub.
+        :param str key_name: The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param str timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+        pulumi.set(__self__, "iot_hub_name", iot_hub_name)
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if timestamp_property_name is not None:
+            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+
+    @property
+    @pulumi.getter(name="consumerGroupName")
+    def consumer_group_name(self) -> str:
+        """
+        The name of the iot hub's consumer group that holds the partitions from which events will be read.
+        """
+        return pulumi.get(self, "consumer_group_name")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the resource was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="eventSourceResourceId")
+    def event_source_resource_id(self) -> str:
+        """
+        The resource id of the event source in Azure Resource Manager.
+        """
+        return pulumi.get(self, "event_source_resource_id")
+
+    @property
+    @pulumi.getter(name="iotHubName")
+    def iot_hub_name(self) -> str:
+        """
+        The name of the iot hub.
+        """
+        return pulumi.get(self, "iot_hub_name")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="timestampPropertyName")
+    def timestamp_property_name(self) -> Optional[str]:
+        """
+        The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        """
+        return pulumi.get(self, "timestamp_property_name")
+
 
 @pulumi.output_type
 class ReferenceDataSetKeyPropertyResponse(dict):

@@ -35,18 +35,6 @@ export interface GetDiskPoolArgs {
  */
 export interface GetDiskPoolResult {
     /**
-     * List of additional capabilities for Disk pool.
-     */
-    readonly additionalCapabilities?: string[];
-    /**
-     * Logical zone for Disk pool resource; example: ["1"].
-     */
-    readonly availabilityZones: string[];
-    /**
-     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
-     */
-    readonly disks?: outputs.storagepool.v20200315preview.DiskResponse[];
-    /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -59,17 +47,9 @@ export interface GetDiskPoolResult {
      */
     readonly name: string;
     /**
-     * State of the operation on the resource.
+     * Properties of Disk pool.
      */
-    readonly provisioningState: string;
-    /**
-     * Operational status of the Disk pool.
-     */
-    readonly status: string;
-    /**
-     * Azure Resource ID of a Subnet for the Disk pool.
-     */
-    readonly subnetId: string;
+    readonly properties: outputs.storagepool.v20200315preview.DiskPoolPropertiesResponse;
     /**
      * Resource metadata required by ARM RPC
      */
@@ -78,10 +58,6 @@ export interface GetDiskPoolResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * Determines the SKU of VM deployed for Disk pool
-     */
-    readonly tier: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

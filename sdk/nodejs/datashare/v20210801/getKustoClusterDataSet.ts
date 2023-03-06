@@ -45,10 +45,6 @@ export interface GetKustoClusterDataSetArgs {
  */
 export interface GetKustoClusterDataSetResult {
     /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -58,21 +54,13 @@ export interface GetKustoClusterDataSetResult {
      */
     readonly kind: "KustoCluster";
     /**
-     * Resource id of the kusto cluster.
-     */
-    readonly kustoClusterResourceId: string;
-    /**
-     * Location of the kusto cluster.
-     */
-    readonly location: string;
-    /**
      * Name of the azure resource
      */
     readonly name: string;
     /**
-     * Provisioning state of the kusto cluster data set.
+     * Kusto cluster data set properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.datashare.v20210801.KustoClusterDataSetPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

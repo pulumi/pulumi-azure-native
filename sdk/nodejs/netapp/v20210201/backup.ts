@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,26 +38,6 @@ export class Backup extends pulumi.CustomResource {
     }
 
     /**
-     * UUID v4 used to identify the Backup
-     */
-    public /*out*/ readonly backupId!: pulumi.Output<string>;
-    /**
-     * Type of backup Manual or Scheduled
-     */
-    public /*out*/ readonly backupType!: pulumi.Output<string>;
-    /**
-     * The creation date of the backup
-     */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    /**
-     * Failure reason
-     */
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
-    /**
-     * Label for backup
-     */
-    public readonly label!: pulumi.Output<string | undefined>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -63,25 +46,13 @@ export class Backup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure lifecycle management
+     * Backup Properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Size of backup
-     */
-    public /*out*/ readonly size!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20210201.BackupPropertiesResponse>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-     */
-    public readonly useExistingSnapshot!: pulumi.Output<boolean | undefined>;
-    /**
-     * Volume name
-     */
-    public readonly volumeName!: pulumi.Output<string>;
 
     /**
      * Create a Backup resource with the given unique name, arguments, and options.
@@ -100,6 +71,9 @@ export class Backup extends pulumi.CustomResource {
             if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -108,33 +82,18 @@ export class Backup extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["backupName"] = args ? args.backupName : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.netapp.v20210201.backupPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["useExistingSnapshot"] = (args ? args.useExistingSnapshot : undefined) ?? false;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["backupId"] = undefined /*out*/;
-            resourceInputs["backupType"] = undefined /*out*/;
-            resourceInputs["creationDate"] = undefined /*out*/;
-            resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["size"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["backupId"] = undefined /*out*/;
-            resourceInputs["backupType"] = undefined /*out*/;
-            resourceInputs["creationDate"] = undefined /*out*/;
-            resourceInputs["failureReason"] = undefined /*out*/;
-            resourceInputs["label"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["useExistingSnapshot"] = undefined /*out*/;
-            resourceInputs["volumeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Backup" }, { type: "azure-native:netapp/v20200501:Backup" }, { type: "azure-native:netapp/v20200601:Backup" }, { type: "azure-native:netapp/v20200701:Backup" }, { type: "azure-native:netapp/v20200801:Backup" }, { type: "azure-native:netapp/v20200901:Backup" }, { type: "azure-native:netapp/v20201101:Backup" }, { type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210401:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-native:netapp/v20210601:Backup" }, { type: "azure-native:netapp/v20210801:Backup" }, { type: "azure-native:netapp/v20211001:Backup" }, { type: "azure-native:netapp/v20220101:Backup" }, { type: "azure-native:netapp/v20220301:Backup" }, { type: "azure-native:netapp/v20220501:Backup" }, { type: "azure-native:netapp/v20220901:Backup" }] };
@@ -156,10 +115,6 @@ export interface BackupArgs {
      */
     backupName?: pulumi.Input<string>;
     /**
-     * Label for backup
-     */
-    label?: pulumi.Input<string>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
@@ -168,13 +123,13 @@ export interface BackupArgs {
      */
     poolName: pulumi.Input<string>;
     /**
+     * Backup Properties
+     */
+    properties: pulumi.Input<inputs.netapp.v20210201.BackupPropertiesArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-     */
-    useExistingSnapshot?: pulumi.Input<boolean>;
     /**
      * The name of the volume
      */

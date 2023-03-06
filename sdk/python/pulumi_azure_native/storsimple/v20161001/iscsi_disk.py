@@ -8,75 +8,37 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['IscsiDiskArgs', 'IscsiDisk']
 
 @pulumi.input_type
 class IscsiDiskArgs:
     def __init__(__self__, *,
-                 access_control_records: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 data_policy: pulumi.Input['DataPolicy'],
                  device_name: pulumi.Input[str],
-                 disk_status: pulumi.Input['DiskStatus'],
                  iscsi_server_name: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
-                 monitoring_status: pulumi.Input['MonitoringStatus'],
-                 provisioned_capacity_in_bytes: pulumi.Input[float],
+                 properties: pulumi.Input['ISCSIDiskPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IscsiDisk resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_records: The access control records.
-        :param pulumi.Input['DataPolicy'] data_policy: The data policy.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input['DiskStatus'] disk_status: The disk status.
         :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring.
-        :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
+        :param pulumi.Input['ISCSIDiskPropertiesArgs'] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] disk_name: The disk name.
         """
-        pulumi.set(__self__, "access_control_records", access_control_records)
-        pulumi.set(__self__, "data_policy", data_policy)
         pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "disk_status", disk_status)
         pulumi.set(__self__, "iscsi_server_name", iscsi_server_name)
         pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
-        pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if disk_name is not None:
             pulumi.set(__self__, "disk_name", disk_name)
-
-    @property
-    @pulumi.getter(name="accessControlRecords")
-    def access_control_records(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The access control records.
-        """
-        return pulumi.get(self, "access_control_records")
-
-    @access_control_records.setter
-    def access_control_records(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "access_control_records", value)
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> pulumi.Input['DataPolicy']:
-        """
-        The data policy.
-        """
-        return pulumi.get(self, "data_policy")
-
-    @data_policy.setter
-    def data_policy(self, value: pulumi.Input['DataPolicy']):
-        pulumi.set(self, "data_policy", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -89,18 +51,6 @@ class IscsiDiskArgs:
     @device_name.setter
     def device_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "device_name", value)
-
-    @property
-    @pulumi.getter(name="diskStatus")
-    def disk_status(self) -> pulumi.Input['DiskStatus']:
-        """
-        The disk status.
-        """
-        return pulumi.get(self, "disk_status")
-
-    @disk_status.setter
-    def disk_status(self, value: pulumi.Input['DiskStatus']):
-        pulumi.set(self, "disk_status", value)
 
     @property
     @pulumi.getter(name="iscsiServerName")
@@ -127,28 +77,16 @@ class IscsiDiskArgs:
         pulumi.set(self, "manager_name", value)
 
     @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> pulumi.Input['MonitoringStatus']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ISCSIDiskPropertiesArgs']:
         """
-        The monitoring.
+        The properties.
         """
-        return pulumi.get(self, "monitoring_status")
+        return pulumi.get(self, "properties")
 
-    @monitoring_status.setter
-    def monitoring_status(self, value: pulumi.Input['MonitoringStatus']):
-        pulumi.set(self, "monitoring_status", value)
-
-    @property
-    @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> pulumi.Input[float]:
-        """
-        The provisioned capacity in bytes.
-        """
-        return pulumi.get(self, "provisioned_capacity_in_bytes")
-
-    @provisioned_capacity_in_bytes.setter
-    def provisioned_capacity_in_bytes(self, value: pulumi.Input[float]):
-        pulumi.set(self, "provisioned_capacity_in_bytes", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ISCSIDiskPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -161,18 +99,6 @@ class IscsiDiskArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="diskName")
@@ -197,16 +123,11 @@ class IscsiDisk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 data_policy: Optional[pulumi.Input['DataPolicy']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
-                 disk_status: Optional[pulumi.Input['DiskStatus']] = None,
                  iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
-                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ISCSIDiskPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -214,16 +135,11 @@ class IscsiDisk(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_records: The access control records.
-        :param pulumi.Input['DataPolicy'] data_policy: The data policy.
-        :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] disk_name: The disk name.
-        :param pulumi.Input['DiskStatus'] disk_status: The disk status.
         :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring.
-        :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
+        :param pulumi.Input[pulumi.InputType['ISCSIDiskPropertiesArgs']] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         ...
@@ -250,16 +166,11 @@ class IscsiDisk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 data_policy: Optional[pulumi.Input['DataPolicy']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
-                 disk_status: Optional[pulumi.Input['DiskStatus']] = None,
                  iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
-                 provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ISCSIDiskPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""IscsiDisk is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
@@ -271,39 +182,24 @@ class IscsiDisk(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IscsiDiskArgs.__new__(IscsiDiskArgs)
 
-            if access_control_records is None and not opts.urn:
-                raise TypeError("Missing required property 'access_control_records'")
-            __props__.__dict__["access_control_records"] = access_control_records
-            if data_policy is None and not opts.urn:
-                raise TypeError("Missing required property 'data_policy'")
-            __props__.__dict__["data_policy"] = data_policy
-            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["disk_name"] = disk_name
-            if disk_status is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_status'")
-            __props__.__dict__["disk_status"] = disk_status
             if iscsi_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iscsi_server_name'")
             __props__.__dict__["iscsi_server_name"] = iscsi_server_name
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
-            if monitoring_status is None and not opts.urn:
-                raise TypeError("Missing required property 'monitoring_status'")
-            __props__.__dict__["monitoring_status"] = monitoring_status
-            if provisioned_capacity_in_bytes is None and not opts.urn:
-                raise TypeError("Missing required property 'provisioned_capacity_in_bytes'")
-            __props__.__dict__["provisioned_capacity_in_bytes"] = provisioned_capacity_in_bytes
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["local_used_capacity_in_bytes"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["used_capacity_in_bytes"] = None
         super(IscsiDisk, __self__).__init__(
             'azure-native:storsimple/v20161001:IscsiDisk',
             resource_name,
@@ -326,65 +222,10 @@ class IscsiDisk(pulumi.CustomResource):
 
         __props__ = IscsiDiskArgs.__new__(IscsiDiskArgs)
 
-        __props__.__dict__["access_control_records"] = None
-        __props__.__dict__["data_policy"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["disk_status"] = None
-        __props__.__dict__["local_used_capacity_in_bytes"] = None
-        __props__.__dict__["monitoring_status"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioned_capacity_in_bytes"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["used_capacity_in_bytes"] = None
         return IscsiDisk(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accessControlRecords")
-    def access_control_records(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The access control records.
-        """
-        return pulumi.get(self, "access_control_records")
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> pulumi.Output[str]:
-        """
-        The data policy.
-        """
-        return pulumi.get(self, "data_policy")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="diskStatus")
-    def disk_status(self) -> pulumi.Output[str]:
-        """
-        The disk status.
-        """
-        return pulumi.get(self, "disk_status")
-
-    @property
-    @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> pulumi.Output[float]:
-        """
-        The local used capacity in bytes.
-        """
-        return pulumi.get(self, "local_used_capacity_in_bytes")
-
-    @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> pulumi.Output[str]:
-        """
-        The monitoring.
-        """
-        return pulumi.get(self, "monitoring_status")
 
     @property
     @pulumi.getter
@@ -395,12 +236,12 @@ class IscsiDisk(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> pulumi.Output[float]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ISCSIDiskPropertiesResponse']:
         """
-        The provisioned capacity in bytes.
+        The properties.
         """
-        return pulumi.get(self, "provisioned_capacity_in_bytes")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -409,12 +250,4 @@ class IscsiDisk(pulumi.CustomResource):
         The type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> pulumi.Output[float]:
-        """
-        The used capacity in bytes.
-        """
-        return pulumi.get(self, "used_capacity_in_bytes")
 

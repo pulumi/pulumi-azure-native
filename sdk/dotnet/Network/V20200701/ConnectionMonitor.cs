@@ -206,34 +206,10 @@ namespace Pulumi.AzureNative.Network.V20200701
     public sealed class ConnectionMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines if the connection monitor will start automatically once created.
-        /// </summary>
-        [Input("autoStart")]
-        public Input<bool>? AutoStart { get; set; }
-
-        /// <summary>
         /// The name of the connection monitor.
         /// </summary>
         [Input("connectionMonitorName")]
         public Input<string>? ConnectionMonitorName { get; set; }
-
-        /// <summary>
-        /// Describes the destination of connection monitor.
-        /// </summary>
-        [Input("destination")]
-        public Input<Inputs.ConnectionMonitorDestinationArgs>? Destination { get; set; }
-
-        [Input("endpoints")]
-        private InputList<Inputs.ConnectionMonitorEndpointArgs>? _endpoints;
-
-        /// <summary>
-        /// List of connection monitor endpoints.
-        /// </summary>
-        public InputList<Inputs.ConnectionMonitorEndpointArgs> Endpoints
-        {
-            get => _endpoints ?? (_endpoints = new InputList<Inputs.ConnectionMonitorEndpointArgs>());
-            set => _endpoints = value;
-        }
 
         /// <summary>
         /// Connection monitor location.
@@ -248,46 +224,22 @@ namespace Pulumi.AzureNative.Network.V20200701
         public Input<string>? Migrate { get; set; }
 
         /// <summary>
-        /// Monitoring interval in seconds.
-        /// </summary>
-        [Input("monitoringIntervalInSeconds")]
-        public Input<int>? MonitoringIntervalInSeconds { get; set; }
-
-        /// <summary>
         /// The name of the Network Watcher resource.
         /// </summary>
         [Input("networkWatcherName", required: true)]
         public Input<string> NetworkWatcherName { get; set; } = null!;
 
         /// <summary>
-        /// Optional notes to be associated with the connection monitor.
+        /// Properties of the connection monitor.
         /// </summary>
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
-
-        [Input("outputs")]
-        private InputList<Inputs.ConnectionMonitorOutputArgs>? _outputs;
-
-        /// <summary>
-        /// List of connection monitor outputs.
-        /// </summary>
-        public InputList<Inputs.ConnectionMonitorOutputArgs> Outputs
-        {
-            get => _outputs ?? (_outputs = new InputList<Inputs.ConnectionMonitorOutputArgs>());
-            set => _outputs = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.ConnectionMonitorParametersArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing Network Watcher.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Describes the source of connection monitor.
-        /// </summary>
-        [Input("source")]
-        public Input<Inputs.ConnectionMonitorSourceArgs>? Source { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -301,34 +253,8 @@ namespace Pulumi.AzureNative.Network.V20200701
             set => _tags = value;
         }
 
-        [Input("testConfigurations")]
-        private InputList<Inputs.ConnectionMonitorTestConfigurationArgs>? _testConfigurations;
-
-        /// <summary>
-        /// List of connection monitor test configurations.
-        /// </summary>
-        public InputList<Inputs.ConnectionMonitorTestConfigurationArgs> TestConfigurations
-        {
-            get => _testConfigurations ?? (_testConfigurations = new InputList<Inputs.ConnectionMonitorTestConfigurationArgs>());
-            set => _testConfigurations = value;
-        }
-
-        [Input("testGroups")]
-        private InputList<Inputs.ConnectionMonitorTestGroupArgs>? _testGroups;
-
-        /// <summary>
-        /// List of connection monitor test groups.
-        /// </summary>
-        public InputList<Inputs.ConnectionMonitorTestGroupArgs> TestGroups
-        {
-            get => _testGroups ?? (_testGroups = new InputList<Inputs.ConnectionMonitorTestGroupArgs>());
-            set => _testGroups = value;
-        }
-
         public ConnectionMonitorArgs()
         {
-            AutoStart = true;
-            MonitoringIntervalInSeconds = 60;
         }
         public static new ConnectionMonitorArgs Empty => new ConnectionMonitorArgs();
     }

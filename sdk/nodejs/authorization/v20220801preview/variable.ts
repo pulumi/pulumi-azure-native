@@ -38,13 +38,13 @@ export class Variable extends pulumi.CustomResource {
     }
 
     /**
-     * Variable column definitions.
-     */
-    public readonly columns!: pulumi.Output<outputs.authorization.v20220801preview.PolicyVariableColumnResponse[]>;
-    /**
      * The name of the variable.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Properties for the variable.
+     */
+    public readonly properties!: pulumi.Output<outputs.authorization.v20220801preview.PolicyVariablePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -65,17 +65,17 @@ export class Variable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.columns === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'columns'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
-            resourceInputs["columns"] = args ? args.columns : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["variableName"] = args ? args.variableName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["columns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -89,9 +89,9 @@ export class Variable extends pulumi.CustomResource {
  */
 export interface VariableArgs {
     /**
-     * Variable column definitions.
+     * Properties for the variable.
      */
-    columns: pulumi.Input<pulumi.Input<inputs.authorization.v20220801preview.PolicyVariableColumnArgs>[]>;
+    properties: pulumi.Input<inputs.authorization.v20220801preview.PolicyVariablePropertiesArgs>;
     /**
      * The name of the variable to operate on.
      */

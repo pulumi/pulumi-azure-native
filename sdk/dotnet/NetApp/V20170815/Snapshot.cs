@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.NetApp.V20170815
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The creation date of the snapshot
-        /// </summary>
-        [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// UUID v4 used to identify the FileSystem
-        /// </summary>
-        [Output("fileSystemId")]
-        public Output<string> FileSystemId { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -41,16 +29,10 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure lifecycle management
+        /// Snapshot Properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// UUID v4 used to identify the Snapshot
-        /// </summary>
-        [Output("snapshotId")]
-        public Output<string> SnapshotId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SnapshotPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -139,12 +121,6 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// UUID v4 used to identify the FileSystem
-        /// </summary>
-        [Input("fileSystemId", required: true)]
-        public Input<string> FileSystemId { get; set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
@@ -155,6 +131,12 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         /// </summary>
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// Snapshot Properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.SnapshotPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

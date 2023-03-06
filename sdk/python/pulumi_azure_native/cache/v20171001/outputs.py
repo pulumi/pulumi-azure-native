@@ -8,11 +8,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'RedisAccessKeysResponse',
+    'RedisFirewallRulePropertiesResponse',
     'RedisLinkedServerResponse',
+    'RedisPropertiesResponse',
+    'ScheduleEntriesResponse',
     'ScheduleEntryResponse',
     'SkuResponse',
 ]
@@ -70,6 +74,58 @@ class RedisAccessKeysResponse(dict):
 
 
 @pulumi.output_type
+class RedisFirewallRulePropertiesResponse(dict):
+    """
+    Specifies a range of IP addresses permitted to connect to the cache
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIP":
+            suggest = "end_ip"
+        elif key == "startIP":
+            suggest = "start_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedisFirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedisFirewallRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedisFirewallRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip: str,
+                 start_ip: str):
+        """
+        Specifies a range of IP addresses permitted to connect to the cache
+        :param str end_ip: highest IP address included in the range
+        :param str start_ip: lowest IP address included in the range
+        """
+        pulumi.set(__self__, "end_ip", end_ip)
+        pulumi.set(__self__, "start_ip", start_ip)
+
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> str:
+        """
+        highest IP address included in the range
+        """
+        return pulumi.get(self, "end_ip")
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> str:
+        """
+        lowest IP address included in the range
+        """
+        return pulumi.get(self, "start_ip")
+
+
+@pulumi.output_type
 class RedisLinkedServerResponse(dict):
     """
     Linked server Id
@@ -89,6 +145,255 @@ class RedisLinkedServerResponse(dict):
         Linked server Id.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RedisPropertiesResponse(dict):
+    """
+    Properties of the redis cache.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeys":
+            suggest = "access_keys"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "linkedServers":
+            suggest = "linked_servers"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "redisVersion":
+            suggest = "redis_version"
+        elif key == "sslPort":
+            suggest = "ssl_port"
+        elif key == "enableNonSslPort":
+            suggest = "enable_non_ssl_port"
+        elif key == "redisConfiguration":
+            suggest = "redis_configuration"
+        elif key == "shardCount":
+            suggest = "shard_count"
+        elif key == "staticIP":
+            suggest = "static_ip"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "tenantSettings":
+            suggest = "tenant_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedisPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedisPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedisPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_keys: 'outputs.RedisAccessKeysResponse',
+                 host_name: str,
+                 linked_servers: Sequence['outputs.RedisLinkedServerResponse'],
+                 port: int,
+                 provisioning_state: str,
+                 redis_version: str,
+                 sku: 'outputs.SkuResponse',
+                 ssl_port: int,
+                 enable_non_ssl_port: Optional[bool] = None,
+                 redis_configuration: Optional[Mapping[str, str]] = None,
+                 shard_count: Optional[int] = None,
+                 static_ip: Optional[str] = None,
+                 subnet_id: Optional[str] = None,
+                 tenant_settings: Optional[Mapping[str, str]] = None):
+        """
+        Properties of the redis cache.
+        :param 'RedisAccessKeysResponse' access_keys: The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+        :param str host_name: Redis host name.
+        :param Sequence['RedisLinkedServerResponse'] linked_servers: List of the linked servers associated with the cache
+        :param int port: Redis non-SSL port.
+        :param str provisioning_state: Redis instance provisioning status.
+        :param str redis_version: Redis version.
+        :param 'SkuResponse' sku: The SKU of the Redis cache to deploy.
+        :param int ssl_port: Redis SSL port.
+        :param bool enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
+        :param Mapping[str, str] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param int shard_count: The number of shards to be created on a Premium Cluster Cache.
+        :param str static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        :param str subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        :param Mapping[str, str] tenant_settings: A dictionary of tenant settings
+        """
+        pulumi.set(__self__, "access_keys", access_keys)
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "linked_servers", linked_servers)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "redis_version", redis_version)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "ssl_port", ssl_port)
+        if enable_non_ssl_port is not None:
+            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+        if redis_configuration is not None:
+            pulumi.set(__self__, "redis_configuration", redis_configuration)
+        if shard_count is not None:
+            pulumi.set(__self__, "shard_count", shard_count)
+        if static_ip is not None:
+            pulumi.set(__self__, "static_ip", static_ip)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tenant_settings is not None:
+            pulumi.set(__self__, "tenant_settings", tenant_settings)
+
+    @property
+    @pulumi.getter(name="accessKeys")
+    def access_keys(self) -> 'outputs.RedisAccessKeysResponse':
+        """
+        The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+        """
+        return pulumi.get(self, "access_keys")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        Redis host name.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="linkedServers")
+    def linked_servers(self) -> Sequence['outputs.RedisLinkedServerResponse']:
+        """
+        List of the linked servers associated with the cache
+        """
+        return pulumi.get(self, "linked_servers")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        Redis non-SSL port.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Redis instance provisioning status.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="redisVersion")
+    def redis_version(self) -> str:
+        """
+        Redis version.
+        """
+        return pulumi.get(self, "redis_version")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.SkuResponse':
+        """
+        The SKU of the Redis cache to deploy.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="sslPort")
+    def ssl_port(self) -> int:
+        """
+        Redis SSL port.
+        """
+        return pulumi.get(self, "ssl_port")
+
+    @property
+    @pulumi.getter(name="enableNonSslPort")
+    def enable_non_ssl_port(self) -> Optional[bool]:
+        """
+        Specifies whether the non-ssl Redis server port (6379) is enabled.
+        """
+        return pulumi.get(self, "enable_non_ssl_port")
+
+    @property
+    @pulumi.getter(name="redisConfiguration")
+    def redis_configuration(self) -> Optional[Mapping[str, str]]:
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        """
+        return pulumi.get(self, "redis_configuration")
+
+    @property
+    @pulumi.getter(name="shardCount")
+    def shard_count(self) -> Optional[int]:
+        """
+        The number of shards to be created on a Premium Cluster Cache.
+        """
+        return pulumi.get(self, "shard_count")
+
+    @property
+    @pulumi.getter(name="staticIP")
+    def static_ip(self) -> Optional[str]:
+        """
+        Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        """
+        return pulumi.get(self, "static_ip")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="tenantSettings")
+    def tenant_settings(self) -> Optional[Mapping[str, str]]:
+        """
+        A dictionary of tenant settings
+        """
+        return pulumi.get(self, "tenant_settings")
+
+
+@pulumi.output_type
+class ScheduleEntriesResponse(dict):
+    """
+    List of patch schedules for a Redis cache.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleEntries":
+            suggest = "schedule_entries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleEntriesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleEntriesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleEntriesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_entries: Sequence['outputs.ScheduleEntryResponse']):
+        """
+        List of patch schedules for a Redis cache.
+        :param Sequence['ScheduleEntryResponse'] schedule_entries: List of patch schedules for a Redis cache.
+        """
+        pulumi.set(__self__, "schedule_entries", schedule_entries)
+
+    @property
+    @pulumi.getter(name="scheduleEntries")
+    def schedule_entries(self) -> Sequence['outputs.ScheduleEntryResponse']:
+        """
+        List of patch schedules for a Redis cache.
+        """
+        return pulumi.get(self, "schedule_entries")
 
 
 @pulumi.output_type

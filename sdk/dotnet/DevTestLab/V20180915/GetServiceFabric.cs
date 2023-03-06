@@ -106,18 +106,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public sealed class GetServiceFabricResult
     {
         /// <summary>
-        /// The applicable schedule for the virtual machine.
-        /// </summary>
-        public readonly Outputs.ApplicableScheduleResponse ApplicableSchedule;
-        /// <summary>
-        /// The resource id of the environment under which the service fabric resource is present
-        /// </summary>
-        public readonly string? EnvironmentId;
-        /// <summary>
-        /// The backing service fabric resource's id
-        /// </summary>
-        public readonly string? ExternalServiceFabricId;
-        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -130,9 +118,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.ServiceFabricPropertiesResponse Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -141,43 +129,27 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        public readonly string UniqueIdentifier;
 
         [OutputConstructor]
         private GetServiceFabricResult(
-            Outputs.ApplicableScheduleResponse applicableSchedule,
-
-            string? environmentId,
-
-            string? externalServiceFabricId,
-
             string id,
 
             string? location,
 
             string name,
 
-            string provisioningState,
+            Outputs.ServiceFabricPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uniqueIdentifier)
+            string type)
         {
-            ApplicableSchedule = applicableSchedule;
-            EnvironmentId = environmentId;
-            ExternalServiceFabricId = externalServiceFabricId;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

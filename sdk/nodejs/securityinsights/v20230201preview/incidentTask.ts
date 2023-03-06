@@ -35,42 +35,18 @@ export class IncidentTask extends pulumi.CustomResource {
     }
 
     /**
-     * Information on the client (user or application) that made some action
-     */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.v20230201preview.ClientInfoResponse | undefined>;
-    /**
-     * The time the task was created
-     */
-    public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
-    /**
-     * The description of the task
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
      * Etag of the azure resource
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * Information on the client (user or application) that made some action
-     */
-    public readonly lastModifiedBy!: pulumi.Output<outputs.securityinsights.v20230201preview.ClientInfoResponse | undefined>;
-    /**
-     * The last time the task was updated
-     */
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly status!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.securityinsights.v20230201preview.IncidentTaskPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.v20230201preview.SystemDataResponse>;
-    /**
-     * The title of the task
-     */
-    public readonly title!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -90,44 +66,29 @@ export class IncidentTask extends pulumi.CustomResource {
             if ((!args || args.incidentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'incidentId'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.status === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'status'");
-            }
-            if ((!args || args.title === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'title'");
             }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["incidentId"] = args ? args.incidentId : undefined;
             resourceInputs["incidentTaskId"] = args ? args.incidentTaskId : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdTimeUtc"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["title"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -142,14 +103,6 @@ export class IncidentTask extends pulumi.CustomResource {
  */
 export interface IncidentTaskArgs {
     /**
-     * Information on the client (user or application) that made some action
-     */
-    createdBy?: pulumi.Input<inputs.securityinsights.v20230201preview.ClientInfoArgs>;
-    /**
-     * The description of the task
-     */
-    description?: pulumi.Input<string>;
-    /**
      * Incident ID
      */
     incidentId: pulumi.Input<string>;
@@ -157,19 +110,11 @@ export interface IncidentTaskArgs {
      * Incident task ID
      */
     incidentTaskId?: pulumi.Input<string>;
-    /**
-     * Information on the client (user or application) that made some action
-     */
-    lastModifiedBy?: pulumi.Input<inputs.securityinsights.v20230201preview.ClientInfoArgs>;
+    properties: pulumi.Input<inputs.securityinsights.v20230201preview.IncidentTaskPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    status: pulumi.Input<string | enums.securityinsights.v20230201preview.IncidentTaskStatus>;
-    /**
-     * The title of the task
-     */
-    title: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

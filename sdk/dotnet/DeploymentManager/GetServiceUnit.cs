@@ -96,14 +96,6 @@ namespace Pulumi.AzureNative.DeploymentManager
     public sealed class GetServiceUnitResult
     {
         /// <summary>
-        /// The artifacts for the service unit.
-        /// </summary>
-        public readonly Outputs.ServiceUnitArtifactsResponse? Artifacts;
-        /// <summary>
-        /// Describes the type of ARM deployment to be performed on the resource.
-        /// </summary>
-        public readonly string DeploymentMode;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -116,13 +108,13 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The properties that define the service unit.
+        /// </summary>
+        public readonly Outputs.ServiceUnitResourceResponseProperties Properties;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-        /// </summary>
-        public readonly string TargetResourceGroup;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -130,29 +122,23 @@ namespace Pulumi.AzureNative.DeploymentManager
 
         [OutputConstructor]
         private GetServiceUnitResult(
-            Outputs.ServiceUnitArtifactsResponse? artifacts,
-
-            string deploymentMode,
-
             string id,
 
             string location,
 
             string name,
 
-            ImmutableDictionary<string, string>? tags,
+            Outputs.ServiceUnitResourceResponseProperties properties,
 
-            string targetResourceGroup,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            Artifacts = artifacts;
-            DeploymentMode = deploymentMode;
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
-            TargetResourceGroup = targetResourceGroup;
             Type = type;
         }
     }

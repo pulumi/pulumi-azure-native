@@ -16,37 +16,25 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_size: pulumi.Input[int],
                  private_cloud_name: pulumi.Input[str],
+                 properties: pulumi.Input['ClusterPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  cluster_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input['ClusterPropertiesArgs'] properties: The properties of a cluster resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The cluster SKU
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
         """
-        pulumi.set(__self__, "cluster_size", cluster_size)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
-
-    @property
-    @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Input[int]:
-        """
-        The cluster size
-        """
-        return pulumi.get(self, "cluster_size")
-
-    @cluster_size.setter
-    def cluster_size(self, value: pulumi.Input[int]):
-        pulumi.set(self, "cluster_size", value)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -59,6 +47,18 @@ class ClusterArgs:
     @private_cloud_name.setter
     def private_cloud_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "private_cloud_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ClusterPropertiesArgs']:
+        """
+        The properties of a cluster resource
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ClusterPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,8 +103,8 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_size: Optional[pulumi.Input[int]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ClusterPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
@@ -115,8 +115,8 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
-        :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[pulumi.InputType['ClusterPropertiesArgs']] properties: The properties of a cluster resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The cluster SKU
         """
@@ -146,8 +146,8 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_size: Optional[pulumi.Input[int]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ClusterPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
@@ -160,22 +160,19 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
-            if cluster_size is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_size'")
-            __props__.__dict__["cluster_size"] = cluster_size
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__.__dict__["private_cloud_name"] = private_cloud_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["cluster_id"] = None
-            __props__.__dict__["hosts"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200320:Cluster"), pulumi.Alias(type_="azure-native:avs/v20200717preview:Cluster"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Cluster"), pulumi.Alias(type_="azure-native:avs/v20210601:Cluster"), pulumi.Alias(type_="azure-native:avs/v20211201:Cluster"), pulumi.Alias(type_="azure-native:avs/v20220501:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -201,38 +198,11 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
-        __props__.__dict__["cluster_id"] = None
-        __props__.__dict__["cluster_size"] = None
-        __props__.__dict__["hosts"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["type"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Output[int]:
-        """
-        The identity
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @property
-    @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Output[int]:
-        """
-        The cluster size
-        """
-        return pulumi.get(self, "cluster_size")
-
-    @property
-    @pulumi.getter
-    def hosts(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The hosts
-        """
-        return pulumi.get(self, "hosts")
 
     @property
     @pulumi.getter
@@ -243,12 +213,12 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ClusterPropertiesResponse']:
         """
-        The state of the cluster provisioning
+        The properties of a cluster resource
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

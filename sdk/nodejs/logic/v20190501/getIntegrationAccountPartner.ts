@@ -40,18 +40,6 @@ export interface GetIntegrationAccountPartnerArgs {
  */
 export interface GetIntegrationAccountPartnerResult {
     /**
-     * The changed time.
-     */
-    readonly changedTime: string;
-    /**
-     * The partner content.
-     */
-    readonly content: outputs.logic.v20190501.PartnerContentResponse;
-    /**
-     * The created time.
-     */
-    readonly createdTime: string;
-    /**
      * The resource id.
      */
     readonly id: string;
@@ -60,17 +48,13 @@ export interface GetIntegrationAccountPartnerResult {
      */
     readonly location?: string;
     /**
-     * The metadata.
-     */
-    readonly metadata?: any;
-    /**
      * Gets the resource name.
      */
     readonly name: string;
     /**
-     * The partner type.
+     * The integration account partner properties.
      */
-    readonly partnerType: string;
+    readonly properties: outputs.logic.v20190501.IntegrationAccountPartnerPropertiesResponse;
     /**
      * The resource tags.
      */

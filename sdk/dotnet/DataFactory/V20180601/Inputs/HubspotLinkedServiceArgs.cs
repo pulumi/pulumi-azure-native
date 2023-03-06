@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class HubspotLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access token obtained when initially authenticating your OAuth integration.
-        /// </summary>
-        [Input("accessToken")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccessToken { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -34,18 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The client ID associated with your Hubspot application.
-        /// </summary>
-        [Input("clientId", required: true)]
-        public Input<object> ClientId { get; set; } = null!;
-
-        /// <summary>
-        /// The client secret associated with your Hubspot application.
-        /// </summary>
-        [Input("clientSecret")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ClientSecret { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -56,12 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -76,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The refresh token obtained when initially authenticating your OAuth integration.
-        /// </summary>
-        [Input("refreshToken")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? RefreshToken { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Hubspot'.
         /// </summary>
@@ -89,22 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Hubspot Service linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
-
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("useHostVerification")]
-        public Input<object>? UseHostVerification { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("usePeerVerification")]
-        public Input<object>? UsePeerVerification { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HubspotLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public HubspotLinkedServiceArgs()
         {

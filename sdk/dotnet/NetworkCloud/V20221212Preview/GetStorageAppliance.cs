@@ -69,27 +69,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     [OutputType]
     public sealed class GetStorageApplianceResult
     {
-        public readonly Outputs.AdministrativeCredentialsResponse AdministratorCredentials;
-        /// <summary>
-        /// The total capacity of the storage appliance.
-        /// </summary>
-        public readonly double Capacity;
-        /// <summary>
-        /// The amount of storage consumed.
-        /// </summary>
-        public readonly double CapacityUsed;
-        /// <summary>
-        /// The resource ID of the cluster this storage appliance is associated with.
-        /// </summary>
-        public readonly string ClusterId;
-        /// <summary>
-        /// The detailed status of the storage appliance.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -103,41 +82,13 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The endpoint for the management interface of the storage appliance.
-        /// </summary>
-        public readonly string ManagementIpv4Address;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the storage appliance.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource ID of the rack where this storage appliance resides.
-        /// </summary>
-        public readonly string RackId;
-        /// <summary>
-        /// The slot the storage appliance is in the rack based on the BOM configuration.
-        /// </summary>
-        public readonly double RackSlot;
-        /// <summary>
-        /// The indicator of whether the storage appliance supports remote vendor management.
-        /// </summary>
-        public readonly string RemoteVendorManagementFeature;
-        /// <summary>
-        /// The indicator of whether the remote vendor management feature is enabled or disabled, or unsupported if it is an unsupported feature.
-        /// </summary>
-        public readonly string RemoteVendorManagementStatus;
-        /// <summary>
-        /// The serial number for the storage appliance.
-        /// </summary>
-        public readonly string SerialNumber;
-        /// <summary>
-        /// The SKU for the storage appliance.
-        /// </summary>
-        public readonly string StorageApplianceSkuId;
+        public readonly Outputs.StorageAppliancePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -153,41 +104,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
         [OutputConstructor]
         private GetStorageApplianceResult(
-            Outputs.AdministrativeCredentialsResponse administratorCredentials,
-
-            double capacity,
-
-            double capacityUsed,
-
-            string clusterId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
 
             string location,
 
-            string managementIpv4Address,
-
             string name,
 
-            string provisioningState,
-
-            string rackId,
-
-            double rackSlot,
-
-            string remoteVendorManagementFeature,
-
-            string remoteVendorManagementStatus,
-
-            string serialNumber,
-
-            string storageApplianceSkuId,
+            Outputs.StorageAppliancePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -195,24 +120,11 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
             string type)
         {
-            AdministratorCredentials = administratorCredentials;
-            Capacity = capacity;
-            CapacityUsed = capacityUsed;
-            ClusterId = clusterId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
-            ManagementIpv4Address = managementIpv4Address;
             Name = name;
-            ProvisioningState = provisioningState;
-            RackId = rackId;
-            RackSlot = rackSlot;
-            RemoteVendorManagementFeature = remoteVendorManagementFeature;
-            RemoteVendorManagementStatus = remoteVendorManagementStatus;
-            SerialNumber = serialNumber;
-            StorageApplianceSkuId = storageApplianceSkuId;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

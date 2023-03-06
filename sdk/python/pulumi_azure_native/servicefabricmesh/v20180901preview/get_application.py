@@ -22,19 +22,7 @@ class GetApplicationResult:
     """
     This type describes an application resource.
     """
-    def __init__(__self__, debug_params=None, description=None, diagnostics=None, health_state=None, id=None, location=None, name=None, provisioning_state=None, service_names=None, services=None, status=None, status_details=None, tags=None, type=None, unhealthy_evaluation=None):
-        if debug_params and not isinstance(debug_params, str):
-            raise TypeError("Expected argument 'debug_params' to be a str")
-        pulumi.set(__self__, "debug_params", debug_params)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if diagnostics and not isinstance(diagnostics, dict):
-            raise TypeError("Expected argument 'diagnostics' to be a dict")
-        pulumi.set(__self__, "diagnostics", diagnostics)
-        if health_state and not isinstance(health_state, str):
-            raise TypeError("Expected argument 'health_state' to be a str")
-        pulumi.set(__self__, "health_state", health_state)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,62 +32,15 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if service_names and not isinstance(service_names, list):
-            raise TypeError("Expected argument 'service_names' to be a list")
-        pulumi.set(__self__, "service_names", service_names)
-        if services and not isinstance(services, list):
-            raise TypeError("Expected argument 'services' to be a list")
-        pulumi.set(__self__, "services", services)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
-        if status_details and not isinstance(status_details, str):
-            raise TypeError("Expected argument 'status_details' to be a str")
-        pulumi.set(__self__, "status_details", status_details)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if unhealthy_evaluation and not isinstance(unhealthy_evaluation, str):
-            raise TypeError("Expected argument 'unhealthy_evaluation' to be a str")
-        pulumi.set(__self__, "unhealthy_evaluation", unhealthy_evaluation)
-
-    @property
-    @pulumi.getter(name="debugParams")
-    def debug_params(self) -> Optional[str]:
-        """
-        Internal - used by Visual Studio to setup the debugging session on the local development environment.
-        """
-        return pulumi.get(self, "debug_params")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        User readable description of the application.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def diagnostics(self) -> Optional['outputs.DiagnosticsDescriptionResponse']:
-        """
-        Describes the diagnostics definition and usage for an application resource.
-        """
-        return pulumi.get(self, "diagnostics")
-
-    @property
-    @pulumi.getter(name="healthState")
-    def health_state(self) -> str:
-        """
-        Describes the health state of an application resource.
-        """
-        return pulumi.get(self, "health_state")
 
     @property
     @pulumi.getter
@@ -126,44 +67,12 @@ class GetApplicationResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serviceNames")
-    def service_names(self) -> Sequence[str]:
-        """
-        Names of the services in the application.
-        """
-        return pulumi.get(self, "service_names")
-
-    @property
     @pulumi.getter
-    def services(self) -> Optional[Sequence['outputs.ServiceResourceDescriptionResponse']]:
+    def properties(self) -> 'outputs.ApplicationResourcePropertiesResponse':
         """
-        Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
+        This type describes properties of an application resource.
         """
-        return pulumi.get(self, "services")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Status of the application.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="statusDetails")
-    def status_details(self) -> str:
-        """
-        Gives additional information about the current status of the application.
-        """
-        return pulumi.get(self, "status_details")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -181,14 +90,6 @@ class GetApplicationResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="unhealthyEvaluation")
-    def unhealthy_evaluation(self) -> str:
-        """
-        When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-        """
-        return pulumi.get(self, "unhealthy_evaluation")
-
 
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
@@ -196,21 +97,12 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
-            debug_params=self.debug_params,
-            description=self.description,
-            diagnostics=self.diagnostics,
-            health_state=self.health_state,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            service_names=self.service_names,
-            services=self.services,
-            status=self.status,
-            status_details=self.status_details,
+            properties=self.properties,
             tags=self.tags,
-            type=self.type,
-            unhealthy_evaluation=self.unhealthy_evaluation)
+            type=self.type)
 
 
 def get_application(application_resource_name: Optional[str] = None,
@@ -230,21 +122,12 @@ def get_application(application_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh/v20180901preview:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        debug_params=__ret__.debug_params,
-        description=__ret__.description,
-        diagnostics=__ret__.diagnostics,
-        health_state=__ret__.health_state,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        service_names=__ret__.service_names,
-        services=__ret__.services,
-        status=__ret__.status,
-        status_details=__ret__.status_details,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        type=__ret__.type,
-        unhealthy_evaluation=__ret__.unhealthy_evaluation)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_application)

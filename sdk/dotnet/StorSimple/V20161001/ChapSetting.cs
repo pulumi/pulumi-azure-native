@@ -23,10 +23,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The chap password.
+        /// Chap properties
         /// </summary>
-        [Output("password")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponse> Password { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ChapPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
@@ -98,10 +98,10 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The chap password.
+        /// Chap properties
         /// </summary>
-        [Input("password", required: true)]
-        public Input<Inputs.AsymmetricEncryptedSecretArgs> Password { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ChapPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

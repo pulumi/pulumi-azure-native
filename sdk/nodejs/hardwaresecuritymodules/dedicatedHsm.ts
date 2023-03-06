@@ -47,25 +47,13 @@ export class DedicatedHsm extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the network interfaces of the dedicated hsm.
+     * Properties of the dedicated HSM
      */
-    public readonly networkProfile!: pulumi.Output<outputs.hardwaresecuritymodules.NetworkProfileResponse | undefined>;
-    /**
-     * Provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hardwaresecuritymodules.DedicatedHsmPropertiesResponse>;
     /**
      * SKU details
      */
     public readonly sku!: pulumi.Output<outputs.hardwaresecuritymodules.SkuResponse>;
-    /**
-     * This field will be used when RP does not support Availability zones.
-     */
-    public readonly stampId!: pulumi.Output<string | undefined>;
-    /**
-     * Resource Status Message.
-     */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -90,6 +78,9 @@ export class DedicatedHsm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,23 +89,17 @@ export class DedicatedHsm extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["stampId"] = args ? args.stampId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkProfile"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["stampId"] = undefined /*out*/;
-            resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
@@ -139,9 +124,9 @@ export interface DedicatedHsmArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the network interfaces of the dedicated hsm.
+     * Properties of the dedicated HSM
      */
-    networkProfile?: pulumi.Input<inputs.hardwaresecuritymodules.NetworkProfileArgs>;
+    properties: pulumi.Input<inputs.hardwaresecuritymodules.DedicatedHsmPropertiesArgs>;
     /**
      * The name of the Resource Group to which the resource belongs.
      */
@@ -150,10 +135,6 @@ export interface DedicatedHsmArgs {
      * SKU details
      */
     sku: pulumi.Input<inputs.hardwaresecuritymodules.SkuArgs>;
-    /**
-     * This field will be used when RP does not support Availability zones.
-     */
-    stampId?: pulumi.Input<string>;
     /**
      * Resource tags
      */

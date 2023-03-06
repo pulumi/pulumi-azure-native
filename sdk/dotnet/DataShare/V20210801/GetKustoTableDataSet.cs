@@ -94,10 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     public sealed class GetKustoTableDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -107,29 +103,17 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Resource id of the kusto database.
-        /// </summary>
-        public readonly string KustoDatabaseResourceId;
-        /// <summary>
-        /// Location of the kusto cluster.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the kusto table data set.
+        /// Kusto table data set properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.KustoTableDataSetPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// Table level sharing properties for kusto database
-        /// </summary>
-        public readonly Outputs.TableLevelSharingPropertiesResponse TableLevelSharingProperties;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
@@ -137,35 +121,23 @@ namespace Pulumi.AzureNative.DataShare.V20210801
 
         [OutputConstructor]
         private GetKustoTableDataSetResult(
-            string dataSetId,
-
             string id,
 
             string kind,
 
-            string kustoDatabaseResourceId,
-
-            string location,
-
             string name,
 
-            string provisioningState,
+            Outputs.KustoTableDataSetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            Outputs.TableLevelSharingPropertiesResponse tableLevelSharingProperties,
-
             string type)
         {
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
-            KustoDatabaseResourceId = kustoDatabaseResourceId;
-            Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
-            TableLevelSharingProperties = tableLevelSharingProperties;
             Type = type;
         }
     }

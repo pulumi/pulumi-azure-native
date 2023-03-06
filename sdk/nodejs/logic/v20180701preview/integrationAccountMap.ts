@@ -38,45 +38,17 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
     }
 
     /**
-     * The changed time.
-     */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
-    /**
-     * The content.
-     */
-    public readonly content!: pulumi.Output<string | undefined>;
-    /**
-     * The content link.
-     */
-    public /*out*/ readonly contentLink!: pulumi.Output<outputs.logic.v20180701preview.ContentLinkResponse>;
-    /**
-     * The content type.
-     */
-    public readonly contentType!: pulumi.Output<string | undefined>;
-    /**
-     * The created time.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The map type.
-     */
-    public readonly mapType!: pulumi.Output<string>;
-    /**
-     * The metadata.
-     */
-    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * Gets the resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The parameters schema of integration account map.
+     * The integration account map properties.
      */
-    public readonly parametersSchema!: pulumi.Output<outputs.logic.v20180701preview.IntegrationAccountMapPropertiesResponseParametersSchema | undefined>;
+    public readonly properties!: pulumi.Output<outputs.logic.v20180701preview.IntegrationAccountMapPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -100,38 +72,24 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.mapType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'mapType'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mapName"] = args ? args.mapName : undefined;
-            resourceInputs["mapType"] = args ? args.mapType : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["parametersSchema"] = args ? args.parametersSchema : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["contentLink"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["content"] = undefined /*out*/;
-            resourceInputs["contentLink"] = undefined /*out*/;
-            resourceInputs["contentType"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mapType"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parametersSchema"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -147,14 +105,6 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
  */
 export interface IntegrationAccountMapArgs {
     /**
-     * The content.
-     */
-    content?: pulumi.Input<string>;
-    /**
-     * The content type.
-     */
-    contentType?: pulumi.Input<string>;
-    /**
      * The integration account name.
      */
     integrationAccountName: pulumi.Input<string>;
@@ -167,17 +117,9 @@ export interface IntegrationAccountMapArgs {
      */
     mapName?: pulumi.Input<string>;
     /**
-     * The map type.
+     * The integration account map properties.
      */
-    mapType: pulumi.Input<string | enums.logic.v20180701preview.MapType>;
-    /**
-     * The metadata.
-     */
-    metadata?: any;
-    /**
-     * The parameters schema of integration account map.
-     */
-    parametersSchema?: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountMapPropertiesParametersSchemaArgs>;
+    properties: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountMapPropertiesArgs>;
     /**
      * The resource group name.
      */

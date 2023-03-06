@@ -9,27 +9,27 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
-from ._enums import *
+from ._inputs import *
 
 __all__ = ['InventoryItemArgs', 'InventoryItem']
 
 @pulumi.input_type
 class InventoryItemArgs:
     def __init__(__self__, *,
-                 inventory_type: pulumi.Input[Union[str, 'InventoryType']],
+                 properties: pulumi.Input[Union['CloudInventoryItemArgs', 'VirtualMachineInventoryItemArgs', 'VirtualMachineTemplateInventoryItemArgs', 'VirtualNetworkInventoryItemArgs']],
                  resource_group_name: pulumi.Input[str],
                  vmm_server_name: pulumi.Input[str],
                  inventory_item_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InventoryItem resource.
-        :param pulumi.Input[Union[str, 'InventoryType']] inventory_type: They inventory type.
+        :param pulumi.Input[Union['CloudInventoryItemArgs', 'VirtualMachineInventoryItemArgs', 'VirtualMachineTemplateInventoryItemArgs', 'VirtualNetworkInventoryItemArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
         :param pulumi.Input[str] inventory_item_name: Name of the inventoryItem.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
-        pulumi.set(__self__, "inventory_type", inventory_type)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vmm_server_name", vmm_server_name)
         if inventory_item_name is not None:
@@ -38,16 +38,16 @@ class InventoryItemArgs:
             pulumi.set(__self__, "kind", kind)
 
     @property
-    @pulumi.getter(name="inventoryType")
-    def inventory_type(self) -> pulumi.Input[Union[str, 'InventoryType']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Union['CloudInventoryItemArgs', 'VirtualMachineInventoryItemArgs', 'VirtualMachineTemplateInventoryItemArgs', 'VirtualNetworkInventoryItemArgs']]:
         """
-        They inventory type.
+        Resource properties.
         """
-        return pulumi.get(self, "inventory_type")
+        return pulumi.get(self, "properties")
 
-    @inventory_type.setter
-    def inventory_type(self, value: pulumi.Input[Union[str, 'InventoryType']]):
-        pulumi.set(self, "inventory_type", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input[Union['CloudInventoryItemArgs', 'VirtualMachineInventoryItemArgs', 'VirtualMachineTemplateInventoryItemArgs', 'VirtualNetworkInventoryItemArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,8 +104,8 @@ class InventoryItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inventory_item_name: Optional[pulumi.Input[str]] = None,
-                 inventory_type: Optional[pulumi.Input[Union[str, 'InventoryType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['CloudInventoryItemArgs'], pulumi.InputType['VirtualMachineInventoryItemArgs'], pulumi.InputType['VirtualMachineTemplateInventoryItemArgs'], pulumi.InputType['VirtualNetworkInventoryItemArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vmm_server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -115,8 +115,8 @@ class InventoryItem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] inventory_item_name: Name of the inventoryItem.
-        :param pulumi.Input[Union[str, 'InventoryType']] inventory_type: They inventory type.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[Union[pulumi.InputType['CloudInventoryItemArgs'], pulumi.InputType['VirtualMachineInventoryItemArgs'], pulumi.InputType['VirtualMachineTemplateInventoryItemArgs'], pulumi.InputType['VirtualNetworkInventoryItemArgs']]] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
         """
@@ -145,8 +145,8 @@ class InventoryItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inventory_item_name: Optional[pulumi.Input[str]] = None,
-                 inventory_type: Optional[pulumi.Input[Union[str, 'InventoryType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['CloudInventoryItemArgs'], pulumi.InputType['VirtualMachineInventoryItemArgs'], pulumi.InputType['VirtualMachineTemplateInventoryItemArgs'], pulumi.InputType['VirtualNetworkInventoryItemArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vmm_server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -159,22 +159,19 @@ class InventoryItem(pulumi.CustomResource):
             __props__ = InventoryItemArgs.__new__(InventoryItemArgs)
 
             __props__.__dict__["inventory_item_name"] = inventory_item_name
-            if inventory_type is None and not opts.urn:
-                raise TypeError("Missing required property 'inventory_type'")
-            __props__.__dict__["inventory_type"] = inventory_type
             __props__.__dict__["kind"] = kind
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if vmm_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vmm_server_name'")
             __props__.__dict__["vmm_server_name"] = vmm_server_name
-            __props__.__dict__["managed_resource_id"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["uuid"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm:InventoryItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InventoryItem, __self__).__init__(
@@ -199,32 +196,12 @@ class InventoryItem(pulumi.CustomResource):
 
         __props__ = InventoryItemArgs.__new__(InventoryItemArgs)
 
-        __props__.__dict__["inventory_item_name"] = None
-        __props__.__dict__["inventory_type"] = None
         __props__.__dict__["kind"] = None
-        __props__.__dict__["managed_resource_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["uuid"] = None
         return InventoryItem(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="inventoryItemName")
-    def inventory_item_name(self) -> pulumi.Output[str]:
-        """
-        Gets the Managed Object name in VMM for the inventory item.
-        """
-        return pulumi.get(self, "inventory_item_name")
-
-    @property
-    @pulumi.getter(name="inventoryType")
-    def inventory_type(self) -> pulumi.Output[str]:
-        """
-        They inventory type.
-        """
-        return pulumi.get(self, "inventory_type")
 
     @property
     @pulumi.getter
@@ -235,14 +212,6 @@ class InventoryItem(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="managedResourceId")
-    def managed_resource_id(self) -> pulumi.Output[str]:
-        """
-        Gets the tracked resource id corresponding to the inventory resource.
-        """
-        return pulumi.get(self, "managed_resource_id")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -251,12 +220,12 @@ class InventoryItem(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Any]:
         """
-        Gets the provisioning state.
+        Resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -273,12 +242,4 @@ class InventoryItem(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
-        """
-        Gets the UUID (which is assigned by VMM) for the inventory item.
-        """
-        return pulumi.get(self, "uuid")
 

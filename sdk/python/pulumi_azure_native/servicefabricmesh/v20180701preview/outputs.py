@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicationResourcePropertiesResponse',
     'AzureInternalMonitoringPipelineSinkDescriptionResponse',
     'ContainerCodePackagePropertiesResponse',
     'ContainerEventResponse',
@@ -27,13 +28,168 @@ __all__ = [
     'IngressConfigResponse',
     'Layer4IngressConfigResponse',
     'NetworkRefResponse',
+    'NetworkResourcePropertiesResponse',
     'ResourceLimitsResponse',
     'ResourceRequestsResponse',
     'ResourceRequirementsResponse',
     'ServiceResourceDescriptionResponse',
+    'ServiceResourcePropertiesResponse',
     'SettingResponse',
     'VolumeProviderParametersAzureFileResponse',
+    'VolumeResourcePropertiesResponse',
 ]
+
+@pulumi.output_type
+class ApplicationResourcePropertiesResponse(dict):
+    """
+    This type describes properties of an application resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthState":
+            suggest = "health_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceNames":
+            suggest = "service_names"
+        elif key == "statusDetails":
+            suggest = "status_details"
+        elif key == "unhealthyEvaluation":
+            suggest = "unhealthy_evaluation"
+        elif key == "debugParams":
+            suggest = "debug_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_state: str,
+                 provisioning_state: str,
+                 service_names: Sequence[str],
+                 status: str,
+                 status_details: str,
+                 unhealthy_evaluation: str,
+                 debug_params: Optional[str] = None,
+                 description: Optional[str] = None,
+                 diagnostics: Optional['outputs.DiagnosticsDescriptionResponse'] = None,
+                 services: Optional[Sequence['outputs.ServiceResourceDescriptionResponse']] = None):
+        """
+        This type describes properties of an application resource.
+        :param str health_state: Describes the health state of an application resource.
+        :param str provisioning_state: State of the resource.
+        :param Sequence[str] service_names: Names of the services in the application.
+        :param str status: Status of the application resource.
+        :param str status_details: Gives additional information about the current status of the application deployment.
+        :param str unhealthy_evaluation: When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
+        :param str debug_params: Internal use.
+        :param str description: User readable description of the application.
+        :param 'DiagnosticsDescriptionResponse' diagnostics: Describes the diagnostics definition and usage for an application resource.
+        :param Sequence['ServiceResourceDescriptionResponse'] services: describes the services in the application.
+        """
+        pulumi.set(__self__, "health_state", health_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "service_names", service_names)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_details", status_details)
+        pulumi.set(__self__, "unhealthy_evaluation", unhealthy_evaluation)
+        if debug_params is not None:
+            pulumi.set(__self__, "debug_params", debug_params)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="healthState")
+    def health_state(self) -> str:
+        """
+        Describes the health state of an application resource.
+        """
+        return pulumi.get(self, "health_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceNames")
+    def service_names(self) -> Sequence[str]:
+        """
+        Names of the services in the application.
+        """
+        return pulumi.get(self, "service_names")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the application resource.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusDetails")
+    def status_details(self) -> str:
+        """
+        Gives additional information about the current status of the application deployment.
+        """
+        return pulumi.get(self, "status_details")
+
+    @property
+    @pulumi.getter(name="unhealthyEvaluation")
+    def unhealthy_evaluation(self) -> str:
+        """
+        When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
+        """
+        return pulumi.get(self, "unhealthy_evaluation")
+
+    @property
+    @pulumi.getter(name="debugParams")
+    def debug_params(self) -> Optional[str]:
+        """
+        Internal use.
+        """
+        return pulumi.get(self, "debug_params")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        User readable description of the application.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional['outputs.DiagnosticsDescriptionResponse']:
+        """
+        Describes the diagnostics definition and usage for an application resource.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Sequence['outputs.ServiceResourceDescriptionResponse']]:
+        """
+        describes the services in the application.
+        """
+        return pulumi.get(self, "services")
+
 
 @pulumi.output_type
 class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
@@ -1138,6 +1294,84 @@ class NetworkRefResponse(dict):
 
 
 @pulumi.output_type
+class NetworkResourcePropertiesResponse(dict):
+    """
+    Describes properties of a network resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ingressConfig":
+            suggest = "ingress_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefix: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 ingress_config: Optional['outputs.IngressConfigResponse'] = None):
+        """
+        Describes properties of a network resource.
+        :param str address_prefix: the address prefix for this network.
+        :param str provisioning_state: State of the resource.
+        :param str description: User readable description of the network.
+        :param 'IngressConfigResponse' ingress_config: Configuration for public connectivity for this network.
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ingress_config is not None:
+            pulumi.set(__self__, "ingress_config", ingress_config)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> str:
+        """
+        the address prefix for this network.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        User readable description of the network.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ingressConfig")
+    def ingress_config(self) -> Optional['outputs.IngressConfigResponse']:
+        """
+        Configuration for public connectivity for this network.
+        """
+        return pulumi.get(self, "ingress_config")
+
+
+@pulumi.output_type
 class ResourceLimitsResponse(dict):
     """
     This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
@@ -1279,6 +1513,62 @@ class ServiceResourceDescriptionResponse(dict):
     """
     This type describes a service resource.
     """
+    def __init__(__self__, *,
+                 id: str,
+                 properties: 'outputs.ServiceResourcePropertiesResponse',
+                 type: str,
+                 name: Optional[str] = None):
+        """
+        This type describes a service resource.
+        :param str id: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param 'ServiceResourcePropertiesResponse' properties: This type describes properties of a service resource.
+        :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        :param str name: The name of the resource
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ServiceResourcePropertiesResponse':
+        """
+        This type describes properties of a service resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ServiceResourcePropertiesResponse(dict):
+    """
+    This type describes properties of a service resource.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1294,55 +1584,45 @@ class ServiceResourceDescriptionResponse(dict):
             suggest = "replica_count"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceResourceDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ServiceResourceDescriptionResponse.__key_warning(key)
+        ServiceResourcePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ServiceResourceDescriptionResponse.__key_warning(key)
+        ServiceResourcePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  code_packages: Sequence['outputs.ContainerCodePackagePropertiesResponse'],
-                 id: str,
                  os_type: str,
                  status: str,
-                 type: str,
                  description: Optional[str] = None,
                  diagnostics: Optional['outputs.DiagnosticsRefResponse'] = None,
                  health_state: Optional[str] = None,
-                 name: Optional[str] = None,
                  network_refs: Optional[Sequence['outputs.NetworkRefResponse']] = None,
                  replica_count: Optional[int] = None):
         """
-        This type describes a service resource.
+        This type describes properties of a service resource.
         :param Sequence['ContainerCodePackagePropertiesResponse'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-        :param str id: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str os_type: The Operating system type required by the code in service.
         :param str status: Represents the status of the service.
-        :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         :param str description: User readable description of the service.
         :param 'DiagnosticsRefResponse' diagnostics: Reference to sinks in DiagnosticsDescription.
         :param str health_state: The health state of a resource such as Application, Service, or Network.
-        :param str name: The name of the resource
         :param Sequence['NetworkRefResponse'] network_refs: The names of the private networks that this service needs to be part of.
         :param int replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         pulumi.set(__self__, "code_packages", code_packages)
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if diagnostics is not None:
             pulumi.set(__self__, "diagnostics", diagnostics)
         if health_state is not None:
             pulumi.set(__self__, "health_state", health_state)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if network_refs is not None:
             pulumi.set(__self__, "network_refs", network_refs)
         if replica_count is not None:
@@ -1355,14 +1635,6 @@ class ServiceResourceDescriptionResponse(dict):
         Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         """
         return pulumi.get(self, "code_packages")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="osType")
@@ -1379,14 +1651,6 @@ class ServiceResourceDescriptionResponse(dict):
         Represents the status of the service.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -1411,14 +1675,6 @@ class ServiceResourceDescriptionResponse(dict):
         The health state of a resource such as Application, Service, or Network.
         """
         return pulumi.get(self, "health_state")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkRefs")
@@ -1536,5 +1792,81 @@ class VolumeProviderParametersAzureFileResponse(dict):
         Access key of the Azure storage account for the File Share.
         """
         return pulumi.get(self, "account_key")
+
+
+@pulumi.output_type
+class VolumeResourcePropertiesResponse(dict):
+    """
+    Describes properties of a volume resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "azureFileParameters":
+            suggest = "azure_file_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider: str,
+                 provisioning_state: str,
+                 azure_file_parameters: Optional['outputs.VolumeProviderParametersAzureFileResponse'] = None,
+                 description: Optional[str] = None):
+        """
+        Describes properties of a volume resource.
+        :param str provider: Provider of the volume.
+        :param str provisioning_state: State of the resource.
+        :param 'VolumeProviderParametersAzureFileResponse' azure_file_parameters: This type describes a volume provided by an Azure Files file share.
+        :param str description: User readable description of the volume.
+        """
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if azure_file_parameters is not None:
+            pulumi.set(__self__, "azure_file_parameters", azure_file_parameters)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> str:
+        """
+        Provider of the volume.
+        """
+        return pulumi.get(self, "provider")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="azureFileParameters")
+    def azure_file_parameters(self) -> Optional['outputs.VolumeProviderParametersAzureFileResponse']:
+        """
+        This type describes a volume provided by an Azure Files file share.
+        """
+        return pulumi.get(self, "azure_file_parameters")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        User readable description of the volume.
+        """
+        return pulumi.get(self, "description")
 
 

@@ -55,7 +55,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
      */
-    public readonly dataRetentionTime!: pulumi.Output<string>;
+    public /*out*/ readonly dataRetentionTime!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -75,7 +75,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    public readonly storageLimitExceededBehavior!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly storageLimitExceededBehavior!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -98,8 +98,8 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataRetentionTime === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataRetentionTime'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -107,18 +107,19 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;
             resourceInputs["dataAccessId"] = undefined /*out*/;
+            resourceInputs["dataRetentionTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageLimitExceededBehavior"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -145,10 +146,6 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
-     * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-     */
-    dataRetentionTime: pulumi.Input<string>;
-    /**
      * Name of the environment
      */
     environmentName?: pulumi.Input<string>;
@@ -157,6 +154,10 @@ export interface EnvironmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Properties used to create an environment.
+     */
+    properties: pulumi.Input<inputs.timeseriesinsights.v20170228preview.EnvironmentCreationPropertiesArgs>;
+    /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -164,10 +165,6 @@ export interface EnvironmentArgs {
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
     sku: pulumi.Input<inputs.timeseriesinsights.v20170228preview.SkuArgs>;
-    /**
-     * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-     */
-    storageLimitExceededBehavior?: pulumi.Input<enums.timeseriesinsights.v20170228preview.StorageLimitExceededBehavior>;
     /**
      * Key-value pairs of additional properties for the resource.
      */

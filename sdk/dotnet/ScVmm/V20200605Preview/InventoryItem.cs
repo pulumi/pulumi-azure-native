@@ -16,28 +16,10 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     public partial class InventoryItem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets the Managed Object name in VMM for the inventory item.
-        /// </summary>
-        [Output("inventoryItemName")]
-        public Output<string> InventoryItemName { get; private set; } = null!;
-
-        /// <summary>
-        /// They inventory type.
-        /// </summary>
-        [Output("inventoryType")]
-        public Output<string> InventoryType { get; private set; } = null!;
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the tracked resource id corresponding to the inventory resource.
-        /// </summary>
-        [Output("managedResourceId")]
-        public Output<string> ManagedResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -46,10 +28,10 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -62,12 +44,6 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the UUID (which is assigned by VMM) for the inventory item.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,16 +101,16 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         public Input<string>? InventoryItemName { get; set; }
 
         /// <summary>
-        /// They inventory type.
-        /// </summary>
-        [Input("inventoryType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ScVmm.V20200605Preview.InventoryType> InventoryType { get; set; } = null!;
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public object Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'ApiEntityReferenceResponse',
+    'DedicatedHsmPropertiesResponse',
     'NetworkInterfaceResponse',
     'NetworkProfileResponse',
     'SkuResponse',
@@ -39,6 +40,86 @@ class ApiEntityReferenceResponse(dict):
         The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class DedicatedHsmPropertiesResponse(dict):
+    """
+    Properties of the dedicated hsm
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "statusMessage":
+            suggest = "status_message"
+        elif key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "stampId":
+            suggest = "stamp_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DedicatedHsmPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DedicatedHsmPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DedicatedHsmPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 status_message: str,
+                 network_profile: Optional['outputs.NetworkProfileResponse'] = None,
+                 stamp_id: Optional[str] = None):
+        """
+        Properties of the dedicated hsm
+        :param str provisioning_state: Provisioning state.
+        :param str status_message: Resource Status Message.
+        :param 'NetworkProfileResponse' network_profile: Specifies the network interfaces of the dedicated hsm.
+        :param str stamp_id: This field will be used when RP does not support Availability zones.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status_message", status_message)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if stamp_id is not None:
+            pulumi.set(__self__, "stamp_id", stamp_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Resource Status Message.
+        """
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+        """
+        Specifies the network interfaces of the dedicated hsm.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="stampId")
+    def stamp_id(self) -> Optional[str]:
+        """
+        This field will be used when RP does not support Availability zones.
+        """
+        return pulumi.get(self, "stamp_id")
 
 
 @pulumi.output_type

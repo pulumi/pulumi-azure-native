@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetQueryPackResult',
@@ -21,7 +22,7 @@ class GetQueryPackResult:
     """
     An Log Analytics QueryPack definition.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, query_pack_id=None, tags=None, time_created=None, time_modified=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,21 +32,12 @@ class GetQueryPackResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if query_pack_id and not isinstance(query_pack_id, str):
-            raise TypeError("Expected argument 'query_pack_id' to be a str")
-        pulumi.set(__self__, "query_pack_id", query_pack_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if time_created and not isinstance(time_created, str):
-            raise TypeError("Expected argument 'time_created' to be a str")
-        pulumi.set(__self__, "time_created", time_created)
-        if time_modified and not isinstance(time_modified, str):
-            raise TypeError("Expected argument 'time_modified' to be a str")
-        pulumi.set(__self__, "time_modified", time_modified)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -75,20 +67,12 @@ class GetQueryPackResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.LogAnalyticsQueryPackPropertiesResponse':
         """
-        Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        Properties that define a Log Analytics QueryPack resource.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="queryPackId")
-    def query_pack_id(self) -> str:
-        """
-        The unique ID of your application. This field cannot be changed.
-        """
-        return pulumi.get(self, "query_pack_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -97,22 +81,6 @@ class GetQueryPackResult:
         Resource tags
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="timeCreated")
-    def time_created(self) -> str:
-        """
-        Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-        """
-        return pulumi.get(self, "time_created")
-
-    @property
-    @pulumi.getter(name="timeModified")
-    def time_modified(self) -> str:
-        """
-        Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-        """
-        return pulumi.get(self, "time_modified")
 
     @property
     @pulumi.getter
@@ -132,11 +100,8 @@ class AwaitableGetQueryPackResult(GetQueryPackResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            query_pack_id=self.query_pack_id,
+            properties=self.properties,
             tags=self.tags,
-            time_created=self.time_created,
-            time_modified=self.time_modified,
             type=self.type)
 
 
@@ -160,11 +125,8 @@ def get_query_pack(query_pack_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        query_pack_id=__ret__.query_pack_id,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        time_created=__ret__.time_created,
-        time_modified=__ret__.time_modified,
         type=__ret__.type)
 
 

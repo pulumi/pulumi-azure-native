@@ -107,85 +107,36 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class GetIscsiDiskResult
     {
         /// <summary>
-        /// The access control records.
-        /// </summary>
-        public readonly ImmutableArray<string> AccessControlRecords;
-        /// <summary>
-        /// The data policy.
-        /// </summary>
-        public readonly string DataPolicy;
-        /// <summary>
-        /// The description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The disk status.
-        /// </summary>
-        public readonly string DiskStatus;
-        /// <summary>
         /// The identifier.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The local used capacity in bytes.
-        /// </summary>
-        public readonly double LocalUsedCapacityInBytes;
-        /// <summary>
-        /// The monitoring.
-        /// </summary>
-        public readonly string MonitoringStatus;
         /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioned capacity in bytes.
+        /// The properties.
         /// </summary>
-        public readonly double ProvisionedCapacityInBytes;
+        public readonly Outputs.ISCSIDiskPropertiesResponse Properties;
         /// <summary>
         /// The type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The used capacity in bytes.
-        /// </summary>
-        public readonly double UsedCapacityInBytes;
 
         [OutputConstructor]
         private GetIscsiDiskResult(
-            ImmutableArray<string> accessControlRecords,
-
-            string dataPolicy,
-
-            string? description,
-
-            string diskStatus,
-
             string id,
-
-            double localUsedCapacityInBytes,
-
-            string monitoringStatus,
 
             string name,
 
-            double provisionedCapacityInBytes,
+            Outputs.ISCSIDiskPropertiesResponse properties,
 
-            string type,
-
-            double usedCapacityInBytes)
+            string type)
         {
-            AccessControlRecords = accessControlRecords;
-            DataPolicy = dataPolicy;
-            Description = description;
-            DiskStatus = diskStatus;
             Id = id;
-            LocalUsedCapacityInBytes = localUsedCapacityInBytes;
-            MonitoringStatus = monitoringStatus;
             Name = name;
-            ProvisionedCapacityInBytes = provisionedCapacityInBytes;
+            Properties = properties;
             Type = type;
-            UsedCapacityInBytes = usedCapacityInBytes;
         }
     }
 }

@@ -13,79 +13,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class BareMetalMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The connection string for the baseboard management controller including IP address and protocol.
-        /// </summary>
-        [Output("bmcConnectionString")]
-        public Output<string> BmcConnectionString { get; private set; } = null!;
-
-        [Output("bmcCredentials")]
-        public Output<Outputs.AdministrativeCredentialsResponse> BmcCredentials { get; private set; } = null!;
-
-        /// <summary>
-        /// The MAC address of the BMC device.
-        /// </summary>
-        [Output("bmcMacAddress")]
-        public Output<string> BmcMacAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// The MAC address of a NIC connected to the PXE network.
-        /// </summary>
-        [Output("bootMacAddress")]
-        public Output<string> BootMacAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the cluster this bare metal machine is associated with.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The cordon status of the bare metal machine.
-        /// </summary>
-        [Output("cordonStatus")]
-        public Output<string> CordonStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the bare metal machine.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        [Output("hardwareInventory")]
-        public Output<Outputs.HardwareInventoryResponse?> HardwareInventory { get; private set; } = null!;
-
-        [Output("hardwareValidationStatus")]
-        public Output<Outputs.HardwareValidationStatusResponse?> HardwareValidationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
-        /// </summary>
-        [Output("hybridAksClustersAssociatedIds")]
-        public Output<ImmutableArray<string>> HybridAksClustersAssociatedIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of this machine represented by the host object in the Cluster's Kubernetes control plane.
-        /// </summary>
-        [Output("kubernetesNodeName")]
-        public Output<string> KubernetesNodeName { get; private set; } = null!;
-
-        /// <summary>
-        /// The version of Kubernetes running on this machine.
-        /// </summary>
-        [Output("kubernetesVersion")]
-        public Output<string> KubernetesVersion { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -94,88 +25,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The custom details provided by the customer.
-        /// </summary>
-        [Output("machineDetails")]
-        public Output<string> MachineDetails { get; private set; } = null!;
-
-        /// <summary>
-        /// The OS-level hostname assigned to this machine.
-        /// </summary>
-        [Output("machineName")]
-        public Output<string> MachineName { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique internal identifier of the bare metal machine SKU.
-        /// </summary>
-        [Output("machineSkuId")]
-        public Output<string> MachineSkuId { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 address that is assigned to the bare metal machine during the cluster deployment.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("oamIpv4Address")]
-        public Output<string> OamIpv4Address { get; private set; } = null!;
-
-        /// <summary>
-        /// The IPv6 address that is assigned to the bare metal machine during the cluster deployment.
-        /// </summary>
-        [Output("oamIpv6Address")]
-        public Output<string> OamIpv6Address { get; private set; } = null!;
-
-        /// <summary>
-        /// The image that is currently provisioned to the OS disk.
-        /// </summary>
-        [Output("osImage")]
-        public Output<string> OsImage { get; private set; } = null!;
-
-        /// <summary>
-        /// The power state derived from the baseboard management controller.
-        /// </summary>
-        [Output("powerState")]
-        public Output<string> PowerState { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the bare metal machine.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the rack where this bare metal machine resides.
-        /// </summary>
-        [Output("rackId")]
-        public Output<string> RackId { get; private set; } = null!;
-
-        /// <summary>
-        /// The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
-        /// </summary>
-        [Output("rackSlot")]
-        public Output<double> RackSlot { get; private set; } = null!;
-
-        /// <summary>
-        /// The indicator of whether the bare metal machine is ready to receive workloads.
-        /// </summary>
-        [Output("readyState")]
-        public Output<string> ReadyState { get; private set; } = null!;
-
-        /// <summary>
-        /// The serial number of the bare metal machine.
-        /// </summary>
-        [Output("serialNumber")]
-        public Output<string> SerialNumber { get; private set; } = null!;
-
-        /// <summary>
-        /// The discovered value of the machine's service tag.
-        /// </summary>
-        [Output("serviceTag")]
-        public Output<string> ServiceTag { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BareMetalMachinePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -194,12 +53,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
-        /// </summary>
-        [Output("virtualMachinesAssociatedIds")]
-        public Output<ImmutableArray<string>> VirtualMachinesAssociatedIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -257,27 +110,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string>? BareMetalMachineName { get; set; }
 
         /// <summary>
-        /// The connection string for the baseboard management controller including IP address and protocol.
-        /// </summary>
-        [Input("bmcConnectionString", required: true)]
-        public Input<string> BmcConnectionString { get; set; } = null!;
-
-        [Input("bmcCredentials", required: true)]
-        public Input<Inputs.AdministrativeCredentialsArgs> BmcCredentials { get; set; } = null!;
-
-        /// <summary>
-        /// The MAC address of the BMC device.
-        /// </summary>
-        [Input("bmcMacAddress", required: true)]
-        public Input<string> BmcMacAddress { get; set; } = null!;
-
-        /// <summary>
-        /// The MAC address of a NIC connected to the PXE network.
-        /// </summary>
-        [Input("bootMacAddress", required: true)]
-        public Input<string> BootMacAddress { get; set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Input("extendedLocation", required: true)]
@@ -290,46 +122,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The custom details provided by the customer.
+        /// The list of the resource properties.
         /// </summary>
-        [Input("machineDetails", required: true)]
-        public Input<string> MachineDetails { get; set; } = null!;
-
-        /// <summary>
-        /// The OS-level hostname assigned to this machine.
-        /// </summary>
-        [Input("machineName", required: true)]
-        public Input<string> MachineName { get; set; } = null!;
-
-        /// <summary>
-        /// The unique internal identifier of the bare metal machine SKU.
-        /// </summary>
-        [Input("machineSkuId", required: true)]
-        public Input<string> MachineSkuId { get; set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the rack where this bare metal machine resides.
-        /// </summary>
-        [Input("rackId", required: true)]
-        public Input<string> RackId { get; set; } = null!;
-
-        /// <summary>
-        /// The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
-        /// </summary>
-        [Input("rackSlot", required: true)]
-        public Input<double> RackSlot { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.BareMetalMachinePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The serial number of the bare metal machine.
-        /// </summary>
-        [Input("serialNumber", required: true)]
-        public Input<string> SerialNumber { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

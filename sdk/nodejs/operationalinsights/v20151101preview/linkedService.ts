@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,9 +42,9 @@ export class LinkedService extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource id of the resource that will be linked to the workspace.
+     * The properties of the linked service.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20151101preview.LinkedServicePropertiesResponse>;
     /**
      * Resource type.
      */
@@ -58,24 +61,24 @@ export class LinkedService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceId'");
             }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -94,13 +97,13 @@ export interface LinkedServiceArgs {
      */
     linkedServiceName?: pulumi.Input<string>;
     /**
+     * The properties of the linked service.
+     */
+    properties: pulumi.Input<inputs.operationalinsights.v20151101preview.LinkedServicePropertiesArgs>;
+    /**
      * The name of the resource group to get. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The resource id of the resource that will be linked to the workspace.
-     */
-    resourceId: pulumi.Input<string>;
     /**
      * Name of the Log Analytics Workspace that will contain the linkedServices resource
      */

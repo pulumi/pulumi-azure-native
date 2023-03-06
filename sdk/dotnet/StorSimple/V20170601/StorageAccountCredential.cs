@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public partial class StorageAccountCredential : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The details of the storage account password.
-        /// </summary>
-        [Output("accessKey")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponse?> AccessKey { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage endpoint
-        /// </summary>
-        [Output("endPoint")]
-        public Output<string> EndPoint { get; private set; } = null!;
-
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
@@ -40,22 +28,16 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Signifies whether SSL needs to be enabled or not.
+        /// The storage account credential properties.
         /// </summary>
-        [Output("sslStatus")]
-        public Output<string> SslStatus { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.StorageAccountCredentialPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The count of volumes using this storage account credential.
-        /// </summary>
-        [Output("volumesCount")]
-        public Output<int> VolumesCount { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,18 +90,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public sealed class StorageAccountCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The details of the storage account password.
-        /// </summary>
-        [Input("accessKey")]
-        public Input<Inputs.AsymmetricEncryptedSecretArgs>? AccessKey { get; set; }
-
-        /// <summary>
-        /// The storage endpoint
-        /// </summary>
-        [Input("endPoint", required: true)]
-        public Input<string> EndPoint { get; set; } = null!;
-
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
@@ -132,16 +102,16 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The storage account credential properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.StorageAccountCredentialPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Signifies whether SSL needs to be enabled or not.
-        /// </summary>
-        [Input("sslStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.V20170601.SslStatus> SslStatus { get; set; } = null!;
 
         /// <summary>
         /// The storage account credential name.

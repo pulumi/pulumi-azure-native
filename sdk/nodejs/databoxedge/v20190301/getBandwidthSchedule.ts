@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,10 +42,6 @@ export interface GetBandwidthScheduleArgs {
  */
 export interface GetBandwidthScheduleResult {
     /**
-     * The days of the week when this schedule is applicable.
-     */
-    readonly days: string[];
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -51,17 +50,9 @@ export interface GetBandwidthScheduleResult {
      */
     readonly name: string;
     /**
-     * The bandwidth rate in Mbps.
+     * The properties of the bandwidth schedule.
      */
-    readonly rateInMbps: number;
-    /**
-     * The start time of the schedule in UTC.
-     */
-    readonly start: string;
-    /**
-     * The stop time of the schedule in UTC.
-     */
-    readonly stop: string;
+    readonly properties: outputs.databoxedge.v20190301.BandwidthSchedulePropertiesResponse;
     /**
      * The hierarchical type of the object.
      */

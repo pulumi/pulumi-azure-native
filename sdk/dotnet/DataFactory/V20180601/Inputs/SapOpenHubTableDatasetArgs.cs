@@ -28,22 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
-        /// </summary>
-        [Input("baseRequestId")]
-        public Input<object>? BaseRequestId { get; set; }
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("excludeLastRequest")]
-        public Input<object>? ExcludeLastRequest { get; set; }
 
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -56,12 +44,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Open Hub Destination with destination type as Database Table. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("openHubDestinationName", required: true)]
-        public Input<object> OpenHubDestinationName { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -93,6 +75,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Sap Business Warehouse Open Hub Destination Table properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapOpenHubTableDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapOpenHubTableDatasetArgs()
         {

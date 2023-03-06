@@ -22,25 +22,16 @@ class GetHybridIdentityMetadatumResult:
     """
     Defines the hybridIdentityMetadata.
     """
-    def __init__(__self__, id=None, identity=None, name=None, provisioning_state=None, public_key=None, resource_uid=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_key and not isinstance(public_key, str):
-            raise TypeError("Expected argument 'public_key' to be a str")
-        pulumi.set(__self__, "public_key", public_key)
-        if resource_uid and not isinstance(resource_uid, str):
-            raise TypeError("Expected argument 'resource_uid' to be a str")
-        pulumi.set(__self__, "resource_uid", resource_uid)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -58,14 +49,6 @@ class GetHybridIdentityMetadatumResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ProvisionedClusterIdentityResponse']:
-        """
-        The identity of the provisioned cluster.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -73,28 +56,12 @@ class GetHybridIdentityMetadatumResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.HybridIdentityMetadataPropertiesResponse':
         """
-        provisioning state of the hybridIdentityMetadata resource.
+        Resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[str]:
-        """
-        Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
-        """
-        return pulumi.get(self, "public_key")
-
-    @property
-    @pulumi.getter(name="resourceUid")
-    def resource_uid(self) -> Optional[str]:
-        """
-        Unique id of the parent provisioned cluster resource.
-        """
-        return pulumi.get(self, "resource_uid")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -120,11 +87,8 @@ class AwaitableGetHybridIdentityMetadatumResult(GetHybridIdentityMetadatumResult
             yield self
         return GetHybridIdentityMetadatumResult(
             id=self.id,
-            identity=self.identity,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            public_key=self.public_key,
-            resource_uid=self.resource_uid,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -151,11 +115,8 @@ def get_hybrid_identity_metadatum(hybrid_identity_metadata_resource_name: Option
 
     return AwaitableGetHybridIdentityMetadatumResult(
         id=__ret__.id,
-        identity=__ret__.identity,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_key=__ret__.public_key,
-        resource_uid=__ret__.resource_uid,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

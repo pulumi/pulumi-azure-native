@@ -16,57 +16,30 @@ __all__ = ['ConnectionMonitorArgs', 'ConnectionMonitor']
 @pulumi.input_type
 class ConnectionMonitorArgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ConnectionMonitorDestinationArgs'],
                  network_watcher_name: pulumi.Input[str],
+                 properties: pulumi.Input['ConnectionMonitorParametersArgs'],
                  resource_group_name: pulumi.Input[str],
-                 source: pulumi.Input['ConnectionMonitorSourceArgs'],
-                 auto_start: Optional[pulumi.Input[bool]] = None,
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ConnectionMonitor resource.
-        :param pulumi.Input['ConnectionMonitorDestinationArgs'] destination: Describes the destination of connection monitor.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
+        :param pulumi.Input['ConnectionMonitorParametersArgs'] properties: Parameters that define the operation to create a connection monitor.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing Network Watcher.
-        :param pulumi.Input['ConnectionMonitorSourceArgs'] source: Describes the source of connection monitor.
-        :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
         :param pulumi.Input[str] connection_monitor_name: The name of the connection monitor.
         :param pulumi.Input[str] location: Connection monitor location.
-        :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Connection monitor tags.
         """
-        pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
-        if auto_start is None:
-            auto_start = True
-        if auto_start is not None:
-            pulumi.set(__self__, "auto_start", auto_start)
         if connection_monitor_name is not None:
             pulumi.set(__self__, "connection_monitor_name", connection_monitor_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if monitoring_interval_in_seconds is None:
-            monitoring_interval_in_seconds = 60
-        if monitoring_interval_in_seconds is not None:
-            pulumi.set(__self__, "monitoring_interval_in_seconds", monitoring_interval_in_seconds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> pulumi.Input['ConnectionMonitorDestinationArgs']:
-        """
-        Describes the destination of connection monitor.
-        """
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: pulumi.Input['ConnectionMonitorDestinationArgs']):
-        pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter(name="networkWatcherName")
@@ -81,6 +54,18 @@ class ConnectionMonitorArgs:
         pulumi.set(self, "network_watcher_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ConnectionMonitorParametersArgs']:
+        """
+        Parameters that define the operation to create a connection monitor.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ConnectionMonitorParametersArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -91,30 +76,6 @@ class ConnectionMonitorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def source(self) -> pulumi.Input['ConnectionMonitorSourceArgs']:
-        """
-        Describes the source of connection monitor.
-        """
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: pulumi.Input['ConnectionMonitorSourceArgs']):
-        pulumi.set(self, "source", value)
-
-    @property
-    @pulumi.getter(name="autoStart")
-    def auto_start(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines if the connection monitor will start automatically once created.
-        """
-        return pulumi.get(self, "auto_start")
-
-    @auto_start.setter
-    def auto_start(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "auto_start", value)
 
     @property
     @pulumi.getter(name="connectionMonitorName")
@@ -141,18 +102,6 @@ class ConnectionMonitorArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="monitoringIntervalInSeconds")
-    def monitoring_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Monitoring interval in seconds.
-        """
-        return pulumi.get(self, "monitoring_interval_in_seconds")
-
-    @monitoring_interval_in_seconds.setter
-    def monitoring_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "monitoring_interval_in_seconds", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -175,14 +124,11 @@ class ConnectionMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_start: Optional[pulumi.Input[bool]] = None,
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorParametersArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -190,14 +136,11 @@ class ConnectionMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
         :param pulumi.Input[str] connection_monitor_name: The name of the connection monitor.
-        :param pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']] destination: Describes the destination of connection monitor.
         :param pulumi.Input[str] location: Connection monitor location.
-        :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
+        :param pulumi.Input[pulumi.InputType['ConnectionMonitorParametersArgs']] properties: Parameters that define the operation to create a connection monitor.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing Network Watcher.
-        :param pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']] source: Describes the source of connection monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Connection monitor tags.
         """
         ...
@@ -224,14 +167,11 @@ class ConnectionMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_start: Optional[pulumi.Input[bool]] = None,
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorParametersArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""ConnectionMonitor is deprecated: Version 2017-10-01 will be removed in v2 of the provider.""")
@@ -243,31 +183,26 @@ class ConnectionMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionMonitorArgs.__new__(ConnectionMonitorArgs)
 
-            if auto_start is None:
-                auto_start = True
-            __props__.__dict__["auto_start"] = auto_start
             __props__.__dict__["connection_monitor_name"] = connection_monitor_name
-            if destination is None and not opts.urn:
-                raise TypeError("Missing required property 'destination'")
-            __props__.__dict__["destination"] = destination
             __props__.__dict__["location"] = location
-            if monitoring_interval_in_seconds is None:
-                monitoring_interval_in_seconds = 60
-            __props__.__dict__["monitoring_interval_in_seconds"] = monitoring_interval_in_seconds
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__.__dict__["network_watcher_name"] = network_watcher_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if source is None and not opts.urn:
-                raise TypeError("Missing required property 'source'")
-            __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["auto_start"] = None
+            __props__.__dict__["destination"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["monitoring_interval_in_seconds"] = None
             __props__.__dict__["monitoring_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["source"] = None
             __props__.__dict__["start_time"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20171101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180401:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180601:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180701:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180801:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20181001:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20181101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20181201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190401:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190601:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190701:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190801:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190901:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20191101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20191201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200301:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200401:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200501:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200601:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200701:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200801:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20201101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20210201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20210301:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20210501:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20210801:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20220101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20220501:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20220701:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20220901:ConnectionMonitor")])

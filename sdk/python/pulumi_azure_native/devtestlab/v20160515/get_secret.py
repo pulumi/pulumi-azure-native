@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetSecretResult',
@@ -23,7 +24,7 @@ class GetSecretResult:
     """
     A secret.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, value=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -33,21 +34,15 @@ class GetSecretResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        pulumi.set(__self__, "unique_identifier", unique_identifier)
-        if value and not isinstance(value, str):
-            raise TypeError("Expected argument 'value' to be a str")
-        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -74,12 +69,12 @@ class GetSecretResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SecretPropertiesResponse':
         """
-        The provisioning status of the resource.
+        The properties of the resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -97,22 +92,6 @@ class GetSecretResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the secret for secret creation.
-        """
-        return pulumi.get(self, "value")
-
 
 class AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
@@ -123,11 +102,9 @@ class AwaitableGetSecretResult(GetSecretResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             tags=self.tags,
-            type=self.type,
-            unique_identifier=self.unique_identifier,
-            value=self.value)
+            type=self.type)
 
 
 def get_secret(expand: Optional[str] = None,
@@ -160,11 +137,9 @@ def get_secret(expand: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        value=__ret__.value)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_secret)

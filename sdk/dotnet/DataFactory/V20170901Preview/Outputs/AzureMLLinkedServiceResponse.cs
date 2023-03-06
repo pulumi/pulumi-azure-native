@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The API key for accessing the Azure ML model endpoint.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> ApiKey;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -33,77 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object MlEndpoint;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ServicePrincipalId;
-        /// <summary>
-        /// The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Tenant;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureML'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
+        /// Azure ML Web Service linked service properties.
         /// </summary>
-        public readonly object? UpdateResourceEndpoint;
+        public readonly Outputs.AzureMLLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureMLLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> apiKey,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
-            object mlEndpoint,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            object? servicePrincipalId,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
-
-            object? tenant,
 
             string type,
 
-            object? updateResourceEndpoint)
+            Outputs.AzureMLLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            ApiKey = apiKey;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            MlEndpoint = mlEndpoint;
             Parameters = parameters;
-            ServicePrincipalId = servicePrincipalId;
-            ServicePrincipalKey = servicePrincipalKey;
-            Tenant = tenant;
             Type = type;
-            UpdateResourceEndpoint = updateResourceEndpoint;
+            TypeProperties = typeProperties;
         }
     }
 }

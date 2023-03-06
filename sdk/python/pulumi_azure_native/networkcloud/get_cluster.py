@@ -19,85 +19,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, aggregator_or_single_rack_definition=None, analytics_workspace_id=None, available_upgrade_versions=None, cluster_capacity=None, cluster_connection_status=None, cluster_extended_location=None, cluster_location=None, cluster_manager_connection_status=None, cluster_manager_id=None, cluster_service_principal=None, cluster_type=None, cluster_version=None, compute_deployment_threshold=None, compute_rack_definitions=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_extended_location=None, id=None, location=None, managed_resource_group_configuration=None, manual_action_count=None, name=None, network_fabric_id=None, provisioning_state=None, support_expiry_date=None, system_data=None, tags=None, type=None, workload_resource_ids=None):
-        if aggregator_or_single_rack_definition and not isinstance(aggregator_or_single_rack_definition, dict):
-            raise TypeError("Expected argument 'aggregator_or_single_rack_definition' to be a dict")
-        pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
-        if analytics_workspace_id and not isinstance(analytics_workspace_id, str):
-            raise TypeError("Expected argument 'analytics_workspace_id' to be a str")
-        pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
-        if available_upgrade_versions and not isinstance(available_upgrade_versions, list):
-            raise TypeError("Expected argument 'available_upgrade_versions' to be a list")
-        pulumi.set(__self__, "available_upgrade_versions", available_upgrade_versions)
-        if cluster_capacity and not isinstance(cluster_capacity, dict):
-            raise TypeError("Expected argument 'cluster_capacity' to be a dict")
-        pulumi.set(__self__, "cluster_capacity", cluster_capacity)
-        if cluster_connection_status and not isinstance(cluster_connection_status, str):
-            raise TypeError("Expected argument 'cluster_connection_status' to be a str")
-        pulumi.set(__self__, "cluster_connection_status", cluster_connection_status)
-        if cluster_extended_location and not isinstance(cluster_extended_location, dict):
-            raise TypeError("Expected argument 'cluster_extended_location' to be a dict")
-        pulumi.set(__self__, "cluster_extended_location", cluster_extended_location)
-        if cluster_location and not isinstance(cluster_location, str):
-            raise TypeError("Expected argument 'cluster_location' to be a str")
-        pulumi.set(__self__, "cluster_location", cluster_location)
-        if cluster_manager_connection_status and not isinstance(cluster_manager_connection_status, str):
-            raise TypeError("Expected argument 'cluster_manager_connection_status' to be a str")
-        pulumi.set(__self__, "cluster_manager_connection_status", cluster_manager_connection_status)
-        if cluster_manager_id and not isinstance(cluster_manager_id, str):
-            raise TypeError("Expected argument 'cluster_manager_id' to be a str")
-        pulumi.set(__self__, "cluster_manager_id", cluster_manager_id)
-        if cluster_service_principal and not isinstance(cluster_service_principal, dict):
-            raise TypeError("Expected argument 'cluster_service_principal' to be a dict")
-        pulumi.set(__self__, "cluster_service_principal", cluster_service_principal)
-        if cluster_type and not isinstance(cluster_type, str):
-            raise TypeError("Expected argument 'cluster_type' to be a str")
-        pulumi.set(__self__, "cluster_type", cluster_type)
-        if cluster_version and not isinstance(cluster_version, str):
-            raise TypeError("Expected argument 'cluster_version' to be a str")
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        if compute_deployment_threshold and not isinstance(compute_deployment_threshold, dict):
-            raise TypeError("Expected argument 'compute_deployment_threshold' to be a dict")
-        pulumi.set(__self__, "compute_deployment_threshold", compute_deployment_threshold)
-        if compute_rack_definitions and not isinstance(compute_rack_definitions, list):
-            raise TypeError("Expected argument 'compute_rack_definitions' to be a list")
-        pulumi.set(__self__, "compute_rack_definitions", compute_rack_definitions)
-        if detailed_status and not isinstance(detailed_status, str):
-            raise TypeError("Expected argument 'detailed_status' to be a str")
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        if detailed_status_message and not isinstance(detailed_status_message, str):
-            raise TypeError("Expected argument 'detailed_status_message' to be a str")
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
-        if hybrid_aks_extended_location and not isinstance(hybrid_aks_extended_location, dict):
-            raise TypeError("Expected argument 'hybrid_aks_extended_location' to be a dict")
-        pulumi.set(__self__, "hybrid_aks_extended_location", hybrid_aks_extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if managed_resource_group_configuration and not isinstance(managed_resource_group_configuration, dict):
-            raise TypeError("Expected argument 'managed_resource_group_configuration' to be a dict")
-        pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
-        if manual_action_count and not isinstance(manual_action_count, float):
-            raise TypeError("Expected argument 'manual_action_count' to be a float")
-        pulumi.set(__self__, "manual_action_count", manual_action_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if network_fabric_id and not isinstance(network_fabric_id, str):
-            raise TypeError("Expected argument 'network_fabric_id' to be a str")
-        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if support_expiry_date and not isinstance(support_expiry_date, str):
-            raise TypeError("Expected argument 'support_expiry_date' to be a str")
-        pulumi.set(__self__, "support_expiry_date", support_expiry_date)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -107,127 +44,6 @@ class GetClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if workload_resource_ids and not isinstance(workload_resource_ids, list):
-            raise TypeError("Expected argument 'workload_resource_ids' to be a list")
-        pulumi.set(__self__, "workload_resource_ids", workload_resource_ids)
-
-    @property
-    @pulumi.getter(name="aggregatorOrSingleRackDefinition")
-    def aggregator_or_single_rack_definition(self) -> 'outputs.RackDefinitionResponse':
-        return pulumi.get(self, "aggregator_or_single_rack_definition")
-
-    @property
-    @pulumi.getter(name="analyticsWorkspaceId")
-    def analytics_workspace_id(self) -> str:
-        """
-        The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
-        """
-        return pulumi.get(self, "analytics_workspace_id")
-
-    @property
-    @pulumi.getter(name="availableUpgradeVersions")
-    def available_upgrade_versions(self) -> Sequence['outputs.ClusterAvailableUpgradeVersionResponse']:
-        """
-        The list of cluster runtime version upgrades available for this cluster.
-        """
-        return pulumi.get(self, "available_upgrade_versions")
-
-    @property
-    @pulumi.getter(name="clusterCapacity")
-    def cluster_capacity(self) -> Optional['outputs.ClusterCapacityResponse']:
-        return pulumi.get(self, "cluster_capacity")
-
-    @property
-    @pulumi.getter(name="clusterConnectionStatus")
-    def cluster_connection_status(self) -> str:
-        """
-        The latest heartbeat status between the cluster manager and the cluster.
-        """
-        return pulumi.get(self, "cluster_connection_status")
-
-    @property
-    @pulumi.getter(name="clusterExtendedLocation")
-    def cluster_extended_location(self) -> 'outputs.ExtendedLocationResponse':
-        """
-        The extended location (custom location) that represents the cluster's control plane location.
-        This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
-        """
-        return pulumi.get(self, "cluster_extended_location")
-
-    @property
-    @pulumi.getter(name="clusterLocation")
-    def cluster_location(self) -> Optional[str]:
-        """
-        The customer-provided location information to identify where the cluster resides.
-        """
-        return pulumi.get(self, "cluster_location")
-
-    @property
-    @pulumi.getter(name="clusterManagerConnectionStatus")
-    def cluster_manager_connection_status(self) -> str:
-        """
-        The latest connectivity status between cluster manager and the cluster.
-        """
-        return pulumi.get(self, "cluster_manager_connection_status")
-
-    @property
-    @pulumi.getter(name="clusterManagerId")
-    def cluster_manager_id(self) -> str:
-        """
-        The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
-        """
-        return pulumi.get(self, "cluster_manager_id")
-
-    @property
-    @pulumi.getter(name="clusterServicePrincipal")
-    def cluster_service_principal(self) -> Optional['outputs.ServicePrincipalInformationResponse']:
-        return pulumi.get(self, "cluster_service_principal")
-
-    @property
-    @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> str:
-        """
-        The type of rack configuration for the cluster.
-        """
-        return pulumi.get(self, "cluster_type")
-
-    @property
-    @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> str:
-        """
-        The current runtime version of the cluster.
-        """
-        return pulumi.get(self, "cluster_version")
-
-    @property
-    @pulumi.getter(name="computeDeploymentThreshold")
-    def compute_deployment_threshold(self) -> Optional['outputs.ValidationThresholdResponse']:
-        return pulumi.get(self, "compute_deployment_threshold")
-
-    @property
-    @pulumi.getter(name="computeRackDefinitions")
-    def compute_rack_definitions(self) -> Optional[Sequence['outputs.RackDefinitionResponse']]:
-        """
-        The list of rack definitions for the compute racks in a multi-rack
-        cluster, or an empty list in a single-rack cluster.
-        """
-        return pulumi.get(self, "compute_rack_definitions")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> str:
-        """
-        The current detailed status of the cluster.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> str:
-        """
-        The descriptive message about the detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -236,15 +52,6 @@ class GetClusterResult:
         The extended location of the cluster manager associated with the cluster.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="hybridAksExtendedLocation")
-    def hybrid_aks_extended_location(self) -> 'outputs.ExtendedLocationResponse':
-        """
-        The extended location (custom location) that represents the Hybrid AKS control plane location.
-        This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
-        """
-        return pulumi.get(self, "hybrid_aks_extended_location")
 
     @property
     @pulumi.getter
@@ -263,22 +70,6 @@ class GetClusterResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedResourceGroupConfigurationResponse']:
-        """
-        The configuration of the managed resource group associated with the resource.
-        """
-        return pulumi.get(self, "managed_resource_group_configuration")
-
-    @property
-    @pulumi.getter(name="manualActionCount")
-    def manual_action_count(self) -> float:
-        """
-        The count of Manual Action Taken (MAT) events that have not been validated.
-        """
-        return pulumi.get(self, "manual_action_count")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -287,28 +78,12 @@ class GetClusterResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkFabricId")
-    def network_fabric_id(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ClusterPropertiesResponse':
         """
-        The resource ID of the Network Fabric associated with the cluster.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "network_fabric_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the cluster.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="supportExpiryDate")
-    def support_expiry_date(self) -> str:
-        """
-        The support end date of the runtime version of the cluster.
-        """
-        return pulumi.get(self, "support_expiry_date")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -334,14 +109,6 @@ class GetClusterResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="workloadResourceIds")
-    def workload_resource_ids(self) -> Sequence[str]:
-        """
-        The list of workload resource IDs that are hosted within this cluster.
-        """
-        return pulumi.get(self, "workload_resource_ids")
-
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -349,36 +116,14 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
-            aggregator_or_single_rack_definition=self.aggregator_or_single_rack_definition,
-            analytics_workspace_id=self.analytics_workspace_id,
-            available_upgrade_versions=self.available_upgrade_versions,
-            cluster_capacity=self.cluster_capacity,
-            cluster_connection_status=self.cluster_connection_status,
-            cluster_extended_location=self.cluster_extended_location,
-            cluster_location=self.cluster_location,
-            cluster_manager_connection_status=self.cluster_manager_connection_status,
-            cluster_manager_id=self.cluster_manager_id,
-            cluster_service_principal=self.cluster_service_principal,
-            cluster_type=self.cluster_type,
-            cluster_version=self.cluster_version,
-            compute_deployment_threshold=self.compute_deployment_threshold,
-            compute_rack_definitions=self.compute_rack_definitions,
-            detailed_status=self.detailed_status,
-            detailed_status_message=self.detailed_status_message,
             extended_location=self.extended_location,
-            hybrid_aks_extended_location=self.hybrid_aks_extended_location,
             id=self.id,
             location=self.location,
-            managed_resource_group_configuration=self.managed_resource_group_configuration,
-            manual_action_count=self.manual_action_count,
             name=self.name,
-            network_fabric_id=self.network_fabric_id,
-            provisioning_state=self.provisioning_state,
-            support_expiry_date=self.support_expiry_date,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            workload_resource_ids=self.workload_resource_ids)
+            type=self.type)
 
 
 def get_cluster(cluster_name: Optional[str] = None,
@@ -399,36 +144,14 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        aggregator_or_single_rack_definition=__ret__.aggregator_or_single_rack_definition,
-        analytics_workspace_id=__ret__.analytics_workspace_id,
-        available_upgrade_versions=__ret__.available_upgrade_versions,
-        cluster_capacity=__ret__.cluster_capacity,
-        cluster_connection_status=__ret__.cluster_connection_status,
-        cluster_extended_location=__ret__.cluster_extended_location,
-        cluster_location=__ret__.cluster_location,
-        cluster_manager_connection_status=__ret__.cluster_manager_connection_status,
-        cluster_manager_id=__ret__.cluster_manager_id,
-        cluster_service_principal=__ret__.cluster_service_principal,
-        cluster_type=__ret__.cluster_type,
-        cluster_version=__ret__.cluster_version,
-        compute_deployment_threshold=__ret__.compute_deployment_threshold,
-        compute_rack_definitions=__ret__.compute_rack_definitions,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
         extended_location=__ret__.extended_location,
-        hybrid_aks_extended_location=__ret__.hybrid_aks_extended_location,
         id=__ret__.id,
         location=__ret__.location,
-        managed_resource_group_configuration=__ret__.managed_resource_group_configuration,
-        manual_action_count=__ret__.manual_action_count,
         name=__ret__.name,
-        network_fabric_id=__ret__.network_fabric_id,
-        provisioning_state=__ret__.provisioning_state,
-        support_expiry_date=__ret__.support_expiry_date,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        workload_resource_ids=__ret__.workload_resource_ids)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_cluster)

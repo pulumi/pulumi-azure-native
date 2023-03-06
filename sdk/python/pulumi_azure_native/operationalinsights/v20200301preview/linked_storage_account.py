@@ -8,29 +8,42 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LinkedStorageAccountArgs', 'LinkedStorageAccount']
 
 @pulumi.input_type
 class LinkedStorageAccountArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['LinkedStorageAccountsPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 data_source_type: Optional[pulumi.Input[str]] = None,
-                 storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 data_source_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinkedStorageAccount resource.
+        :param pulumi.Input['LinkedStorageAccountsPropertiesArgs'] properties: Linked storage accounts properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if data_source_type is not None:
             pulumi.set(__self__, "data_source_type", data_source_type)
-        if storage_account_ids is not None:
-            pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LinkedStorageAccountsPropertiesArgs']:
+        """
+        Linked storage accounts properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LinkedStorageAccountsPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -68,18 +81,6 @@ class LinkedStorageAccountArgs:
     def data_source_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_source_type", value)
 
-    @property
-    @pulumi.getter(name="storageAccountIds")
-    def storage_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Linked storage accounts resources ids.
-        """
-        return pulumi.get(self, "storage_account_ids")
-
-    @storage_account_ids.setter
-    def storage_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "storage_account_ids", value)
-
 
 class LinkedStorageAccount(pulumi.CustomResource):
     @overload
@@ -87,8 +88,8 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_source_type: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedStorageAccountsPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -97,8 +98,8 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.
+        :param pulumi.Input[pulumi.InputType['LinkedStorageAccountsPropertiesArgs']] properties: Linked storage accounts properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -126,8 +127,8 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_source_type: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedStorageAccountsPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -139,10 +140,12 @@ class LinkedStorageAccount(pulumi.CustomResource):
             __props__ = LinkedStorageAccountArgs.__new__(LinkedStorageAccountArgs)
 
             __props__.__dict__["data_source_type"] = data_source_type
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["storage_account_ids"] = storage_account_ids
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
@@ -172,19 +175,10 @@ class LinkedStorageAccount(pulumi.CustomResource):
 
         __props__ = LinkedStorageAccountArgs.__new__(LinkedStorageAccountArgs)
 
-        __props__.__dict__["data_source_type"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["storage_account_ids"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return LinkedStorageAccount(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSourceType")
-    def data_source_type(self) -> pulumi.Output[str]:
-        """
-        Linked storage accounts type.
-        """
-        return pulumi.get(self, "data_source_type")
 
     @property
     @pulumi.getter
@@ -195,12 +189,12 @@ class LinkedStorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="storageAccountIds")
-    def storage_account_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.LinkedStorageAccountsPropertiesResponse']:
         """
-        Linked storage accounts resources ids.
+        Linked storage accounts properties.
         """
-        return pulumi.get(self, "storage_account_ids")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'ApplicationAuthorizationArgs',
     'ApplicationDefinitionArtifactArgs',
+    'ApplicationDefinitionPropertiesArgs',
     'ApplicationDeploymentPolicyArgs',
     'ApplicationJitAccessPolicyArgs',
     'ApplicationManagementPolicyArgs',
@@ -20,6 +21,7 @@ __all__ = [
     'ApplicationNotificationPolicyArgs',
     'ApplicationPackageLockingPolicyDefinitionArgs',
     'ApplicationPolicyArgs',
+    'ApplicationPropertiesArgs',
     'IdentityArgs',
     'JitApproverDefinitionArgs',
     'JitAuthorizationPoliciesArgs',
@@ -117,6 +119,253 @@ class ApplicationDefinitionArtifactArgs:
     @uri.setter
     def uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class ApplicationDefinitionPropertiesArgs:
+    def __init__(__self__, *,
+                 lock_level: pulumi.Input['ApplicationLockLevel'],
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]] = None,
+                 create_ui_definition: Optional[Any] = None,
+                 deployment_policy: Optional[pulumi.Input['ApplicationDeploymentPolicyArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 locking_policy: Optional[pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs']] = None,
+                 main_template: Optional[Any] = None,
+                 management_policy: Optional[pulumi.Input['ApplicationManagementPolicyArgs']] = None,
+                 notification_policy: Optional[pulumi.Input['ApplicationNotificationPolicyArgs']] = None,
+                 package_file_uri: Optional[pulumi.Input[str]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        The managed application definition properties.
+        :param pulumi.Input['ApplicationLockLevel'] lock_level: The managed application lock level.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]] authorizations: The managed application provider authorizations.
+        :param Any create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        :param pulumi.Input['ApplicationDeploymentPolicyArgs'] deployment_policy: The managed application deployment policy.
+        :param pulumi.Input[str] description: The managed application definition description.
+        :param pulumi.Input[str] display_name: The managed application definition display name.
+        :param pulumi.Input[bool] is_enabled: A value indicating whether the package is enabled or not.
+        :param pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs'] locking_policy: The managed application locking policy.
+        :param Any main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        :param pulumi.Input['ApplicationManagementPolicyArgs'] management_policy: The managed application management policy that determines publisher's access to the managed resource group.
+        :param pulumi.Input['ApplicationNotificationPolicyArgs'] notification_policy: The managed application notification policy.
+        :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]] policies: The managed application provider policies.
+        :param pulumi.Input[str] storage_account_id: The storage account id for bring your own storage scenario.
+        """
+        pulumi.set(__self__, "lock_level", lock_level)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if authorizations is not None:
+            pulumi.set(__self__, "authorizations", authorizations)
+        if create_ui_definition is not None:
+            pulumi.set(__self__, "create_ui_definition", create_ui_definition)
+        if deployment_policy is not None:
+            pulumi.set(__self__, "deployment_policy", deployment_policy)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if locking_policy is not None:
+            pulumi.set(__self__, "locking_policy", locking_policy)
+        if main_template is not None:
+            pulumi.set(__self__, "main_template", main_template)
+        if management_policy is not None:
+            pulumi.set(__self__, "management_policy", management_policy)
+        if notification_policy is not None:
+            pulumi.set(__self__, "notification_policy", notification_policy)
+        if package_file_uri is not None:
+            pulumi.set(__self__, "package_file_uri", package_file_uri)
+        if policies is not None:
+            pulumi.set(__self__, "policies", policies)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="lockLevel")
+    def lock_level(self) -> pulumi.Input['ApplicationLockLevel']:
+        """
+        The managed application lock level.
+        """
+        return pulumi.get(self, "lock_level")
+
+    @lock_level.setter
+    def lock_level(self, value: pulumi.Input['ApplicationLockLevel']):
+        pulumi.set(self, "lock_level", value)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]]:
+        """
+        The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]]:
+        """
+        The managed application provider authorizations.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @authorizations.setter
+    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]]):
+        pulumi.set(self, "authorizations", value)
+
+    @property
+    @pulumi.getter(name="createUiDefinition")
+    def create_ui_definition(self) -> Optional[Any]:
+        """
+        The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        """
+        return pulumi.get(self, "create_ui_definition")
+
+    @create_ui_definition.setter
+    def create_ui_definition(self, value: Optional[Any]):
+        pulumi.set(self, "create_ui_definition", value)
+
+    @property
+    @pulumi.getter(name="deploymentPolicy")
+    def deployment_policy(self) -> Optional[pulumi.Input['ApplicationDeploymentPolicyArgs']]:
+        """
+        The managed application deployment policy.
+        """
+        return pulumi.get(self, "deployment_policy")
+
+    @deployment_policy.setter
+    def deployment_policy(self, value: Optional[pulumi.Input['ApplicationDeploymentPolicyArgs']]):
+        pulumi.set(self, "deployment_policy", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed application definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed application definition display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether the package is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="lockingPolicy")
+    def locking_policy(self) -> Optional[pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs']]:
+        """
+        The managed application locking policy.
+        """
+        return pulumi.get(self, "locking_policy")
+
+    @locking_policy.setter
+    def locking_policy(self, value: Optional[pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs']]):
+        pulumi.set(self, "locking_policy", value)
+
+    @property
+    @pulumi.getter(name="mainTemplate")
+    def main_template(self) -> Optional[Any]:
+        """
+        The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        """
+        return pulumi.get(self, "main_template")
+
+    @main_template.setter
+    def main_template(self, value: Optional[Any]):
+        pulumi.set(self, "main_template", value)
+
+    @property
+    @pulumi.getter(name="managementPolicy")
+    def management_policy(self) -> Optional[pulumi.Input['ApplicationManagementPolicyArgs']]:
+        """
+        The managed application management policy that determines publisher's access to the managed resource group.
+        """
+        return pulumi.get(self, "management_policy")
+
+    @management_policy.setter
+    def management_policy(self, value: Optional[pulumi.Input['ApplicationManagementPolicyArgs']]):
+        pulumi.set(self, "management_policy", value)
+
+    @property
+    @pulumi.getter(name="notificationPolicy")
+    def notification_policy(self) -> Optional[pulumi.Input['ApplicationNotificationPolicyArgs']]:
+        """
+        The managed application notification policy.
+        """
+        return pulumi.get(self, "notification_policy")
+
+    @notification_policy.setter
+    def notification_policy(self, value: Optional[pulumi.Input['ApplicationNotificationPolicyArgs']]):
+        pulumi.set(self, "notification_policy", value)
+
+    @property
+    @pulumi.getter(name="packageFileUri")
+    def package_file_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed application definition package file Uri. Use this element
+        """
+        return pulumi.get(self, "package_file_uri")
+
+    @package_file_uri.setter
+    def package_file_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_file_uri", value)
+
+    @property
+    @pulumi.getter
+    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]]:
+        """
+        The managed application provider policies.
+        """
+        return pulumi.get(self, "policies")
+
+    @policies.setter
+    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]]):
+        pulumi.set(self, "policies", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage account id for bring your own storage scenario.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
 
 
 @pulumi.input_type
@@ -377,6 +626,78 @@ class ApplicationPolicyArgs:
     @policy_definition_id.setter
     def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_id", value)
+
+
+@pulumi.input_type
+class ApplicationPropertiesArgs:
+    def __init__(__self__, *,
+                 application_definition_id: Optional[pulumi.Input[str]] = None,
+                 jit_access_policy: Optional[pulumi.Input['ApplicationJitAccessPolicyArgs']] = None,
+                 managed_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[Any] = None):
+        """
+        The managed application properties.
+        :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
+        :param pulumi.Input['ApplicationJitAccessPolicyArgs'] jit_access_policy: The managed application Jit access policy.
+        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
+        :param Any parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        """
+        if application_definition_id is not None:
+            pulumi.set(__self__, "application_definition_id", application_definition_id)
+        if jit_access_policy is not None:
+            pulumi.set(__self__, "jit_access_policy", jit_access_policy)
+        if managed_resource_group_id is not None:
+            pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="applicationDefinitionId")
+    def application_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified path of managed application definition Id.
+        """
+        return pulumi.get(self, "application_definition_id")
+
+    @application_definition_id.setter
+    def application_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_definition_id", value)
+
+    @property
+    @pulumi.getter(name="jitAccessPolicy")
+    def jit_access_policy(self) -> Optional[pulumi.Input['ApplicationJitAccessPolicyArgs']]:
+        """
+        The managed application Jit access policy.
+        """
+        return pulumi.get(self, "jit_access_policy")
+
+    @jit_access_policy.setter
+    def jit_access_policy(self, value: Optional[pulumi.Input['ApplicationJitAccessPolicyArgs']]):
+        pulumi.set(self, "jit_access_policy", value)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupId")
+    def managed_resource_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed resource group Id.
+        """
+        return pulumi.get(self, "managed_resource_group_id")
+
+    @managed_resource_group_id.setter
+    def managed_resource_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_group_id", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type

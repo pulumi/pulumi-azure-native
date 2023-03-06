@@ -16,52 +16,10 @@ namespace Pulumi.AzureNative.NetworkCloud
     public partial class TrunkedNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID of the Network Cloud cluster this trunked network is associated with.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the trunked network.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
-        /// </summary>
-        [Output("hybridAksClustersAssociatedIds")]
-        public Output<ImmutableArray<string>> HybridAksClustersAssociatedIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The network plugin type for Hybrid AKS.
-        /// </summary>
-        [Output("hybridAksPluginType")]
-        public Output<string?> HybridAksPluginType { get; private set; } = null!;
-
-        /// <summary>
-        /// The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        /// </summary>
-        [Output("interfaceName")]
-        public Output<string?> InterfaceName { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
-        /// </summary>
-        [Output("isolationDomainIds")]
-        public Output<ImmutableArray<string>> IsolationDomainIds { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -76,10 +34,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the trunked network.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.TrunkedNetworkPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -98,18 +56,6 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
-        /// </summary>
-        [Output("virtualMachinesAssociatedIds")]
-        public Output<ImmutableArray<string>> VirtualMachinesAssociatedIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of vlans that are selected from the isolation domains for trunking.
-        /// </summary>
-        [Output("vlans")]
-        public Output<ImmutableArray<double>> Vlans { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,34 +113,16 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
-        /// The network plugin type for Hybrid AKS.
-        /// </summary>
-        [Input("hybridAksPluginType")]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.HybridAksPluginType>? HybridAksPluginType { get; set; }
-
-        /// <summary>
-        /// The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        /// </summary>
-        [Input("interfaceName")]
-        public Input<string>? InterfaceName { get; set; }
-
-        [Input("isolationDomainIds", required: true)]
-        private InputList<string>? _isolationDomainIds;
-
-        /// <summary>
-        /// The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
-        /// </summary>
-        public InputList<string> IsolationDomainIds
-        {
-            get => _isolationDomainIds ?? (_isolationDomainIds = new InputList<string>());
-            set => _isolationDomainIds = value;
-        }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The list of the resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.TrunkedNetworkPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -220,21 +148,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("trunkedNetworkName")]
         public Input<string>? TrunkedNetworkName { get; set; }
 
-        [Input("vlans", required: true)]
-        private InputList<double>? _vlans;
-
-        /// <summary>
-        /// The list of vlans that are selected from the isolation domains for trunking.
-        /// </summary>
-        public InputList<double> Vlans
-        {
-            get => _vlans ?? (_vlans = new InputList<double>());
-            set => _vlans = value;
-        }
-
         public TrunkedNetworkArgs()
         {
-            HybridAksPluginType = "SRIOV";
         }
         public static new TrunkedNetworkArgs Empty => new TrunkedNetworkArgs();
     }

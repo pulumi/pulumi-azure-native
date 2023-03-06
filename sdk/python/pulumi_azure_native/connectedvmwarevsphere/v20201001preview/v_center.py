@@ -16,39 +16,31 @@ __all__ = ['VCenterArgs', 'VCenter']
 @pulumi.input_type
 class VCenterArgs:
     def __init__(__self__, *,
-                 fqdn: pulumi.Input[str],
+                 properties: pulumi.Input['VCenterPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 credentials: Optional[pulumi.Input['VICredentialArgs']] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vcenter_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VCenter resource.
-        :param pulumi.Input[str] fqdn: Gets or sets the FQDN/IPAddress of the vCenter.
+        :param pulumi.Input['VCenterPropertiesArgs'] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
-        :param pulumi.Input['VICredentialArgs'] credentials: Username / Password Credentials to connect to vcenter.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[int] port: Gets or sets the port of the vCenter.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[str] vcenter_name: Name of the vCenter.
         """
-        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vcenter_name is not None:
@@ -56,15 +48,15 @@ class VCenterArgs:
 
     @property
     @pulumi.getter
-    def fqdn(self) -> pulumi.Input[str]:
+    def properties(self) -> pulumi.Input['VCenterPropertiesArgs']:
         """
-        Gets or sets the FQDN/IPAddress of the vCenter.
+        Resource properties.
         """
-        return pulumi.get(self, "fqdn")
+        return pulumi.get(self, "properties")
 
-    @fqdn.setter
-    def fqdn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "fqdn", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['VCenterPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -77,18 +69,6 @@ class VCenterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['VICredentialArgs']]:
-        """
-        Username / Password Credentials to connect to vcenter.
-        """
-        return pulumi.get(self, "credentials")
-
-    @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['VICredentialArgs']]):
-        pulumi.set(self, "credentials", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -128,18 +108,6 @@ class VCenterArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Gets or sets the port of the vCenter.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Gets or sets the Resource tags.
@@ -168,12 +136,10 @@ class VCenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['VICredentialArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 fqdn: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VCenterPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vcenter_name: Optional[pulumi.Input[str]] = None,
@@ -183,12 +149,10 @@ class VCenter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VICredentialArgs']] credentials: Username / Password Credentials to connect to vcenter.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
-        :param pulumi.Input[str] fqdn: Gets or sets the FQDN/IPAddress of the vCenter.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[int] port: Gets or sets the port of the vCenter.
+        :param pulumi.Input[pulumi.InputType['VCenterPropertiesArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[str] vcenter_name: Name of the vCenter.
@@ -217,12 +181,10 @@ class VCenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['VICredentialArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 fqdn: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VCenterPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vcenter_name: Optional[pulumi.Input[str]] = None,
@@ -235,29 +197,20 @@ class VCenter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VCenterArgs.__new__(VCenterArgs)
 
-            __props__.__dict__["credentials"] = credentials
             __props__.__dict__["extended_location"] = extended_location
-            if fqdn is None and not opts.urn:
-                raise TypeError("Missing required property 'fqdn'")
-            __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            __props__.__dict__["port"] = port
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vcenter_name"] = vcenter_name
-            __props__.__dict__["connection_status"] = None
-            __props__.__dict__["custom_resource_name"] = None
-            __props__.__dict__["instance_uuid"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["uuid"] = None
-            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:VCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VCenter, __self__).__init__(
@@ -282,48 +235,15 @@ class VCenter(pulumi.CustomResource):
 
         __props__ = VCenterArgs.__new__(VCenterArgs)
 
-        __props__.__dict__["connection_status"] = None
-        __props__.__dict__["credentials"] = None
-        __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["extended_location"] = None
-        __props__.__dict__["fqdn"] = None
-        __props__.__dict__["instance_uuid"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["port"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["statuses"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["uuid"] = None
-        __props__.__dict__["version"] = None
         return VCenter(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="connectionStatus")
-    def connection_status(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the connection status to the vCenter.
-        """
-        return pulumi.get(self, "connection_status")
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> pulumi.Output[Optional['outputs.VICredentialResponse']]:
-        """
-        Username / Password Credentials to connect to vcenter.
-        """
-        return pulumi.get(self, "credentials")
-
-    @property
-    @pulumi.getter(name="customResourceName")
-    def custom_resource_name(self) -> pulumi.Output[str]:
-        """
-        Gets the name of the corresponding resource in Kubernetes.
-        """
-        return pulumi.get(self, "custom_resource_name")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -332,22 +252,6 @@ class VCenter(pulumi.CustomResource):
         Gets or sets the extended location.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter
-    def fqdn(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the FQDN/IPAddress of the vCenter.
-        """
-        return pulumi.get(self, "fqdn")
-
-    @property
-    @pulumi.getter(name="instanceUuid")
-    def instance_uuid(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the instance UUID of the vCenter.
-        """
-        return pulumi.get(self, "instance_uuid")
 
     @property
     @pulumi.getter
@@ -375,27 +279,11 @@ class VCenter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[int]]:
+    def properties(self) -> pulumi.Output['outputs.VCenterPropertiesResponse']:
         """
-        Gets or sets the port of the vCenter.
+        Resource properties.
         """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def statuses(self) -> pulumi.Output[Sequence['outputs.ResourceStatusResponse']]:
-        """
-        The resource status information.
-        """
-        return pulumi.get(self, "statuses")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -420,20 +308,4 @@ class VCenter(pulumi.CustomResource):
         Gets or sets the type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
-        """
-        Gets or sets a unique identifier for this resource.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the version of the vCenter.
-        """
-        return pulumi.get(self, "version")
 

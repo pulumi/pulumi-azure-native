@@ -14,9 +14,12 @@ __all__ = [
     'ClusterDesiredPropertiesArgs',
     'ExtendedLocationArgs',
     'GalleryImageIdentifierArgs',
+    'GalleryImageVersionStorageProfileArgs',
     'GalleryImageVersionArgs',
+    'GuestAgentPropertiesArgs',
     'GuestCredentialArgs',
     'HttpProxyConfigurationArgs',
+    'HybridIdentityMetadataPropertiesArgs',
     'IPPoolArgs',
     'IdentityArgs',
     'InterfaceDNSSettingsArgs',
@@ -181,15 +184,39 @@ class GalleryImageIdentifierArgs:
 
 
 @pulumi.input_type
+class GalleryImageVersionStorageProfileArgs:
+    def __init__(__self__):
+        """
+        This is the storage profile of a Gallery Image Version.
+        """
+        pass
+
+
+@pulumi.input_type
 class GalleryImageVersionArgs:
     def __init__(__self__, *,
+                 storage_profile: pulumi.Input['GalleryImageVersionStorageProfileArgs'],
                  name: Optional[pulumi.Input[str]] = None):
         """
         Specifies information about the gallery image version that you want to create or update.
+        :param pulumi.Input['GalleryImageVersionStorageProfileArgs'] storage_profile: This is the storage profile of a Gallery Image Version.
         :param pulumi.Input[str] name: This is the version of the gallery image.
         """
+        pulumi.set(__self__, "storage_profile", storage_profile)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> pulumi.Input['GalleryImageVersionStorageProfileArgs']:
+        """
+        This is the storage profile of a Gallery Image Version.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: pulumi.Input['GalleryImageVersionStorageProfileArgs']):
+        pulumi.set(self, "storage_profile", value)
 
     @property
     @pulumi.getter
@@ -202,6 +229,62 @@ class GalleryImageVersionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class GuestAgentPropertiesArgs:
+    def __init__(__self__, *,
+                 credentials: Optional[pulumi.Input['GuestCredentialArgs']] = None,
+                 http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
+                 provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input['GuestCredentialArgs'] credentials: Username / Password Credentials to provision guest agent.
+        :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
+        :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: The guest agent provisioning action.
+        """
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if http_proxy_config is not None:
+            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+        if provisioning_action is not None:
+            pulumi.set(__self__, "provisioning_action", provisioning_action)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['GuestCredentialArgs']]:
+        """
+        Username / Password Credentials to provision guest agent.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['GuestCredentialArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional[pulumi.Input['HttpProxyConfigurationArgs']]:
+        """
+        HTTP Proxy configuration for the VM.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @http_proxy_config.setter
+    def http_proxy_config(self, value: Optional[pulumi.Input['HttpProxyConfigurationArgs']]):
+        pulumi.set(self, "http_proxy_config", value)
+
+    @property
+    @pulumi.getter(name="provisioningAction")
+    def provisioning_action(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningAction']]]:
+        """
+        The guest agent provisioning action.
+        """
+        return pulumi.get(self, "provisioning_action")
+
+    @provisioning_action.setter
+    def provisioning_action(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]]):
+        pulumi.set(self, "provisioning_action", value)
 
 
 @pulumi.input_type
@@ -266,6 +349,46 @@ class HttpProxyConfigurationArgs:
     @https_proxy.setter
     def https_proxy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "https_proxy", value)
+
+
+@pulumi.input_type
+class HybridIdentityMetadataPropertiesArgs:
+    def __init__(__self__, *,
+                 public_key: Optional[pulumi.Input[str]] = None,
+                 resource_uid: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] public_key: The Public Key.
+        :param pulumi.Input[str] resource_uid: The unique identifier for the resource.
+        """
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if resource_uid is not None:
+            pulumi.set(__self__, "resource_uid", resource_uid)
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Public Key.
+        """
+        return pulumi.get(self, "public_key")
+
+    @public_key.setter
+    def public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key", value)
+
+    @property
+    @pulumi.getter(name="resourceUid")
+    def resource_uid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier for the resource.
+        """
+        return pulumi.get(self, "resource_uid")
+
+    @resource_uid.setter
+    def resource_uid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_uid", value)
 
 
 @pulumi.input_type

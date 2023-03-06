@@ -38,41 +38,17 @@ export class AlertRule extends pulumi.CustomResource {
     }
 
     /**
-     * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    public readonly action!: pulumi.Output<outputs.insights.v20160301.RuleEmailActionResponse | outputs.insights.v20160301.RuleWebhookActionResponse | undefined>;
-    /**
-     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    public readonly actions!: pulumi.Output<(outputs.insights.v20160301.RuleEmailActionResponse | outputs.insights.v20160301.RuleWebhookActionResponse)[] | undefined>;
-    /**
-     * the condition that results in the alert rule being activated.
-     */
-    public readonly condition!: pulumi.Output<outputs.insights.v20160301.LocationThresholdRuleConditionResponse | outputs.insights.v20160301.ManagementEventRuleConditionResponse | outputs.insights.v20160301.ThresholdRuleConditionResponse>;
-    /**
-     * the description of the alert rule that will be included in the alert email.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * the flag that indicates whether the alert rule is enabled.
-     */
-    public readonly isEnabled!: pulumi.Output<boolean>;
-    /**
-     * Last time the rule was updated in ISO8601 format.
-     */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * the provisioning state.
+     * The alert rule properties of the resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.insights.v20160301.AlertRuleResponse>;
     /**
      * Resource tags
      */
@@ -93,41 +69,23 @@ export class AlertRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.condition === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'condition'");
-            }
-            if ((!args || args.isEnabled === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'isEnabled'");
-            }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["action"] = undefined /*out*/;
-            resourceInputs["actions"] = undefined /*out*/;
-            resourceInputs["condition"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["isEnabled"] = undefined /*out*/;
-            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -143,37 +101,13 @@ export class AlertRule extends pulumi.CustomResource {
  */
 export interface AlertRuleArgs {
     /**
-     * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    action?: pulumi.Input<inputs.insights.v20160301.RuleEmailActionArgs | inputs.insights.v20160301.RuleWebhookActionArgs>;
-    /**
-     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    actions?: pulumi.Input<pulumi.Input<inputs.insights.v20160301.RuleEmailActionArgs | inputs.insights.v20160301.RuleWebhookActionArgs>[]>;
-    /**
-     * the condition that results in the alert rule being activated.
-     */
-    condition: pulumi.Input<inputs.insights.v20160301.LocationThresholdRuleConditionArgs | inputs.insights.v20160301.ManagementEventRuleConditionArgs | inputs.insights.v20160301.ThresholdRuleConditionArgs>;
-    /**
-     * the description of the alert rule that will be included in the alert email.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * the flag that indicates whether the alert rule is enabled.
-     */
-    isEnabled: pulumi.Input<boolean>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
     /**
-     * the name of the alert rule.
+     * The alert rule properties of the resource.
      */
-    name: pulumi.Input<string>;
-    /**
-     * the provisioning state.
-     */
-    provisioningState?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.insights.v20160301.AlertRuleArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

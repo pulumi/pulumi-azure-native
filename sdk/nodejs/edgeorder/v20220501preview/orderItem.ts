@@ -38,10 +38,6 @@ export class OrderItem extends pulumi.CustomResource {
     }
 
     /**
-     * Represents shipping and return address for order item.
-     */
-    public readonly addressDetails!: pulumi.Output<outputs.edgeorder.v20220501preview.AddressDetailsResponse>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -50,17 +46,9 @@ export class OrderItem extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Id of the order to which order item belongs to.
+     * Order item properties.
      */
-    public readonly orderId!: pulumi.Output<string>;
-    /**
-     * Represents order item details.
-     */
-    public readonly orderItemDetails!: pulumi.Output<outputs.edgeorder.v20220501preview.OrderItemDetailsResponse>;
-    /**
-     * Start time of order item.
-     */
-    public /*out*/ readonly startTime!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.edgeorder.v20220501preview.OrderItemPropertiesResponse>;
     /**
      * Represents resource creation and update time.
      */
@@ -85,36 +73,24 @@ export class OrderItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addressDetails'");
-            }
-            if ((!args || args.orderId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'orderId'");
-            }
-            if ((!args || args.orderItemDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'orderItemDetails'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressDetails"] = args ? args.addressDetails : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["orderId"] = args ? args.orderId : undefined;
-            resourceInputs["orderItemDetails"] = args ? args.orderItemDetails : undefined;
             resourceInputs["orderItemName"] = args ? args.orderItemName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["addressDetails"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["orderId"] = undefined /*out*/;
-            resourceInputs["orderItemDetails"] = undefined /*out*/;
-            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -131,25 +107,17 @@ export class OrderItem extends pulumi.CustomResource {
  */
 export interface OrderItemArgs {
     /**
-     * Represents shipping and return address for order item.
-     */
-    addressDetails: pulumi.Input<inputs.edgeorder.v20220501preview.AddressDetailsArgs>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Id of the order to which order item belongs to.
-     */
-    orderId: pulumi.Input<string>;
-    /**
-     * Represents order item details.
-     */
-    orderItemDetails: pulumi.Input<inputs.edgeorder.v20220501preview.OrderItemDetailsArgs>;
-    /**
      * The name of the order item.
      */
     orderItemName?: pulumi.Input<string>;
+    /**
+     * Order item properties.
+     */
+    properties: pulumi.Input<inputs.edgeorder.v20220501preview.OrderItemPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

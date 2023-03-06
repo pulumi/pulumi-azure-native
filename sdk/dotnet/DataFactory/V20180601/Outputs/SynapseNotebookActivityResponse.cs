@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class SynapseNotebookActivityResponse
     {
         /// <summary>
-        /// Spark configuration properties, which will override the 'conf' of the notebook you provide.
-        /// </summary>
-        public readonly object? Conf;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -28,14 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? DriverSize;
-        /// <summary>
-        /// Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ExecutorSize;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -45,30 +33,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Synapse notebook reference.
-        /// </summary>
-        public readonly Outputs.SynapseNotebookReferenceResponse Notebook;
-        /// <summary>
-        /// Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
-        /// </summary>
-        public readonly int? NumExecutors;
-        /// <summary>
-        /// Notebook parameters.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.NotebookParameterResponse>? Parameters;
-        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
-        /// <summary>
-        /// The name of the big data pool which will be used to execute the notebook.
-        /// </summary>
-        public readonly Outputs.BigDataPoolParametrizationReferenceResponse? SparkPool;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'SynapseNotebook'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Execute Synapse notebook activity properties.
+        /// </summary>
+        public readonly Outputs.SynapseNotebookActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -76,47 +52,29 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private SynapseNotebookActivityResponse(
-            object? conf,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            object? driverSize,
-
-            object? executorSize,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
             string name,
 
-            Outputs.SynapseNotebookReferenceResponse notebook,
-
-            int? numExecutors,
-
-            ImmutableDictionary<string, Outputs.NotebookParameterResponse>? parameters,
-
             Outputs.ActivityPolicyResponse? policy,
-
-            Outputs.BigDataPoolParametrizationReferenceResponse? sparkPool,
 
             string type,
 
+            Outputs.SynapseNotebookActivityTypePropertiesResponse typeProperties,
+
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Conf = conf;
             DependsOn = dependsOn;
             Description = description;
-            DriverSize = driverSize;
-            ExecutorSize = executorSize;
             LinkedServiceName = linkedServiceName;
             Name = name;
-            Notebook = notebook;
-            NumExecutors = numExecutors;
-            Parameters = parameters;
             Policy = policy;
-            SparkPool = sparkPool;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

@@ -41,25 +41,13 @@ export class BandwidthSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * The days of the week when this schedule is applicable.
-     */
-    public readonly days!: pulumi.Output<string[]>;
-    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The bandwidth rate in Mbps.
+     * The properties of the bandwidth schedule.
      */
-    public readonly rateInMbps!: pulumi.Output<number>;
-    /**
-     * The start time of the schedule in UTC.
-     */
-    public readonly start!: pulumi.Output<string>;
-    /**
-     * The stop time of the schedule in UTC.
-     */
-    public readonly stop!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.databoxedge.v20200901.BandwidthSchedulePropertiesResponse>;
     /**
      * Bandwidth object related to ASE resource
      */
@@ -82,39 +70,24 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.days === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'days'");
-            }
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.rateInMbps === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rateInMbps'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.start === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'start'");
-            }
-            if ((!args || args.stop === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'stop'");
-            }
-            resourceInputs["days"] = args ? args.days : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rateInMbps"] = args ? args.rateInMbps : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["start"] = args ? args.start : undefined;
-            resourceInputs["stop"] = args ? args.stop : undefined;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["days"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["rateInMbps"] = undefined /*out*/;
-            resourceInputs["start"] = undefined /*out*/;
-            resourceInputs["stop"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -130,10 +103,6 @@ export class BandwidthSchedule extends pulumi.CustomResource {
  */
 export interface BandwidthScheduleArgs {
     /**
-     * The days of the week when this schedule is applicable.
-     */
-    days: pulumi.Input<pulumi.Input<string | enums.databoxedge.v20200901.DayOfWeek>[]>;
-    /**
      * The device name.
      */
     deviceName: pulumi.Input<string>;
@@ -142,19 +111,11 @@ export interface BandwidthScheduleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The bandwidth rate in Mbps.
+     * The properties of the bandwidth schedule.
      */
-    rateInMbps: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.databoxedge.v20200901.BandwidthSchedulePropertiesArgs>;
     /**
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The start time of the schedule in UTC.
-     */
-    start: pulumi.Input<string>;
-    /**
-     * The stop time of the schedule in UTC.
-     */
-    stop: pulumi.Input<string>;
 }

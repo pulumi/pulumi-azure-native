@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'CustomDataSource'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Custom linked service properties.
+        /// </summary>
+        public readonly object TypeProperties;
 
         [OutputConstructor]
         private CustomDataSourceLinkedServiceResponse(
@@ -48,13 +52,16 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            object typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
             Parameters = parameters;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

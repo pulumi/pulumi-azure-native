@@ -39,18 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// Azure ML Service workspace name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("mlWorkspaceName", required: true)]
-        public Input<object> MlWorkspaceName { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -64,41 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Azure ML Service workspace resource group name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<object> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId")]
-        public Input<object>? ServicePrincipalId { get; set; }
-
-        /// <summary>
-        /// The key of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline.
-        /// </summary>
-        [Input("servicePrincipalKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
-
-        /// <summary>
-        /// Azure ML Service workspace subscription ID. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<object> SubscriptionId { get; set; } = null!;
-
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tenant")]
-        public Input<object>? Tenant { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureMLService'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure ML Service linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureMLServiceLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureMLServiceLinkedServiceArgs()
         {

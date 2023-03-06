@@ -35,22 +35,6 @@ export class Console extends pulumi.CustomResource {
     }
 
     /**
-     * The more detailed status of the console.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
-     * The indicator of whether the console access is enabled.
-     */
-    public readonly enabled!: pulumi.Output<string>;
-    /**
-     * The date and time after which the key will be disallowed access.
-     */
-    public readonly expiration!: pulumi.Output<string | undefined>;
-    /**
      * The extended location of the cluster manager associated with the cluster this virtual machine is created on.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.v20221212preview.ExtendedLocationResponse>;
@@ -63,14 +47,9 @@ export class Console extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource ID of the private link service that is used to provide virtual machine console access.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly privateLinkServiceId!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the virtual machine console.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    public readonly sshPublicKey!: pulumi.Output<outputs.networkcloud.v20221212preview.SshPublicKeyResponse>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.v20221212preview.ConsolePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -83,10 +62,6 @@ export class Console extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique identifier for the virtual machine that is used to access the console.
-     */
-    public /*out*/ readonly virtualMachineAccessId!: pulumi.Output<string>;
 
     /**
      * Create a Console resource with the given unique name, arguments, and options.
@@ -99,53 +74,36 @@ export class Console extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'enabled'");
-            }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.sshPublicKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sshPublicKey'");
             }
             if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
             resourceInputs["consoleName"] = args ? args.consoleName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["expiration"] = args ? args.expiration : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateLinkServiceId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachineAccessId"] = undefined /*out*/;
         } else {
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
-            resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateLinkServiceId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sshPublicKey"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachineAccessId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Console" }] };
@@ -163,14 +121,6 @@ export interface ConsoleArgs {
      */
     consoleName?: pulumi.Input<string>;
     /**
-     * The indicator of whether the console access is enabled.
-     */
-    enabled: pulumi.Input<string | enums.networkcloud.v20221212preview.ConsoleEnabled>;
-    /**
-     * The date and time after which the key will be disallowed access.
-     */
-    expiration?: pulumi.Input<string>;
-    /**
      * The extended location of the cluster manager associated with the cluster this virtual machine is created on.
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.v20221212preview.ExtendedLocationArgs>;
@@ -179,10 +129,13 @@ export interface ConsoleArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The list of the resource properties.
+     */
+    properties: pulumi.Input<inputs.networkcloud.v20221212preview.ConsolePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    sshPublicKey: pulumi.Input<inputs.networkcloud.v20221212preview.SshPublicKeyArgs>;
     /**
      * Resource tags.
      */

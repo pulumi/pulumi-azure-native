@@ -72,49 +72,17 @@ namespace Pulumi.AzureNative.PolicyInsights
     public sealed class GetAttestationAtResourceGroupResult
     {
         /// <summary>
-        /// Comments describing why this attestation was created.
-        /// </summary>
-        public readonly string? Comments;
-        /// <summary>
-        /// The compliance state that should be set on the resource.
-        /// </summary>
-        public readonly string? ComplianceState;
-        /// <summary>
-        /// The evidence supporting the compliance state set in this attestation.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AttestationEvidenceResponse> Evidence;
-        /// <summary>
-        /// The time the compliance state should expire.
-        /// </summary>
-        public readonly string? ExpiresOn;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The time the compliance state was last changed in this attestation.
-        /// </summary>
-        public readonly string LastComplianceStateChangeAt;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+        /// Properties for the attestation.
         /// </summary>
-        public readonly string? Owner;
-        /// <summary>
-        /// The resource ID of the policy assignment that the attestation is setting the state for.
-        /// </summary>
-        public readonly string PolicyAssignmentId;
-        /// <summary>
-        /// The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
-        /// </summary>
-        public readonly string? PolicyDefinitionReferenceId;
-        /// <summary>
-        /// The status of the attestation.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.AttestationPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -126,43 +94,19 @@ namespace Pulumi.AzureNative.PolicyInsights
 
         [OutputConstructor]
         private GetAttestationAtResourceGroupResult(
-            string? comments,
-
-            string? complianceState,
-
-            ImmutableArray<Outputs.AttestationEvidenceResponse> evidence,
-
-            string? expiresOn,
-
             string id,
-
-            string lastComplianceStateChangeAt,
 
             string name,
 
-            string? owner,
-
-            string policyAssignmentId,
-
-            string? policyDefinitionReferenceId,
-
-            string provisioningState,
+            Outputs.AttestationPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            Comments = comments;
-            ComplianceState = complianceState;
-            Evidence = evidence;
-            ExpiresOn = expiresOn;
             Id = id;
-            LastComplianceStateChangeAt = lastComplianceStateChangeAt;
             Name = name;
-            Owner = owner;
-            PolicyAssignmentId = policyAssignmentId;
-            PolicyDefinitionReferenceId = policyDefinitionReferenceId;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

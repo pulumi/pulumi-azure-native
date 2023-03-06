@@ -102,9 +102,9 @@ namespace Pulumi.AzureNative.Relay.V20170401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The rights associated with the rule.
+        /// Authorization rule properties.
         /// </summary>
-        public readonly ImmutableArray<string> Rights;
+        public readonly Outputs.AuthorizationRuleResponseProperties Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -116,13 +116,13 @@ namespace Pulumi.AzureNative.Relay.V20170401
 
             string name,
 
-            ImmutableArray<string> rights,
+            Outputs.AuthorizationRuleResponseProperties properties,
 
             string type)
         {
             Id = id;
             Name = name;
-            Rights = rights;
+            Properties = properties;
             Type = type;
         }
     }

@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? GlobalParameters;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
@@ -46,21 +42,15 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
+        /// Azure ML Batch Execution activity properties.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.AzureMLWebServiceFileResponse>? WebServiceInputs;
-        /// <summary>
-        /// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.AzureMLWebServiceFileResponse>? WebServiceOutputs;
+        public readonly Outputs.AzureMLBatchExecutionActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureMLBatchExecutionActivityResponse(
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            ImmutableDictionary<string, object>? globalParameters,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -70,19 +60,15 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string type,
 
-            ImmutableDictionary<string, Outputs.AzureMLWebServiceFileResponse>? webServiceInputs,
-
-            ImmutableDictionary<string, Outputs.AzureMLWebServiceFileResponse>? webServiceOutputs)
+            Outputs.AzureMLBatchExecutionActivityTypePropertiesResponse typeProperties)
         {
             DependsOn = dependsOn;
             Description = description;
-            GlobalParameters = globalParameters;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
             Type = type;
-            WebServiceInputs = webServiceInputs;
-            WebServiceOutputs = webServiceOutputs;
+            TypeProperties = typeProperties;
         }
     }
 }

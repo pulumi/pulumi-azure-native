@@ -38,49 +38,17 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
     }
 
     /**
-     * The agreement type.
-     */
-    public readonly agreementType!: pulumi.Output<string>;
-    /**
-     * The changed time.
-     */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
-    /**
-     * The agreement content.
-     */
-    public readonly content!: pulumi.Output<outputs.logic.v20190501.AgreementContentResponse>;
-    /**
-     * The created time.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * The business identity of the guest partner.
-     */
-    public readonly guestIdentity!: pulumi.Output<outputs.logic.v20190501.BusinessIdentityResponse>;
-    /**
-     * The integration account partner that is set as guest partner for this agreement.
-     */
-    public readonly guestPartner!: pulumi.Output<string>;
-    /**
-     * The business identity of the host partner.
-     */
-    public readonly hostIdentity!: pulumi.Output<outputs.logic.v20190501.BusinessIdentityResponse>;
-    /**
-     * The integration account partner that is set as host partner for this agreement.
-     */
-    public readonly hostPartner!: pulumi.Output<string>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * The metadata.
-     */
-    public readonly metadata!: pulumi.Output<any | undefined>;
-    /**
      * Gets the resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The integration account agreement properties.
+     */
+    public readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountAgreementPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -101,58 +69,27 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agreementType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'agreementType'");
-            }
-            if ((!args || args.content === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'content'");
-            }
-            if ((!args || args.guestIdentity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'guestIdentity'");
-            }
-            if ((!args || args.guestPartner === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'guestPartner'");
-            }
-            if ((!args || args.hostIdentity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'hostIdentity'");
-            }
-            if ((!args || args.hostPartner === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'hostPartner'");
-            }
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["agreementName"] = args ? args.agreementName : undefined;
-            resourceInputs["agreementType"] = args ? args.agreementType : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["guestIdentity"] = args ? args.guestIdentity : undefined;
-            resourceInputs["guestPartner"] = args ? args.guestPartner : undefined;
-            resourceInputs["hostIdentity"] = args ? args.hostIdentity : undefined;
-            resourceInputs["hostPartner"] = args ? args.hostPartner : undefined;
             resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["agreementType"] = undefined /*out*/;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["content"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
-            resourceInputs["guestIdentity"] = undefined /*out*/;
-            resourceInputs["guestPartner"] = undefined /*out*/;
-            resourceInputs["hostIdentity"] = undefined /*out*/;
-            resourceInputs["hostPartner"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -172,30 +109,6 @@ export interface IntegrationAccountAgreementArgs {
      */
     agreementName?: pulumi.Input<string>;
     /**
-     * The agreement type.
-     */
-    agreementType: pulumi.Input<enums.logic.v20190501.AgreementType>;
-    /**
-     * The agreement content.
-     */
-    content: pulumi.Input<inputs.logic.v20190501.AgreementContentArgs>;
-    /**
-     * The business identity of the guest partner.
-     */
-    guestIdentity: pulumi.Input<inputs.logic.v20190501.BusinessIdentityArgs>;
-    /**
-     * The integration account partner that is set as guest partner for this agreement.
-     */
-    guestPartner: pulumi.Input<string>;
-    /**
-     * The business identity of the host partner.
-     */
-    hostIdentity: pulumi.Input<inputs.logic.v20190501.BusinessIdentityArgs>;
-    /**
-     * The integration account partner that is set as host partner for this agreement.
-     */
-    hostPartner: pulumi.Input<string>;
-    /**
      * The integration account name.
      */
     integrationAccountName: pulumi.Input<string>;
@@ -204,9 +117,9 @@ export interface IntegrationAccountAgreementArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The metadata.
+     * The integration account agreement properties.
      */
-    metadata?: any;
+    properties: pulumi.Input<inputs.logic.v20190501.IntegrationAccountAgreementPropertiesArgs>;
     /**
      * The resource group name.
      */

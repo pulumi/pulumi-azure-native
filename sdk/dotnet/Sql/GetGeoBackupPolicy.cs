@@ -112,13 +112,9 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The state of the geo backup policy.
+        /// The properties of the geo backup policy.
         /// </summary>
-        public readonly string State;
-        /// <summary>
-        /// The storage type of the geo backup policy.
-        /// </summary>
-        public readonly string StorageType;
+        public readonly Outputs.GeoBackupPolicyPropertiesResponse Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -134,9 +130,7 @@ namespace Pulumi.AzureNative.Sql
 
             string name,
 
-            string state,
-
-            string storageType,
+            Outputs.GeoBackupPolicyPropertiesResponse properties,
 
             string type)
         {
@@ -144,8 +138,7 @@ namespace Pulumi.AzureNative.Sql
             Kind = kind;
             Location = location;
             Name = name;
-            State = state;
-            StorageType = storageType;
+            Properties = properties;
             Type = type;
         }
     }

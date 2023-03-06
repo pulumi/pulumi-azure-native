@@ -70,18 +70,9 @@ namespace Pulumi.AzureNative.Security.V20200101
     public sealed class GetAdaptiveApplicationControlResult
     {
         /// <summary>
-        /// The configuration status of the machines group or machine or rule
-        /// </summary>
-        public readonly string ConfigurationStatus;
-        /// <summary>
-        /// The application control policy enforcement/protection mode of the machine group
-        /// </summary>
-        public readonly string? EnforcementMode;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        public readonly ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponse> Issues;
         /// <summary>
         /// Location where the resource is stored
         /// </summary>
@@ -90,63 +81,32 @@ namespace Pulumi.AzureNative.Security.V20200101
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly ImmutableArray<Outputs.PathRecommendationResponse> PathRecommendations;
         /// <summary>
-        /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        /// Represents a machines group and set of rules to be allowed running on a machine
         /// </summary>
-        public readonly Outputs.ProtectionModeResponse? ProtectionMode;
-        /// <summary>
-        /// The initial recommendation status of the machine group or machine
-        /// </summary>
-        public readonly string RecommendationStatus;
-        /// <summary>
-        /// The source type of the machine group
-        /// </summary>
-        public readonly string SourceSystem;
+        public readonly Outputs.AdaptiveApplicationControlGroupDataResponse Properties;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        public readonly ImmutableArray<Outputs.VmRecommendationResponse> VmRecommendations;
 
         [OutputConstructor]
         private GetAdaptiveApplicationControlResult(
-            string configurationStatus,
-
-            string? enforcementMode,
-
             string id,
-
-            ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponse> issues,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.PathRecommendationResponse> pathRecommendations,
+            Outputs.AdaptiveApplicationControlGroupDataResponse properties,
 
-            Outputs.ProtectionModeResponse? protectionMode,
-
-            string recommendationStatus,
-
-            string sourceSystem,
-
-            string type,
-
-            ImmutableArray<Outputs.VmRecommendationResponse> vmRecommendations)
+            string type)
         {
-            ConfigurationStatus = configurationStatus;
-            EnforcementMode = enforcementMode;
             Id = id;
-            Issues = issues;
             Location = location;
             Name = name;
-            PathRecommendations = pathRecommendations;
-            ProtectionMode = protectionMode;
-            RecommendationStatus = recommendationStatus;
-            SourceSystem = sourceSystem;
+            Properties = properties;
             Type = type;
-            VmRecommendations = vmRecommendations;
         }
     }
 }

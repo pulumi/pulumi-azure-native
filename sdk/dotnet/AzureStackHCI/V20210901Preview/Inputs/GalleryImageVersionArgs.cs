@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// This is the storage profile of a Gallery Image Version.
+        /// </summary>
+        [Input("storageProfile", required: true)]
+        public Input<Inputs.GalleryImageVersionStorageProfileArgs> StorageProfile { get; set; } = null!;
+
         public GalleryImageVersionArgs()
         {
         }

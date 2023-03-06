@@ -8,11 +8,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'LinkedTemplateArtifactResponse',
     'SystemDataResponse',
     'TemplateSpecVersionInfoResponse',
+    'TemplateSpecVersionPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -219,5 +221,97 @@ class TemplateSpecVersionInfoResponse(dict):
         The timestamp of when the version was last modified.
         """
         return pulumi.get(self, "time_modified")
+
+
+@pulumi.output_type
+class TemplateSpecVersionPropertiesResponse(dict):
+    """
+    Template Spec Version properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedTemplates":
+            suggest = "linked_templates"
+        elif key == "mainTemplate":
+            suggest = "main_template"
+        elif key == "uiFormDefinition":
+            suggest = "ui_form_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSpecVersionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSpecVersionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSpecVersionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 linked_templates: Optional[Sequence['outputs.LinkedTemplateArtifactResponse']] = None,
+                 main_template: Optional[Any] = None,
+                 metadata: Optional[Any] = None,
+                 ui_form_definition: Optional[Any] = None):
+        """
+        Template Spec Version properties.
+        :param str description: Template Spec version description.
+        :param Sequence['LinkedTemplateArtifactResponse'] linked_templates: An array of linked template artifacts.
+        :param Any main_template: The main Azure Resource Manager template content.
+        :param Any metadata: The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        :param Any ui_form_definition: The Azure Resource Manager template UI definition content.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_templates is not None:
+            pulumi.set(__self__, "linked_templates", linked_templates)
+        if main_template is not None:
+            pulumi.set(__self__, "main_template", main_template)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if ui_form_definition is not None:
+            pulumi.set(__self__, "ui_form_definition", ui_form_definition)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Template Spec version description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="linkedTemplates")
+    def linked_templates(self) -> Optional[Sequence['outputs.LinkedTemplateArtifactResponse']]:
+        """
+        An array of linked template artifacts.
+        """
+        return pulumi.get(self, "linked_templates")
+
+    @property
+    @pulumi.getter(name="mainTemplate")
+    def main_template(self) -> Optional[Any]:
+        """
+        The main Azure Resource Manager template content.
+        """
+        return pulumi.get(self, "main_template")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="uiFormDefinition")
+    def ui_form_definition(self) -> Optional[Any]:
+        """
+        The Azure Resource Manager template UI definition content.
+        """
+        return pulumi.get(self, "ui_form_definition")
 
 

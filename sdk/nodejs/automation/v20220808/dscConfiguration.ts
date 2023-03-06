@@ -44,7 +44,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the etag of the resource.
      */
@@ -64,7 +64,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets verbose log option.
      */
-    public readonly logVerbose!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly logVerbose!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource
      */
@@ -76,7 +76,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets the configuration parameters.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.automation.v20220808.DscConfigurationParameterResponse} | undefined>;
+    public /*out*/ readonly parameters!: pulumi.Output<{[key: string]: outputs.automation.v20220808.DscConfigurationParameterResponse} | undefined>;
     /**
      * Gets or sets the provisioning state of the configuration.
      */
@@ -84,7 +84,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets the source.
      */
-    public readonly source!: pulumi.Output<outputs.automation.v20220808.ContentSourceResponse | undefined>;
+    public /*out*/ readonly source!: pulumi.Output<outputs.automation.v20220808.ContentSourceResponse | undefined>;
     /**
      * Gets or sets the state of the configuration.
      */
@@ -112,29 +112,29 @@ export class DscConfiguration extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'source'");
-            }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logProgress"] = args ? args.logProgress : undefined;
-            resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["jobCount"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["logVerbose"] = undefined /*out*/;
             resourceInputs["nodeConfigurationCount"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -174,37 +174,21 @@ export interface DscConfigurationArgs {
      */
     configurationName?: pulumi.Input<string>;
     /**
-     * Gets or sets the description of the configuration.
-     */
-    description?: pulumi.Input<string>;
-    /**
      * Gets or sets the location of the resource.
      */
     location?: pulumi.Input<string>;
-    /**
-     * Gets or sets progress log option.
-     */
-    logProgress?: pulumi.Input<boolean>;
-    /**
-     * Gets or sets verbose log option.
-     */
-    logVerbose?: pulumi.Input<boolean>;
     /**
      * Gets or sets name of the resource.
      */
     name?: pulumi.Input<string>;
     /**
-     * Gets or sets the configuration parameters.
+     * Gets or sets configuration create or update properties.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20220808.DscConfigurationParameterArgs>}>;
+    properties: pulumi.Input<inputs.automation.v20220808.DscConfigurationCreateOrUpdatePropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Gets or sets the source.
-     */
-    source: pulumi.Input<inputs.automation.v20220808.ContentSourceArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */

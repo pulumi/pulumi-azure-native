@@ -82,18 +82,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public sealed class GetRoleAssignmentArtifactResult
     {
         /// <summary>
-        /// Artifacts which need to be deployed before the specified artifact.
-        /// </summary>
-        public readonly ImmutableArray<string> DependsOn;
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
@@ -107,17 +95,9 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+        /// Properties for roleAssignment artifact.
         /// </summary>
-        public readonly object PrincipalIds;
-        /// <summary>
-        /// RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-        /// </summary>
-        public readonly string? ResourceGroup;
-        /// <summary>
-        /// Azure resource ID of the RoleDefinition.
-        /// </summary>
-        public readonly string RoleDefinitionId;
+        public readonly Outputs.RoleAssignmentArtifactPropertiesResponse Properties;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -125,35 +105,20 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 
         [OutputConstructor]
         private GetRoleAssignmentArtifactResult(
-            ImmutableArray<string> dependsOn,
-
-            string? description,
-
-            string? displayName,
-
             string id,
 
             string kind,
 
             string name,
 
-            object principalIds,
-
-            string? resourceGroup,
-
-            string roleDefinitionId,
+            Outputs.RoleAssignmentArtifactPropertiesResponse properties,
 
             string type)
         {
-            DependsOn = dependsOn;
-            Description = description;
-            DisplayName = displayName;
             Id = id;
             Kind = kind;
             Name = name;
-            PrincipalIds = principalIds;
-            ResourceGroup = resourceGroup;
-            RoleDefinitionId = roleDefinitionId;
+            Properties = properties;
             Type = type;
         }
     }

@@ -17,36 +17,6 @@ namespace Pulumi.AzureNative.DevTestLab
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The creation date of the policy.
-        /// </summary>
-        [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the policy.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-        /// </summary>
-        [Output("evaluatorType")]
-        public Output<string?> EvaluatorType { get; private set; } = null!;
-
-        /// <summary>
-        /// The fact data of the policy.
-        /// </summary>
-        [Output("factData")]
-        public Output<string?> FactData { get; private set; } = null!;
-
-        /// <summary>
-        /// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-        /// </summary>
-        [Output("factName")]
-        public Output<string?> FactName { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -59,16 +29,10 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the policy.
-        /// </summary>
-        [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -77,22 +41,10 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-        /// </summary>
-        [Output("threshold")]
-        public Output<string?> Threshold { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -146,30 +98,6 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the policy.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-        /// </summary>
-        [Input("evaluatorType")]
-        public InputUnion<string, Pulumi.AzureNative.DevTestLab.PolicyEvaluatorType>? EvaluatorType { get; set; }
-
-        /// <summary>
-        /// The fact data of the policy.
-        /// </summary>
-        [Input("factData")]
-        public Input<string>? FactData { get; set; }
-
-        /// <summary>
-        /// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-        /// </summary>
-        [Input("factName")]
-        public InputUnion<string, Pulumi.AzureNative.DevTestLab.PolicyFactName>? FactName { get; set; }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -194,16 +122,16 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string> PolicySetName { get; set; } = null!;
 
         /// <summary>
+        /// The properties of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PolicyPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The status of the policy.
-        /// </summary>
-        [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.DevTestLab.PolicyStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -216,12 +144,6 @@ namespace Pulumi.AzureNative.DevTestLab
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-        /// </summary>
-        [Input("threshold")]
-        public Input<string>? Threshold { get; set; }
 
         public PolicyArgs()
         {

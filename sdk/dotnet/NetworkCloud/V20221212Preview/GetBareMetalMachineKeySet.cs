@@ -82,22 +82,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public sealed class GetBareMetalMachineKeySetResult
     {
         /// <summary>
-        /// The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-        /// </summary>
-        public readonly string AzureGroupId;
-        /// <summary>
-        /// The more detailed status of the key set.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
-        /// The date and time after which the users in this key set will be removed from the bare metal machines.
-        /// </summary>
-        public readonly string Expiration;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -105,14 +89,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
-        /// </summary>
-        public readonly ImmutableArray<string> JumpHostsAllowed;
-        /// <summary>
-        /// The last time this key set was validated.
-        /// </summary>
-        public readonly string LastValidation;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -122,17 +98,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The name of the group that users will be assigned to on the operating system of the machines.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string? OsGroupName;
-        /// <summary>
-        /// The access level allowed for the users in this key set.
-        /// </summary>
-        public readonly string PrivilegeLevel;
-        /// <summary>
-        /// The provisioning state of the bare metal machine key set.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.BareMetalMachineKeySetPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -145,71 +113,33 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique list of permitted users.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.KeySetUserResponse> UserList;
-        /// <summary>
-        /// The status evaluation of each user.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.KeySetUserStatusResponse> UserListStatus;
 
         [OutputConstructor]
         private GetBareMetalMachineKeySetResult(
-            string azureGroupId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
-            string expiration,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
-
-            ImmutableArray<string> jumpHostsAllowed,
-
-            string lastValidation,
 
             string location,
 
             string name,
 
-            string? osGroupName,
-
-            string privilegeLevel,
-
-            string provisioningState,
+            Outputs.BareMetalMachineKeySetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<Outputs.KeySetUserResponse> userList,
-
-            ImmutableArray<Outputs.KeySetUserStatusResponse> userListStatus)
+            string type)
         {
-            AzureGroupId = azureGroupId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
-            Expiration = expiration;
             ExtendedLocation = extendedLocation;
             Id = id;
-            JumpHostsAllowed = jumpHostsAllowed;
-            LastValidation = lastValidation;
             Location = location;
             Name = name;
-            OsGroupName = osGroupName;
-            PrivilegeLevel = privilegeLevel;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserList = userList;
-            UserListStatus = userListStatus;
         }
     }
 }

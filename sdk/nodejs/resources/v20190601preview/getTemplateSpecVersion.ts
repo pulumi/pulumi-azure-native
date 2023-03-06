@@ -40,14 +40,6 @@ export interface GetTemplateSpecVersionArgs {
  */
 export interface GetTemplateSpecVersionResult {
     /**
-     * An array of Template Spec artifacts.
-     */
-    readonly artifacts?: outputs.resources.v20190601preview.TemplateSpecTemplateArtifactResponse[];
-    /**
-     * Template Spec version description.
-     */
-    readonly description?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -60,6 +52,10 @@ export interface GetTemplateSpecVersionResult {
      */
     readonly name: string;
     /**
+     * Template Spec Version properties.
+     */
+    readonly properties: outputs.resources.v20190601preview.TemplateSpecVersionPropertiesResponse;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.resources.v20190601preview.SystemDataResponse;
@@ -67,10 +63,6 @@ export interface GetTemplateSpecVersionResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The Azure Resource Manager template content.
-     */
-    readonly template?: any;
     /**
      * Type of this resource.
      */

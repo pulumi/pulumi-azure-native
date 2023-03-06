@@ -24,22 +24,16 @@ class GetManagementLockByScopeResult:
     """
     The lock information.
     """
-    def __init__(__self__, id=None, level=None, name=None, notes=None, owners=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if level and not isinstance(level, str):
-            raise TypeError("Expected argument 'level' to be a str")
-        pulumi.set(__self__, "level", level)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if notes and not isinstance(notes, str):
-            raise TypeError("Expected argument 'notes' to be a str")
-        pulumi.set(__self__, "notes", notes)
-        if owners and not isinstance(owners, list):
-            raise TypeError("Expected argument 'owners' to be a list")
-        pulumi.set(__self__, "owners", owners)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -54,14 +48,6 @@ class GetManagementLockByScopeResult:
 
     @property
     @pulumi.getter
-    def level(self) -> str:
-        """
-        The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-        """
-        return pulumi.get(self, "level")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the lock.
@@ -70,19 +56,11 @@ class GetManagementLockByScopeResult:
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def properties(self) -> 'outputs.ManagementLockPropertiesResponse':
         """
-        Notes about the lock. Maximum of 512 characters.
+        The properties of the lock.
         """
-        return pulumi.get(self, "notes")
-
-    @property
-    @pulumi.getter
-    def owners(self) -> Optional[Sequence['outputs.ManagementLockOwnerResponse']]:
-        """
-        The owners of the lock.
-        """
-        return pulumi.get(self, "owners")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -100,10 +78,8 @@ class AwaitableGetManagementLockByScopeResult(GetManagementLockByScopeResult):
             yield self
         return GetManagementLockByScopeResult(
             id=self.id,
-            level=self.level,
             name=self.name,
-            notes=self.notes,
-            owners=self.owners,
+            properties=self.properties,
             type=self.type)
 
 
@@ -126,10 +102,8 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
 
     return AwaitableGetManagementLockByScopeResult(
         id=__ret__.id,
-        level=__ret__.level,
         name=__ret__.name,
-        notes=__ret__.notes,
-        owners=__ret__.owners,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

@@ -16,46 +16,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
     public partial class StorageAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// BlobEndpoint of Storage Account
-        /// </summary>
-        [Output("blobEndpoint")]
-        public Output<string> BlobEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-        /// </summary>
-        [Output("containerCount")]
-        public Output<int> ContainerCount { get; private set; } = null!;
-
-        /// <summary>
-        /// Data policy of the storage Account.
-        /// </summary>
-        [Output("dataPolicy")]
-        public Output<string> DataPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// Description for the storage Account.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Storage Account Credential Id
+        /// The Storage Account properties.
         /// </summary>
-        [Output("storageAccountCredentialId")]
-        public Output<string?> StorageAccountCredentialId { get; private set; } = null!;
-
-        /// <summary>
-        /// Current status of the storage account
-        /// </summary>
-        [Output("storageAccountStatus")]
-        public Output<string?> StorageAccountStatus { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.StorageAccountPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of StorageAccount
@@ -131,22 +101,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
     public sealed class StorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Data policy of the storage Account.
-        /// </summary>
-        [Input("dataPolicy", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20220301.DataPolicy> DataPolicy { get; set; } = null!;
-
-        /// <summary>
-        /// Description for the storage Account.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The Storage Account properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.StorageAccountPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -155,22 +119,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Storage Account Credential Id
-        /// </summary>
-        [Input("storageAccountCredentialId")]
-        public Input<string>? StorageAccountCredentialId { get; set; }
-
-        /// <summary>
         /// The StorageAccount name.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
-
-        /// <summary>
-        /// Current status of the storage account
-        /// </summary>
-        [Input("storageAccountStatus")]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20220301.StorageAccountStatus>? StorageAccountStatus { get; set; }
 
         public StorageAccountArgs()
         {

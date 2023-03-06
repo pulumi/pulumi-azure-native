@@ -21,14 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object BucketName;
-        /// <summary>
-        /// The data compression method used for the Amazon S3 object.
-        /// </summary>
-        public readonly Outputs.DatasetCompressionResponse? Compression;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
@@ -37,33 +29,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.DatasetResponseFolder? Folder;
         /// <summary>
-        /// The format of files.
-        /// </summary>
-        public readonly object? Format;
-        /// <summary>
-        /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Key;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
         /// <summary>
-        /// The end of S3 object's modified datetime. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ModifiedDatetimeEnd;
-        /// <summary>
-        /// The start of S3 object's modified datetime. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ModifiedDatetimeStart;
-        /// <summary>
         /// Parameters for dataset.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Prefix;
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
@@ -78,35 +50,21 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The version for the S3 object. Type: string (or Expression with resultType string).
+        /// Amazon S3 dataset properties.
         /// </summary>
-        public readonly object? Version;
+        public readonly Outputs.AmazonS3DatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AmazonS3DatasetResponse(
             ImmutableArray<object> annotations,
 
-            object bucketName,
-
-            Outputs.DatasetCompressionResponse? compression,
-
             string? description,
 
             Outputs.DatasetResponseFolder? folder,
 
-            object? format,
-
-            object? key,
-
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            object? modifiedDatetimeEnd,
-
-            object? modifiedDatetimeStart,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            object? prefix,
 
             object? schema,
 
@@ -114,24 +72,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? version)
+            Outputs.AmazonS3DatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            BucketName = bucketName;
-            Compression = compression;
             Description = description;
             Folder = folder;
-            Format = format;
-            Key = key;
             LinkedServiceName = linkedServiceName;
-            ModifiedDatetimeEnd = modifiedDatetimeEnd;
-            ModifiedDatetimeStart = modifiedDatetimeStart;
             Parameters = parameters;
-            Prefix = prefix;
             Schema = schema;
             Structure = structure;
             Type = type;
-            Version = version;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -16,76 +16,38 @@ __all__ = ['SavedSearchArgs', 'SavedSearch']
 @pulumi.input_type
 class SavedSearchArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input[str],
-                 display_name: pulumi.Input[str],
-                 query: pulumi.Input[str],
+                 properties: pulumi.Input['SavedSearchPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 saved_search_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]] = None,
-                 version: Optional[pulumi.Input[float]] = None):
+                 saved_search_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SavedSearch resource.
-        :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
-        :param pulumi.Input[str] display_name: Saved search display name.
-        :param pulumi.Input[str] query: The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        :param pulumi.Input['SavedSearchPropertiesArgs'] properties: The properties of the saved search.
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
         :param pulumi.Input[str] e_tag: The ETag of the saved search.
         :param pulumi.Input[str] saved_search_id: The id of the saved search.
-        :param pulumi.Input[Sequence[pulumi.Input['TagArgs']]] tags: The tags attached to the saved search.
-        :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if saved_search_id is not None:
             pulumi.set(__self__, "saved_search_id", saved_search_id)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def category(self) -> pulumi.Input[str]:
+    def properties(self) -> pulumi.Input['SavedSearchPropertiesArgs']:
         """
-        The category of the saved search. This helps the user to find a saved search faster. 
+        The properties of the saved search.
         """
-        return pulumi.get(self, "category")
+        return pulumi.get(self, "properties")
 
-    @category.setter
-    def category(self, value: pulumi.Input[str]):
-        pulumi.set(self, "category", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[str]:
-        """
-        Saved search display name.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def query(self) -> pulumi.Input[str]:
-        """
-        The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-        """
-        return pulumi.get(self, "query")
-
-    @query.setter
-    def query(self, value: pulumi.Input[str]):
-        pulumi.set(self, "query", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['SavedSearchPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -135,30 +97,6 @@ class SavedSearchArgs:
     def saved_search_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "saved_search_id", value)
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]:
-        """
-        The tags attached to the saved search.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[float]]:
-        """
-        The version number of the query language. The current version is 2 and is the default.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "version", value)
-
 
 warnings.warn("""Version 2015-03-20 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -170,14 +108,10 @@ class SavedSearch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 query: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SavedSearchPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  saved_search_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
-                 version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -185,14 +119,10 @@ class SavedSearch(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
-        :param pulumi.Input[str] display_name: Saved search display name.
         :param pulumi.Input[str] e_tag: The ETag of the saved search.
-        :param pulumi.Input[str] query: The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        :param pulumi.Input[pulumi.InputType['SavedSearchPropertiesArgs']] properties: The properties of the saved search.
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
         :param pulumi.Input[str] saved_search_id: The id of the saved search.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]] tags: The tags attached to the saved search.
-        :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
         """
         ...
@@ -219,14 +149,10 @@ class SavedSearch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 query: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SavedSearchPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  saved_search_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
-                 version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""SavedSearch is deprecated: Version 2015-03-20 will be removed in v2 of the provider.""")
@@ -238,22 +164,14 @@ class SavedSearch(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SavedSearchArgs.__new__(SavedSearchArgs)
 
-            if category is None and not opts.urn:
-                raise TypeError("Missing required property 'category'")
-            __props__.__dict__["category"] = category
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
-            __props__.__dict__["display_name"] = display_name
             __props__.__dict__["e_tag"] = e_tag
-            if query is None and not opts.urn:
-                raise TypeError("Missing required property 'query'")
-            __props__.__dict__["query"] = query
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["saved_search_id"] = saved_search_id
-            __props__.__dict__["tags"] = tags
-            __props__.__dict__["version"] = version
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
@@ -283,31 +201,11 @@ class SavedSearch(pulumi.CustomResource):
 
         __props__ = SavedSearchArgs.__new__(SavedSearchArgs)
 
-        __props__.__dict__["category"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["query"] = None
-        __props__.__dict__["tags"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["version"] = None
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Output[str]:
-        """
-        The category of the saved search. This helps the user to find a saved search faster. 
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
-        """
-        Saved search display name.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="eTag")
@@ -327,19 +225,11 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.SavedSearchPropertiesResponse']:
         """
-        The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        The properties of the saved search.
         """
-        return pulumi.get(self, "query")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TagResponse']]]:
-        """
-        The tags attached to the saved search.
-        """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -348,12 +238,4 @@ class SavedSearch(pulumi.CustomResource):
         The type of the saved search.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Output[Optional[float]]:
-        """
-        The version number of the query language. The current version is 2 and is the default.
-        """
-        return pulumi.get(self, "version")
 

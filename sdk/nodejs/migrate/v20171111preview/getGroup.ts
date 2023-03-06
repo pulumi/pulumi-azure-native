@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,14 +42,6 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     /**
-     * List of References to Assessments created on this group.
-     */
-    readonly assessments: string[];
-    /**
-     * Time when this project was created. Date-Time represented in ISO-8601 format.
-     */
-    readonly createdTimestamp: string;
-    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: string;
@@ -55,21 +50,17 @@ export interface GetGroupResult {
      */
     readonly id: string;
     /**
-     * List of machine names that are part of this group.
-     */
-    readonly machines: string[];
-    /**
      * Name of the group.
      */
     readonly name: string;
     /**
+     * Properties of the group.
+     */
+    readonly properties: outputs.migrate.v20171111preview.GroupPropertiesResponse;
+    /**
      * Type of the object = [Microsoft.Migrate/projects/groups].
      */
     readonly type: string;
-    /**
-     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
-     */
-    readonly updatedTimestamp: string;
 }
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.

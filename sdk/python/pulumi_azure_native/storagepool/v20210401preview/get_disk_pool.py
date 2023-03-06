@@ -22,16 +22,7 @@ class GetDiskPoolResult:
     """
     Response for Disk Pool request.
     """
-    def __init__(__self__, additional_capabilities=None, availability_zones=None, disks=None, id=None, location=None, name=None, provisioning_state=None, status=None, subnet_id=None, system_data=None, tags=None, tier=None, type=None):
-        if additional_capabilities and not isinstance(additional_capabilities, list):
-            raise TypeError("Expected argument 'additional_capabilities' to be a list")
-        pulumi.set(__self__, "additional_capabilities", additional_capabilities)
-        if availability_zones and not isinstance(availability_zones, list):
-            raise TypeError("Expected argument 'availability_zones' to be a list")
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        if disks and not isinstance(disks, list):
-            raise TypeError("Expected argument 'disks' to be a list")
-        pulumi.set(__self__, "disks", disks)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, tier=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,15 +32,9 @@ class GetDiskPoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
-        if subnet_id and not isinstance(subnet_id, str):
-            raise TypeError("Expected argument 'subnet_id' to be a str")
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -62,30 +47,6 @@ class GetDiskPoolResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[Sequence[str]]:
-        """
-        List of additional capabilities for Disk Pool.
-        """
-        return pulumi.get(self, "additional_capabilities")
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
-        """
-        Logical zone for Disk Pool resource; example: ["1"].
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @property
-    @pulumi.getter
-    def disks(self) -> Optional[Sequence['outputs.DiskResponse']]:
-        """
-        List of Azure Managed Disks to attach to a Disk Pool.
-        """
-        return pulumi.get(self, "disks")
 
     @property
     @pulumi.getter
@@ -112,28 +73,12 @@ class GetDiskPoolResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the operation on the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def status(self) -> str:
+    def properties(self) -> 'outputs.DiskPoolPropertiesResponse':
         """
-        Operational status of the Disk Pool.
+        Properties of Disk Pool.
         """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
-        """
-        Azure Resource ID of a Subnet for the Disk Pool.
-        """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -174,15 +119,10 @@ class AwaitableGetDiskPoolResult(GetDiskPoolResult):
         if False:
             yield self
         return GetDiskPoolResult(
-            additional_capabilities=self.additional_capabilities,
-            availability_zones=self.availability_zones,
-            disks=self.disks,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            status=self.status,
-            subnet_id=self.subnet_id,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             tier=self.tier,
@@ -206,15 +146,10 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagepool/v20210401preview:getDiskPool', __args__, opts=opts, typ=GetDiskPoolResult).value
 
     return AwaitableGetDiskPoolResult(
-        additional_capabilities=__ret__.additional_capabilities,
-        availability_zones=__ret__.availability_zones,
-        disks=__ret__.disks,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        subnet_id=__ret__.subnet_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         tier=__ret__.tier,

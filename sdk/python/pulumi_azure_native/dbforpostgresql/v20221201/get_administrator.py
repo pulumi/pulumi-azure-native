@@ -22,28 +22,19 @@ class GetAdministratorResult:
     """
     Represents an Active Directory administrator.
     """
-    def __init__(__self__, id=None, name=None, object_id=None, principal_name=None, principal_type=None, system_data=None, tenant_id=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if object_id and not isinstance(object_id, str):
-            raise TypeError("Expected argument 'object_id' to be a str")
-        pulumi.set(__self__, "object_id", object_id)
-        if principal_name and not isinstance(principal_name, str):
-            raise TypeError("Expected argument 'principal_name' to be a str")
-        pulumi.set(__self__, "principal_name", principal_name)
-        if principal_type and not isinstance(principal_type, str):
-            raise TypeError("Expected argument 'principal_type' to be a str")
-        pulumi.set(__self__, "principal_type", principal_type)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        pulumi.set(__self__, "tenant_id", tenant_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -65,28 +56,12 @@ class GetAdministratorResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.AdministratorPropertiesResponse':
         """
-        The objectId of the Active Directory administrator.
+        Properties of the active directory administrator.
         """
-        return pulumi.get(self, "object_id")
-
-    @property
-    @pulumi.getter(name="principalName")
-    def principal_name(self) -> Optional[str]:
-        """
-        Active Directory administrator principal name.
-        """
-        return pulumi.get(self, "principal_name")
-
-    @property
-    @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[str]:
-        """
-        The principal type used to represent the type of Active Directory Administrator.
-        """
-        return pulumi.get(self, "principal_type")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -95,14 +70,6 @@ class GetAdministratorResult:
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The tenantId of the Active Directory administrator.
-        """
-        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter
@@ -121,11 +88,8 @@ class AwaitableGetAdministratorResult(GetAdministratorResult):
         return GetAdministratorResult(
             id=self.id,
             name=self.name,
-            object_id=self.object_id,
-            principal_name=self.principal_name,
-            principal_type=self.principal_type,
+            properties=self.properties,
             system_data=self.system_data,
-            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -151,11 +115,8 @@ def get_administrator(object_id: Optional[str] = None,
     return AwaitableGetAdministratorResult(
         id=__ret__.id,
         name=__ret__.name,
-        object_id=__ret__.object_id,
-        principal_name=__ret__.principal_name,
-        principal_type=__ret__.principal_type,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        tenant_id=__ret__.tenant_id,
         type=__ret__.type)
 
 

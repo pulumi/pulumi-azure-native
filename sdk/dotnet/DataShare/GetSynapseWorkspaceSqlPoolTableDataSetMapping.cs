@@ -96,14 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetSynapseWorkspaceSqlPoolTableDataSetMappingResult
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -117,13 +109,9 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// A Synapse Workspace Sql Pool Table data set mapping properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource id of the Synapse Workspace SQL Pool Table
-        /// </summary>
-        public readonly string SynapseWorkspaceSqlPoolTableResourceId;
+        public readonly Outputs.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -135,31 +123,22 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetSynapseWorkspaceSqlPoolTableDataSetMappingResult(
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
-
-            string synapseWorkspaceSqlPoolTableResourceId,
+            Outputs.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            SynapseWorkspaceSqlPoolTableResourceId = synapseWorkspaceSqlPoolTableResourceId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

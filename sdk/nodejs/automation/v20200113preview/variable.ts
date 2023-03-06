@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,11 +44,11 @@ export class Variable extends pulumi.CustomResource {
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the encrypted flag of the variable.
      */
-    public readonly isEncrypted!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly isEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the last modified time.
      */
@@ -61,7 +64,7 @@ export class Variable extends pulumi.CustomResource {
     /**
      * Gets or sets the value of the variable.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Variable resource with the given unique name, arguments, and options.
@@ -80,19 +83,23 @@ export class Variable extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isEncrypted"] = args ? args.isEncrypted : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["variableName"] = args ? args.variableName : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isEncrypted"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -118,25 +125,17 @@ export interface VariableArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the description of the variable.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Gets or sets the encrypted flag of the variable.
-     */
-    isEncrypted?: pulumi.Input<boolean>;
-    /**
      * Gets or sets the name of the variable.
      */
     name: pulumi.Input<string>;
     /**
+     * Gets or sets the properties of the variable.
+     */
+    properties: pulumi.Input<inputs.automation.v20200113preview.VariableCreateOrUpdatePropertiesArgs>;
+    /**
      * Name of an Azure Resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Gets or sets the value of the variable.
-     */
-    value?: pulumi.Input<string>;
     /**
      * The variable name.
      */

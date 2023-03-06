@@ -33,18 +33,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The auth token of Twilio service.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> Password;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Twilio'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The Account SID of Twilio service.
+        /// Twilio linked service properties.
         /// </summary>
-        public readonly object UserName;
+        public readonly Outputs.TwilioLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private TwilioLinkedServiceResponse(
@@ -56,19 +52,16 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> password,
-
             string type,
 
-            object userName)
+            Outputs.TwilioLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

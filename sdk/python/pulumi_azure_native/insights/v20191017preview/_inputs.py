@@ -10,11 +10,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
+    'AzureMonitorPrivateLinkScopePropertiesArgs',
     'PrivateEndpointPropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
     'WorkbookTemplateGalleryArgs',
     'WorkbookTemplateLocalizedGalleryArgs',
 ]
+
+@pulumi.input_type
+class AzureMonitorPrivateLinkScopePropertiesArgs:
+    def __init__(__self__):
+        """
+        Properties that define a Azure Monitor PrivateLinkScope resource.
+        """
+        pass
+
 
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:

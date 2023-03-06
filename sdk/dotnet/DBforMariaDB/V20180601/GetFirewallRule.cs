@@ -82,10 +82,6 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
-        /// The end IP address of the server firewall rule. Must be IPv4 format.
-        /// </summary>
-        public readonly string EndIpAddress;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -94,9 +90,9 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The start IP address of the server firewall rule. Must be IPv4 format.
+        /// The properties of a firewall rule.
         /// </summary>
-        public readonly string StartIpAddress;
+        public readonly Outputs.FirewallRulePropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -104,20 +100,17 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
 
         [OutputConstructor]
         private GetFirewallRuleResult(
-            string endIpAddress,
-
             string id,
 
             string name,
 
-            string startIpAddress,
+            Outputs.FirewallRulePropertiesResponse properties,
 
             string type)
         {
-            EndIpAddress = endIpAddress;
             Id = id;
             Name = name;
-            StartIpAddress = startIpAddress;
+            Properties = properties;
             Type = type;
         }
     }

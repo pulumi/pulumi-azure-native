@@ -17,38 +17,29 @@ __all__ = ['CloudArgs', 'Cloud']
 class CloudArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 properties: pulumi.Input['CloudPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  cloud_name: Optional[pulumi.Input[str]] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 uuid: Optional[pulumi.Input[str]] = None,
-                 vmm_server_id: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cloud resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
+        :param pulumi.Input['CloudPropertiesArgs'] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] cloud_name: Name of the Cloud.
-        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[str] location: Gets or sets the location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] uuid: Unique ID of the cloud.
-        :param pulumi.Input[str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
         pulumi.set(__self__, "extended_location", extended_location)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cloud_name is not None:
             pulumi.set(__self__, "cloud_name", cloud_name)
-        if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if uuid is not None:
-            pulumi.set(__self__, "uuid", uuid)
-        if vmm_server_id is not None:
-            pulumi.set(__self__, "vmm_server_id", vmm_server_id)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -61,6 +52,18 @@ class CloudArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input['ExtendedLocationArgs']):
         pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CloudPropertiesArgs']:
+        """
+        Resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CloudPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -87,18 +90,6 @@ class CloudArgs:
         pulumi.set(self, "cloud_name", value)
 
     @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the inventory Item ID for the resource.
-        """
-        return pulumi.get(self, "inventory_item_id")
-
-    @inventory_item_id.setter
-    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "inventory_item_id", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -122,30 +113,6 @@ class CloudArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def uuid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique ID of the cloud.
-        """
-        return pulumi.get(self, "uuid")
-
-    @uuid.setter
-    def uuid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "uuid", value)
-
-    @property
-    @pulumi.getter(name="vmmServerId")
-    def vmm_server_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM Id of the vmmServer resource in which this resource resides.
-        """
-        return pulumi.get(self, "vmm_server_id")
-
-    @vmm_server_id.setter
-    def vmm_server_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vmm_server_id", value)
-
 
 class Cloud(pulumi.CustomResource):
     @overload
@@ -154,12 +121,10 @@ class Cloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_name: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CloudPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 uuid: Optional[pulumi.Input[str]] = None,
-                 vmm_server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The Clouds resource definition.
@@ -169,12 +134,10 @@ class Cloud(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_name: Name of the Cloud.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
-        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[str] location: Gets or sets the location.
+        :param pulumi.Input[pulumi.InputType['CloudPropertiesArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] uuid: Unique ID of the cloud.
-        :param pulumi.Input[str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
         ...
     @overload
@@ -203,12 +166,10 @@ class Cloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_name: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CloudPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 uuid: Optional[pulumi.Input[str]] = None,
-                 vmm_server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,18 +183,15 @@ class Cloud(pulumi.CustomResource):
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
-            __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["uuid"] = uuid
-            __props__.__dict__["vmm_server_id"] = vmm_server_id
-            __props__.__dict__["cloud_capacity"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["storage_qo_s_policies"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:Cloud")])
@@ -260,36 +218,14 @@ class Cloud(pulumi.CustomResource):
 
         __props__ = CloudArgs.__new__(CloudArgs)
 
-        __props__.__dict__["cloud_capacity"] = None
-        __props__.__dict__["cloud_name"] = None
         __props__.__dict__["extended_location"] = None
-        __props__.__dict__["inventory_item_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["storage_qo_s_policies"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["uuid"] = None
-        __props__.__dict__["vmm_server_id"] = None
         return Cloud(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="cloudCapacity")
-    def cloud_capacity(self) -> pulumi.Output['outputs.CloudCapacityResponse']:
-        """
-        Capacity of the cloud.
-        """
-        return pulumi.get(self, "cloud_capacity")
-
-    @property
-    @pulumi.getter(name="cloudName")
-    def cloud_name(self) -> pulumi.Output[str]:
-        """
-        Name of the cloud in VMMServer.
-        """
-        return pulumi.get(self, "cloud_name")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -298,14 +234,6 @@ class Cloud(pulumi.CustomResource):
         The extended location.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Gets or sets the inventory Item ID for the resource.
-        """
-        return pulumi.get(self, "inventory_item_id")
 
     @property
     @pulumi.getter
@@ -324,20 +252,12 @@ class Cloud(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.CloudPropertiesResponse']:
         """
-        Gets or sets the provisioning state.
+        Resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="storageQoSPolicies")
-    def storage_qo_s_policies(self) -> pulumi.Output[Sequence['outputs.StorageQoSPolicyResponse']]:
-        """
-        List of QoS policies available for the cloud.
-        """
-        return pulumi.get(self, "storage_qo_s_policies")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -362,20 +282,4 @@ class Cloud(pulumi.CustomResource):
         Resource Type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uuid(self) -> pulumi.Output[Optional[str]]:
-        """
-        Unique ID of the cloud.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter(name="vmmServerId")
-    def vmm_server_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        ARM Id of the vmmServer resource in which this resource resides.
-        """
-        return pulumi.get(self, "vmm_server_id")
 

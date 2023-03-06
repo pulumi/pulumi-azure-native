@@ -22,55 +22,22 @@ class GetContainerResult:
     """
     Represents a container on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, container_status=None, created_date_time=None, data_format=None, id=None, name=None, refresh_details=None, system_data=None, type=None):
-        if container_status and not isinstance(container_status, str):
-            raise TypeError("Expected argument 'container_status' to be a str")
-        pulumi.set(__self__, "container_status", container_status)
-        if created_date_time and not isinstance(created_date_time, str):
-            raise TypeError("Expected argument 'created_date_time' to be a str")
-        pulumi.set(__self__, "created_date_time", created_date_time)
-        if data_format and not isinstance(data_format, str):
-            raise TypeError("Expected argument 'data_format' to be a str")
-        pulumi.set(__self__, "data_format", data_format)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if refresh_details and not isinstance(refresh_details, dict):
-            raise TypeError("Expected argument 'refresh_details' to be a dict")
-        pulumi.set(__self__, "refresh_details", refresh_details)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="containerStatus")
-    def container_status(self) -> str:
-        """
-        Current status of the container.
-        """
-        return pulumi.get(self, "container_status")
-
-    @property
-    @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> str:
-        """
-        The UTC time when container got created.
-        """
-        return pulumi.get(self, "created_date_time")
-
-    @property
-    @pulumi.getter(name="dataFormat")
-    def data_format(self) -> str:
-        """
-        DataFormat for Container
-        """
-        return pulumi.get(self, "data_format")
 
     @property
     @pulumi.getter
@@ -89,12 +56,12 @@ class GetContainerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> 'outputs.RefreshDetailsResponse':
+    @pulumi.getter
+    def properties(self) -> 'outputs.ContainerPropertiesResponse':
         """
-        Details of the refresh job on this container.
+        The container properties.
         """
-        return pulumi.get(self, "refresh_details")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -119,12 +86,9 @@ class AwaitableGetContainerResult(GetContainerResult):
         if False:
             yield self
         return GetContainerResult(
-            container_status=self.container_status,
-            created_date_time=self.created_date_time,
-            data_format=self.data_format,
             id=self.id,
             name=self.name,
-            refresh_details=self.refresh_details,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -152,12 +116,9 @@ def get_container(container_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20210201preview:getContainer', __args__, opts=opts, typ=GetContainerResult).value
 
     return AwaitableGetContainerResult(
-        container_status=__ret__.container_status,
-        created_date_time=__ret__.created_date_time,
-        data_format=__ret__.data_format,
         id=__ret__.id,
         name=__ret__.name,
-        refresh_details=__ret__.refresh_details,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

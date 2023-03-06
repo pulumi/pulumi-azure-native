@@ -70,34 +70,6 @@ namespace Pulumi.AzureNative.Network.V20210301
     public sealed class GetVirtualNetworkGatewayResult
     {
         /// <summary>
-        /// ActiveActive flag.
-        /// </summary>
-        public readonly bool? ActiveActive;
-        /// <summary>
-        /// Virtual network gateway's BGP speaker settings.
-        /// </summary>
-        public readonly Outputs.BgpSettingsResponse? BgpSettings;
-        /// <summary>
-        /// The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
-        /// </summary>
-        public readonly Outputs.AddressSpaceResponse? CustomRoutes;
-        /// <summary>
-        /// Whether BGP is enabled for this virtual network gateway or not.
-        /// </summary>
-        public readonly bool? EnableBgp;
-        /// <summary>
-        /// EnableBgpRouteTranslationForNat flag.
-        /// </summary>
-        public readonly bool? EnableBgpRouteTranslationForNat;
-        /// <summary>
-        /// Whether dns forwarding is enabled or not.
-        /// </summary>
-        public readonly bool? EnableDnsForwarding;
-        /// <summary>
-        /// Whether private IP needs to be enabled on this gateway for connections or not.
-        /// </summary>
-        public readonly bool? EnablePrivateIpAddress;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -106,25 +78,9 @@ namespace Pulumi.AzureNative.Network.V20210301
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse? GatewayDefaultSite;
-        /// <summary>
-        /// The type of this virtual network gateway.
-        /// </summary>
-        public readonly string? GatewayType;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The IP address allocated by the gateway to which dns requests can be sent.
-        /// </summary>
-        public readonly string InboundDnsForwardingEndpoint;
-        /// <summary>
-        /// IP configurations for virtual network gateway.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -134,21 +90,9 @@ namespace Pulumi.AzureNative.Network.V20210301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// NatRules for virtual network gateway.
+        /// Properties of the virtual network gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> NatRules;
-        /// <summary>
-        /// The provisioning state of the virtual network gateway resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource GUID property of the virtual network gateway resource.
-        /// </summary>
-        public readonly string ResourceGuid;
-        /// <summary>
-        /// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-        /// </summary>
-        public readonly Outputs.VirtualNetworkGatewaySkuResponse? Sku;
+        public readonly Outputs.VirtualNetworkGatewayPropertiesFormatResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -157,103 +101,33 @@ namespace Pulumi.AzureNative.Network.V20210301
         /// Resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-        /// </summary>
-        public readonly string? VNetExtendedLocationResourceId;
-        /// <summary>
-        /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-        /// </summary>
-        public readonly Outputs.VpnClientConfigurationResponse? VpnClientConfiguration;
-        /// <summary>
-        /// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
-        /// </summary>
-        public readonly string? VpnGatewayGeneration;
-        /// <summary>
-        /// The type of this virtual network gateway.
-        /// </summary>
-        public readonly string? VpnType;
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayResult(
-            bool? activeActive,
-
-            Outputs.BgpSettingsResponse? bgpSettings,
-
-            Outputs.AddressSpaceResponse? customRoutes,
-
-            bool? enableBgp,
-
-            bool? enableBgpRouteTranslationForNat,
-
-            bool? enableDnsForwarding,
-
-            bool? enablePrivateIpAddress,
-
             string etag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
-            Outputs.SubResourceResponse? gatewayDefaultSite,
-
-            string? gatewayType,
-
             string? id,
-
-            string inboundDnsForwardingEndpoint,
-
-            ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> ipConfigurations,
 
             string? location,
 
             string name,
 
-            ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> natRules,
-
-            string provisioningState,
-
-            string resourceGuid,
-
-            Outputs.VirtualNetworkGatewaySkuResponse? sku,
+            Outputs.VirtualNetworkGatewayPropertiesFormatResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? vNetExtendedLocationResourceId,
-
-            Outputs.VpnClientConfigurationResponse? vpnClientConfiguration,
-
-            string? vpnGatewayGeneration,
-
-            string? vpnType)
+            string type)
         {
-            ActiveActive = activeActive;
-            BgpSettings = bgpSettings;
-            CustomRoutes = customRoutes;
-            EnableBgp = enableBgp;
-            EnableBgpRouteTranslationForNat = enableBgpRouteTranslationForNat;
-            EnableDnsForwarding = enableDnsForwarding;
-            EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
             ExtendedLocation = extendedLocation;
-            GatewayDefaultSite = gatewayDefaultSite;
-            GatewayType = gatewayType;
             Id = id;
-            InboundDnsForwardingEndpoint = inboundDnsForwardingEndpoint;
-            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            NatRules = natRules;
-            ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
-            Sku = sku;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            VNetExtendedLocationResourceId = vNetExtendedLocationResourceId;
-            VpnClientConfiguration = vpnClientConfiguration;
-            VpnGatewayGeneration = vpnGatewayGeneration;
-            VpnType = vpnType;
         }
     }
 }

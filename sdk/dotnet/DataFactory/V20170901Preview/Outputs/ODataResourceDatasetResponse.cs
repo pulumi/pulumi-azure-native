@@ -33,10 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The OData resource path. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Path;
-        /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
         public readonly object? Structure;
@@ -45,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'ODataResource'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// OData dataset properties.
+        /// </summary>
+        public readonly Outputs.ODataResourceDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ODataResourceDatasetResponse(
@@ -56,19 +56,19 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? path,
-
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.ODataResourceDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
-            Path = path;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

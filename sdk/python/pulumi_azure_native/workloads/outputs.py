@@ -65,6 +65,7 @@ __all__ = [
     'SAPInstallWithoutOSConfigSoftwareConfigurationResponse',
     'SAPSupportedSkuResponse',
     'SAPVirtualInstanceErrorResponse',
+    'SAPVirtualInstancePropertiesResponse',
     'SapNetWeaverProviderInstancePropertiesResponse',
     'SearchProfileResponse',
     'ServiceInitiatedSoftwareConfigurationResponse',
@@ -4050,6 +4051,138 @@ class SAPVirtualInstanceErrorResponse(dict):
         The Virtual Instance for SAP error body.
         """
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class SAPVirtualInstancePropertiesResponse(dict):
+    """
+    Defines the Virtual Instance for SAP solutions resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sapProduct":
+            suggest = "sap_product"
+        elif key == "managedResourceGroupConfiguration":
+            suggest = "managed_resource_group_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SAPVirtualInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SAPVirtualInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SAPVirtualInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration: Any,
+                 environment: str,
+                 errors: 'outputs.SAPVirtualInstanceErrorResponse',
+                 health: str,
+                 provisioning_state: str,
+                 sap_product: str,
+                 state: str,
+                 status: str,
+                 managed_resource_group_configuration: Optional['outputs.ManagedRGConfigurationResponse'] = None):
+        """
+        Defines the Virtual Instance for SAP solutions resource properties.
+        :param Union['DeploymentConfigurationResponse', 'DeploymentWithOSConfigurationResponse', 'DiscoveryConfigurationResponse'] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
+        :param str environment: Defines the environment type - Production/Non Production.
+        :param 'SAPVirtualInstanceErrorResponse' errors: Indicates any errors on the Virtual Instance for SAP solutions resource.
+        :param str health: Defines the health of SAP Instances.
+        :param str provisioning_state: Defines the provisioning states.
+        :param str sap_product: Defines the SAP Product type.
+        :param str state: Defines the Virtual Instance for SAP state.
+        :param str status: Defines the SAP Instance status.
+        :param 'ManagedRGConfigurationResponse' managed_resource_group_configuration: Managed resource group configuration
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sap_product", sap_product)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status", status)
+        if managed_resource_group_configuration is not None:
+            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Any:
+        """
+        Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> str:
+        """
+        Defines the environment type - Production/Non Production.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> 'outputs.SAPVirtualInstanceErrorResponse':
+        """
+        Indicates any errors on the Virtual Instance for SAP solutions resource.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        Defines the health of SAP Instances.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Defines the provisioning states.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sapProduct")
+    def sap_product(self) -> str:
+        """
+        Defines the SAP Product type.
+        """
+        return pulumi.get(self, "sap_product")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Defines the Virtual Instance for SAP state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Defines the SAP Instance status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupConfiguration")
+    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedRGConfigurationResponse']:
+        """
+        Managed resource group configuration
+        """
+        return pulumi.get(self, "managed_resource_group_configuration")
 
 
 @pulumi.output_type

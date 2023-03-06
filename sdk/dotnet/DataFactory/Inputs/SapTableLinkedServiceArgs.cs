@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("clientId")]
-        public Input<object>? ClientId { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,36 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("language")]
-        public Input<object>? Language { get; set; }
-
-        /// <summary>
-        /// The Logon Group for the SAP System. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("logonGroup")]
-        public Input<object>? LogonGroup { get; set; }
-
-        /// <summary>
-        /// The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("messageServer")]
-        public Input<object>? MessageServer { get; set; }
-
-        /// <summary>
-        /// The service name or port number of the Message Server. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("messageServerService")]
-        public Input<object>? MessageServerService { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -88,60 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Password to access the SAP server where the table is located.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("server")]
-        public Input<object>? Server { get; set; }
-
-        /// <summary>
-        /// External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("sncLibraryPath")]
-        public Input<object>? SncLibraryPath { get; set; }
-
-        /// <summary>
-        /// SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("sncMode")]
-        public Input<object>? SncMode { get; set; }
-
-        /// <summary>
-        /// Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("sncMyName")]
-        public Input<object>? SncMyName { get; set; }
-
-        /// <summary>
-        /// Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("sncPartnerName")]
-        public Input<object>? SncPartnerName { get; set; }
-
-        /// <summary>
-        /// SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("sncQop")]
-        public Input<object>? SncQop { get; set; }
-
-        /// <summary>
-        /// SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("systemId")]
-        public Input<object>? SystemId { get; set; }
-
-        /// <summary>
-        /// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("systemNumber")]
-        public Input<object>? SystemNumber { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'SapTable'.
         /// </summary>
@@ -149,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        /// Properties specific to this linked service type.
         /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapTableLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapTableLinkedServiceArgs()
         {

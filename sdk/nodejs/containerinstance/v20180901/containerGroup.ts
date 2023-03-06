@@ -41,26 +41,6 @@ export class ContainerGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The containers within the container group.
-     */
-    public readonly containers!: pulumi.Output<outputs.containerinstance.v20180901.ContainerResponse[]>;
-    /**
-     * The diagnostic information for a container group.
-     */
-    public readonly diagnostics!: pulumi.Output<outputs.containerinstance.v20180901.ContainerGroupDiagnosticsResponse | undefined>;
-    /**
-     * The image registry credentials by which the container group is created from.
-     */
-    public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerinstance.v20180901.ImageRegistryCredentialResponse[] | undefined>;
-    /**
-     * The instance view of the container group. Only valid in response.
-     */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.v20180901.ContainerGroupResponseInstanceView>;
-    /**
-     * The IP address type of the container group.
-     */
-    public readonly ipAddress!: pulumi.Output<outputs.containerinstance.v20180901.IpAddressResponse | undefined>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -68,25 +48,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The network profile information for a container group.
-     */
-    public readonly networkProfile!: pulumi.Output<outputs.containerinstance.v20180901.ContainerGroupNetworkProfileResponse | undefined>;
-    /**
-     * The operating system type required by the containers in the container group.
-     */
-    public readonly osType!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the container group. This only appears in the response.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Restart policy for all containers within the container group. 
-     * - `Always` Always restart
-     * - `OnFailure` Restart on failure
-     * - `Never` Never restart
-     */
-    public readonly restartPolicy!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.containerinstance.v20180901.ContainerGroupResponseProperties>;
     /**
      * The resource tags.
      */
@@ -95,10 +57,6 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The list of volumes that can be mounted by containers in this container group.
-     */
-    public readonly volumes!: pulumi.Output<outputs.containerinstance.v20180901.VolumeResponse[] | undefined>;
 
     /**
      * Create a ContainerGroup resource with the given unique name, arguments, and options.
@@ -113,46 +71,25 @@ export class ContainerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'containers'");
-            }
-            if ((!args || args.osType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'osType'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["containerGroupName"] = args ? args.containerGroupName : undefined;
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
-            resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
-            resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["containers"] = undefined /*out*/;
-            resourceInputs["diagnostics"] = undefined /*out*/;
-            resourceInputs["imageRegistryCredentials"] = undefined /*out*/;
-            resourceInputs["instanceView"] = undefined /*out*/;
-            resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkProfile"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["restartPolicy"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerinstance:ContainerGroup" }, { type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-native:containerinstance/v20210701:ContainerGroup" }, { type: "azure-native:containerinstance/v20210901:ContainerGroup" }, { type: "azure-native:containerinstance/v20211001:ContainerGroup" }, { type: "azure-native:containerinstance/v20220901:ContainerGroup" }, { type: "azure-native:containerinstance/v20221001preview:ContainerGroup" }] };
@@ -170,50 +107,16 @@ export interface ContainerGroupArgs {
      */
     containerGroupName?: pulumi.Input<string>;
     /**
-     * The containers within the container group.
-     */
-    containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.ContainerArgs>[]>;
-    /**
-     * The diagnostic information for a container group.
-     */
-    diagnostics?: pulumi.Input<inputs.containerinstance.v20180901.ContainerGroupDiagnosticsArgs>;
-    /**
-     * The image registry credentials by which the container group is created from.
-     */
-    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.ImageRegistryCredentialArgs>[]>;
-    /**
-     * The IP address type of the container group.
-     */
-    ipAddress?: pulumi.Input<inputs.containerinstance.v20180901.IpAddressArgs>;
-    /**
      * The resource location.
      */
     location?: pulumi.Input<string>;
-    /**
-     * The network profile information for a container group.
-     */
-    networkProfile?: pulumi.Input<inputs.containerinstance.v20180901.ContainerGroupNetworkProfileArgs>;
-    /**
-     * The operating system type required by the containers in the container group.
-     */
-    osType: pulumi.Input<string | enums.containerinstance.v20180901.OperatingSystemTypes>;
+    properties: pulumi.Input<inputs.containerinstance.v20180901.ContainerGroupPropertiesArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Restart policy for all containers within the container group. 
-     * - `Always` Always restart
-     * - `OnFailure` Restart on failure
-     * - `Never` Never restart
-     */
-    restartPolicy?: pulumi.Input<string | enums.containerinstance.v20180901.ContainerGroupRestartPolicy>;
-    /**
      * The resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The list of volumes that can be mounted by containers in this container group.
-     */
-    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180901.VolumeArgs>[]>;
 }

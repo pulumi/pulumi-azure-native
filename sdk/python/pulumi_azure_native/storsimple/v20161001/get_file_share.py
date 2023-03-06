@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetFileShareResult',
@@ -23,64 +24,19 @@ class GetFileShareResult:
     """
     The File Share.
     """
-    def __init__(__self__, admin_user=None, data_policy=None, description=None, id=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, share_status=None, type=None, used_capacity_in_bytes=None):
-        if admin_user and not isinstance(admin_user, str):
-            raise TypeError("Expected argument 'admin_user' to be a str")
-        pulumi.set(__self__, "admin_user", admin_user)
-        if data_policy and not isinstance(data_policy, str):
-            raise TypeError("Expected argument 'data_policy' to be a str")
-        pulumi.set(__self__, "data_policy", data_policy)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a float")
-        pulumi.set(__self__, "local_used_capacity_in_bytes", local_used_capacity_in_bytes)
-        if monitoring_status and not isinstance(monitoring_status, str):
-            raise TypeError("Expected argument 'monitoring_status' to be a str")
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a float")
-        pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
-        if share_status and not isinstance(share_status, str):
-            raise TypeError("Expected argument 'share_status' to be a str")
-        pulumi.set(__self__, "share_status", share_status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a float")
-        pulumi.set(__self__, "used_capacity_in_bytes", used_capacity_in_bytes)
-
-    @property
-    @pulumi.getter(name="adminUser")
-    def admin_user(self) -> str:
-        """
-        The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-        """
-        return pulumi.get(self, "admin_user")
-
-    @property
-    @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> str:
-        """
-        The data policy
-        """
-        return pulumi.get(self, "data_policy")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Description for file share
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -91,22 +47,6 @@ class GetFileShareResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> float:
-        """
-        The local used capacity in Bytes.
-        """
-        return pulumi.get(self, "local_used_capacity_in_bytes")
-
-    @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
-        """
-        The monitoring status
-        """
-        return pulumi.get(self, "monitoring_status")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -115,20 +55,12 @@ class GetFileShareResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> float:
+    @pulumi.getter
+    def properties(self) -> 'outputs.FileSharePropertiesResponse':
         """
-        The total provisioned capacity in Bytes
+        The properties.
         """
-        return pulumi.get(self, "provisioned_capacity_in_bytes")
-
-    @property
-    @pulumi.getter(name="shareStatus")
-    def share_status(self) -> str:
-        """
-        The Share Status
-        """
-        return pulumi.get(self, "share_status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -138,14 +70,6 @@ class GetFileShareResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> float:
-        """
-        The used capacity in Bytes.
-        """
-        return pulumi.get(self, "used_capacity_in_bytes")
-
 
 class AwaitableGetFileShareResult(GetFileShareResult):
     # pylint: disable=using-constant-test
@@ -153,17 +77,10 @@ class AwaitableGetFileShareResult(GetFileShareResult):
         if False:
             yield self
         return GetFileShareResult(
-            admin_user=self.admin_user,
-            data_policy=self.data_policy,
-            description=self.description,
             id=self.id,
-            local_used_capacity_in_bytes=self.local_used_capacity_in_bytes,
-            monitoring_status=self.monitoring_status,
             name=self.name,
-            provisioned_capacity_in_bytes=self.provisioned_capacity_in_bytes,
-            share_status=self.share_status,
-            type=self.type,
-            used_capacity_in_bytes=self.used_capacity_in_bytes)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_file_share(device_name: Optional[str] = None,
@@ -193,17 +110,10 @@ def get_file_share(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20161001:getFileShare', __args__, opts=opts, typ=GetFileShareResult).value
 
     return AwaitableGetFileShareResult(
-        admin_user=__ret__.admin_user,
-        data_policy=__ret__.data_policy,
-        description=__ret__.description,
         id=__ret__.id,
-        local_used_capacity_in_bytes=__ret__.local_used_capacity_in_bytes,
-        monitoring_status=__ret__.monitoring_status,
         name=__ret__.name,
-        provisioned_capacity_in_bytes=__ret__.provisioned_capacity_in_bytes,
-        share_status=__ret__.share_status,
-        type=__ret__.type,
-        used_capacity_in_bytes=__ret__.used_capacity_in_bytes)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_file_share)

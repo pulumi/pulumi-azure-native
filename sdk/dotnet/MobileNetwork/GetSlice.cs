@@ -96,10 +96,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// An optional description for this network slice.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -124,13 +120,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the network slice resource.
+        /// Slice properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-        /// </summary>
-        public readonly Outputs.SnssaiResponse Snssai;
+        public readonly Outputs.SlicePropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -152,8 +144,6 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string? createdByType,
 
-            string? description,
-
             string id,
 
             string? lastModifiedAt,
@@ -166,9 +156,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string name,
 
-            string provisioningState,
-
-            Outputs.SnssaiResponse snssai,
+            Outputs.SlicePropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -179,15 +167,13 @@ namespace Pulumi.AzureNative.MobileNetwork
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;
-            Description = description;
             Id = id;
             LastModifiedAt = lastModifiedAt;
             LastModifiedBy = lastModifiedBy;
             LastModifiedByType = lastModifiedByType;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Snssai = snssai;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

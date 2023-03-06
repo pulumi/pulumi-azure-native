@@ -82,10 +82,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
-        /// The end IP address of the server group firewall rule. Must be IPv4 format.
-        /// </summary>
-        public readonly string EndIpAddress;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -94,9 +90,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The start IP address of the server group firewall rule. Must be IPv4 format.
+        /// The properties of a firewall rule.
         /// </summary>
-        public readonly string StartIpAddress;
+        public readonly Outputs.FirewallRulePropertiesResponse Properties;
         /// <summary>
         /// The system metadata relating to this resource
         /// </summary>
@@ -108,22 +104,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 
         [OutputConstructor]
         private GetFirewallRuleResult(
-            string endIpAddress,
-
             string id,
 
             string name,
 
-            string startIpAddress,
+            Outputs.FirewallRulePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            EndIpAddress = endIpAddress;
             Id = id;
             Name = name;
-            StartIpAddress = startIpAddress;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

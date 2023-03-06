@@ -34,22 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The connection string.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<object> ConnectionString { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -64,17 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The Azure key vault secret reference of password in connection string.
-        /// </summary>
-        [Input("password")]
-        public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'PostgreSql'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// PostgreSQL linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.PostgreSqlLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public PostgreSqlLinkedServiceArgs()
         {

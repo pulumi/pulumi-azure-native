@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,18 +38,6 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
     }
 
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    public readonly dependsOn!: pulumi.Output<string[] | undefined>;
-    /**
-     * Multi-line explain this resource.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * One-liner string explain this resource.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'roleAssignment'.
      */
@@ -56,17 +47,9 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+     * Properties for roleAssignment artifact.
      */
-    public readonly principalIds!: pulumi.Output<any>;
-    /**
-     * RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-     */
-    public readonly resourceGroup!: pulumi.Output<string | undefined>;
-    /**
-     * Azure resource ID of the RoleDefinition.
-     */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.blueprint.v20171111preview.RoleAssignmentArtifactPropertiesResponse>;
     /**
      * Type of this resource.
      */
@@ -92,33 +75,20 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
             if ((!args || args.managementGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if ((!args || args.principalIds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'principalIds'");
-            }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleDefinitionId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             resourceInputs["artifactName"] = args ? args.artifactName : undefined;
             resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["dependsOn"] = args ? args.dependsOn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["kind"] = "roleAssignment";
             resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            resourceInputs["principalIds"] = args ? args.principalIds : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dependsOn"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["principalIds"] = undefined /*out*/;
-            resourceInputs["resourceGroup"] = undefined /*out*/;
-            resourceInputs["roleDefinitionId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,18 +109,6 @@ export interface RoleAssignmentArtifactArgs {
      */
     blueprintName: pulumi.Input<string>;
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Multi-line explain this resource.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * One-liner string explain this resource.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'roleAssignment'.
      */
@@ -160,15 +118,7 @@ export interface RoleAssignmentArtifactArgs {
      */
     managementGroupName: pulumi.Input<string>;
     /**
-     * Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+     * Properties for roleAssignment artifact.
      */
-    principalIds: any;
-    /**
-     * RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
-     */
-    resourceGroup?: pulumi.Input<string>;
-    /**
-     * Azure resource ID of the RoleDefinition.
-     */
-    roleDefinitionId: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.blueprint.v20171111preview.RoleAssignmentArtifactPropertiesArgs>;
 }

@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.DataLakeStore.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The resource identifier for the subnet.
+        /// The virtual network rule properties to use when creating a new virtual network rule.
         /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.CreateOrUpdateVirtualNetworkRulePropertiesArgs> Properties { get; set; } = null!;
 
         public CreateVirtualNetworkRuleWithAccountParametersArgs()
         {

@@ -72,18 +72,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
-        /// </summary>
-        public readonly ImmutableArray<string> AttachedTo;
-        /// <summary>
-        /// The more detailed status of the volume.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -100,17 +88,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the volume.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The unique identifier of the volume.
-        /// </summary>
-        public readonly string SerialNumber;
-        /// <summary>
-        /// The size of the allocation for this volume in Mebibytes.
-        /// </summary>
-        public readonly double SizeMiB;
+        public readonly Outputs.VolumePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -126,12 +106,6 @@ namespace Pulumi.AzureNative.NetworkCloud
 
         [OutputConstructor]
         private GetVolumeResult(
-            ImmutableArray<string> attachedTo,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -140,11 +114,7 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string name,
 
-            string provisioningState,
-
-            string serialNumber,
-
-            double sizeMiB,
+            Outputs.VolumePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -152,16 +122,11 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string type)
         {
-            AttachedTo = attachedTo;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            SerialNumber = serialNumber;
-            SizeMiB = sizeMiB;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

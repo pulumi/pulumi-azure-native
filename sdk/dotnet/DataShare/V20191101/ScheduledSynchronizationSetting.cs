@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     public partial class ScheduledSynchronizationSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Time at which the synchronization setting was created.
-        /// </summary>
-        [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of synchronization setting.
         /// Expected value is 'ScheduleBased'.
         /// </summary>
@@ -35,34 +29,16 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state
+        /// Properties of scheduled synchronization
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Recurrence Interval
-        /// </summary>
-        [Output("recurrenceInterval")]
-        public Output<string> RecurrenceInterval { get; private set; } = null!;
-
-        /// <summary>
-        /// Synchronization time
-        /// </summary>
-        [Output("synchronizationTime")]
-        public Output<string> SynchronizationTime { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ScheduledSynchronizationSettingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of the user who created the synchronization setting.
-        /// </summary>
-        [Output("userName")]
-        public Output<string> UserName { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,10 +114,10 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Recurrence Interval
+        /// Properties of scheduled synchronization
         /// </summary>
-        [Input("recurrenceInterval", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataShare.V20191101.RecurrenceInterval> RecurrenceInterval { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ScheduledSynchronizationSettingPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -160,12 +136,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// </summary>
         [Input("synchronizationSettingName")]
         public Input<string>? SynchronizationSettingName { get; set; }
-
-        /// <summary>
-        /// Synchronization time
-        /// </summary>
-        [Input("synchronizationTime", required: true)]
-        public Input<string> SynchronizationTime { get; set; } = null!;
 
         public ScheduledSynchronizationSettingArgs()
         {

@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The client key for the AppFigures source.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> ClientKey;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -37,24 +33,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The password of the AppFigures source.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> Password;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AppFigures'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The username of the Appfigures source.
+        /// AppFigures linked service properties.
         /// </summary>
-        public readonly object UserName;
+        public readonly Outputs.AppFiguresLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AppFiguresLinkedServiceResponse(
             ImmutableArray<object> annotations,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> clientKey,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
@@ -62,20 +52,16 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> password,
-
             string type,
 
-            object userName)
+            Outputs.AppFiguresLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            ClientKey = clientKey;
             ConnectVia = connectVia;
             Description = description;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

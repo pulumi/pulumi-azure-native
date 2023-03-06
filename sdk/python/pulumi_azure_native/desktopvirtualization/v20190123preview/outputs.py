@@ -8,11 +8,481 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicationGroupPropertiesResponse',
+    'ApplicationPropertiesResponse',
+    'HostPoolPropertiesResponse',
     'RegistrationInfoResponse',
 ]
+
+@pulumi.output_type
+class ApplicationGroupPropertiesResponse(dict):
+    """
+    Schema for ApplicationGroup properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationGroupType":
+            suggest = "application_group_type"
+        elif key == "hostPoolArmPath":
+            suggest = "host_pool_arm_path"
+        elif key == "workspaceArmPath":
+            suggest = "workspace_arm_path"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_group_type: str,
+                 host_pool_arm_path: str,
+                 workspace_arm_path: str,
+                 description: Optional[str] = None,
+                 friendly_name: Optional[str] = None):
+        """
+        Schema for ApplicationGroup properties.
+        :param str application_group_type: Resource Type of ApplicationGroup.
+        :param str host_pool_arm_path: HostPool arm path of ApplicationGroup.
+        :param str workspace_arm_path: Workspace arm path of ApplicationGroup.
+        :param str description: Description of ApplicationGroup.
+        :param str friendly_name: Friendly name of ApplicationGroup.
+        """
+        pulumi.set(__self__, "application_group_type", application_group_type)
+        pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
+        pulumi.set(__self__, "workspace_arm_path", workspace_arm_path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+
+    @property
+    @pulumi.getter(name="applicationGroupType")
+    def application_group_type(self) -> str:
+        """
+        Resource Type of ApplicationGroup.
+        """
+        return pulumi.get(self, "application_group_type")
+
+    @property
+    @pulumi.getter(name="hostPoolArmPath")
+    def host_pool_arm_path(self) -> str:
+        """
+        HostPool arm path of ApplicationGroup.
+        """
+        return pulumi.get(self, "host_pool_arm_path")
+
+    @property
+    @pulumi.getter(name="workspaceArmPath")
+    def workspace_arm_path(self) -> str:
+        """
+        Workspace arm path of ApplicationGroup.
+        """
+        return pulumi.get(self, "workspace_arm_path")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of ApplicationGroup.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of ApplicationGroup.
+        """
+        return pulumi.get(self, "friendly_name")
+
+
+@pulumi.output_type
+class ApplicationPropertiesResponse(dict):
+    """
+    Schema for Application properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commandLineSetting":
+            suggest = "command_line_setting"
+        elif key == "iconContent":
+            suggest = "icon_content"
+        elif key == "iconHash":
+            suggest = "icon_hash"
+        elif key == "commandLineArguments":
+            suggest = "command_line_arguments"
+        elif key == "filePath":
+            suggest = "file_path"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "iconIndex":
+            suggest = "icon_index"
+        elif key == "iconPath":
+            suggest = "icon_path"
+        elif key == "showInPortal":
+            suggest = "show_in_portal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 command_line_setting: str,
+                 icon_content: str,
+                 icon_hash: str,
+                 command_line_arguments: Optional[str] = None,
+                 description: Optional[str] = None,
+                 file_path: Optional[str] = None,
+                 friendly_name: Optional[str] = None,
+                 icon_index: Optional[int] = None,
+                 icon_path: Optional[str] = None,
+                 show_in_portal: Optional[bool] = None):
+        """
+        Schema for Application properties.
+        :param str command_line_setting: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+        :param str icon_content: the icon a 64 bit string as a byte array.
+        :param str icon_hash: Hash of the icon.
+        :param str command_line_arguments: Command Line Arguments for Application.
+        :param str description: Description of Application.
+        :param str file_path: Specifies a path for the executable file for the application.
+        :param str friendly_name: Friendly name of Application.
+        :param int icon_index: Index of the icon.
+        :param str icon_path: Path to icon.
+        :param bool show_in_portal: Specifies whether to show the RemoteApp program in the RD Web Access server.
+        """
+        pulumi.set(__self__, "command_line_setting", command_line_setting)
+        pulumi.set(__self__, "icon_content", icon_content)
+        pulumi.set(__self__, "icon_hash", icon_hash)
+        if command_line_arguments is not None:
+            pulumi.set(__self__, "command_line_arguments", command_line_arguments)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if icon_index is not None:
+            pulumi.set(__self__, "icon_index", icon_index)
+        if icon_path is not None:
+            pulumi.set(__self__, "icon_path", icon_path)
+        if show_in_portal is not None:
+            pulumi.set(__self__, "show_in_portal", show_in_portal)
+
+    @property
+    @pulumi.getter(name="commandLineSetting")
+    def command_line_setting(self) -> str:
+        """
+        Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+        """
+        return pulumi.get(self, "command_line_setting")
+
+    @property
+    @pulumi.getter(name="iconContent")
+    def icon_content(self) -> str:
+        """
+        the icon a 64 bit string as a byte array.
+        """
+        return pulumi.get(self, "icon_content")
+
+    @property
+    @pulumi.getter(name="iconHash")
+    def icon_hash(self) -> str:
+        """
+        Hash of the icon.
+        """
+        return pulumi.get(self, "icon_hash")
+
+    @property
+    @pulumi.getter(name="commandLineArguments")
+    def command_line_arguments(self) -> Optional[str]:
+        """
+        Command Line Arguments for Application.
+        """
+        return pulumi.get(self, "command_line_arguments")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of Application.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[str]:
+        """
+        Specifies a path for the executable file for the application.
+        """
+        return pulumi.get(self, "file_path")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of Application.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="iconIndex")
+    def icon_index(self) -> Optional[int]:
+        """
+        Index of the icon.
+        """
+        return pulumi.get(self, "icon_index")
+
+    @property
+    @pulumi.getter(name="iconPath")
+    def icon_path(self) -> Optional[str]:
+        """
+        Path to icon.
+        """
+        return pulumi.get(self, "icon_path")
+
+    @property
+    @pulumi.getter(name="showInPortal")
+    def show_in_portal(self) -> Optional[bool]:
+        """
+        Specifies whether to show the RemoteApp program in the RD Web Access server.
+        """
+        return pulumi.get(self, "show_in_portal")
+
+
+@pulumi.output_type
+class HostPoolPropertiesResponse(dict):
+    """
+    Properties of HostPool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationGroupReferences":
+            suggest = "application_group_references"
+        elif key == "hostPoolType":
+            suggest = "host_pool_type"
+        elif key == "loadBalancerType":
+            suggest = "load_balancer_type"
+        elif key == "preferredAppGroupType":
+            suggest = "preferred_app_group_type"
+        elif key == "customRdpProperty":
+            suggest = "custom_rdp_property"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "maxSessionLimit":
+            suggest = "max_session_limit"
+        elif key == "personalDesktopAssignmentType":
+            suggest = "personal_desktop_assignment_type"
+        elif key == "registrationInfo":
+            suggest = "registration_info"
+        elif key == "ssoContext":
+            suggest = "sso_context"
+        elif key == "validationEnvironment":
+            suggest = "validation_environment"
+        elif key == "vmTemplate":
+            suggest = "vm_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostPoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostPoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostPoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_group_references: Sequence[str],
+                 host_pool_type: str,
+                 load_balancer_type: str,
+                 preferred_app_group_type: str,
+                 custom_rdp_property: Optional[str] = None,
+                 description: Optional[str] = None,
+                 friendly_name: Optional[str] = None,
+                 max_session_limit: Optional[int] = None,
+                 personal_desktop_assignment_type: Optional[str] = None,
+                 registration_info: Optional['outputs.RegistrationInfoResponse'] = None,
+                 ring: Optional[int] = None,
+                 sso_context: Optional[str] = None,
+                 validation_environment: Optional[bool] = None,
+                 vm_template: Optional[str] = None):
+        """
+        Properties of HostPool.
+        :param Sequence[str] application_group_references: List of applicationGroup links.
+        :param str host_pool_type: HostPool type for desktop.
+        :param str load_balancer_type: The type of the load balancer.
+        :param str preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
+        :param str custom_rdp_property: Custom rdp property of HostPool.
+        :param str description: Description of HostPool.
+        :param str friendly_name: Friendly name of HostPool.
+        :param int max_session_limit: The max session limit of HostPool.
+        :param str personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
+        :param 'RegistrationInfoResponse' registration_info: The registration info of HostPool.
+        :param int ring: The ring number of HostPool.
+        :param str sso_context: Path to keyvault containing ssoContext secret.
+        :param bool validation_environment: Is validation environment.
+        :param str vm_template: VM template for sessionhosts configuration within hostpool.
+        """
+        pulumi.set(__self__, "application_group_references", application_group_references)
+        pulumi.set(__self__, "host_pool_type", host_pool_type)
+        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
+        if custom_rdp_property is not None:
+            pulumi.set(__self__, "custom_rdp_property", custom_rdp_property)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if max_session_limit is not None:
+            pulumi.set(__self__, "max_session_limit", max_session_limit)
+        if personal_desktop_assignment_type is not None:
+            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
+        if registration_info is not None:
+            pulumi.set(__self__, "registration_info", registration_info)
+        if ring is not None:
+            pulumi.set(__self__, "ring", ring)
+        if sso_context is not None:
+            pulumi.set(__self__, "sso_context", sso_context)
+        if validation_environment is not None:
+            pulumi.set(__self__, "validation_environment", validation_environment)
+        if vm_template is not None:
+            pulumi.set(__self__, "vm_template", vm_template)
+
+    @property
+    @pulumi.getter(name="applicationGroupReferences")
+    def application_group_references(self) -> Sequence[str]:
+        """
+        List of applicationGroup links.
+        """
+        return pulumi.get(self, "application_group_references")
+
+    @property
+    @pulumi.getter(name="hostPoolType")
+    def host_pool_type(self) -> str:
+        """
+        HostPool type for desktop.
+        """
+        return pulumi.get(self, "host_pool_type")
+
+    @property
+    @pulumi.getter(name="loadBalancerType")
+    def load_balancer_type(self) -> str:
+        """
+        The type of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_type")
+
+    @property
+    @pulumi.getter(name="preferredAppGroupType")
+    def preferred_app_group_type(self) -> str:
+        """
+        The type of preferred application group type, default to Desktop Application Group
+        """
+        return pulumi.get(self, "preferred_app_group_type")
+
+    @property
+    @pulumi.getter(name="customRdpProperty")
+    def custom_rdp_property(self) -> Optional[str]:
+        """
+        Custom rdp property of HostPool.
+        """
+        return pulumi.get(self, "custom_rdp_property")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of HostPool.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly name of HostPool.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="maxSessionLimit")
+    def max_session_limit(self) -> Optional[int]:
+        """
+        The max session limit of HostPool.
+        """
+        return pulumi.get(self, "max_session_limit")
+
+    @property
+    @pulumi.getter(name="personalDesktopAssignmentType")
+    def personal_desktop_assignment_type(self) -> Optional[str]:
+        """
+        PersonalDesktopAssignment type for HostPool.
+        """
+        return pulumi.get(self, "personal_desktop_assignment_type")
+
+    @property
+    @pulumi.getter(name="registrationInfo")
+    def registration_info(self) -> Optional['outputs.RegistrationInfoResponse']:
+        """
+        The registration info of HostPool.
+        """
+        return pulumi.get(self, "registration_info")
+
+    @property
+    @pulumi.getter
+    def ring(self) -> Optional[int]:
+        """
+        The ring number of HostPool.
+        """
+        return pulumi.get(self, "ring")
+
+    @property
+    @pulumi.getter(name="ssoContext")
+    def sso_context(self) -> Optional[str]:
+        """
+        Path to keyvault containing ssoContext secret.
+        """
+        return pulumi.get(self, "sso_context")
+
+    @property
+    @pulumi.getter(name="validationEnvironment")
+    def validation_environment(self) -> Optional[bool]:
+        """
+        Is validation environment.
+        """
+        return pulumi.get(self, "validation_environment")
+
+    @property
+    @pulumi.getter(name="vmTemplate")
+    def vm_template(self) -> Optional[str]:
+        """
+        VM template for sessionhosts configuration within hostpool.
+        """
+        return pulumi.get(self, "vm_template")
+
 
 @pulumi.output_type
 class RegistrationInfoResponse(dict):

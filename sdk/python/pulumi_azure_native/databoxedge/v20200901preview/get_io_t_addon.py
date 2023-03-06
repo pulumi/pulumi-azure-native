@@ -22,56 +22,25 @@ class GetIoTAddonResult:
     """
     IoT Addon.
     """
-    def __init__(__self__, host_platform=None, host_platform_type=None, id=None, io_t_device_details=None, io_t_edge_device_details=None, kind=None, name=None, provisioning_state=None, system_data=None, type=None, version=None):
-        if host_platform and not isinstance(host_platform, str):
-            raise TypeError("Expected argument 'host_platform' to be a str")
-        pulumi.set(__self__, "host_platform", host_platform)
-        if host_platform_type and not isinstance(host_platform_type, str):
-            raise TypeError("Expected argument 'host_platform_type' to be a str")
-        pulumi.set(__self__, "host_platform_type", host_platform_type)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if io_t_device_details and not isinstance(io_t_device_details, dict):
-            raise TypeError("Expected argument 'io_t_device_details' to be a dict")
-        pulumi.set(__self__, "io_t_device_details", io_t_device_details)
-        if io_t_edge_device_details and not isinstance(io_t_edge_device_details, dict):
-            raise TypeError("Expected argument 'io_t_edge_device_details' to be a dict")
-        pulumi.set(__self__, "io_t_edge_device_details", io_t_edge_device_details)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="hostPlatform")
-    def host_platform(self) -> str:
-        """
-        Host OS supported by the IoT addon.
-        """
-        return pulumi.get(self, "host_platform")
-
-    @property
-    @pulumi.getter(name="hostPlatformType")
-    def host_platform_type(self) -> str:
-        """
-        Platform where the runtime is hosted.
-        """
-        return pulumi.get(self, "host_platform_type")
 
     @property
     @pulumi.getter
@@ -80,22 +49,6 @@ class GetIoTAddonResult:
         The path ID that uniquely identifies the object.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="ioTDeviceDetails")
-    def io_t_device_details(self) -> 'outputs.IoTDeviceInfoResponse':
-        """
-        IoT device metadata to which appliance needs to be connected.
-        """
-        return pulumi.get(self, "io_t_device_details")
-
-    @property
-    @pulumi.getter(name="ioTEdgeDeviceDetails")
-    def io_t_edge_device_details(self) -> 'outputs.IoTDeviceInfoResponse':
-        """
-        IoT edge device to which the IoT Addon needs to be configured.
-        """
-        return pulumi.get(self, "io_t_edge_device_details")
 
     @property
     @pulumi.getter
@@ -115,12 +68,12 @@ class GetIoTAddonResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.IoTAddonPropertiesResponse':
         """
-        Addon Provisioning State
+        Properties specific to IOT addon.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -138,14 +91,6 @@ class GetIoTAddonResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def version(self) -> str:
-        """
-        Version of IoT running on the appliance.
-        """
-        return pulumi.get(self, "version")
-
 
 class AwaitableGetIoTAddonResult(GetIoTAddonResult):
     # pylint: disable=using-constant-test
@@ -153,17 +98,12 @@ class AwaitableGetIoTAddonResult(GetIoTAddonResult):
         if False:
             yield self
         return GetIoTAddonResult(
-            host_platform=self.host_platform,
-            host_platform_type=self.host_platform_type,
             id=self.id,
-            io_t_device_details=self.io_t_device_details,
-            io_t_edge_device_details=self.io_t_edge_device_details,
             kind=self.kind,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            version=self.version)
+            type=self.type)
 
 
 def get_io_t_addon(addon_name: Optional[str] = None,
@@ -189,17 +129,12 @@ def get_io_t_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20200901preview:getIoTAddon', __args__, opts=opts, typ=GetIoTAddonResult).value
 
     return AwaitableGetIoTAddonResult(
-        host_platform=__ret__.host_platform,
-        host_platform_type=__ret__.host_platform_type,
         id=__ret__.id,
-        io_t_device_details=__ret__.io_t_device_details,
-        io_t_edge_device_details=__ret__.io_t_edge_device_details,
         kind=__ret__.kind,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_io_t_addon)

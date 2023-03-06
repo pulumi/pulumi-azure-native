@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class AmazonMWSLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access key id used to access data.
-        /// </summary>
-        [Input("accessKeyId", required: true)]
-        public Input<object> AccessKeyId { get; set; } = null!;
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -45,30 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<object> Endpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
-        /// </summary>
-        [Input("marketplaceID", required: true)]
-        public Input<object> MarketplaceID { get; set; } = null!;
-
-        /// <summary>
-        /// The Amazon MWS authentication token.
-        /// </summary>
-        [Input("mwsAuthToken")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? MwsAuthToken { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -82,18 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The secret key used to access data.
-        /// </summary>
-        [Input("secretKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SecretKey { get; set; }
-
-        /// <summary>
-        /// The Amazon seller ID.
-        /// </summary>
-        [Input("sellerID", required: true)]
-        public Input<object> SellerID { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AmazonMWS'.
         /// </summary>
@@ -101,22 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Amazon Marketplace Web Service linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
-
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("useHostVerification")]
-        public Input<object>? UseHostVerification { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("usePeerVerification")]
-        public Input<object>? UsePeerVerification { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AmazonMWSLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AmazonMWSLinkedServiceArgs()
         {

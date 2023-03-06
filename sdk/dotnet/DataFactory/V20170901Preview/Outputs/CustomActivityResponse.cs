@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class CustomActivityResponse
     {
         /// <summary>
-        /// Command for custom activity Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Command;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -28,14 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExtendedProperties;
-        /// <summary>
-        /// Folder path for resource files Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? FolderPath;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -49,30 +37,20 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// Reference objects
-        /// </summary>
-        public readonly Outputs.CustomActivityReferenceObjectResponse? ReferenceObjects;
-        /// <summary>
-        /// Resource linked service reference.
-        /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse? ResourceLinkedService;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Custom'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Custom activity properties.
+        /// </summary>
+        public readonly Outputs.CustomActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CustomActivityResponse(
-            object command,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            ImmutableDictionary<string, object>? extendedProperties,
-
-            object? folderPath,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -80,23 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            Outputs.CustomActivityReferenceObjectResponse? referenceObjects,
+            string type,
 
-            Outputs.LinkedServiceReferenceResponse? resourceLinkedService,
-
-            string type)
+            Outputs.CustomActivityTypePropertiesResponse typeProperties)
         {
-            Command = command;
             DependsOn = dependsOn;
             Description = description;
-            ExtendedProperties = extendedProperties;
-            FolderPath = folderPath;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            ReferenceObjects = referenceObjects;
-            ResourceLinkedService = resourceLinkedService;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

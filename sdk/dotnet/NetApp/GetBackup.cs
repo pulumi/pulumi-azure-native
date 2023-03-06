@@ -108,29 +108,9 @@ namespace Pulumi.AzureNative.NetApp
     public sealed class GetBackupResult
     {
         /// <summary>
-        /// UUID v4 used to identify the Backup
-        /// </summary>
-        public readonly string BackupId;
-        /// <summary>
-        /// Type of backup Manual or Scheduled
-        /// </summary>
-        public readonly string BackupType;
-        /// <summary>
-        /// The creation date of the backup
-        /// </summary>
-        public readonly string CreationDate;
-        /// <summary>
-        /// Failure reason
-        /// </summary>
-        public readonly string FailureReason;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Label for backup
-        /// </summary>
-        public readonly string? Label;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -140,60 +120,31 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup Properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Size of backup
-        /// </summary>
-        public readonly double Size;
+        public readonly Outputs.BackupPropertiesResponse Properties;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Volume name
-        /// </summary>
-        public readonly string VolumeName;
 
         [OutputConstructor]
         private GetBackupResult(
-            string backupId,
-
-            string backupType,
-
-            string creationDate,
-
-            string failureReason,
-
             string id,
-
-            string? label,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.BackupPropertiesResponse properties,
 
-            double size,
-
-            string type,
-
-            string volumeName)
+            string type)
         {
-            BackupId = backupId;
-            BackupType = backupType;
-            CreationDate = creationDate;
-            FailureReason = failureReason;
             Id = id;
-            Label = label;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Size = size;
+            Properties = properties;
             Type = type;
-            VolumeName = volumeName;
         }
     }
 }

@@ -37,22 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TrainedModelFilePath;
-        /// <summary>
-        /// Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
-        /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse TrainedModelLinkedServiceName;
-        /// <summary>
-        /// Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TrainedModelName;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'AzureMLUpdateResource'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure ML Update Resource management activity properties.
+        /// </summary>
+        public readonly Outputs.AzureMLUpdateResourceActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureMLUpdateResourceActivityResponse(
@@ -66,23 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            object trainedModelFilePath,
+            string type,
 
-            Outputs.LinkedServiceReferenceResponse trainedModelLinkedServiceName,
-
-            object trainedModelName,
-
-            string type)
+            Outputs.AzureMLUpdateResourceActivityTypePropertiesResponse typeProperties)
         {
             DependsOn = dependsOn;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            TrainedModelFilePath = trainedModelFilePath;
-            TrainedModelLinkedServiceName = trainedModelLinkedServiceName;
-            TrainedModelName = trainedModelName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

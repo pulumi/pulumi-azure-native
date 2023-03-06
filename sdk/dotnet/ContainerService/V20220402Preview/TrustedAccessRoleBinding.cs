@@ -22,22 +22,10 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The current provisioning state of trusted access role binding.
+        /// Properties for trusted access role binding
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
-        /// </summary>
-        [Output("roles")]
-        public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
-
-        /// <summary>
-        /// The ARM resource ID of source resource that trusted access is configured for.
-        /// </summary>
-        [Output("sourceResourceId")]
-        public Output<string> SourceResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.TrustedAccessRoleBindingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -110,6 +98,12 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview
     public sealed class TrustedAccessRoleBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Properties for trusted access role binding
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.TrustedAccessRoleBindingPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -120,24 +114,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
-
-        [Input("roles", required: true)]
-        private InputList<string>? _roles;
-
-        /// <summary>
-        /// A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
-        /// </summary>
-        public InputList<string> Roles
-        {
-            get => _roles ?? (_roles = new InputList<string>());
-            set => _roles = value;
-        }
-
-        /// <summary>
-        /// The ARM resource ID of source resource that trusted access is configured for.
-        /// </summary>
-        [Input("sourceResourceId", required: true)]
-        public Input<string> SourceResourceId { get; set; } = null!;
 
         /// <summary>
         /// The name of trusted access role binding.

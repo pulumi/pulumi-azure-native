@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,17 +38,13 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     }
 
     /**
-     * Linked storage accounts type.
-     */
-    public readonly dataSourceType!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Linked storage accounts resources ids.
+     * Linked storage accounts properties.
      */
-    public readonly storageAccountIds!: pulumi.Output<string[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20200301preview.LinkedStorageAccountsPropertiesResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -62,6 +61,9 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -69,15 +71,14 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["dataSourceType"] = args ? args.dataSourceType : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountIds"] = args ? args.storageAccountIds : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSourceType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["storageAccountIds"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -96,13 +97,13 @@ export interface LinkedStorageAccountArgs {
      */
     dataSourceType?: pulumi.Input<string>;
     /**
+     * Linked storage accounts properties.
+     */
+    properties: pulumi.Input<inputs.operationalinsights.v20200301preview.LinkedStorageAccountsPropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Linked storage accounts resources ids.
-     */
-    storageAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the workspace.
      */

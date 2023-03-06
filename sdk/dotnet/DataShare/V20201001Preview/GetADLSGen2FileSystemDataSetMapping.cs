@@ -94,18 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public sealed class GetADLSGen2FileSystemDataSetMappingResult
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
-        /// The file system name.
-        /// </summary>
-        public readonly string FileSystem;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -119,21 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// ADLS Gen2 file system data set mapping properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource group of storage account.
-        /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ADLSGen2FileSystemDataSetMappingPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -145,40 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 
         [OutputConstructor]
         private GetADLSGen2FileSystemDataSetMappingResult(
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
-            string fileSystem,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
-
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.ADLSGen2FileSystemDataSetMappingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
-            FileSystem = fileSystem;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

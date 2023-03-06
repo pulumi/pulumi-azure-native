@@ -70,17 +70,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The table name of the Snowflake database. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("table")]
-        public Input<object>? Table { get; set; }
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'SnowflakeTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Snowflake dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SnowflakeDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SnowflakeDatasetArgs()
         {

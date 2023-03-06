@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,10 +45,6 @@ export interface GetAccessControlRecordResult {
      */
     readonly id: string;
     /**
-     * The iSCSI initiator name (IQN).
-     */
-    readonly initiatorName: string;
-    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     readonly kind?: string;
@@ -54,13 +53,13 @@ export interface GetAccessControlRecordResult {
      */
     readonly name: string;
     /**
+     * The properties of access control record.
+     */
+    readonly properties: outputs.storsimple.AccessControlRecordPropertiesResponse;
+    /**
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * The number of volumes using the access control record.
-     */
-    readonly volumeCount: number;
 }
 /**
  * Returns the properties of the specified access control record name.

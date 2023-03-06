@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['ShareSubscriptionArgs', 'ShareSubscription']
 
@@ -16,26 +17,19 @@ __all__ = ['ShareSubscriptionArgs', 'ShareSubscription']
 class ShareSubscriptionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 invitation_id: pulumi.Input[str],
+                 properties: pulumi.Input['ShareSubscriptionPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 source_share_location: pulumi.Input[str],
-                 expiration_date: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ShareSubscription resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] invitation_id: The invitation id.
+        :param pulumi.Input['ShareSubscriptionPropertiesArgs'] properties: Properties on the share subscription
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] source_share_location: Source share location.
-        :param pulumi.Input[str] expiration_date: The expiration date of the share subscription.
         :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "invitation_id", invitation_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_share_location", source_share_location)
-        if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
         if share_subscription_name is not None:
             pulumi.set(__self__, "share_subscription_name", share_subscription_name)
 
@@ -52,16 +46,16 @@ class ShareSubscriptionArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ShareSubscriptionPropertiesArgs']:
         """
-        The invitation id.
+        Properties on the share subscription
         """
-        return pulumi.get(self, "invitation_id")
+        return pulumi.get(self, "properties")
 
-    @invitation_id.setter
-    def invitation_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "invitation_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ShareSubscriptionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -74,30 +68,6 @@ class ShareSubscriptionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sourceShareLocation")
-    def source_share_location(self) -> pulumi.Input[str]:
-        """
-        Source share location.
-        """
-        return pulumi.get(self, "source_share_location")
-
-    @source_share_location.setter
-    def source_share_location(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source_share_location", value)
-
-    @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The expiration date of the share subscription.
-        """
-        return pulumi.get(self, "expiration_date")
-
-    @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "expiration_date", value)
 
     @property
     @pulumi.getter(name="shareSubscriptionName")
@@ -118,11 +88,9 @@ class ShareSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 expiration_date: Optional[pulumi.Input[str]] = None,
-                 invitation_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ShareSubscriptionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 source_share_location: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A share subscription data transfer object.
@@ -130,11 +98,9 @@ class ShareSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] expiration_date: The expiration date of the share subscription.
-        :param pulumi.Input[str] invitation_id: The invitation id.
+        :param pulumi.Input[pulumi.InputType['ShareSubscriptionPropertiesArgs']] properties: Properties on the share subscription
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
-        :param pulumi.Input[str] source_share_location: Source share location.
         """
         ...
     @overload
@@ -161,11 +127,9 @@ class ShareSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 expiration_date: Optional[pulumi.Input[str]] = None,
-                 invitation_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ShareSubscriptionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 source_share_location: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -178,32 +142,16 @@ class ShareSubscription(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            __props__.__dict__["expiration_date"] = expiration_date
-            if invitation_id is None and not opts.urn:
-                raise TypeError("Missing required property 'invitation_id'")
-            __props__.__dict__["invitation_id"] = invitation_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["share_subscription_name"] = share_subscription_name
-            if source_share_location is None and not opts.urn:
-                raise TypeError("Missing required property 'source_share_location'")
-            __props__.__dict__["source_share_location"] = source_share_location
-            __props__.__dict__["created_at"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provider_email"] = None
-            __props__.__dict__["provider_name"] = None
-            __props__.__dict__["provider_tenant_name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["share_description"] = None
-            __props__.__dict__["share_kind"] = None
-            __props__.__dict__["share_name"] = None
-            __props__.__dict__["share_subscription_status"] = None
-            __props__.__dict__["share_terms"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["user_email"] = None
-            __props__.__dict__["user_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20191101:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ShareSubscription"), pulumi.Alias(type_="azure-native:datashare/v20210801:ShareSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ShareSubscription, __self__).__init__(
@@ -228,49 +176,11 @@ class ShareSubscription(pulumi.CustomResource):
 
         __props__ = ShareSubscriptionArgs.__new__(ShareSubscriptionArgs)
 
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["expiration_date"] = None
-        __props__.__dict__["invitation_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provider_email"] = None
-        __props__.__dict__["provider_name"] = None
-        __props__.__dict__["provider_tenant_name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["share_description"] = None
-        __props__.__dict__["share_kind"] = None
-        __props__.__dict__["share_name"] = None
-        __props__.__dict__["share_subscription_status"] = None
-        __props__.__dict__["share_terms"] = None
-        __props__.__dict__["source_share_location"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_email"] = None
-        __props__.__dict__["user_name"] = None
         return ShareSubscription(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
-        """
-        Time at which the share subscription was created.
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> pulumi.Output[Optional[str]]:
-        """
-        The expiration date of the share subscription.
-        """
-        return pulumi.get(self, "expiration_date")
-
-    @property
-    @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> pulumi.Output[str]:
-        """
-        The invitation id.
-        """
-        return pulumi.get(self, "invitation_id")
 
     @property
     @pulumi.getter
@@ -281,84 +191,12 @@ class ShareSubscription(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="providerEmail")
-    def provider_email(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ShareSubscriptionPropertiesResponse']:
         """
-        Email of the provider who created the resource
+        Properties on the share subscription
         """
-        return pulumi.get(self, "provider_email")
-
-    @property
-    @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Output[str]:
-        """
-        Name of the provider who created the resource
-        """
-        return pulumi.get(self, "provider_name")
-
-    @property
-    @pulumi.getter(name="providerTenantName")
-    def provider_tenant_name(self) -> pulumi.Output[str]:
-        """
-        Tenant name of the provider who created the resource
-        """
-        return pulumi.get(self, "provider_tenant_name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provisioning state of the share subscription
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="shareDescription")
-    def share_description(self) -> pulumi.Output[str]:
-        """
-        Description of share
-        """
-        return pulumi.get(self, "share_description")
-
-    @property
-    @pulumi.getter(name="shareKind")
-    def share_kind(self) -> pulumi.Output[str]:
-        """
-        Kind of share
-        """
-        return pulumi.get(self, "share_kind")
-
-    @property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> pulumi.Output[str]:
-        """
-        Name of the share
-        """
-        return pulumi.get(self, "share_name")
-
-    @property
-    @pulumi.getter(name="shareSubscriptionStatus")
-    def share_subscription_status(self) -> pulumi.Output[str]:
-        """
-        Gets the current status of share subscription.
-        """
-        return pulumi.get(self, "share_subscription_status")
-
-    @property
-    @pulumi.getter(name="shareTerms")
-    def share_terms(self) -> pulumi.Output[str]:
-        """
-        Terms of a share
-        """
-        return pulumi.get(self, "share_terms")
-
-    @property
-    @pulumi.getter(name="sourceShareLocation")
-    def source_share_location(self) -> pulumi.Output[str]:
-        """
-        Source share location.
-        """
-        return pulumi.get(self, "source_share_location")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -375,20 +213,4 @@ class ShareSubscription(pulumi.CustomResource):
         Type of the azure resource
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userEmail")
-    def user_email(self) -> pulumi.Output[str]:
-        """
-        Email of the user who created the resource
-        """
-        return pulumi.get(self, "user_email")
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Output[str]:
-        """
-        Name of the user who created the resource
-        """
-        return pulumi.get(self, "user_name")
 

@@ -41,18 +41,6 @@ export interface GetPolicyAssignmentArtifactArgs {
  */
 export interface GetPolicyAssignmentArtifactResult {
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    readonly dependsOn?: string[];
-    /**
-     * Multi-line explain this resource.
-     */
-    readonly description?: string;
-    /**
-     * One-liner string explain this resource.
-     */
-    readonly displayName?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -66,17 +54,9 @@ export interface GetPolicyAssignmentArtifactResult {
      */
     readonly name: string;
     /**
-     * Parameter values for the policy definition.
+     * properties for policyAssignment Artifact
      */
-    readonly parameters: {[key: string]: outputs.blueprint.ParameterValueResponse};
-    /**
-     * Azure resource ID of the policy definition.
-     */
-    readonly policyDefinitionId: string;
-    /**
-     * Name of the resource group placeholder to which the policy will be assigned.
-     */
-    readonly resourceGroup?: string;
+    readonly properties: outputs.blueprint.PolicyAssignmentArtifactPropertiesResponse;
     /**
      * Type of this resource.
      */

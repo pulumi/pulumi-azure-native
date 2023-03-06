@@ -29,34 +29,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// Azure tenant ID to which the Office 365 account belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Office365TenantId;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Specify the application's client ID. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object ServicePrincipalId;
-        /// <summary>
-        /// Specify the application's key.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> ServicePrincipalKey;
-        /// <summary>
-        /// Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object ServicePrincipalTenantId;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Office365'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Office365 linked service properties.
+        /// </summary>
+        public readonly Outputs.Office365LinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private Office365LinkedServiceResponse(
@@ -66,30 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            object? encryptedCredential,
-
-            object office365TenantId,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object servicePrincipalId,
+            string type,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> servicePrincipalKey,
-
-            object servicePrincipalTenantId,
-
-            string type)
+            Outputs.Office365LinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            Office365TenantId = office365TenantId;
             Parameters = parameters;
-            ServicePrincipalId = servicePrincipalId;
-            ServicePrincipalKey = servicePrincipalKey;
-            ServicePrincipalTenantId = servicePrincipalTenantId;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

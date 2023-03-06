@@ -43,7 +43,14 @@ __all__ = [
     'EdifactSchemaReferenceArgs',
     'EdifactValidationOverrideArgs',
     'EdifactValidationSettingsArgs',
+    'IntegrationAccountAgreementPropertiesArgs',
+    'IntegrationAccountCertificatePropertiesArgs',
     'IntegrationAccountMapPropertiesParametersSchemaArgs',
+    'IntegrationAccountMapPropertiesArgs',
+    'IntegrationAccountPartnerPropertiesArgs',
+    'IntegrationAccountRosettaNetProcessConfigurationPropertiesArgs',
+    'IntegrationAccountSchemaPropertiesArgs',
+    'IntegrationAccountSessionPropertiesArgs',
     'IntegrationAccountSkuArgs',
     'KeyVaultKeyReferenceKeyVaultArgs',
     'KeyVaultKeyReferenceArgs',
@@ -3772,6 +3779,176 @@ class EdifactValidationSettingsArgs:
 
 
 @pulumi.input_type
+class IntegrationAccountAgreementPropertiesArgs:
+    def __init__(__self__, *,
+                 agreement_type: pulumi.Input['AgreementType'],
+                 content: pulumi.Input['AgreementContentArgs'],
+                 guest_identity: pulumi.Input['BusinessIdentityArgs'],
+                 guest_partner: pulumi.Input[str],
+                 host_identity: pulumi.Input['BusinessIdentityArgs'],
+                 host_partner: pulumi.Input[str],
+                 metadata: Optional[Any] = None):
+        """
+        The integration account agreement properties.
+        :param pulumi.Input['AgreementType'] agreement_type: The agreement type.
+        :param pulumi.Input['AgreementContentArgs'] content: The agreement content.
+        :param pulumi.Input['BusinessIdentityArgs'] guest_identity: The business identity of the guest partner.
+        :param pulumi.Input[str] guest_partner: The integration account partner that is set as guest partner for this agreement.
+        :param pulumi.Input['BusinessIdentityArgs'] host_identity: The business identity of the host partner.
+        :param pulumi.Input[str] host_partner: The integration account partner that is set as host partner for this agreement.
+        :param Any metadata: The metadata.
+        """
+        pulumi.set(__self__, "agreement_type", agreement_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "guest_identity", guest_identity)
+        pulumi.set(__self__, "guest_partner", guest_partner)
+        pulumi.set(__self__, "host_identity", host_identity)
+        pulumi.set(__self__, "host_partner", host_partner)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="agreementType")
+    def agreement_type(self) -> pulumi.Input['AgreementType']:
+        """
+        The agreement type.
+        """
+        return pulumi.get(self, "agreement_type")
+
+    @agreement_type.setter
+    def agreement_type(self, value: pulumi.Input['AgreementType']):
+        pulumi.set(self, "agreement_type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input['AgreementContentArgs']:
+        """
+        The agreement content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input['AgreementContentArgs']):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="guestIdentity")
+    def guest_identity(self) -> pulumi.Input['BusinessIdentityArgs']:
+        """
+        The business identity of the guest partner.
+        """
+        return pulumi.get(self, "guest_identity")
+
+    @guest_identity.setter
+    def guest_identity(self, value: pulumi.Input['BusinessIdentityArgs']):
+        pulumi.set(self, "guest_identity", value)
+
+    @property
+    @pulumi.getter(name="guestPartner")
+    def guest_partner(self) -> pulumi.Input[str]:
+        """
+        The integration account partner that is set as guest partner for this agreement.
+        """
+        return pulumi.get(self, "guest_partner")
+
+    @guest_partner.setter
+    def guest_partner(self, value: pulumi.Input[str]):
+        pulumi.set(self, "guest_partner", value)
+
+    @property
+    @pulumi.getter(name="hostIdentity")
+    def host_identity(self) -> pulumi.Input['BusinessIdentityArgs']:
+        """
+        The business identity of the host partner.
+        """
+        return pulumi.get(self, "host_identity")
+
+    @host_identity.setter
+    def host_identity(self, value: pulumi.Input['BusinessIdentityArgs']):
+        pulumi.set(self, "host_identity", value)
+
+    @property
+    @pulumi.getter(name="hostPartner")
+    def host_partner(self) -> pulumi.Input[str]:
+        """
+        The integration account partner that is set as host partner for this agreement.
+        """
+        return pulumi.get(self, "host_partner")
+
+    @host_partner.setter
+    def host_partner(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_partner", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+
+@pulumi.input_type
+class IntegrationAccountCertificatePropertiesArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None,
+                 metadata: Optional[Any] = None,
+                 public_certificate: Optional[pulumi.Input[str]] = None):
+        """
+        The integration account certificate properties.
+        :param pulumi.Input['KeyVaultKeyReferenceArgs'] key: The key details in the key vault.
+        :param Any metadata: The metadata.
+        :param pulumi.Input[str] public_certificate: The public certificate.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if public_certificate is not None:
+            pulumi.set(__self__, "public_certificate", public_certificate)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]:
+        """
+        The key details in the key vault.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="publicCertificate")
+    def public_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public certificate.
+        """
+        return pulumi.get(self, "public_certificate")
+
+    @public_certificate.setter
+    def public_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_certificate", value)
+
+
+@pulumi.input_type
 class IntegrationAccountMapPropertiesParametersSchemaArgs:
     def __init__(__self__, *,
                  ref: Optional[pulumi.Input[str]] = None):
@@ -3793,6 +3970,420 @@ class IntegrationAccountMapPropertiesParametersSchemaArgs:
     @ref.setter
     def ref(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ref", value)
+
+
+@pulumi.input_type
+class IntegrationAccountMapPropertiesArgs:
+    def __init__(__self__, *,
+                 map_type: pulumi.Input['MapType'],
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 parameters_schema: Optional[pulumi.Input['IntegrationAccountMapPropertiesParametersSchemaArgs']] = None):
+        """
+        The integration account map.
+        :param pulumi.Input['MapType'] map_type: The map type.
+        :param pulumi.Input[str] content: The content.
+        :param pulumi.Input[str] content_type: The content type.
+        :param Any metadata: The metadata.
+        :param pulumi.Input['IntegrationAccountMapPropertiesParametersSchemaArgs'] parameters_schema: The parameters schema of integration account map.
+        """
+        pulumi.set(__self__, "map_type", map_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if parameters_schema is not None:
+            pulumi.set(__self__, "parameters_schema", parameters_schema)
+
+    @property
+    @pulumi.getter(name="mapType")
+    def map_type(self) -> pulumi.Input['MapType']:
+        """
+        The map type.
+        """
+        return pulumi.get(self, "map_type")
+
+    @map_type.setter
+    def map_type(self, value: pulumi.Input['MapType']):
+        pulumi.set(self, "map_type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="parametersSchema")
+    def parameters_schema(self) -> Optional[pulumi.Input['IntegrationAccountMapPropertiesParametersSchemaArgs']]:
+        """
+        The parameters schema of integration account map.
+        """
+        return pulumi.get(self, "parameters_schema")
+
+    @parameters_schema.setter
+    def parameters_schema(self, value: Optional[pulumi.Input['IntegrationAccountMapPropertiesParametersSchemaArgs']]):
+        pulumi.set(self, "parameters_schema", value)
+
+
+@pulumi.input_type
+class IntegrationAccountPartnerPropertiesArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input['PartnerContentArgs'],
+                 partner_type: pulumi.Input['PartnerType'],
+                 metadata: Optional[Any] = None):
+        """
+        The integration account partner properties.
+        :param pulumi.Input['PartnerContentArgs'] content: The partner content.
+        :param pulumi.Input['PartnerType'] partner_type: The partner type.
+        :param Any metadata: The metadata.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "partner_type", partner_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input['PartnerContentArgs']:
+        """
+        The partner content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input['PartnerContentArgs']):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="partnerType")
+    def partner_type(self) -> pulumi.Input['PartnerType']:
+        """
+        The partner type.
+        """
+        return pulumi.get(self, "partner_type")
+
+    @partner_type.setter
+    def partner_type(self, value: pulumi.Input['PartnerType']):
+        pulumi.set(self, "partner_type", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+
+@pulumi.input_type
+class IntegrationAccountRosettaNetProcessConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 activity_settings: pulumi.Input['RosettaNetPipActivitySettingsArgs'],
+                 initiator_role_settings: pulumi.Input['RosettaNetPipRoleSettingsArgs'],
+                 process_code: pulumi.Input[str],
+                 process_name: pulumi.Input[str],
+                 process_version: pulumi.Input[str],
+                 responder_role_settings: pulumi.Input['RosettaNetPipRoleSettingsArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The integration account RosettaNet process configuration properties.
+        :param pulumi.Input['RosettaNetPipActivitySettingsArgs'] activity_settings: The RosettaNet process configuration activity settings.
+        :param pulumi.Input['RosettaNetPipRoleSettingsArgs'] initiator_role_settings: The RosettaNet initiator role settings.
+        :param pulumi.Input[str] process_code: The integration account RosettaNet process code.
+        :param pulumi.Input[str] process_name: The integration account RosettaNet process name.
+        :param pulumi.Input[str] process_version: The integration account RosettaNet process version.
+        :param pulumi.Input['RosettaNetPipRoleSettingsArgs'] responder_role_settings: The RosettaNet responder role settings.
+        :param pulumi.Input[str] description: The integration account RosettaNet ProcessConfiguration properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata.
+        """
+        pulumi.set(__self__, "activity_settings", activity_settings)
+        pulumi.set(__self__, "initiator_role_settings", initiator_role_settings)
+        pulumi.set(__self__, "process_code", process_code)
+        pulumi.set(__self__, "process_name", process_name)
+        pulumi.set(__self__, "process_version", process_version)
+        pulumi.set(__self__, "responder_role_settings", responder_role_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="activitySettings")
+    def activity_settings(self) -> pulumi.Input['RosettaNetPipActivitySettingsArgs']:
+        """
+        The RosettaNet process configuration activity settings.
+        """
+        return pulumi.get(self, "activity_settings")
+
+    @activity_settings.setter
+    def activity_settings(self, value: pulumi.Input['RosettaNetPipActivitySettingsArgs']):
+        pulumi.set(self, "activity_settings", value)
+
+    @property
+    @pulumi.getter(name="initiatorRoleSettings")
+    def initiator_role_settings(self) -> pulumi.Input['RosettaNetPipRoleSettingsArgs']:
+        """
+        The RosettaNet initiator role settings.
+        """
+        return pulumi.get(self, "initiator_role_settings")
+
+    @initiator_role_settings.setter
+    def initiator_role_settings(self, value: pulumi.Input['RosettaNetPipRoleSettingsArgs']):
+        pulumi.set(self, "initiator_role_settings", value)
+
+    @property
+    @pulumi.getter(name="processCode")
+    def process_code(self) -> pulumi.Input[str]:
+        """
+        The integration account RosettaNet process code.
+        """
+        return pulumi.get(self, "process_code")
+
+    @process_code.setter
+    def process_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "process_code", value)
+
+    @property
+    @pulumi.getter(name="processName")
+    def process_name(self) -> pulumi.Input[str]:
+        """
+        The integration account RosettaNet process name.
+        """
+        return pulumi.get(self, "process_name")
+
+    @process_name.setter
+    def process_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "process_name", value)
+
+    @property
+    @pulumi.getter(name="processVersion")
+    def process_version(self) -> pulumi.Input[str]:
+        """
+        The integration account RosettaNet process version.
+        """
+        return pulumi.get(self, "process_version")
+
+    @process_version.setter
+    def process_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "process_version", value)
+
+    @property
+    @pulumi.getter(name="responderRoleSettings")
+    def responder_role_settings(self) -> pulumi.Input['RosettaNetPipRoleSettingsArgs']:
+        """
+        The RosettaNet responder role settings.
+        """
+        return pulumi.get(self, "responder_role_settings")
+
+    @responder_role_settings.setter
+    def responder_role_settings(self, value: pulumi.Input['RosettaNetPipRoleSettingsArgs']):
+        pulumi.set(self, "responder_role_settings", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The integration account RosettaNet ProcessConfiguration properties.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+
+@pulumi.input_type
+class IntegrationAccountSchemaPropertiesArgs:
+    def __init__(__self__, *,
+                 schema_type: pulumi.Input['SchemaType'],
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 document_name: Optional[pulumi.Input[str]] = None,
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 target_namespace: Optional[pulumi.Input[str]] = None):
+        """
+        The integration account schema properties.
+        :param pulumi.Input['SchemaType'] schema_type: The schema type.
+        :param pulumi.Input[str] content: The content.
+        :param pulumi.Input[str] content_type: The content type.
+        :param pulumi.Input[str] document_name: The document name.
+        :param pulumi.Input[str] file_name: The file name.
+        :param Any metadata: The metadata.
+        :param pulumi.Input[str] target_namespace: The target namespace of the schema.
+        """
+        pulumi.set(__self__, "schema_type", schema_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if document_name is not None:
+            pulumi.set(__self__, "document_name", document_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if target_namespace is not None:
+            pulumi.set(__self__, "target_namespace", target_namespace)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> pulumi.Input['SchemaType']:
+        """
+        The schema type.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @schema_type.setter
+    def schema_type(self, value: pulumi.Input['SchemaType']):
+        pulumi.set(self, "schema_type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The document name.
+        """
+        return pulumi.get(self, "document_name")
+
+    @document_name.setter
+    def document_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_name", value)
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The file name.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_name", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target namespace of the schema.
+        """
+        return pulumi.get(self, "target_namespace")
+
+    @target_namespace.setter
+    def target_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_namespace", value)
+
+
+@pulumi.input_type
+class IntegrationAccountSessionPropertiesArgs:
+    def __init__(__self__, *,
+                 content: Optional[Any] = None):
+        """
+        The integration account session properties.
+        :param Any content: The session content.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[Any]:
+        """
+        The session content.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[Any]):
+        pulumi.set(self, "content", value)
 
 
 @pulumi.input_type

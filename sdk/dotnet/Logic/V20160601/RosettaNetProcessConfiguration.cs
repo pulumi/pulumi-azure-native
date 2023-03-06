@@ -16,46 +16,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
     public partial class RosettaNetProcessConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The RosettaNet process configuration activity settings.
-        /// </summary>
-        [Output("activitySettings")]
-        public Output<Outputs.RosettaNetPipActivitySettingsResponse> ActivitySettings { get; private set; } = null!;
-
-        /// <summary>
-        /// The changed time.
-        /// </summary>
-        [Output("changedTime")]
-        public Output<string> ChangedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The integration account RosettaNet ProcessConfiguration properties.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The RosettaNet initiator role settings.
-        /// </summary>
-        [Output("initiatorRoleSettings")]
-        public Output<Outputs.RosettaNetPipRoleSettingsResponse> InitiatorRoleSettings { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Output("metadata")]
-        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -64,28 +28,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The integration account RosettaNet process code.
+        /// The integration account RosettaNet process configuration properties.
         /// </summary>
-        [Output("processCode")]
-        public Output<string> ProcessCode { get; private set; } = null!;
-
-        /// <summary>
-        /// The integration account RosettaNet process name.
-        /// </summary>
-        [Output("processName")]
-        public Output<string> ProcessName { get; private set; } = null!;
-
-        /// <summary>
-        /// The integration account RosettaNet process version.
-        /// </summary>
-        [Output("processVersion")]
-        public Output<string> ProcessVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The RosettaNet responder role settings.
-        /// </summary>
-        [Output("responderRoleSettings")]
-        public Output<Outputs.RosettaNetPipRoleSettingsResponse> ResponderRoleSettings { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -149,24 +95,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
     public sealed class RosettaNetProcessConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The RosettaNet process configuration activity settings.
-        /// </summary>
-        [Input("activitySettings", required: true)]
-        public Input<Inputs.RosettaNetPipActivitySettingsArgs> ActivitySettings { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account RosettaNet ProcessConfiguration properties.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The RosettaNet initiator role settings.
-        /// </summary>
-        [Input("initiatorRoleSettings", required: true)]
-        public Input<Inputs.RosettaNetPipRoleSettingsArgs> InitiatorRoleSettings { get; set; } = null!;
-
-        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -178,47 +106,17 @@ namespace Pulumi.AzureNative.Logic.V20160601
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("metadata")]
-        private InputMap<string>? _metadata;
-
         /// <summary>
-        /// The metadata.
+        /// The integration account RosettaNet process configuration properties.
         /// </summary>
-        public InputMap<string> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<string>());
-            set => _metadata = value;
-        }
-
-        /// <summary>
-        /// The integration account RosettaNet process code.
-        /// </summary>
-        [Input("processCode", required: true)]
-        public Input<string> ProcessCode { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account RosettaNet process name.
-        /// </summary>
-        [Input("processName", required: true)]
-        public Input<string> ProcessName { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account RosettaNet process version.
-        /// </summary>
-        [Input("processVersion", required: true)]
-        public Input<string> ProcessVersion { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The RosettaNet responder role settings.
-        /// </summary>
-        [Input("responderRoleSettings", required: true)]
-        public Input<Inputs.RosettaNetPipRoleSettingsArgs> ResponderRoleSettings { get; set; } = null!;
 
         /// <summary>
         /// The integration account RosettaNet ProcessConfiguration name.

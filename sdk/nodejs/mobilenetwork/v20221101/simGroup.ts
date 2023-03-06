@@ -38,10 +38,6 @@ export class SimGroup extends pulumi.CustomResource {
     }
 
     /**
-     * A key to encrypt the SIM data that belongs to this SIM group.
-     */
-    public readonly encryptionKey!: pulumi.Output<outputs.mobilenetwork.v20221101.KeyVaultKeyResponse | undefined>;
-    /**
      * The identity used to retrieve the encryption key from Azure key vault.
      */
     public readonly identity!: pulumi.Output<outputs.mobilenetwork.v20221101.ManagedServiceIdentityResponse | undefined>;
@@ -50,17 +46,13 @@ export class SimGroup extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
-     */
-    public readonly mobileNetwork!: pulumi.Output<outputs.mobilenetwork.v20221101.MobileNetworkResourceIdResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the SIM group resource.
+     * SIM group Properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.v20221101.SimGroupPropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -85,27 +77,26 @@ export class SimGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetwork"] = args ? args.mobileNetwork : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["simGroupName"] = args ? args.simGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["encryptionKey"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mobileNetwork"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -122,10 +113,6 @@ export class SimGroup extends pulumi.CustomResource {
  */
 export interface SimGroupArgs {
     /**
-     * A key to encrypt the SIM data that belongs to this SIM group.
-     */
-    encryptionKey?: pulumi.Input<inputs.mobilenetwork.v20221101.KeyVaultKeyArgs>;
-    /**
      * The identity used to retrieve the encryption key from Azure key vault.
      */
     identity?: pulumi.Input<inputs.mobilenetwork.v20221101.ManagedServiceIdentityArgs>;
@@ -134,9 +121,9 @@ export interface SimGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
+     * SIM group Properties.
      */
-    mobileNetwork?: pulumi.Input<inputs.mobilenetwork.v20221101.MobileNetworkResourceIdArgs>;
+    properties: pulumi.Input<inputs.mobilenetwork.v20221101.SimGroupPropertiesFormatArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

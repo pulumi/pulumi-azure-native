@@ -83,10 +83,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
     public sealed class GetBandwidthScheduleResult
     {
         /// <summary>
-        /// The days of the week when this schedule is applicable.
-        /// </summary>
-        public readonly ImmutableArray<string> Days;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -95,17 +91,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The bandwidth rate in Mbps.
+        /// The properties of the bandwidth schedule.
         /// </summary>
-        public readonly int RateInMbps;
-        /// <summary>
-        /// The start time of the schedule in UTC.
-        /// </summary>
-        public readonly string Start;
-        /// <summary>
-        /// The stop time of the schedule in UTC.
-        /// </summary>
-        public readonly string Stop;
+        public readonly Outputs.BandwidthSchedulePropertiesResponse Properties;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -113,26 +101,17 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
 
         [OutputConstructor]
         private GetBandwidthScheduleResult(
-            ImmutableArray<string> days,
-
             string id,
 
             string name,
 
-            int rateInMbps,
-
-            string start,
-
-            string stop,
+            Outputs.BandwidthSchedulePropertiesResponse properties,
 
             string type)
         {
-            Days = days;
             Id = id;
             Name = name;
-            RateInMbps = rateInMbps;
-            Start = start;
-            Stop = stop;
+            Properties = properties;
             Type = type;
         }
     }

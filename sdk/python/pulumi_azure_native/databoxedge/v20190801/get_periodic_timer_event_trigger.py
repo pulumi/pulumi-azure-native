@@ -22,10 +22,7 @@ class GetPeriodicTimerEventTriggerResult:
     """
     Trigger details.
     """
-    def __init__(__self__, custom_context_tag=None, id=None, kind=None, name=None, sink_info=None, source_info=None, type=None):
-        if custom_context_tag and not isinstance(custom_context_tag, str):
-            raise TypeError("Expected argument 'custom_context_tag' to be a str")
-        pulumi.set(__self__, "custom_context_tag", custom_context_tag)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,23 +32,12 @@ class GetPeriodicTimerEventTriggerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if sink_info and not isinstance(sink_info, dict):
-            raise TypeError("Expected argument 'sink_info' to be a dict")
-        pulumi.set(__self__, "sink_info", sink_info)
-        if source_info and not isinstance(source_info, dict):
-            raise TypeError("Expected argument 'source_info' to be a dict")
-        pulumi.set(__self__, "source_info", source_info)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="customContextTag")
-    def custom_context_tag(self) -> Optional[str]:
-        """
-        A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-        """
-        return pulumi.get(self, "custom_context_tag")
 
     @property
     @pulumi.getter
@@ -79,20 +65,12 @@ class GetPeriodicTimerEventTriggerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="sinkInfo")
-    def sink_info(self) -> 'outputs.RoleSinkInfoResponse':
+    @pulumi.getter
+    def properties(self) -> 'outputs.PeriodicTimerPropertiesResponse':
         """
-        Role Sink information.
+        Periodic timer trigger properties.
         """
-        return pulumi.get(self, "sink_info")
-
-    @property
-    @pulumi.getter(name="sourceInfo")
-    def source_info(self) -> 'outputs.PeriodicTimerSourceInfoResponse':
-        """
-        Periodic timer details.
-        """
-        return pulumi.get(self, "source_info")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -109,12 +87,10 @@ class AwaitableGetPeriodicTimerEventTriggerResult(GetPeriodicTimerEventTriggerRe
         if False:
             yield self
         return GetPeriodicTimerEventTriggerResult(
-            custom_context_tag=self.custom_context_tag,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            sink_info=self.sink_info,
-            source_info=self.source_info,
+            properties=self.properties,
             type=self.type)
 
 
@@ -138,12 +114,10 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20190801:getPeriodicTimerEventTrigger', __args__, opts=opts, typ=GetPeriodicTimerEventTriggerResult).value
 
     return AwaitableGetPeriodicTimerEventTriggerResult(
-        custom_context_tag=__ret__.custom_context_tag,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        sink_info=__ret__.sink_info,
-        source_info=__ret__.source_info,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

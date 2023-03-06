@@ -16,49 +16,34 @@ __all__ = ['WebPubSubCustomDomainArgs', 'WebPubSubCustomDomain']
 @pulumi.input_type
 class WebPubSubCustomDomainArgs:
     def __init__(__self__, *,
-                 custom_certificate: pulumi.Input['ResourceReferenceArgs'],
-                 domain_name: pulumi.Input[str],
+                 properties: pulumi.Input['CustomDomainPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WebPubSubCustomDomain resource.
-        :param pulumi.Input['ResourceReferenceArgs'] custom_certificate: Reference to a resource.
-        :param pulumi.Input[str] domain_name: The custom domain name.
+        :param pulumi.Input['CustomDomainPropertiesArgs'] properties: Properties of a custom domain.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] name: Custom domain name.
         """
-        pulumi.set(__self__, "custom_certificate", custom_certificate)
-        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="customCertificate")
-    def custom_certificate(self) -> pulumi.Input['ResourceReferenceArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CustomDomainPropertiesArgs']:
         """
-        Reference to a resource.
+        Properties of a custom domain.
         """
-        return pulumi.get(self, "custom_certificate")
+        return pulumi.get(self, "properties")
 
-    @custom_certificate.setter
-    def custom_certificate(self, value: pulumi.Input['ResourceReferenceArgs']):
-        pulumi.set(self, "custom_certificate", value)
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[str]:
-        """
-        The custom domain name.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_name", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CustomDomainPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -102,9 +87,8 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_certificate: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
-                 domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CustomDomainPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -113,9 +97,8 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] custom_certificate: Reference to a resource.
-        :param pulumi.Input[str] domain_name: The custom domain name.
         :param pulumi.Input[str] name: Custom domain name.
+        :param pulumi.Input[pulumi.InputType['CustomDomainPropertiesArgs']] properties: Properties of a custom domain.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the resource.
         """
@@ -143,9 +126,8 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_certificate: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
-                 domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CustomDomainPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -157,20 +139,16 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebPubSubCustomDomainArgs.__new__(WebPubSubCustomDomainArgs)
 
-            if custom_certificate is None and not opts.urn:
-                raise TypeError("Missing required property 'custom_certificate'")
-            __props__.__dict__["custom_certificate"] = custom_certificate
-            if domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_name'")
-            __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         super(WebPubSubCustomDomain, __self__).__init__(
@@ -195,29 +173,11 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
 
         __props__ = WebPubSubCustomDomainArgs.__new__(WebPubSubCustomDomainArgs)
 
-        __props__.__dict__["custom_certificate"] = None
-        __props__.__dict__["domain_name"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WebPubSubCustomDomain(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="customCertificate")
-    def custom_certificate(self) -> pulumi.Output['outputs.ResourceReferenceResponse']:
-        """
-        Reference to a resource.
-        """
-        return pulumi.get(self, "custom_certificate")
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
-        """
-        The custom domain name.
-        """
-        return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
@@ -228,12 +188,12 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.CustomDomainPropertiesResponse']:
         """
-        Provisioning state of the resource.
+        Properties of a custom domain.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

@@ -39,21 +39,9 @@ export class Cloud extends pulumi.CustomResource {
     }
 
     /**
-     * Capacity of the cloud.
-     */
-    public /*out*/ readonly cloudCapacity!: pulumi.Output<outputs.scvmm.CloudCapacityResponse>;
-    /**
-     * Name of the cloud in VMMServer.
-     */
-    public readonly cloudName!: pulumi.Output<string>;
-    /**
      * The extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.scvmm.ExtendedLocationResponse>;
-    /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    public readonly inventoryItemId!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the location.
      */
@@ -63,13 +51,9 @@ export class Cloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * List of QoS policies available for the cloud.
-     */
-    public /*out*/ readonly storageQoSPolicies!: pulumi.Output<outputs.scvmm.StorageQoSPolicyResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.scvmm.CloudPropertiesResponse>;
     /**
      * The system data.
      */
@@ -82,14 +66,6 @@ export class Cloud extends pulumi.CustomResource {
      * Resource Type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Unique ID of the cloud.
-     */
-    public readonly uuid!: pulumi.Output<string | undefined>;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    public readonly vmmServerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cloud resource with the given unique name, arguments, and options.
@@ -105,37 +81,29 @@ export class Cloud extends pulumi.CustomResource {
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["cloudName"] = args ? args.cloudName : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uuid"] = args ? args.uuid : undefined;
-            resourceInputs["vmmServerId"] = args ? args.vmmServerId : undefined;
-            resourceInputs["cloudCapacity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["storageQoSPolicies"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["cloudCapacity"] = undefined /*out*/;
-            resourceInputs["cloudName"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["storageQoSPolicies"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:Cloud" }] };
@@ -157,13 +125,13 @@ export interface CloudArgs {
      */
     extendedLocation: pulumi.Input<inputs.scvmm.ExtendedLocationArgs>;
     /**
-     * Gets or sets the inventory Item ID for the resource.
-     */
-    inventoryItemId?: pulumi.Input<string>;
-    /**
      * Gets or sets the location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Resource properties.
+     */
+    properties: pulumi.Input<inputs.scvmm.CloudPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -172,12 +140,4 @@ export interface CloudArgs {
      * Resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Unique ID of the cloud.
-     */
-    uuid?: pulumi.Input<string>;
-    /**
-     * ARM Id of the vmmServer resource in which this resource resides.
-     */
-    vmmServerId?: pulumi.Input<string>;
 }

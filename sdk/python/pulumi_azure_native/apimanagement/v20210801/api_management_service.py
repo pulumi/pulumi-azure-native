@@ -17,129 +17,50 @@ __all__ = ['ApiManagementServiceArgs', 'ApiManagementService']
 @pulumi.input_type
 class ApiManagementServiceArgs:
     def __init__(__self__, *,
-                 publisher_email: pulumi.Input[str],
-                 publisher_name: pulumi.Input[str],
+                 properties: pulumi.Input['ApiManagementServicePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]] = None,
-                 api_version_constraint: Optional[pulumi.Input['ApiVersionConstraintArgs']] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]] = None,
-                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 disable_gateway: Optional[pulumi.Input[bool]] = None,
-                 enable_client_certificate: Optional[pulumi.Input[bool]] = None,
-                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
                  identity: Optional[pulumi.Input['ApiManagementServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
-                 virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ApiManagementService resource.
-        :param pulumi.Input[str] publisher_email: Publisher email.
-        :param pulumi.Input[str] publisher_name: Publisher name.
+        :param pulumi.Input['ApiManagementServicePropertiesArgs'] properties: Properties of the API Management service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['ApiManagementServiceSkuPropertiesArgs'] sku: SKU properties of the API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]] additional_locations: Additional datacenter locations of the API Management service.
-        :param pulumi.Input['ApiVersionConstraintArgs'] api_version_constraint: Control Plane Apis version constraint for the API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-        :param pulumi.Input[bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
-        :param pulumi.Input[bool] enable_client_certificate: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
-        :param pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input['ApiManagementServiceIdentityArgs'] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]] private_endpoint_connections: List of Private Endpoint Connections of this service.
-        :param pulumi.Input[str] public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        :param pulumi.Input[bool] restore: Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network configuration of the API Management service.
-        :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
-        pulumi.set(__self__, "publisher_email", publisher_email)
-        pulumi.set(__self__, "publisher_name", publisher_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if additional_locations is not None:
-            pulumi.set(__self__, "additional_locations", additional_locations)
-        if api_version_constraint is not None:
-            pulumi.set(__self__, "api_version_constraint", api_version_constraint)
-        if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
-        if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
-        if disable_gateway is None:
-            disable_gateway = False
-        if disable_gateway is not None:
-            pulumi.set(__self__, "disable_gateway", disable_gateway)
-        if enable_client_certificate is None:
-            enable_client_certificate = False
-        if enable_client_certificate is not None:
-            pulumi.set(__self__, "enable_client_certificate", enable_client_certificate)
-        if hostname_configurations is not None:
-            pulumi.set(__self__, "hostname_configurations", hostname_configurations)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if notification_sender_email is not None:
-            pulumi.set(__self__, "notification_sender_email", notification_sender_email)
-        if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-        if restore is None:
-            restore = False
-        if restore is not None:
-            pulumi.set(__self__, "restore", restore)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
-        if virtual_network_type is None:
-            virtual_network_type = 'None'
-        if virtual_network_type is not None:
-            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
     @property
-    @pulumi.getter(name="publisherEmail")
-    def publisher_email(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ApiManagementServicePropertiesArgs']:
         """
-        Publisher email.
+        Properties of the API Management service.
         """
-        return pulumi.get(self, "publisher_email")
+        return pulumi.get(self, "properties")
 
-    @publisher_email.setter
-    def publisher_email(self, value: pulumi.Input[str]):
-        pulumi.set(self, "publisher_email", value)
-
-    @property
-    @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> pulumi.Input[str]:
-        """
-        Publisher name.
-        """
-        return pulumi.get(self, "publisher_name")
-
-    @publisher_name.setter
-    def publisher_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "publisher_name", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ApiManagementServicePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -166,90 +87,6 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "sku", value)
 
     @property
-    @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]]:
-        """
-        Additional datacenter locations of the API Management service.
-        """
-        return pulumi.get(self, "additional_locations")
-
-    @additional_locations.setter
-    def additional_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]]):
-        pulumi.set(self, "additional_locations", value)
-
-    @property
-    @pulumi.getter(name="apiVersionConstraint")
-    def api_version_constraint(self) -> Optional[pulumi.Input['ApiVersionConstraintArgs']]:
-        """
-        Control Plane Apis version constraint for the API Management service.
-        """
-        return pulumi.get(self, "api_version_constraint")
-
-    @api_version_constraint.setter
-    def api_version_constraint(self, value: Optional[pulumi.Input['ApiVersionConstraintArgs']]):
-        pulumi.set(self, "api_version_constraint", value)
-
-    @property
-    @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]]:
-        """
-        List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-        """
-        return pulumi.get(self, "certificates")
-
-    @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]]):
-        pulumi.set(self, "certificates", value)
-
-    @property
-    @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-        """
-        return pulumi.get(self, "custom_properties")
-
-    @custom_properties.setter
-    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "custom_properties", value)
-
-    @property
-    @pulumi.getter(name="disableGateway")
-    def disable_gateway(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
-        """
-        return pulumi.get(self, "disable_gateway")
-
-    @disable_gateway.setter
-    def disable_gateway(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_gateway", value)
-
-    @property
-    @pulumi.getter(name="enableClientCertificate")
-    def enable_client_certificate(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
-        """
-        return pulumi.get(self, "enable_client_certificate")
-
-    @enable_client_certificate.setter
-    def enable_client_certificate(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_client_certificate", value)
-
-    @property
-    @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]:
-        """
-        Custom hostname configuration of the API Management service.
-        """
-        return pulumi.get(self, "hostname_configurations")
-
-    @hostname_configurations.setter
-    def hostname_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]):
-        pulumi.set(self, "hostname_configurations", value)
-
-    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ApiManagementServiceIdentityArgs']]:
         """
@@ -272,66 +109,6 @@ class ApiManagementServiceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="notificationSenderEmail")
-    def notification_sender_email(self) -> Optional[pulumi.Input[str]]:
-        """
-        Email address from which the notification will be sent.
-        """
-        return pulumi.get(self, "notification_sender_email")
-
-    @notification_sender_email.setter
-    def notification_sender_email(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "notification_sender_email", value)
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]]]:
-        """
-        List of Private Endpoint Connections of this service.
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemotePrivateEndpointConnectionWrapperArgs']]]]):
-        pulumi.set(self, "private_endpoint_connections", value)
-
-    @property
-    @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-        """
-        return pulumi.get(self, "public_ip_address_id")
-
-    @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "public_ip_address_id", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
-        """
-        Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
-        pulumi.set(self, "public_network_access", value)
-
-    @property
-    @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
-        """
-        return pulumi.get(self, "restore")
-
-    @restore.setter
-    def restore(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "restore", value)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -358,30 +135,6 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]:
-        """
-        Virtual network configuration of the API Management service.
-        """
-        return pulumi.get(self, "virtual_network_configuration")
-
-    @virtual_network_configuration.setter
-    def virtual_network_configuration(self, value: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]):
-        pulumi.set(self, "virtual_network_configuration", value)
-
-    @property
-    @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]]:
-        """
-        The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-        """
-        return pulumi.get(self, "virtual_network_type")
-
-    @virtual_network_type.setter
-    def virtual_network_type(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]]):
-        pulumi.set(self, "virtual_network_type", value)
-
-    @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -399,28 +152,13 @@ class ApiManagementService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
-                 api_version_constraint: Optional[pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
-                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 disable_gateway: Optional[pulumi.Input[bool]] = None,
-                 enable_client_certificate: Optional[pulumi.Input[bool]] = None,
-                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 publisher_email: Optional[pulumi.Input[str]] = None,
-                 publisher_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApiManagementServicePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
-                 virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -428,28 +166,13 @@ class ApiManagementService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
-        :param pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']] api_version_constraint: Control Plane Apis version constraint for the API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-        :param pulumi.Input[bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
-        :param pulumi.Input[bool] enable_client_certificate: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]] private_endpoint_connections: List of Private Endpoint Connections of this service.
-        :param pulumi.Input[str] public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        :param pulumi.Input[str] publisher_email: Publisher email.
-        :param pulumi.Input[str] publisher_name: Publisher name.
+        :param pulumi.Input[pulumi.InputType['ApiManagementServicePropertiesArgs']] properties: Properties of the API Management service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[bool] restore: Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']] sku: SKU properties of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] virtual_network_configuration: Virtual network configuration of the API Management service.
-        :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         ...
@@ -476,28 +199,13 @@ class ApiManagementService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
-                 api_version_constraint: Optional[pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
-                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 disable_gateway: Optional[pulumi.Input[bool]] = None,
-                 enable_client_certificate: Optional[pulumi.Input[bool]] = None,
-                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 publisher_email: Optional[pulumi.Input[str]] = None,
-                 publisher_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApiManagementServicePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
-                 virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -508,60 +216,23 @@ class ApiManagementService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApiManagementServiceArgs.__new__(ApiManagementServiceArgs)
 
-            __props__.__dict__["additional_locations"] = additional_locations
-            __props__.__dict__["api_version_constraint"] = api_version_constraint
-            __props__.__dict__["certificates"] = certificates
-            __props__.__dict__["custom_properties"] = custom_properties
-            if disable_gateway is None:
-                disable_gateway = False
-            __props__.__dict__["disable_gateway"] = disable_gateway
-            if enable_client_certificate is None:
-                enable_client_certificate = False
-            __props__.__dict__["enable_client_certificate"] = enable_client_certificate
-            __props__.__dict__["hostname_configurations"] = hostname_configurations
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["notification_sender_email"] = notification_sender_email
-            __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
-            __props__.__dict__["public_ip_address_id"] = public_ip_address_id
-            __props__.__dict__["public_network_access"] = public_network_access
-            if publisher_email is None and not opts.urn:
-                raise TypeError("Missing required property 'publisher_email'")
-            __props__.__dict__["publisher_email"] = publisher_email
-            if publisher_name is None and not opts.urn:
-                raise TypeError("Missing required property 'publisher_name'")
-            __props__.__dict__["publisher_name"] = publisher_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if restore is None:
-                restore = False
-            __props__.__dict__["restore"] = restore
             __props__.__dict__["service_name"] = service_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
-            if virtual_network_type is None:
-                virtual_network_type = 'None'
-            __props__.__dict__["virtual_network_type"] = virtual_network_type
             __props__.__dict__["zones"] = zones
-            __props__.__dict__["created_at_utc"] = None
-            __props__.__dict__["developer_portal_url"] = None
             __props__.__dict__["etag"] = None
-            __props__.__dict__["gateway_regional_url"] = None
-            __props__.__dict__["gateway_url"] = None
-            __props__.__dict__["management_api_url"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["platform_version"] = None
-            __props__.__dict__["portal_url"] = None
-            __props__.__dict__["private_ip_addresses"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["public_ip_addresses"] = None
-            __props__.__dict__["scm_url"] = None
             __props__.__dict__["system_data"] = None
-            __props__.__dict__["target_provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiManagementService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -587,108 +258,17 @@ class ApiManagementService(pulumi.CustomResource):
 
         __props__ = ApiManagementServiceArgs.__new__(ApiManagementServiceArgs)
 
-        __props__.__dict__["additional_locations"] = None
-        __props__.__dict__["api_version_constraint"] = None
-        __props__.__dict__["certificates"] = None
-        __props__.__dict__["created_at_utc"] = None
-        __props__.__dict__["custom_properties"] = None
-        __props__.__dict__["developer_portal_url"] = None
-        __props__.__dict__["disable_gateway"] = None
-        __props__.__dict__["enable_client_certificate"] = None
         __props__.__dict__["etag"] = None
-        __props__.__dict__["gateway_regional_url"] = None
-        __props__.__dict__["gateway_url"] = None
-        __props__.__dict__["hostname_configurations"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["management_api_url"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["notification_sender_email"] = None
-        __props__.__dict__["platform_version"] = None
-        __props__.__dict__["portal_url"] = None
-        __props__.__dict__["private_endpoint_connections"] = None
-        __props__.__dict__["private_ip_addresses"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["public_ip_addresses"] = None
-        __props__.__dict__["public_ip_address_id"] = None
-        __props__.__dict__["public_network_access"] = None
-        __props__.__dict__["publisher_email"] = None
-        __props__.__dict__["publisher_name"] = None
-        __props__.__dict__["restore"] = None
-        __props__.__dict__["scm_url"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["target_provisioning_state"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_network_configuration"] = None
-        __props__.__dict__["virtual_network_type"] = None
         __props__.__dict__["zones"] = None
         return ApiManagementService(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> pulumi.Output[Optional[Sequence['outputs.AdditionalLocationResponse']]]:
-        """
-        Additional datacenter locations of the API Management service.
-        """
-        return pulumi.get(self, "additional_locations")
-
-    @property
-    @pulumi.getter(name="apiVersionConstraint")
-    def api_version_constraint(self) -> pulumi.Output[Optional['outputs.ApiVersionConstraintResponse']]:
-        """
-        Control Plane Apis version constraint for the API Management service.
-        """
-        return pulumi.get(self, "api_version_constraint")
-
-    @property
-    @pulumi.getter
-    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateConfigurationResponse']]]:
-        """
-        List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-        """
-        return pulumi.get(self, "certificates")
-
-    @property
-    @pulumi.getter(name="createdAtUtc")
-    def created_at_utc(self) -> pulumi.Output[str]:
-        """
-        Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-        """
-        return pulumi.get(self, "created_at_utc")
-
-    @property
-    @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-        """
-        return pulumi.get(self, "custom_properties")
-
-    @property
-    @pulumi.getter(name="developerPortalUrl")
-    def developer_portal_url(self) -> pulumi.Output[str]:
-        """
-        DEveloper Portal endpoint URL of the API Management service.
-        """
-        return pulumi.get(self, "developer_portal_url")
-
-    @property
-    @pulumi.getter(name="disableGateway")
-    def disable_gateway(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
-        """
-        return pulumi.get(self, "disable_gateway")
-
-    @property
-    @pulumi.getter(name="enableClientCertificate")
-    def enable_client_certificate(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
-        """
-        return pulumi.get(self, "enable_client_certificate")
 
     @property
     @pulumi.getter
@@ -697,30 +277,6 @@ class ApiManagementService(pulumi.CustomResource):
         ETag of the resource.
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="gatewayRegionalUrl")
-    def gateway_regional_url(self) -> pulumi.Output[str]:
-        """
-        Gateway URL of the API Management service in the Default Region.
-        """
-        return pulumi.get(self, "gateway_regional_url")
-
-    @property
-    @pulumi.getter(name="gatewayUrl")
-    def gateway_url(self) -> pulumi.Output[str]:
-        """
-        Gateway URL of the API Management service.
-        """
-        return pulumi.get(self, "gateway_url")
-
-    @property
-    @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.HostnameConfigurationResponse']]]:
-        """
-        Custom hostname configuration of the API Management service.
-        """
-        return pulumi.get(self, "hostname_configurations")
 
     @property
     @pulumi.getter
@@ -739,14 +295,6 @@ class ApiManagementService(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managementApiUrl")
-    def management_api_url(self) -> pulumi.Output[str]:
-        """
-        Management API endpoint URL of the API Management service.
-        """
-        return pulumi.get(self, "management_api_url")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -755,108 +303,12 @@ class ApiManagementService(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="notificationSenderEmail")
-    def notification_sender_email(self) -> pulumi.Output[Optional[str]]:
-        """
-        Email address from which the notification will be sent.
-        """
-        return pulumi.get(self, "notification_sender_email")
-
-    @property
-    @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> pulumi.Output[str]:
-        """
-        Compute Platform Version running the service in this location.
-        """
-        return pulumi.get(self, "platform_version")
-
-    @property
-    @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> pulumi.Output[str]:
-        """
-        Publisher portal endpoint Url of the API Management service.
-        """
-        return pulumi.get(self, "portal_url")
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.RemotePrivateEndpointConnectionWrapperResponse']]]:
-        """
-        List of Private Endpoint Connections of this service.
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="privateIPAddresses")
-    def private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
-        """
-        return pulumi.get(self, "private_ip_addresses")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
-        """
-        return pulumi.get(self, "public_ip_addresses")
-
-    @property
-    @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-        """
-        return pulumi.get(self, "public_ip_address_id")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
-        """
-        Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @property
-    @pulumi.getter(name="publisherEmail")
-    def publisher_email(self) -> pulumi.Output[str]:
-        """
-        Publisher email.
-        """
-        return pulumi.get(self, "publisher_email")
-
-    @property
-    @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> pulumi.Output[str]:
-        """
-        Publisher name.
-        """
-        return pulumi.get(self, "publisher_name")
-
-    @property
     @pulumi.getter
-    def restore(self) -> pulumi.Output[Optional[bool]]:
+    def properties(self) -> pulumi.Output['outputs.ApiManagementServicePropertiesResponse']:
         """
-        Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
+        Properties of the API Management service.
         """
-        return pulumi.get(self, "restore")
-
-    @property
-    @pulumi.getter(name="scmUrl")
-    def scm_url(self) -> pulumi.Output[str]:
-        """
-        SCM endpoint URL of the API Management service.
-        """
-        return pulumi.get(self, "scm_url")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -883,36 +335,12 @@ class ApiManagementService(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="targetProvisioningState")
-    def target_provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
-        """
-        return pulumi.get(self, "target_provisioning_state")
-
-    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource is set to Microsoft.ApiManagement.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.VirtualNetworkConfigurationResponse']]:
-        """
-        Virtual network configuration of the API Management service.
-        """
-        return pulumi.get(self, "virtual_network_configuration")
-
-    @property
-    @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-        """
-        return pulumi.get(self, "virtual_network_type")
 
     @property
     @pulumi.getter

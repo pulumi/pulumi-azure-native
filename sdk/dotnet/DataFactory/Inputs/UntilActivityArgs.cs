@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class UntilActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("activities", required: true)]
-        private InputList<object>? _activities;
-
-        /// <summary>
-        /// List of activities to execute.
-        /// </summary>
-        public InputList<object> Activities
-        {
-            get => _activities ?? (_activities = new InputList<object>());
-            set => _activities = value;
-        }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -46,22 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
-        /// </summary>
-        [Input("expression", required: true)]
-        public Input<Inputs.ExpressionArgs> Expression { get; set; } = null!;
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        /// </summary>
-        [Input("timeout")]
-        public Input<object>? Timeout { get; set; }
 
         /// <summary>
         /// Type of activity.
@@ -69,6 +45,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Until activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.UntilActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

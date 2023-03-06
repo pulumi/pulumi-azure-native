@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPolicyResult',
@@ -21,22 +22,7 @@ class GetPolicyResult:
     """
     A Policy.
     """
-    def __init__(__self__, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, id=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        pulumi.set(__self__, "created_date", created_date)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if evaluator_type and not isinstance(evaluator_type, str):
-            raise TypeError("Expected argument 'evaluator_type' to be a str")
-        pulumi.set(__self__, "evaluator_type", evaluator_type)
-        if fact_data and not isinstance(fact_data, str):
-            raise TypeError("Expected argument 'fact_data' to be a str")
-        pulumi.set(__self__, "fact_data", fact_data)
-        if fact_name and not isinstance(fact_name, str):
-            raise TypeError("Expected argument 'fact_name' to be a str")
-        pulumi.set(__self__, "fact_name", fact_name)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,64 +32,15 @@ class GetPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if threshold and not isinstance(threshold, str):
-            raise TypeError("Expected argument 'threshold' to be a str")
-        pulumi.set(__self__, "threshold", threshold)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        pulumi.set(__self__, "unique_identifier", unique_identifier)
-
-    @property
-    @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
-        """
-        The creation date of the policy.
-        """
-        return pulumi.get(self, "created_date")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the policy.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="evaluatorType")
-    def evaluator_type(self) -> Optional[str]:
-        """
-        The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-        """
-        return pulumi.get(self, "evaluator_type")
-
-    @property
-    @pulumi.getter(name="factData")
-    def fact_data(self) -> Optional[str]:
-        """
-        The fact data of the policy.
-        """
-        return pulumi.get(self, "fact_data")
-
-    @property
-    @pulumi.getter(name="factName")
-    def fact_name(self) -> Optional[str]:
-        """
-        The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-        """
-        return pulumi.get(self, "fact_name")
 
     @property
     @pulumi.getter
@@ -130,20 +67,12 @@ class GetPolicyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning status of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def properties(self) -> 'outputs.PolicyPropertiesResponse':
         """
-        The status of the policy.
+        The properties of the resource.
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -155,27 +84,11 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def threshold(self) -> Optional[str]:
-        """
-        The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-        """
-        return pulumi.get(self, "threshold")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
 
 
 class AwaitableGetPolicyResult(GetPolicyResult):
@@ -184,20 +97,12 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         if False:
             yield self
         return GetPolicyResult(
-            created_date=self.created_date,
-            description=self.description,
-            evaluator_type=self.evaluator_type,
-            fact_data=self.fact_data,
-            fact_name=self.fact_name,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            status=self.status,
+            properties=self.properties,
             tags=self.tags,
-            threshold=self.threshold,
-            type=self.type,
-            unique_identifier=self.unique_identifier)
+            type=self.type)
 
 
 def get_policy(expand: Optional[str] = None,
@@ -227,20 +132,12 @@ def get_policy(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        evaluator_type=__ret__.evaluator_type,
-        fact_data=__ret__.fact_data,
-        fact_name=__ret__.fact_name,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        threshold=__ret__.threshold,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_policy)

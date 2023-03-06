@@ -41,14 +41,6 @@ export class ServiceUnit extends pulumi.CustomResource {
     }
 
     /**
-     * The artifacts for the service unit.
-     */
-    public readonly artifacts!: pulumi.Output<outputs.deploymentmanager.v20180901preview.ServiceUnitArtifactsResponse | undefined>;
-    /**
-     * Describes the type of ARM deployment to be performed on the resource.
-     */
-    public readonly deploymentMode!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -57,13 +49,13 @@ export class ServiceUnit extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The properties that define the service unit.
+     */
+    public readonly properties!: pulumi.Output<outputs.deploymentmanager.v20180901preview.ServiceUnitResourceResponseProperties>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-     */
-    public readonly targetResourceGroup!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -82,8 +74,8 @@ export class ServiceUnit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deploymentMode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'deploymentMode'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -94,27 +86,20 @@ export class ServiceUnit extends pulumi.CustomResource {
             if ((!args || args.serviceTopologyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
-            if ((!args || args.targetResourceGroup === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetResourceGroup'");
-            }
-            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
-            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["serviceTopologyName"] = args ? args.serviceTopologyName : undefined;
             resourceInputs["serviceUnitName"] = args ? args.serviceUnitName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceGroup"] = args ? args.targetResourceGroup : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["artifacts"] = undefined /*out*/;
-            resourceInputs["deploymentMode"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["targetResourceGroup"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -129,17 +114,13 @@ export class ServiceUnit extends pulumi.CustomResource {
  */
 export interface ServiceUnitArgs {
     /**
-     * The artifacts for the service unit.
-     */
-    artifacts?: pulumi.Input<inputs.deploymentmanager.v20180901preview.ServiceUnitArtifactsArgs>;
-    /**
-     * Describes the type of ARM deployment to be performed on the resource.
-     */
-    deploymentMode: pulumi.Input<enums.deploymentmanager.v20180901preview.DeploymentMode>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The properties that define the service unit.
+     */
+    properties: pulumi.Input<inputs.deploymentmanager.v20180901preview.ServiceUnitResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,8 +141,4 @@ export interface ServiceUnitArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-     */
-    targetResourceGroup: pulumi.Input<string>;
 }

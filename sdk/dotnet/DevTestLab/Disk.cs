@@ -17,58 +17,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public partial class Disk : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The creation date of the disk.
-        /// </summary>
-        [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
-
-        /// <summary>
-        /// When backed by a blob, the name of the VHD blob without extension.
-        /// </summary>
-        [Output("diskBlobName")]
-        public Output<string?> DiskBlobName { get; private set; } = null!;
-
-        /// <summary>
-        /// The size of the disk in Gibibytes.
-        /// </summary>
-        [Output("diskSizeGiB")]
-        public Output<int?> DiskSizeGiB { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage type for the disk (i.e. Standard, Premium).
-        /// </summary>
-        [Output("diskType")]
-        public Output<string?> DiskType { get; private set; } = null!;
-
-        /// <summary>
-        /// When backed by a blob, the URI of underlying blob.
-        /// </summary>
-        [Output("diskUri")]
-        public Output<string?> DiskUri { get; private set; } = null!;
-
-        /// <summary>
-        /// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-        /// </summary>
-        [Output("hostCaching")]
-        public Output<string?> HostCaching { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the VM to which this disk is leased.
-        /// </summary>
-        [Output("leasedByLabVmId")]
-        public Output<string?> LeasedByLabVmId { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// When backed by managed disk, this is the ID of the compute disk resource.
-        /// </summary>
-        [Output("managedDiskId")]
-        public Output<string?> ManagedDiskId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -77,16 +29,10 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// When backed by a blob, the storage account where the blob is.
-        /// </summary>
-        [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DiskPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -99,12 +45,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -157,46 +97,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class DiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When backed by a blob, the name of the VHD blob without extension.
-        /// </summary>
-        [Input("diskBlobName")]
-        public Input<string>? DiskBlobName { get; set; }
-
-        /// <summary>
-        /// The size of the disk in Gibibytes.
-        /// </summary>
-        [Input("diskSizeGiB")]
-        public Input<int>? DiskSizeGiB { get; set; }
-
-        /// <summary>
-        /// The storage type for the disk (i.e. Standard, Premium).
-        /// </summary>
-        [Input("diskType")]
-        public InputUnion<string, Pulumi.AzureNative.DevTestLab.StorageType>? DiskType { get; set; }
-
-        /// <summary>
-        /// When backed by a blob, the URI of underlying blob.
-        /// </summary>
-        [Input("diskUri")]
-        public Input<string>? DiskUri { get; set; }
-
-        /// <summary>
-        /// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-        /// </summary>
-        [Input("hostCaching")]
-        public Input<string>? HostCaching { get; set; }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the VM to which this disk is leased.
-        /// </summary>
-        [Input("leasedByLabVmId")]
-        public Input<string>? LeasedByLabVmId { get; set; }
 
         /// <summary>
         /// The location of the resource.
@@ -205,28 +109,22 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// When backed by managed disk, this is the ID of the compute disk resource.
-        /// </summary>
-        [Input("managedDiskId")]
-        public Input<string>? ManagedDiskId { get; set; }
-
-        /// <summary>
         /// The name of the disk.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The properties of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.DiskPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// When backed by a blob, the storage account where the blob is.
-        /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

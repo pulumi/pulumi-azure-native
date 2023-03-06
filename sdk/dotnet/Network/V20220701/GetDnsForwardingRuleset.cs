@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Network.V20220701
     public sealed class GetDnsForwardingRulesetResult
     {
         /// <summary>
-        /// The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> DnsResolverOutboundEndpoints;
-        /// <summary>
         /// ETag of the DNS forwarding ruleset.
         /// </summary>
         public readonly string Etag;
@@ -90,13 +86,9 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current provisioning state of the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the DNS forwarding ruleset.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resourceGuid for the DNS forwarding ruleset.
-        /// </summary>
-        public readonly string ResourceGuid;
+        public readonly Outputs.DnsForwardingRulesetPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -112,8 +104,6 @@ namespace Pulumi.AzureNative.Network.V20220701
 
         [OutputConstructor]
         private GetDnsForwardingRulesetResult(
-            ImmutableArray<Outputs.SubResourceResponse> dnsResolverOutboundEndpoints,
-
             string etag,
 
             string id,
@@ -122,9 +112,7 @@ namespace Pulumi.AzureNative.Network.V20220701
 
             string name,
 
-            string provisioningState,
-
-            string resourceGuid,
+            Outputs.DnsForwardingRulesetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -132,13 +120,11 @@ namespace Pulumi.AzureNative.Network.V20220701
 
             string type)
         {
-            DnsResolverOutboundEndpoints = dnsResolverOutboundEndpoints;
             Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

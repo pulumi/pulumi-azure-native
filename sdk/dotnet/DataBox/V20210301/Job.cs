@@ -16,70 +16,10 @@ namespace Pulumi.AzureNative.DataBox.V20210301
     public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Reason for cancellation.
-        /// </summary>
-        [Output("cancellationReason")]
-        public Output<string> CancellationReason { get; private set; } = null!;
-
-        /// <summary>
-        /// Delivery Info of Job.
-        /// </summary>
-        [Output("deliveryInfo")]
-        public Output<Outputs.JobDeliveryInfoResponse?> DeliveryInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// Delivery type of Job.
-        /// </summary>
-        [Output("deliveryType")]
-        public Output<string?> DeliveryType { get; private set; } = null!;
-
-        /// <summary>
-        /// Details of a job run. This field will only be sent for expand details filter.
-        /// </summary>
-        [Output("details")]
-        public Output<object?> Details { get; private set; } = null!;
-
-        /// <summary>
-        /// Top level error for the job.
-        /// </summary>
-        [Output("error")]
-        public Output<Outputs.CloudErrorResponse> Error { get; private set; } = null!;
-
-        /// <summary>
         /// Msi identity of the resource
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// Describes whether the job is cancellable or not.
-        /// </summary>
-        [Output("isCancellable")]
-        public Output<bool> IsCancellable { get; private set; } = null!;
-
-        /// <summary>
-        /// Flag to indicate cancellation of scheduled job.
-        /// </summary>
-        [Output("isCancellableWithoutFee")]
-        public Output<bool> IsCancellableWithoutFee { get; private set; } = null!;
-
-        /// <summary>
-        /// Describes whether the job is deletable or not.
-        /// </summary>
-        [Output("isDeletable")]
-        public Output<bool> IsDeletable { get; private set; } = null!;
-
-        /// <summary>
-        /// Is Prepare To Ship Enabled on this job
-        /// </summary>
-        [Output("isPrepareToShipEnabled")]
-        public Output<bool> IsPrepareToShipEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Describes whether the shipping address is editable or not.
-        /// </summary>
-        [Output("isShippingAddressEditable")]
-        public Output<bool> IsShippingAddressEditable { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
@@ -94,22 +34,16 @@ namespace Pulumi.AzureNative.DataBox.V20210301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Properties of a job.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.JobPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// The sku type.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Time at which the job was started in UTC ISO 8601 format.
-        /// </summary>
-        [Output("startTime")]
-        public Output<string> StartTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of the stage which is in progress.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -122,12 +56,6 @@ namespace Pulumi.AzureNative.DataBox.V20210301
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Type of the data transfer.
-        /// </summary>
-        [Output("transferType")]
-        public Output<string> TransferType { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object.
@@ -196,24 +124,6 @@ namespace Pulumi.AzureNative.DataBox.V20210301
     public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Delivery Info of Job.
-        /// </summary>
-        [Input("deliveryInfo")]
-        public Input<Inputs.JobDeliveryInfoArgs>? DeliveryInfo { get; set; }
-
-        /// <summary>
-        /// Delivery type of Job.
-        /// </summary>
-        [Input("deliveryType")]
-        public InputUnion<string, Pulumi.AzureNative.DataBox.V20210301.JobDeliveryType>? DeliveryType { get; set; }
-
-        /// <summary>
-        /// Details of a job run. This field will only be sent for expand details filter.
-        /// </summary>
-        [Input("details")]
-        public object? Details { get; set; }
-
-        /// <summary>
         /// Msi identity of the resource
         /// </summary>
         [Input("identity")]
@@ -230,6 +140,12 @@ namespace Pulumi.AzureNative.DataBox.V20210301
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties of a job.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.JobPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name
@@ -255,15 +171,8 @@ namespace Pulumi.AzureNative.DataBox.V20210301
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Type of the data transfer.
-        /// </summary>
-        [Input("transferType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataBox.V20210301.TransferType> TransferType { get; set; } = null!;
-
         public JobArgs()
         {
-            DeliveryType = "NonScheduled";
         }
         public static new JobArgs Empty => new JobArgs();
     }

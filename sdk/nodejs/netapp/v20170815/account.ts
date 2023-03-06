@@ -41,10 +41,6 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * Active Directories
-     */
-    public readonly activeDirectories!: pulumi.Output<outputs.netapp.v20170815.ActiveDirectoryResponse[] | undefined>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -53,9 +49,9 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure lifecycle management
+     * NetApp Account properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20170815.AccountPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -78,22 +74,23 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["activeDirectories"] = args ? args.activeDirectories : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["activeDirectories"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -113,13 +110,13 @@ export interface AccountArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * Active Directories
-     */
-    activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.v20170815.ActiveDirectoryArgs>[]>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
+    /**
+     * NetApp Account properties
+     */
+    properties: pulumi.Input<inputs.netapp.v20170815.AccountPropertiesArgs>;
     /**
      * The name of the resource group.
      */

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -49,49 +52,21 @@ export interface GetIscsiDiskArgs {
  */
 export interface GetIscsiDiskResult {
     /**
-     * The access control records.
-     */
-    readonly accessControlRecords: string[];
-    /**
-     * The data policy.
-     */
-    readonly dataPolicy: string;
-    /**
-     * The description.
-     */
-    readonly description?: string;
-    /**
-     * The disk status.
-     */
-    readonly diskStatus: string;
-    /**
      * The identifier.
      */
     readonly id: string;
-    /**
-     * The local used capacity in bytes.
-     */
-    readonly localUsedCapacityInBytes: number;
-    /**
-     * The monitoring.
-     */
-    readonly monitoringStatus: string;
     /**
      * The name.
      */
     readonly name: string;
     /**
-     * The provisioned capacity in bytes.
+     * The properties.
      */
-    readonly provisionedCapacityInBytes: number;
+    readonly properties: outputs.storsimple.v20161001.ISCSIDiskPropertiesResponse;
     /**
      * The type.
      */
     readonly type: string;
-    /**
-     * The used capacity in bytes.
-     */
-    readonly usedCapacityInBytes: number;
 }
 /**
  * Returns the properties of the specified iSCSI disk name.

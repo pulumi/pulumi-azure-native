@@ -22,116 +22,34 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, reverse_shipping_details_update=None, reverse_transport_preference_update=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
-        if cancellation_reason and not isinstance(cancellation_reason, str):
-            raise TypeError("Expected argument 'cancellation_reason' to be a str")
-        pulumi.set(__self__, "cancellation_reason", cancellation_reason)
-        if delivery_info and not isinstance(delivery_info, dict):
-            raise TypeError("Expected argument 'delivery_info' to be a dict")
-        pulumi.set(__self__, "delivery_info", delivery_info)
-        if delivery_type and not isinstance(delivery_type, str):
-            raise TypeError("Expected argument 'delivery_type' to be a str")
-        pulumi.set(__self__, "delivery_type", delivery_type)
-        if details and not isinstance(details, dict):
-            raise TypeError("Expected argument 'details' to be a dict")
-        pulumi.set(__self__, "details", details)
-        if error and not isinstance(error, dict):
-            raise TypeError("Expected argument 'error' to be a dict")
-        pulumi.set(__self__, "error", error)
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
-        if is_cancellable and not isinstance(is_cancellable, bool):
-            raise TypeError("Expected argument 'is_cancellable' to be a bool")
-        pulumi.set(__self__, "is_cancellable", is_cancellable)
-        if is_cancellable_without_fee and not isinstance(is_cancellable_without_fee, bool):
-            raise TypeError("Expected argument 'is_cancellable_without_fee' to be a bool")
-        pulumi.set(__self__, "is_cancellable_without_fee", is_cancellable_without_fee)
-        if is_deletable and not isinstance(is_deletable, bool):
-            raise TypeError("Expected argument 'is_deletable' to be a bool")
-        pulumi.set(__self__, "is_deletable", is_deletable)
-        if is_prepare_to_ship_enabled and not isinstance(is_prepare_to_ship_enabled, bool):
-            raise TypeError("Expected argument 'is_prepare_to_ship_enabled' to be a bool")
-        pulumi.set(__self__, "is_prepare_to_ship_enabled", is_prepare_to_ship_enabled)
-        if is_shipping_address_editable and not isinstance(is_shipping_address_editable, bool):
-            raise TypeError("Expected argument 'is_shipping_address_editable' to be a bool")
-        pulumi.set(__self__, "is_shipping_address_editable", is_shipping_address_editable)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if reverse_shipping_details_update and not isinstance(reverse_shipping_details_update, str):
-            raise TypeError("Expected argument 'reverse_shipping_details_update' to be a str")
-        pulumi.set(__self__, "reverse_shipping_details_update", reverse_shipping_details_update)
-        if reverse_transport_preference_update and not isinstance(reverse_transport_preference_update, str):
-            raise TypeError("Expected argument 'reverse_transport_preference_update' to be a str")
-        pulumi.set(__self__, "reverse_transport_preference_update", reverse_transport_preference_update)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if start_time and not isinstance(start_time, str):
-            raise TypeError("Expected argument 'start_time' to be a str")
-        pulumi.set(__self__, "start_time", start_time)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if transfer_type and not isinstance(transfer_type, str):
-            raise TypeError("Expected argument 'transfer_type' to be a str")
-        pulumi.set(__self__, "transfer_type", transfer_type)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="cancellationReason")
-    def cancellation_reason(self) -> str:
-        """
-        Reason for cancellation.
-        """
-        return pulumi.get(self, "cancellation_reason")
-
-    @property
-    @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> Optional['outputs.JobDeliveryInfoResponse']:
-        """
-        Delivery Info of Job.
-        """
-        return pulumi.get(self, "delivery_info")
-
-    @property
-    @pulumi.getter(name="deliveryType")
-    def delivery_type(self) -> Optional[str]:
-        """
-        Delivery type of Job.
-        """
-        return pulumi.get(self, "delivery_type")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[Any]:
-        """
-        Details of a job run. This field will only be sent for expand details filter.
-        """
-        return pulumi.get(self, "details")
-
-    @property
-    @pulumi.getter
-    def error(self) -> 'outputs.CloudErrorResponse':
-        """
-        Top level error for the job.
-        """
-        return pulumi.get(self, "error")
 
     @property
     @pulumi.getter
@@ -150,46 +68,6 @@ class GetJobResult:
         return pulumi.get(self, "identity")
 
     @property
-    @pulumi.getter(name="isCancellable")
-    def is_cancellable(self) -> bool:
-        """
-        Describes whether the job is cancellable or not.
-        """
-        return pulumi.get(self, "is_cancellable")
-
-    @property
-    @pulumi.getter(name="isCancellableWithoutFee")
-    def is_cancellable_without_fee(self) -> bool:
-        """
-        Flag to indicate cancellation of scheduled job.
-        """
-        return pulumi.get(self, "is_cancellable_without_fee")
-
-    @property
-    @pulumi.getter(name="isDeletable")
-    def is_deletable(self) -> bool:
-        """
-        Describes whether the job is deletable or not.
-        """
-        return pulumi.get(self, "is_deletable")
-
-    @property
-    @pulumi.getter(name="isPrepareToShipEnabled")
-    def is_prepare_to_ship_enabled(self) -> bool:
-        """
-        Is Prepare To Ship Enabled on this job
-        """
-        return pulumi.get(self, "is_prepare_to_ship_enabled")
-
-    @property
-    @pulumi.getter(name="isShippingAddressEditable")
-    def is_shipping_address_editable(self) -> bool:
-        """
-        Describes whether the shipping address is editable or not.
-        """
-        return pulumi.get(self, "is_shipping_address_editable")
-
-    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -206,20 +84,12 @@ class GetJobResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="reverseShippingDetailsUpdate")
-    def reverse_shipping_details_update(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.JobPropertiesResponse':
         """
-        The Editable status for Reverse Shipping Address and Contact Info
+        Properties of a job.
         """
-        return pulumi.get(self, "reverse_shipping_details_update")
-
-    @property
-    @pulumi.getter(name="reverseTransportPreferenceUpdate")
-    def reverse_transport_preference_update(self) -> str:
-        """
-        The Editable status for Reverse Transport preferences
-        """
-        return pulumi.get(self, "reverse_transport_preference_update")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -228,22 +98,6 @@ class GetJobResult:
         The sku type.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
-        """
-        Time at which the job was started in UTC ISO 8601 format.
-        """
-        return pulumi.get(self, "start_time")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Name of the stage which is in progress.
-        """
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="systemData")
@@ -262,14 +116,6 @@ class GetJobResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="transferType")
-    def transfer_type(self) -> str:
-        """
-        Type of the data transfer.
-        """
-        return pulumi.get(self, "transfer_type")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -284,28 +130,14 @@ class AwaitableGetJobResult(GetJobResult):
         if False:
             yield self
         return GetJobResult(
-            cancellation_reason=self.cancellation_reason,
-            delivery_info=self.delivery_info,
-            delivery_type=self.delivery_type,
-            details=self.details,
-            error=self.error,
             id=self.id,
             identity=self.identity,
-            is_cancellable=self.is_cancellable,
-            is_cancellable_without_fee=self.is_cancellable_without_fee,
-            is_deletable=self.is_deletable,
-            is_prepare_to_ship_enabled=self.is_prepare_to_ship_enabled,
-            is_shipping_address_editable=self.is_shipping_address_editable,
             location=self.location,
             name=self.name,
-            reverse_shipping_details_update=self.reverse_shipping_details_update,
-            reverse_transport_preference_update=self.reverse_transport_preference_update,
+            properties=self.properties,
             sku=self.sku,
-            start_time=self.start_time,
-            status=self.status,
             system_data=self.system_data,
             tags=self.tags,
-            transfer_type=self.transfer_type,
             type=self.type)
 
 
@@ -329,28 +161,14 @@ def get_job(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databox/v20220901:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        cancellation_reason=__ret__.cancellation_reason,
-        delivery_info=__ret__.delivery_info,
-        delivery_type=__ret__.delivery_type,
-        details=__ret__.details,
-        error=__ret__.error,
         id=__ret__.id,
         identity=__ret__.identity,
-        is_cancellable=__ret__.is_cancellable,
-        is_cancellable_without_fee=__ret__.is_cancellable_without_fee,
-        is_deletable=__ret__.is_deletable,
-        is_prepare_to_ship_enabled=__ret__.is_prepare_to_ship_enabled,
-        is_shipping_address_editable=__ret__.is_shipping_address_editable,
         location=__ret__.location,
         name=__ret__.name,
-        reverse_shipping_details_update=__ret__.reverse_shipping_details_update,
-        reverse_transport_preference_update=__ret__.reverse_transport_preference_update,
+        properties=__ret__.properties,
         sku=__ret__.sku,
-        start_time=__ret__.start_time,
-        status=__ret__.status,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        transfer_type=__ret__.transfer_type,
         type=__ret__.type)
 
 

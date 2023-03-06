@@ -82,57 +82,21 @@ namespace Pulumi.AzureNative.Logic.V20160601
     public sealed class GetRosettaNetProcessConfigurationResult
     {
         /// <summary>
-        /// The RosettaNet process configuration activity settings.
-        /// </summary>
-        public readonly Outputs.RosettaNetPipActivitySettingsResponse ActivitySettings;
-        /// <summary>
-        /// The changed time.
-        /// </summary>
-        public readonly string ChangedTime;
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
-        /// The integration account RosettaNet ProcessConfiguration properties.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The RosettaNet initiator role settings.
-        /// </summary>
-        public readonly Outputs.RosettaNetPipRoleSettingsResponse InitiatorRoleSettings;
         /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The metadata.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
-        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The integration account RosettaNet process code.
+        /// The integration account RosettaNet process configuration properties.
         /// </summary>
-        public readonly string ProcessCode;
-        /// <summary>
-        /// The integration account RosettaNet process name.
-        /// </summary>
-        public readonly string ProcessName;
-        /// <summary>
-        /// The integration account RosettaNet process version.
-        /// </summary>
-        public readonly string ProcessVersion;
-        /// <summary>
-        /// The RosettaNet responder role settings.
-        /// </summary>
-        public readonly Outputs.RosettaNetPipRoleSettingsResponse ResponderRoleSettings;
+        public readonly Outputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -144,49 +108,22 @@ namespace Pulumi.AzureNative.Logic.V20160601
 
         [OutputConstructor]
         private GetRosettaNetProcessConfigurationResult(
-            Outputs.RosettaNetPipActivitySettingsResponse activitySettings,
-
-            string changedTime,
-
-            string createdTime,
-
-            string? description,
-
             string id,
-
-            Outputs.RosettaNetPipRoleSettingsResponse initiatorRoleSettings,
 
             string? location,
 
-            ImmutableDictionary<string, string>? metadata,
-
             string name,
 
-            string processCode,
-
-            string processName,
-
-            string processVersion,
-
-            Outputs.RosettaNetPipRoleSettingsResponse responderRoleSettings,
+            Outputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ActivitySettings = activitySettings;
-            ChangedTime = changedTime;
-            CreatedTime = createdTime;
-            Description = description;
             Id = id;
-            InitiatorRoleSettings = initiatorRoleSettings;
             Location = location;
-            Metadata = metadata;
             Name = name;
-            ProcessCode = processCode;
-            ProcessName = processName;
-            ProcessVersion = processVersion;
-            ResponderRoleSettings = responderRoleSettings;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

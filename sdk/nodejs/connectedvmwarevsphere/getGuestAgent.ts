@@ -41,18 +41,6 @@ export interface GetGuestAgentArgs {
  */
 export interface GetGuestAgentResult {
     /**
-     * Username / Password Credentials to provision guest agent.
-     */
-    readonly credentials?: outputs.connectedvmwarevsphere.GuestCredentialResponse;
-    /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    readonly customResourceName: string;
-    /**
-     * HTTP Proxy configuration for the VM.
-     */
-    readonly httpProxyConfig?: outputs.connectedvmwarevsphere.HttpProxyConfigurationResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -61,21 +49,9 @@ export interface GetGuestAgentResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the guest agent provisioning action.
+     * Resource properties.
      */
-    readonly provisioningAction?: string;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
-     * Gets or sets the guest agent status.
-     */
-    readonly status: string;
-    /**
-     * The resource status information.
-     */
-    readonly statuses: outputs.connectedvmwarevsphere.ResourceStatusResponse[];
+    readonly properties: outputs.connectedvmwarevsphere.GuestAgentPropertiesResponse;
     /**
      * The system data.
      */
@@ -84,10 +60,6 @@ export interface GetGuestAgentResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    readonly uuid: string;
 }
 /**
  * Implements GuestAgent GET method.

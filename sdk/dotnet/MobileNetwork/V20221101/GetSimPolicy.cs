@@ -82,10 +82,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public sealed class GetSimPolicyResult
     {
         /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
-        /// </summary>
-        public readonly Outputs.SliceResourceIdResponse DefaultSlice;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -98,25 +94,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the SIM policy resource.
+        /// SIM policy Properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
-        /// </summary>
-        public readonly int? RegistrationTimer;
-        /// <summary>
-        /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
-        /// </summary>
-        public readonly int? RfspIndex;
-        /// <summary>
-        /// A dictionary of sites to the provisioning state of this SIM policy on that site.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> SiteProvisioningState;
-        /// <summary>
-        /// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SliceConfigurationResponse> SliceConfigurations;
+        public readonly Outputs.SimPolicyPropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -129,52 +109,30 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-        /// </summary>
-        public readonly Outputs.AmbrResponse UeAmbr;
 
         [OutputConstructor]
         private GetSimPolicyResult(
-            Outputs.SliceResourceIdResponse defaultSlice,
-
             string id,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            int? registrationTimer,
-
-            int? rfspIndex,
-
-            ImmutableDictionary<string, string> siteProvisioningState,
-
-            ImmutableArray<Outputs.SliceConfigurationResponse> sliceConfigurations,
+            Outputs.SimPolicyPropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.AmbrResponse ueAmbr)
+            string type)
         {
-            DefaultSlice = defaultSlice;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            RegistrationTimer = registrationTimer;
-            RfspIndex = rfspIndex;
-            SiteProvisioningState = siteProvisioningState;
-            SliceConfigurations = sliceConfigurations;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UeAmbr = ueAmbr;
         }
     }
 }

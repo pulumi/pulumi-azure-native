@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public partial class AccessControlRecord : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The iSCSI initiator name (IQN).
-        /// </summary>
-        [Output("initiatorName")]
-        public Output<string> InitiatorName { get; private set; } = null!;
-
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
@@ -34,16 +28,16 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The properties of access control record.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.AccessControlRecordPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of volumes using the access control record.
-        /// </summary>
-        [Output("volumeCount")]
-        public Output<int> VolumeCount { get; private set; } = null!;
 
 
         /// <summary>
@@ -102,12 +96,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public Input<string>? AccessControlRecordName { get; set; }
 
         /// <summary>
-        /// The iSCSI initiator name (IQN).
-        /// </summary>
-        [Input("initiatorName", required: true)]
-        public Input<string> InitiatorName { get; set; } = null!;
-
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
@@ -118,6 +106,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The properties of access control record.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.AccessControlRecordPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

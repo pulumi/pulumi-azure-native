@@ -94,25 +94,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
     public sealed class GetIoTAddonResult
     {
         /// <summary>
-        /// Host OS supported by the IoT addon.
-        /// </summary>
-        public readonly string HostPlatform;
-        /// <summary>
-        /// Platform where the runtime is hosted.
-        /// </summary>
-        public readonly string HostPlatformType;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IoT device metadata to which appliance needs to be connected.
-        /// </summary>
-        public readonly Outputs.IoTDeviceInfoResponse IoTDeviceDetails;
-        /// <summary>
-        /// IoT edge device to which the IoT Addon needs to be configured.
-        /// </summary>
-        public readonly Outputs.IoTDeviceInfoResponse IoTEdgeDeviceDetails;
         /// <summary>
         /// Addon type.
         /// Expected value is 'IotEdge'.
@@ -123,9 +107,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Addon Provisioning State
+        /// Properties specific to IOT addon.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.IoTAddonPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of Addon
         /// </summary>
@@ -134,46 +118,27 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Version of IoT running on the appliance.
-        /// </summary>
-        public readonly string Version;
 
         [OutputConstructor]
         private GetIoTAddonResult(
-            string hostPlatform,
-
-            string hostPlatformType,
-
             string id,
-
-            Outputs.IoTDeviceInfoResponse ioTDeviceDetails,
-
-            Outputs.IoTDeviceInfoResponse ioTEdgeDeviceDetails,
 
             string kind,
 
             string name,
 
-            string provisioningState,
+            Outputs.IoTAddonPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            string version)
+            string type)
         {
-            HostPlatform = hostPlatform;
-            HostPlatformType = hostPlatformType;
             Id = id;
-            IoTDeviceDetails = ioTDeviceDetails;
-            IoTEdgeDeviceDetails = ioTEdgeDeviceDetails;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            Version = version;
         }
     }
 }

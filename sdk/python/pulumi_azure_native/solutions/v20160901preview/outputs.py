@@ -8,10 +8,12 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ApplianceArtifactResponse',
+    'ApplianceDefinitionPropertiesResponse',
     'ApplianceProviderAuthorizationResponse',
     'IdentityResponse',
     'PlanResponse',
@@ -63,6 +65,107 @@ class ApplianceArtifactResponse(dict):
         The appliance artifact blob uri.
         """
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class ApplianceDefinitionPropertiesResponse(dict):
+    """
+    The appliance definition properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lockLevel":
+            suggest = "lock_level"
+        elif key == "packageFileUri":
+            suggest = "package_file_uri"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplianceDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplianceDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplianceDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizations: Sequence['outputs.ApplianceProviderAuthorizationResponse'],
+                 lock_level: str,
+                 package_file_uri: str,
+                 artifacts: Optional[Sequence['outputs.ApplianceArtifactResponse']] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None):
+        """
+        The appliance definition properties.
+        :param Sequence['ApplianceProviderAuthorizationResponse'] authorizations: The appliance provider authorizations.
+        :param str lock_level: The appliance lock level.
+        :param str package_file_uri: The appliance definition package file Uri.
+        :param Sequence['ApplianceArtifactResponse'] artifacts: The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+        :param str description: The appliance definition description.
+        :param str display_name: The appliance definition display name.
+        """
+        pulumi.set(__self__, "authorizations", authorizations)
+        pulumi.set(__self__, "lock_level", lock_level)
+        pulumi.set(__self__, "package_file_uri", package_file_uri)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Sequence['outputs.ApplianceProviderAuthorizationResponse']:
+        """
+        The appliance provider authorizations.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="lockLevel")
+    def lock_level(self) -> str:
+        """
+        The appliance lock level.
+        """
+        return pulumi.get(self, "lock_level")
+
+    @property
+    @pulumi.getter(name="packageFileUri")
+    def package_file_uri(self) -> str:
+        """
+        The appliance definition package file Uri.
+        """
+        return pulumi.get(self, "package_file_uri")
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[Sequence['outputs.ApplianceArtifactResponse']]:
+        """
+        The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The appliance definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The appliance definition display name.
+        """
+        return pulumi.get(self, "display_name")
 
 
 @pulumi.output_type

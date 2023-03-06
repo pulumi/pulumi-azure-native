@@ -45,18 +45,6 @@ export interface GetConnectorArgs {
  */
 export interface GetConnectorResult {
     /**
-     * The authentication type.
-     */
-    readonly authInfo?: outputs.servicelinker.v20221101preview.AccessKeyInfoBaseResponse | outputs.servicelinker.v20221101preview.SecretAuthInfoResponse | outputs.servicelinker.v20221101preview.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.v20221101preview.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.v20221101preview.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.v20221101preview.UserAccountAuthInfoResponse | outputs.servicelinker.v20221101preview.UserAssignedIdentityAuthInfoResponse;
-    /**
-     * The application client type
-     */
-    readonly clientType?: string;
-    /**
-     * The connection information consumed by applications, including secrets, connection strings.
-     */
-    readonly configurationInfo?: outputs.servicelinker.v20221101preview.ConfigurationInfoResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -65,37 +53,17 @@ export interface GetConnectorResult {
      */
     readonly name: string;
     /**
-     * The provisioning state. 
+     * The properties of the Linker.
      */
-    readonly provisioningState: string;
-    /**
-     * The network solution.
-     */
-    readonly publicNetworkSolution?: outputs.servicelinker.v20221101preview.PublicNetworkSolutionResponse;
-    /**
-     * connection scope in source service.
-     */
-    readonly scope?: string;
-    /**
-     * An option to store secret value in secure place
-     */
-    readonly secretStore?: outputs.servicelinker.v20221101preview.SecretStoreResponse;
+    readonly properties: outputs.servicelinker.v20221101preview.LinkerPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.servicelinker.v20221101preview.SystemDataResponse;
     /**
-     * The target service properties
-     */
-    readonly targetService?: outputs.servicelinker.v20221101preview.AzureResourceResponse | outputs.servicelinker.v20221101preview.ConfluentBootstrapServerResponse | outputs.servicelinker.v20221101preview.ConfluentSchemaRegistryResponse | outputs.servicelinker.v20221101preview.SelfHostedServerResponse;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The VNet solution.
-     */
-    readonly vNetSolution?: outputs.servicelinker.v20221101preview.VNetSolutionResponse;
 }
 /**
  * Returns Connector resource for a given name.

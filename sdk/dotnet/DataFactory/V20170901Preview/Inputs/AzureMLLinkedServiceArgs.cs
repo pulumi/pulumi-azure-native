@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The API key for accessing the Azure ML model endpoint.
-        /// </summary>
-        [Input("apiKey", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ApiKey { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,18 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("mlEndpoint", required: true)]
-        public Input<object> MlEndpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -70,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId")]
-        public Input<object>? ServicePrincipalId { get; set; }
-
-        /// <summary>
-        /// The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
-        /// </summary>
-        [Input("servicePrincipalKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
-
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tenant")]
-        public Input<object>? Tenant { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureML'.
         /// </summary>
@@ -95,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
+        /// Azure ML Web Service linked service properties.
         /// </summary>
-        [Input("updateResourceEndpoint")]
-        public Input<object>? UpdateResourceEndpoint { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureMLLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureMLLinkedServiceArgs()
         {

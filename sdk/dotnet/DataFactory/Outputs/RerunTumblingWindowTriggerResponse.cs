@@ -25,22 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The parent trigger reference.
-        /// </summary>
-        public readonly object ParentTrigger;
-        /// <summary>
-        /// The end time for the time period for which restatement is initiated. Only UTC time is currently supported.
-        /// </summary>
-        public readonly string RequestedEndTime;
-        /// <summary>
-        /// The start time for the time period for which restatement is initiated. Only UTC time is currently supported.
-        /// </summary>
-        public readonly string RequestedStartTime;
-        /// <summary>
-        /// The max number of parallel time windows (ready for execution) for which a rerun is triggered.
-        /// </summary>
-        public readonly int RerunConcurrency;
-        /// <summary>
         /// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         /// </summary>
         public readonly string RuntimeState;
@@ -49,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'RerunTumblingWindowTrigger'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Rerun Trigger properties.
+        /// </summary>
+        public readonly Outputs.RerunTumblingWindowTriggerResponseTypeProperties TypeProperties;
 
         [OutputConstructor]
         private RerunTumblingWindowTriggerResponse(
@@ -56,26 +44,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            object parentTrigger,
-
-            string requestedEndTime,
-
-            string requestedStartTime,
-
-            int rerunConcurrency,
-
             string runtimeState,
 
-            string type)
+            string type,
+
+            Outputs.RerunTumblingWindowTriggerResponseTypeProperties typeProperties)
         {
             Annotations = annotations;
             Description = description;
-            ParentTrigger = parentTrigger;
-            RequestedEndTime = requestedEndTime;
-            RequestedStartTime = requestedStartTime;
-            RerunConcurrency = rerunConcurrency;
             RuntimeState = runtimeState;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

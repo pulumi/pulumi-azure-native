@@ -12,7 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessControlRecordPropertiesResponse',
     'AsymmetricEncryptedSecretResponse',
+    'BackupPolicyPropertiesResponse',
+    'BackupSchedulePropertiesResponse',
+    'BandwidthRateSettingPropertiesResponse',
     'BandwidthScheduleResponse',
     'FailoverSetEligibilityResultResponse',
     'FailoverSetResponse',
@@ -20,12 +24,67 @@ __all__ = [
     'ManagerIntrinsicSettingsResponse',
     'ManagerSkuResponse',
     'ScheduleRecurrenceResponse',
+    'StorageAccountCredentialPropertiesResponse',
     'TargetEligibilityErrorMessageResponse',
     'TargetEligibilityResultResponse',
     'TimeResponse',
     'VolumeContainerFailoverMetadataResponse',
+    'VolumeContainerPropertiesResponse',
     'VolumeFailoverMetadataResponse',
+    'VolumePropertiesResponse',
 ]
+
+@pulumi.output_type
+class AccessControlRecordPropertiesResponse(dict):
+    """
+    The properties of access control record.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initiatorName":
+            suggest = "initiator_name"
+        elif key == "volumeCount":
+            suggest = "volume_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessControlRecordPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessControlRecordPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessControlRecordPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initiator_name: str,
+                 volume_count: int):
+        """
+        The properties of access control record.
+        :param str initiator_name: The iSCSI initiator name (IQN).
+        :param int volume_count: The number of volumes using the access control record.
+        """
+        pulumi.set(__self__, "initiator_name", initiator_name)
+        pulumi.set(__self__, "volume_count", volume_count)
+
+    @property
+    @pulumi.getter(name="initiatorName")
+    def initiator_name(self) -> str:
+        """
+        The iSCSI initiator name (IQN).
+        """
+        return pulumi.get(self, "initiator_name")
+
+    @property
+    @pulumi.getter(name="volumeCount")
+    def volume_count(self) -> int:
+        """
+        The number of volumes using the access control record.
+        """
+        return pulumi.get(self, "volume_count")
+
 
 @pulumi.output_type
 class AsymmetricEncryptedSecretResponse(dict):
@@ -89,6 +148,277 @@ class AsymmetricEncryptedSecretResponse(dict):
         Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
         """
         return pulumi.get(self, "encryption_cert_thumbprint")
+
+
+@pulumi.output_type
+class BackupPolicyPropertiesResponse(dict):
+    """
+    The properties of the backup policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupPolicyCreationType":
+            suggest = "backup_policy_creation_type"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "nextBackupTime":
+            suggest = "next_backup_time"
+        elif key == "scheduledBackupStatus":
+            suggest = "scheduled_backup_status"
+        elif key == "schedulesCount":
+            suggest = "schedules_count"
+        elif key == "ssmHostName":
+            suggest = "ssm_host_name"
+        elif key == "volumeIds":
+            suggest = "volume_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_policy_creation_type: str,
+                 last_backup_time: str,
+                 next_backup_time: str,
+                 scheduled_backup_status: str,
+                 schedules_count: float,
+                 ssm_host_name: str,
+                 volume_ids: Sequence[str]):
+        """
+        The properties of the backup policy.
+        :param str backup_policy_creation_type: The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+        :param str last_backup_time: The time of the last backup for the backup policy.
+        :param str next_backup_time: The time of the next backup for the backup policy.
+        :param str scheduled_backup_status: Indicates whether at least one of the schedules in the backup policy is active or not.
+        :param float schedules_count: The count of schedules the backup policy contains.
+        :param str ssm_host_name: If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+        :param Sequence[str] volume_ids: The path IDs of the volumes which are part of the backup policy.
+        """
+        pulumi.set(__self__, "backup_policy_creation_type", backup_policy_creation_type)
+        pulumi.set(__self__, "last_backup_time", last_backup_time)
+        pulumi.set(__self__, "next_backup_time", next_backup_time)
+        pulumi.set(__self__, "scheduled_backup_status", scheduled_backup_status)
+        pulumi.set(__self__, "schedules_count", schedules_count)
+        pulumi.set(__self__, "ssm_host_name", ssm_host_name)
+        pulumi.set(__self__, "volume_ids", volume_ids)
+
+    @property
+    @pulumi.getter(name="backupPolicyCreationType")
+    def backup_policy_creation_type(self) -> str:
+        """
+        The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+        """
+        return pulumi.get(self, "backup_policy_creation_type")
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> str:
+        """
+        The time of the last backup for the backup policy.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @property
+    @pulumi.getter(name="nextBackupTime")
+    def next_backup_time(self) -> str:
+        """
+        The time of the next backup for the backup policy.
+        """
+        return pulumi.get(self, "next_backup_time")
+
+    @property
+    @pulumi.getter(name="scheduledBackupStatus")
+    def scheduled_backup_status(self) -> str:
+        """
+        Indicates whether at least one of the schedules in the backup policy is active or not.
+        """
+        return pulumi.get(self, "scheduled_backup_status")
+
+    @property
+    @pulumi.getter(name="schedulesCount")
+    def schedules_count(self) -> float:
+        """
+        The count of schedules the backup policy contains.
+        """
+        return pulumi.get(self, "schedules_count")
+
+    @property
+    @pulumi.getter(name="ssmHostName")
+    def ssm_host_name(self) -> str:
+        """
+        If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+        """
+        return pulumi.get(self, "ssm_host_name")
+
+    @property
+    @pulumi.getter(name="volumeIds")
+    def volume_ids(self) -> Sequence[str]:
+        """
+        The path IDs of the volumes which are part of the backup policy.
+        """
+        return pulumi.get(self, "volume_ids")
+
+
+@pulumi.output_type
+class BackupSchedulePropertiesResponse(dict):
+    """
+    The properties of the backup schedule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupType":
+            suggest = "backup_type"
+        elif key == "lastSuccessfulRun":
+            suggest = "last_successful_run"
+        elif key == "retentionCount":
+            suggest = "retention_count"
+        elif key == "scheduleRecurrence":
+            suggest = "schedule_recurrence"
+        elif key == "scheduleStatus":
+            suggest = "schedule_status"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupSchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupSchedulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupSchedulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_type: str,
+                 last_successful_run: str,
+                 retention_count: float,
+                 schedule_recurrence: 'outputs.ScheduleRecurrenceResponse',
+                 schedule_status: str,
+                 start_time: str):
+        """
+        The properties of the backup schedule.
+        :param str backup_type: The type of backup which needs to be taken.
+        :param str last_successful_run: The last successful backup run which was triggered for the schedule.
+        :param float retention_count: The number of backups to be retained.
+        :param 'ScheduleRecurrenceResponse' schedule_recurrence: The schedule recurrence.
+        :param str schedule_status: The schedule status.
+        :param str start_time: The start time of the schedule.
+        """
+        pulumi.set(__self__, "backup_type", backup_type)
+        pulumi.set(__self__, "last_successful_run", last_successful_run)
+        pulumi.set(__self__, "retention_count", retention_count)
+        pulumi.set(__self__, "schedule_recurrence", schedule_recurrence)
+        pulumi.set(__self__, "schedule_status", schedule_status)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> str:
+        """
+        The type of backup which needs to be taken.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @property
+    @pulumi.getter(name="lastSuccessfulRun")
+    def last_successful_run(self) -> str:
+        """
+        The last successful backup run which was triggered for the schedule.
+        """
+        return pulumi.get(self, "last_successful_run")
+
+    @property
+    @pulumi.getter(name="retentionCount")
+    def retention_count(self) -> float:
+        """
+        The number of backups to be retained.
+        """
+        return pulumi.get(self, "retention_count")
+
+    @property
+    @pulumi.getter(name="scheduleRecurrence")
+    def schedule_recurrence(self) -> 'outputs.ScheduleRecurrenceResponse':
+        """
+        The schedule recurrence.
+        """
+        return pulumi.get(self, "schedule_recurrence")
+
+    @property
+    @pulumi.getter(name="scheduleStatus")
+    def schedule_status(self) -> str:
+        """
+        The schedule status.
+        """
+        return pulumi.get(self, "schedule_status")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time of the schedule.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class BandwidthRateSettingPropertiesResponse(dict):
+    """
+    The properties of the bandwidth setting.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeCount":
+            suggest = "volume_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BandwidthRateSettingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BandwidthRateSettingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BandwidthRateSettingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedules: Sequence['outputs.BandwidthScheduleResponse'],
+                 volume_count: int):
+        """
+        The properties of the bandwidth setting.
+        :param Sequence['BandwidthScheduleResponse'] schedules: The schedules.
+        :param int volume_count: The number of volumes that uses the bandwidth setting.
+        """
+        pulumi.set(__self__, "schedules", schedules)
+        pulumi.set(__self__, "volume_count", volume_count)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Sequence['outputs.BandwidthScheduleResponse']:
+        """
+        The schedules.
+        """
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter(name="volumeCount")
+    def volume_count(self) -> int:
+        """
+        The number of volumes that uses the bandwidth setting.
+        """
+        return pulumi.get(self, "volume_count")
 
 
 @pulumi.output_type
@@ -487,6 +817,85 @@ class ScheduleRecurrenceResponse(dict):
 
 
 @pulumi.output_type
+class StorageAccountCredentialPropertiesResponse(dict):
+    """
+    The storage account credential properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endPoint":
+            suggest = "end_point"
+        elif key == "sslStatus":
+            suggest = "ssl_status"
+        elif key == "volumesCount":
+            suggest = "volumes_count"
+        elif key == "accessKey":
+            suggest = "access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_point: str,
+                 ssl_status: str,
+                 volumes_count: int,
+                 access_key: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
+        """
+        The storage account credential properties.
+        :param str end_point: The storage endpoint
+        :param str ssl_status: Signifies whether SSL needs to be enabled or not.
+        :param int volumes_count: The count of volumes using this storage account credential.
+        :param 'AsymmetricEncryptedSecretResponse' access_key: The details of the storage account password.
+        """
+        pulumi.set(__self__, "end_point", end_point)
+        pulumi.set(__self__, "ssl_status", ssl_status)
+        pulumi.set(__self__, "volumes_count", volumes_count)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+
+    @property
+    @pulumi.getter(name="endPoint")
+    def end_point(self) -> str:
+        """
+        The storage endpoint
+        """
+        return pulumi.get(self, "end_point")
+
+    @property
+    @pulumi.getter(name="sslStatus")
+    def ssl_status(self) -> str:
+        """
+        Signifies whether SSL needs to be enabled or not.
+        """
+        return pulumi.get(self, "ssl_status")
+
+    @property
+    @pulumi.getter(name="volumesCount")
+    def volumes_count(self) -> int:
+        """
+        The count of volumes using this storage account credential.
+        """
+        return pulumi.get(self, "volumes_count")
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        The details of the storage account password.
+        """
+        return pulumi.get(self, "access_key")
+
+
+@pulumi.output_type
 class TargetEligibilityErrorMessageResponse(dict):
     """
     The error/warning message due to which the device is ineligible as a failover target device.
@@ -648,6 +1057,139 @@ class VolumeContainerFailoverMetadataResponse(dict):
 
 
 @pulumi.output_type
+class VolumeContainerPropertiesResponse(dict):
+    """
+    The properties of volume container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionStatus":
+            suggest = "encryption_status"
+        elif key == "ownerShipStatus":
+            suggest = "owner_ship_status"
+        elif key == "storageAccountCredentialId":
+            suggest = "storage_account_credential_id"
+        elif key == "totalCloudStorageUsageInBytes":
+            suggest = "total_cloud_storage_usage_in_bytes"
+        elif key == "volumeCount":
+            suggest = "volume_count"
+        elif key == "bandWidthRateInMbps":
+            suggest = "band_width_rate_in_mbps"
+        elif key == "bandwidthSettingId":
+            suggest = "bandwidth_setting_id"
+        elif key == "encryptionKey":
+            suggest = "encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeContainerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeContainerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_status: str,
+                 owner_ship_status: str,
+                 storage_account_credential_id: str,
+                 total_cloud_storage_usage_in_bytes: float,
+                 volume_count: int,
+                 band_width_rate_in_mbps: Optional[int] = None,
+                 bandwidth_setting_id: Optional[str] = None,
+                 encryption_key: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
+        """
+        The properties of volume container.
+        :param str encryption_status: The flag to denote whether encryption is enabled or not.
+        :param str owner_ship_status: The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+        :param str storage_account_credential_id: The path ID of storage account associated with the volume container.
+        :param float total_cloud_storage_usage_in_bytes: The total cloud storage for the volume container.
+        :param int volume_count: The number of volumes in the volume Container.
+        :param int band_width_rate_in_mbps: The bandwidth-rate set on the volume container.
+        :param str bandwidth_setting_id: The ID of the bandwidth setting associated with the volume container.
+        :param 'AsymmetricEncryptedSecretResponse' encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        """
+        pulumi.set(__self__, "encryption_status", encryption_status)
+        pulumi.set(__self__, "owner_ship_status", owner_ship_status)
+        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        pulumi.set(__self__, "total_cloud_storage_usage_in_bytes", total_cloud_storage_usage_in_bytes)
+        pulumi.set(__self__, "volume_count", volume_count)
+        if band_width_rate_in_mbps is not None:
+            pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
+        if bandwidth_setting_id is not None:
+            pulumi.set(__self__, "bandwidth_setting_id", bandwidth_setting_id)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+
+    @property
+    @pulumi.getter(name="encryptionStatus")
+    def encryption_status(self) -> str:
+        """
+        The flag to denote whether encryption is enabled or not.
+        """
+        return pulumi.get(self, "encryption_status")
+
+    @property
+    @pulumi.getter(name="ownerShipStatus")
+    def owner_ship_status(self) -> str:
+        """
+        The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+        """
+        return pulumi.get(self, "owner_ship_status")
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> str:
+        """
+        The path ID of storage account associated with the volume container.
+        """
+        return pulumi.get(self, "storage_account_credential_id")
+
+    @property
+    @pulumi.getter(name="totalCloudStorageUsageInBytes")
+    def total_cloud_storage_usage_in_bytes(self) -> float:
+        """
+        The total cloud storage for the volume container.
+        """
+        return pulumi.get(self, "total_cloud_storage_usage_in_bytes")
+
+    @property
+    @pulumi.getter(name="volumeCount")
+    def volume_count(self) -> int:
+        """
+        The number of volumes in the volume Container.
+        """
+        return pulumi.get(self, "volume_count")
+
+    @property
+    @pulumi.getter(name="bandWidthRateInMbps")
+    def band_width_rate_in_mbps(self) -> Optional[int]:
+        """
+        The bandwidth-rate set on the volume container.
+        """
+        return pulumi.get(self, "band_width_rate_in_mbps")
+
+    @property
+    @pulumi.getter(name="bandwidthSettingId")
+    def bandwidth_setting_id(self) -> Optional[str]:
+        """
+        The ID of the bandwidth setting associated with the volume container.
+        """
+        return pulumi.get(self, "bandwidth_setting_id")
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        """
+        return pulumi.get(self, "encryption_key")
+
+
+@pulumi.output_type
 class VolumeFailoverMetadataResponse(dict):
     """
     The metadata of a volume that has valid cloud snapshot.
@@ -736,6 +1278,149 @@ class VolumeFailoverMetadataResponse(dict):
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
+        """
+        The type of the volume.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class VolumePropertiesResponse(dict):
+    """
+    The properties of volume.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlRecordIds":
+            suggest = "access_control_record_ids"
+        elif key == "backupPolicyIds":
+            suggest = "backup_policy_ids"
+        elif key == "backupStatus":
+            suggest = "backup_status"
+        elif key == "monitoringStatus":
+            suggest = "monitoring_status"
+        elif key == "operationStatus":
+            suggest = "operation_status"
+        elif key == "sizeInBytes":
+            suggest = "size_in_bytes"
+        elif key == "volumeContainerId":
+            suggest = "volume_container_id"
+        elif key == "volumeStatus":
+            suggest = "volume_status"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_control_record_ids: Sequence[str],
+                 backup_policy_ids: Sequence[str],
+                 backup_status: str,
+                 monitoring_status: str,
+                 operation_status: str,
+                 size_in_bytes: float,
+                 volume_container_id: str,
+                 volume_status: str,
+                 volume_type: str):
+        """
+        The properties of volume.
+        :param Sequence[str] access_control_record_ids: The IDs of the access control records, associated with the volume.
+        :param Sequence[str] backup_policy_ids: The IDs of the backup policies, in which this volume is part of.
+        :param str backup_status: The backup status of the volume.
+        :param str monitoring_status: The monitoring status of the volume.
+        :param str operation_status: The operation status on the volume.
+        :param float size_in_bytes: The size of the volume in bytes.
+        :param str volume_container_id: The ID of the volume container, in which this volume is created.
+        :param str volume_status: The volume status.
+        :param str volume_type: The type of the volume.
+        """
+        pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
+        pulumi.set(__self__, "backup_policy_ids", backup_policy_ids)
+        pulumi.set(__self__, "backup_status", backup_status)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "operation_status", operation_status)
+        pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+        pulumi.set(__self__, "volume_container_id", volume_container_id)
+        pulumi.set(__self__, "volume_status", volume_status)
+        pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="accessControlRecordIds")
+    def access_control_record_ids(self) -> Sequence[str]:
+        """
+        The IDs of the access control records, associated with the volume.
+        """
+        return pulumi.get(self, "access_control_record_ids")
+
+    @property
+    @pulumi.getter(name="backupPolicyIds")
+    def backup_policy_ids(self) -> Sequence[str]:
+        """
+        The IDs of the backup policies, in which this volume is part of.
+        """
+        return pulumi.get(self, "backup_policy_ids")
+
+    @property
+    @pulumi.getter(name="backupStatus")
+    def backup_status(self) -> str:
+        """
+        The backup status of the volume.
+        """
+        return pulumi.get(self, "backup_status")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
+        """
+        The monitoring status of the volume.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> str:
+        """
+        The operation status on the volume.
+        """
+        return pulumi.get(self, "operation_status")
+
+    @property
+    @pulumi.getter(name="sizeInBytes")
+    def size_in_bytes(self) -> float:
+        """
+        The size of the volume in bytes.
+        """
+        return pulumi.get(self, "size_in_bytes")
+
+    @property
+    @pulumi.getter(name="volumeContainerId")
+    def volume_container_id(self) -> str:
+        """
+        The ID of the volume container, in which this volume is created.
+        """
+        return pulumi.get(self, "volume_container_id")
+
+    @property
+    @pulumi.getter(name="volumeStatus")
+    def volume_status(self) -> str:
+        """
+        The volume status.
+        """
+        return pulumi.get(self, "volume_status")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> str:
         """
         The type of the volume.
         """

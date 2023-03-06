@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ConnectedClusterIdentityResponse',
+    'ConnectedClusterPropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -78,6 +79,185 @@ class ConnectedClusterIdentityResponse(dict):
         The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ConnectedClusterPropertiesResponse(dict):
+    """
+    Properties of the connected cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentPublicKeyCertificate":
+            suggest = "agent_public_key_certificate"
+        elif key == "agentVersion":
+            suggest = "agent_version"
+        elif key == "connectivityStatus":
+            suggest = "connectivity_status"
+        elif key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+        elif key == "lastConnectivityTime":
+            suggest = "last_connectivity_time"
+        elif key == "managedIdentityCertificateExpirationTime":
+            suggest = "managed_identity_certificate_expiration_time"
+        elif key == "totalCoreCount":
+            suggest = "total_core_count"
+        elif key == "totalNodeCount":
+            suggest = "total_node_count"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectedClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectedClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectedClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_public_key_certificate: str,
+                 agent_version: str,
+                 connectivity_status: str,
+                 kubernetes_version: str,
+                 last_connectivity_time: str,
+                 managed_identity_certificate_expiration_time: str,
+                 offering: str,
+                 total_core_count: int,
+                 total_node_count: int,
+                 distribution: Optional[str] = None,
+                 infrastructure: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Properties of the connected cluster.
+        :param str agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        :param str agent_version: Version of the agent running on the connected cluster resource
+        :param str connectivity_status: Represents the connectivity status of the connected cluster.
+        :param str kubernetes_version: The Kubernetes version of the connected cluster resource
+        :param str last_connectivity_time: Time representing the last instance when heart beat was received from the cluster
+        :param str managed_identity_certificate_expiration_time: Expiration time of the managed identity certificate
+        :param str offering: Connected cluster offering
+        :param int total_core_count: Number of CPU cores present in the connected cluster resource
+        :param int total_node_count: Number of nodes present in the connected cluster resource
+        :param str distribution: The Kubernetes distribution running on this connected cluster.
+        :param str infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        :param str provisioning_state: Provisioning state of the connected cluster resource.
+        """
+        pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
+        pulumi.set(__self__, "agent_version", agent_version)
+        pulumi.set(__self__, "connectivity_status", connectivity_status)
+        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        pulumi.set(__self__, "last_connectivity_time", last_connectivity_time)
+        pulumi.set(__self__, "managed_identity_certificate_expiration_time", managed_identity_certificate_expiration_time)
+        pulumi.set(__self__, "offering", offering)
+        pulumi.set(__self__, "total_core_count", total_core_count)
+        pulumi.set(__self__, "total_node_count", total_node_count)
+        if distribution is not None:
+            pulumi.set(__self__, "distribution", distribution)
+        if infrastructure is not None:
+            pulumi.set(__self__, "infrastructure", infrastructure)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="agentPublicKeyCertificate")
+    def agent_public_key_certificate(self) -> str:
+        """
+        Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+        """
+        return pulumi.get(self, "agent_public_key_certificate")
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> str:
+        """
+        Version of the agent running on the connected cluster resource
+        """
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="connectivityStatus")
+    def connectivity_status(self) -> str:
+        """
+        Represents the connectivity status of the connected cluster.
+        """
+        return pulumi.get(self, "connectivity_status")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> str:
+        """
+        The Kubernetes version of the connected cluster resource
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter(name="lastConnectivityTime")
+    def last_connectivity_time(self) -> str:
+        """
+        Time representing the last instance when heart beat was received from the cluster
+        """
+        return pulumi.get(self, "last_connectivity_time")
+
+    @property
+    @pulumi.getter(name="managedIdentityCertificateExpirationTime")
+    def managed_identity_certificate_expiration_time(self) -> str:
+        """
+        Expiration time of the managed identity certificate
+        """
+        return pulumi.get(self, "managed_identity_certificate_expiration_time")
+
+    @property
+    @pulumi.getter
+    def offering(self) -> str:
+        """
+        Connected cluster offering
+        """
+        return pulumi.get(self, "offering")
+
+    @property
+    @pulumi.getter(name="totalCoreCount")
+    def total_core_count(self) -> int:
+        """
+        Number of CPU cores present in the connected cluster resource
+        """
+        return pulumi.get(self, "total_core_count")
+
+    @property
+    @pulumi.getter(name="totalNodeCount")
+    def total_node_count(self) -> int:
+        """
+        Number of nodes present in the connected cluster resource
+        """
+        return pulumi.get(self, "total_node_count")
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> Optional[str]:
+        """
+        The Kubernetes distribution running on this connected cluster.
+        """
+        return pulumi.get(self, "distribution")
+
+    @property
+    @pulumi.getter
+    def infrastructure(self) -> Optional[str]:
+        """
+        The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        """
+        return pulumi.get(self, "infrastructure")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the connected cluster resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

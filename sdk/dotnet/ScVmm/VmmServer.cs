@@ -17,34 +17,10 @@ namespace Pulumi.AzureNative.ScVmm
     public partial class VmmServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets the connection status to the vmmServer.
-        /// </summary>
-        [Output("connectionStatus")]
-        public Output<string> ConnectionStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Credentials to connect to VMMServer.
-        /// </summary>
-        [Output("credentials")]
-        public Output<Outputs.VMMServerPropertiesResponseCredentials?> Credentials { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets any error message if connection to vmmServer is having any issue.
-        /// </summary>
-        [Output("errorMessage")]
-        public Output<string> ErrorMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Fqdn is the hostname/ip of the vmmServer.
-        /// </summary>
-        [Output("fqdn")]
-        public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the location.
@@ -59,16 +35,10 @@ namespace Pulumi.AzureNative.ScVmm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Port is the port on which the vmmServer is listening.
+        /// Resource properties.
         /// </summary>
-        [Output("port")]
-        public Output<int?> Port { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VMMServerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -87,18 +57,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique ID of vmmServer.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Version is the version of the vmmSever.
-        /// </summary>
-        [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,22 +108,10 @@ namespace Pulumi.AzureNative.ScVmm
     public sealed class VmmServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Credentials to connect to VMMServer.
-        /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.VMMServerPropertiesCredentialsArgs>? Credentials { get; set; }
-
-        /// <summary>
         /// The extended location.
         /// </summary>
         [Input("extendedLocation", required: true)]
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
-
-        /// <summary>
-        /// Fqdn is the hostname/ip of the vmmServer.
-        /// </summary>
-        [Input("fqdn", required: true)]
-        public Input<string> Fqdn { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the location.
@@ -174,10 +120,10 @@ namespace Pulumi.AzureNative.ScVmm
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Port is the port on which the vmmServer is listening.
+        /// Resource properties.
         /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.VMMServerPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

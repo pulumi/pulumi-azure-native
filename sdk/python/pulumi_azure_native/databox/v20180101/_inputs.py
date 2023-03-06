@@ -17,6 +17,7 @@ __all__ = [
     'DataBoxJobDetailsArgs',
     'DestinationManagedDiskDetailsArgs',
     'DestinationStorageAccountDetailsArgs',
+    'JobPropertiesArgs',
     'NotificationPreferenceArgs',
     'PreferencesArgs',
     'ShippingAddressArgs',
@@ -587,6 +588,30 @@ class DestinationStorageAccountDetailsArgs:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
+
+
+@pulumi.input_type
+class JobPropertiesArgs:
+    def __init__(__self__, *,
+                 details: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None):
+        """
+        Job Properties
+        :param pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']] details: Details of a job run. This field will only be sent for expand details filter.
+        """
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]:
+        """
+        Details of a job run. This field will only be sent for expand details filter.
+        """
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]):
+        pulumi.set(self, "details", value)
 
 
 @pulumi.input_type

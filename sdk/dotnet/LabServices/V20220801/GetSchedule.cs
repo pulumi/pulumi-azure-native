@@ -90,33 +90,13 @@ namespace Pulumi.AzureNative.LabServices.V20220801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Notes for this schedule.
+        /// Schedule resource properties
         /// </summary>
-        public readonly string? Notes;
-        /// <summary>
-        /// Current provisioning state of the schedule.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The recurrence pattern of the scheduled actions.
-        /// </summary>
-        public readonly Outputs.RecurrencePatternResponse? RecurrencePattern;
-        /// <summary>
-        /// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-        /// </summary>
-        public readonly string? StartAt;
-        /// <summary>
-        /// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-        /// </summary>
-        public readonly string StopAt;
+        public readonly Outputs.SchedulePropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the schedule.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// The IANA timezone id for the schedule.
-        /// </summary>
-        public readonly string TimeZoneId;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -128,31 +108,16 @@ namespace Pulumi.AzureNative.LabServices.V20220801
 
             string name,
 
-            string? notes,
-
-            string provisioningState,
-
-            Outputs.RecurrencePatternResponse? recurrencePattern,
-
-            string? startAt,
-
-            string stopAt,
+            Outputs.SchedulePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
-
-            string timeZoneId,
 
             string type)
         {
             Id = id;
             Name = name;
-            Notes = notes;
-            ProvisioningState = provisioningState;
-            RecurrencePattern = recurrencePattern;
-            StartAt = startAt;
-            StopAt = stopAt;
+            Properties = properties;
             SystemData = systemData;
-            TimeZoneId = timeZoneId;
             Type = type;
         }
     }

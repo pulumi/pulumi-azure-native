@@ -28,10 +28,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SecretPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -44,18 +44,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// The value of the secret for secret creation.
-        /// </summary>
-        [Output("value")]
-        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,6 +114,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The properties of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.SecretPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -148,12 +142,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the secret for secret creation.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
 
         public SecretArgs()
         {

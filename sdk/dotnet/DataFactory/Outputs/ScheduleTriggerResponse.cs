@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TriggerPipelineReferenceResponse> Pipelines;
         /// <summary>
-        /// Recurrence schedule configuration.
-        /// </summary>
-        public readonly Outputs.ScheduleTriggerRecurrenceResponse Recurrence;
-        /// <summary>
         /// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         /// </summary>
         public readonly string RuntimeState;
@@ -41,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'ScheduleTrigger'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Schedule Trigger properties.
+        /// </summary>
+        public readonly Outputs.ScheduleTriggerResponseTypeProperties TypeProperties;
 
         [OutputConstructor]
         private ScheduleTriggerResponse(
@@ -50,18 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<Outputs.TriggerPipelineReferenceResponse> pipelines,
 
-            Outputs.ScheduleTriggerRecurrenceResponse recurrence,
-
             string runtimeState,
 
-            string type)
+            string type,
+
+            Outputs.ScheduleTriggerResponseTypeProperties typeProperties)
         {
             Annotations = annotations;
             Description = description;
             Pipelines = pipelines;
-            Recurrence = recurrence;
             RuntimeState = runtimeState;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -111,22 +111,13 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
     public sealed class B2CTenantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
-        /// </summary>
-        [Input("countryCode")]
-        public Input<string>? CountryCode { get; set; }
-
-        /// <summary>
-        /// The display name of the Azure AD B2C tenant.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("properties", required: true)]
+        public Input<Inputs.CreateTenantRequestBodyPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

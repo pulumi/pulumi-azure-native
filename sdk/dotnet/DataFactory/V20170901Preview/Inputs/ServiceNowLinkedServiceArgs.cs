@@ -28,24 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The authentication type to use.
-        /// </summary>
-        [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.ServiceNowAuthenticationType> AuthenticationType { get; set; } = null!;
-
-        /// <summary>
-        /// The client id for OAuth2 authentication.
-        /// </summary>
-        [Input("clientId")]
-        public Input<object>? ClientId { get; set; }
-
-        /// <summary>
-        /// The client secret for OAuth2 authentication.
-        /// </summary>
-        [Input("clientSecret")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ClientSecret { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -56,18 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The endpoint of the ServiceNow server. (i.e. &lt;instance&gt;.service-now.com)
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<object> Endpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -82,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The password corresponding to the user name for Basic and OAuth2 authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'ServiceNow'.
         /// </summary>
@@ -95,28 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// ServiceNow server linked service properties.
         /// </summary>
-        [Input("useEncryptedEndpoints")]
-        public Input<object>? UseEncryptedEndpoints { get; set; }
-
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("useHostVerification")]
-        public Input<object>? UseHostVerification { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        [Input("usePeerVerification")]
-        public Input<object>? UsePeerVerification { get; set; }
-
-        /// <summary>
-        /// The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
-        /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ServiceNowLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ServiceNowLinkedServiceArgs()
         {

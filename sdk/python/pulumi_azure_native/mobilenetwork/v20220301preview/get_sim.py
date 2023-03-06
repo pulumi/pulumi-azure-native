@@ -22,7 +22,7 @@ class GetSimResult:
     """
     Sim resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, device_type=None, id=None, integrated_circuit_card_identifier=None, international_mobile_subscriber_identity=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, mobile_network=None, name=None, provisioning_state=None, sim_policy=None, sim_state=None, static_ip_configuration=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -32,18 +32,9 @@ class GetSimResult:
         if created_by_type and not isinstance(created_by_type, str):
             raise TypeError("Expected argument 'created_by_type' to be a str")
         pulumi.set(__self__, "created_by_type", created_by_type)
-        if device_type and not isinstance(device_type, str):
-            raise TypeError("Expected argument 'device_type' to be a str")
-        pulumi.set(__self__, "device_type", device_type)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if integrated_circuit_card_identifier and not isinstance(integrated_circuit_card_identifier, str):
-            raise TypeError("Expected argument 'integrated_circuit_card_identifier' to be a str")
-        pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
-        if international_mobile_subscriber_identity and not isinstance(international_mobile_subscriber_identity, str):
-            raise TypeError("Expected argument 'international_mobile_subscriber_identity' to be a str")
-        pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
         if last_modified_at and not isinstance(last_modified_at, str):
             raise TypeError("Expected argument 'last_modified_at' to be a str")
         pulumi.set(__self__, "last_modified_at", last_modified_at)
@@ -56,24 +47,12 @@ class GetSimResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if mobile_network and not isinstance(mobile_network, dict):
-            raise TypeError("Expected argument 'mobile_network' to be a dict")
-        pulumi.set(__self__, "mobile_network", mobile_network)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sim_policy and not isinstance(sim_policy, dict):
-            raise TypeError("Expected argument 'sim_policy' to be a dict")
-        pulumi.set(__self__, "sim_policy", sim_policy)
-        if sim_state and not isinstance(sim_state, str):
-            raise TypeError("Expected argument 'sim_state' to be a str")
-        pulumi.set(__self__, "sim_state", sim_state)
-        if static_ip_configuration and not isinstance(static_ip_configuration, list):
-            raise TypeError("Expected argument 'static_ip_configuration' to be a list")
-        pulumi.set(__self__, "static_ip_configuration", static_ip_configuration)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -109,36 +88,12 @@ class GetSimResult:
         return pulumi.get(self, "created_by_type")
 
     @property
-    @pulumi.getter(name="deviceType")
-    def device_type(self) -> Optional[str]:
-        """
-        An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
-        """
-        return pulumi.get(self, "device_type")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="integratedCircuitCardIdentifier")
-    def integrated_circuit_card_identifier(self) -> Optional[str]:
-        """
-        The Integrated Circuit Card ID (ICC Id) for the sim.
-        """
-        return pulumi.get(self, "integrated_circuit_card_identifier")
-
-    @property
-    @pulumi.getter(name="internationalMobileSubscriberIdentity")
-    def international_mobile_subscriber_identity(self) -> str:
-        """
-        The International Mobile Subscriber Identity (IMSI) for the sim.
-        """
-        return pulumi.get(self, "international_mobile_subscriber_identity")
 
     @property
     @pulumi.getter(name="lastModifiedAt")
@@ -173,14 +128,6 @@ class GetSimResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mobileNetwork")
-    def mobile_network(self) -> Optional['outputs.MobileNetworkResourceIdResponse']:
-        """
-        Mobile network that this sim belongs to
-        """
-        return pulumi.get(self, "mobile_network")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -189,36 +136,12 @@ class GetSimResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SimPropertiesFormatResponse':
         """
-        The provisioning state of the sim resource.
+        Sim Properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="simPolicy")
-    def sim_policy(self) -> Optional['outputs.SimPolicyResourceIdResponse']:
-        """
-        The simPolicy used by this sim.
-        """
-        return pulumi.get(self, "sim_policy")
-
-    @property
-    @pulumi.getter(name="simState")
-    def sim_state(self) -> str:
-        """
-        The state of the sim resource.
-        """
-        return pulumi.get(self, "sim_state")
-
-    @property
-    @pulumi.getter(name="staticIpConfiguration")
-    def static_ip_configuration(self) -> Optional[Sequence['outputs.SimStaticIpPropertiesResponse']]:
-        """
-        A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-        """
-        return pulumi.get(self, "static_ip_configuration")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -254,20 +177,13 @@ class AwaitableGetSimResult(GetSimResult):
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_type=self.created_by_type,
-            device_type=self.device_type,
             id=self.id,
-            integrated_circuit_card_identifier=self.integrated_circuit_card_identifier,
-            international_mobile_subscriber_identity=self.international_mobile_subscriber_identity,
             last_modified_at=self.last_modified_at,
             last_modified_by=self.last_modified_by,
             last_modified_by_type=self.last_modified_by_type,
             location=self.location,
-            mobile_network=self.mobile_network,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            sim_policy=self.sim_policy,
-            sim_state=self.sim_state,
-            static_ip_configuration=self.static_ip_configuration,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -293,20 +209,13 @@ def get_sim(resource_group_name: Optional[str] = None,
         created_at=__ret__.created_at,
         created_by=__ret__.created_by,
         created_by_type=__ret__.created_by_type,
-        device_type=__ret__.device_type,
         id=__ret__.id,
-        integrated_circuit_card_identifier=__ret__.integrated_circuit_card_identifier,
-        international_mobile_subscriber_identity=__ret__.international_mobile_subscriber_identity,
         last_modified_at=__ret__.last_modified_at,
         last_modified_by=__ret__.last_modified_by,
         last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
-        mobile_network=__ret__.mobile_network,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sim_policy=__ret__.sim_policy,
-        sim_state=__ret__.sim_state,
-        static_ip_configuration=__ret__.static_ip_configuration,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

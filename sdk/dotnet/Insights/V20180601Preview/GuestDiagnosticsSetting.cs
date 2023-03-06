@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
     public partial class GuestDiagnosticsSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the array of data source object which are configured to collect and send data
-        /// </summary>
-        [Output("dataSources")]
-        public Output<ImmutableArray<Outputs.DataSourceResponse>> DataSources { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -34,13 +28,10 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Operating system type for the configuration
+        /// The diagnostic settings to be applied to azure resources.
         /// </summary>
-        [Output("osType")]
-        public Output<string?> OsType { get; private set; } = null!;
-
-        [Output("proxySetting")]
-        public Output<string?> ProxySetting { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.GuestDiagnosticSettingsResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -103,18 +94,6 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
 
     public sealed class GuestDiagnosticsSettingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dataSources")]
-        private InputList<Inputs.DataSourceArgs>? _dataSources;
-
-        /// <summary>
-        /// the array of data source object which are configured to collect and send data
-        /// </summary>
-        public InputList<Inputs.DataSourceArgs> DataSources
-        {
-            get => _dataSources ?? (_dataSources = new InputList<Inputs.DataSourceArgs>());
-            set => _dataSources = value;
-        }
-
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
@@ -128,13 +107,10 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Operating system type for the configuration
+        /// The diagnostic settings to be applied to azure resources.
         /// </summary>
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
-
-        [Input("proxySetting")]
-        public Input<string>? ProxySetting { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.GuestDiagnosticSettingsArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

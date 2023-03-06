@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class HBaseLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        /// </summary>
-        [Input("allowHostNameCNMismatch")]
-        public Input<object>? AllowHostNameCNMismatch { get; set; }
-
-        /// <summary>
-        /// Specifies whether to allow self-signed certificates from the server. The default value is false.
-        /// </summary>
-        [Input("allowSelfSignedServerCert")]
-        public Input<object>? AllowSelfSignedServerCert { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The authentication mechanism to use to connect to the HBase server.
-        /// </summary>
-        [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.HBaseAuthenticationType> AuthenticationType { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -56,30 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        /// </summary>
-        [Input("enableSsl")]
-        public Input<object>? EnableSsl { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The IP address or host name of the HBase server. (i.e. 192.168.222.160)
-        /// </summary>
-        [Input("host", required: true)]
-        public Input<object> Host { get; set; } = null!;
-
-        /// <summary>
-        /// The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
-        /// </summary>
-        [Input("httpPath")]
-        public Input<object>? HttpPath { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -94,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The password corresponding to the user name.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
-        /// </summary>
-        [Input("port")]
-        public Input<object>? Port { get; set; }
-
-        /// <summary>
-        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        /// </summary>
-        [Input("trustedCertPath")]
-        public Input<object>? TrustedCertPath { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'HBase'.
         /// </summary>
@@ -119,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The user name used to connect to the HBase instance.
+        /// HBase server linked service properties.
         /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HBaseLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public HBaseLinkedServiceArgs()
         {

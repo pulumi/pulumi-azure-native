@@ -82,92 +82,36 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview
     public sealed class GetSoftwareUpdateConfigurationByNameResult
     {
         /// <summary>
-        /// CreatedBy property, which only appears in the response.
-        /// </summary>
-        public readonly string CreatedBy;
-        /// <summary>
-        /// Creation time of the resource, which only appears in the response.
-        /// </summary>
-        public readonly string CreationTime;
-        /// <summary>
-        /// Details of provisioning error
-        /// </summary>
-        public readonly Outputs.ErrorResponseResponse? Error;
-        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// LastModifiedBy property, which only appears in the response.
-        /// </summary>
-        public readonly string LastModifiedBy;
-        /// <summary>
-        /// Last time resource was modified, which only appears in the response.
-        /// </summary>
-        public readonly string LastModifiedTime;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state for the software update configuration, which only appears in the response.
+        /// Software update configuration properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Schedule information for the Software update configuration
-        /// </summary>
-        public readonly Outputs.SchedulePropertiesResponse ScheduleInfo;
-        /// <summary>
-        /// Tasks information for the Software update configuration.
-        /// </summary>
-        public readonly Outputs.SoftwareUpdateConfigurationTasksResponse? Tasks;
+        public readonly Outputs.SoftwareUpdateConfigurationPropertiesResponse Properties;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// update specific properties for the Software update configuration
-        /// </summary>
-        public readonly Outputs.UpdateConfigurationResponse UpdateConfiguration;
 
         [OutputConstructor]
         private GetSoftwareUpdateConfigurationByNameResult(
-            string createdBy,
-
-            string creationTime,
-
-            Outputs.ErrorResponseResponse? error,
-
             string id,
-
-            string lastModifiedBy,
-
-            string lastModifiedTime,
 
             string name,
 
-            string provisioningState,
+            Outputs.SoftwareUpdateConfigurationPropertiesResponse properties,
 
-            Outputs.SchedulePropertiesResponse scheduleInfo,
-
-            Outputs.SoftwareUpdateConfigurationTasksResponse? tasks,
-
-            string type,
-
-            Outputs.UpdateConfigurationResponse updateConfiguration)
+            string type)
         {
-            CreatedBy = createdBy;
-            CreationTime = creationTime;
-            Error = error;
             Id = id;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedTime = lastModifiedTime;
             Name = name;
-            ProvisioningState = provisioningState;
-            ScheduleInfo = scheduleInfo;
-            Tasks = tasks;
+            Properties = properties;
             Type = type;
-            UpdateConfiguration = updateConfiguration;
         }
     }
 }

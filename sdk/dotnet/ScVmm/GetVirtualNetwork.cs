@@ -80,10 +80,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        public readonly string? InventoryItemId;
-        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         public readonly string Location;
@@ -92,13 +88,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Name of the virtual network in vmmServer.
+        /// Resource properties.
         /// </summary>
-        public readonly string NetworkName;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.VirtualNetworkPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -111,14 +103,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// Resource Type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Unique ID of the virtual network.
-        /// </summary>
-        public readonly string? Uuid;
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        public readonly string? VmmServerId;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
@@ -126,38 +110,26 @@ namespace Pulumi.AzureNative.ScVmm
 
             string id,
 
-            string? inventoryItemId,
-
             string location,
 
             string name,
 
-            string networkName,
-
-            string provisioningState,
+            Outputs.VirtualNetworkPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? uuid,
-
-            string? vmmServerId)
+            string type)
         {
             ExtendedLocation = extendedLocation;
             Id = id;
-            InventoryItemId = inventoryItemId;
             Location = location;
             Name = name;
-            NetworkName = networkName;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            VmmServerId = vmmServerId;
         }
     }
 }

@@ -33,41 +33,13 @@ export interface GetTrunkedNetworkArgs {
 
 export interface GetTrunkedNetworkResult {
     /**
-     * The resource ID of the Network Cloud cluster this trunked network is associated with.
-     */
-    readonly clusterId: string;
-    /**
-     * The more detailed status of the trunked network.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
-     */
-    readonly hybridAksClustersAssociatedIds: string[];
-    /**
-     * The network plugin type for Hybrid AKS.
-     */
-    readonly hybridAksPluginType?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-     */
-    readonly interfaceName?: string;
-    /**
-     * The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
-     */
-    readonly isolationDomainIds: string[];
     /**
      * The geo-location where the resource lives
      */
@@ -77,9 +49,9 @@ export interface GetTrunkedNetworkResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the trunked network.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.networkcloud.TrunkedNetworkPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -92,14 +64,6 @@ export interface GetTrunkedNetworkResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
-     */
-    readonly virtualMachinesAssociatedIds: string[];
-    /**
-     * The list of vlans that are selected from the isolation domains for trunking.
-     */
-    readonly vlans: number[];
 }
 /**
  * Get properties of the provided trunked network.

@@ -82,49 +82,21 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
     public sealed class GetIscsiTargetResult
     {
         /// <summary>
-        /// Mode for Target connectivity.
-        /// </summary>
-        public readonly string AclMode;
-        /// <summary>
-        /// List of private IPv4 addresses to connect to the iSCSI Target.
-        /// </summary>
-        public readonly ImmutableArray<string> Endpoints;
-        /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of LUNs to be exposed through iSCSI Target.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IscsiLunResponse> Luns;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The port used by iSCSI Target portal group.
+        /// Properties for iSCSI Target operations.
         /// </summary>
-        public readonly int? Port;
-        /// <summary>
-        /// State of the operation on the resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AclResponse> StaticAcls;
-        /// <summary>
-        /// Operational status of the iSCSI Target.
-        /// </summary>
-        public readonly string Status;
+        public readonly Outputs.IscsiTargetPropertiesResponse Properties;
         /// <summary>
         /// Resource metadata required by ARM RPC
         /// </summary>
         public readonly Outputs.SystemMetadataResponse SystemData;
-        /// <summary>
-        /// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        /// </summary>
-        public readonly string TargetIqn;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -132,41 +104,20 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
 
         [OutputConstructor]
         private GetIscsiTargetResult(
-            string aclMode,
-
-            ImmutableArray<string> endpoints,
-
             string id,
-
-            ImmutableArray<Outputs.IscsiLunResponse> luns,
 
             string name,
 
-            int? port,
-
-            string provisioningState,
-
-            ImmutableArray<Outputs.AclResponse> staticAcls,
-
-            string status,
+            Outputs.IscsiTargetPropertiesResponse properties,
 
             Outputs.SystemMetadataResponse systemData,
 
-            string targetIqn,
-
             string type)
         {
-            AclMode = aclMode;
-            Endpoints = endpoints;
             Id = id;
-            Luns = luns;
             Name = name;
-            Port = port;
-            ProvisioningState = provisioningState;
-            StaticAcls = staticAcls;
-            Status = status;
+            Properties = properties;
             SystemData = systemData;
-            TargetIqn = targetIqn;
             Type = type;
         }
     }

@@ -84,18 +84,6 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetClusterResult
     {
         /// <summary>
-        /// The identity
-        /// </summary>
-        public readonly int ClusterId;
-        /// <summary>
-        /// The cluster size
-        /// </summary>
-        public readonly int ClusterSize;
-        /// <summary>
-        /// The hosts
-        /// </summary>
-        public readonly ImmutableArray<string> Hosts;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -104,9 +92,9 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The state of the cluster provisioning
+        /// The properties of a cluster resource
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.ClusterPropertiesResponse Properties;
         /// <summary>
         /// The cluster SKU
         /// </summary>
@@ -118,28 +106,19 @@ namespace Pulumi.AzureNative.AVS
 
         [OutputConstructor]
         private GetClusterResult(
-            int clusterId,
-
-            int clusterSize,
-
-            ImmutableArray<string> hosts,
-
             string id,
 
             string name,
 
-            string provisioningState,
+            Outputs.ClusterPropertiesResponse properties,
 
             Outputs.SkuResponse sku,
 
             string type)
         {
-            ClusterId = clusterId;
-            ClusterSize = clusterSize;
-            Hosts = hosts;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Sku = sku;
             Type = type;
         }

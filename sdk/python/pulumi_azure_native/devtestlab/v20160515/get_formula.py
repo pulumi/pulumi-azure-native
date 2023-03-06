@@ -24,19 +24,7 @@ class GetFormulaResult:
     """
     A formula for creating a VM, specifying an image base and other parameters
     """
-    def __init__(__self__, author=None, creation_date=None, description=None, formula_content=None, id=None, location=None, name=None, os_type=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vm=None):
-        if author and not isinstance(author, str):
-            raise TypeError("Expected argument 'author' to be a str")
-        pulumi.set(__self__, "author", author)
-        if creation_date and not isinstance(creation_date, str):
-            raise TypeError("Expected argument 'creation_date' to be a str")
-        pulumi.set(__self__, "creation_date", creation_date)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if formula_content and not isinstance(formula_content, dict):
-            raise TypeError("Expected argument 'formula_content' to be a dict")
-        pulumi.set(__self__, "formula_content", formula_content)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,56 +34,15 @@ class GetFormulaResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if os_type and not isinstance(os_type, str):
-            raise TypeError("Expected argument 'os_type' to be a str")
-        pulumi.set(__self__, "os_type", os_type)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        pulumi.set(__self__, "unique_identifier", unique_identifier)
-        if vm and not isinstance(vm, dict):
-            raise TypeError("Expected argument 'vm' to be a dict")
-        pulumi.set(__self__, "vm", vm)
-
-    @property
-    @pulumi.getter
-    def author(self) -> Optional[str]:
-        """
-        The author of the formula.
-        """
-        return pulumi.get(self, "author")
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
-        """
-        The creation date of the formula.
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the formula.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="formulaContent")
-    def formula_content(self) -> Optional['outputs.LabVirtualMachineCreationParameterResponse']:
-        """
-        The content of the formula.
-        """
-        return pulumi.get(self, "formula_content")
 
     @property
     @pulumi.getter
@@ -122,20 +69,12 @@ class GetFormulaResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.FormulaPropertiesResponse':
         """
-        The OS type of the formula.
+        The properties of the resource.
         """
-        return pulumi.get(self, "os_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning status of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -153,22 +92,6 @@ class GetFormulaResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @property
-    @pulumi.getter
-    def vm(self) -> Optional['outputs.FormulaPropertiesFromVmResponse']:
-        """
-        Information about a VM from which a formula is to be created.
-        """
-        return pulumi.get(self, "vm")
-
 
 class AwaitableGetFormulaResult(GetFormulaResult):
     # pylint: disable=using-constant-test
@@ -176,19 +99,12 @@ class AwaitableGetFormulaResult(GetFormulaResult):
         if False:
             yield self
         return GetFormulaResult(
-            author=self.author,
-            creation_date=self.creation_date,
-            description=self.description,
-            formula_content=self.formula_content,
             id=self.id,
             location=self.location,
             name=self.name,
-            os_type=self.os_type,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             tags=self.tags,
-            type=self.type,
-            unique_identifier=self.unique_identifier,
-            vm=self.vm)
+            type=self.type)
 
 
 def get_formula(expand: Optional[str] = None,
@@ -215,19 +131,12 @@ def get_formula(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab/v20160515:getFormula', __args__, opts=opts, typ=GetFormulaResult).value
 
     return AwaitableGetFormulaResult(
-        author=__ret__.author,
-        creation_date=__ret__.creation_date,
-        description=__ret__.description,
-        formula_content=__ret__.formula_content,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        os_type=__ret__.os_type,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        vm=__ret__.vm)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_formula)

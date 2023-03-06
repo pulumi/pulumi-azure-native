@@ -38,33 +38,17 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * The changed time.
-     */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
-    /**
-     * The created time.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * The key details in the key vault.
-     */
-    public readonly key!: pulumi.Output<outputs.logic.v20160601.KeyVaultKeyReferenceResponse | undefined>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The metadata.
-     */
-    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * Gets the resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The public certificate.
+     * The integration account certificate properties.
      */
-    public readonly publicCertificate!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountCertificatePropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -88,29 +72,24 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
             resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["publicCertificate"] = args ? args.publicCertificate : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
-            resourceInputs["key"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["publicCertificate"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -134,21 +113,13 @@ export interface CertificateArgs {
      */
     integrationAccountName: pulumi.Input<string>;
     /**
-     * The key details in the key vault.
-     */
-    key?: pulumi.Input<inputs.logic.v20160601.KeyVaultKeyReferenceArgs>;
-    /**
      * The resource location.
      */
     location?: pulumi.Input<string>;
     /**
-     * The metadata.
+     * The integration account certificate properties.
      */
-    metadata?: any;
-    /**
-     * The public certificate.
-     */
-    publicCertificate?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountCertificatePropertiesArgs>;
     /**
      * The resource group name.
      */

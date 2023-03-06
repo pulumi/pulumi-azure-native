@@ -8,14 +8,190 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AgentPropertiesResponse',
     'AgentPropertiesResponseErrorDetails',
     'AzureStorageBlobContainerEndpointPropertiesResponse',
+    'JobDefinitionPropertiesResponse',
     'NfsMountEndpointPropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AgentPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentStatus":
+            suggest = "agent_status"
+        elif key == "agentVersion":
+            suggest = "agent_version"
+        elif key == "arcResourceId":
+            suggest = "arc_resource_id"
+        elif key == "arcVmUuid":
+            suggest = "arc_vm_uuid"
+        elif key == "errorDetails":
+            suggest = "error_details"
+        elif key == "lastStatusUpdate":
+            suggest = "last_status_update"
+        elif key == "localIPAddress":
+            suggest = "local_ip_address"
+        elif key == "memoryInMB":
+            suggest = "memory_in_mb"
+        elif key == "numberOfCores":
+            suggest = "number_of_cores"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uptimeInSeconds":
+            suggest = "uptime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_status: str,
+                 agent_version: str,
+                 arc_resource_id: str,
+                 arc_vm_uuid: str,
+                 error_details: 'outputs.AgentPropertiesResponseErrorDetails',
+                 last_status_update: str,
+                 local_ip_address: str,
+                 memory_in_mb: float,
+                 number_of_cores: float,
+                 provisioning_state: str,
+                 uptime_in_seconds: float,
+                 description: Optional[str] = None):
+        """
+        :param str agent_status: The Agent status.
+        :param str agent_version: The Agent version.
+        :param str arc_resource_id: The fully qualified resource ID of the Hybrid Compute resource for the Agent.
+        :param str arc_vm_uuid: The VM UUID of the Hybrid Compute resource for the Agent.
+        :param str last_status_update: The last updated time of the Agent status.
+        :param str local_ip_address: Local IP address reported by the Agent.
+        :param float memory_in_mb: Available memory reported by the Agent, in MB.
+        :param float number_of_cores: Available compute cores reported by the Agent.
+        :param str provisioning_state: The provisioning state of this resource.
+        :param float uptime_in_seconds: Uptime of the Agent in seconds.
+        :param str description: A description for the Agent.
+        """
+        pulumi.set(__self__, "agent_status", agent_status)
+        pulumi.set(__self__, "agent_version", agent_version)
+        pulumi.set(__self__, "arc_resource_id", arc_resource_id)
+        pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
+        pulumi.set(__self__, "error_details", error_details)
+        pulumi.set(__self__, "last_status_update", last_status_update)
+        pulumi.set(__self__, "local_ip_address", local_ip_address)
+        pulumi.set(__self__, "memory_in_mb", memory_in_mb)
+        pulumi.set(__self__, "number_of_cores", number_of_cores)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "uptime_in_seconds", uptime_in_seconds)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="agentStatus")
+    def agent_status(self) -> str:
+        """
+        The Agent status.
+        """
+        return pulumi.get(self, "agent_status")
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> str:
+        """
+        The Agent version.
+        """
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="arcResourceId")
+    def arc_resource_id(self) -> str:
+        """
+        The fully qualified resource ID of the Hybrid Compute resource for the Agent.
+        """
+        return pulumi.get(self, "arc_resource_id")
+
+    @property
+    @pulumi.getter(name="arcVmUuid")
+    def arc_vm_uuid(self) -> str:
+        """
+        The VM UUID of the Hybrid Compute resource for the Agent.
+        """
+        return pulumi.get(self, "arc_vm_uuid")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> 'outputs.AgentPropertiesResponseErrorDetails':
+        return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter(name="lastStatusUpdate")
+    def last_status_update(self) -> str:
+        """
+        The last updated time of the Agent status.
+        """
+        return pulumi.get(self, "last_status_update")
+
+    @property
+    @pulumi.getter(name="localIPAddress")
+    def local_ip_address(self) -> str:
+        """
+        Local IP address reported by the Agent.
+        """
+        return pulumi.get(self, "local_ip_address")
+
+    @property
+    @pulumi.getter(name="memoryInMB")
+    def memory_in_mb(self) -> float:
+        """
+        Available memory reported by the Agent, in MB.
+        """
+        return pulumi.get(self, "memory_in_mb")
+
+    @property
+    @pulumi.getter(name="numberOfCores")
+    def number_of_cores(self) -> float:
+        """
+        Available compute cores reported by the Agent.
+        """
+        return pulumi.get(self, "number_of_cores")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of this resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="uptimeInSeconds")
+    def uptime_in_seconds(self) -> float:
+        """
+        Uptime of the Agent in seconds.
+        """
+        return pulumi.get(self, "uptime_in_seconds")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for the Agent.
+        """
+        return pulumi.get(self, "description")
+
 
 @pulumi.output_type
 class AgentPropertiesResponseErrorDetails(dict):
@@ -134,6 +310,216 @@ class AzureStorageBlobContainerEndpointPropertiesResponse(dict):
         A description for the Endpoint.
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class JobDefinitionPropertiesResponse(dict):
+    """
+    Job definition properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentResourceId":
+            suggest = "agent_resource_id"
+        elif key == "copyMode":
+            suggest = "copy_mode"
+        elif key == "latestJobRunName":
+            suggest = "latest_job_run_name"
+        elif key == "latestJobRunResourceId":
+            suggest = "latest_job_run_resource_id"
+        elif key == "latestJobRunStatus":
+            suggest = "latest_job_run_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceName":
+            suggest = "source_name"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "targetName":
+            suggest = "target_name"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+        elif key == "agentName":
+            suggest = "agent_name"
+        elif key == "sourceSubpath":
+            suggest = "source_subpath"
+        elif key == "targetSubpath":
+            suggest = "target_subpath"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_resource_id: str,
+                 copy_mode: str,
+                 latest_job_run_name: str,
+                 latest_job_run_resource_id: str,
+                 latest_job_run_status: str,
+                 provisioning_state: str,
+                 source_name: str,
+                 source_resource_id: str,
+                 target_name: str,
+                 target_resource_id: str,
+                 agent_name: Optional[str] = None,
+                 description: Optional[str] = None,
+                 source_subpath: Optional[str] = None,
+                 target_subpath: Optional[str] = None):
+        """
+        Job definition properties.
+        :param str agent_resource_id: Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
+        :param str copy_mode: Strategy to use for copy.
+        :param str latest_job_run_name: The name of the Job Run in a non-terminal state, if exists.
+        :param str latest_job_run_resource_id: The fully qualified resource ID of the Job Run in a non-terminal state, if exists.
+        :param str latest_job_run_status: The current status of the Job Run in a non-terminal state, if exists.
+        :param str provisioning_state: The provisioning state of this resource.
+        :param str source_name: The name of the source Endpoint.
+        :param str source_resource_id: Fully qualified resource ID of the source Endpoint.
+        :param str target_name: The name of the target Endpoint.
+        :param str target_resource_id: Fully qualified resource ID of the target Endpoint.
+        :param str agent_name: Name of the Agent to assign for new Job Runs of this Job Definition.
+        :param str description: A description for the Job Definition.
+        :param str source_subpath: The subpath to use when reading from the source Endpoint.
+        :param str target_subpath: The subpath to use when writing to the target Endpoint.
+        """
+        pulumi.set(__self__, "agent_resource_id", agent_resource_id)
+        pulumi.set(__self__, "copy_mode", copy_mode)
+        pulumi.set(__self__, "latest_job_run_name", latest_job_run_name)
+        pulumi.set(__self__, "latest_job_run_resource_id", latest_job_run_resource_id)
+        pulumi.set(__self__, "latest_job_run_status", latest_job_run_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_name", source_name)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if agent_name is not None:
+            pulumi.set(__self__, "agent_name", agent_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if source_subpath is not None:
+            pulumi.set(__self__, "source_subpath", source_subpath)
+        if target_subpath is not None:
+            pulumi.set(__self__, "target_subpath", target_subpath)
+
+    @property
+    @pulumi.getter(name="agentResourceId")
+    def agent_resource_id(self) -> str:
+        """
+        Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
+        """
+        return pulumi.get(self, "agent_resource_id")
+
+    @property
+    @pulumi.getter(name="copyMode")
+    def copy_mode(self) -> str:
+        """
+        Strategy to use for copy.
+        """
+        return pulumi.get(self, "copy_mode")
+
+    @property
+    @pulumi.getter(name="latestJobRunName")
+    def latest_job_run_name(self) -> str:
+        """
+        The name of the Job Run in a non-terminal state, if exists.
+        """
+        return pulumi.get(self, "latest_job_run_name")
+
+    @property
+    @pulumi.getter(name="latestJobRunResourceId")
+    def latest_job_run_resource_id(self) -> str:
+        """
+        The fully qualified resource ID of the Job Run in a non-terminal state, if exists.
+        """
+        return pulumi.get(self, "latest_job_run_resource_id")
+
+    @property
+    @pulumi.getter(name="latestJobRunStatus")
+    def latest_job_run_status(self) -> str:
+        """
+        The current status of the Job Run in a non-terminal state, if exists.
+        """
+        return pulumi.get(self, "latest_job_run_status")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of this resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> str:
+        """
+        The name of the source Endpoint.
+        """
+        return pulumi.get(self, "source_name")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> str:
+        """
+        Fully qualified resource ID of the source Endpoint.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> str:
+        """
+        The name of the target Endpoint.
+        """
+        return pulumi.get(self, "target_name")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> str:
+        """
+        Fully qualified resource ID of the target Endpoint.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> Optional[str]:
+        """
+        Name of the Agent to assign for new Job Runs of this Job Definition.
+        """
+        return pulumi.get(self, "agent_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for the Job Definition.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="sourceSubpath")
+    def source_subpath(self) -> Optional[str]:
+        """
+        The subpath to use when reading from the source Endpoint.
+        """
+        return pulumi.get(self, "source_subpath")
+
+    @property
+    @pulumi.getter(name="targetSubpath")
+    def target_subpath(self) -> Optional[str]:
+        """
+        The subpath to use when writing to the target Endpoint.
+        """
+        return pulumi.get(self, "target_subpath")
 
 
 @pulumi.output_type

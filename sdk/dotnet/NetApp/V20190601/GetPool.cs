@@ -95,21 +95,9 @@ namespace Pulumi.AzureNative.NetApp.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// UUID v4 used to identify the Pool
+        /// Capacity pool properties
         /// </summary>
-        public readonly string PoolId;
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        public readonly string ServiceLevel;
-        /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        /// </summary>
-        public readonly double Size;
+        public readonly Outputs.PoolPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -127,13 +115,7 @@ namespace Pulumi.AzureNative.NetApp.V20190601
 
             string name,
 
-            string poolId,
-
-            string provisioningState,
-
-            string serviceLevel,
-
-            double size,
+            Outputs.PoolPropertiesResponse properties,
 
             object? tags,
 
@@ -142,10 +124,7 @@ namespace Pulumi.AzureNative.NetApp.V20190601
             Id = id;
             Location = location;
             Name = name;
-            PoolId = poolId;
-            ProvisioningState = provisioningState;
-            ServiceLevel = serviceLevel;
-            Size = size;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

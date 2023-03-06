@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -49,9 +52,9 @@ export interface GetSecretValueResult {
      */
     readonly name: string;
     /**
-     * State of the resource.
+     * This type describes properties of a secret value resource.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.servicefabricmesh.v20180901preview.SecretValueResourcePropertiesResponse;
     /**
      * Resource tags.
      */
@@ -60,10 +63,6 @@ export interface GetSecretValueResult {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
-    /**
-     * The actual value of the secret.
-     */
-    readonly value?: string;
 }
 /**
  * Get the information about the specified named secret value resources. The information does not include the actual value of the secret.

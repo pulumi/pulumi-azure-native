@@ -22,45 +22,25 @@ class GetForwardingRuleResult:
     """
     Describes a forwarding rule within a DNS forwarding ruleset.
     """
-    def __init__(__self__, domain_name=None, etag=None, forwarding_rule_state=None, id=None, metadata=None, name=None, provisioning_state=None, system_data=None, target_dns_servers=None, type=None):
-        if domain_name and not isinstance(domain_name, str):
-            raise TypeError("Expected argument 'domain_name' to be a str")
-        pulumi.set(__self__, "domain_name", domain_name)
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if forwarding_rule_state and not isinstance(forwarding_rule_state, str):
-            raise TypeError("Expected argument 'forwarding_rule_state' to be a str")
-        pulumi.set(__self__, "forwarding_rule_state", forwarding_rule_state)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if target_dns_servers and not isinstance(target_dns_servers, list):
-            raise TypeError("Expected argument 'target_dns_servers' to be a list")
-        pulumi.set(__self__, "target_dns_servers", target_dns_servers)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
-        """
-        The domain name for the forwarding rule.
-        """
-        return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
@@ -69,14 +49,6 @@ class GetForwardingRuleResult:
         ETag of the forwarding rule.
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="forwardingRuleState")
-    def forwarding_rule_state(self) -> Optional[str]:
-        """
-        The state of forwarding rule.
-        """
-        return pulumi.get(self, "forwarding_rule_state")
 
     @property
     @pulumi.getter
@@ -88,14 +60,6 @@ class GetForwardingRuleResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
-        """
-        Metadata attached to the forwarding rule.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -103,12 +67,12 @@ class GetForwardingRuleResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ForwardingRulePropertiesResponse':
         """
-        The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
+        Properties of the forwarding rule.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -117,14 +81,6 @@ class GetForwardingRuleResult:
         Metadata pertaining to creation and last modification of the resource.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="targetDnsServers")
-    def target_dns_servers(self) -> Sequence['outputs.TargetDnsServerResponse']:
-        """
-        DNS servers to forward the DNS query to.
-        """
-        return pulumi.get(self, "target_dns_servers")
 
     @property
     @pulumi.getter
@@ -141,15 +97,11 @@ class AwaitableGetForwardingRuleResult(GetForwardingRuleResult):
         if False:
             yield self
         return GetForwardingRuleResult(
-            domain_name=self.domain_name,
             etag=self.etag,
-            forwarding_rule_state=self.forwarding_rule_state,
             id=self.id,
-            metadata=self.metadata,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
-            target_dns_servers=self.target_dns_servers,
             type=self.type)
 
 
@@ -173,15 +125,11 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220701:getForwardingRule', __args__, opts=opts, typ=GetForwardingRuleResult).value
 
     return AwaitableGetForwardingRuleResult(
-        domain_name=__ret__.domain_name,
         etag=__ret__.etag,
-        forwarding_rule_state=__ret__.forwarding_rule_state,
         id=__ret__.id,
-        metadata=__ret__.metadata,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        target_dns_servers=__ret__.target_dns_servers,
         type=__ret__.type)
 
 

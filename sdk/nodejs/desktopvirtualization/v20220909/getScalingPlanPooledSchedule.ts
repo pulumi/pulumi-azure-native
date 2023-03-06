@@ -40,10 +40,6 @@ export interface GetScalingPlanPooledScheduleArgs {
  */
 export interface GetScalingPlanPooledScheduleResult {
     /**
-     * Set of days of the week on which this schedule is active.
-     */
-    readonly daysOfWeek?: string[];
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -52,69 +48,9 @@ export interface GetScalingPlanPooledScheduleResult {
      */
     readonly name: string;
     /**
-     * Load balancing algorithm for off-peak period.
+     * Detailed properties for ScalingPlanPooledSchedule
      */
-    readonly offPeakLoadBalancingAlgorithm?: string;
-    /**
-     * Starting time for off-peak period.
-     */
-    readonly offPeakStartTime?: outputs.desktopvirtualization.v20220909.TimeResponse;
-    /**
-     * Load balancing algorithm for peak period.
-     */
-    readonly peakLoadBalancingAlgorithm?: string;
-    /**
-     * Starting time for peak period.
-     */
-    readonly peakStartTime?: outputs.desktopvirtualization.v20220909.TimeResponse;
-    /**
-     * Capacity threshold for ramp down period.
-     */
-    readonly rampDownCapacityThresholdPct?: number;
-    /**
-     * Should users be logged off forcefully from hosts.
-     */
-    readonly rampDownForceLogoffUsers?: boolean;
-    /**
-     * Load balancing algorithm for ramp down period.
-     */
-    readonly rampDownLoadBalancingAlgorithm?: string;
-    /**
-     * Minimum host percentage for ramp down period.
-     */
-    readonly rampDownMinimumHostsPct?: number;
-    /**
-     * Notification message for users during ramp down period.
-     */
-    readonly rampDownNotificationMessage?: string;
-    /**
-     * Starting time for ramp down period.
-     */
-    readonly rampDownStartTime?: outputs.desktopvirtualization.v20220909.TimeResponse;
-    /**
-     * Specifies when to stop hosts during ramp down period.
-     */
-    readonly rampDownStopHostsWhen?: string;
-    /**
-     * Number of minutes to wait to stop hosts during ramp down period.
-     */
-    readonly rampDownWaitTimeMinutes?: number;
-    /**
-     * Capacity threshold for ramp up period.
-     */
-    readonly rampUpCapacityThresholdPct?: number;
-    /**
-     * Load balancing algorithm for ramp up period.
-     */
-    readonly rampUpLoadBalancingAlgorithm?: string;
-    /**
-     * Minimum host percentage for ramp up period.
-     */
-    readonly rampUpMinimumHostsPct?: number;
-    /**
-     * Starting time for ramp up period.
-     */
-    readonly rampUpStartTime?: outputs.desktopvirtualization.v20220909.TimeResponse;
+    readonly properties: outputs.desktopvirtualization.v20220909.ScalingPlanPooledSchedulePropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
 
@@ -15,22 +17,19 @@ __all__ = ['FirewallRuleArgs', 'FirewallRule']
 class FirewallRuleArgs:
     def __init__(__self__, *,
                  cache_name: pulumi.Input[str],
-                 end_ip: pulumi.Input[str],
+                 properties: pulumi.Input['RedisFirewallRulePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 start_ip: pulumi.Input[str],
                  rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
         :param pulumi.Input[str] cache_name: The name of the Redis cache.
-        :param pulumi.Input[str] end_ip: highest IP address included in the range
+        :param pulumi.Input['RedisFirewallRulePropertiesArgs'] properties: Properties required to create a firewall rule .
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] start_ip: lowest IP address included in the range
         :param pulumi.Input[str] rule_name: The name of the firewall rule.
         """
         pulumi.set(__self__, "cache_name", cache_name)
-        pulumi.set(__self__, "end_ip", end_ip)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start_ip", start_ip)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
 
@@ -47,16 +46,16 @@ class FirewallRuleArgs:
         pulumi.set(self, "cache_name", value)
 
     @property
-    @pulumi.getter(name="endIP")
-    def end_ip(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['RedisFirewallRulePropertiesArgs']:
         """
-        highest IP address included in the range
+        Properties required to create a firewall rule .
         """
-        return pulumi.get(self, "end_ip")
+        return pulumi.get(self, "properties")
 
-    @end_ip.setter
-    def end_ip(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_ip", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['RedisFirewallRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -69,18 +68,6 @@ class FirewallRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="startIP")
-    def start_ip(self) -> pulumi.Input[str]:
-        """
-        lowest IP address included in the range
-        """
-        return pulumi.get(self, "start_ip")
-
-    @start_ip.setter
-    def start_ip(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_ip", value)
 
     @property
     @pulumi.getter(name="ruleName")
@@ -106,10 +93,9 @@ class FirewallRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
-                 end_ip: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RedisFirewallRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 start_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
@@ -117,10 +103,9 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name of the Redis cache.
-        :param pulumi.Input[str] end_ip: highest IP address included in the range
+        :param pulumi.Input[pulumi.InputType['RedisFirewallRulePropertiesArgs']] properties: Properties required to create a firewall rule .
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_name: The name of the firewall rule.
-        :param pulumi.Input[str] start_ip: lowest IP address included in the range
         """
         ...
     @overload
@@ -147,10 +132,9 @@ class FirewallRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
-                 end_ip: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['RedisFirewallRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 start_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""FirewallRule is deprecated: Version 2018-03-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -164,16 +148,13 @@ class FirewallRule(pulumi.CustomResource):
             if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__.__dict__["cache_name"] = cache_name
-            if end_ip is None and not opts.urn:
-                raise TypeError("Missing required property 'end_ip'")
-            __props__.__dict__["end_ip"] = end_ip
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_name"] = rule_name
-            if start_ip is None and not opts.urn:
-                raise TypeError("Missing required property 'start_ip'")
-            __props__.__dict__["start_ip"] = start_ip
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20190701:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20200601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20201201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20210601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220501:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220601:FirewallRule")])
@@ -200,19 +181,10 @@ class FirewallRule(pulumi.CustomResource):
 
         __props__ = FirewallRuleArgs.__new__(FirewallRuleArgs)
 
-        __props__.__dict__["end_ip"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["start_ip"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="endIP")
-    def end_ip(self) -> pulumi.Output[str]:
-        """
-        highest IP address included in the range
-        """
-        return pulumi.get(self, "end_ip")
 
     @property
     @pulumi.getter
@@ -223,12 +195,12 @@ class FirewallRule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="startIP")
-    def start_ip(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.RedisFirewallRulePropertiesResponse']:
         """
-        lowest IP address included in the range
+        redis cache firewall rule properties
         """
-        return pulumi.get(self, "start_ip")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

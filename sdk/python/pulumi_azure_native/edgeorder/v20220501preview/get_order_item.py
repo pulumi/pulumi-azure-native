@@ -22,10 +22,7 @@ class GetOrderItemResult:
     """
     Represents order item resource.
     """
-    def __init__(__self__, address_details=None, id=None, location=None, name=None, order_id=None, order_item_details=None, start_time=None, system_data=None, tags=None, type=None):
-        if address_details and not isinstance(address_details, dict):
-            raise TypeError("Expected argument 'address_details' to be a dict")
-        pulumi.set(__self__, "address_details", address_details)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,15 +32,9 @@ class GetOrderItemResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if order_id and not isinstance(order_id, str):
-            raise TypeError("Expected argument 'order_id' to be a str")
-        pulumi.set(__self__, "order_id", order_id)
-        if order_item_details and not isinstance(order_item_details, dict):
-            raise TypeError("Expected argument 'order_item_details' to be a dict")
-        pulumi.set(__self__, "order_item_details", order_item_details)
-        if start_time and not isinstance(start_time, str):
-            raise TypeError("Expected argument 'start_time' to be a str")
-        pulumi.set(__self__, "start_time", start_time)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -53,14 +44,6 @@ class GetOrderItemResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="addressDetails")
-    def address_details(self) -> 'outputs.AddressDetailsResponse':
-        """
-        Represents shipping and return address for order item.
-        """
-        return pulumi.get(self, "address_details")
 
     @property
     @pulumi.getter
@@ -87,28 +70,12 @@ class GetOrderItemResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="orderId")
-    def order_id(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.OrderItemPropertiesResponse':
         """
-        Id of the order to which order item belongs to.
+        Order item properties.
         """
-        return pulumi.get(self, "order_id")
-
-    @property
-    @pulumi.getter(name="orderItemDetails")
-    def order_item_details(self) -> 'outputs.OrderItemDetailsResponse':
-        """
-        Represents order item details.
-        """
-        return pulumi.get(self, "order_item_details")
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
-        """
-        Start time of order item.
-        """
-        return pulumi.get(self, "start_time")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -141,13 +108,10 @@ class AwaitableGetOrderItemResult(GetOrderItemResult):
         if False:
             yield self
         return GetOrderItemResult(
-            address_details=self.address_details,
             id=self.id,
             location=self.location,
             name=self.name,
-            order_id=self.order_id,
-            order_item_details=self.order_item_details,
-            start_time=self.start_time,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -173,13 +137,10 @@ def get_order_item(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:edgeorder/v20220501preview:getOrderItem', __args__, opts=opts, typ=GetOrderItemResult).value
 
     return AwaitableGetOrderItemResult(
-        address_details=__ret__.address_details,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        order_id=__ret__.order_id,
-        order_item_details=__ret__.order_item_details,
-        start_time=__ret__.start_time,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

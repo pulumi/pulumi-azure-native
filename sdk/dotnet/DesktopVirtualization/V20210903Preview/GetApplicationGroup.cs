@@ -70,29 +70,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
     public sealed class GetApplicationGroupResult
     {
         /// <summary>
-        /// Resource Type of ApplicationGroup.
-        /// </summary>
-        public readonly string ApplicationGroupType;
-        /// <summary>
-        /// Is cloud pc resource.
-        /// </summary>
-        public readonly bool CloudPcResource;
-        /// <summary>
-        /// Description of ApplicationGroup.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// Friendly name of ApplicationGroup.
-        /// </summary>
-        public readonly string? FriendlyName;
-        /// <summary>
-        /// HostPool arm path of ApplicationGroup.
-        /// </summary>
-        public readonly string HostPoolArmPath;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -111,18 +91,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        public readonly Outputs.MigrationRequestPropertiesResponse? MigrationRequest;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// ObjectId of ApplicationGroup. (internal use)
-        /// </summary>
-        public readonly string ObjectId;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
+        /// <summary>
+        /// Detailed properties for ApplicationGroup
+        /// </summary>
+        public readonly Outputs.ApplicationGroupPropertiesResponse Properties;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -136,24 +112,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Workspace arm path of ApplicationGroup.
-        /// </summary>
-        public readonly string WorkspaceArmPath;
 
         [OutputConstructor]
         private GetApplicationGroupResult(
-            string applicationGroupType,
-
-            bool cloudPcResource,
-
-            string? description,
-
             string etag,
-
-            string? friendlyName,
-
-            string hostPoolArmPath,
 
             string id,
 
@@ -165,13 +127,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 
             string? managedBy,
 
-            Outputs.MigrationRequestPropertiesResponse? migrationRequest,
-
             string name,
 
-            string objectId,
-
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
+
+            Outputs.ApplicationGroupPropertiesResponse properties,
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
@@ -179,30 +139,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string workspaceArmPath)
+            string type)
         {
-            ApplicationGroupType = applicationGroupType;
-            CloudPcResource = cloudPcResource;
-            Description = description;
             Etag = etag;
-            FriendlyName = friendlyName;
-            HostPoolArmPath = hostPoolArmPath;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             ManagedBy = managedBy;
-            MigrationRequest = migrationRequest;
             Name = name;
-            ObjectId = objectId;
             Plan = plan;
+            Properties = properties;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            WorkspaceArmPath = workspaceArmPath;
         }
     }
 }

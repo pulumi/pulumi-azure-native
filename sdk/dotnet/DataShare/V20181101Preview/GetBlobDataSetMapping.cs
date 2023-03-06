@@ -94,22 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     public sealed class GetBlobDataSetMappingResult
     {
         /// <summary>
-        /// Container that has the file path.
-        /// </summary>
-        public readonly string ContainerName;
-        /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
-        /// File path within the source data set
-        /// </summary>
-        public readonly string FilePath;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -123,25 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// File output type
+        /// Blob data set mapping properties.
         /// </summary>
-        public readonly string? OutputType;
-        /// <summary>
-        /// Provisioning state of the data set mapping.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource group of storage account.
-        /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.BlobMappingPropertiesResponse Properties;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
@@ -149,44 +117,20 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
 
         [OutputConstructor]
         private GetBlobDataSetMappingResult(
-            string containerName,
-
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
-            string filePath,
-
             string id,
 
             string kind,
 
             string name,
 
-            string? outputType,
-
-            string provisioningState,
-
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.BlobMappingPropertiesResponse properties,
 
             string type)
         {
-            ContainerName = containerName;
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
-            FilePath = filePath;
             Id = id;
             Kind = kind;
             Name = name;
-            OutputType = outputType;
-            ProvisioningState = provisioningState;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             Type = type;
         }
     }

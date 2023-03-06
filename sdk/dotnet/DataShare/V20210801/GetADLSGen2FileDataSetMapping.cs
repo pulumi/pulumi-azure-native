@@ -94,22 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     public sealed class GetADLSGen2FileDataSetMappingResult
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
-        /// File path within the file system.
-        /// </summary>
-        public readonly string FilePath;
-        /// <summary>
-        /// File system to which the file belongs.
-        /// </summary>
-        public readonly string FileSystem;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -123,25 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Type of output file
+        /// ADLS Gen2 file data set mapping properties.
         /// </summary>
-        public readonly string? OutputType;
-        /// <summary>
-        /// Provisioning state of the data set mapping.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource group of storage account.
-        /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set.
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account.
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ADLSGen2FileDataSetMappingPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -153,46 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20210801
 
         [OutputConstructor]
         private GetADLSGen2FileDataSetMappingResult(
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
-            string filePath,
-
-            string fileSystem,
-
             string id,
 
             string kind,
 
             string name,
 
-            string? outputType,
-
-            string provisioningState,
-
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.ADLSGen2FileDataSetMappingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
-            FilePath = filePath;
-            FileSystem = fileSystem;
             Id = id;
             Kind = kind;
             Name = name;
-            OutputType = outputType;
-            ProvisioningState = provisioningState;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

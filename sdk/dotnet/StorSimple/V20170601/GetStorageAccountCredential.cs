@@ -82,14 +82,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public sealed class GetStorageAccountCredentialResult
     {
         /// <summary>
-        /// The details of the storage account password.
-        /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? AccessKey;
-        /// <summary>
-        /// The storage endpoint
-        /// </summary>
-        public readonly string EndPoint;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -102,44 +94,31 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Signifies whether SSL needs to be enabled or not.
+        /// The storage account credential properties.
         /// </summary>
-        public readonly string SslStatus;
+        public readonly Outputs.StorageAccountCredentialPropertiesResponse Properties;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The count of volumes using this storage account credential.
-        /// </summary>
-        public readonly int VolumesCount;
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
-            Outputs.AsymmetricEncryptedSecretResponse? accessKey,
-
-            string endPoint,
-
             string id,
 
             string? kind,
 
             string name,
 
-            string sslStatus,
+            Outputs.StorageAccountCredentialPropertiesResponse properties,
 
-            string type,
-
-            int volumesCount)
+            string type)
         {
-            AccessKey = accessKey;
-            EndPoint = endPoint;
             Id = id;
             Kind = kind;
             Name = name;
-            SslStatus = sslStatus;
+            Properties = properties;
             Type = type;
-            VolumesCount = volumesCount;
         }
     }
 }

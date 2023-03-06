@@ -17,16 +17,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public partial class AccessControlRecord : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Iscsi initiator name (IQN)
-        /// </summary>
-        [Output("initiatorName")]
-        public Output<string> InitiatorName { get; private set; } = null!;
-
-        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of AccessControlRecord
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.AccessControlRecordPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
@@ -91,16 +91,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Input<string>? AccessControlRecordName { get; set; }
 
         /// <summary>
-        /// The Iscsi initiator name (IQN)
-        /// </summary>
-        [Input("initiatorName", required: true)]
-        public Input<string> InitiatorName { get; set; } = null!;
-
-        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// Properties of AccessControlRecord
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.AccessControlRecordPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

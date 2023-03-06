@@ -35,18 +35,6 @@ export interface GetAssignmentArgs {
  */
 export interface GetAssignmentResult {
     /**
-     * ID of the published version of a blueprint definition.
-     */
-    readonly blueprintId?: string;
-    /**
-     * Multi-line explain this resource.
-     */
-    readonly description?: string;
-    /**
-     * One-liner string explain this resource.
-     */
-    readonly displayName?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -59,33 +47,13 @@ export interface GetAssignmentResult {
      */
     readonly location: string;
     /**
-     * Defines how resources deployed by a blueprint assignment are locked.
-     */
-    readonly locks?: outputs.blueprint.v20181101preview.AssignmentLockSettingsResponse;
-    /**
      * Name of this resource.
      */
     readonly name: string;
     /**
-     * Blueprint assignment parameter values.
+     * Properties for blueprint assignment object.
      */
-    readonly parameters: {[key: string]: outputs.blueprint.v20181101preview.ParameterValueResponse};
-    /**
-     * State of the blueprint assignment.
-     */
-    readonly provisioningState: string;
-    /**
-     * Names and locations of resource group placeholders.
-     */
-    readonly resourceGroups: {[key: string]: outputs.blueprint.v20181101preview.ResourceGroupValueResponse};
-    /**
-     * The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
-     */
-    readonly scope?: string;
-    /**
-     * Status of blueprint assignment. This field is readonly.
-     */
-    readonly status: outputs.blueprint.v20181101preview.AssignmentStatusResponse;
+    readonly properties: outputs.blueprint.v20181101preview.AssignmentPropertiesResponse;
     /**
      * Type of this resource.
      */

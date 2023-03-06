@@ -13,22 +13,32 @@ from ._enums import *
 __all__ = [
     'AdvancedScheduleMonthlyOccurrenceArgs',
     'AdvancedScheduleArgs',
+    'CertificateCreateOrUpdatePropertiesArgs',
+    'ConnectionCreateOrUpdatePropertiesArgs',
     'ConnectionTypeAssociationPropertyArgs',
+    'ConnectionTypeCreateOrUpdatePropertiesArgs',
     'ContentHashArgs',
     'ContentLinkArgs',
     'ContentSourceArgs',
+    'CredentialCreateOrUpdatePropertiesArgs',
     'DscConfigurationAssociationPropertyArgs',
     'EncryptionPropertiesIdentityArgs',
     'EncryptionPropertiesArgs',
     'FieldDefinitionArgs',
     'IdentityArgs',
+    'JobScheduleCreatePropertiesArgs',
     'KeyVaultPropertiesArgs',
+    'ModuleCreateOrUpdatePropertiesArgs',
     'PrivateEndpointPropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
+    'PythonPackageCreatePropertiesArgs',
     'RunbookAssociationPropertyArgs',
     'ScheduleAssociationPropertyArgs',
+    'ScheduleCreateOrUpdatePropertiesArgs',
     'SkuArgs',
+    'SourceControlCreateOrUpdatePropertiesArgs',
     'SourceControlSecurityTokenPropertiesArgs',
+    'VariableCreateOrUpdatePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -128,6 +138,132 @@ class AdvancedScheduleArgs:
 
 
 @pulumi.input_type
+class CertificateCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 base64_value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_exportable: Optional[pulumi.Input[bool]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the create certificate operation.
+        :param pulumi.Input[str] base64_value: Gets or sets the base64 encoded value of the certificate.
+        :param pulumi.Input[str] description: Gets or sets the description of the certificate.
+        :param pulumi.Input[bool] is_exportable: Gets or sets the is exportable flag of the certificate.
+        :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
+        """
+        pulumi.set(__self__, "base64_value", base64_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_exportable is not None:
+            pulumi.set(__self__, "is_exportable", is_exportable)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="base64Value")
+    def base64_value(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the base64 encoded value of the certificate.
+        """
+        return pulumi.get(self, "base64_value")
+
+    @base64_value.setter
+    def base64_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base64_value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the certificate.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isExportable")
+    def is_exportable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the is exportable flag of the certificate.
+        """
+        return pulumi.get(self, "is_exportable")
+
+    @is_exportable.setter
+    def is_exportable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_exportable", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
+class ConnectionCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 connection_type: pulumi.Input['ConnectionTypeAssociationPropertyArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The properties of the create connection properties
+        :param pulumi.Input['ConnectionTypeAssociationPropertyArgs'] connection_type: Gets or sets the connectionType of the connection.
+        :param pulumi.Input[str] description: Gets or sets the description of the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] field_definition_values: Gets or sets the field definition properties of the connection.
+        """
+        pulumi.set(__self__, "connection_type", connection_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if field_definition_values is not None:
+            pulumi.set(__self__, "field_definition_values", field_definition_values)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input['ConnectionTypeAssociationPropertyArgs']:
+        """
+        Gets or sets the connectionType of the connection.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input['ConnectionTypeAssociationPropertyArgs']):
+        pulumi.set(self, "connection_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fieldDefinitionValues")
+    def field_definition_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the field definition properties of the connection.
+        """
+        return pulumi.get(self, "field_definition_values")
+
+    @field_definition_values.setter
+    def field_definition_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "field_definition_values", value)
+
+
+@pulumi.input_type
 class ConnectionTypeAssociationPropertyArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -149,6 +285,45 @@ class ConnectionTypeAssociationPropertyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ConnectionTypeCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 field_definitions: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]],
+                 is_global: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of the create connection type.
+        :param pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]] field_definitions: Gets or sets the field definitions of the connection type.
+        :param pulumi.Input[bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
+        """
+        pulumi.set(__self__, "field_definitions", field_definitions)
+        if is_global is not None:
+            pulumi.set(__self__, "is_global", is_global)
+
+    @property
+    @pulumi.getter(name="fieldDefinitions")
+    def field_definitions(self) -> pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]]:
+        """
+        Gets or sets the field definitions of the connection type.
+        """
+        return pulumi.get(self, "field_definitions")
+
+    @field_definitions.setter
+    def field_definitions(self, value: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]]):
+        pulumi.set(self, "field_definitions", value)
+
+    @property
+    @pulumi.getter(name="isGlobal")
+    def is_global(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets a Boolean value to indicate if the connection type is global.
+        """
+        return pulumi.get(self, "is_global")
+
+    @is_global.setter
+    def is_global(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_global", value)
 
 
 @pulumi.input_type
@@ -315,6 +490,60 @@ class ContentSourceArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class CredentialCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 user_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the create credential operation.
+        :param pulumi.Input[str] password: Gets or sets the password of the credential.
+        :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
+        :param pulumi.Input[str] description: Gets or sets the description of the credential.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user_name", user_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the password of the credential.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the user name of the credential.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the credential.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
@@ -517,6 +746,76 @@ class IdentityArgs:
 
 
 @pulumi.input_type
+class JobScheduleCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 runbook: pulumi.Input['RunbookAssociationPropertyArgs'],
+                 schedule: pulumi.Input['ScheduleAssociationPropertyArgs'],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None):
+        """
+        The parameters supplied to the create job schedule operation.
+        :param pulumi.Input['RunbookAssociationPropertyArgs'] runbook: Gets or sets the runbook.
+        :param pulumi.Input['ScheduleAssociationPropertyArgs'] schedule: Gets or sets the schedule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets a list of job properties.
+        :param pulumi.Input[str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
+        """
+        pulumi.set(__self__, "runbook", runbook)
+        pulumi.set(__self__, "schedule", schedule)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if run_on is not None:
+            pulumi.set(__self__, "run_on", run_on)
+
+    @property
+    @pulumi.getter
+    def runbook(self) -> pulumi.Input['RunbookAssociationPropertyArgs']:
+        """
+        Gets or sets the runbook.
+        """
+        return pulumi.get(self, "runbook")
+
+    @runbook.setter
+    def runbook(self, value: pulumi.Input['RunbookAssociationPropertyArgs']):
+        pulumi.set(self, "runbook", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['ScheduleAssociationPropertyArgs']:
+        """
+        Gets or sets the schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['ScheduleAssociationPropertyArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets a list of job properties.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the hybrid worker group that the scheduled job should run on.
+        """
+        return pulumi.get(self, "run_on")
+
+    @run_on.setter
+    def run_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_on", value)
+
+
+@pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: Optional[pulumi.Input[str]] = None,
@@ -570,6 +869,29 @@ class KeyVaultPropertiesArgs:
     @keyvault_uri.setter
     def keyvault_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "keyvault_uri", value)
+
+
+@pulumi.input_type
+class ModuleCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 content_link: pulumi.Input['ContentLinkArgs']):
+        """
+        The parameters supplied to the create or update module properties.
+        :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
+        """
+        pulumi.set(__self__, "content_link", content_link)
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> pulumi.Input['ContentLinkArgs']:
+        """
+        Gets or sets the module content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @content_link.setter
+    def content_link(self, value: pulumi.Input['ContentLinkArgs']):
+        pulumi.set(self, "content_link", value)
 
 
 @pulumi.input_type
@@ -637,6 +959,29 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
 
 
 @pulumi.input_type
+class PythonPackageCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 content_link: pulumi.Input['ContentLinkArgs']):
+        """
+        The parameters supplied to the create or update module properties.
+        :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
+        """
+        pulumi.set(__self__, "content_link", content_link)
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> pulumi.Input['ContentLinkArgs']:
+        """
+        Gets or sets the module content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @content_link.setter
+    def content_link(self, value: pulumi.Input['ContentLinkArgs']):
+        pulumi.set(self, "content_link", value)
+
+
+@pulumi.input_type
 class RunbookAssociationPropertyArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -682,6 +1027,124 @@ class ScheduleAssociationPropertyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ScheduleCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 frequency: pulumi.Input[Union[str, 'ScheduleFrequency']],
+                 start_time: pulumi.Input[str],
+                 advanced_schedule: Optional[pulumi.Input['AdvancedScheduleArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[Any] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The parameters supplied to the create or update schedule operation.
+        :param pulumi.Input[Union[str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
+        :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
+        :param pulumi.Input['AdvancedScheduleArgs'] advanced_schedule: Gets or sets the AdvancedSchedule.
+        :param pulumi.Input[str] description: Gets or sets the description of the schedule.
+        :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
+        :param Any interval: Gets or sets the interval of the schedule.
+        :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
+        """
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "start_time", start_time)
+        if advanced_schedule is not None:
+            pulumi.set(__self__, "advanced_schedule", advanced_schedule)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Input[Union[str, 'ScheduleFrequency']]:
+        """
+        Gets or sets the frequency of the schedule.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: pulumi.Input[Union[str, 'ScheduleFrequency']]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the start time of the schedule.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="advancedSchedule")
+    def advanced_schedule(self) -> Optional[pulumi.Input['AdvancedScheduleArgs']]:
+        """
+        Gets or sets the AdvancedSchedule.
+        """
+        return pulumi.get(self, "advanced_schedule")
+
+    @advanced_schedule.setter
+    def advanced_schedule(self, value: Optional[pulumi.Input['AdvancedScheduleArgs']]):
+        pulumi.set(self, "advanced_schedule", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the schedule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the end time of the schedule.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[Any]:
+        """
+        Gets or sets the interval of the schedule.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[Any]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the time zone of the schedule.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -740,6 +1203,142 @@ class SkuArgs:
 
 
 @pulumi.input_type
+class SourceControlCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 auto_sync: Optional[pulumi.Input[bool]] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 folder_path: Optional[pulumi.Input[str]] = None,
+                 publish_runbook: Optional[pulumi.Input[bool]] = None,
+                 repo_url: Optional[pulumi.Input[str]] = None,
+                 security_token: Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']] = None,
+                 source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None):
+        """
+        The properties of the create source control operation.
+        :param pulumi.Input[bool] auto_sync: The auto async of the source control. Default is false.
+        :param pulumi.Input[str] branch: The repo branch of the source control. Include branch as empty string for VsoTfvc.
+        :param pulumi.Input[str] description: The user description of the source control.
+        :param pulumi.Input[str] folder_path: The folder path of the source control. Path must be relative.
+        :param pulumi.Input[bool] publish_runbook: The auto publish of the source control. Default is true.
+        :param pulumi.Input[str] repo_url: The repo url of the source control.
+        :param pulumi.Input['SourceControlSecurityTokenPropertiesArgs'] security_token: The authorization token for the repo of the source control.
+        :param pulumi.Input[Union[str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+        """
+        if auto_sync is not None:
+            pulumi.set(__self__, "auto_sync", auto_sync)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if publish_runbook is not None:
+            pulumi.set(__self__, "publish_runbook", publish_runbook)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if security_token is not None:
+            pulumi.set(__self__, "security_token", security_token)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="autoSync")
+    def auto_sync(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The auto async of the source control. Default is false.
+        """
+        return pulumi.get(self, "auto_sync")
+
+    @auto_sync.setter
+    def auto_sync(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_sync", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repo branch of the source control. Include branch as empty string for VsoTfvc.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user description of the source control.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The folder path of the source control. Path must be relative.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="publishRunbook")
+    def publish_runbook(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The auto publish of the source control. Default is true.
+        """
+        return pulumi.get(self, "publish_runbook")
+
+    @publish_runbook.setter
+    def publish_runbook(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publish_runbook", value)
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repo url of the source control.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @repo_url.setter
+    def repo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repo_url", value)
+
+    @property
+    @pulumi.getter(name="securityToken")
+    def security_token(self) -> Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']]:
+        """
+        The authorization token for the repo of the source control.
+        """
+        return pulumi.get(self, "security_token")
+
+    @security_token.setter
+    def security_token(self, value: Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']]):
+        pulumi.set(self, "security_token", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[Union[str, 'SourceType']]]:
+        """
+        The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[Union[str, 'SourceType']]]):
+        pulumi.set(self, "source_type", value)
+
+
+@pulumi.input_type
 class SourceControlSecurityTokenPropertiesArgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
@@ -792,5 +1391,61 @@ class SourceControlSecurityTokenPropertiesArgs:
     @token_type.setter
     def token_type(self, value: Optional[pulumi.Input[Union[str, 'TokenType']]]):
         pulumi.set(self, "token_type", value)
+
+
+@pulumi.input_type
+class VariableCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_encrypted: Optional[pulumi.Input[bool]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the create variable operation.
+        :param pulumi.Input[str] description: Gets or sets the description of the variable.
+        :param pulumi.Input[bool] is_encrypted: Gets or sets the encrypted flag of the variable.
+        :param pulumi.Input[str] value: Gets or sets the value of the variable.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_encrypted is not None:
+            pulumi.set(__self__, "is_encrypted", is_encrypted)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isEncrypted")
+    def is_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the encrypted flag of the variable.
+        """
+        return pulumi.get(self, "is_encrypted")
+
+    @is_encrypted.setter
+    def is_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_encrypted", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the value of the variable.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

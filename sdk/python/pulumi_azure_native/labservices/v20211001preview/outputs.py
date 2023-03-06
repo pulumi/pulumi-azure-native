@@ -18,12 +18,16 @@ __all__ = [
     'ImageReferenceResponse',
     'LabNetworkProfileResponse',
     'LabPlanNetworkProfileResponse',
+    'LabPlanPropertiesResponse',
+    'LabPropertiesResponse',
     'RecurrencePatternResponse',
     'RosterProfileResponse',
+    'SchedulePropertiesResponse',
     'SecurityProfileResponse',
     'SkuResponse',
     'SupportInfoResponse',
     'SystemDataResponse',
+    'UserPropertiesResponse',
     'VirtualMachineAdditionalCapabilitiesResponse',
     'VirtualMachineProfileResponse',
 ]
@@ -464,6 +468,311 @@ class LabPlanNetworkProfileResponse(dict):
 
 
 @pulumi.output_type
+class LabPlanPropertiesResponse(dict):
+    """
+    Lab plan resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allowedRegions":
+            suggest = "allowed_regions"
+        elif key == "defaultAutoShutdownProfile":
+            suggest = "default_auto_shutdown_profile"
+        elif key == "defaultConnectionProfile":
+            suggest = "default_connection_profile"
+        elif key == "defaultNetworkProfile":
+            suggest = "default_network_profile"
+        elif key == "linkedLmsInstance":
+            suggest = "linked_lms_instance"
+        elif key == "sharedGalleryId":
+            suggest = "shared_gallery_id"
+        elif key == "supportInfo":
+            suggest = "support_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabPlanPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabPlanPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabPlanPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 allowed_regions: Optional[Sequence[str]] = None,
+                 default_auto_shutdown_profile: Optional['outputs.AutoShutdownProfileResponse'] = None,
+                 default_connection_profile: Optional['outputs.ConnectionProfileResponse'] = None,
+                 default_network_profile: Optional['outputs.LabPlanNetworkProfileResponse'] = None,
+                 linked_lms_instance: Optional[str] = None,
+                 shared_gallery_id: Optional[str] = None,
+                 support_info: Optional['outputs.SupportInfoResponse'] = None):
+        """
+        Lab plan resource properties
+        :param str provisioning_state: Current provisioning state of the lab plan.
+        :param Sequence[str] allowed_regions: The allowed regions for the lab creator to use when creating labs using this lab plan.
+        :param 'AutoShutdownProfileResponse' default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+        :param 'ConnectionProfileResponse' default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+        :param 'LabPlanNetworkProfileResponse' default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        :param str linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
+        :param str shared_gallery_id: Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
+        :param 'SupportInfoResponse' support_info: Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if allowed_regions is not None:
+            pulumi.set(__self__, "allowed_regions", allowed_regions)
+        if default_auto_shutdown_profile is not None:
+            pulumi.set(__self__, "default_auto_shutdown_profile", default_auto_shutdown_profile)
+        if default_connection_profile is not None:
+            pulumi.set(__self__, "default_connection_profile", default_connection_profile)
+        if default_network_profile is not None:
+            pulumi.set(__self__, "default_network_profile", default_network_profile)
+        if linked_lms_instance is not None:
+            pulumi.set(__self__, "linked_lms_instance", linked_lms_instance)
+        if shared_gallery_id is not None:
+            pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
+        if support_info is not None:
+            pulumi.set(__self__, "support_info", support_info)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current provisioning state of the lab plan.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="allowedRegions")
+    def allowed_regions(self) -> Optional[Sequence[str]]:
+        """
+        The allowed regions for the lab creator to use when creating labs using this lab plan.
+        """
+        return pulumi.get(self, "allowed_regions")
+
+    @property
+    @pulumi.getter(name="defaultAutoShutdownProfile")
+    def default_auto_shutdown_profile(self) -> Optional['outputs.AutoShutdownProfileResponse']:
+        """
+        The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+        """
+        return pulumi.get(self, "default_auto_shutdown_profile")
+
+    @property
+    @pulumi.getter(name="defaultConnectionProfile")
+    def default_connection_profile(self) -> Optional['outputs.ConnectionProfileResponse']:
+        """
+        The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+        """
+        return pulumi.get(self, "default_connection_profile")
+
+    @property
+    @pulumi.getter(name="defaultNetworkProfile")
+    def default_network_profile(self) -> Optional['outputs.LabPlanNetworkProfileResponse']:
+        """
+        The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        """
+        return pulumi.get(self, "default_network_profile")
+
+    @property
+    @pulumi.getter(name="linkedLmsInstance")
+    def linked_lms_instance(self) -> Optional[str]:
+        """
+        Base Url of the lms instance this lab plan can link lab rosters against.
+        """
+        return pulumi.get(self, "linked_lms_instance")
+
+    @property
+    @pulumi.getter(name="sharedGalleryId")
+    def shared_gallery_id(self) -> Optional[str]:
+        """
+        Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
+        """
+        return pulumi.get(self, "shared_gallery_id")
+
+    @property
+    @pulumi.getter(name="supportInfo")
+    def support_info(self) -> Optional['outputs.SupportInfoResponse']:
+        """
+        Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+        """
+        return pulumi.get(self, "support_info")
+
+
+@pulumi.output_type
+class LabPropertiesResponse(dict):
+    """
+    Properties of a lab resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoShutdownProfile":
+            suggest = "auto_shutdown_profile"
+        elif key == "connectionProfile":
+            suggest = "connection_profile"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "securityProfile":
+            suggest = "security_profile"
+        elif key == "virtualMachineProfile":
+            suggest = "virtual_machine_profile"
+        elif key == "labPlanId":
+            suggest = "lab_plan_id"
+        elif key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "rosterProfile":
+            suggest = "roster_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_shutdown_profile: 'outputs.AutoShutdownProfileResponse',
+                 connection_profile: 'outputs.ConnectionProfileResponse',
+                 provisioning_state: str,
+                 security_profile: 'outputs.SecurityProfileResponse',
+                 state: str,
+                 virtual_machine_profile: 'outputs.VirtualMachineProfileResponse',
+                 description: Optional[str] = None,
+                 lab_plan_id: Optional[str] = None,
+                 network_profile: Optional['outputs.LabNetworkProfileResponse'] = None,
+                 roster_profile: Optional['outputs.RosterProfileResponse'] = None,
+                 title: Optional[str] = None):
+        """
+        Properties of a lab resource.
+        :param 'AutoShutdownProfileResponse' auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+        :param 'ConnectionProfileResponse' connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        :param str provisioning_state: Current provisioning state of the lab.
+        :param 'SecurityProfileResponse' security_profile: The lab security profile.
+        :param str state: The lab state.
+        :param 'VirtualMachineProfileResponse' virtual_machine_profile: The profile used for creating lab virtual machines.
+        :param str description: The description of the lab.
+        :param str lab_plan_id: The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+        :param 'LabNetworkProfileResponse' network_profile: The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        :param 'RosterProfileResponse' roster_profile: The lab user list management profile.
+        :param str title: The title of the lab.
+        """
+        pulumi.set(__self__, "auto_shutdown_profile", auto_shutdown_profile)
+        pulumi.set(__self__, "connection_profile", connection_profile)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "security_profile", security_profile)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if lab_plan_id is not None:
+            pulumi.set(__self__, "lab_plan_id", lab_plan_id)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if roster_profile is not None:
+            pulumi.set(__self__, "roster_profile", roster_profile)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="autoShutdownProfile")
+    def auto_shutdown_profile(self) -> 'outputs.AutoShutdownProfileResponse':
+        """
+        The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+        """
+        return pulumi.get(self, "auto_shutdown_profile")
+
+    @property
+    @pulumi.getter(name="connectionProfile")
+    def connection_profile(self) -> 'outputs.ConnectionProfileResponse':
+        """
+        The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        """
+        return pulumi.get(self, "connection_profile")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current provisioning state of the lab.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> 'outputs.SecurityProfileResponse':
+        """
+        The lab security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The lab state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="virtualMachineProfile")
+    def virtual_machine_profile(self) -> 'outputs.VirtualMachineProfileResponse':
+        """
+        The profile used for creating lab virtual machines.
+        """
+        return pulumi.get(self, "virtual_machine_profile")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the lab.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="labPlanId")
+    def lab_plan_id(self) -> Optional[str]:
+        """
+        The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+        """
+        return pulumi.get(self, "lab_plan_id")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.LabNetworkProfileResponse']:
+        """
+        The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="rosterProfile")
+    def roster_profile(self) -> Optional['outputs.RosterProfileResponse']:
+        """
+        The lab user list management profile.
+        """
+        return pulumi.get(self, "roster_profile")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the lab.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
 class RecurrencePatternResponse(dict):
     """
     Recurrence pattern of a lab schedule.
@@ -633,6 +942,111 @@ class RosterProfileResponse(dict):
         The uri of the names and roles service endpoint on the lms for the class attached to this lab.
         """
         return pulumi.get(self, "lti_roster_endpoint")
+
+
+@pulumi.output_type
+class SchedulePropertiesResponse(dict):
+    """
+    Schedule resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "stopAt":
+            suggest = "stop_at"
+        elif key == "timeZoneId":
+            suggest = "time_zone_id"
+        elif key == "recurrencePattern":
+            suggest = "recurrence_pattern"
+        elif key == "startAt":
+            suggest = "start_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchedulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchedulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 stop_at: str,
+                 time_zone_id: str,
+                 notes: Optional[str] = None,
+                 recurrence_pattern: Optional['outputs.RecurrencePatternResponse'] = None,
+                 start_at: Optional[str] = None):
+        """
+        Schedule resource properties
+        :param str provisioning_state: Current provisioning state of the schedule.
+        :param str stop_at: When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+        :param str time_zone_id: The IANA timezone id for the schedule.
+        :param str notes: Notes for this schedule.
+        :param 'RecurrencePatternResponse' recurrence_pattern: The recurrence pattern of the scheduled actions.
+        :param str start_at: When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "stop_at", stop_at)
+        pulumi.set(__self__, "time_zone_id", time_zone_id)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if recurrence_pattern is not None:
+            pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current provisioning state of the schedule.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="stopAt")
+    def stop_at(self) -> str:
+        """
+        When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        return pulumi.get(self, "stop_at")
+
+    @property
+    @pulumi.getter(name="timeZoneId")
+    def time_zone_id(self) -> str:
+        """
+        The IANA timezone id for the schedule.
+        """
+        return pulumi.get(self, "time_zone_id")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        Notes for this schedule.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="recurrencePattern")
+    def recurrence_pattern(self) -> Optional['outputs.RecurrencePatternResponse']:
+        """
+        The recurrence pattern of the scheduled actions.
+        """
+        return pulumi.get(self, "recurrence_pattern")
+
+    @property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[str]:
+        """
+        When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        return pulumi.get(self, "start_at")
 
 
 @pulumi.output_type
@@ -925,6 +1339,135 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserPropertiesResponse(dict):
+    """
+    User resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "invitationSent":
+            suggest = "invitation_sent"
+        elif key == "invitationState":
+            suggest = "invitation_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "registrationState":
+            suggest = "registration_state"
+        elif key == "totalUsage":
+            suggest = "total_usage"
+        elif key == "additionalUsageQuota":
+            suggest = "additional_usage_quota"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: str,
+                 email: str,
+                 invitation_sent: str,
+                 invitation_state: str,
+                 provisioning_state: str,
+                 registration_state: str,
+                 total_usage: str,
+                 additional_usage_quota: Optional[str] = None):
+        """
+        User resource properties
+        :param str display_name: Display name of the user, for example user's full name.
+        :param str email: Email address of the user.
+        :param str invitation_sent: Date and time when the invitation message was sent to the user.
+        :param str invitation_state: State of the invitation message for the user.
+        :param str provisioning_state: Current provisioning state of the user resource.
+        :param str registration_state: State of the user's registration within the lab.
+        :param str total_usage: How long the user has used their virtual machines in this lab.
+        :param str additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "invitation_sent", invitation_sent)
+        pulumi.set(__self__, "invitation_state", invitation_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "registration_state", registration_state)
+        pulumi.set(__self__, "total_usage", total_usage)
+        if additional_usage_quota is not None:
+            pulumi.set(__self__, "additional_usage_quota", additional_usage_quota)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Display name of the user, for example user's full name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        Email address of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="invitationSent")
+    def invitation_sent(self) -> str:
+        """
+        Date and time when the invitation message was sent to the user.
+        """
+        return pulumi.get(self, "invitation_sent")
+
+    @property
+    @pulumi.getter(name="invitationState")
+    def invitation_state(self) -> str:
+        """
+        State of the invitation message for the user.
+        """
+        return pulumi.get(self, "invitation_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current provisioning state of the user resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="registrationState")
+    def registration_state(self) -> str:
+        """
+        State of the user's registration within the lab.
+        """
+        return pulumi.get(self, "registration_state")
+
+    @property
+    @pulumi.getter(name="totalUsage")
+    def total_usage(self) -> str:
+        """
+        How long the user has used their virtual machines in this lab.
+        """
+        return pulumi.get(self, "total_usage")
+
+    @property
+    @pulumi.getter(name="additionalUsageQuota")
+    def additional_usage_quota(self) -> Optional[str]:
+        """
+        The amount of usage quota time the user gets in addition to the lab usage quota.
+        """
+        return pulumi.get(self, "additional_usage_quota")
 
 
 @pulumi.output_type

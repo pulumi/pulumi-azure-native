@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetBlobContainerImmutabilityPolicyResult',
@@ -23,22 +24,19 @@ class GetBlobContainerImmutabilityPolicyResult:
     """
     The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, etag=None, id=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, int):
-            raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a int")
-        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -60,14 +58,6 @@ class GetBlobContainerImmutabilityPolicyResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> int:
-        """
-        The immutability period for the blobs in the container since the policy creation, in days.
-        """
-        return pulumi.get(self, "immutability_period_since_creation_in_days")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -77,11 +67,11 @@ class GetBlobContainerImmutabilityPolicyResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def properties(self) -> 'outputs.ImmutabilityPolicyPropertyResponse':
         """
-        The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        The properties of an ImmutabilityPolicy of a blob container.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -100,9 +90,8 @@ class AwaitableGetBlobContainerImmutabilityPolicyResult(GetBlobContainerImmutabi
         return GetBlobContainerImmutabilityPolicyResult(
             etag=self.etag,
             id=self.id,
-            immutability_period_since_creation_in_days=self.immutability_period_since_creation_in_days,
             name=self.name,
-            state=self.state,
+            properties=self.properties,
             type=self.type)
 
 
@@ -132,9 +121,8 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     return AwaitableGetBlobContainerImmutabilityPolicyResult(
         etag=__ret__.etag,
         id=__ret__.id,
-        immutability_period_since_creation_in_days=__ret__.immutability_period_since_creation_in_days,
         name=__ret__.name,
-        state=__ret__.state,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

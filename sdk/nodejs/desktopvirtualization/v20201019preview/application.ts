@@ -41,61 +41,13 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * Resource Type of Application.
-     */
-    public readonly applicationType!: pulumi.Output<string | undefined>;
-    /**
-     * Command Line Arguments for Application.
-     */
-    public readonly commandLineArguments!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-     */
-    public readonly commandLineSetting!: pulumi.Output<string>;
-    /**
-     * Description of Application.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies a path for the executable file for the application.
-     */
-    public readonly filePath!: pulumi.Output<string | undefined>;
-    /**
-     * Friendly name of Application.
-     */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
-    /**
-     * the icon a 64 bit string as a byte array.
-     */
-    public /*out*/ readonly iconContent!: pulumi.Output<string>;
-    /**
-     * Hash of the icon.
-     */
-    public /*out*/ readonly iconHash!: pulumi.Output<string>;
-    /**
-     * Index of the icon.
-     */
-    public readonly iconIndex!: pulumi.Output<number | undefined>;
-    /**
-     * Path to icon.
-     */
-    public readonly iconPath!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the package application Id for MSIX applications
-     */
-    public readonly msixPackageApplicationId!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the package family name for MSIX applications
-     */
-    public readonly msixPackageFamilyName!: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Specifies whether to show the RemoteApp program in the RD Web Access server.
+     * Detailed properties for Application
      */
-    public readonly showInPortal!: pulumi.Output<boolean | undefined>;
+    public readonly properties!: pulumi.Output<outputs.desktopvirtualization.v20201019preview.ApplicationPropertiesResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -117,45 +69,21 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.applicationGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationGroupName'");
             }
-            if ((!args || args.commandLineSetting === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'commandLineSetting'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
-            resourceInputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
-            resourceInputs["commandLineSetting"] = args ? args.commandLineSetting : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["iconIndex"] = args ? args.iconIndex : undefined;
-            resourceInputs["iconPath"] = args ? args.iconPath : undefined;
-            resourceInputs["msixPackageApplicationId"] = args ? args.msixPackageApplicationId : undefined;
-            resourceInputs["msixPackageFamilyName"] = args ? args.msixPackageFamilyName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
-            resourceInputs["iconContent"] = undefined /*out*/;
-            resourceInputs["iconHash"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["applicationType"] = undefined /*out*/;
-            resourceInputs["commandLineArguments"] = undefined /*out*/;
-            resourceInputs["commandLineSetting"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["filePath"] = undefined /*out*/;
-            resourceInputs["friendlyName"] = undefined /*out*/;
-            resourceInputs["iconContent"] = undefined /*out*/;
-            resourceInputs["iconHash"] = undefined /*out*/;
-            resourceInputs["iconIndex"] = undefined /*out*/;
-            resourceInputs["iconPath"] = undefined /*out*/;
-            resourceInputs["msixPackageApplicationId"] = undefined /*out*/;
-            resourceInputs["msixPackageFamilyName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["showInPortal"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -178,51 +106,11 @@ export interface ApplicationArgs {
      */
     applicationName?: pulumi.Input<string>;
     /**
-     * Resource Type of Application.
+     * Detailed properties for Application
      */
-    applicationType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.RemoteApplicationType>;
-    /**
-     * Command Line Arguments for Application.
-     */
-    commandLineArguments?: pulumi.Input<string>;
-    /**
-     * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-     */
-    commandLineSetting: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.CommandLineSetting>;
-    /**
-     * Description of Application.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Specifies a path for the executable file for the application.
-     */
-    filePath?: pulumi.Input<string>;
-    /**
-     * Friendly name of Application.
-     */
-    friendlyName?: pulumi.Input<string>;
-    /**
-     * Index of the icon.
-     */
-    iconIndex?: pulumi.Input<number>;
-    /**
-     * Path to icon.
-     */
-    iconPath?: pulumi.Input<string>;
-    /**
-     * Specifies the package application Id for MSIX applications
-     */
-    msixPackageApplicationId?: pulumi.Input<string>;
-    /**
-     * Specifies the package family name for MSIX applications
-     */
-    msixPackageFamilyName?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.desktopvirtualization.v20201019preview.ApplicationPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Specifies whether to show the RemoteApp program in the RD Web Access server.
-     */
-    showInPortal?: pulumi.Input<boolean>;
 }

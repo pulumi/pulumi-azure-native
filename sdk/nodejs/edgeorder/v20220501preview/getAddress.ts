@@ -35,14 +35,6 @@ export interface GetAddressArgs {
  */
 export interface GetAddressResult {
     /**
-     * Status of address validation.
-     */
-    readonly addressValidationStatus: string;
-    /**
-     * Contact details for the address.
-     */
-    readonly contactDetails: outputs.edgeorder.v20220501preview.ContactDetailsResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -55,9 +47,9 @@ export interface GetAddressResult {
      */
     readonly name: string;
     /**
-     * Shipping details for the address.
+     * Properties of an address.
      */
-    readonly shippingAddress?: outputs.edgeorder.v20220501preview.ShippingAddressResponse;
+    readonly properties: outputs.edgeorder.v20220501preview.AddressPropertiesResponse;
     /**
      * Represents resource creation and update time.
      */

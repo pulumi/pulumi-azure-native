@@ -170,22 +170,10 @@ namespace Pulumi.AzureNative.Network.V20190901
     public sealed class ConnectionMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines if the connection monitor will start automatically once created.
-        /// </summary>
-        [Input("autoStart")]
-        public Input<bool>? AutoStart { get; set; }
-
-        /// <summary>
         /// The name of the connection monitor.
         /// </summary>
         [Input("connectionMonitorName")]
         public Input<string>? ConnectionMonitorName { get; set; }
-
-        /// <summary>
-        /// Describes the destination of connection monitor.
-        /// </summary>
-        [Input("destination", required: true)]
-        public Input<Inputs.ConnectionMonitorDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
         /// Connection monitor location.
@@ -194,28 +182,22 @@ namespace Pulumi.AzureNative.Network.V20190901
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Monitoring interval in seconds.
-        /// </summary>
-        [Input("monitoringIntervalInSeconds")]
-        public Input<int>? MonitoringIntervalInSeconds { get; set; }
-
-        /// <summary>
         /// The name of the Network Watcher resource.
         /// </summary>
         [Input("networkWatcherName", required: true)]
         public Input<string> NetworkWatcherName { get; set; } = null!;
 
         /// <summary>
+        /// Properties of the connection monitor.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ConnectionMonitorParametersArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group containing Network Watcher.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Describes the source of connection monitor.
-        /// </summary>
-        [Input("source", required: true)]
-        public Input<Inputs.ConnectionMonitorSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -231,8 +213,6 @@ namespace Pulumi.AzureNative.Network.V20190901
 
         public ConnectionMonitorArgs()
         {
-            AutoStart = true;
-            MonitoringIntervalInSeconds = 60;
         }
         public static new ConnectionMonitorArgs Empty => new ConnectionMonitorArgs();
     }

@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -42,13 +38,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The url to connect Quickbase source. Type: string (or Expression with resultType string).
+        /// Quickbase linked service properties.
         /// </summary>
-        public readonly object Url;
-        /// <summary>
-        /// The user token for the Quickbase source.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> UserToken;
+        public readonly Outputs.QuickbaseLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private QuickbaseLinkedServiceResponse(
@@ -58,24 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type,
 
-            object url,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> userToken)
+            Outputs.QuickbaseLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
-            Url = url;
-            UserToken = userToken;
+            TypeProperties = typeProperties;
         }
     }
 }

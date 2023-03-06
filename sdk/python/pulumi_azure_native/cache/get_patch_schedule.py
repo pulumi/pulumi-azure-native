@@ -22,16 +22,16 @@ class GetPatchScheduleResult:
     """
     Response to put/get patch schedules for Redis cache.
     """
-    def __init__(__self__, id=None, name=None, schedule_entries=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if schedule_entries and not isinstance(schedule_entries, list):
-            raise TypeError("Expected argument 'schedule_entries' to be a list")
-        pulumi.set(__self__, "schedule_entries", schedule_entries)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -53,12 +53,12 @@ class GetPatchScheduleResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="scheduleEntries")
-    def schedule_entries(self) -> Sequence['outputs.ScheduleEntryResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ScheduleEntriesResponse':
         """
         List of patch schedules for a Redis cache.
         """
-        return pulumi.get(self, "schedule_entries")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -77,7 +77,7 @@ class AwaitableGetPatchScheduleResult(GetPatchScheduleResult):
         return GetPatchScheduleResult(
             id=self.id,
             name=self.name,
-            schedule_entries=self.schedule_entries,
+            properties=self.properties,
             type=self.type)
 
 
@@ -104,7 +104,7 @@ def get_patch_schedule(default: Optional[str] = None,
     return AwaitableGetPatchScheduleResult(
         id=__ret__.id,
         name=__ret__.name,
-        schedule_entries=__ret__.schedule_entries,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

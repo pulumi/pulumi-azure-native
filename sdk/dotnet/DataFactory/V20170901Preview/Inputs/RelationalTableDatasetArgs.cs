@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The relational table name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableName")]
-        public Input<object>? TableName { get; set; }
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'RelationalTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Relational table dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.RelationalTableDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public RelationalTableDatasetArgs()
         {

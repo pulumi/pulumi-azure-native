@@ -22,34 +22,19 @@ class GetPrometheusRuleGroupResult:
     """
     The Prometheus rule group resource.
     """
-    def __init__(__self__, cluster_name=None, description=None, enabled=None, id=None, interval=None, location=None, name=None, rules=None, scopes=None, system_data=None, tags=None, type=None):
-        if cluster_name and not isinstance(cluster_name, str):
-            raise TypeError("Expected argument 'cluster_name' to be a str")
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        pulumi.set(__self__, "enabled", enabled)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if interval and not isinstance(interval, str):
-            raise TypeError("Expected argument 'interval' to be a str")
-        pulumi.set(__self__, "interval", interval)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if rules and not isinstance(rules, list):
-            raise TypeError("Expected argument 'rules' to be a list")
-        pulumi.set(__self__, "rules", rules)
-        if scopes and not isinstance(scopes, list):
-            raise TypeError("Expected argument 'scopes' to be a list")
-        pulumi.set(__self__, "scopes", scopes)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -61,44 +46,12 @@ class GetPrometheusRuleGroupResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[str]:
-        """
-        the cluster name of the rule group evaluation.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        the description of the Prometheus rule group that will be included in the alert email.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        the flag that indicates whether the Prometheus rule group is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[str]:
-        """
-        the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-        """
-        return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter
@@ -118,19 +71,11 @@ class GetPrometheusRuleGroupResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Sequence['outputs.PrometheusRuleResponse']:
+    def properties(self) -> 'outputs.PrometheusRuleGroupPropertiesResponse':
         """
-        defines the rules in the Prometheus rule group.
+        The Prometheus rule group properties of the resource.
         """
-        return pulumi.get(self, "rules")
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> Sequence[str]:
-        """
-        the list of resource id's that this rule group is scoped to.
-        """
-        return pulumi.get(self, "scopes")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -163,15 +108,10 @@ class AwaitableGetPrometheusRuleGroupResult(GetPrometheusRuleGroupResult):
         if False:
             yield self
         return GetPrometheusRuleGroupResult(
-            cluster_name=self.cluster_name,
-            description=self.description,
-            enabled=self.enabled,
             id=self.id,
-            interval=self.interval,
             location=self.location,
             name=self.name,
-            rules=self.rules,
-            scopes=self.scopes,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -194,15 +134,10 @@ def get_prometheus_rule_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:alertsmanagement/v20210722preview:getPrometheusRuleGroup', __args__, opts=opts, typ=GetPrometheusRuleGroupResult).value
 
     return AwaitableGetPrometheusRuleGroupResult(
-        cluster_name=__ret__.cluster_name,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
         id=__ret__.id,
-        interval=__ret__.interval,
         location=__ret__.location,
         name=__ret__.name,
-        rules=__ret__.rules,
-        scopes=__ret__.scopes,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

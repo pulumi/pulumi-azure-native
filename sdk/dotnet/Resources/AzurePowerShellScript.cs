@@ -17,42 +17,6 @@ namespace Pulumi.AzureNative.Resources
     public partial class AzurePowerShellScript : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
-        /// </summary>
-        [Output("arguments")]
-        public Output<string?> Arguments { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure PowerShell module version to be used.
-        /// </summary>
-        [Output("azPowerShellVersion")]
-        public Output<string> AzPowerShellVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-        /// </summary>
-        [Output("cleanupPreference")]
-        public Output<string?> CleanupPreference { get; private set; } = null!;
-
-        /// <summary>
-        /// Container settings.
-        /// </summary>
-        [Output("containerSettings")]
-        public Output<Outputs.ContainerConfigurationResponse?> ContainerSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// The environment variables to pass over to the script.
-        /// </summary>
-        [Output("environmentVariables")]
-        public Output<ImmutableArray<Outputs.EnvironmentVariableResponse>> EnvironmentVariables { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-        /// </summary>
-        [Output("forceUpdateTag")]
-        public Output<string?> ForceUpdateTag { get; private set; } = null!;
-
-        /// <summary>
         /// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         /// </summary>
         [Output("identity")]
@@ -78,52 +42,10 @@ namespace Pulumi.AzureNative.Resources
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of script outputs.
+        /// Properties of the Azure PowerShell script object.
         /// </summary>
-        [Output("outputs")]
-        public Output<ImmutableDictionary<string, object>> Outputs { get; private set; } = null!;
-
-        /// <summary>
-        /// Uri for the script. This is the entry point for the external script.
-        /// </summary>
-        [Output("primaryScriptUri")]
-        public Output<string?> PrimaryScriptUri { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the script execution. This only appears in the response.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-        /// </summary>
-        [Output("retentionInterval")]
-        public Output<string> RetentionInterval { get; private set; } = null!;
-
-        /// <summary>
-        /// Script body.
-        /// </summary>
-        [Output("scriptContent")]
-        public Output<string?> ScriptContent { get; private set; } = null!;
-
-        /// <summary>
-        /// Contains the results of script execution.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.ScriptStatusResponse> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage Account settings.
-        /// </summary>
-        [Output("storageAccountSettings")]
-        public Output<Outputs.StorageAccountConfigurationResponse?> StorageAccountSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// Supporting files for the external script.
-        /// </summary>
-        [Output("supportingScriptUris")]
-        public Output<ImmutableArray<string>> SupportingScriptUris { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AzurePowerShellScriptPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -136,12 +58,6 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-        /// </summary>
-        [Output("timeout")]
-        public Output<string?> Timeout { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
@@ -207,48 +123,6 @@ namespace Pulumi.AzureNative.Resources
     public sealed class AzurePowerShellScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
-        /// </summary>
-        [Input("arguments")]
-        public Input<string>? Arguments { get; set; }
-
-        /// <summary>
-        /// Azure PowerShell module version to be used.
-        /// </summary>
-        [Input("azPowerShellVersion", required: true)]
-        public Input<string> AzPowerShellVersion { get; set; } = null!;
-
-        /// <summary>
-        /// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-        /// </summary>
-        [Input("cleanupPreference")]
-        public InputUnion<string, Pulumi.AzureNative.Resources.CleanupOptions>? CleanupPreference { get; set; }
-
-        /// <summary>
-        /// Container settings.
-        /// </summary>
-        [Input("containerSettings")]
-        public Input<Inputs.ContainerConfigurationArgs>? ContainerSettings { get; set; }
-
-        [Input("environmentVariables")]
-        private InputList<Inputs.EnvironmentVariableArgs>? _environmentVariables;
-
-        /// <summary>
-        /// The environment variables to pass over to the script.
-        /// </summary>
-        public InputList<Inputs.EnvironmentVariableArgs> EnvironmentVariables
-        {
-            get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.EnvironmentVariableArgs>());
-            set => _environmentVariables = value;
-        }
-
-        /// <summary>
-        /// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-        /// </summary>
-        [Input("forceUpdateTag")]
-        public Input<string>? ForceUpdateTag { get; set; }
-
-        /// <summary>
         /// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         /// </summary>
         [Input("identity")]
@@ -268,10 +142,10 @@ namespace Pulumi.AzureNative.Resources
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Uri for the script. This is the entry point for the external script.
+        /// Properties of the Azure PowerShell script object.
         /// </summary>
-        [Input("primaryScriptUri")]
-        public Input<string>? PrimaryScriptUri { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.AzurePowerShellScriptPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -280,40 +154,10 @@ namespace Pulumi.AzureNative.Resources
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-        /// </summary>
-        [Input("retentionInterval", required: true)]
-        public Input<string> RetentionInterval { get; set; } = null!;
-
-        /// <summary>
-        /// Script body.
-        /// </summary>
-        [Input("scriptContent")]
-        public Input<string>? ScriptContent { get; set; }
-
-        /// <summary>
         /// Name of the deployment script.
         /// </summary>
         [Input("scriptName")]
         public Input<string>? ScriptName { get; set; }
-
-        /// <summary>
-        /// Storage Account settings.
-        /// </summary>
-        [Input("storageAccountSettings")]
-        public Input<Inputs.StorageAccountConfigurationArgs>? StorageAccountSettings { get; set; }
-
-        [Input("supportingScriptUris")]
-        private InputList<string>? _supportingScriptUris;
-
-        /// <summary>
-        /// Supporting files for the external script.
-        /// </summary>
-        public InputList<string> SupportingScriptUris
-        {
-            get => _supportingScriptUris ?? (_supportingScriptUris = new InputList<string>());
-            set => _supportingScriptUris = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -327,16 +171,8 @@ namespace Pulumi.AzureNative.Resources
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-        /// </summary>
-        [Input("timeout")]
-        public Input<string>? Timeout { get; set; }
-
         public AzurePowerShellScriptArgs()
         {
-            CleanupPreference = "Always";
-            Timeout = "P1D";
         }
         public static new AzurePowerShellScriptArgs Empty => new AzurePowerShellScriptArgs();
     }

@@ -40,6 +40,7 @@ __all__ = [
     'IPRuleResponse',
     'IdentityResponse',
     'ImmutabilityPolicyPropertiesResponse',
+    'ImmutabilityPolicyPropertyResponse',
     'ImmutableStorageWithVersioningResponse',
     'KeyCreationTimeResponse',
     'KeyPolicyResponse',
@@ -1864,6 +1865,71 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         The ImmutabilityPolicy update history of the blob container.
         """
         return pulumi.get(self, "update_history")
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWrites")
+    def allow_protected_append_writes(self) -> Optional[bool]:
+        """
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        """
+        return pulumi.get(self, "allow_protected_append_writes")
+
+    @property
+    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
+    def immutability_period_since_creation_in_days(self) -> Optional[int]:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+
+@pulumi.output_type
+class ImmutabilityPolicyPropertyResponse(dict):
+    """
+    The properties of an ImmutabilityPolicy of a blob container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowProtectedAppendWrites":
+            suggest = "allow_protected_append_writes"
+        elif key == "immutabilityPeriodSinceCreationInDays":
+            suggest = "immutability_period_since_creation_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImmutabilityPolicyPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImmutabilityPolicyPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImmutabilityPolicyPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: str,
+                 allow_protected_append_writes: Optional[bool] = None,
+                 immutability_period_since_creation_in_days: Optional[int] = None):
+        """
+        The properties of an ImmutabilityPolicy of a blob container.
+        :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        :param bool allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        pulumi.set(__self__, "state", state)
+        if allow_protected_append_writes is not None:
+            pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        if immutability_period_since_creation_in_days is not None:
+            pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="allowProtectedAppendWrites")

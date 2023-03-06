@@ -94,18 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     public sealed class GetSqlDBTableDataSetMappingResult
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
-        /// DatabaseName name of the sink data set
-        /// </summary>
-        public readonly string DatabaseName;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -119,21 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Sql DB data set mapping properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Schema of the table. Default value is dbo.
-        /// </summary>
-        public readonly string SchemaName;
-        /// <summary>
-        /// Resource id of SQL server
-        /// </summary>
-        public readonly string SqlServerResourceId;
-        /// <summary>
-        /// SQL DB table name.
-        /// </summary>
-        public readonly string TableName;
+        public readonly Outputs.SqlDBTableDataSetMappingPropertiesResponse Properties;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
@@ -141,38 +117,20 @@ namespace Pulumi.AzureNative.DataShare.V20191101
 
         [OutputConstructor]
         private GetSqlDBTableDataSetMappingResult(
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
-            string databaseName,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
-
-            string schemaName,
-
-            string sqlServerResourceId,
-
-            string tableName,
+            Outputs.SqlDBTableDataSetMappingPropertiesResponse properties,
 
             string type)
         {
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
-            DatabaseName = databaseName;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            SchemaName = schemaName;
-            SqlServerResourceId = sqlServerResourceId;
-            TableName = tableName;
+            Properties = properties;
             Type = type;
         }
     }

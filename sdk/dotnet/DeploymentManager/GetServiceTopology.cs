@@ -72,10 +72,6 @@ namespace Pulumi.AzureNative.DeploymentManager
     public sealed class GetServiceTopologyResult
     {
         /// <summary>
-        /// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-        /// </summary>
-        public readonly string? ArtifactSourceId;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -88,6 +84,10 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The properties that define the service topology.
+        /// </summary>
+        public readonly Outputs.ServiceTopologyResourceResponseProperties Properties;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -98,22 +98,22 @@ namespace Pulumi.AzureNative.DeploymentManager
 
         [OutputConstructor]
         private GetServiceTopologyResult(
-            string? artifactSourceId,
-
             string id,
 
             string location,
 
             string name,
 
+            Outputs.ServiceTopologyResourceResponseProperties properties,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ArtifactSourceId = artifactSourceId;
             Id = id;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

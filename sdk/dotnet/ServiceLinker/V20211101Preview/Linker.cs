@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
     public partial class Linker : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authentication type.
-        /// </summary>
-        [Output("authInfo")]
-        public Output<object?> AuthInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// The application client type
-        /// </summary>
-        [Output("clientType")]
-        public Output<string?> ClientType { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state. 
+        /// The properties of the linker.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// An option to store secret value in secure place
-        /// </summary>
-        [Output("secretStore")]
-        public Output<Outputs.SecretStoreResponse?> SecretStore { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LinkerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -52,22 +34,10 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The resource Id of target service.
-        /// </summary>
-        [Output("targetId")]
-        public Output<string?> TargetId { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The VNet solution.
-        /// </summary>
-        [Output("vNetSolution")]
-        public Output<Outputs.VNetSolutionResponse?> VNetSolution { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,46 +92,22 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
     public sealed class LinkerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication type.
-        /// </summary>
-        [Input("authInfo")]
-        public object? AuthInfo { get; set; }
-
-        /// <summary>
-        /// The application client type
-        /// </summary>
-        [Input("clientType")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceLinker.V20211101Preview.ClientType>? ClientType { get; set; }
-
-        /// <summary>
         /// The name Linker resource.
         /// </summary>
         [Input("linkerName")]
         public Input<string>? LinkerName { get; set; }
 
         /// <summary>
+        /// The properties of the linker.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LinkerPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource to be connected.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
-
-        /// <summary>
-        /// An option to store secret value in secure place
-        /// </summary>
-        [Input("secretStore")]
-        public Input<Inputs.SecretStoreArgs>? SecretStore { get; set; }
-
-        /// <summary>
-        /// The resource Id of target service.
-        /// </summary>
-        [Input("targetId")]
-        public Input<string>? TargetId { get; set; }
-
-        /// <summary>
-        /// The VNet solution.
-        /// </summary>
-        [Input("vNetSolution")]
-        public Input<Inputs.VNetSolutionArgs>? VNetSolution { get; set; }
 
         public LinkerArgs()
         {

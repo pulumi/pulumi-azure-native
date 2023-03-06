@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,9 +45,9 @@ export class SupportPlanType extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the resource.
+     * Describes Canonical support plan type and status.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.addons.v20170515.CanonicalSupportPlanPropertiesResponse>;
     /**
      * Microsoft.Addons/supportProvider
      */
@@ -69,11 +72,11 @@ export class SupportPlanType extends pulumi.CustomResource {
             resourceInputs["planTypeName"] = args ? args.planTypeName : undefined;
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

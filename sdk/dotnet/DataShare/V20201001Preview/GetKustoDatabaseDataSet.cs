@@ -94,10 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public sealed class GetKustoDatabaseDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -107,21 +103,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Resource id of the kusto database.
-        /// </summary>
-        public readonly string KustoDatabaseResourceId;
-        /// <summary>
-        /// Location of the kusto cluster.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the kusto database data set.
+        /// Kusto database data set properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.KustoDatabaseDataSetPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -133,31 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 
         [OutputConstructor]
         private GetKustoDatabaseDataSetResult(
-            string dataSetId,
-
             string id,
 
             string kind,
 
-            string kustoDatabaseResourceId,
-
-            string location,
-
             string name,
 
-            string provisioningState,
+            Outputs.KustoDatabaseDataSetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
-            KustoDatabaseResourceId = kustoDatabaseResourceId;
-            Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

@@ -15,14 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class HttpDatasetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
-        /// ...
-        /// request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("additionalHeaders")]
-        public Input<object>? AdditionalHeaders { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -36,22 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The data compression method used on files.
-        /// </summary>
-        [Input("compression")]
-        public object? Compression { get; set; }
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The format of files.
-        /// </summary>
-        [Input("format")]
-        public object? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -72,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("relativeUrl")]
-        public Input<object>? RelativeUrl { get; set; }
-
-        /// <summary>
-        /// The body for the HTTP request. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("requestBody")]
-        public Input<object>? RequestBody { get; set; }
-
-        /// <summary>
-        /// The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("requestMethod")]
-        public Input<object>? RequestMethod { get; set; }
-
-        /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
         [Input("structure")]
@@ -101,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Properties specific to this dataset type.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HttpDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public HttpDatasetArgs()
         {

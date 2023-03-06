@@ -24,8 +24,8 @@ namespace Pulumi.AzureNative.Cache.V20200601
         /// <summary>
         /// List of patch schedules for a Redis cache.
         /// </summary>
-        [Output("scheduleEntries")]
-        public Output<ImmutableArray<Outputs.ScheduleEntryResponse>> ScheduleEntries { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ScheduleEntriesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -102,22 +102,16 @@ namespace Pulumi.AzureNative.Cache.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// List of patch schedules for a Redis cache.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ScheduleEntriesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("scheduleEntries", required: true)]
-        private InputList<Inputs.ScheduleEntryArgs>? _scheduleEntries;
-
-        /// <summary>
-        /// List of patch schedules for a Redis cache.
-        /// </summary>
-        public InputList<Inputs.ScheduleEntryArgs> ScheduleEntries
-        {
-            get => _scheduleEntries ?? (_scheduleEntries = new InputList<Inputs.ScheduleEntryArgs>());
-            set => _scheduleEntries = value;
-        }
 
         public PatchScheduleArgs()
         {

@@ -82,29 +82,9 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     public sealed class GetIoTHubEventSourceResult
     {
         /// <summary>
-        /// The name of the iot hub's consumer group that holds the partitions from which events will be read.
-        /// </summary>
-        public readonly string ConsumerGroupName;
-        /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        public readonly string CreationTime;
-        /// <summary>
-        /// The resource id of the event source in Azure Resource Manager.
-        /// </summary>
-        public readonly string EventSourceResourceId;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the iot hub.
-        /// </summary>
-        public readonly string IotHubName;
-        /// <summary>
-        /// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-        /// </summary>
-        public readonly string KeyName;
         /// <summary>
         /// The kind of the event source.
         /// Expected value is 'Microsoft.IoTHub'.
@@ -119,17 +99,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of the IoTHub event source resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.IoTHubEventSourceResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-        /// </summary>
-        public readonly string? TimestampPropertyName;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -137,17 +113,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 
         [OutputConstructor]
         private GetIoTHubEventSourceResult(
-            string consumerGroupName,
-
-            string creationTime,
-
-            string eventSourceResourceId,
-
             string id,
-
-            string iotHubName,
-
-            string keyName,
 
             string kind,
 
@@ -155,26 +121,18 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 
             string name,
 
-            string provisioningState,
+            Outputs.IoTHubEventSourceResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? timestampPropertyName,
-
             string type)
         {
-            ConsumerGroupName = consumerGroupName;
-            CreationTime = creationTime;
-            EventSourceResourceId = eventSourceResourceId;
             Id = id;
-            IotHubName = iotHubName;
-            KeyName = keyName;
             Kind = kind;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
-            TimestampPropertyName = timestampPropertyName;
             Type = type;
         }
     }

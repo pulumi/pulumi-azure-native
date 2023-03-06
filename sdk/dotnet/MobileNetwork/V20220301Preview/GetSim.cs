@@ -82,21 +82,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
-        /// </summary>
-        public readonly string? DeviceType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The Integrated Circuit Card ID (ICC Id) for the sim.
-        /// </summary>
-        public readonly string? IntegratedCircuitCardIdentifier;
-        /// <summary>
-        /// The International Mobile Subscriber Identity (IMSI) for the sim.
-        /// </summary>
-        public readonly string InternationalMobileSubscriberIdentity;
         /// <summary>
         /// The timestamp of resource last modification (UTC)
         /// </summary>
@@ -114,29 +102,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Mobile network that this sim belongs to
-        /// </summary>
-        public readonly Outputs.MobileNetworkResourceIdResponse? MobileNetwork;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the sim resource.
+        /// Sim Properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The simPolicy used by this sim.
-        /// </summary>
-        public readonly Outputs.SimPolicyResourceIdResponse? SimPolicy;
-        /// <summary>
-        /// The state of the sim resource.
-        /// </summary>
-        public readonly string SimState;
-        /// <summary>
-        /// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SimStaticIpPropertiesResponse> StaticIpConfiguration;
+        public readonly Outputs.SimPropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -158,13 +130,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 
             string? createdByType,
 
-            string? deviceType,
-
             string id,
-
-            string? integratedCircuitCardIdentifier,
-
-            string internationalMobileSubscriberIdentity,
 
             string? lastModifiedAt,
 
@@ -174,17 +140,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 
             string location,
 
-            Outputs.MobileNetworkResourceIdResponse? mobileNetwork,
-
             string name,
 
-            string provisioningState,
-
-            Outputs.SimPolicyResourceIdResponse? simPolicy,
-
-            string simState,
-
-            ImmutableArray<Outputs.SimStaticIpPropertiesResponse> staticIpConfiguration,
+            Outputs.SimPropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -195,20 +153,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;
-            DeviceType = deviceType;
             Id = id;
-            IntegratedCircuitCardIdentifier = integratedCircuitCardIdentifier;
-            InternationalMobileSubscriberIdentity = internationalMobileSubscriberIdentity;
             LastModifiedAt = lastModifiedAt;
             LastModifiedBy = lastModifiedBy;
             LastModifiedByType = lastModifiedByType;
             Location = location;
-            MobileNetwork = mobileNetwork;
             Name = name;
-            ProvisioningState = provisioningState;
-            SimPolicy = simPolicy;
-            SimState = simState;
-            StaticIpConfiguration = staticIpConfiguration;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

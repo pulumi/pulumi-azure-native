@@ -17,36 +17,31 @@ __all__ = ['LinkerArgs', 'Linker']
 @pulumi.input_type
 class LinkerArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['LinkerPropertiesArgs'],
                  resource_uri: pulumi.Input[str],
-                 auth_info: Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
-                 client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
-                 linker_name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
-                 target_id: Optional[pulumi.Input[str]] = None,
-                 v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None):
+                 linker_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Linker resource.
+        :param pulumi.Input['LinkerPropertiesArgs'] properties: The properties of the linker.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-        :param pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
-        :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input[str] linker_name: The name Linker resource.
-        :param pulumi.Input['SecretStoreArgs'] secret_store: An option to store secret value in secure place
-        :param pulumi.Input[str] target_id: The resource Id of target service.
-        :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_uri", resource_uri)
-        if auth_info is not None:
-            pulumi.set(__self__, "auth_info", auth_info)
-        if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
         if linker_name is not None:
             pulumi.set(__self__, "linker_name", linker_name)
-        if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
-        if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
-        if v_net_solution is not None:
-            pulumi.set(__self__, "v_net_solution", v_net_solution)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LinkerPropertiesArgs']:
+        """
+        The properties of the linker.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LinkerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -61,30 +56,6 @@ class LinkerArgs:
         pulumi.set(self, "resource_uri", value)
 
     @property
-    @pulumi.getter(name="authInfo")
-    def auth_info(self) -> Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]:
-        """
-        The authentication type.
-        """
-        return pulumi.get(self, "auth_info")
-
-    @auth_info.setter
-    def auth_info(self, value: Optional[pulumi.Input[Union['SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]):
-        pulumi.set(self, "auth_info", value)
-
-    @property
-    @pulumi.getter(name="clientType")
-    def client_type(self) -> Optional[pulumi.Input[Union[str, 'ClientType']]]:
-        """
-        The application client type
-        """
-        return pulumi.get(self, "client_type")
-
-    @client_type.setter
-    def client_type(self, value: Optional[pulumi.Input[Union[str, 'ClientType']]]):
-        pulumi.set(self, "client_type", value)
-
-    @property
     @pulumi.getter(name="linkerName")
     def linker_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -96,55 +67,15 @@ class LinkerArgs:
     def linker_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linker_name", value)
 
-    @property
-    @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['SecretStoreArgs']]:
-        """
-        An option to store secret value in secure place
-        """
-        return pulumi.get(self, "secret_store")
-
-    @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['SecretStoreArgs']]):
-        pulumi.set(self, "secret_store", value)
-
-    @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource Id of target service.
-        """
-        return pulumi.get(self, "target_id")
-
-    @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target_id", value)
-
-    @property
-    @pulumi.getter(name="vNetSolution")
-    def v_net_solution(self) -> Optional[pulumi.Input['VNetSolutionArgs']]:
-        """
-        The VNet solution.
-        """
-        return pulumi.get(self, "v_net_solution")
-
-    @v_net_solution.setter
-    def v_net_solution(self, value: Optional[pulumi.Input['VNetSolutionArgs']]):
-        pulumi.set(self, "v_net_solution", value)
-
 
 class Linker(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
-                 client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkerPropertiesArgs']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
-                 target_id: Optional[pulumi.Input[str]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
         """
         Linker of source and target resource
@@ -152,13 +83,9 @@ class Linker(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]] auth_info: The authentication type.
-        :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input[str] linker_name: The name Linker resource.
+        :param pulumi.Input[pulumi.InputType['LinkerPropertiesArgs']] properties: The properties of the linker.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-        :param pulumi.Input[pulumi.InputType['SecretStoreArgs']] secret_store: An option to store secret value in secure place
-        :param pulumi.Input[str] target_id: The resource Id of target service.
-        :param pulumi.Input[pulumi.InputType['VNetSolutionArgs']] v_net_solution: The VNet solution.
         """
         ...
     @overload
@@ -185,13 +112,9 @@ class Linker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
-                 client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkerPropertiesArgs']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
-                 target_id: Optional[pulumi.Input[str]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -201,17 +124,14 @@ class Linker(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkerArgs.__new__(LinkerArgs)
 
-            __props__.__dict__["auth_info"] = auth_info
-            __props__.__dict__["client_type"] = client_type
             __props__.__dict__["linker_name"] = linker_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
-            __props__.__dict__["secret_store"] = secret_store
-            __props__.__dict__["target_id"] = target_id
-            __props__.__dict__["v_net_solution"] = v_net_solution
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicelinker/v20211101preview:Linker"), pulumi.Alias(type_="azure-native:servicelinker/v20220101preview:Linker"), pulumi.Alias(type_="azure-native:servicelinker/v20220501:Linker"), pulumi.Alias(type_="azure-native:servicelinker/v20221101preview:Linker")])
@@ -238,32 +158,11 @@ class Linker(pulumi.CustomResource):
 
         __props__ = LinkerArgs.__new__(LinkerArgs)
 
-        __props__.__dict__["auth_info"] = None
-        __props__.__dict__["client_type"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["secret_store"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["target_id"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["v_net_solution"] = None
         return Linker(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="authInfo")
-    def auth_info(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The authentication type.
-        """
-        return pulumi.get(self, "auth_info")
-
-    @property
-    @pulumi.getter(name="clientType")
-    def client_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The application client type
-        """
-        return pulumi.get(self, "client_type")
 
     @property
     @pulumi.getter
@@ -274,20 +173,12 @@ class Linker(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.LinkerPropertiesResponse']:
         """
-        The provisioning state. 
+        The properties of the linker.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="secretStore")
-    def secret_store(self) -> pulumi.Output[Optional['outputs.SecretStoreResponse']]:
-        """
-        An option to store secret value in secure place
-        """
-        return pulumi.get(self, "secret_store")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -298,26 +189,10 @@ class Linker(pulumi.CustomResource):
         return pulumi.get(self, "system_data")
 
     @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource Id of target service.
-        """
-        return pulumi.get(self, "target_id")
-
-    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vNetSolution")
-    def v_net_solution(self) -> pulumi.Output[Optional['outputs.VNetSolutionResponse']]:
-        """
-        The VNet solution.
-        """
-        return pulumi.get(self, "v_net_solution")
 

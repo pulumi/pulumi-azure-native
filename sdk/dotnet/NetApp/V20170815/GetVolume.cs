@@ -95,18 +95,6 @@ namespace Pulumi.AzureNative.NetApp.V20170815
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// A unique file path for the volume. Used when creating mount targets
-        /// </summary>
-        public readonly string CreationToken;
-        /// <summary>
-        /// Export policy rule
-        /// </summary>
-        public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
-        /// <summary>
-        /// Unique FileSystem Identifier.
-        /// </summary>
-        public readonly string FileSystemId;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -119,17 +107,9 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Volume properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        public readonly string ServiceLevel;
-        /// <summary>
-        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        /// </summary>
-        public readonly string? SubnetId;
+        public readonly Outputs.VolumePropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -138,49 +118,27 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-        /// </summary>
-        public readonly double? UsageThreshold;
 
         [OutputConstructor]
         private GetVolumeResult(
-            string creationToken,
-
-            Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
-
-            string fileSystemId,
-
             string id,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            string serviceLevel,
-
-            string? subnetId,
+            Outputs.VolumePropertiesResponse properties,
 
             object? tags,
 
-            string type,
-
-            double? usageThreshold)
+            string type)
         {
-            CreationToken = creationToken;
-            ExportPolicy = exportPolicy;
-            FileSystemId = fileSystemId;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            ServiceLevel = serviceLevel;
-            SubnetId = subnetId;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UsageThreshold = usageThreshold;
         }
     }
 }

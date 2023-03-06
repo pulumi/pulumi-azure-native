@@ -17,64 +17,16 @@ namespace Pulumi.AzureNative.Insights
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Action needs to be taken on rule execution.
-        /// </summary>
-        [Output("action")]
-        public Output<Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse>> Action { get; private set; } = null!;
-
-        /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-        /// </summary>
-        [Output("autoMitigate")]
-        public Output<bool?> AutoMitigate { get; private set; } = null!;
-
-        /// <summary>
-        /// The api-version used when creating this alert rule
-        /// </summary>
-        [Output("createdWithApiVersion")]
-        public Output<string> CreatedWithApiVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the Log Search rule.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The display name of the alert rule
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-        /// </summary>
-        [Output("enabled")]
-        public Output<string?> Enabled { get; private set; } = null!;
-
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// True if alert rule is legacy Log Analytic rule
-        /// </summary>
-        [Output("isLegacyLogAnalyticsRule")]
-        public Output<bool> IsLegacyLogAnalyticsRule { get; private set; } = null!;
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Last time the rule was updated in IS08601 format.
-        /// </summary>
-        [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -89,22 +41,10 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the scheduled query rule
+        /// The rule properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-        /// </summary>
-        [Output("schedule")]
-        public Output<Outputs.ScheduleResponse?> Schedule { get; private set; } = null!;
-
-        /// <summary>
-        /// Data Source against which rule will Query Data
-        /// </summary>
-        [Output("source")]
-        public Output<Outputs.SourceResponse> Source { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LogSearchRuleResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -173,40 +113,16 @@ namespace Pulumi.AzureNative.Insights
     public sealed class ScheduledQueryRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action needs to be taken on rule execution.
-        /// </summary>
-        [Input("action", required: true)]
-        public InputUnion<Inputs.AlertingActionArgs, Inputs.LogToMetricActionArgs> Action { get; set; } = null!;
-
-        /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-        /// </summary>
-        [Input("autoMitigate")]
-        public Input<bool>? AutoMitigate { get; set; }
-
-        /// <summary>
-        /// The description of the Log Search rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The display name of the alert rule
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-        /// </summary>
-        [Input("enabled")]
-        public InputUnion<string, Pulumi.AzureNative.Insights.Enabled>? Enabled { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The rule properties of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LogSearchRuleArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -219,18 +135,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
-
-        /// <summary>
-        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-        /// </summary>
-        [Input("schedule")]
-        public Input<Inputs.ScheduleArgs>? Schedule { get; set; }
-
-        /// <summary>
-        /// Data Source against which rule will Query Data
-        /// </summary>
-        [Input("source", required: true)]
-        public Input<Inputs.SourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -246,7 +150,6 @@ namespace Pulumi.AzureNative.Insights
 
         public ScheduledQueryRuleArgs()
         {
-            AutoMitigate = false;
         }
         public static new ScheduledQueryRuleArgs Empty => new ScheduledQueryRuleArgs();
     }

@@ -52,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<object> Path { get; set; } = null!;
-
-        /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
         [Input("structure")]
@@ -69,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// SAP ECC OData resource dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapEccResourceDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapEccResourceDatasetArgs()
         {

@@ -16,4 +16,5 @@ from .get_registration_activation_key import *
 from .linked_subscription import *
 from .list_product_details import *
 from .registration import *
+from ._inputs import *
 from . import outputs

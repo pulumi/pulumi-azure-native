@@ -38,22 +38,6 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-     */
-    public readonly configuration!: pulumi.Output<outputs.workloads.v20211201preview.DeploymentConfigurationResponse | outputs.workloads.v20211201preview.DeploymentWithOSConfigurationResponse | outputs.workloads.v20211201preview.DiscoveryConfigurationResponse>;
-    /**
-     * Defines the environment type - Production/Non Production.
-     */
-    public readonly environment!: pulumi.Output<string>;
-    /**
-     * Indicates any errors on the Virtual Instance for SAP solutions resource.
-     */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.v20211201preview.SAPVirtualInstanceErrorResponse>;
-    /**
-     * Defines the health of SAP Instances.
-     */
-    public /*out*/ readonly health!: pulumi.Output<string>;
-    /**
      * Managed service identity (user assigned identities)
      */
     public readonly identity!: pulumi.Output<outputs.workloads.v20211201preview.UserAssignedServiceIdentityResponse | undefined>;
@@ -62,29 +46,13 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Managed resource group configuration
-     */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.workloads.v20211201preview.ManagedRGConfigurationResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Defines the provisioning states.
+     * Defines the Virtual Instance for SAP solutions resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Defines the SAP Product type.
-     */
-    public readonly sapProduct!: pulumi.Output<string>;
-    /**
-     * Defines the Virtual Instance for SAP state.
-     */
-    public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * Defines the SAP Instance status.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.workloads.v20211201preview.SAPVirtualInstancePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -109,48 +77,26 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'configuration'");
-            }
-            if ((!args || args.environment === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'environment'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapProduct === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sapProduct'");
-            }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapProduct"] = args ? args.sapProduct : undefined;
             resourceInputs["sapVirtualInstanceName"] = args ? args.sapVirtualInstanceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["errors"] = undefined /*out*/;
-            resourceInputs["health"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["configuration"] = undefined /*out*/;
-            resourceInputs["environment"] = undefined /*out*/;
-            resourceInputs["errors"] = undefined /*out*/;
-            resourceInputs["health"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["managedResourceGroupConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sapProduct"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -167,14 +113,6 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
  */
 export interface SAPVirtualInstanceArgs {
     /**
-     * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-     */
-    configuration: pulumi.Input<inputs.workloads.v20211201preview.DeploymentConfigurationArgs | inputs.workloads.v20211201preview.DeploymentWithOSConfigurationArgs | inputs.workloads.v20211201preview.DiscoveryConfigurationArgs>;
-    /**
-     * Defines the environment type - Production/Non Production.
-     */
-    environment: pulumi.Input<string | enums.workloads.v20211201preview.SAPEnvironmentType>;
-    /**
      * Managed service identity (user assigned identities)
      */
     identity?: pulumi.Input<inputs.workloads.v20211201preview.UserAssignedServiceIdentityArgs>;
@@ -183,17 +121,13 @@ export interface SAPVirtualInstanceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Managed resource group configuration
+     * Defines the Virtual Instance for SAP solutions resource properties.
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.workloads.v20211201preview.ManagedRGConfigurationArgs>;
+    properties: pulumi.Input<inputs.workloads.v20211201preview.SAPVirtualInstancePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Defines the SAP Product type.
-     */
-    sapProduct: pulumi.Input<string | enums.workloads.v20211201preview.SAPProductType>;
     /**
      * The name of the Virtual Instances for SAP solutions resource
      */

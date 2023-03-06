@@ -35,22 +35,6 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * The workspace provider authorizations.
-     */
-    readonly authorizations?: outputs.databricks.v20210401preview.WorkspaceProviderAuthorizationResponse[];
-    /**
-     * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-     */
-    readonly createdBy?: outputs.databricks.v20210401preview.CreatedByResponse;
-    /**
-     * Specifies the date and time when the workspace is created.
-     */
-    readonly createdDateTime: string;
-    /**
-     * Encryption properties for databricks workspace
-     */
-    readonly encryption?: outputs.databricks.v20210401preview.WorkspacePropertiesResponseEncryption;
-    /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -59,41 +43,17 @@ export interface GetWorkspaceResult {
      */
     readonly location: string;
     /**
-     * The managed resource group Id.
-     */
-    readonly managedResourceGroupId: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The workspace's custom parameters.
+     * The workspace properties.
      */
-    readonly parameters?: outputs.databricks.v20210401preview.WorkspaceCustomParametersResponse;
-    /**
-     * Private endpoint connections created on the workspace
-     */
-    readonly privateEndpointConnections: outputs.databricks.v20210401preview.PrivateEndpointConnectionResponse[];
-    /**
-     * The workspace provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
-     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-     */
-    readonly publicNetworkAccess?: string;
-    /**
-     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
-     */
-    readonly requiredNsgRules?: string;
+    readonly properties: outputs.databricks.v20210401preview.WorkspacePropertiesResponse;
     /**
      * The SKU of the resource.
      */
     readonly sku?: outputs.databricks.v20210401preview.SkuResponse;
-    /**
-     * The details of Managed Identity of Storage Account
-     */
-    readonly storageAccountIdentity?: outputs.databricks.v20210401preview.ManagedIdentityConfigurationResponse;
     /**
      * The system metadata relating to this resource
      */
@@ -106,22 +66,6 @@ export interface GetWorkspaceResult {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
-    /**
-     * The blob URI where the UI definition file is located.
-     */
-    readonly uiDefinitionUri?: string;
-    /**
-     * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-     */
-    readonly updatedBy?: outputs.databricks.v20210401preview.CreatedByResponse;
-    /**
-     * The unique identifier of the databricks workspace in databricks control plane.
-     */
-    readonly workspaceId: string;
-    /**
-     * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-     */
-    readonly workspaceUrl: string;
 }
 /**
  * Gets the workspace.

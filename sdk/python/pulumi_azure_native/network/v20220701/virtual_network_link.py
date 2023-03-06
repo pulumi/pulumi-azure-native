@@ -17,23 +17,19 @@ __all__ = ['VirtualNetworkLinkArgs', 'VirtualNetworkLink']
 class VirtualNetworkLinkArgs:
     def __init__(__self__, *,
                  dns_forwarding_ruleset_name: pulumi.Input[str],
+                 properties: pulumi.Input['VirtualNetworkLinkPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 virtual_network: pulumi.Input['SubResourceArgs'],
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_link_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkLink resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
+        :param pulumi.Input['VirtualNetworkLinkPropertiesArgs'] properties: Properties of the virtual network link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SubResourceArgs'] virtual_network: The reference to the virtual network. This cannot be changed after creation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the virtual network link.
         :param pulumi.Input[str] virtual_network_link_name: The name of the virtual network link.
         """
         pulumi.set(__self__, "dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network", virtual_network)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
         if virtual_network_link_name is not None:
             pulumi.set(__self__, "virtual_network_link_name", virtual_network_link_name)
 
@@ -50,6 +46,18 @@ class VirtualNetworkLinkArgs:
         pulumi.set(self, "dns_forwarding_ruleset_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VirtualNetworkLinkPropertiesArgs']:
+        """
+        Properties of the virtual network link.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VirtualNetworkLinkPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -60,30 +68,6 @@ class VirtualNetworkLinkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> pulumi.Input['SubResourceArgs']:
-        """
-        The reference to the virtual network. This cannot be changed after creation.
-        """
-        return pulumi.get(self, "virtual_network")
-
-    @virtual_network.setter
-    def virtual_network(self, value: pulumi.Input['SubResourceArgs']):
-        pulumi.set(self, "virtual_network", value)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Metadata attached to the virtual network link.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter(name="virtualNetworkLinkName")
@@ -104,9 +88,8 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkLinkPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  virtual_network_link_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -115,9 +98,8 @@ class VirtualNetworkLink(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the virtual network link.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkLinkPropertiesArgs']] properties: Properties of the virtual network link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: The reference to the virtual network. This cannot be changed after creation.
         :param pulumi.Input[str] virtual_network_link_name: The name of the virtual network link.
         """
         ...
@@ -145,9 +127,8 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkLinkPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  virtual_network_link_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -161,17 +142,15 @@ class VirtualNetworkLink(pulumi.CustomResource):
             if dns_forwarding_ruleset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_forwarding_ruleset_name'")
             __props__.__dict__["dns_forwarding_ruleset_name"] = dns_forwarding_ruleset_name
-            __props__.__dict__["metadata"] = metadata
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if virtual_network is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network'")
-            __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["virtual_network_link_name"] = virtual_network_link_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:VirtualNetworkLink")])
@@ -199,12 +178,10 @@ class VirtualNetworkLink(pulumi.CustomResource):
         __props__ = VirtualNetworkLinkArgs.__new__(VirtualNetworkLinkArgs)
 
         __props__.__dict__["etag"] = None
-        __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_network"] = None
         return VirtualNetworkLink(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -217,14 +194,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Metadata attached to the virtual network link.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
@@ -232,12 +201,12 @@ class VirtualNetworkLink(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.VirtualNetworkLinkPropertiesResponse']:
         """
-        The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
+        Properties of the virtual network link.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -254,12 +223,4 @@ class VirtualNetworkLink(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> pulumi.Output['outputs.SubResourceResponse']:
-        """
-        The reference to the virtual network. This cannot be changed after creation.
-        """
-        return pulumi.get(self, "virtual_network")
 

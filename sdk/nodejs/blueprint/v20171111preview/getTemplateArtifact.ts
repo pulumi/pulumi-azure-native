@@ -40,18 +40,6 @@ export interface GetTemplateArtifactArgs {
  */
 export interface GetTemplateArtifactResult {
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    readonly dependsOn?: string[];
-    /**
-     * Multi-line explain this resource.
-     */
-    readonly description?: string;
-    /**
-     * One-liner string explain this resource.
-     */
-    readonly displayName?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -65,17 +53,9 @@ export interface GetTemplateArtifactResult {
      */
     readonly name: string;
     /**
-     * Template parameter values.
+     * Properties for template artifact
      */
-    readonly parameters: {[key: string]: outputs.blueprint.v20171111preview.ParameterValueBaseResponse};
-    /**
-     * If applicable, the name of the resource group placeholder to which the template will be deployed.
-     */
-    readonly resourceGroup?: string;
-    /**
-     * The Azure Resource Manager template body.
-     */
-    readonly template: any;
+    readonly properties: outputs.blueprint.v20171111preview.TemplateArtifactPropertiesResponse;
     /**
      * Type of this resource.
      */

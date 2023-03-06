@@ -17,10 +17,12 @@ __all__ = [
     'ContainerGroupDiagnosticsResponse',
     'ContainerGroupIdentityResponse',
     'ContainerGroupPropertiesResponseInstanceView',
+    'ContainerGroupPropertiesResponseProperties',
     'ContainerGroupSubnetIdResponse',
     'ContainerHttpGetResponse',
     'ContainerPortResponse',
     'ContainerProbeResponse',
+    'ContainerPropertiesResponse',
     'ContainerPropertiesResponseInstanceView',
     'ContainerResponse',
     'ContainerStateResponse',
@@ -33,6 +35,7 @@ __all__ = [
     'HttpHeaderResponse',
     'ImageRegistryCredentialResponse',
     'InitContainerDefinitionResponse',
+    'InitContainerPropertiesDefinitionResponse',
     'InitContainerPropertiesDefinitionResponseInstanceView',
     'IpAddressResponse',
     'LogAnalyticsResponse',
@@ -297,6 +300,222 @@ class ContainerGroupPropertiesResponseInstanceView(dict):
         The state of the container group. Only valid in response.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class ContainerGroupPropertiesResponseProperties(dict):
+    """
+    The container group properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceView":
+            suggest = "instance_view"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dnsConfig":
+            suggest = "dns_config"
+        elif key == "encryptionProperties":
+            suggest = "encryption_properties"
+        elif key == "imageRegistryCredentials":
+            suggest = "image_registry_credentials"
+        elif key == "initContainers":
+            suggest = "init_containers"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "restartPolicy":
+            suggest = "restart_policy"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupPropertiesResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupPropertiesResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupPropertiesResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Sequence['outputs.ContainerResponse'],
+                 instance_view: 'outputs.ContainerGroupPropertiesResponseInstanceView',
+                 os_type: str,
+                 provisioning_state: str,
+                 diagnostics: Optional['outputs.ContainerGroupDiagnosticsResponse'] = None,
+                 dns_config: Optional['outputs.DnsConfigurationResponse'] = None,
+                 encryption_properties: Optional['outputs.EncryptionPropertiesResponse'] = None,
+                 image_registry_credentials: Optional[Sequence['outputs.ImageRegistryCredentialResponse']] = None,
+                 init_containers: Optional[Sequence['outputs.InitContainerDefinitionResponse']] = None,
+                 ip_address: Optional['outputs.IpAddressResponse'] = None,
+                 restart_policy: Optional[str] = None,
+                 sku: Optional[str] = None,
+                 subnet_ids: Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']] = None,
+                 volumes: Optional[Sequence['outputs.VolumeResponse']] = None):
+        """
+        The container group properties
+        :param Sequence['ContainerResponse'] containers: The containers within the container group.
+        :param 'ContainerGroupPropertiesResponseInstanceView' instance_view: The instance view of the container group. Only valid in response.
+        :param str os_type: The operating system type required by the containers in the container group.
+        :param str provisioning_state: The provisioning state of the container group. This only appears in the response.
+        :param 'ContainerGroupDiagnosticsResponse' diagnostics: The diagnostic information for a container group.
+        :param 'DnsConfigurationResponse' dns_config: The DNS config information for a container group.
+        :param 'EncryptionPropertiesResponse' encryption_properties: The encryption properties for a container group.
+        :param Sequence['ImageRegistryCredentialResponse'] image_registry_credentials: The image registry credentials by which the container group is created from.
+        :param Sequence['InitContainerDefinitionResponse'] init_containers: The init containers for a container group.
+        :param 'IpAddressResponse' ip_address: The IP address type of the container group.
+        :param str restart_policy: Restart policy for all containers within the container group. 
+               - `Always` Always restart
+               - `OnFailure` Restart on failure
+               - `Never` Never restart
+        :param str sku: The SKU for a container group.
+        :param Sequence['ContainerGroupSubnetIdResponse'] subnet_ids: The subnet resource IDs for a container group.
+        :param Sequence['VolumeResponse'] volumes: The list of volumes that can be mounted by containers in this container group.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "instance_view", instance_view)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if dns_config is not None:
+            pulumi.set(__self__, "dns_config", dns_config)
+        if encryption_properties is not None:
+            pulumi.set(__self__, "encryption_properties", encryption_properties)
+        if image_registry_credentials is not None:
+            pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if restart_policy is not None:
+            pulumi.set(__self__, "restart_policy", restart_policy)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.ContainerResponse']:
+        """
+        The containers within the container group.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.ContainerGroupPropertiesResponseInstanceView':
+        """
+        The instance view of the container group. Only valid in response.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        The operating system type required by the containers in the container group.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the container group. This only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional['outputs.ContainerGroupDiagnosticsResponse']:
+        """
+        The diagnostic information for a container group.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter(name="dnsConfig")
+    def dns_config(self) -> Optional['outputs.DnsConfigurationResponse']:
+        """
+        The DNS config information for a container group.
+        """
+        return pulumi.get(self, "dns_config")
+
+    @property
+    @pulumi.getter(name="encryptionProperties")
+    def encryption_properties(self) -> Optional['outputs.EncryptionPropertiesResponse']:
+        """
+        The encryption properties for a container group.
+        """
+        return pulumi.get(self, "encryption_properties")
+
+    @property
+    @pulumi.getter(name="imageRegistryCredentials")
+    def image_registry_credentials(self) -> Optional[Sequence['outputs.ImageRegistryCredentialResponse']]:
+        """
+        The image registry credentials by which the container group is created from.
+        """
+        return pulumi.get(self, "image_registry_credentials")
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[Sequence['outputs.InitContainerDefinitionResponse']]:
+        """
+        The init containers for a container group.
+        """
+        return pulumi.get(self, "init_containers")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional['outputs.IpAddressResponse']:
+        """
+        The IP address type of the container group.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional[str]:
+        """
+        Restart policy for all containers within the container group. 
+        - `Always` Always restart
+        - `OnFailure` Restart on failure
+        - `Never` Never restart
+        """
+        return pulumi.get(self, "restart_policy")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        The SKU for a container group.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']]:
+        """
+        The subnet resource IDs for a container group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.VolumeResponse']]:
+        """
+        The list of volumes that can be mounted by containers in this container group.
+        """
+        return pulumi.get(self, "volumes")
 
 
 @pulumi.output_type
@@ -567,6 +786,147 @@ class ContainerProbeResponse(dict):
 
 
 @pulumi.output_type
+class ContainerPropertiesResponse(dict):
+    """
+    The container instance properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceView":
+            suggest = "instance_view"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "livenessProbe":
+            suggest = "liveness_probe"
+        elif key == "readinessProbe":
+            suggest = "readiness_probe"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: str,
+                 instance_view: 'outputs.ContainerPropertiesResponseInstanceView',
+                 resources: 'outputs.ResourceRequirementsResponse',
+                 command: Optional[Sequence[str]] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+                 liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
+                 readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
+        """
+        The container instance properties.
+        :param str image: The name of the image used to create the container instance.
+        :param 'ContainerPropertiesResponseInstanceView' instance_view: The instance view of the container instance. Only valid in response.
+        :param 'ResourceRequirementsResponse' resources: The resource requirements of the container instance.
+        :param Sequence[str] command: The commands to execute within the container instance in exec form.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in the container instance.
+        :param 'ContainerProbeResponse' liveness_probe: The liveness probe.
+        :param Sequence['ContainerPortResponse'] ports: The exposed ports on the container instance.
+        :param 'ContainerProbeResponse' readiness_probe: The readiness probe.
+        :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "instance_view", instance_view)
+        pulumi.set(__self__, "resources", resources)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The name of the image used to create the container instance.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.ContainerPropertiesResponseInstanceView':
+        """
+        The instance view of the container instance. Only valid in response.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> 'outputs.ResourceRequirementsResponse':
+        """
+        The resource requirements of the container instance.
+        """
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[str]]:
+        """
+        The commands to execute within the container instance in exec form.
+        """
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
+        """
+        The environment variables to set in the container instance.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
+        """
+        The liveness probe.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence['outputs.ContainerPortResponse']]:
+        """
+        The exposed ports on the container instance.
+        """
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
+        """
+        The readiness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
+        """
+        The volume mounts available to the container instance.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
 class ContainerPropertiesResponseInstanceView(dict):
     """
     The instance view of the container instance. Only valid in response.
@@ -647,87 +1007,16 @@ class ContainerResponse(dict):
     """
     A container instance.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceView":
-            suggest = "instance_view"
-        elif key == "environmentVariables":
-            suggest = "environment_variables"
-        elif key == "livenessProbe":
-            suggest = "liveness_probe"
-        elif key == "readinessProbe":
-            suggest = "readiness_probe"
-        elif key == "volumeMounts":
-            suggest = "volume_mounts"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ContainerResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ContainerResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ContainerResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 image: str,
-                 instance_view: 'outputs.ContainerPropertiesResponseInstanceView',
                  name: str,
-                 resources: 'outputs.ResourceRequirementsResponse',
-                 command: Optional[Sequence[str]] = None,
-                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
-                 liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
-                 ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
-                 readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
-                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
+                 properties: 'outputs.ContainerPropertiesResponse'):
         """
         A container instance.
-        :param str image: The name of the image used to create the container instance.
-        :param 'ContainerPropertiesResponseInstanceView' instance_view: The instance view of the container instance. Only valid in response.
         :param str name: The user-provided name of the container instance.
-        :param 'ResourceRequirementsResponse' resources: The resource requirements of the container instance.
-        :param Sequence[str] command: The commands to execute within the container instance in exec form.
-        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in the container instance.
-        :param 'ContainerProbeResponse' liveness_probe: The liveness probe.
-        :param Sequence['ContainerPortResponse'] ports: The exposed ports on the container instance.
-        :param 'ContainerProbeResponse' readiness_probe: The readiness probe.
-        :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
+        :param 'ContainerPropertiesResponse' properties: The properties of the container instance.
         """
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "instance_view", instance_view)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resources", resources)
-        if command is not None:
-            pulumi.set(__self__, "command", command)
-        if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
-        if liveness_probe is not None:
-            pulumi.set(__self__, "liveness_probe", liveness_probe)
-        if ports is not None:
-            pulumi.set(__self__, "ports", ports)
-        if readiness_probe is not None:
-            pulumi.set(__self__, "readiness_probe", readiness_probe)
-        if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
-
-    @property
-    @pulumi.getter
-    def image(self) -> str:
-        """
-        The name of the image used to create the container instance.
-        """
-        return pulumi.get(self, "image")
-
-    @property
-    @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.ContainerPropertiesResponseInstanceView':
-        """
-        The instance view of the container instance. Only valid in response.
-        """
-        return pulumi.get(self, "instance_view")
+        pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
@@ -739,59 +1028,11 @@ class ContainerResponse(dict):
 
     @property
     @pulumi.getter
-    def resources(self) -> 'outputs.ResourceRequirementsResponse':
+    def properties(self) -> 'outputs.ContainerPropertiesResponse':
         """
-        The resource requirements of the container instance.
+        The properties of the container instance.
         """
-        return pulumi.get(self, "resources")
-
-    @property
-    @pulumi.getter
-    def command(self) -> Optional[Sequence[str]]:
-        """
-        The commands to execute within the container instance in exec form.
-        """
-        return pulumi.get(self, "command")
-
-    @property
-    @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
-        """
-        The environment variables to set in the container instance.
-        """
-        return pulumi.get(self, "environment_variables")
-
-    @property
-    @pulumi.getter(name="livenessProbe")
-    def liveness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
-        """
-        The liveness probe.
-        """
-        return pulumi.get(self, "liveness_probe")
-
-    @property
-    @pulumi.getter
-    def ports(self) -> Optional[Sequence['outputs.ContainerPortResponse']]:
-        """
-        The exposed ports on the container instance.
-        """
-        return pulumi.get(self, "ports")
-
-    @property
-    @pulumi.getter(name="readinessProbe")
-    def readiness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
-        """
-        The readiness probe.
-        """
-        return pulumi.get(self, "readiness_probe")
-
-    @property
-    @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
-        """
-        The volume mounts available to the container instance.
-        """
-        return pulumi.get(self, "volume_mounts")
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -1378,6 +1619,39 @@ class InitContainerDefinitionResponse(dict):
     """
     The init container definition.
     """
+    def __init__(__self__, *,
+                 name: str,
+                 properties: 'outputs.InitContainerPropertiesDefinitionResponse'):
+        """
+        The init container definition.
+        :param str name: The name for the init container.
+        :param 'InitContainerPropertiesDefinitionResponse' properties: The properties for the init container.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the init container.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.InitContainerPropertiesDefinitionResponse':
+        """
+        The properties for the init container.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class InitContainerPropertiesDefinitionResponse(dict):
+    """
+    The init container definition properties.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1389,34 +1663,31 @@ class InitContainerDefinitionResponse(dict):
             suggest = "volume_mounts"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in InitContainerDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in InitContainerPropertiesDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        InitContainerDefinitionResponse.__key_warning(key)
+        InitContainerPropertiesDefinitionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        InitContainerDefinitionResponse.__key_warning(key)
+        InitContainerPropertiesDefinitionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  instance_view: 'outputs.InitContainerPropertiesDefinitionResponseInstanceView',
-                 name: str,
                  command: Optional[Sequence[str]] = None,
                  environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
                  image: Optional[str] = None,
                  volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
         """
-        The init container definition.
+        The init container definition properties.
         :param 'InitContainerPropertiesDefinitionResponseInstanceView' instance_view: The instance view of the init container. Only valid in response.
-        :param str name: The name for the init container.
         :param Sequence[str] command: The command to execute within the init container in exec form.
         :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in the init container.
         :param str image: The image of the init container.
         :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the init container.
         """
         pulumi.set(__self__, "instance_view", instance_view)
-        pulumi.set(__self__, "name", name)
         if command is not None:
             pulumi.set(__self__, "command", command)
         if environment_variables is not None:
@@ -1433,14 +1704,6 @@ class InitContainerDefinitionResponse(dict):
         The instance view of the init container. Only valid in response.
         """
         return pulumi.get(self, "instance_view")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name for the init container.
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

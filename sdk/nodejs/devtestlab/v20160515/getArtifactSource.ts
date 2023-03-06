@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -44,26 +47,6 @@ export interface GetArtifactSourceArgs {
  */
 export interface GetArtifactSourceResult {
     /**
-     * The folder containing Azure Resource Manager templates.
-     */
-    readonly armTemplateFolderPath?: string;
-    /**
-     * The artifact source's branch reference.
-     */
-    readonly branchRef?: string;
-    /**
-     * The artifact source's creation date.
-     */
-    readonly createdDate: string;
-    /**
-     * The artifact source's display name.
-     */
-    readonly displayName?: string;
-    /**
-     * The folder containing artifacts.
-     */
-    readonly folderPath?: string;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
@@ -76,21 +59,9 @@ export interface GetArtifactSourceResult {
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    readonly provisioningState?: string;
-    /**
-     * The security token to authenticate to the artifact source.
-     */
-    readonly securityToken?: string;
-    /**
-     * The artifact source's type.
-     */
-    readonly sourceType?: string;
-    /**
-     * Indicates if the artifact source is enabled (values: Enabled, Disabled).
-     */
-    readonly status?: string;
+    readonly properties: outputs.devtestlab.v20160515.ArtifactSourcePropertiesResponse;
     /**
      * The tags of the resource.
      */
@@ -99,14 +70,6 @@ export interface GetArtifactSourceResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier?: string;
-    /**
-     * The artifact source's URI.
-     */
-    readonly uri?: string;
 }
 /**
  * Get artifact source.

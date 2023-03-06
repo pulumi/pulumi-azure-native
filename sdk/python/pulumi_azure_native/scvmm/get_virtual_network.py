@@ -22,28 +22,22 @@ class GetVirtualNetworkResult:
     """
     The VirtualNetworks resource definition.
     """
-    def __init__(__self__, extended_location=None, id=None, inventory_item_id=None, location=None, name=None, network_name=None, provisioning_state=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if inventory_item_id and not isinstance(inventory_item_id, str):
-            raise TypeError("Expected argument 'inventory_item_id' to be a str")
-        pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if network_name and not isinstance(network_name, str):
-            raise TypeError("Expected argument 'network_name' to be a str")
-        pulumi.set(__self__, "network_name", network_name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -53,12 +47,6 @@ class GetVirtualNetworkResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if uuid and not isinstance(uuid, str):
-            raise TypeError("Expected argument 'uuid' to be a str")
-        pulumi.set(__self__, "uuid", uuid)
-        if vmm_server_id and not isinstance(vmm_server_id, str):
-            raise TypeError("Expected argument 'vmm_server_id' to be a str")
-        pulumi.set(__self__, "vmm_server_id", vmm_server_id)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -77,14 +65,6 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> Optional[str]:
-        """
-        Gets or sets the inventory Item ID for the resource.
-        """
-        return pulumi.get(self, "inventory_item_id")
-
-    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -101,20 +81,12 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkName")
-    def network_name(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.VirtualNetworkPropertiesResponse':
         """
-        Name of the virtual network in vmmServer.
+        Resource properties.
         """
-        return pulumi.get(self, "network_name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Gets or sets the provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -140,22 +112,6 @@ class GetVirtualNetworkResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def uuid(self) -> Optional[str]:
-        """
-        Unique ID of the virtual network.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter(name="vmmServerId")
-    def vmm_server_id(self) -> Optional[str]:
-        """
-        ARM Id of the vmmServer resource in which this resource resides.
-        """
-        return pulumi.get(self, "vmm_server_id")
-
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
     # pylint: disable=using-constant-test
@@ -165,16 +121,12 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         return GetVirtualNetworkResult(
             extended_location=self.extended_location,
             id=self.id,
-            inventory_item_id=self.inventory_item_id,
             location=self.location,
             name=self.name,
-            network_name=self.network_name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            uuid=self.uuid,
-            vmm_server_id=self.vmm_server_id)
+            type=self.type)
 
 
 def get_virtual_network(resource_group_name: Optional[str] = None,
@@ -197,16 +149,12 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     return AwaitableGetVirtualNetworkResult(
         extended_location=__ret__.extended_location,
         id=__ret__.id,
-        inventory_item_id=__ret__.inventory_item_id,
         location=__ret__.location,
         name=__ret__.name,
-        network_name=__ret__.network_name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        vmm_server_id=__ret__.vmm_server_id)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_virtual_network)

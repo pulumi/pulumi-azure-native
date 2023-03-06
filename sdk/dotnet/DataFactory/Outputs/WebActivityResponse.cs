@@ -17,22 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class WebActivityResponse
     {
         /// <summary>
-        /// Authentication method used for calling the endpoint.
-        /// </summary>
-        public readonly Outputs.WebActivityAuthenticationResponse? Authentication;
-        /// <summary>
-        /// Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Body;
-        /// <summary>
-        /// The integration runtime reference.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
-        /// <summary>
-        /// List of datasets passed to web endpoint.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DatasetReferenceResponse> Datasets;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -41,25 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// When set to true, Certificate validation will be disabled.
-        /// </summary>
-        public readonly bool? DisableCertValidation;
-        /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Headers;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
-        /// <summary>
-        /// List of linked services passed to web endpoint.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LinkedServiceReferenceResponse> LinkedServices;
-        /// <summary>
-        /// Rest API method for target endpoint.
-        /// </summary>
-        public readonly string Method;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -74,9 +42,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Web activity target endpoint and path. Type: string (or Expression with resultType string).
+        /// Web activity properties.
         /// </summary>
-        public readonly object Url;
+        public readonly Outputs.WebActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -84,27 +52,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private WebActivityResponse(
-            Outputs.WebActivityAuthenticationResponse? authentication,
-
-            object? body,
-
-            Outputs.IntegrationRuntimeReferenceResponse? connectVia,
-
-            ImmutableArray<Outputs.DatasetReferenceResponse> datasets,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
-            bool? disableCertValidation,
-
-            object? headers,
-
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
-
-            ImmutableArray<Outputs.LinkedServiceReferenceResponse> linkedServices,
-
-            string method,
 
             string name,
 
@@ -112,25 +64,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object url,
+            Outputs.WebActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Authentication = authentication;
-            Body = body;
-            ConnectVia = connectVia;
-            Datasets = datasets;
             DependsOn = dependsOn;
             Description = description;
-            DisableCertValidation = disableCertValidation;
-            Headers = headers;
             LinkedServiceName = linkedServiceName;
-            LinkedServices = linkedServices;
-            Method = method;
             Name = name;
             Policy = policy;
             Type = type;
-            Url = url;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

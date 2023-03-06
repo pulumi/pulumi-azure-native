@@ -52,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The OData resource path. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("path")]
-        public Input<object>? Path { get; set; }
-
-        /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
         [Input("structure")]
@@ -69,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// OData dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ODataResourceDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ODataResourceDatasetArgs()
         {

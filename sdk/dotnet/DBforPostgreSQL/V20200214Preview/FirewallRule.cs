@@ -16,22 +16,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
     public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The end IP address of the server firewall rule. Must be IPv4 format.
-        /// </summary>
-        [Output("endIpAddress")]
-        public Output<string> EndIpAddress { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The start IP address of the server firewall rule. Must be IPv4 format.
+        /// The properties of a firewall rule.
         /// </summary>
-        [Output("startIpAddress")]
-        public Output<string> StartIpAddress { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.FirewallRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -96,16 +90,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
     public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The end IP address of the server firewall rule. Must be IPv4 format.
-        /// </summary>
-        [Input("endIpAddress", required: true)]
-        public Input<string> EndIpAddress { get; set; } = null!;
-
-        /// <summary>
         /// The name of the server firewall rule.
         /// </summary>
         [Input("firewallRuleName")]
         public Input<string>? FirewallRuleName { get; set; }
+
+        /// <summary>
+        /// The properties of a firewall rule.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.FirewallRulePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -118,12 +112,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
-
-        /// <summary>
-        /// The start IP address of the server firewall rule. Must be IPv4 format.
-        /// </summary>
-        [Input("startIpAddress", required: true)]
-        public Input<string> StartIpAddress { get; set; } = null!;
 
         public FirewallRuleArgs()
         {

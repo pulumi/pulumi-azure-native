@@ -18,21 +18,21 @@ __all__ = ['BandwidthSettingArgs', 'BandwidthSetting']
 class BandwidthSettingArgs:
     def __init__(__self__, *,
                  manager_name: pulumi.Input[str],
+                 properties: pulumi.Input['BandwidthRateSettingPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 schedules: pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]],
                  bandwidth_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None):
         """
         The set of arguments for constructing a BandwidthSetting resource.
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['BandwidthRateSettingPropertiesArgs'] properties: The properties of the bandwidth setting.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]] schedules: The schedules.
         :param pulumi.Input[str] bandwidth_setting_name: The bandwidth setting name.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         """
         pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedules", schedules)
         if bandwidth_setting_name is not None:
             pulumi.set(__self__, "bandwidth_setting_name", bandwidth_setting_name)
         if kind is not None:
@@ -51,6 +51,18 @@ class BandwidthSettingArgs:
         pulumi.set(self, "manager_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BandwidthRateSettingPropertiesArgs']:
+        """
+        The properties of the bandwidth setting.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['BandwidthRateSettingPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -61,18 +73,6 @@ class BandwidthSettingArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]]:
-        """
-        The schedules.
-        """
-        return pulumi.get(self, "schedules")
-
-    @schedules.setter
-    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]]):
-        pulumi.set(self, "schedules", value)
 
     @property
     @pulumi.getter(name="bandwidthSettingName")
@@ -107,8 +107,8 @@ class BandwidthSetting(pulumi.CustomResource):
                  bandwidth_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BandwidthRateSettingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
                  __props__=None):
         """
         The bandwidth setting.
@@ -119,8 +119,8 @@ class BandwidthSetting(pulumi.CustomResource):
         :param pulumi.Input[str] bandwidth_setting_name: The bandwidth setting name.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[pulumi.InputType['BandwidthRateSettingPropertiesArgs']] properties: The properties of the bandwidth setting.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]] schedules: The schedules.
         """
         ...
     @overload
@@ -150,8 +150,8 @@ class BandwidthSetting(pulumi.CustomResource):
                  bandwidth_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BandwidthRateSettingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,15 +166,14 @@ class BandwidthSetting(pulumi.CustomResource):
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schedules is None and not opts.urn:
-                raise TypeError("Missing required property 'schedules'")
-            __props__.__dict__["schedules"] = schedules
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["volume_count"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple/v20170601:BandwidthSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSetting, __self__).__init__(
@@ -201,9 +200,8 @@ class BandwidthSetting(pulumi.CustomResource):
 
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["schedules"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["volume_count"] = None
         return BandwidthSetting(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -224,11 +222,11 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Output[Sequence['outputs.BandwidthScheduleResponse']]:
+    def properties(self) -> pulumi.Output['outputs.BandwidthRateSettingPropertiesResponse']:
         """
-        The schedules.
+        The properties of the bandwidth setting.
         """
-        return pulumi.get(self, "schedules")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -237,12 +235,4 @@ class BandwidthSetting(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> pulumi.Output[int]:
-        """
-        The number of volumes that uses the bandwidth setting.
-        """
-        return pulumi.get(self, "volume_count")
 

@@ -106,17 +106,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the mobile network resource.
+        /// Mobile network properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-        /// </summary>
-        public readonly Outputs.PlmnIdResponse PublicLandMobileNetworkIdentifier;
-        /// <summary>
-        /// The mobile network resource identifier
-        /// </summary>
-        public readonly string ServiceKey;
+        public readonly Outputs.MobileNetworkPropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -150,11 +142,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 
             string name,
 
-            string provisioningState,
-
-            Outputs.PlmnIdResponse publicLandMobileNetworkIdentifier,
-
-            string serviceKey,
+            Outputs.MobileNetworkPropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -171,9 +159,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
             LastModifiedByType = lastModifiedByType;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            PublicLandMobileNetworkIdentifier = publicLandMobileNetworkIdentifier;
-            ServiceKey = serviceKey;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -41,33 +41,13 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     }
 
     /**
-     * The details of the storage account password
-     */
-    public readonly accessKey!: pulumi.Output<outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse | undefined>;
-    /**
-     * The cloud service provider
-     */
-    public readonly cloudType!: pulumi.Output<string>;
-    /**
-     * SSL needs to be enabled or not
-     */
-    public readonly enableSSL!: pulumi.Output<string>;
-    /**
-     * The storage endpoint
-     */
-    public readonly endPoint!: pulumi.Output<string>;
-    /**
-     * The storage account's geo location
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The storage account login
-     */
-    public readonly login!: pulumi.Output<string>;
-    /**
      * The name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Credential properties
+     */
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.StorageAccountCredentialPropertiesResponse>;
     /**
      * The type.
      */
@@ -86,43 +66,24 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cloudType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cloudType'");
-            }
-            if ((!args || args.enableSSL === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'enableSSL'");
-            }
-            if ((!args || args.endPoint === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'endPoint'");
-            }
-            if ((!args || args.login === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'login'");
-            }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
-            resourceInputs["cloudType"] = args ? args.cloudType : undefined;
             resourceInputs["credentialName"] = args ? args.credentialName : undefined;
-            resourceInputs["enableSSL"] = args ? args.enableSSL : undefined;
-            resourceInputs["endPoint"] = args ? args.endPoint : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["accessKey"] = undefined /*out*/;
-            resourceInputs["cloudType"] = undefined /*out*/;
-            resourceInputs["enableSSL"] = undefined /*out*/;
-            resourceInputs["endPoint"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["login"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -137,37 +98,17 @@ export class StorageAccountCredential extends pulumi.CustomResource {
  */
 export interface StorageAccountCredentialArgs {
     /**
-     * The details of the storage account password
-     */
-    accessKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
-    /**
-     * The cloud service provider
-     */
-    cloudType: pulumi.Input<enums.storsimple.v20161001.CloudType>;
-    /**
      * The credential name.
      */
     credentialName?: pulumi.Input<string>;
     /**
-     * SSL needs to be enabled or not
-     */
-    enableSSL: pulumi.Input<enums.storsimple.v20161001.SslStatus>;
-    /**
-     * The storage endpoint
-     */
-    endPoint: pulumi.Input<string>;
-    /**
-     * The storage account's geo location
-     */
-    location?: pulumi.Input<string>;
-    /**
-     * The storage account login
-     */
-    login: pulumi.Input<string>;
-    /**
      * The manager name
      */
     managerName: pulumi.Input<string>;
+    /**
+     * Credential properties
+     */
+    properties: pulumi.Input<inputs.storsimple.v20161001.StorageAccountCredentialPropertiesArgs>;
     /**
      * The resource group name
      */

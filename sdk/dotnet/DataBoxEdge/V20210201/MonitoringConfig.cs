@@ -16,16 +16,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
     public partial class MonitoringConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The metrics configuration details
-        /// </summary>
-        [Output("metricConfigurations")]
-        public Output<ImmutableArray<Outputs.MetricConfigurationResponse>> MetricConfigurations { get; private set; } = null!;
-
-        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The metric setting properties.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.MonitoringMetricConfigurationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// MonitoringConfiguration on ASE device
@@ -104,17 +104,11 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
-        [Input("metricConfigurations", required: true)]
-        private InputList<Inputs.MetricConfigurationArgs>? _metricConfigurations;
-
         /// <summary>
-        /// The metrics configuration details
+        /// The metric setting properties.
         /// </summary>
-        public InputList<Inputs.MetricConfigurationArgs> MetricConfigurations
-        {
-            get => _metricConfigurations ?? (_metricConfigurations = new InputList<Inputs.MetricConfigurationArgs>());
-            set => _metricConfigurations = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.MonitoringMetricConfigurationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

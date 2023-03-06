@@ -38,10 +38,6 @@ export class AccessControlRecord extends pulumi.CustomResource {
     }
 
     /**
-     * The iSCSI initiator name (IQN).
-     */
-    public readonly initiatorName!: pulumi.Output<string>;
-    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -50,13 +46,13 @@ export class AccessControlRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The properties of access control record.
+     */
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.AccessControlRecordPropertiesResponse>;
+    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The number of volumes using the access control record.
-     */
-    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
 
     /**
      * Create a AccessControlRecord resource with the given unique name, arguments, and options.
@@ -69,29 +65,27 @@ export class AccessControlRecord extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.initiatorName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'initiatorName'");
-            }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accessControlRecordName"] = args ? args.accessControlRecordName : undefined;
-            resourceInputs["initiatorName"] = args ? args.initiatorName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeCount"] = undefined /*out*/;
         } else {
-            resourceInputs["initiatorName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:AccessControlRecord" }, { type: "azure-native:storsimple/v20161001:AccessControlRecord" }] };
@@ -109,10 +103,6 @@ export interface AccessControlRecordArgs {
      */
     accessControlRecordName?: pulumi.Input<string>;
     /**
-     * The iSCSI initiator name (IQN).
-     */
-    initiatorName: pulumi.Input<string>;
-    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
@@ -120,6 +110,10 @@ export interface AccessControlRecordArgs {
      * The manager name
      */
     managerName: pulumi.Input<string>;
+    /**
+     * The properties of access control record.
+     */
+    properties: pulumi.Input<inputs.storsimple.v20170601.AccessControlRecordPropertiesArgs>;
     /**
      * The resource group name
      */

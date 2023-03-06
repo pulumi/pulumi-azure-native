@@ -38,53 +38,17 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The RosettaNet process configuration activity settings.
-     */
-    public readonly activitySettings!: pulumi.Output<outputs.logic.v20160601.RosettaNetPipActivitySettingsResponse>;
-    /**
-     * The changed time.
-     */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
-    /**
-     * The created time.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * The integration account RosettaNet ProcessConfiguration properties.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The RosettaNet initiator role settings.
-     */
-    public readonly initiatorRoleSettings!: pulumi.Output<outputs.logic.v20160601.RosettaNetPipRoleSettingsResponse>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The metadata.
-     */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The integration account RosettaNet process code.
+     * The integration account RosettaNet process configuration properties.
      */
-    public readonly processCode!: pulumi.Output<string>;
-    /**
-     * The integration account RosettaNet process name.
-     */
-    public readonly processName!: pulumi.Output<string>;
-    /**
-     * The integration account RosettaNet process version.
-     */
-    public readonly processVersion!: pulumi.Output<string>;
-    /**
-     * The RosettaNet responder role settings.
-     */
-    public readonly responderRoleSettings!: pulumi.Output<outputs.logic.v20160601.RosettaNetPipRoleSettingsResponse>;
+    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -105,60 +69,27 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.activitySettings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'activitySettings'");
-            }
-            if ((!args || args.initiatorRoleSettings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'initiatorRoleSettings'");
-            }
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.processCode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'processCode'");
-            }
-            if ((!args || args.processName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'processName'");
-            }
-            if ((!args || args.processVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'processVersion'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.responderRoleSettings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'responderRoleSettings'");
-            }
-            resourceInputs["activitySettings"] = args ? args.activitySettings : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["initiatorRoleSettings"] = args ? args.initiatorRoleSettings : undefined;
             resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["processCode"] = args ? args.processCode : undefined;
-            resourceInputs["processName"] = args ? args.processName : undefined;
-            resourceInputs["processVersion"] = args ? args.processVersion : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
             resourceInputs["rosettaNetProcessConfigurationName"] = args ? args.rosettaNetProcessConfigurationName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["activitySettings"] = undefined /*out*/;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["initiatorRoleSettings"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["processCode"] = undefined /*out*/;
-            resourceInputs["processName"] = undefined /*out*/;
-            resourceInputs["processVersion"] = undefined /*out*/;
-            resourceInputs["responderRoleSettings"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -174,18 +105,6 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
  */
 export interface RosettaNetProcessConfigurationArgs {
     /**
-     * The RosettaNet process configuration activity settings.
-     */
-    activitySettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipActivitySettingsArgs>;
-    /**
-     * The integration account RosettaNet ProcessConfiguration properties.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The RosettaNet initiator role settings.
-     */
-    initiatorRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettingsArgs>;
-    /**
      * The integration account name.
      */
     integrationAccountName: pulumi.Input<string>;
@@ -194,29 +113,13 @@ export interface RosettaNetProcessConfigurationArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The metadata.
+     * The integration account RosettaNet process configuration properties.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The integration account RosettaNet process code.
-     */
-    processCode: pulumi.Input<string>;
-    /**
-     * The integration account RosettaNet process name.
-     */
-    processName: pulumi.Input<string>;
-    /**
-     * The integration account RosettaNet process version.
-     */
-    processVersion: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountRosettaNetProcessConfigurationPropertiesArgs>;
     /**
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The RosettaNet responder role settings.
-     */
-    responderRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettingsArgs>;
     /**
      * The integration account RosettaNet ProcessConfiguration name.
      */

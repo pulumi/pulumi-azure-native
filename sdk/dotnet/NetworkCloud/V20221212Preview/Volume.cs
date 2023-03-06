@@ -13,24 +13,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
-        /// </summary>
-        [Output("attachedTo")]
-        public Output<ImmutableArray<string>> AttachedTo { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the volume.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
@@ -49,22 +31,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the volume.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique identifier of the volume.
-        /// </summary>
-        [Output("serialNumber")]
-        public Output<string> SerialNumber { get; private set; } = null!;
-
-        /// <summary>
-        /// The size of the allocation for this volume in Mebibytes.
-        /// </summary>
-        [Output("sizeMiB")]
-        public Output<double> SizeMiB { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VolumePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -146,16 +116,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The list of the resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.VolumePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The size of the allocation for this volume in Mebibytes.
-        /// </summary>
-        [Input("sizeMiB", required: true)]
-        public Input<double> SizeMiB { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

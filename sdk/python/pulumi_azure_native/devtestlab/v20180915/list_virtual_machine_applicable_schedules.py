@@ -22,22 +22,19 @@ class ListVirtualMachineApplicableSchedulesResult:
     """
     Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
     """
-    def __init__(__self__, id=None, lab_vms_shutdown=None, lab_vms_startup=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if lab_vms_shutdown and not isinstance(lab_vms_shutdown, dict):
-            raise TypeError("Expected argument 'lab_vms_shutdown' to be a dict")
-        pulumi.set(__self__, "lab_vms_shutdown", lab_vms_shutdown)
-        if lab_vms_startup and not isinstance(lab_vms_startup, dict):
-            raise TypeError("Expected argument 'lab_vms_startup' to be a dict")
-        pulumi.set(__self__, "lab_vms_startup", lab_vms_startup)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -54,22 +51,6 @@ class ListVirtualMachineApplicableSchedulesResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="labVmsShutdown")
-    def lab_vms_shutdown(self) -> Optional['outputs.ScheduleResponse']:
-        """
-        The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-        """
-        return pulumi.get(self, "lab_vms_shutdown")
-
-    @property
-    @pulumi.getter(name="labVmsStartup")
-    def lab_vms_startup(self) -> Optional['outputs.ScheduleResponse']:
-        """
-        The auto-startup schedule, if one has been set at the lab or lab resource level.
-        """
-        return pulumi.get(self, "lab_vms_startup")
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
@@ -84,6 +65,14 @@ class ListVirtualMachineApplicableSchedulesResult:
         The name of the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ApplicableSchedulePropertiesResponse':
+        """
+        The properties of the resource.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -109,10 +98,9 @@ class AwaitableListVirtualMachineApplicableSchedulesResult(ListVirtualMachineApp
             yield self
         return ListVirtualMachineApplicableSchedulesResult(
             id=self.id,
-            lab_vms_shutdown=self.lab_vms_shutdown,
-            lab_vms_startup=self.lab_vms_startup,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -138,10 +126,9 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
 
     return AwaitableListVirtualMachineApplicableSchedulesResult(
         id=__ret__.id,
-        lab_vms_shutdown=__ret__.lab_vms_shutdown,
-        lab_vms_startup=__ret__.lab_vms_startup,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

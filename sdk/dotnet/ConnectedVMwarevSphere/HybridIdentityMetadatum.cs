@@ -17,28 +17,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identity of the resource.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponse> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the Public Key.
-        /// </summary>
-        [Output("publicKey")]
-        public Output<string?> PublicKey { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.HybridIdentityMetadataPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -51,12 +39,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the Vm Id.
-        /// </summary>
-        [Output("vmId")]
-        public Output<string?> VmId { get; private set; } = null!;
 
 
         /// <summary>
@@ -116,10 +98,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Input<string>? MetadataName { get; set; }
 
         /// <summary>
-        /// Gets or sets the Public Key.
+        /// Resource properties.
         /// </summary>
-        [Input("publicKey")]
-        public Input<string>? PublicKey { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.HybridIdentityMetadataPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.
@@ -132,12 +114,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Input("virtualMachineName", required: true)]
         public Input<string> VirtualMachineName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the Vm Id.
-        /// </summary>
-        [Input("vmId")]
-        public Input<string>? VmId { get; set; }
 
         public HybridIdentityMetadatumArgs()
         {

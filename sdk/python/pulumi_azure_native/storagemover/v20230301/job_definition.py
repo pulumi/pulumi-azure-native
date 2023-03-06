@@ -10,65 +10,32 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['JobDefinitionArgs', 'JobDefinition']
 
 @pulumi.input_type
 class JobDefinitionArgs:
     def __init__(__self__, *,
-                 copy_mode: pulumi.Input[Union[str, 'CopyMode']],
                  project_name: pulumi.Input[str],
+                 properties: pulumi.Input['JobDefinitionPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 source_name: pulumi.Input[str],
                  storage_mover_name: pulumi.Input[str],
-                 target_name: pulumi.Input[str],
-                 agent_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 job_definition_name: Optional[pulumi.Input[str]] = None,
-                 source_subpath: Optional[pulumi.Input[str]] = None,
-                 target_subpath: Optional[pulumi.Input[str]] = None):
+                 job_definition_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
-        :param pulumi.Input[Union[str, 'CopyMode']] copy_mode: Strategy to use for copy.
         :param pulumi.Input[str] project_name: The name of the Project resource.
+        :param pulumi.Input['JobDefinitionPropertiesArgs'] properties: Job definition properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] source_name: The name of the source Endpoint.
         :param pulumi.Input[str] storage_mover_name: The name of the Storage Mover resource.
-        :param pulumi.Input[str] target_name: The name of the target Endpoint.
-        :param pulumi.Input[str] agent_name: Name of the Agent to assign for new Job Runs of this Job Definition.
-        :param pulumi.Input[str] description: A description for the Job Definition.
         :param pulumi.Input[str] job_definition_name: The name of the Job Definition resource.
-        :param pulumi.Input[str] source_subpath: The subpath to use when reading from the source Endpoint.
-        :param pulumi.Input[str] target_subpath: The subpath to use when writing to the target Endpoint.
         """
-        pulumi.set(__self__, "copy_mode", copy_mode)
         pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_name", source_name)
         pulumi.set(__self__, "storage_mover_name", storage_mover_name)
-        pulumi.set(__self__, "target_name", target_name)
-        if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if job_definition_name is not None:
             pulumi.set(__self__, "job_definition_name", job_definition_name)
-        if source_subpath is not None:
-            pulumi.set(__self__, "source_subpath", source_subpath)
-        if target_subpath is not None:
-            pulumi.set(__self__, "target_subpath", target_subpath)
-
-    @property
-    @pulumi.getter(name="copyMode")
-    def copy_mode(self) -> pulumi.Input[Union[str, 'CopyMode']]:
-        """
-        Strategy to use for copy.
-        """
-        return pulumi.get(self, "copy_mode")
-
-    @copy_mode.setter
-    def copy_mode(self, value: pulumi.Input[Union[str, 'CopyMode']]):
-        pulumi.set(self, "copy_mode", value)
 
     @property
     @pulumi.getter(name="projectName")
@@ -83,6 +50,18 @@ class JobDefinitionArgs:
         pulumi.set(self, "project_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['JobDefinitionPropertiesArgs']:
+        """
+        Job definition properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['JobDefinitionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -93,18 +72,6 @@ class JobDefinitionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sourceName")
-    def source_name(self) -> pulumi.Input[str]:
-        """
-        The name of the source Endpoint.
-        """
-        return pulumi.get(self, "source_name")
-
-    @source_name.setter
-    def source_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source_name", value)
 
     @property
     @pulumi.getter(name="storageMoverName")
@@ -119,42 +86,6 @@ class JobDefinitionArgs:
         pulumi.set(self, "storage_mover_name", value)
 
     @property
-    @pulumi.getter(name="targetName")
-    def target_name(self) -> pulumi.Input[str]:
-        """
-        The name of the target Endpoint.
-        """
-        return pulumi.get(self, "target_name")
-
-    @target_name.setter
-    def target_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_name", value)
-
-    @property
-    @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Agent to assign for new Job Runs of this Job Definition.
-        """
-        return pulumi.get(self, "agent_name")
-
-    @agent_name.setter
-    def agent_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "agent_name", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the Job Definition.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -166,64 +97,28 @@ class JobDefinitionArgs:
     def job_definition_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "job_definition_name", value)
 
-    @property
-    @pulumi.getter(name="sourceSubpath")
-    def source_subpath(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subpath to use when reading from the source Endpoint.
-        """
-        return pulumi.get(self, "source_subpath")
-
-    @source_subpath.setter
-    def source_subpath(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_subpath", value)
-
-    @property
-    @pulumi.getter(name="targetSubpath")
-    def target_subpath(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subpath to use when writing to the target Endpoint.
-        """
-        return pulumi.get(self, "target_subpath")
-
-    @target_subpath.setter
-    def target_subpath(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target_subpath", value)
-
 
 class JobDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[str]] = None,
-                 copy_mode: Optional[pulumi.Input[Union[str, 'CopyMode']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_name: Optional[pulumi.Input[str]] = None,
-                 source_subpath: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
-                 target_name: Optional[pulumi.Input[str]] = None,
-                 target_subpath: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The Job Definition resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] agent_name: Name of the Agent to assign for new Job Runs of this Job Definition.
-        :param pulumi.Input[Union[str, 'CopyMode']] copy_mode: Strategy to use for copy.
-        :param pulumi.Input[str] description: A description for the Job Definition.
         :param pulumi.Input[str] job_definition_name: The name of the Job Definition resource.
         :param pulumi.Input[str] project_name: The name of the Project resource.
+        :param pulumi.Input[pulumi.InputType['JobDefinitionPropertiesArgs']] properties: Job definition properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] source_name: The name of the source Endpoint.
-        :param pulumi.Input[str] source_subpath: The subpath to use when reading from the source Endpoint.
         :param pulumi.Input[str] storage_mover_name: The name of the Storage Mover resource.
-        :param pulumi.Input[str] target_name: The name of the target Endpoint.
-        :param pulumi.Input[str] target_subpath: The subpath to use when writing to the target Endpoint.
         """
         ...
     @overload
@@ -249,17 +144,11 @@ class JobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[str]] = None,
-                 copy_mode: Optional[pulumi.Input[Union[str, 'CopyMode']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_name: Optional[pulumi.Input[str]] = None,
-                 source_subpath: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
-                 target_name: Optional[pulumi.Input[str]] = None,
-                 target_subpath: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,38 +158,21 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
-            __props__.__dict__["agent_name"] = agent_name
-            if copy_mode is None and not opts.urn:
-                raise TypeError("Missing required property 'copy_mode'")
-            __props__.__dict__["copy_mode"] = copy_mode
-            __props__.__dict__["description"] = description
             __props__.__dict__["job_definition_name"] = job_definition_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'source_name'")
-            __props__.__dict__["source_name"] = source_name
-            __props__.__dict__["source_subpath"] = source_subpath
             if storage_mover_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_mover_name'")
             __props__.__dict__["storage_mover_name"] = storage_mover_name
-            if target_name is None and not opts.urn:
-                raise TypeError("Missing required property 'target_name'")
-            __props__.__dict__["target_name"] = target_name
-            __props__.__dict__["target_subpath"] = target_subpath
-            __props__.__dict__["agent_resource_id"] = None
-            __props__.__dict__["latest_job_run_name"] = None
-            __props__.__dict__["latest_job_run_resource_id"] = None
-            __props__.__dict__["latest_job_run_status"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["source_resource_id"] = None
             __props__.__dict__["system_data"] = None
-            __props__.__dict__["target_resource_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover:JobDefinition"), pulumi.Alias(type_="azure-native:storagemover/v20220701preview:JobDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -326,80 +198,11 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
-        __props__.__dict__["agent_name"] = None
-        __props__.__dict__["agent_resource_id"] = None
-        __props__.__dict__["copy_mode"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["latest_job_run_name"] = None
-        __props__.__dict__["latest_job_run_resource_id"] = None
-        __props__.__dict__["latest_job_run_status"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["source_name"] = None
-        __props__.__dict__["source_resource_id"] = None
-        __props__.__dict__["source_subpath"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["target_name"] = None
-        __props__.__dict__["target_resource_id"] = None
-        __props__.__dict__["target_subpath"] = None
         __props__.__dict__["type"] = None
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="agentName")
-    def agent_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Name of the Agent to assign for new Job Runs of this Job Definition.
-        """
-        return pulumi.get(self, "agent_name")
-
-    @property
-    @pulumi.getter(name="agentResourceId")
-    def agent_resource_id(self) -> pulumi.Output[str]:
-        """
-        Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
-        """
-        return pulumi.get(self, "agent_resource_id")
-
-    @property
-    @pulumi.getter(name="copyMode")
-    def copy_mode(self) -> pulumi.Output[str]:
-        """
-        Strategy to use for copy.
-        """
-        return pulumi.get(self, "copy_mode")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description for the Job Definition.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="latestJobRunName")
-    def latest_job_run_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Job Run in a non-terminal state, if exists.
-        """
-        return pulumi.get(self, "latest_job_run_name")
-
-    @property
-    @pulumi.getter(name="latestJobRunResourceId")
-    def latest_job_run_resource_id(self) -> pulumi.Output[str]:
-        """
-        The fully qualified resource ID of the Job Run in a non-terminal state, if exists.
-        """
-        return pulumi.get(self, "latest_job_run_resource_id")
-
-    @property
-    @pulumi.getter(name="latestJobRunStatus")
-    def latest_job_run_status(self) -> pulumi.Output[str]:
-        """
-        The current status of the Job Run in a non-terminal state, if exists.
-        """
-        return pulumi.get(self, "latest_job_run_status")
 
     @property
     @pulumi.getter
@@ -410,36 +213,12 @@ class JobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.JobDefinitionPropertiesResponse']:
         """
-        The provisioning state of this resource.
+        Job definition properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sourceName")
-    def source_name(self) -> pulumi.Output[str]:
-        """
-        The name of the source Endpoint.
-        """
-        return pulumi.get(self, "source_name")
-
-    @property
-    @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> pulumi.Output[str]:
-        """
-        Fully qualified resource ID of the source Endpoint.
-        """
-        return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="sourceSubpath")
-    def source_subpath(self) -> pulumi.Output[Optional[str]]:
-        """
-        The subpath to use when reading from the source Endpoint.
-        """
-        return pulumi.get(self, "source_subpath")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -448,30 +227,6 @@ class JobDefinition(pulumi.CustomResource):
         Resource system metadata.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="targetName")
-    def target_name(self) -> pulumi.Output[str]:
-        """
-        The name of the target Endpoint.
-        """
-        return pulumi.get(self, "target_name")
-
-    @property
-    @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> pulumi.Output[str]:
-        """
-        Fully qualified resource ID of the target Endpoint.
-        """
-        return pulumi.get(self, "target_resource_id")
-
-    @property
-    @pulumi.getter(name="targetSubpath")
-    def target_subpath(self) -> pulumi.Output[Optional[str]]:
-        """
-        The subpath to use when writing to the target Endpoint.
-        """
-        return pulumi.get(self, "target_subpath")
 
     @property
     @pulumi.getter

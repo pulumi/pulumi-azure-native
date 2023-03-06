@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("libraries")]
-        private InputList<ImmutableDictionary<string, object>>? _libraries;
-
-        /// <summary>
-        /// A list of libraries to be installed on the cluster that will execute the job.
-        /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Libraries
-        {
-            get => _libraries ?? (_libraries = new InputList<ImmutableDictionary<string, object>>());
-            set => _libraries = value;
-        }
-
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -52,28 +40,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
 
         /// <summary>
-        /// The full name of the class containing the main method to be executed. This class must be contained in a JAR provided as a library. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("mainClassName", required: true)]
-        public Input<object> MainClassName { get; set; } = null!;
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        [Input("parameters")]
-        private InputList<object>? _parameters;
-
-        /// <summary>
-        /// Parameters that will be passed to the main method.
-        /// </summary>
-        public InputList<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputList<object>());
-            set => _parameters = value;
-        }
 
         /// <summary>
         /// Activity policy.
@@ -87,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Databricks SparkJar activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DatabricksSparkJarActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

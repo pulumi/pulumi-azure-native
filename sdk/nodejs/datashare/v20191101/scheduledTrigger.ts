@@ -38,10 +38,6 @@ export class ScheduledTrigger extends pulumi.CustomResource {
     }
 
     /**
-     * Time at which the trigger was created.
-     */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
      * Kind of synchronization on trigger.
      * Expected value is 'ScheduleBased'.
      */
@@ -51,33 +47,13 @@ export class ScheduledTrigger extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state
+     * Properties of scheduled synchronization
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Recurrence Interval
-     */
-    public readonly recurrenceInterval!: pulumi.Output<string>;
-    /**
-     * Synchronization mode
-     */
-    public readonly synchronizationMode!: pulumi.Output<string | undefined>;
-    /**
-     * Synchronization time
-     */
-    public readonly synchronizationTime!: pulumi.Output<string>;
-    /**
-     * Gets the trigger state
-     */
-    public /*out*/ readonly triggerStatus!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20191101.ScheduledTriggerPropertiesResponse>;
     /**
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Name of the user who created the trigger.
-     */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a ScheduledTrigger resource with the given unique name, arguments, and options.
@@ -96,8 +72,8 @@ export class ScheduledTrigger extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.recurrenceInterval === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'recurrenceInterval'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -105,34 +81,19 @@ export class ScheduledTrigger extends pulumi.CustomResource {
             if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            if ((!args || args.synchronizationTime === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'synchronizationTime'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["kind"] = "ScheduleBased";
-            resourceInputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            resourceInputs["synchronizationMode"] = args ? args.synchronizationMode : undefined;
-            resourceInputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
             resourceInputs["triggerName"] = args ? args.triggerName : undefined;
-            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["triggerStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["recurrenceInterval"] = undefined /*out*/;
-            resourceInputs["synchronizationMode"] = undefined /*out*/;
-            resourceInputs["synchronizationTime"] = undefined /*out*/;
-            resourceInputs["triggerStatus"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ScheduledTrigger" }, { type: "azure-native:datashare/v20181101preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20200901:ScheduledTrigger" }, { type: "azure-native:datashare/v20201001preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20210801:ScheduledTrigger" }] };
@@ -155,9 +116,9 @@ export interface ScheduledTriggerArgs {
      */
     kind: pulumi.Input<"ScheduleBased">;
     /**
-     * Recurrence Interval
+     * Properties of scheduled synchronization
      */
-    recurrenceInterval: pulumi.Input<string | enums.datashare.v20191101.RecurrenceInterval>;
+    properties: pulumi.Input<inputs.datashare.v20191101.ScheduledTriggerPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -166,14 +127,6 @@ export interface ScheduledTriggerArgs {
      * The name of the share subscription which will hold the data set sink.
      */
     shareSubscriptionName: pulumi.Input<string>;
-    /**
-     * Synchronization mode
-     */
-    synchronizationMode?: pulumi.Input<string | enums.datashare.v20191101.SynchronizationMode>;
-    /**
-     * Synchronization time
-     */
-    synchronizationTime: pulumi.Input<string>;
     /**
      * The name of the trigger.
      */

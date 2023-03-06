@@ -25,34 +25,22 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object ConnectionString;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The on-premises Windows authentication password.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'SqlServer'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        /// SQL Server linked service properties.
         /// </summary>
-        public readonly object? UserName;
+        public readonly Outputs.SqlServerLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SqlServerLinkedServiceResponse(
@@ -60,29 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object connectionString,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
             string type,
 
-            object? userName)
+            Outputs.SqlServerLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

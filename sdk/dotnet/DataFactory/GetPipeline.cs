@@ -84,29 +84,9 @@ namespace Pulumi.AzureNative.DataFactory
     public sealed class GetPipelineResult
     {
         /// <summary>
-        /// List of activities in pipeline.
-        /// </summary>
-        public readonly ImmutableArray<object> Activities;
-        /// <summary>
-        /// List of tags that can be used for describing the Pipeline.
-        /// </summary>
-        public readonly ImmutableArray<object> Annotations;
-        /// <summary>
-        /// The max number of concurrent runs for the pipeline.
-        /// </summary>
-        public readonly int? Concurrency;
-        /// <summary>
-        /// The description of the pipeline.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-        /// </summary>
-        public readonly Outputs.PipelineResponseFolder? Folder;
         /// <summary>
         /// The resource identifier.
         /// </summary>
@@ -116,67 +96,31 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of parameters for pipeline.
+        /// Properties of the pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Pipeline Policy.
-        /// </summary>
-        public readonly Outputs.PipelinePolicyResponse? Policy;
-        /// <summary>
-        /// Dimensions emitted by Pipeline.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? RunDimensions;
+        public readonly Outputs.PipelineResponse Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// List of variables for pipeline.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.VariableSpecificationResponse>? Variables;
 
         [OutputConstructor]
         private GetPipelineResult(
-            ImmutableArray<object> activities,
-
-            ImmutableArray<object> annotations,
-
-            int? concurrency,
-
-            string? description,
-
             string etag,
-
-            Outputs.PipelineResponseFolder? folder,
 
             string id,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
+            Outputs.PipelineResponse properties,
 
-            Outputs.PipelinePolicyResponse? policy,
-
-            ImmutableDictionary<string, object>? runDimensions,
-
-            string type,
-
-            ImmutableDictionary<string, Outputs.VariableSpecificationResponse>? variables)
+            string type)
         {
-            Activities = activities;
-            Annotations = annotations;
-            Concurrency = concurrency;
-            Description = description;
             Etag = etag;
-            Folder = folder;
             Id = id;
             Name = name;
-            Parameters = parameters;
-            Policy = policy;
-            RunDimensions = runDimensions;
+            Properties = properties;
             Type = type;
-            Variables = variables;
         }
     }
 }

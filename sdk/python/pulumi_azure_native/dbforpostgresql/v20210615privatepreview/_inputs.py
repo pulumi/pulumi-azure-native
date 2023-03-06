@@ -14,6 +14,7 @@ __all__ = [
     'AADAppArgs',
     'AdminCredentialsArgs',
     'BackupArgs',
+    'FirewallRulePropertiesArgs',
     'HighAvailabilityArgs',
     'IdentityArgs',
     'MaintenanceWindowArgs',
@@ -133,6 +134,44 @@ class BackupArgs:
     @geo_redundant_backup.setter
     def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[str, 'GeoRedundantBackupEnum']]]):
         pulumi.set(self, "geo_redundant_backup", value)
+
+
+@pulumi.input_type
+class FirewallRulePropertiesArgs:
+    def __init__(__self__, *,
+                 end_ip_address: pulumi.Input[str],
+                 start_ip_address: pulumi.Input[str]):
+        """
+        The properties of a server firewall rule.
+        :param pulumi.Input[str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
+        :param pulumi.Input[str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> pulumi.Input[str]:
+        """
+        The end IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @end_ip_address.setter
+    def end_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_ip_address", value)
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> pulumi.Input[str]:
+        """
+        The start IP address of the server firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "start_ip_address")
+
+    @start_ip_address.setter
+    def start_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_ip_address", value)
 
 
 @pulumi.input_type

@@ -21,14 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The client Id of your Marketo service.
-        /// </summary>
-        public readonly object ClientId;
-        /// <summary>
-        /// The client secret of your Marketo service.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ClientSecret;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -36,14 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
-        /// </summary>
-        public readonly object Endpoint;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -54,56 +38,30 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Marketo server linked service properties.
         /// </summary>
-        public readonly object? UseEncryptedEndpoints;
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UseHostVerification;
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UsePeerVerification;
+        public readonly Outputs.MarketoLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private MarketoLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            object clientId,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
-
-            object? encryptedCredential,
-
-            object endpoint,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type,
 
-            object? useEncryptedEndpoints,
-
-            object? useHostVerification,
-
-            object? usePeerVerification)
+            Outputs.MarketoLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            Endpoint = endpoint;
             Parameters = parameters;
             Type = type;
-            UseEncryptedEndpoints = useEncryptedEndpoints;
-            UseHostVerification = useHostVerification;
-            UsePeerVerification = usePeerVerification;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -22,13 +22,7 @@ class GetServiceUnitResult:
     """
     Represents the response of a service unit resource.
     """
-    def __init__(__self__, artifacts=None, deployment_mode=None, id=None, location=None, name=None, tags=None, target_resource_group=None, type=None):
-        if artifacts and not isinstance(artifacts, dict):
-            raise TypeError("Expected argument 'artifacts' to be a dict")
-        pulumi.set(__self__, "artifacts", artifacts)
-        if deployment_mode and not isinstance(deployment_mode, str):
-            raise TypeError("Expected argument 'deployment_mode' to be a str")
-        pulumi.set(__self__, "deployment_mode", deployment_mode)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,31 +32,15 @@ class GetServiceUnitResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if target_resource_group and not isinstance(target_resource_group, str):
-            raise TypeError("Expected argument 'target_resource_group' to be a str")
-        pulumi.set(__self__, "target_resource_group", target_resource_group)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def artifacts(self) -> Optional['outputs.ServiceUnitArtifactsResponse']:
-        """
-        The artifacts for the service unit.
-        """
-        return pulumi.get(self, "artifacts")
-
-    @property
-    @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> str:
-        """
-        Describes the type of ARM deployment to be performed on the resource.
-        """
-        return pulumi.get(self, "deployment_mode")
 
     @property
     @pulumi.getter
@@ -90,19 +68,19 @@ class GetServiceUnitResult:
 
     @property
     @pulumi.getter
+    def properties(self) -> 'outputs.ServiceUnitResourceResponseProperties':
+        """
+        The properties that define the service unit.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="targetResourceGroup")
-    def target_resource_group(self) -> str:
-        """
-        The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-        """
-        return pulumi.get(self, "target_resource_group")
 
     @property
     @pulumi.getter
@@ -119,13 +97,11 @@ class AwaitableGetServiceUnitResult(GetServiceUnitResult):
         if False:
             yield self
         return GetServiceUnitResult(
-            artifacts=self.artifacts,
-            deployment_mode=self.deployment_mode,
             id=self.id,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             tags=self.tags,
-            target_resource_group=self.target_resource_group,
             type=self.type)
 
 
@@ -152,13 +128,11 @@ def get_service_unit(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deploymentmanager/v20191101preview:getServiceUnit', __args__, opts=opts, typ=GetServiceUnitResult).value
 
     return AwaitableGetServiceUnitResult(
-        artifacts=__ret__.artifacts,
-        deployment_mode=__ret__.deployment_mode,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        target_resource_group=__ret__.target_resource_group,
         type=__ret__.type)
 
 

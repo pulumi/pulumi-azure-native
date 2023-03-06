@@ -37,22 +37,6 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
-     * Internal use.
-     */
-    readonly debugParams?: string;
-    /**
-     * User readable description of the application.
-     */
-    readonly description?: string;
-    /**
-     * Describes the diagnostics definition and usage for an application resource.
-     */
-    readonly diagnostics?: outputs.servicefabricmesh.v20180701preview.DiagnosticsDescriptionResponse;
-    /**
-     * Describes the health state of an application resource.
-     */
-    readonly healthState: string;
-    /**
      * Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -65,25 +49,9 @@ export interface GetApplicationResult {
      */
     readonly name: string;
     /**
-     * State of the resource.
+     * This type describes properties of an application resource.
      */
-    readonly provisioningState: string;
-    /**
-     * Names of the services in the application.
-     */
-    readonly serviceNames: string[];
-    /**
-     * describes the services in the application.
-     */
-    readonly services?: outputs.servicefabricmesh.v20180701preview.ServiceResourceDescriptionResponse[];
-    /**
-     * Status of the application resource.
-     */
-    readonly status: string;
-    /**
-     * Gives additional information about the current status of the application deployment.
-     */
-    readonly statusDetails: string;
+    readonly properties: outputs.servicefabricmesh.v20180701preview.ApplicationResourcePropertiesResponse;
     /**
      * Resource tags.
      */
@@ -92,10 +60,6 @@ export interface GetApplicationResult {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
-    /**
-     * When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-     */
-    readonly unhealthyEvaluation: string;
 }
 /**
  * Gets the information about the application resource with a given name. The information includes the information about the application's services and other runtime properties.

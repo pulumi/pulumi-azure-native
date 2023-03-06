@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The name of the SAP Table. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'SapTableResource'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// SAP Table Resource properties.
+        /// </summary>
+        public readonly Outputs.SapTableResourceDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SapTableResourceDatasetResponse(
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? structure,
 
-            object tableName,
+            string type,
 
-            string type)
+            Outputs.SapTableResourceDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
@@ -81,8 +81,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Schema = schema;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

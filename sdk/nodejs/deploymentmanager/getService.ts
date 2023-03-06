@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -50,17 +53,13 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
+     * The properties that define a service in a service topology.
+     */
+    readonly properties: outputs.deploymentmanager.ServiceResourceResponseProperties;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The Azure location to which the resources in the service belong to or should be deployed to.
-     */
-    readonly targetLocation: string;
-    /**
-     * The subscription to which the resources in the service belong to or should be deployed to.
-     */
-    readonly targetSubscriptionId: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

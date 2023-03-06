@@ -18,11 +18,15 @@ __all__ = [
     'ImageReferenceArgs',
     'LabNetworkProfileArgs',
     'LabPlanNetworkProfileArgs',
+    'LabPlanPropertiesArgs',
+    'LabPropertiesArgs',
     'RecurrencePatternArgs',
     'RosterProfileArgs',
+    'SchedulePropertiesArgs',
     'SecurityProfileArgs',
     'SkuArgs',
     'SupportInfoArgs',
+    'UserPropertiesArgs',
     'VirtualMachineAdditionalCapabilitiesArgs',
     'VirtualMachineProfileArgs',
 ]
@@ -449,6 +453,274 @@ class LabPlanNetworkProfileArgs:
 
 
 @pulumi.input_type
+class LabPlanPropertiesArgs:
+    def __init__(__self__, *,
+                 allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_auto_shutdown_profile: Optional[pulumi.Input['AutoShutdownProfileArgs']] = None,
+                 default_connection_profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None,
+                 default_network_profile: Optional[pulumi.Input['LabPlanNetworkProfileArgs']] = None,
+                 linked_lms_instance: Optional[pulumi.Input[str]] = None,
+                 shared_gallery_id: Optional[pulumi.Input[str]] = None,
+                 support_info: Optional[pulumi.Input['SupportInfoArgs']] = None):
+        """
+        Lab plan resource properties
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_regions: The allowed regions for the lab creator to use when creating labs using this lab plan.
+        :param pulumi.Input['AutoShutdownProfileArgs'] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+        :param pulumi.Input['ConnectionProfileArgs'] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+        :param pulumi.Input['LabPlanNetworkProfileArgs'] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        :param pulumi.Input[str] linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
+        :param pulumi.Input[str] shared_gallery_id: Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
+        :param pulumi.Input['SupportInfoArgs'] support_info: Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+        """
+        if allowed_regions is not None:
+            pulumi.set(__self__, "allowed_regions", allowed_regions)
+        if default_auto_shutdown_profile is not None:
+            pulumi.set(__self__, "default_auto_shutdown_profile", default_auto_shutdown_profile)
+        if default_connection_profile is not None:
+            pulumi.set(__self__, "default_connection_profile", default_connection_profile)
+        if default_network_profile is not None:
+            pulumi.set(__self__, "default_network_profile", default_network_profile)
+        if linked_lms_instance is not None:
+            pulumi.set(__self__, "linked_lms_instance", linked_lms_instance)
+        if shared_gallery_id is not None:
+            pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
+        if support_info is not None:
+            pulumi.set(__self__, "support_info", support_info)
+
+    @property
+    @pulumi.getter(name="allowedRegions")
+    def allowed_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed regions for the lab creator to use when creating labs using this lab plan.
+        """
+        return pulumi.get(self, "allowed_regions")
+
+    @allowed_regions.setter
+    def allowed_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_regions", value)
+
+    @property
+    @pulumi.getter(name="defaultAutoShutdownProfile")
+    def default_auto_shutdown_profile(self) -> Optional[pulumi.Input['AutoShutdownProfileArgs']]:
+        """
+        The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+        """
+        return pulumi.get(self, "default_auto_shutdown_profile")
+
+    @default_auto_shutdown_profile.setter
+    def default_auto_shutdown_profile(self, value: Optional[pulumi.Input['AutoShutdownProfileArgs']]):
+        pulumi.set(self, "default_auto_shutdown_profile", value)
+
+    @property
+    @pulumi.getter(name="defaultConnectionProfile")
+    def default_connection_profile(self) -> Optional[pulumi.Input['ConnectionProfileArgs']]:
+        """
+        The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+        """
+        return pulumi.get(self, "default_connection_profile")
+
+    @default_connection_profile.setter
+    def default_connection_profile(self, value: Optional[pulumi.Input['ConnectionProfileArgs']]):
+        pulumi.set(self, "default_connection_profile", value)
+
+    @property
+    @pulumi.getter(name="defaultNetworkProfile")
+    def default_network_profile(self) -> Optional[pulumi.Input['LabPlanNetworkProfileArgs']]:
+        """
+        The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        """
+        return pulumi.get(self, "default_network_profile")
+
+    @default_network_profile.setter
+    def default_network_profile(self, value: Optional[pulumi.Input['LabPlanNetworkProfileArgs']]):
+        pulumi.set(self, "default_network_profile", value)
+
+    @property
+    @pulumi.getter(name="linkedLmsInstance")
+    def linked_lms_instance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base Url of the lms instance this lab plan can link lab rosters against.
+        """
+        return pulumi.get(self, "linked_lms_instance")
+
+    @linked_lms_instance.setter
+    def linked_lms_instance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linked_lms_instance", value)
+
+    @property
+    @pulumi.getter(name="sharedGalleryId")
+    def shared_gallery_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
+        """
+        return pulumi.get(self, "shared_gallery_id")
+
+    @shared_gallery_id.setter
+    def shared_gallery_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_gallery_id", value)
+
+    @property
+    @pulumi.getter(name="supportInfo")
+    def support_info(self) -> Optional[pulumi.Input['SupportInfoArgs']]:
+        """
+        Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+        """
+        return pulumi.get(self, "support_info")
+
+    @support_info.setter
+    def support_info(self, value: Optional[pulumi.Input['SupportInfoArgs']]):
+        pulumi.set(self, "support_info", value)
+
+
+@pulumi.input_type
+class LabPropertiesArgs:
+    def __init__(__self__, *,
+                 auto_shutdown_profile: pulumi.Input['AutoShutdownProfileArgs'],
+                 connection_profile: pulumi.Input['ConnectionProfileArgs'],
+                 security_profile: pulumi.Input['SecurityProfileArgs'],
+                 virtual_machine_profile: pulumi.Input['VirtualMachineProfileArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 lab_plan_id: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['LabNetworkProfileArgs']] = None,
+                 roster_profile: Optional[pulumi.Input['RosterProfileArgs']] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of a lab resource.
+        :param pulumi.Input['AutoShutdownProfileArgs'] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+        :param pulumi.Input['ConnectionProfileArgs'] connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        :param pulumi.Input['SecurityProfileArgs'] security_profile: The lab security profile.
+        :param pulumi.Input['VirtualMachineProfileArgs'] virtual_machine_profile: The profile used for creating lab virtual machines.
+        :param pulumi.Input[str] description: The description of the lab.
+        :param pulumi.Input[str] lab_plan_id: The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+        :param pulumi.Input['LabNetworkProfileArgs'] network_profile: The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        :param pulumi.Input['RosterProfileArgs'] roster_profile: The lab user list management profile.
+        :param pulumi.Input[str] title: The title of the lab.
+        """
+        pulumi.set(__self__, "auto_shutdown_profile", auto_shutdown_profile)
+        pulumi.set(__self__, "connection_profile", connection_profile)
+        pulumi.set(__self__, "security_profile", security_profile)
+        pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if lab_plan_id is not None:
+            pulumi.set(__self__, "lab_plan_id", lab_plan_id)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if roster_profile is not None:
+            pulumi.set(__self__, "roster_profile", roster_profile)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="autoShutdownProfile")
+    def auto_shutdown_profile(self) -> pulumi.Input['AutoShutdownProfileArgs']:
+        """
+        The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+        """
+        return pulumi.get(self, "auto_shutdown_profile")
+
+    @auto_shutdown_profile.setter
+    def auto_shutdown_profile(self, value: pulumi.Input['AutoShutdownProfileArgs']):
+        pulumi.set(self, "auto_shutdown_profile", value)
+
+    @property
+    @pulumi.getter(name="connectionProfile")
+    def connection_profile(self) -> pulumi.Input['ConnectionProfileArgs']:
+        """
+        The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        """
+        return pulumi.get(self, "connection_profile")
+
+    @connection_profile.setter
+    def connection_profile(self, value: pulumi.Input['ConnectionProfileArgs']):
+        pulumi.set(self, "connection_profile", value)
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Input['SecurityProfileArgs']:
+        """
+        The lab security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: pulumi.Input['SecurityProfileArgs']):
+        pulumi.set(self, "security_profile", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineProfile")
+    def virtual_machine_profile(self) -> pulumi.Input['VirtualMachineProfileArgs']:
+        """
+        The profile used for creating lab virtual machines.
+        """
+        return pulumi.get(self, "virtual_machine_profile")
+
+    @virtual_machine_profile.setter
+    def virtual_machine_profile(self, value: pulumi.Input['VirtualMachineProfileArgs']):
+        pulumi.set(self, "virtual_machine_profile", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the lab.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="labPlanId")
+    def lab_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+        """
+        return pulumi.get(self, "lab_plan_id")
+
+    @lab_plan_id.setter
+    def lab_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lab_plan_id", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['LabNetworkProfileArgs']]:
+        """
+        The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['LabNetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="rosterProfile")
+    def roster_profile(self) -> Optional[pulumi.Input['RosterProfileArgs']]:
+        """
+        The lab user list management profile.
+        """
+        return pulumi.get(self, "roster_profile")
+
+    @roster_profile.setter
+    def roster_profile(self, value: Optional[pulumi.Input['RosterProfileArgs']]):
+        pulumi.set(self, "roster_profile", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the lab.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
 class RecurrencePatternArgs:
     def __init__(__self__, *,
                  expiration_date: pulumi.Input[str],
@@ -604,6 +876,92 @@ class RosterProfileArgs:
     @lti_roster_endpoint.setter
     def lti_roster_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lti_roster_endpoint", value)
+
+
+@pulumi.input_type
+class SchedulePropertiesArgs:
+    def __init__(__self__, *,
+                 stop_at: pulumi.Input[str],
+                 time_zone_id: pulumi.Input[str],
+                 notes: Optional[pulumi.Input[str]] = None,
+                 recurrence_pattern: Optional[pulumi.Input['RecurrencePatternArgs']] = None,
+                 start_at: Optional[pulumi.Input[str]] = None):
+        """
+        Schedule resource properties
+        :param pulumi.Input[str] stop_at: When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+        :param pulumi.Input[str] time_zone_id: The IANA timezone id for the schedule.
+        :param pulumi.Input[str] notes: Notes for this schedule.
+        :param pulumi.Input['RecurrencePatternArgs'] recurrence_pattern: The recurrence pattern of the scheduled actions.
+        :param pulumi.Input[str] start_at: When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        pulumi.set(__self__, "stop_at", stop_at)
+        pulumi.set(__self__, "time_zone_id", time_zone_id)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if recurrence_pattern is not None:
+            pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+
+    @property
+    @pulumi.getter(name="stopAt")
+    def stop_at(self) -> pulumi.Input[str]:
+        """
+        When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        return pulumi.get(self, "stop_at")
+
+    @stop_at.setter
+    def stop_at(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stop_at", value)
+
+    @property
+    @pulumi.getter(name="timeZoneId")
+    def time_zone_id(self) -> pulumi.Input[str]:
+        """
+        The IANA timezone id for the schedule.
+        """
+        return pulumi.get(self, "time_zone_id")
+
+    @time_zone_id.setter
+    def time_zone_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_zone_id", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Notes for this schedule.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="recurrencePattern")
+    def recurrence_pattern(self) -> Optional[pulumi.Input['RecurrencePatternArgs']]:
+        """
+        The recurrence pattern of the scheduled actions.
+        """
+        return pulumi.get(self, "recurrence_pattern")
+
+    @recurrence_pattern.setter
+    def recurrence_pattern(self, value: Optional[pulumi.Input['RecurrencePatternArgs']]):
+        pulumi.set(self, "recurrence_pattern", value)
+
+    @property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        return pulumi.get(self, "start_at")
+
+    @start_at.setter
+    def start_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_at", value)
 
 
 @pulumi.input_type
@@ -787,6 +1145,45 @@ class SupportInfoArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class UserPropertiesArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[str],
+                 additional_usage_quota: Optional[pulumi.Input[str]] = None):
+        """
+        User resource properties
+        :param pulumi.Input[str] email: Email address of the user.
+        :param pulumi.Input[str] additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
+        """
+        pulumi.set(__self__, "email", email)
+        if additional_usage_quota is not None:
+            pulumi.set(__self__, "additional_usage_quota", additional_usage_quota)
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
+        """
+        Email address of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="additionalUsageQuota")
+    def additional_usage_quota(self) -> Optional[pulumi.Input[str]]:
+        """
+        The amount of usage quota time the user gets in addition to the lab usage quota.
+        """
+        return pulumi.get(self, "additional_usage_quota")
+
+    @additional_usage_quota.setter
+    def additional_usage_quota(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_usage_quota", value)
 
 
 @pulumi.input_type

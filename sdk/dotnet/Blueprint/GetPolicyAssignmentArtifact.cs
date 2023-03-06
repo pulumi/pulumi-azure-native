@@ -84,18 +84,6 @@ namespace Pulumi.AzureNative.Blueprint
     public sealed class GetPolicyAssignmentArtifactResult
     {
         /// <summary>
-        /// Artifacts which need to be deployed before the specified artifact.
-        /// </summary>
-        public readonly ImmutableArray<string> DependsOn;
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
@@ -109,17 +97,9 @@ namespace Pulumi.AzureNative.Blueprint
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameter values for the policy definition.
+        /// properties for policyAssignment Artifact
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterValueResponse> Parameters;
-        /// <summary>
-        /// Azure resource ID of the policy definition.
-        /// </summary>
-        public readonly string PolicyDefinitionId;
-        /// <summary>
-        /// Name of the resource group placeholder to which the policy will be assigned.
-        /// </summary>
-        public readonly string? ResourceGroup;
+        public readonly Outputs.PolicyAssignmentArtifactPropertiesResponse Properties;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -127,35 +107,20 @@ namespace Pulumi.AzureNative.Blueprint
 
         [OutputConstructor]
         private GetPolicyAssignmentArtifactResult(
-            ImmutableArray<string> dependsOn,
-
-            string? description,
-
-            string? displayName,
-
             string id,
 
             string kind,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterValueResponse> parameters,
-
-            string policyDefinitionId,
-
-            string? resourceGroup,
+            Outputs.PolicyAssignmentArtifactPropertiesResponse properties,
 
             string type)
         {
-            DependsOn = dependsOn;
-            Description = description;
-            DisplayName = displayName;
             Id = id;
             Kind = kind;
             Name = name;
-            Parameters = parameters;
-            PolicyDefinitionId = policyDefinitionId;
-            ResourceGroup = resourceGroup;
+            Properties = properties;
             Type = type;
         }
     }

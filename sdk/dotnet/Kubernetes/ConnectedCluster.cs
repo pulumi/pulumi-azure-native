@@ -17,52 +17,10 @@ namespace Pulumi.AzureNative.Kubernetes
     public partial class ConnectedCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-        /// </summary>
-        [Output("agentPublicKeyCertificate")]
-        public Output<string> AgentPublicKeyCertificate { get; private set; } = null!;
-
-        /// <summary>
-        /// Version of the agent running on the connected cluster resource
-        /// </summary>
-        [Output("agentVersion")]
-        public Output<string> AgentVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Represents the connectivity status of the connected cluster.
-        /// </summary>
-        [Output("connectivityStatus")]
-        public Output<string> ConnectivityStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The Kubernetes distribution running on this connected cluster.
-        /// </summary>
-        [Output("distribution")]
-        public Output<string?> Distribution { get; private set; } = null!;
-
-        /// <summary>
         /// The identity of the connected cluster.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ConnectedClusterIdentityResponse> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
-        /// </summary>
-        [Output("infrastructure")]
-        public Output<string?> Infrastructure { get; private set; } = null!;
-
-        /// <summary>
-        /// The Kubernetes version of the connected cluster resource
-        /// </summary>
-        [Output("kubernetesVersion")]
-        public Output<string> KubernetesVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Time representing the last instance when heart beat was received from the cluster
-        /// </summary>
-        [Output("lastConnectivityTime")]
-        public Output<string> LastConnectivityTime { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -71,28 +29,16 @@ namespace Pulumi.AzureNative.Kubernetes
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Expiration time of the managed identity certificate
-        /// </summary>
-        [Output("managedIdentityCertificateExpirationTime")]
-        public Output<string> ManagedIdentityCertificateExpirationTime { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Connected cluster offering
+        /// Describes the connected cluster resource properties.
         /// </summary>
-        [Output("offering")]
-        public Output<string> Offering { get; private set; } = null!;
-
-        /// <summary>
-        /// Provisioning state of the connected cluster resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ConnectedClusterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
@@ -105,18 +51,6 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Number of CPU cores present in the connected cluster resource
-        /// </summary>
-        [Output("totalCoreCount")]
-        public Output<int> TotalCoreCount { get; private set; } = null!;
-
-        /// <summary>
-        /// Number of nodes present in the connected cluster resource
-        /// </summary>
-        [Output("totalNodeCount")]
-        public Output<int> TotalNodeCount { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -179,22 +113,10 @@ namespace Pulumi.AzureNative.Kubernetes
     public sealed class ConnectedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-        /// </summary>
-        [Input("agentPublicKeyCertificate", required: true)]
-        public Input<string> AgentPublicKeyCertificate { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
-
-        /// <summary>
-        /// The Kubernetes distribution running on this connected cluster.
-        /// </summary>
-        [Input("distribution")]
-        public Input<string>? Distribution { get; set; }
 
         /// <summary>
         /// The identity of the connected cluster.
@@ -203,22 +125,16 @@ namespace Pulumi.AzureNative.Kubernetes
         public Input<Inputs.ConnectedClusterIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
-        /// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
-        /// </summary>
-        [Input("infrastructure")]
-        public Input<string>? Infrastructure { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Provisioning state of the connected cluster resource.
+        /// Describes the connected cluster resource properties.
         /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.Kubernetes.ProvisioningState>? ProvisioningState { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.ConnectedClusterPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

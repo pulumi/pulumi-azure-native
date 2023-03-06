@@ -17,6 +17,7 @@ __all__ = [
     'AlertRuleAllOfConditionResponse',
     'AlertRuleAnyOfOrLeafConditionResponse',
     'AlertRuleLeafConditionResponse',
+    'AlertRuleResponse',
     'AlertingActionResponse',
     'ApplicationInsightsComponentAnalyticsItemPropertiesResponse',
     'ApplicationInsightsComponentDataVolumeCapResponse',
@@ -25,9 +26,11 @@ __all__ = [
     'AutomationRunbookReceiverResponse',
     'AutoscaleNotificationResponse',
     'AutoscaleProfileResponse',
+    'AutoscaleSettingResponse',
     'AzNsActionGroupResponse',
     'AzureAppPushReceiverResponse',
     'AzureFunctionReceiverResponse',
+    'AzureMonitorPrivateLinkScopePropertiesResponse',
     'CriteriaResponse',
     'DataCollectionEndpointResourceResponseSystemData',
     'DataCollectionEndpointResponseConfigurationAccess',
@@ -48,10 +51,14 @@ __all__ = [
     'EtwProviderConfigurationResponse',
     'EventLogConfigurationResponse',
     'ExtensionDataSourceResponse',
+    'GuestDiagnosticSettingsAssociationResponse',
+    'GuestDiagnosticSettingsResponse',
     'ItsmReceiverResponse',
     'LocationThresholdRuleConditionResponse',
     'LogAnalyticsDestinationResponse',
     'LogMetricTriggerResponse',
+    'LogProfilePropertiesResponse',
+    'LogSearchRuleResponse',
     'LogSettingsResponse',
     'LogToMetricActionResponse',
     'LogicAppReceiverResponse',
@@ -60,6 +67,7 @@ __all__ = [
     'ManagementGroupLogSettingsResponse',
     'MetricAlertActionResponse',
     'MetricAlertMultipleResourceMultipleMetricCriteriaResponse',
+    'MetricAlertPropertiesResponse',
     'MetricAlertSingleResourceMultipleMetricCriteriaResponse',
     'MetricCriteriaResponse',
     'MetricDimensionResponse',
@@ -398,6 +406,130 @@ class AlertRuleLeafConditionResponse(dict):
         The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
         """
         return pulumi.get(self, "field")
+
+
+@pulumi.output_type
+class AlertRuleResponse(dict):
+    """
+    An alert rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: Any,
+                 is_enabled: bool,
+                 last_updated_time: str,
+                 name: str,
+                 action: Optional[Any] = None,
+                 actions: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        An alert rule.
+        :param Union['LocationThresholdRuleConditionResponse', 'ManagementEventRuleConditionResponse', 'ThresholdRuleConditionResponse'] condition: the condition that results in the alert rule being activated.
+        :param bool is_enabled: the flag that indicates whether the alert rule is enabled.
+        :param str last_updated_time: Last time the rule was updated in ISO8601 format.
+        :param str name: the name of the alert rule.
+        :param Union['RuleEmailActionResponse', 'RuleWebhookActionResponse'] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param Sequence[Union['RuleEmailActionResponse', 'RuleWebhookActionResponse']] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param str description: the description of the alert rule that will be included in the alert email.
+        :param str provisioning_state: the provisioning state.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Any:
+        """
+        the condition that results in the alert rule being activated.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        Last time the rule was updated in ISO8601 format.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        the name of the alert rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[Any]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[Any]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -1089,6 +1221,109 @@ class AutoscaleProfileResponse(dict):
 
 
 @pulumi.output_type
+class AutoscaleSettingResponse(dict):
+    """
+    A setting that contains all of the configuration for the automatic scaling of a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetResourceLocation":
+            suggest = "target_resource_location"
+        elif key == "targetResourceUri":
+            suggest = "target_resource_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profiles: Sequence['outputs.AutoscaleProfileResponse'],
+                 enabled: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 notifications: Optional[Sequence['outputs.AutoscaleNotificationResponse']] = None,
+                 target_resource_location: Optional[str] = None,
+                 target_resource_uri: Optional[str] = None):
+        """
+        A setting that contains all of the configuration for the automatic scaling of a resource.
+        :param Sequence['AutoscaleProfileResponse'] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param bool enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        :param str name: the name of the autoscale setting.
+        :param Sequence['AutoscaleNotificationResponse'] notifications: the collection of notifications.
+        :param str target_resource_location: the location of the resource that the autoscale setting should be added to.
+        :param str target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        pulumi.set(__self__, "profiles", profiles)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
+        if target_resource_uri is not None:
+            pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> Sequence['outputs.AutoscaleProfileResponse']:
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        """
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        the name of the autoscale setting.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[Sequence['outputs.AutoscaleNotificationResponse']]:
+        """
+        the collection of notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[str]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[str]:
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_uri")
+
+
+@pulumi.output_type
 class AzNsActionGroupResponse(dict):
     """
     Azure action group
@@ -1296,6 +1531,58 @@ class AzureFunctionReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class AzureMonitorPrivateLinkScopePropertiesResponse(dict):
+    """
+    Properties that define a Azure Monitor PrivateLinkScope resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorPrivateLinkScopePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorPrivateLinkScopePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorPrivateLinkScopePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 provisioning_state: str):
+        """
+        Properties that define a Azure Monitor PrivateLinkScope resource.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of private endpoint connections.
+        :param str provisioning_state: Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        """
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -2430,6 +2717,109 @@ class ExtensionDataSourceResponse(dict):
 
 
 @pulumi.output_type
+class GuestDiagnosticSettingsAssociationResponse(dict):
+    """
+    A guest diagnostic settings association.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guestDiagnosticSettingsName":
+            suggest = "guest_diagnostic_settings_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestDiagnosticSettingsAssociationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestDiagnosticSettingsAssociationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestDiagnosticSettingsAssociationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guest_diagnostic_settings_name: str):
+        """
+        A guest diagnostic settings association.
+        :param str guest_diagnostic_settings_name: The guest diagnostic settings name.
+        """
+        pulumi.set(__self__, "guest_diagnostic_settings_name", guest_diagnostic_settings_name)
+
+    @property
+    @pulumi.getter(name="guestDiagnosticSettingsName")
+    def guest_diagnostic_settings_name(self) -> str:
+        """
+        The guest diagnostic settings name.
+        """
+        return pulumi.get(self, "guest_diagnostic_settings_name")
+
+
+@pulumi.output_type
+class GuestDiagnosticSettingsResponse(dict):
+    """
+    Virtual machine diagnostic settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSources":
+            suggest = "data_sources"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "proxySetting":
+            suggest = "proxy_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestDiagnosticSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestDiagnosticSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestDiagnosticSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_sources: Optional[Sequence['outputs.DataSourceResponse']] = None,
+                 os_type: Optional[str] = None,
+                 proxy_setting: Optional[str] = None):
+        """
+        Virtual machine diagnostic settings
+        :param Sequence['DataSourceResponse'] data_sources: the array of data source object which are configured to collect and send data
+        :param str os_type: Operating system type for the configuration
+        """
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if proxy_setting is not None:
+            pulumi.set(__self__, "proxy_setting", proxy_setting)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional[Sequence['outputs.DataSourceResponse']]:
+        """
+        the array of data source object which are configured to collect and send data
+        """
+        return pulumi.get(self, "data_sources")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        Operating system type for the configuration
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="proxySetting")
+    def proxy_setting(self) -> Optional[str]:
+        return pulumi.get(self, "proxy_setting")
+
+
+@pulumi.output_type
 class ItsmReceiverResponse(dict):
     """
     An Itsm receiver.
@@ -2743,6 +3133,261 @@ class LogMetricTriggerResponse(dict):
         Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         """
         return pulumi.get(self, "threshold_operator")
+
+
+@pulumi.output_type
+class LogProfilePropertiesResponse(dict):
+    """
+    The log profile properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicy":
+            suggest = "retention_policy"
+        elif key == "serviceBusRuleId":
+            suggest = "service_bus_rule_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogProfilePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogProfilePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 categories: Sequence[str],
+                 locations: Sequence[str],
+                 retention_policy: 'outputs.RetentionPolicyResponse',
+                 service_bus_rule_id: Optional[str] = None,
+                 storage_account_id: Optional[str] = None):
+        """
+        The log profile properties.
+        :param Sequence[str] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        :param Sequence[str] locations: List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for the events in the log.
+        :param str service_bus_rule_id: The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        :param str storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        pulumi.set(__self__, "categories", categories)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "retention_policy", retention_policy)
+        if service_bus_rule_id is not None:
+            pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Sequence[str]:
+        """
+        the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        """
+        return pulumi.get(self, "categories")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Sequence[str]:
+        """
+        List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> 'outputs.RetentionPolicyResponse':
+        """
+        the retention policy for the events in the log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="serviceBusRuleId")
+    def service_bus_rule_id(self) -> Optional[str]:
+        """
+        The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        """
+        return pulumi.get(self, "service_bus_rule_id")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        """
+        the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+
+@pulumi.output_type
+class LogSearchRuleResponse(dict):
+    """
+    Log Search Rule Definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdWithApiVersion":
+            suggest = "created_with_api_version"
+        elif key == "isLegacyLogAnalyticsRule":
+            suggest = "is_legacy_log_analytics_rule"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoMitigate":
+            suggest = "auto_mitigate"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogSearchRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogSearchRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogSearchRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Any,
+                 created_with_api_version: str,
+                 is_legacy_log_analytics_rule: bool,
+                 last_updated_time: str,
+                 provisioning_state: str,
+                 source: 'outputs.SourceResponse',
+                 auto_mitigate: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 enabled: Optional[str] = None,
+                 schedule: Optional['outputs.ScheduleResponse'] = None):
+        """
+        Log Search Rule Definition
+        :param Union['AlertingActionResponse', 'LogToMetricActionResponse'] action: Action needs to be taken on rule execution.
+        :param str created_with_api_version: The api-version used when creating this alert rule
+        :param bool is_legacy_log_analytics_rule: True if alert rule is legacy Log Analytic rule
+        :param str last_updated_time: Last time the rule was updated in IS08601 format.
+        :param str provisioning_state: Provisioning state of the scheduled query rule
+        :param 'SourceResponse' source: Data Source against which rule will Query Data
+        :param bool auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        :param str description: The description of the Log Search rule.
+        :param str display_name: The display name of the alert rule
+        :param str enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        :param 'ScheduleResponse' schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "created_with_api_version", created_with_api_version)
+        pulumi.set(__self__, "is_legacy_log_analytics_rule", is_legacy_log_analytics_rule)
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source", source)
+        if auto_mitigate is None:
+            auto_mitigate = False
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Any:
+        """
+        Action needs to be taken on rule execution.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="createdWithApiVersion")
+    def created_with_api_version(self) -> str:
+        """
+        The api-version used when creating this alert rule
+        """
+        return pulumi.get(self, "created_with_api_version")
+
+    @property
+    @pulumi.getter(name="isLegacyLogAnalyticsRule")
+    def is_legacy_log_analytics_rule(self) -> bool:
+        """
+        True if alert rule is legacy Log Analytic rule
+        """
+        return pulumi.get(self, "is_legacy_log_analytics_rule")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        Last time the rule was updated in IS08601 format.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the scheduled query rule
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.SourceResponse':
+        """
+        Data Source against which rule will Query Data
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[bool]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Log Search rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
+        """
+        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        return pulumi.get(self, "schedule")
 
 
 @pulumi.output_type
@@ -3210,6 +3855,194 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
         the list of multiple metric criteria for this 'all of' operation. 
         """
         return pulumi.get(self, "all_of")
+
+
+@pulumi.output_type
+class MetricAlertPropertiesResponse(dict):
+    """
+    An alert rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationFrequency":
+            suggest = "evaluation_frequency"
+        elif key == "isMigrated":
+            suggest = "is_migrated"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "windowSize":
+            suggest = "window_size"
+        elif key == "autoMitigate":
+            suggest = "auto_mitigate"
+        elif key == "targetResourceRegion":
+            suggest = "target_resource_region"
+        elif key == "targetResourceType":
+            suggest = "target_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlertPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlertPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlertPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 criteria: Any,
+                 enabled: bool,
+                 evaluation_frequency: str,
+                 is_migrated: bool,
+                 last_updated_time: str,
+                 scopes: Sequence[str],
+                 severity: int,
+                 window_size: str,
+                 actions: Optional[Sequence['outputs.MetricAlertActionResponse']] = None,
+                 auto_mitigate: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 target_resource_region: Optional[str] = None,
+                 target_resource_type: Optional[str] = None):
+        """
+        An alert rule.
+        :param Union['MetricAlertMultipleResourceMultipleMetricCriteriaResponse', 'MetricAlertSingleResourceMultipleMetricCriteriaResponse', 'WebtestLocationAvailabilityCriteriaResponse'] criteria: defines the specific alert criteria information.
+        :param bool enabled: the flag that indicates whether the metric alert is enabled.
+        :param str evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
+        :param bool is_migrated: the value indicating whether this alert rule is migrated.
+        :param str last_updated_time: Last time the rule was updated in ISO8601 format.
+        :param Sequence[str] scopes: the list of resource id's that this metric alert is scoped to.
+        :param int severity: Alert severity {0, 1, 2, 3, 4}
+        :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        :param Sequence['MetricAlertActionResponse'] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param bool auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        :param str description: the description of the metric alert that will be included in the alert email.
+        :param str target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        :param str target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        pulumi.set(__self__, "is_migrated", is_migrated)
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "window_size", window_size)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if target_resource_region is not None:
+            pulumi.set(__self__, "target_resource_region", target_resource_region)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Any:
+        """
+        defines the specific alert criteria information.
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        the flag that indicates whether the metric alert is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> str:
+        """
+        how often the metric alert is evaluated represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter(name="isMigrated")
+    def is_migrated(self) -> bool:
+        """
+        the value indicating whether this alert rule is migrated.
+        """
+        return pulumi.get(self, "is_migrated")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        Last time the rule was updated in ISO8601 format.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        the list of resource id's that this metric alert is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> int:
+        """
+        Alert severity {0, 1, 2, 3, 4}
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> str:
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        """
+        return pulumi.get(self, "window_size")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.MetricAlertActionResponse']]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[bool]:
+        """
+        the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        the description of the metric alert that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="targetResourceRegion")
+    def target_resource_region(self) -> Optional[str]:
+        """
+        the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        return pulumi.get(self, "target_resource_region")
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[str]:
+        """
+        the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        return pulumi.get(self, "target_resource_type")
 
 
 @pulumi.output_type

@@ -14,9 +14,11 @@ __all__ = [
     'ApiPropertiesArgs',
     'AutoscaleSettingsArgs',
     'CapabilityArgs',
+    'CassandraKeyspaceCreateUpdatePropertiesArgs',
     'CassandraKeyspaceResourceArgs',
     'CassandraPartitionKeyArgs',
     'CassandraSchemaArgs',
+    'CassandraTableCreateUpdatePropertiesArgs',
     'CassandraTableResourceArgs',
     'CertificateArgs',
     'ClusterKeyArgs',
@@ -33,7 +35,9 @@ __all__ = [
     'DatabaseRestoreResourceArgs',
     'DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs',
     'ExcludedPathArgs',
+    'GremlinDatabaseCreateUpdatePropertiesArgs',
     'GremlinDatabaseResourceArgs',
+    'GremlinGraphCreateUpdatePropertiesArgs',
     'GremlinGraphResourceArgs',
     'IncludedPathArgs',
     'IndexesArgs',
@@ -41,7 +45,9 @@ __all__ = [
     'IpAddressOrRangeArgs',
     'LocationArgs',
     'ManagedServiceIdentityArgs',
+    'MongoDBCollectionCreateUpdatePropertiesArgs',
     'MongoDBCollectionResourceArgs',
+    'MongoDBDatabaseCreateUpdatePropertiesArgs',
     'MongoDBDatabaseResourceArgs',
     'MongoIndexKeysArgs',
     'MongoIndexOptionsArgs',
@@ -55,11 +61,17 @@ __all__ = [
     'RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs',
     'SeedNodeArgs',
     'SpatialSpecArgs',
+    'SqlContainerCreateUpdatePropertiesArgs',
     'SqlContainerResourceArgs',
+    'SqlDatabaseCreateUpdatePropertiesArgs',
     'SqlDatabaseResourceArgs',
+    'SqlStoredProcedureCreateUpdatePropertiesArgs',
     'SqlStoredProcedureResourceArgs',
+    'SqlTriggerCreateUpdatePropertiesArgs',
     'SqlTriggerResourceArgs',
+    'SqlUserDefinedFunctionCreateUpdatePropertiesArgs',
     'SqlUserDefinedFunctionResourceArgs',
+    'TableCreateUpdatePropertiesArgs',
     'TableResourceArgs',
     'UniqueKeyPolicyArgs',
     'UniqueKeyArgs',
@@ -134,6 +146,45 @@ class CapabilityArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CassandraKeyspaceCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['CassandraKeyspaceResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Cassandra keyspace.
+        :param pulumi.Input['CassandraKeyspaceResourceArgs'] resource: The standard JSON format of a Cassandra keyspace
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['CassandraKeyspaceResourceArgs']:
+        """
+        The standard JSON format of a Cassandra keyspace
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['CassandraKeyspaceResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -237,6 +288,45 @@ class CassandraSchemaArgs:
     @partition_keys.setter
     def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgs']]]]):
         pulumi.set(self, "partition_keys", value)
+
+
+@pulumi.input_type
+class CassandraTableCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['CassandraTableResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Cassandra table.
+        :param pulumi.Input['CassandraTableResourceArgs'] resource: The standard JSON format of a Cassandra table
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['CassandraTableResourceArgs']:
+        """
+        The standard JSON format of a Cassandra table
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['CassandraTableResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -1520,6 +1610,45 @@ class ExcludedPathArgs:
 
 
 @pulumi.input_type
+class GremlinDatabaseCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['GremlinDatabaseResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Gremlin database.
+        :param pulumi.Input['GremlinDatabaseResourceArgs'] resource: The standard JSON format of a Gremlin database
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['GremlinDatabaseResourceArgs']:
+        """
+        The standard JSON format of a Gremlin database
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['GremlinDatabaseResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class GremlinDatabaseResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1540,6 +1669,45 @@ class GremlinDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GremlinGraphCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['GremlinGraphResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Gremlin graph.
+        :param pulumi.Input['GremlinGraphResourceArgs'] resource: The standard JSON format of a Gremlin graph
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['GremlinGraphResourceArgs']:
+        """
+        The standard JSON format of a Gremlin graph
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['GremlinGraphResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -1972,6 +2140,45 @@ class ManagedServiceIdentityArgs:
 
 
 @pulumi.input_type
+class MongoDBCollectionCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['MongoDBCollectionResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB MongoDB collection.
+        :param pulumi.Input['MongoDBCollectionResourceArgs'] resource: The standard JSON format of a MongoDB collection
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['MongoDBCollectionResourceArgs']:
+        """
+        The standard JSON format of a MongoDB collection
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['MongoDBCollectionResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class MongoDBCollectionResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -2040,6 +2247,45 @@ class MongoDBCollectionResourceArgs:
     @shard_key.setter
     def shard_key(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "shard_key", value)
+
+
+@pulumi.input_type
+class MongoDBDatabaseCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['MongoDBDatabaseResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB MongoDB database.
+        :param pulumi.Input['MongoDBDatabaseResourceArgs'] resource: The standard JSON format of a MongoDB database
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['MongoDBDatabaseResourceArgs']:
+        """
+        The standard JSON format of a MongoDB database
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['MongoDBDatabaseResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -2898,6 +3144,45 @@ class SpatialSpecArgs:
 
 
 @pulumi.input_type
+class SqlContainerCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlContainerResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB container.
+        :param pulumi.Input['SqlContainerResourceArgs'] resource: The standard JSON format of a container
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlContainerResourceArgs']:
+        """
+        The standard JSON format of a container
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlContainerResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class SqlContainerResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -3017,6 +3302,45 @@ class SqlContainerResourceArgs:
 
 
 @pulumi.input_type
+class SqlDatabaseCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlDatabaseResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB SQL database.
+        :param pulumi.Input['SqlDatabaseResourceArgs'] resource: The standard JSON format of a SQL database
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlDatabaseResourceArgs']:
+        """
+        The standard JSON format of a SQL database
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlDatabaseResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class SqlDatabaseResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -3037,6 +3361,45 @@ class SqlDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SqlStoredProcedureCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlStoredProcedureResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB storedProcedure.
+        :param pulumi.Input['SqlStoredProcedureResourceArgs'] resource: The standard JSON format of a storedProcedure
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlStoredProcedureResourceArgs']:
+        """
+        The standard JSON format of a storedProcedure
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlStoredProcedureResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -3076,6 +3439,45 @@ class SqlStoredProcedureResourceArgs:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+
+@pulumi.input_type
+class SqlTriggerCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlTriggerResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB trigger.
+        :param pulumi.Input['SqlTriggerResourceArgs'] resource: The standard JSON format of a trigger
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlTriggerResourceArgs']:
+        """
+        The standard JSON format of a trigger
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlTriggerResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -3150,6 +3552,45 @@ class SqlTriggerResourceArgs:
 
 
 @pulumi.input_type
+class SqlUserDefinedFunctionCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlUserDefinedFunctionResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB userDefinedFunction.
+        :param pulumi.Input['SqlUserDefinedFunctionResourceArgs'] resource: The standard JSON format of a userDefinedFunction
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlUserDefinedFunctionResourceArgs']:
+        """
+        The standard JSON format of a userDefinedFunction
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlUserDefinedFunctionResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class SqlUserDefinedFunctionResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -3186,6 +3627,45 @@ class SqlUserDefinedFunctionResourceArgs:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+
+@pulumi.input_type
+class TableCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['TableResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Table.
+        :param pulumi.Input['TableResourceArgs'] resource: The standard JSON format of a Table
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['TableResourceArgs']:
+        """
+        The standard JSON format of a Table
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['TableResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type

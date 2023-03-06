@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,29 +40,9 @@ export interface GetEventHubEventSourceArgs {
  */
 export interface GetEventHubEventSourceResult {
     /**
-     * The name of the event hub's consumer group that holds the partitions from which events will be read.
-     */
-    readonly consumerGroupName: string;
-    /**
-     * The time the resource was created.
-     */
-    readonly creationTime: string;
-    /**
-     * The name of the event hub.
-     */
-    readonly eventHubName: string;
-    /**
-     * The resource id of the event source in Azure Resource Manager.
-     */
-    readonly eventSourceResourceId: string;
-    /**
      * Resource Id
      */
     readonly id: string;
-    /**
-     * The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
-     */
-    readonly keyName: string;
     /**
      * The kind of the event source.
      * Expected value is 'Microsoft.EventHub'.
@@ -74,21 +57,13 @@ export interface GetEventHubEventSourceResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Properties of the EventHub event source resource.
      */
-    readonly provisioningState: string;
-    /**
-     * The name of the service bus that contains the event hub.
-     */
-    readonly serviceBusNamespace: string;
+    readonly properties: outputs.timeseriesinsights.v20180815preview.EventHubEventSourceResourcePropertiesResponse;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-     */
-    readonly timestampPropertyName?: string;
     /**
      * Resource type
      */

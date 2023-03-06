@@ -29,22 +29,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Pipeline parameters.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
-        /// <summary>
-        /// Pipeline reference.
-        /// </summary>
-        public readonly Outputs.PipelineReferenceResponse Pipeline;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'ExecutePipeline'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
+        /// Execute pipeline activity properties.
         /// </summary>
-        public readonly bool? WaitOnCompletion;
+        public readonly Outputs.ExecutePipelineActivityTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ExecutePipelineActivityResponse(
@@ -54,21 +46,15 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string name,
 
-            ImmutableDictionary<string, object>? parameters,
-
-            Outputs.PipelineReferenceResponse pipeline,
-
             string type,
 
-            bool? waitOnCompletion)
+            Outputs.ExecutePipelineActivityTypePropertiesResponse typeProperties)
         {
             DependsOn = dependsOn;
             Description = description;
             Name = name;
-            Parameters = parameters;
-            Pipeline = pipeline;
             Type = type;
-            WaitOnCompletion = waitOnCompletion;
+            TypeProperties = typeProperties;
         }
     }
 }

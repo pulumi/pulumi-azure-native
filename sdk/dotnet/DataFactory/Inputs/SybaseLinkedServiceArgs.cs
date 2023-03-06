@@ -28,34 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// AuthenticationType to be used for connection.
-        /// </summary>
-        [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.SybaseAuthenticationType>? AuthenticationType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// Database name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("database", required: true)]
-        public Input<object> Database { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -70,24 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Password for authentication.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// Schema name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("schema")]
-        public Input<object>? Schema { get; set; }
-
-        /// <summary>
-        /// Server name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("server", required: true)]
-        public Input<object> Server { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'Sybase'.
         /// </summary>
@@ -95,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username for authentication. Type: string (or Expression with resultType string).
+        /// Sybase linked service properties.
         /// </summary>
-        [Input("username")]
-        public Input<object>? Username { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SybaseLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SybaseLinkedServiceArgs()
         {

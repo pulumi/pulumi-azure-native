@@ -41,49 +41,17 @@ export interface GetShareArgs {
  */
 export interface GetShareResult {
     /**
-     * Access protocol to be used by the share.
-     */
-    readonly accessProtocol: string;
-    /**
-     * Azure container mapping for the share.
-     */
-    readonly azureContainerInfo?: outputs.databoxedge.AzureContainerInfoResponse;
-    /**
-     * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-     */
-    readonly clientAccessRights?: outputs.databoxedge.ClientAccessRightResponse[];
-    /**
-     * Data policy of the share.
-     */
-    readonly dataPolicy?: string;
-    /**
-     * Description for the share.
-     */
-    readonly description?: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
-    /**
-     * Current monitoring status of the share.
-     */
-    readonly monitoringStatus: string;
     /**
      * The object name.
      */
     readonly name: string;
     /**
-     * Details of the refresh job on this share.
+     * The share properties.
      */
-    readonly refreshDetails?: outputs.databoxedge.RefreshDetailsResponse;
-    /**
-     * Share mount point to the role.
-     */
-    readonly shareMappings: outputs.databoxedge.MountPointMapResponse[];
-    /**
-     * Current status of the share.
-     */
-    readonly shareStatus: string;
+    readonly properties: outputs.databoxedge.SharePropertiesResponse;
     /**
      * Share on ASE device
      */
@@ -92,10 +60,6 @@ export interface GetShareResult {
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * Mapping of users and corresponding access rights on the share (required for SMB protocol).
-     */
-    readonly userAccessRights?: outputs.databoxedge.UserAccessRightResponse[];
 }
 /**
  * Represents a share on the  Data Box Edge/Gateway device.

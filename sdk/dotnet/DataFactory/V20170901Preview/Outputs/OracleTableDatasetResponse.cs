@@ -37,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'OracleTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// On-premises Oracle dataset properties.
+        /// </summary>
+        public readonly Outputs.OracleTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private OracleTableDatasetResponse(
@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             object? structure,
 
-            object tableName,
+            string type,
 
-            string type)
+            Outputs.OracleTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

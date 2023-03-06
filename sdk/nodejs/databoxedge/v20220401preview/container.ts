@@ -38,25 +38,13 @@ export class Container extends pulumi.CustomResource {
     }
 
     /**
-     * Current status of the container.
-     */
-    public /*out*/ readonly containerStatus!: pulumi.Output<string>;
-    /**
-     * The UTC time when container got created.
-     */
-    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
-    /**
-     * DataFormat for Container
-     */
-    public readonly dataFormat!: pulumi.Output<string>;
-    /**
      * The object name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Details of the refresh job on this container.
+     * The container properties.
      */
-    public /*out*/ readonly refreshDetails!: pulumi.Output<outputs.databoxedge.v20220401preview.RefreshDetailsResponse>;
+    public readonly properties!: pulumi.Output<outputs.databoxedge.v20220401preview.ContainerPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of Container
      */
@@ -77,11 +65,11 @@ export class Container extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataFormat === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFormat'");
-            }
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -90,22 +78,16 @@ export class Container extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["containerStatus"] = undefined /*out*/;
-            resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["refreshDetails"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["containerStatus"] = undefined /*out*/;
-            resourceInputs["createdDateTime"] = undefined /*out*/;
-            resourceInputs["dataFormat"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["refreshDetails"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -125,13 +107,13 @@ export interface ContainerArgs {
      */
     containerName?: pulumi.Input<string>;
     /**
-     * DataFormat for Container
-     */
-    dataFormat: pulumi.Input<string | enums.databoxedge.v20220401preview.AzureContainerDataFormat>;
-    /**
      * The device name.
      */
     deviceName: pulumi.Input<string>;
+    /**
+     * The container properties.
+     */
+    properties: pulumi.Input<inputs.databoxedge.v20220401preview.ContainerPropertiesArgs>;
     /**
      * The resource group name.
      */

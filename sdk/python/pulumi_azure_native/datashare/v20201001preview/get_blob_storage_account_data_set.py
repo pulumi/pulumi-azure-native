@@ -22,42 +22,25 @@ class GetBlobStorageAccountDataSetResult:
     """
     An Azure blob storage account data set.
     """
-    def __init__(__self__, data_set_id=None, id=None, kind=None, location=None, name=None, paths=None, storage_account_resource_id=None, system_data=None, type=None):
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if paths and not isinstance(paths, list):
-            raise TypeError("Expected argument 'paths' to be a list")
-        pulumi.set(__self__, "paths", paths)
-        if storage_account_resource_id and not isinstance(storage_account_resource_id, str):
-            raise TypeError("Expected argument 'storage_account_resource_id' to be a str")
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -78,14 +61,6 @@ class GetBlobStorageAccountDataSetResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        Location of the storage account.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         Name of the azure resource
@@ -94,19 +69,11 @@ class GetBlobStorageAccountDataSetResult:
 
     @property
     @pulumi.getter
-    def paths(self) -> Sequence['outputs.BlobStorageAccountPathResponse']:
+    def properties(self) -> 'outputs.BlobStorageAccountDataSetPropertiesResponse':
         """
-        A list of storage account paths.
+        Storage account data set properties.
         """
-        return pulumi.get(self, "paths")
-
-    @property
-    @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> str:
-        """
-        Resource id of the storage account.
-        """
-        return pulumi.get(self, "storage_account_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -131,13 +98,10 @@ class AwaitableGetBlobStorageAccountDataSetResult(GetBlobStorageAccountDataSetRe
         if False:
             yield self
         return GetBlobStorageAccountDataSetResult(
-            data_set_id=self.data_set_id,
             id=self.id,
             kind=self.kind,
-            location=self.location,
             name=self.name,
-            paths=self.paths,
-            storage_account_resource_id=self.storage_account_resource_id,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -165,13 +129,10 @@ def get_blob_storage_account_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet', __args__, opts=opts, typ=GetBlobStorageAccountDataSetResult).value
 
     return AwaitableGetBlobStorageAccountDataSetResult(
-        data_set_id=__ret__.data_set_id,
         id=__ret__.id,
         kind=__ret__.kind,
-        location=__ret__.location,
         name=__ret__.name,
-        paths=__ret__.paths,
-        storage_account_resource_id=__ret__.storage_account_resource_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

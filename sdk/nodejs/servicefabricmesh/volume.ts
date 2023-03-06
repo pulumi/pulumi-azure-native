@@ -39,14 +39,6 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * This type describes a volume provided by an Azure Files file share.
-     */
-    public readonly azureFileParameters!: pulumi.Output<outputs.servicefabricmesh.VolumeProviderParametersAzureFileResponse | undefined>;
-    /**
-     * User readable description of the volume.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -55,21 +47,9 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provider of the volume.
+     * This type describes properties of a volume resource.
      */
-    public readonly provider!: pulumi.Output<string>;
-    /**
-     * State of the resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Status of the volume.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Gives additional information about the current status of the volume.
-     */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.servicefabricmesh.VolumeResourcePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -90,33 +70,23 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'provider'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureFileParameters"] = args ? args.azureFileParameters : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeResourceName"] = args ? args.volumeResourceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["azureFileParameters"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provider"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -132,21 +102,13 @@ export class Volume extends pulumi.CustomResource {
  */
 export interface VolumeArgs {
     /**
-     * This type describes a volume provided by an Azure Files file share.
-     */
-    azureFileParameters?: pulumi.Input<inputs.servicefabricmesh.VolumeProviderParametersAzureFileArgs>;
-    /**
-     * User readable description of the volume.
-     */
-    description?: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Provider of the volume.
+     * This type describes properties of a volume resource.
      */
-    provider: pulumi.Input<string | enums.servicefabricmesh.VolumeProvider>;
+    properties: pulumi.Input<inputs.servicefabricmesh.VolumeResourcePropertiesArgs>;
     /**
      * Azure resource group name
      */

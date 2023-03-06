@@ -13,9 +13,11 @@ from ._enums import *
 
 __all__ = [
     'DatabaseVulnerabilityAssessmentRuleBaselineItemResponse',
+    'DisasterRecoveryConfigurationPropertiesResponse',
     'ElasticPoolPerDatabaseSettingsResponse',
     'FailoverGroupReadOnlyEndpointResponse',
     'FailoverGroupReadWriteEndpointResponse',
+    'GeoBackupPolicyPropertiesResponse',
     'InstanceFailoverGroupReadOnlyEndpointResponse',
     'InstanceFailoverGroupReadWriteEndpointResponse',
     'JobScheduleResponse',
@@ -73,6 +75,119 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemResponse(dict):
         The rule baseline result
         """
         return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class DisasterRecoveryConfigurationPropertiesResponse(dict):
+    """
+    Represents the properties of a disaster recovery configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoFailover":
+            suggest = "auto_failover"
+        elif key == "failoverPolicy":
+            suggest = "failover_policy"
+        elif key == "logicalServerName":
+            suggest = "logical_server_name"
+        elif key == "partnerLogicalServerName":
+            suggest = "partner_logical_server_name"
+        elif key == "partnerServerId":
+            suggest = "partner_server_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DisasterRecoveryConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DisasterRecoveryConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DisasterRecoveryConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_failover: str,
+                 failover_policy: str,
+                 logical_server_name: str,
+                 partner_logical_server_name: str,
+                 partner_server_id: str,
+                 role: str,
+                 status: str):
+        """
+        Represents the properties of a disaster recovery configuration.
+        :param str auto_failover: Whether or not failover can be done automatically.
+        :param str failover_policy: How aggressive the automatic failover should be.
+        :param str logical_server_name: Logical name of the server.
+        :param str partner_logical_server_name: Logical name of the partner server.
+        :param str partner_server_id: Id of the partner server.
+        :param str role: The role of the current server in the disaster recovery configuration.
+        :param str status: The status of the disaster recovery configuration.
+        """
+        pulumi.set(__self__, "auto_failover", auto_failover)
+        pulumi.set(__self__, "failover_policy", failover_policy)
+        pulumi.set(__self__, "logical_server_name", logical_server_name)
+        pulumi.set(__self__, "partner_logical_server_name", partner_logical_server_name)
+        pulumi.set(__self__, "partner_server_id", partner_server_id)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="autoFailover")
+    def auto_failover(self) -> str:
+        """
+        Whether or not failover can be done automatically.
+        """
+        return pulumi.get(self, "auto_failover")
+
+    @property
+    @pulumi.getter(name="failoverPolicy")
+    def failover_policy(self) -> str:
+        """
+        How aggressive the automatic failover should be.
+        """
+        return pulumi.get(self, "failover_policy")
+
+    @property
+    @pulumi.getter(name="logicalServerName")
+    def logical_server_name(self) -> str:
+        """
+        Logical name of the server.
+        """
+        return pulumi.get(self, "logical_server_name")
+
+    @property
+    @pulumi.getter(name="partnerLogicalServerName")
+    def partner_logical_server_name(self) -> str:
+        """
+        Logical name of the partner server.
+        """
+        return pulumi.get(self, "partner_logical_server_name")
+
+    @property
+    @pulumi.getter(name="partnerServerId")
+    def partner_server_id(self) -> str:
+        """
+        Id of the partner server.
+        """
+        return pulumi.get(self, "partner_server_id")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The role of the current server in the disaster recovery configuration.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the disaster recovery configuration.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -220,6 +335,56 @@ class FailoverGroupReadWriteEndpointResponse(dict):
         Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_with_data_loss_grace_period_minutes")
+
+
+@pulumi.output_type
+class GeoBackupPolicyPropertiesResponse(dict):
+    """
+    The properties of the geo backup policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GeoBackupPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GeoBackupPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GeoBackupPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: str,
+                 storage_type: str):
+        """
+        The properties of the geo backup policy.
+        :param str state: The state of the geo backup policy.
+        :param str storage_type: The storage type of the geo backup policy.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the geo backup policy.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> str:
+        """
+        The storage type of the geo backup policy.
+        """
+        return pulumi.get(self, "storage_type")
 
 
 @pulumi.output_type

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -49,41 +52,17 @@ export interface GetPoolResult {
      */
     readonly name: string;
     /**
-     * UUID v4 used to identify the Pool
+     * Capacity pool properties
      */
-    readonly poolId: string;
-    /**
-     * Azure lifecycle management
-     */
-    readonly provisioningState: string;
-    /**
-     * The qos type of the pool
-     */
-    readonly qosType?: string;
-    /**
-     * The service level of the file system
-     */
-    readonly serviceLevel: string;
-    /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-     */
-    readonly size: number;
+    readonly properties: outputs.netapp.v20210201.PoolPropertiesResponse;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Total throughput of pool in Mibps
-     */
-    readonly totalThroughputMibps: number;
-    /**
      * Resource type
      */
     readonly type: string;
-    /**
-     * Utilized throughput of pool in Mibps
-     */
-    readonly utilizedThroughputMibps: number;
 }
 /**
  * Get details of the specified capacity pool

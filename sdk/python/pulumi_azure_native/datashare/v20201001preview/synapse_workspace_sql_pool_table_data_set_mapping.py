@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['SynapseWorkspaceSqlPoolTableDataSetMappingArgs', 'SynapseWorkspaceSqlPoolTableDataSetMapping']
 
@@ -16,29 +17,26 @@ __all__ = ['SynapseWorkspaceSqlPoolTableDataSetMappingArgs', 'SynapseWorkspaceSq
 class SynapseWorkspaceSqlPoolTableDataSetMappingArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 data_set_id: pulumi.Input[str],
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_subscription_name: pulumi.Input[str],
-                 synapse_workspace_sql_pool_table_resource_id: pulumi.Input[str],
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SynapseWorkspaceSqlPoolTableDataSetMapping resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] data_set_id: The id of the source data set.
         :param pulumi.Input[str] kind: Kind of data set mapping.
                Expected value is 'SynapseWorkspaceSqlPoolTable'.
+        :param pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs'] properties: A Synapse Workspace Sql Pool Table data set mapping properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
-        :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
         pulumi.set(__self__, "kind", 'SynapseWorkspaceSqlPoolTable')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
         if data_set_mapping_name is not None:
             pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
 
@@ -55,18 +53,6 @@ class SynapseWorkspaceSqlPoolTableDataSetMappingArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Input[str]:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @data_set_id.setter
-    def data_set_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_set_id", value)
-
-    @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
@@ -78,6 +64,18 @@ class SynapseWorkspaceSqlPoolTableDataSetMappingArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs']:
+        """
+        A Synapse Workspace Sql Pool Table data set mapping properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,18 +102,6 @@ class SynapseWorkspaceSqlPoolTableDataSetMappingArgs:
         pulumi.set(self, "share_subscription_name", value)
 
     @property
-    @pulumi.getter(name="synapseWorkspaceSqlPoolTableResourceId")
-    def synapse_workspace_sql_pool_table_resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource id of the Synapse Workspace SQL Pool Table
-        """
-        return pulumi.get(self, "synapse_workspace_sql_pool_table_resource_id")
-
-    @synapse_workspace_sql_pool_table_resource_id.setter
-    def synapse_workspace_sql_pool_table_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "synapse_workspace_sql_pool_table_resource_id", value)
-
-    @property
     @pulumi.getter(name="dataSetMappingName")
     def data_set_mapping_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -134,12 +120,11 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 data_set_id: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 synapse_workspace_sql_pool_table_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A Synapse Workspace Sql Pool Table data set mapping
@@ -147,13 +132,12 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] data_set_id: The id of the source data set.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         :param pulumi.Input[str] kind: Kind of data set mapping.
                Expected value is 'SynapseWorkspaceSqlPoolTable'.
+        :param pulumi.Input[pulumi.InputType['SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs']] properties: A Synapse Workspace Sql Pool Table data set mapping properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
-        :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
         """
         ...
     @overload
@@ -180,12 +164,11 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 data_set_id: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
-                 synapse_workspace_sql_pool_table_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -198,25 +181,20 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if data_set_id is None and not opts.urn:
-                raise TypeError("Missing required property 'data_set_id'")
-            __props__.__dict__["data_set_id"] = data_set_id
             __props__.__dict__["data_set_mapping_name"] = data_set_mapping_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'SynapseWorkspaceSqlPoolTable'
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_subscription_name'")
             __props__.__dict__["share_subscription_name"] = share_subscription_name
-            if synapse_workspace_sql_pool_table_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'synapse_workspace_sql_pool_table_resource_id'")
-            __props__.__dict__["synapse_workspace_sql_pool_table_resource_id"] = synapse_workspace_sql_pool_table_resource_id
-            __props__.__dict__["data_set_mapping_status"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping")])
@@ -243,31 +221,12 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
 
         __props__ = SynapseWorkspaceSqlPoolTableDataSetMappingArgs.__new__(SynapseWorkspaceSqlPoolTableDataSetMappingArgs)
 
-        __props__.__dict__["data_set_id"] = None
-        __props__.__dict__["data_set_mapping_status"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["synapse_workspace_sql_pool_table_resource_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SynapseWorkspaceSqlPoolTableDataSetMapping(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="dataSetMappingStatus")
-    def data_set_mapping_status(self) -> pulumi.Output[str]:
-        """
-        Gets the status of the data set mapping.
-        """
-        return pulumi.get(self, "data_set_mapping_status")
 
     @property
     @pulumi.getter
@@ -287,20 +246,12 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesResponse']:
         """
-        Provisioning state of the data set mapping.
+        A Synapse Workspace Sql Pool Table data set mapping properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="synapseWorkspaceSqlPoolTableResourceId")
-    def synapse_workspace_sql_pool_table_resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource id of the Synapse Workspace SQL Pool Table
-        """
-        return pulumi.get(self, "synapse_workspace_sql_pool_table_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

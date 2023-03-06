@@ -270,60 +270,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
-        [Input("computePolicies")]
-        private InputList<Inputs.CreateComputePolicyWithAccountParametersArgs>? _computePolicies;
-
-        /// <summary>
-        /// The list of compute policies associated with this account.
-        /// </summary>
-        public InputList<Inputs.CreateComputePolicyWithAccountParametersArgs> ComputePolicies
-        {
-            get => _computePolicies ?? (_computePolicies = new InputList<Inputs.CreateComputePolicyWithAccountParametersArgs>());
-            set => _computePolicies = value;
-        }
-
-        [Input("dataLakeStoreAccounts", required: true)]
-        private InputList<Inputs.AddDataLakeStoreWithAccountParametersArgs>? _dataLakeStoreAccounts;
-
-        /// <summary>
-        /// The list of Data Lake Store accounts associated with this account.
-        /// </summary>
-        public InputList<Inputs.AddDataLakeStoreWithAccountParametersArgs> DataLakeStoreAccounts
-        {
-            get => _dataLakeStoreAccounts ?? (_dataLakeStoreAccounts = new InputList<Inputs.AddDataLakeStoreWithAccountParametersArgs>());
-            set => _dataLakeStoreAccounts = value;
-        }
-
-        /// <summary>
-        /// The default Data Lake Store account associated with this account.
-        /// </summary>
-        [Input("defaultDataLakeStoreAccount", required: true)]
-        public Input<string> DefaultDataLakeStoreAccount { get; set; } = null!;
-
-        /// <summary>
-        /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-        /// </summary>
-        [Input("firewallAllowAzureIps")]
-        public Input<Pulumi.AzureNative.DataLakeAnalytics.V20161101.FirewallAllowAzureIpsState>? FirewallAllowAzureIps { get; set; }
-
-        [Input("firewallRules")]
-        private InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>? _firewallRules;
-
-        /// <summary>
-        /// The list of firewall rules associated with this account.
-        /// </summary>
-        public InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs> FirewallRules
-        {
-            get => _firewallRules ?? (_firewallRules = new InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>());
-            set => _firewallRules = value;
-        }
-
-        /// <summary>
-        /// The current state of the IP address firewall for this account.
-        /// </summary>
-        [Input("firewallState")]
-        public Input<Pulumi.AzureNative.DataLakeAnalytics.V20161101.FirewallState>? FirewallState { get; set; }
-
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -331,58 +277,16 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum supported degree of parallelism for this account.
+        /// The Data Lake Analytics account properties to use for creating.
         /// </summary>
-        [Input("maxDegreeOfParallelism")]
-        public Input<int>? MaxDegreeOfParallelism { get; set; }
-
-        /// <summary>
-        /// The maximum supported degree of parallelism per job for this account.
-        /// </summary>
-        [Input("maxDegreeOfParallelismPerJob")]
-        public Input<int>? MaxDegreeOfParallelismPerJob { get; set; }
-
-        /// <summary>
-        /// The maximum supported jobs running under the account at the same time.
-        /// </summary>
-        [Input("maxJobCount")]
-        public Input<int>? MaxJobCount { get; set; }
-
-        /// <summary>
-        /// The minimum supported priority per job for this account.
-        /// </summary>
-        [Input("minPriorityPerJob")]
-        public Input<int>? MinPriorityPerJob { get; set; }
-
-        /// <summary>
-        /// The commitment tier for the next month.
-        /// </summary>
-        [Input("newTier")]
-        public Input<Pulumi.AzureNative.DataLakeAnalytics.V20161101.TierType>? NewTier { get; set; }
-
-        /// <summary>
-        /// The number of days that job metadata is retained.
-        /// </summary>
-        [Input("queryStoreRetention")]
-        public Input<int>? QueryStoreRetention { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.CreateDataLakeAnalyticsAccountPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("storageAccounts")]
-        private InputList<Inputs.AddStorageAccountWithAccountParametersArgs>? _storageAccounts;
-
-        /// <summary>
-        /// The list of Azure Blob Storage accounts associated with this account.
-        /// </summary>
-        public InputList<Inputs.AddStorageAccountWithAccountParametersArgs> StorageAccounts
-        {
-            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.AddStorageAccountWithAccountParametersArgs>());
-            set => _storageAccounts = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -398,13 +302,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
         public AccountArgs()
         {
-            FirewallAllowAzureIps = Pulumi.AzureNative.DataLakeAnalytics.V20161101.FirewallAllowAzureIpsState.Disabled;
-            FirewallState = Pulumi.AzureNative.DataLakeAnalytics.V20161101.FirewallState.Disabled;
-            MaxDegreeOfParallelism = 30;
-            MaxDegreeOfParallelismPerJob = 32;
-            MaxJobCount = 3;
-            NewTier = Pulumi.AzureNative.DataLakeAnalytics.V20161101.TierType.Consumption;
-            QueryStoreRetention = 30;
         }
         public static new AccountArgs Empty => new AccountArgs();
     }

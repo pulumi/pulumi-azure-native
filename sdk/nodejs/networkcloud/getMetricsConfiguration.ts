@@ -38,26 +38,6 @@ export interface GetMetricsConfigurationArgs {
 
 export interface GetMetricsConfigurationResult {
     /**
-     * The interval in minutes by which metrics will be collected.
-     */
-    readonly collectionInterval: number;
-    /**
-     * The more detailed status of the metrics configuration.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
-     * The list of metrics that are available for the cluster but disabled at the moment.
-     */
-    readonly disabledMetrics: string[];
-    /**
-     * The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-     */
-    readonly enabledMetrics?: string[];
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
@@ -74,9 +54,9 @@ export interface GetMetricsConfigurationResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the metrics configuration.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.networkcloud.ClusterMetricsConfigurationPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

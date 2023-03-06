@@ -72,25 +72,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public sealed class GetGatewayResult
     {
         /// <summary>
-        /// User readable description of the gateway.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// Network that the Application is using.
-        /// </summary>
-        public readonly Outputs.NetworkRefResponse DestinationNetwork;
-        /// <summary>
-        /// Configuration for http connectivity for this gateway.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.HttpConfigResponse> Http;
-        /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
-        /// </summary>
-        public readonly string IpAddress;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -100,29 +84,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the resource.
+        /// This type describes properties of a gateway resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Network the gateway should listen on for requests.
-        /// </summary>
-        public readonly Outputs.NetworkRefResponse SourceNetwork;
-        /// <summary>
-        /// Status of the resource.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// Gives additional information about the current status of the gateway.
-        /// </summary>
-        public readonly string StatusDetails;
+        public readonly Outputs.GatewayResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Configuration for tcp connectivity for this gateway.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TcpConfigResponse> Tcp;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -130,47 +98,23 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
         [OutputConstructor]
         private GetGatewayResult(
-            string? description,
-
-            Outputs.NetworkRefResponse destinationNetwork,
-
-            ImmutableArray<Outputs.HttpConfigResponse> http,
-
             string id,
-
-            string ipAddress,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            Outputs.NetworkRefResponse sourceNetwork,
-
-            string status,
-
-            string statusDetails,
+            Outputs.GatewayResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TcpConfigResponse> tcp,
-
             string type)
         {
-            Description = description;
-            DestinationNetwork = destinationNetwork;
-            Http = http;
             Id = id;
-            IpAddress = ipAddress;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            SourceNetwork = sourceNetwork;
-            Status = status;
-            StatusDetails = statusDetails;
+            Properties = properties;
             Tags = tags;
-            Tcp = tcp;
             Type = type;
         }
     }

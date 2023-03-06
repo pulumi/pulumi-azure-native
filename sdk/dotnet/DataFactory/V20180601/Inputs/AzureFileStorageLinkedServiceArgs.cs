@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class AzureFileStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Azure key vault secret reference of accountKey in connection string.
-        /// </summary>
-        [Input("accountKey")]
-        public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? AccountKey { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,34 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("connectionString")]
-        public Input<object>? ConnectionString { get; set; }
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The azure file share name. It is required when auth with accountKey/sasToken. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("fileShare")]
-        public Input<object>? FileShare { get; set; }
-
-        /// <summary>
-        /// Host name of the server. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("host")]
-        public Input<object>? Host { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -82,30 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Password to logon the server.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
-        /// The Azure key vault secret reference of sasToken in sas uri.
-        /// </summary>
-        [Input("sasToken")]
-        public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? SasToken { get; set; }
-
-        /// <summary>
-        /// SAS URI of the Azure File resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("sasUri")]
-        public Input<object>? SasUri { get; set; }
-
-        /// <summary>
-        /// The azure file share snapshot version. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("snapshot")]
-        public Input<object>? Snapshot { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureFileStorage'.
         /// </summary>
@@ -113,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// User ID to logon the server. Type: string (or Expression with resultType string).
+        /// Azure File Storage linked service properties.
         /// </summary>
-        [Input("userId")]
-        public Input<object>? UserId { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureFileStorageLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureFileStorageLinkedServiceArgs()
         {

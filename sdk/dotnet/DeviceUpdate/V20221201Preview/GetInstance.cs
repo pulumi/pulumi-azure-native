@@ -82,25 +82,9 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
     public sealed class GetInstanceResult
     {
         /// <summary>
-        /// Parent Device Update Account name which Instance belongs to.
-        /// </summary>
-        public readonly string AccountName;
-        /// <summary>
-        /// Customer-initiated diagnostic log collection storage properties
-        /// </summary>
-        public readonly Outputs.DiagnosticStoragePropertiesResponse? DiagnosticStorageProperties;
-        /// <summary>
-        /// Enables or Disables the diagnostic logs collection
-        /// </summary>
-        public readonly bool? EnableDiagnostics;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of IoT Hubs associated with the account.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IotHubSettingsResponse> IotHubs;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -110,9 +94,9 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state.
+        /// Device Update instance properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.InstanceResponseProperties Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -128,21 +112,13 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
 
         [OutputConstructor]
         private GetInstanceResult(
-            string accountName,
-
-            Outputs.DiagnosticStoragePropertiesResponse? diagnosticStorageProperties,
-
-            bool? enableDiagnostics,
-
             string id,
-
-            ImmutableArray<Outputs.IotHubSettingsResponse> iotHubs,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.InstanceResponseProperties properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -150,14 +126,10 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
 
             string type)
         {
-            AccountName = accountName;
-            DiagnosticStorageProperties = diagnosticStorageProperties;
-            EnableDiagnostics = enableDiagnostics;
             Id = id;
-            IotHubs = iotHubs;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

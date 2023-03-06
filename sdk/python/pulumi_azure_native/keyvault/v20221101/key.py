@@ -170,17 +170,8 @@ class Key(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
-            __props__.__dict__["attributes"] = None
-            __props__.__dict__["curve_name"] = None
-            __props__.__dict__["key_ops"] = None
-            __props__.__dict__["key_size"] = None
-            __props__.__dict__["key_uri"] = None
-            __props__.__dict__["key_uri_with_version"] = None
-            __props__.__dict__["kty"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["release_policy"] = None
-            __props__.__dict__["rotation_policy"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault:Key"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20211001:Key"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20220701:Key")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -206,73 +197,12 @@ class Key(pulumi.CustomResource):
 
         __props__ = KeyArgs.__new__(KeyArgs)
 
-        __props__.__dict__["attributes"] = None
-        __props__.__dict__["curve_name"] = None
-        __props__.__dict__["key_ops"] = None
-        __props__.__dict__["key_size"] = None
-        __props__.__dict__["key_uri"] = None
-        __props__.__dict__["key_uri_with_version"] = None
-        __props__.__dict__["kty"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["release_policy"] = None
-        __props__.__dict__["rotation_policy"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def attributes(self) -> pulumi.Output[Optional['outputs.KeyAttributesResponse']]:
-        """
-        The attributes of the key.
-        """
-        return pulumi.get(self, "attributes")
-
-    @property
-    @pulumi.getter(name="curveName")
-    def curve_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-        """
-        return pulumi.get(self, "curve_name")
-
-    @property
-    @pulumi.getter(name="keyOps")
-    def key_ops(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "key_ops")
-
-    @property
-    @pulumi.getter(name="keySize")
-    def key_size(self) -> pulumi.Output[Optional[int]]:
-        """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-        """
-        return pulumi.get(self, "key_size")
-
-    @property
-    @pulumi.getter(name="keyUri")
-    def key_uri(self) -> pulumi.Output[str]:
-        """
-        The URI to retrieve the current version of the key.
-        """
-        return pulumi.get(self, "key_uri")
-
-    @property
-    @pulumi.getter(name="keyUriWithVersion")
-    def key_uri_with_version(self) -> pulumi.Output[str]:
-        """
-        The URI to retrieve the specific version of the key.
-        """
-        return pulumi.get(self, "key_uri_with_version")
-
-    @property
-    @pulumi.getter
-    def kty(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of the key. For valid values, see JsonWebKeyType.
-        """
-        return pulumi.get(self, "kty")
 
     @property
     @pulumi.getter
@@ -291,20 +221,12 @@ class Key(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="releasePolicy")
-    def release_policy(self) -> pulumi.Output[Optional['outputs.KeyReleasePolicyResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.KeyPropertiesResponse']:
         """
-        Key release policy in response. It will be used for both output and input. Omitted if empty
+        The properties of the key.
         """
-        return pulumi.get(self, "release_policy")
-
-    @property
-    @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> pulumi.Output[Optional['outputs.RotationPolicyResponse']]:
-        """
-        Key rotation policy in response. It will be used for both output and input. Omitted if empty
-        """
-        return pulumi.get(self, "rotation_policy")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

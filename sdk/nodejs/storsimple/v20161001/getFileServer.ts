@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -44,18 +47,6 @@ export interface GetFileServerArgs {
  */
 export interface GetFileServerResult {
     /**
-     * The backup policy id.
-     */
-    readonly backupScheduleGroupId: string;
-    /**
-     * The description of the file server
-     */
-    readonly description?: string;
-    /**
-     * Domain of the file server
-     */
-    readonly domainName: string;
-    /**
      * The identifier.
      */
     readonly id: string;
@@ -64,9 +55,9 @@ export interface GetFileServerResult {
      */
     readonly name: string;
     /**
-     * The storage domain id.
+     * The properties.
      */
-    readonly storageDomainId: string;
+    readonly properties: outputs.storsimple.v20161001.FileServerPropertiesResponse;
     /**
      * The type.
      */

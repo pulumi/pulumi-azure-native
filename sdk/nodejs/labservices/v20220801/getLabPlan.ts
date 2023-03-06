@@ -35,22 +35,6 @@ export interface GetLabPlanArgs {
  */
 export interface GetLabPlanResult {
     /**
-     * The allowed regions for the lab creator to use when creating labs using this lab plan.
-     */
-    readonly allowedRegions?: string[];
-    /**
-     * The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-     */
-    readonly defaultAutoShutdownProfile?: outputs.labservices.v20220801.AutoShutdownProfileResponse;
-    /**
-     * The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-     */
-    readonly defaultConnectionProfile?: outputs.labservices.v20220801.ConnectionProfileResponse;
-    /**
-     * The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-     */
-    readonly defaultNetworkProfile?: outputs.labservices.v20220801.LabPlanNetworkProfileResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -58,10 +42,6 @@ export interface GetLabPlanResult {
      * Managed Identity Information
      */
     readonly identity?: outputs.labservices.v20220801.IdentityResponse;
-    /**
-     * Base Url of the lms instance this lab plan can link lab rosters against.
-     */
-    readonly linkedLmsInstance?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -71,17 +51,9 @@ export interface GetLabPlanResult {
      */
     readonly name: string;
     /**
-     * Current provisioning state of the lab plan.
+     * Lab plan resource properties
      */
-    readonly provisioningState: string;
-    /**
-     * Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-     */
-    readonly sharedGalleryId?: string;
-    /**
-     * Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-     */
-    readonly supportInfo?: outputs.labservices.v20220801.SupportInfoResponse;
+    readonly properties: outputs.labservices.v20220801.LabPlanPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the lab plan.
      */

@@ -153,20 +153,6 @@ namespace Pulumi.AzureNative.Network.V20170901
     public sealed class PacketCaptureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of bytes captured per packet, the remaining bytes are truncated.
-        /// </summary>
-        [Input("bytesToCapturePerPacket")]
-        public Input<int>? BytesToCapturePerPacket { get; set; }
-
-        [Input("filters")]
-        private InputList<Inputs.PacketCaptureFilterArgs>? _filters;
-        public InputList<Inputs.PacketCaptureFilterArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<Inputs.PacketCaptureFilterArgs>());
-            set => _filters = value;
-        }
-
-        /// <summary>
         /// The name of the network watcher.
         /// </summary>
         [Input("networkWatcherName", required: true)]
@@ -179,40 +165,19 @@ namespace Pulumi.AzureNative.Network.V20170901
         public Input<string>? PacketCaptureName { get; set; }
 
         /// <summary>
+        /// Parameters that define the create packet capture operation.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PacketCaptureParametersArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Describes the storage location for a packet capture session.
-        /// </summary>
-        [Input("storageLocation", required: true)]
-        public Input<Inputs.PacketCaptureStorageLocationArgs> StorageLocation { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the targeted resource, only VM is currently supported.
-        /// </summary>
-        [Input("target", required: true)]
-        public Input<string> Target { get; set; } = null!;
-
-        /// <summary>
-        /// Maximum duration of the capture session in seconds.
-        /// </summary>
-        [Input("timeLimitInSeconds")]
-        public Input<int>? TimeLimitInSeconds { get; set; }
-
-        /// <summary>
-        /// Maximum size of the capture output.
-        /// </summary>
-        [Input("totalBytesPerSession")]
-        public Input<int>? TotalBytesPerSession { get; set; }
-
         public PacketCaptureArgs()
         {
-            BytesToCapturePerPacket = 0;
-            TimeLimitInSeconds = 18000;
-            TotalBytesPerSession = 1073741824;
         }
         public static new PacketCaptureArgs Empty => new PacketCaptureArgs();
     }

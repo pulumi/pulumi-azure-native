@@ -22,16 +22,7 @@ class GetElasticSanResult:
     """
     Response for ElasticSan request.
     """
-    def __init__(__self__, availability_zones=None, base_size_ti_b=None, extended_capacity_size_ti_b=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, total_iops=None, total_m_bps=None, total_size_ti_b=None, total_volume_size_gi_b=None, type=None, volume_group_count=None):
-        if availability_zones and not isinstance(availability_zones, list):
-            raise TypeError("Expected argument 'availability_zones' to be a list")
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        if base_size_ti_b and not isinstance(base_size_ti_b, float):
-            raise TypeError("Expected argument 'base_size_ti_b' to be a float")
-        pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
-        if extended_capacity_size_ti_b and not isinstance(extended_capacity_size_ti_b, float):
-            raise TypeError("Expected argument 'extended_capacity_size_ti_b' to be a float")
-        pulumi.set(__self__, "extended_capacity_size_ti_b", extended_capacity_size_ti_b)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,60 +32,18 @@ class GetElasticSanResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if total_iops and not isinstance(total_iops, float):
-            raise TypeError("Expected argument 'total_iops' to be a float")
-        pulumi.set(__self__, "total_iops", total_iops)
-        if total_m_bps and not isinstance(total_m_bps, float):
-            raise TypeError("Expected argument 'total_m_bps' to be a float")
-        pulumi.set(__self__, "total_m_bps", total_m_bps)
-        if total_size_ti_b and not isinstance(total_size_ti_b, float):
-            raise TypeError("Expected argument 'total_size_ti_b' to be a float")
-        pulumi.set(__self__, "total_size_ti_b", total_size_ti_b)
-        if total_volume_size_gi_b and not isinstance(total_volume_size_gi_b, float):
-            raise TypeError("Expected argument 'total_volume_size_gi_b' to be a float")
-        pulumi.set(__self__, "total_volume_size_gi_b", total_volume_size_gi_b)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_group_count and not isinstance(volume_group_count, float):
-            raise TypeError("Expected argument 'volume_group_count' to be a float")
-        pulumi.set(__self__, "volume_group_count", volume_group_count)
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[Sequence[str]]:
-        """
-        Logical zone for Elastic San resource; example: ["1"].
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @property
-    @pulumi.getter(name="baseSizeTiB")
-    def base_size_ti_b(self) -> float:
-        """
-        Base size of the Elastic San appliance in TiB.
-        """
-        return pulumi.get(self, "base_size_ti_b")
-
-    @property
-    @pulumi.getter(name="extendedCapacitySizeTiB")
-    def extended_capacity_size_ti_b(self) -> float:
-        """
-        Extended size of the Elastic San appliance in TiB.
-        """
-        return pulumi.get(self, "extended_capacity_size_ti_b")
 
     @property
     @pulumi.getter
@@ -121,20 +70,12 @@ class GetElasticSanResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the operation on the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def properties(self) -> 'outputs.ElasticSanPropertiesResponse':
         """
-        resource sku
+        Properties of ElasticSan.
         """
-        return pulumi.get(self, "sku")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -153,52 +94,12 @@ class GetElasticSanResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="totalIops")
-    def total_iops(self) -> float:
-        """
-        Total Provisioned IOPS of the Elastic San appliance.
-        """
-        return pulumi.get(self, "total_iops")
-
-    @property
-    @pulumi.getter(name="totalMBps")
-    def total_m_bps(self) -> float:
-        """
-        Total Provisioned MBps Elastic San appliance.
-        """
-        return pulumi.get(self, "total_m_bps")
-
-    @property
-    @pulumi.getter(name="totalSizeTiB")
-    def total_size_ti_b(self) -> float:
-        """
-        Total size of the Elastic San appliance in TB.
-        """
-        return pulumi.get(self, "total_size_ti_b")
-
-    @property
-    @pulumi.getter(name="totalVolumeSizeGiB")
-    def total_volume_size_gi_b(self) -> float:
-        """
-        Total size of the provisioned Volumes in GiB.
-        """
-        return pulumi.get(self, "total_volume_size_gi_b")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
         Azure resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeGroupCount")
-    def volume_group_count(self) -> float:
-        """
-        Total number of volume groups in this Elastic San appliance.
-        """
-        return pulumi.get(self, "volume_group_count")
 
 
 class AwaitableGetElasticSanResult(GetElasticSanResult):
@@ -207,22 +108,13 @@ class AwaitableGetElasticSanResult(GetElasticSanResult):
         if False:
             yield self
         return GetElasticSanResult(
-            availability_zones=self.availability_zones,
-            base_size_ti_b=self.base_size_ti_b,
-            extended_capacity_size_ti_b=self.extended_capacity_size_ti_b,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            sku=self.sku,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            total_iops=self.total_iops,
-            total_m_bps=self.total_m_bps,
-            total_size_ti_b=self.total_size_ti_b,
-            total_volume_size_gi_b=self.total_volume_size_gi_b,
-            type=self.type,
-            volume_group_count=self.volume_group_count)
+            type=self.type)
 
 
 def get_elastic_san(elastic_san_name: Optional[str] = None,
@@ -243,22 +135,13 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elasticsan:getElasticSan', __args__, opts=opts, typ=GetElasticSanResult).value
 
     return AwaitableGetElasticSanResult(
-        availability_zones=__ret__.availability_zones,
-        base_size_ti_b=__ret__.base_size_ti_b,
-        extended_capacity_size_ti_b=__ret__.extended_capacity_size_ti_b,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        total_iops=__ret__.total_iops,
-        total_m_bps=__ret__.total_m_bps,
-        total_size_ti_b=__ret__.total_size_ti_b,
-        total_volume_size_gi_b=__ret__.total_volume_size_gi_b,
-        type=__ret__.type,
-        volume_group_count=__ret__.volume_group_count)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_elastic_san)

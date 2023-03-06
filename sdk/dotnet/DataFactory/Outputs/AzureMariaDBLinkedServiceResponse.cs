@@ -25,30 +25,22 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object? ConnectionString;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The Azure key vault secret reference of password in connection string.
-        /// </summary>
-        public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Pwd;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureMariaDB'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Database for MariaDB linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureMariaDBLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureMariaDBLinkedServiceResponse(
@@ -56,26 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? connectionString,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Outputs.AzureKeyVaultSecretReferenceResponse? pwd,
+            string type,
 
-            string type)
+            Outputs.AzureMariaDBLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Pwd = pwd;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

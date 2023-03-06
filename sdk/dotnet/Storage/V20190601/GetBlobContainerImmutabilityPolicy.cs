@@ -95,10 +95,6 @@ namespace Pulumi.AzureNative.Storage.V20190601
     public sealed class GetBlobContainerImmutabilityPolicyResult
     {
         /// <summary>
-        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-        /// </summary>
-        public readonly bool? AllowProtectedAppendWrites;
-        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -107,17 +103,13 @@ namespace Pulumi.AzureNative.Storage.V20190601
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The immutability period for the blobs in the container since the policy creation, in days.
-        /// </summary>
-        public readonly int? ImmutabilityPeriodSinceCreationInDays;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        /// The properties of an ImmutabilityPolicy of a blob container.
         /// </summary>
-        public readonly string State;
+        public readonly Outputs.ImmutabilityPolicyPropertyResponse Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -125,26 +117,20 @@ namespace Pulumi.AzureNative.Storage.V20190601
 
         [OutputConstructor]
         private GetBlobContainerImmutabilityPolicyResult(
-            bool? allowProtectedAppendWrites,
-
             string etag,
 
             string id,
 
-            int? immutabilityPeriodSinceCreationInDays,
-
             string name,
 
-            string state,
+            Outputs.ImmutabilityPolicyPropertyResponse properties,
 
             string type)
         {
-            AllowProtectedAppendWrites = allowProtectedAppendWrites;
             Etag = etag;
             Id = id;
-            ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;
             Name = name;
-            State = state;
+            Properties = properties;
             Type = type;
         }
     }

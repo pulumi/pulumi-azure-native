@@ -96,18 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetSqlDWTableDataSetMappingResult
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
-        /// DataWarehouse name of the source data set
-        /// </summary>
-        public readonly string DataWarehouseName;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -121,25 +109,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Sql DW data set mapping properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Schema of the table. Default value is dbo.
-        /// </summary>
-        public readonly string SchemaName;
-        /// <summary>
-        /// Resource id of SQL server
-        /// </summary>
-        public readonly string SqlServerResourceId;
+        public readonly Outputs.SqlDWTableDataSetMappingPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// SQL DW table name.
-        /// </summary>
-        public readonly string TableName;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
@@ -147,41 +123,23 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetSqlDWTableDataSetMappingResult(
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
-            string dataWarehouseName,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
-
-            string schemaName,
-
-            string sqlServerResourceId,
+            Outputs.SqlDWTableDataSetMappingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            string tableName,
-
             string type)
         {
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
-            DataWarehouseName = dataWarehouseName;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            SchemaName = schemaName;
-            SqlServerResourceId = sqlServerResourceId;
+            Properties = properties;
             SystemData = systemData;
-            TableName = tableName;
             Type = type;
         }
     }

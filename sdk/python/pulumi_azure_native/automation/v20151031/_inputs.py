@@ -13,18 +13,29 @@ from ._enums import *
 __all__ = [
     'AdvancedScheduleMonthlyOccurrenceArgs',
     'AdvancedScheduleArgs',
+    'CertificateCreateOrUpdatePropertiesArgs',
+    'ConnectionCreateOrUpdatePropertiesArgs',
     'ConnectionTypeAssociationPropertyArgs',
+    'ConnectionTypeCreateOrUpdatePropertiesArgs',
     'ContentHashArgs',
     'ContentLinkArgs',
     'ContentSourceArgs',
+    'CredentialCreateOrUpdatePropertiesArgs',
     'DscConfigurationAssociationPropertyArgs',
+    'DscConfigurationCreateOrUpdatePropertiesArgs',
     'DscConfigurationParameterArgs',
     'FieldDefinitionArgs',
+    'JobScheduleCreatePropertiesArgs',
+    'ModuleCreateOrUpdatePropertiesArgs',
     'RunbookAssociationPropertyArgs',
+    'RunbookCreateOrUpdatePropertiesArgs',
     'RunbookDraftArgs',
     'RunbookParameterArgs',
     'ScheduleAssociationPropertyArgs',
+    'ScheduleCreateOrUpdatePropertiesArgs',
     'SkuArgs',
+    'VariableCreateOrUpdatePropertiesArgs',
+    'WebhookCreateOrUpdatePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -124,6 +135,132 @@ class AdvancedScheduleArgs:
 
 
 @pulumi.input_type
+class CertificateCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 base64_value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_exportable: Optional[pulumi.Input[bool]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the create certificate operation.
+        :param pulumi.Input[str] base64_value: Gets or sets the base64 encoded value of the certificate.
+        :param pulumi.Input[str] description: Gets or sets the description of the certificate.
+        :param pulumi.Input[bool] is_exportable: Gets or sets the is exportable flag of the certificate.
+        :param pulumi.Input[str] thumbprint: Gets or sets the thumbprint of the certificate.
+        """
+        pulumi.set(__self__, "base64_value", base64_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_exportable is not None:
+            pulumi.set(__self__, "is_exportable", is_exportable)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="base64Value")
+    def base64_value(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the base64 encoded value of the certificate.
+        """
+        return pulumi.get(self, "base64_value")
+
+    @base64_value.setter
+    def base64_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base64_value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the certificate.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isExportable")
+    def is_exportable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the is exportable flag of the certificate.
+        """
+        return pulumi.get(self, "is_exportable")
+
+    @is_exportable.setter
+    def is_exportable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_exportable", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
+class ConnectionCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 connection_type: pulumi.Input['ConnectionTypeAssociationPropertyArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The properties of the create connection properties
+        :param pulumi.Input['ConnectionTypeAssociationPropertyArgs'] connection_type: Gets or sets the connectionType of the connection.
+        :param pulumi.Input[str] description: Gets or sets the description of the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] field_definition_values: Gets or sets the field definition properties of the connection.
+        """
+        pulumi.set(__self__, "connection_type", connection_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if field_definition_values is not None:
+            pulumi.set(__self__, "field_definition_values", field_definition_values)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input['ConnectionTypeAssociationPropertyArgs']:
+        """
+        Gets or sets the connectionType of the connection.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input['ConnectionTypeAssociationPropertyArgs']):
+        pulumi.set(self, "connection_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fieldDefinitionValues")
+    def field_definition_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the field definition properties of the connection.
+        """
+        return pulumi.get(self, "field_definition_values")
+
+    @field_definition_values.setter
+    def field_definition_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "field_definition_values", value)
+
+
+@pulumi.input_type
 class ConnectionTypeAssociationPropertyArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -145,6 +282,45 @@ class ConnectionTypeAssociationPropertyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ConnectionTypeCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 field_definitions: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]],
+                 is_global: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of the create connection type.
+        :param pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]] field_definitions: Gets or sets the field definitions of the connection type.
+        :param pulumi.Input[bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
+        """
+        pulumi.set(__self__, "field_definitions", field_definitions)
+        if is_global is not None:
+            pulumi.set(__self__, "is_global", is_global)
+
+    @property
+    @pulumi.getter(name="fieldDefinitions")
+    def field_definitions(self) -> pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]]:
+        """
+        Gets or sets the field definitions of the connection type.
+        """
+        return pulumi.get(self, "field_definitions")
+
+    @field_definitions.setter
+    def field_definitions(self, value: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]]):
+        pulumi.set(self, "field_definitions", value)
+
+    @property
+    @pulumi.getter(name="isGlobal")
+    def is_global(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets a Boolean value to indicate if the connection type is global.
+        """
+        return pulumi.get(self, "is_global")
+
+    @is_global.setter
+    def is_global(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_global", value)
 
 
 @pulumi.input_type
@@ -314,6 +490,60 @@ class ContentSourceArgs:
 
 
 @pulumi.input_type
+class CredentialCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 user_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the create credential operation.
+        :param pulumi.Input[str] password: Gets or sets the password of the credential.
+        :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
+        :param pulumi.Input[str] description: Gets or sets the description of the credential.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user_name", user_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the password of the credential.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the user name of the credential.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the credential.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
 class DscConfigurationAssociationPropertyArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -335,6 +565,93 @@ class DscConfigurationAssociationPropertyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DscConfigurationCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['ContentSourceArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 log_progress: Optional[pulumi.Input[bool]] = None,
+                 log_verbose: Optional[pulumi.Input[bool]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]] = None):
+        """
+        The properties to create or update configuration.
+        :param pulumi.Input['ContentSourceArgs'] source: Gets or sets the source.
+        :param pulumi.Input[str] description: Gets or sets the description of the configuration.
+        :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
+        :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]] parameters: Gets or sets the configuration parameters.
+        """
+        pulumi.set(__self__, "source", source)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if log_progress is not None:
+            pulumi.set(__self__, "log_progress", log_progress)
+        if log_verbose is not None:
+            pulumi.set(__self__, "log_verbose", log_verbose)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['ContentSourceArgs']:
+        """
+        Gets or sets the source.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['ContentSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="logProgress")
+    def log_progress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets progress log option.
+        """
+        return pulumi.get(self, "log_progress")
+
+    @log_progress.setter
+    def log_progress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_progress", value)
+
+    @property
+    @pulumi.getter(name="logVerbose")
+    def log_verbose(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets verbose log option.
+        """
+        return pulumi.get(self, "log_verbose")
+
+    @log_verbose.setter
+    def log_verbose(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_verbose", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]:
+        """
+        Gets or sets the configuration parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DscConfigurationParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -465,6 +782,99 @@ class FieldDefinitionArgs:
 
 
 @pulumi.input_type
+class JobScheduleCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 runbook: pulumi.Input['RunbookAssociationPropertyArgs'],
+                 schedule: pulumi.Input['ScheduleAssociationPropertyArgs'],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None):
+        """
+        The parameters supplied to the create job schedule operation.
+        :param pulumi.Input['RunbookAssociationPropertyArgs'] runbook: Gets or sets the runbook.
+        :param pulumi.Input['ScheduleAssociationPropertyArgs'] schedule: Gets or sets the schedule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets a list of job properties.
+        :param pulumi.Input[str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
+        """
+        pulumi.set(__self__, "runbook", runbook)
+        pulumi.set(__self__, "schedule", schedule)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if run_on is not None:
+            pulumi.set(__self__, "run_on", run_on)
+
+    @property
+    @pulumi.getter
+    def runbook(self) -> pulumi.Input['RunbookAssociationPropertyArgs']:
+        """
+        Gets or sets the runbook.
+        """
+        return pulumi.get(self, "runbook")
+
+    @runbook.setter
+    def runbook(self, value: pulumi.Input['RunbookAssociationPropertyArgs']):
+        pulumi.set(self, "runbook", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['ScheduleAssociationPropertyArgs']:
+        """
+        Gets or sets the schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['ScheduleAssociationPropertyArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets a list of job properties.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the hybrid worker group that the scheduled job should run on.
+        """
+        return pulumi.get(self, "run_on")
+
+    @run_on.setter
+    def run_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_on", value)
+
+
+@pulumi.input_type
+class ModuleCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 content_link: pulumi.Input['ContentLinkArgs']):
+        """
+        The parameters supplied to the create or update module properties.
+        :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
+        """
+        pulumi.set(__self__, "content_link", content_link)
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> pulumi.Input['ContentLinkArgs']:
+        """
+        Gets or sets the module content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @content_link.setter
+    def content_link(self, value: pulumi.Input['ContentLinkArgs']):
+        pulumi.set(self, "content_link", value)
+
+
+@pulumi.input_type
 class RunbookAssociationPropertyArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -486,6 +896,125 @@ class RunbookAssociationPropertyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class RunbookCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 runbook_type: pulumi.Input[Union[str, 'RunbookTypeEnum']],
+                 description: Optional[pulumi.Input[str]] = None,
+                 draft: Optional[pulumi.Input['RunbookDraftArgs']] = None,
+                 log_activity_trace: Optional[pulumi.Input[int]] = None,
+                 log_progress: Optional[pulumi.Input[bool]] = None,
+                 log_verbose: Optional[pulumi.Input[bool]] = None,
+                 publish_content_link: Optional[pulumi.Input['ContentLinkArgs']] = None):
+        """
+        The parameters supplied to the create or update runbook properties.
+        :param pulumi.Input[Union[str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
+        :param pulumi.Input[str] description: Gets or sets the description of the runbook.
+        :param pulumi.Input['RunbookDraftArgs'] draft: Gets or sets the draft runbook properties.
+        :param pulumi.Input[int] log_activity_trace: Gets or sets the activity-level tracing options of the runbook.
+        :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
+        :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
+        :param pulumi.Input['ContentLinkArgs'] publish_content_link: Gets or sets the published runbook content link.
+        """
+        pulumi.set(__self__, "runbook_type", runbook_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if draft is not None:
+            pulumi.set(__self__, "draft", draft)
+        if log_activity_trace is not None:
+            pulumi.set(__self__, "log_activity_trace", log_activity_trace)
+        if log_progress is not None:
+            pulumi.set(__self__, "log_progress", log_progress)
+        if log_verbose is not None:
+            pulumi.set(__self__, "log_verbose", log_verbose)
+        if publish_content_link is not None:
+            pulumi.set(__self__, "publish_content_link", publish_content_link)
+
+    @property
+    @pulumi.getter(name="runbookType")
+    def runbook_type(self) -> pulumi.Input[Union[str, 'RunbookTypeEnum']]:
+        """
+        Gets or sets the type of the runbook.
+        """
+        return pulumi.get(self, "runbook_type")
+
+    @runbook_type.setter
+    def runbook_type(self, value: pulumi.Input[Union[str, 'RunbookTypeEnum']]):
+        pulumi.set(self, "runbook_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the runbook.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def draft(self) -> Optional[pulumi.Input['RunbookDraftArgs']]:
+        """
+        Gets or sets the draft runbook properties.
+        """
+        return pulumi.get(self, "draft")
+
+    @draft.setter
+    def draft(self, value: Optional[pulumi.Input['RunbookDraftArgs']]):
+        pulumi.set(self, "draft", value)
+
+    @property
+    @pulumi.getter(name="logActivityTrace")
+    def log_activity_trace(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the activity-level tracing options of the runbook.
+        """
+        return pulumi.get(self, "log_activity_trace")
+
+    @log_activity_trace.setter
+    def log_activity_trace(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "log_activity_trace", value)
+
+    @property
+    @pulumi.getter(name="logProgress")
+    def log_progress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets progress log option.
+        """
+        return pulumi.get(self, "log_progress")
+
+    @log_progress.setter
+    def log_progress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_progress", value)
+
+    @property
+    @pulumi.getter(name="logVerbose")
+    def log_verbose(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets verbose log option.
+        """
+        return pulumi.get(self, "log_verbose")
+
+    @log_verbose.setter
+    def log_verbose(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_verbose", value)
+
+    @property
+    @pulumi.getter(name="publishContentLink")
+    def publish_content_link(self) -> Optional[pulumi.Input['ContentLinkArgs']]:
+        """
+        Gets or sets the published runbook content link.
+        """
+        return pulumi.get(self, "publish_content_link")
+
+    @publish_content_link.setter
+    def publish_content_link(self, value: Optional[pulumi.Input['ContentLinkArgs']]):
+        pulumi.set(self, "publish_content_link", value)
 
 
 @pulumi.input_type
@@ -688,6 +1217,124 @@ class ScheduleAssociationPropertyArgs:
 
 
 @pulumi.input_type
+class ScheduleCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 frequency: pulumi.Input[Union[str, 'ScheduleFrequency']],
+                 start_time: pulumi.Input[str],
+                 advanced_schedule: Optional[pulumi.Input['AdvancedScheduleArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[Any] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The parameters supplied to the create or update schedule operation.
+        :param pulumi.Input[Union[str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
+        :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
+        :param pulumi.Input['AdvancedScheduleArgs'] advanced_schedule: Gets or sets the AdvancedSchedule.
+        :param pulumi.Input[str] description: Gets or sets the description of the schedule.
+        :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
+        :param Any interval: Gets or sets the interval of the schedule.
+        :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
+        """
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "start_time", start_time)
+        if advanced_schedule is not None:
+            pulumi.set(__self__, "advanced_schedule", advanced_schedule)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Input[Union[str, 'ScheduleFrequency']]:
+        """
+        Gets or sets the frequency of the schedule.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: pulumi.Input[Union[str, 'ScheduleFrequency']]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the start time of the schedule.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="advancedSchedule")
+    def advanced_schedule(self) -> Optional[pulumi.Input['AdvancedScheduleArgs']]:
+        """
+        Gets or sets the AdvancedSchedule.
+        """
+        return pulumi.get(self, "advanced_schedule")
+
+    @advanced_schedule.setter
+    def advanced_schedule(self, value: Optional[pulumi.Input['AdvancedScheduleArgs']]):
+        pulumi.set(self, "advanced_schedule", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the schedule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the end time of the schedule.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[Any]:
+        """
+        Gets or sets the interval of the schedule.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[Any]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the time zone of the schedule.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[str, 'SkuNameEnum']],
@@ -740,5 +1387,165 @@ class SkuArgs:
     @family.setter
     def family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "family", value)
+
+
+@pulumi.input_type
+class VariableCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_encrypted: Optional[pulumi.Input[bool]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the create variable operation.
+        :param pulumi.Input[str] description: Gets or sets the description of the variable.
+        :param pulumi.Input[bool] is_encrypted: Gets or sets the encrypted flag of the variable.
+        :param pulumi.Input[str] value: Gets or sets the value of the variable.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_encrypted is not None:
+            pulumi.set(__self__, "is_encrypted", is_encrypted)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isEncrypted")
+    def is_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the encrypted flag of the variable.
+        """
+        return pulumi.get(self, "is_encrypted")
+
+    @is_encrypted.setter
+    def is_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_encrypted", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the value of the variable.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WebhookCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None,
+                 runbook: Optional[pulumi.Input['RunbookAssociationPropertyArgs']] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the create webhook operation.
+        :param pulumi.Input[str] expiry_time: Gets or sets the expiry time.
+        :param pulumi.Input[bool] is_enabled: Gets or sets the value of the enabled flag of webhook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets the parameters of the job.
+        :param pulumi.Input[str] run_on: Gets or sets the name of the hybrid worker group the webhook job will run on.
+        :param pulumi.Input['RunbookAssociationPropertyArgs'] runbook: Gets or sets the runbook.
+        :param pulumi.Input[str] uri: Gets or sets the uri.
+        """
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if run_on is not None:
+            pulumi.set(__self__, "run_on", run_on)
+        if runbook is not None:
+            pulumi.set(__self__, "runbook", runbook)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the expiry time.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the value of the enabled flag of webhook.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the parameters of the job.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the hybrid worker group the webhook job will run on.
+        """
+        return pulumi.get(self, "run_on")
+
+    @run_on.setter
+    def run_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_on", value)
+
+    @property
+    @pulumi.getter
+    def runbook(self) -> Optional[pulumi.Input['RunbookAssociationPropertyArgs']]:
+        """
+        Gets or sets the runbook.
+        """
+        return pulumi.get(self, "runbook")
+
+    @runbook.setter
+    def runbook(self, value: Optional[pulumi.Input['RunbookAssociationPropertyArgs']]):
+        pulumi.set(self, "runbook", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the uri.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
 
 

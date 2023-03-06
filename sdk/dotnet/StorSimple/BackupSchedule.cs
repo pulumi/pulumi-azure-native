@@ -17,22 +17,10 @@ namespace Pulumi.AzureNative.StorSimple
     public partial class BackupSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The type of backup which needs to be taken.
-        /// </summary>
-        [Output("backupType")]
-        public Output<string> BackupType { get; private set; } = null!;
-
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// The last successful backup run which was triggered for the schedule.
-        /// </summary>
-        [Output("lastSuccessfulRun")]
-        public Output<string> LastSuccessfulRun { get; private set; } = null!;
 
         /// <summary>
         /// The name of the object.
@@ -41,28 +29,10 @@ namespace Pulumi.AzureNative.StorSimple
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of backups to be retained.
+        /// The properties of the backup schedule.
         /// </summary>
-        [Output("retentionCount")]
-        public Output<double> RetentionCount { get; private set; } = null!;
-
-        /// <summary>
-        /// The schedule recurrence.
-        /// </summary>
-        [Output("scheduleRecurrence")]
-        public Output<Outputs.ScheduleRecurrenceResponse> ScheduleRecurrence { get; private set; } = null!;
-
-        /// <summary>
-        /// The schedule status.
-        /// </summary>
-        [Output("scheduleStatus")]
-        public Output<string> ScheduleStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The start time of the schedule.
-        /// </summary>
-        [Output("startTime")]
-        public Output<string> StartTime { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupSchedulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
@@ -132,12 +102,6 @@ namespace Pulumi.AzureNative.StorSimple
         public Input<string>? BackupScheduleName { get; set; }
 
         /// <summary>
-        /// The type of backup which needs to be taken.
-        /// </summary>
-        [Input("backupType", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.BackupType> BackupType { get; set; } = null!;
-
-        /// <summary>
         /// The device name
         /// </summary>
         [Input("deviceName", required: true)]
@@ -156,34 +120,16 @@ namespace Pulumi.AzureNative.StorSimple
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The properties of the backup schedule.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.BackupSchedulePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The number of backups to be retained.
-        /// </summary>
-        [Input("retentionCount", required: true)]
-        public Input<double> RetentionCount { get; set; } = null!;
-
-        /// <summary>
-        /// The schedule recurrence.
-        /// </summary>
-        [Input("scheduleRecurrence", required: true)]
-        public Input<Inputs.ScheduleRecurrenceArgs> ScheduleRecurrence { get; set; } = null!;
-
-        /// <summary>
-        /// The schedule status.
-        /// </summary>
-        [Input("scheduleStatus", required: true)]
-        public Input<Pulumi.AzureNative.StorSimple.ScheduleStatus> ScheduleStatus { get; set; } = null!;
-
-        /// <summary>
-        /// The start time of the schedule.
-        /// </summary>
-        [Input("startTime", required: true)]
-        public Input<string> StartTime { get; set; } = null!;
 
         public BackupScheduleArgs()
         {

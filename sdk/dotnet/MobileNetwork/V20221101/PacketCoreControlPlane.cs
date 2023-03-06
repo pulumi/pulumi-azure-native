@@ -16,40 +16,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
-        /// </summary>
-        [Output("controlPlaneAccessInterface")]
-        public Output<Outputs.InterfacePropertiesResponse> ControlPlaneAccessInterface { get; private set; } = null!;
-
-        /// <summary>
-        /// The core network technology generation (5G core or EPC / 4G core).
-        /// </summary>
-        [Output("coreNetworkTechnology")]
-        public Output<string?> CoreNetworkTechnology { get; private set; } = null!;
-
-        /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// The installation state of the packet core control plane resource.
-        /// </summary>
-        [Output("installation")]
-        public Output<Outputs.InstallationResponse> Installation { get; private set; } = null!;
-
-        /// <summary>
-        /// Settings to allow interoperability with third party components e.g. RANs and UEs.
-        /// </summary>
-        [Output("interopSettings")]
-        public Output<object?> InteropSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-        /// </summary>
-        [Output("localDiagnosticsAccess")]
-        public Output<Outputs.LocalDiagnosticsAccessConfigurationResponse> LocalDiagnosticsAccess { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -64,34 +34,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The platform where the packet core is deployed.
+        /// Packet core control plane Properties.
         /// </summary>
-        [Output("platform")]
-        public Output<Outputs.PlatformConfigurationResponse> Platform { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the packet core control plane resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The previous version of the packet core software that was deployed. Used when performing the rollback action.
-        /// </summary>
-        [Output("rollbackVersion")]
-        public Output<string> RollbackVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
-        /// </summary>
-        [Output("sites")]
-        public Output<ImmutableArray<Outputs.SiteResourceIdResponse>> Sites { get; private set; } = null!;
-
-        /// <summary>
-        /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
-        /// </summary>
-        [Output("sku")]
-        public Output<string> Sku { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PacketCoreControlPlanePropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -110,18 +56,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
-        /// </summary>
-        [Output("ueMtu")]
-        public Output<int?> UeMtu { get; private set; } = null!;
-
-        /// <summary>
-        /// The version of the packet core software that is deployed.
-        /// </summary>
-        [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -175,34 +109,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public sealed class PacketCoreControlPlaneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
-        /// </summary>
-        [Input("controlPlaneAccessInterface", required: true)]
-        public Input<Inputs.InterfacePropertiesArgs> ControlPlaneAccessInterface { get; set; } = null!;
-
-        /// <summary>
-        /// The core network technology generation (5G core or EPC / 4G core).
-        /// </summary>
-        [Input("coreNetworkTechnology")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.V20221101.CoreNetworkType>? CoreNetworkTechnology { get; set; }
-
-        /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// Settings to allow interoperability with third party components e.g. RANs and UEs.
-        /// </summary>
-        [Input("interopSettings")]
-        public Input<object>? InteropSettings { get; set; }
-
-        /// <summary>
-        /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-        /// </summary>
-        [Input("localDiagnosticsAccess", required: true)]
-        public Input<Inputs.LocalDiagnosticsAccessConfigurationArgs> LocalDiagnosticsAccess { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -217,34 +127,16 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         public Input<string>? PacketCoreControlPlaneName { get; set; }
 
         /// <summary>
-        /// The platform where the packet core is deployed.
+        /// Packet core control plane Properties.
         /// </summary>
-        [Input("platform", required: true)]
-        public Input<Inputs.PlatformConfigurationArgs> Platform { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.PacketCoreControlPlanePropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("sites", required: true)]
-        private InputList<Inputs.SiteResourceIdArgs>? _sites;
-
-        /// <summary>
-        /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
-        /// </summary>
-        public InputList<Inputs.SiteResourceIdArgs> Sites
-        {
-            get => _sites ?? (_sites = new InputList<Inputs.SiteResourceIdArgs>());
-            set => _sites = value;
-        }
-
-        /// <summary>
-        /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
-        /// </summary>
-        [Input("sku", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.V20221101.BillingSku> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -258,21 +150,8 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
-        /// </summary>
-        [Input("ueMtu")]
-        public Input<int>? UeMtu { get; set; }
-
-        /// <summary>
-        /// The version of the packet core software that is deployed.
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
         public PacketCoreControlPlaneArgs()
         {
-            UeMtu = 1440;
         }
         public static new PacketCoreControlPlaneArgs Empty => new PacketCoreControlPlaneArgs();
     }

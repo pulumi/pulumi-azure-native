@@ -38,8 +38,10 @@ __all__ = [
     'LinuxOperatingSystemProfileResponse',
     'NetworkPropertiesResponse',
     'OsProfileResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
+    'PrivateLinkConfigurationPropertiesResponse',
     'PrivateLinkConfigurationResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'QuotaInfoResponse',
@@ -2107,9 +2109,9 @@ class OsProfileResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionResponse(dict):
+class PrivateEndpointConnectionPropertiesResponse(dict):
     """
-    The private endpoint connection.
+    The private endpoint connection properties.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2122,56 +2124,34 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
                  link_identifier: str,
-                 name: str,
                  private_endpoint: 'outputs.PrivateEndpointResponse',
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: str,
-                 system_data: 'outputs.SystemDataResponse',
-                 type: str):
+                 provisioning_state: str):
         """
-        The private endpoint connection.
-        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        The private endpoint connection properties.
         :param str link_identifier: The link identifier.
-        :param str name: The name of the resource
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint of the private endpoint connection
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state.
         :param str provisioning_state: The provisioning state, which only appears in the response.
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "link_identifier", link_identifier)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_endpoint", private_endpoint)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linkIdentifier")
@@ -2180,14 +2160,6 @@ class PrivateEndpointConnectionResponse(dict):
         The link identifier.
         """
         return pulumi.get(self, "link_identifier")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -2212,6 +2184,73 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state, which only appears in the response.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str):
+        """
+        The private endpoint connection.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: The private endpoint connection properties.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
+        """
+        The private endpoint connection properties.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -2254,9 +2293,9 @@ class PrivateEndpointResponse(dict):
 
 
 @pulumi.output_type
-class PrivateLinkConfigurationResponse(dict):
+class PrivateLinkConfigurationPropertiesResponse(dict):
     """
-    The private link configuration.
+    The private link configuration properties.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2269,38 +2308,29 @@ class PrivateLinkConfigurationResponse(dict):
             suggest = "provisioning_state"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PrivateLinkConfigurationResponse.__key_warning(key)
+        PrivateLinkConfigurationPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PrivateLinkConfigurationResponse.__key_warning(key)
+        PrivateLinkConfigurationPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  group_id: str,
-                 id: str,
                  ip_configurations: Sequence['outputs.IPConfigurationResponse'],
-                 name: str,
-                 provisioning_state: str,
-                 type: str):
+                 provisioning_state: str):
         """
-        The private link configuration.
+        The private link configuration properties.
         :param str group_id: The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
-        :param str id: The private link configuration id.
         :param Sequence['IPConfigurationResponse'] ip_configurations: The IP configurations for the private link service.
-        :param str name: The name of private link configuration.
         :param str provisioning_state: The private link configuration provisioning state, which only appears in the response.
-        :param str type: The type of the private link configuration.
         """
         pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ip_configurations", ip_configurations)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="groupId")
@@ -2311,20 +2341,51 @@ class PrivateLinkConfigurationResponse(dict):
         return pulumi.get(self, "group_id")
 
     @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The private link configuration id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> Sequence['outputs.IPConfigurationResponse']:
         """
         The IP configurations for the private link service.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The private link configuration provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class PrivateLinkConfigurationResponse(dict):
+    """
+    The private link configuration.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 properties: 'outputs.PrivateLinkConfigurationPropertiesResponse',
+                 type: str):
+        """
+        The private link configuration.
+        :param str id: The private link configuration id.
+        :param str name: The name of private link configuration.
+        :param 'PrivateLinkConfigurationPropertiesResponse' properties: The private link configuration properties.
+        :param str type: The type of the private link configuration.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The private link configuration id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -2335,12 +2396,12 @@ class PrivateLinkConfigurationResponse(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateLinkConfigurationPropertiesResponse':
         """
-        The private link configuration provisioning state, which only appears in the response.
+        The private link configuration properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

@@ -22,36 +22,22 @@ class GetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, encrypted_password=None, id=None, name=None, share_access_rights=None, system_data=None, type=None, user_type=None):
-        if encrypted_password and not isinstance(encrypted_password, dict):
-            raise TypeError("Expected argument 'encrypted_password' to be a dict")
-        pulumi.set(__self__, "encrypted_password", encrypted_password)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if share_access_rights and not isinstance(share_access_rights, list):
-            raise TypeError("Expected argument 'share_access_rights' to be a list")
-        pulumi.set(__self__, "share_access_rights", share_access_rights)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_type and not isinstance(user_type, str):
-            raise TypeError("Expected argument 'user_type' to be a str")
-        pulumi.set(__self__, "user_type", user_type)
-
-    @property
-    @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
-        """
-        The password details.
-        """
-        return pulumi.get(self, "encrypted_password")
 
     @property
     @pulumi.getter
@@ -70,12 +56,12 @@ class GetUserResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> Sequence['outputs.ShareAccessRightResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.UserPropertiesResponse':
         """
-        List of shares that the user has rights on. This field should not be specified during user creation.
+        The storage account credential properties.
         """
-        return pulumi.get(self, "share_access_rights")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -93,14 +79,6 @@ class GetUserResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="userType")
-    def user_type(self) -> str:
-        """
-        Type of the user.
-        """
-        return pulumi.get(self, "user_type")
-
 
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
@@ -108,13 +86,11 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
-            encrypted_password=self.encrypted_password,
             id=self.id,
             name=self.name,
-            share_access_rights=self.share_access_rights,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            user_type=self.user_type)
+            type=self.type)
 
 
 def get_user(device_name: Optional[str] = None,
@@ -137,13 +113,11 @@ def get_user(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20201201:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        encrypted_password=__ret__.encrypted_password,
         id=__ret__.id,
         name=__ret__.name,
-        share_access_rights=__ret__.share_access_rights,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        user_type=__ret__.user_type)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_user)

@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The link identifier.
-        /// </summary>
-        [Output("linkIdentifier")]
-        public Output<string> LinkIdentifier { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The private endpoint of the private endpoint connection
+        /// The private endpoint connection properties.
         /// </summary>
-        [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponse> PrivateEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// The private link service connection state.
-        /// </summary>
-        [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state, which only appears in the response.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -119,10 +101,10 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// The private link service connection state.
+        /// The private endpoint connection properties.
         /// </summary>
-        [Input("privateLinkServiceConnectionState", required: true)]
-        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

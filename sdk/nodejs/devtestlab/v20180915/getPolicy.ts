@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -47,26 +50,6 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
-     * The creation date of the policy.
-     */
-    readonly createdDate: string;
-    /**
-     * The description of the policy.
-     */
-    readonly description?: string;
-    /**
-     * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-     */
-    readonly evaluatorType?: string;
-    /**
-     * The fact data of the policy.
-     */
-    readonly factData?: string;
-    /**
-     * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-     */
-    readonly factName?: string;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
@@ -79,29 +62,17 @@ export interface GetPolicyResult {
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    readonly provisioningState: string;
-    /**
-     * The status of the policy.
-     */
-    readonly status?: string;
+    readonly properties: outputs.devtestlab.v20180915.PolicyPropertiesResponse;
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-     */
-    readonly threshold?: string;
-    /**
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier: string;
 }
 /**
  * Get policy.

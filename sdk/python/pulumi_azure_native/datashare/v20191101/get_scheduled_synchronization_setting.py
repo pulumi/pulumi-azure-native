@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetScheduledSynchronizationSettingResult',
@@ -21,10 +22,7 @@ class GetScheduledSynchronizationSettingResult:
     """
     A type of synchronization setting based on schedule
     """
-    def __init__(__self__, created_at=None, id=None, kind=None, name=None, provisioning_state=None, recurrence_interval=None, synchronization_time=None, type=None, user_name=None):
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,29 +32,12 @@ class GetScheduledSynchronizationSettingResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if recurrence_interval and not isinstance(recurrence_interval, str):
-            raise TypeError("Expected argument 'recurrence_interval' to be a str")
-        pulumi.set(__self__, "recurrence_interval", recurrence_interval)
-        if synchronization_time and not isinstance(synchronization_time, str):
-            raise TypeError("Expected argument 'synchronization_time' to be a str")
-        pulumi.set(__self__, "synchronization_time", synchronization_time)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_name and not isinstance(user_name, str):
-            raise TypeError("Expected argument 'user_name' to be a str")
-        pulumi.set(__self__, "user_name", user_name)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
-        """
-        Time at which the synchronization setting was created.
-        """
-        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -84,28 +65,12 @@ class GetScheduledSynchronizationSettingResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ScheduledSynchronizationSettingPropertiesResponse':
         """
-        Gets or sets the provisioning state
+        Properties of scheduled synchronization
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="recurrenceInterval")
-    def recurrence_interval(self) -> str:
-        """
-        Recurrence Interval
-        """
-        return pulumi.get(self, "recurrence_interval")
-
-    @property
-    @pulumi.getter(name="synchronizationTime")
-    def synchronization_time(self) -> str:
-        """
-        Synchronization time
-        """
-        return pulumi.get(self, "synchronization_time")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -115,14 +80,6 @@ class GetScheduledSynchronizationSettingResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> str:
-        """
-        Name of the user who created the synchronization setting.
-        """
-        return pulumi.get(self, "user_name")
-
 
 class AwaitableGetScheduledSynchronizationSettingResult(GetScheduledSynchronizationSettingResult):
     # pylint: disable=using-constant-test
@@ -130,15 +87,11 @@ class AwaitableGetScheduledSynchronizationSettingResult(GetScheduledSynchronizat
         if False:
             yield self
         return GetScheduledSynchronizationSettingResult(
-            created_at=self.created_at,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            recurrence_interval=self.recurrence_interval,
-            synchronization_time=self.synchronization_time,
-            type=self.type,
-            user_name=self.user_name)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
@@ -164,15 +117,11 @@ def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20191101:getScheduledSynchronizationSetting', __args__, opts=opts, typ=GetScheduledSynchronizationSettingResult).value
 
     return AwaitableGetScheduledSynchronizationSettingResult(
-        created_at=__ret__.created_at,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        recurrence_interval=__ret__.recurrence_interval,
-        synchronization_time=__ret__.synchronization_time,
-        type=__ret__.type,
-        user_name=__ret__.user_name)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_scheduled_synchronization_setting)

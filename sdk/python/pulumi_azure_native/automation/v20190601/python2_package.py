@@ -17,20 +17,20 @@ __all__ = ['Python2PackageArgs', 'Python2Package']
 class Python2PackageArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
-                 content_link: pulumi.Input['ContentLinkArgs'],
+                 properties: pulumi.Input['PythonPackageCreatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  package_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Python2Package resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
+        :param pulumi.Input['PythonPackageCreatePropertiesArgs'] properties: Gets or sets the module create properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] package_name: The name of python package.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "content_link", content_link)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if package_name is not None:
             pulumi.set(__self__, "package_name", package_name)
@@ -50,16 +50,16 @@ class Python2PackageArgs:
         pulumi.set(self, "automation_account_name", value)
 
     @property
-    @pulumi.getter(name="contentLink")
-    def content_link(self) -> pulumi.Input['ContentLinkArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PythonPackageCreatePropertiesArgs']:
         """
-        Gets or sets the module content link.
+        Gets or sets the module create properties.
         """
-        return pulumi.get(self, "content_link")
+        return pulumi.get(self, "properties")
 
-    @content_link.setter
-    def content_link(self, value: pulumi.Input['ContentLinkArgs']):
-        pulumi.set(self, "content_link", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['PythonPackageCreatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,8 +104,8 @@ class Python2Package(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PythonPackageCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -115,8 +115,8 @@ class Python2Package(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] content_link: Gets or sets the module content link.
         :param pulumi.Input[str] package_name: The name of python package.
+        :param pulumi.Input[pulumi.InputType['PythonPackageCreatePropertiesArgs']] properties: Gets or sets the module create properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
@@ -145,8 +145,8 @@ class Python2Package(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PythonPackageCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -161,15 +161,16 @@ class Python2Package(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
-            if content_link is None and not opts.urn:
-                raise TypeError("Missing required property 'content_link'")
-            __props__.__dict__["content_link"] = content_link
             __props__.__dict__["package_name"] = package_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["activity_count"] = None
+            __props__.__dict__["content_link"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["error"] = None

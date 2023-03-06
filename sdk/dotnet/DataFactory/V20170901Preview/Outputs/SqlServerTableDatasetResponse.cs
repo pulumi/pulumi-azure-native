@@ -37,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'SqlServerTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// On-premises SQL Server dataset properties.
+        /// </summary>
+        public readonly Outputs.SqlServerTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SqlServerTableDatasetResponse(
@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             object? structure,
 
-            object tableName,
+            string type,
 
-            string type)
+            Outputs.SqlServerTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

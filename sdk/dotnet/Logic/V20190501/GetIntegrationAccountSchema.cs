@@ -82,34 +82,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public sealed class GetIntegrationAccountSchemaResult
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        public readonly string ChangedTime;
-        /// <summary>
-        /// The content.
-        /// </summary>
-        public readonly string? Content;
-        /// <summary>
-        /// The content link.
-        /// </summary>
-        public readonly Outputs.ContentLinkResponse ContentLink;
-        /// <summary>
-        /// The content type.
-        /// </summary>
-        public readonly string? ContentType;
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
-        /// The document name.
-        /// </summary>
-        public readonly string? DocumentName;
-        /// <summary>
-        /// The file name.
-        /// </summary>
-        public readonly string? FileName;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -118,25 +90,17 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The metadata.
-        /// </summary>
-        public readonly object? Metadata;
-        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The schema type.
+        /// The integration account schema properties.
         /// </summary>
-        public readonly string SchemaType;
+        public readonly Outputs.IntegrationAccountSchemaPropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The target namespace of the schema.
-        /// </summary>
-        public readonly string? TargetNamespace;
         /// <summary>
         /// Gets the resource type.
         /// </summary>
@@ -144,50 +108,23 @@ namespace Pulumi.AzureNative.Logic.V20190501
 
         [OutputConstructor]
         private GetIntegrationAccountSchemaResult(
-            string changedTime,
-
-            string? content,
-
-            Outputs.ContentLinkResponse contentLink,
-
-            string? contentType,
-
-            string createdTime,
-
-            string? documentName,
-
-            string? fileName,
-
             string id,
 
             string? location,
 
-            object? metadata,
-
             string name,
 
-            string schemaType,
+            Outputs.IntegrationAccountSchemaPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? targetNamespace,
-
             string type)
         {
-            ChangedTime = changedTime;
-            Content = content;
-            ContentLink = contentLink;
-            ContentType = contentType;
-            CreatedTime = createdTime;
-            DocumentName = documentName;
-            FileName = fileName;
             Id = id;
             Location = location;
-            Metadata = metadata;
             Name = name;
-            SchemaType = schemaType;
+            Properties = properties;
             Tags = tags;
-            TargetNamespace = targetNamespace;
             Type = type;
         }
     }

@@ -24,70 +24,25 @@ class GetCustomImageResult:
     """
     A custom image.
     """
-    def __init__(__self__, author=None, creation_date=None, description=None, id=None, location=None, managed_image_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
-        if author and not isinstance(author, str):
-            raise TypeError("Expected argument 'author' to be a str")
-        pulumi.set(__self__, "author", author)
-        if creation_date and not isinstance(creation_date, str):
-            raise TypeError("Expected argument 'creation_date' to be a str")
-        pulumi.set(__self__, "creation_date", creation_date)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if managed_image_id and not isinstance(managed_image_id, str):
-            raise TypeError("Expected argument 'managed_image_id' to be a str")
-        pulumi.set(__self__, "managed_image_id", managed_image_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        pulumi.set(__self__, "unique_identifier", unique_identifier)
-        if vhd and not isinstance(vhd, dict):
-            raise TypeError("Expected argument 'vhd' to be a dict")
-        pulumi.set(__self__, "vhd", vhd)
-        if vm and not isinstance(vm, dict):
-            raise TypeError("Expected argument 'vm' to be a dict")
-        pulumi.set(__self__, "vm", vm)
-
-    @property
-    @pulumi.getter
-    def author(self) -> Optional[str]:
-        """
-        The author of the custom image.
-        """
-        return pulumi.get(self, "author")
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
-        """
-        The creation date of the custom image.
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the custom image.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -106,14 +61,6 @@ class GetCustomImageResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> Optional[str]:
-        """
-        The Managed Image Id backing the custom image.
-        """
-        return pulumi.get(self, "managed_image_id")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -122,12 +69,12 @@ class GetCustomImageResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.CustomImagePropertiesResponse':
         """
-        The provisioning status of the resource.
+        The properties of the resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -145,30 +92,6 @@ class GetCustomImageResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @property
-    @pulumi.getter
-    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomResponse']:
-        """
-        The VHD from which the image is to be created.
-        """
-        return pulumi.get(self, "vhd")
-
-    @property
-    @pulumi.getter
-    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmResponse']:
-        """
-        The virtual machine from which the image is to be created.
-        """
-        return pulumi.get(self, "vm")
-
 
 class AwaitableGetCustomImageResult(GetCustomImageResult):
     # pylint: disable=using-constant-test
@@ -176,19 +99,12 @@ class AwaitableGetCustomImageResult(GetCustomImageResult):
         if False:
             yield self
         return GetCustomImageResult(
-            author=self.author,
-            creation_date=self.creation_date,
-            description=self.description,
             id=self.id,
             location=self.location,
-            managed_image_id=self.managed_image_id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             tags=self.tags,
-            type=self.type,
-            unique_identifier=self.unique_identifier,
-            vhd=self.vhd,
-            vm=self.vm)
+            type=self.type)
 
 
 def get_custom_image(expand: Optional[str] = None,
@@ -215,19 +131,12 @@ def get_custom_image(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab/v20160515:getCustomImage', __args__, opts=opts, typ=GetCustomImageResult).value
 
     return AwaitableGetCustomImageResult(
-        author=__ret__.author,
-        creation_date=__ret__.creation_date,
-        description=__ret__.description,
         id=__ret__.id,
         location=__ret__.location,
-        managed_image_id=__ret__.managed_image_id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        vhd=__ret__.vhd,
-        vm=__ret__.vm)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_custom_image)

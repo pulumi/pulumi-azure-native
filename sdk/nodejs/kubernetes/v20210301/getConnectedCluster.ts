@@ -35,22 +35,6 @@ export interface GetConnectedClusterArgs {
  */
 export interface GetConnectedClusterResult {
     /**
-     * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-     */
-    readonly agentPublicKeyCertificate: string;
-    /**
-     * Version of the agent running on the connected cluster resource
-     */
-    readonly agentVersion: string;
-    /**
-     * Represents the connectivity status of the connected cluster.
-     */
-    readonly connectivityStatus: string;
-    /**
-     * The Kubernetes distribution running on this connected cluster.
-     */
-    readonly distribution?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -59,37 +43,17 @@ export interface GetConnectedClusterResult {
      */
     readonly identity: outputs.kubernetes.v20210301.ConnectedClusterIdentityResponse;
     /**
-     * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
-     */
-    readonly infrastructure?: string;
-    /**
-     * The Kubernetes version of the connected cluster resource
-     */
-    readonly kubernetesVersion: string;
-    /**
-     * Time representing the last instance when heart beat was received from the cluster
-     */
-    readonly lastConnectivityTime: string;
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
-    /**
-     * Expiration time of the managed identity certificate
-     */
-    readonly managedIdentityCertificateExpirationTime: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Connected cluster offering
+     * Describes the connected cluster resource properties.
      */
-    readonly offering: string;
-    /**
-     * Provisioning state of the connected cluster resource.
-     */
-    readonly provisioningState?: string;
+    readonly properties: outputs.kubernetes.v20210301.ConnectedClusterPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
@@ -98,14 +62,6 @@ export interface GetConnectedClusterResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * Number of CPU cores present in the connected cluster resource
-     */
-    readonly totalCoreCount: number;
-    /**
-     * Number of nodes present in the connected cluster resource
-     */
-    readonly totalNodeCount: number;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

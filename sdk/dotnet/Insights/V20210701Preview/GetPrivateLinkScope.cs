@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
     public sealed class GetPrivateLinkScopeResult
     {
         /// <summary>
-        /// Access mode settings
-        /// </summary>
-        public readonly Outputs.AccessModeSettingsResponse AccessModeSettings;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -86,13 +82,9 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections.
+        /// Properties that define a Azure Monitor PrivateLinkScope resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
-        /// <summary>
-        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.AzureMonitorPrivateLinkScopePropertiesResponse Properties;
         /// <summary>
         /// System data
         /// </summary>
@@ -108,17 +100,13 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
 
         [OutputConstructor]
         private GetPrivateLinkScopeResult(
-            Outputs.AccessModeSettingsResponse accessModeSettings,
-
             string id,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
-
-            string provisioningState,
+            Outputs.AzureMonitorPrivateLinkScopePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -126,12 +114,10 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
 
             string type)
         {
-            AccessModeSettings = accessModeSettings;
             Id = id;
             Location = location;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -84,22 +84,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetConsoleResult
     {
         /// <summary>
-        /// The more detailed status of the console.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
-        /// The indicator of whether the console access is enabled.
-        /// </summary>
-        public readonly string Enabled;
-        /// <summary>
-        /// The date and time after which the key will be disallowed access.
-        /// </summary>
-        public readonly string? Expiration;
-        /// <summary>
         /// The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -116,14 +100,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource ID of the private link service that is used to provide virtual machine console access.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string PrivateLinkServiceId;
-        /// <summary>
-        /// The provisioning state of the virtual machine console.
-        /// </summary>
-        public readonly string ProvisioningState;
-        public readonly Outputs.SshPublicKeyResponse SshPublicKey;
+        public readonly Outputs.ConsolePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -136,21 +115,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique identifier for the virtual machine that is used to access the console.
-        /// </summary>
-        public readonly string VirtualMachineAccessId;
 
         [OutputConstructor]
         private GetConsoleResult(
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
-            string enabled,
-
-            string? expiration,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -159,35 +126,22 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string name,
 
-            string privateLinkServiceId,
-
-            string provisioningState,
-
-            Outputs.SshPublicKeyResponse sshPublicKey,
+            Outputs.ConsolePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string virtualMachineAccessId)
+            string type)
         {
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
-            Enabled = enabled;
-            Expiration = expiration;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;
-            PrivateLinkServiceId = privateLinkServiceId;
-            ProvisioningState = provisioningState;
-            SshPublicKey = sshPublicKey;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VirtualMachineAccessId = virtualMachineAccessId;
         }
     }
 }

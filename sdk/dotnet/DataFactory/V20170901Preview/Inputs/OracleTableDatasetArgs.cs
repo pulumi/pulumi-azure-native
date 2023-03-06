@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<object> TableName { get; set; } = null!;
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'OracleTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// On-premises Oracle dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.OracleTableDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public OracleTableDatasetArgs()
         {

@@ -40,10 +40,6 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * The password details.
-     */
-    readonly encryptedPassword?: outputs.databoxedge.v20201201.AsymmetricEncryptedSecretResponse;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -52,9 +48,9 @@ export interface GetUserResult {
      */
     readonly name: string;
     /**
-     * List of shares that the user has rights on. This field should not be specified during user creation.
+     * The storage account credential properties.
      */
-    readonly shareAccessRights: outputs.databoxedge.v20201201.ShareAccessRightResponse[];
+    readonly properties: outputs.databoxedge.v20201201.UserPropertiesResponse;
     /**
      * User in DataBoxEdge Resource
      */
@@ -63,10 +59,6 @@ export interface GetUserResult {
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * Type of the user.
-     */
-    readonly userType: string;
 }
 /**
  * Gets the properties of the specified user.

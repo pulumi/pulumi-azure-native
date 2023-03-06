@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     public partial class BlobDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Container that has the file path.
-        /// </summary>
-        [Output("containerName")]
-        public Output<string> ContainerName { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
-        /// File path within the source data set
-        /// </summary>
-        [Output("filePath")]
-        public Output<string> FilePath { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'Blob'.
         /// </summary>
@@ -47,22 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account
+        /// Blob data set properties.
         /// </summary>
-        [Output("resourceGroup")]
-        public Output<string> ResourceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BlobPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -143,22 +113,10 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Container that has the file path.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the dataSet.
         /// </summary>
         [Input("dataSetName")]
         public Input<string>? DataSetName { get; set; }
-
-        /// <summary>
-        /// File path within the source data set
-        /// </summary>
-        [Input("filePath", required: true)]
-        public Input<string> FilePath { get; set; } = null!;
 
         /// <summary>
         /// Kind of data set.
@@ -168,10 +126,10 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource group of storage account
+        /// Blob data set properties.
         /// </summary>
-        [Input("resourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.BlobPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -184,18 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
-
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
 
         public BlobDataSetArgs()
         {

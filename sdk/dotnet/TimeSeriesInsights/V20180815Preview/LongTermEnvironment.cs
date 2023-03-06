@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     public partial class LongTermEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        [Output("dataAccessFqdn")]
-        public Output<string> DataAccessFqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        [Output("dataAccessId")]
-        public Output<string> DataAccessId { get; private set; } = null!;
-
-        /// <summary>
         /// The kind of the environment.
         /// Expected value is 'LongTerm'.
         /// </summary>
@@ -53,10 +35,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of the long-term environment.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LongTermEnvironmentResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
@@ -65,40 +47,16 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.EnvironmentStatusResponse> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        /// </summary>
-        [Output("storageConfiguration")]
-        public Output<Outputs.LongTermStorageConfigurationOutputResponse> StorageConfiguration { get; private set; } = null!;
-
-        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The list of event properties which will be used to define the environment's time series id.
-        /// </summary>
-        [Output("timeSeriesIdProperties")]
-        public Output<ImmutableArray<Outputs.TimeSeriesIdPropertyResponse>> TimeSeriesIdProperties { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        /// </summary>
-        [Output("warmStoreConfiguration")]
-        public Output<Outputs.WarmStoreConfigurationPropertiesResponse?> WarmStoreConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -181,6 +139,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Properties used to create a long-term environment.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LongTermEnvironmentCreationPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -191,12 +155,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        /// </summary>
-        [Input("storageConfiguration", required: true)]
-        public Input<Inputs.LongTermStorageConfigurationInputArgs> StorageConfiguration { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -209,24 +167,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        [Input("timeSeriesIdProperties", required: true)]
-        private InputList<Inputs.TimeSeriesIdPropertyArgs>? _timeSeriesIdProperties;
-
-        /// <summary>
-        /// The list of event properties which will be used to define the environment's time series id.
-        /// </summary>
-        public InputList<Inputs.TimeSeriesIdPropertyArgs> TimeSeriesIdProperties
-        {
-            get => _timeSeriesIdProperties ?? (_timeSeriesIdProperties = new InputList<Inputs.TimeSeriesIdPropertyArgs>());
-            set => _timeSeriesIdProperties = value;
-        }
-
-        /// <summary>
-        /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        /// </summary>
-        [Input("warmStoreConfiguration")]
-        public Input<Inputs.WarmStoreConfigurationPropertiesArgs>? WarmStoreConfiguration { get; set; }
 
         public LongTermEnvironmentArgs()
         {

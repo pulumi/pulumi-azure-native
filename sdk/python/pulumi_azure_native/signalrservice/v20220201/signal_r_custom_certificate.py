@@ -9,59 +9,41 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['SignalRCustomCertificateArgs', 'SignalRCustomCertificate']
 
 @pulumi.input_type
 class SignalRCustomCertificateArgs:
     def __init__(__self__, *,
-                 key_vault_base_uri: pulumi.Input[str],
-                 key_vault_secret_name: pulumi.Input[str],
+                 properties: pulumi.Input['CustomCertificatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
-                 certificate_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_secret_version: Optional[pulumi.Input[str]] = None):
+                 certificate_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SignalRCustomCertificate resource.
-        :param pulumi.Input[str] key_vault_base_uri: Base uri of the KeyVault that stores certificate.
-        :param pulumi.Input[str] key_vault_secret_name: Certificate secret name.
+        :param pulumi.Input['CustomCertificatePropertiesArgs'] properties: Custom certificate properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] certificate_name: Custom certificate name
-        :param pulumi.Input[str] key_vault_secret_version: Certificate secret version.
         """
-        pulumi.set(__self__, "key_vault_base_uri", key_vault_base_uri)
-        pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if certificate_name is not None:
             pulumi.set(__self__, "certificate_name", certificate_name)
-        if key_vault_secret_version is not None:
-            pulumi.set(__self__, "key_vault_secret_version", key_vault_secret_version)
 
     @property
-    @pulumi.getter(name="keyVaultBaseUri")
-    def key_vault_base_uri(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CustomCertificatePropertiesArgs']:
         """
-        Base uri of the KeyVault that stores certificate.
+        Custom certificate properties.
         """
-        return pulumi.get(self, "key_vault_base_uri")
+        return pulumi.get(self, "properties")
 
-    @key_vault_base_uri.setter
-    def key_vault_base_uri(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_vault_base_uri", value)
-
-    @property
-    @pulumi.getter(name="keyVaultSecretName")
-    def key_vault_secret_name(self) -> pulumi.Input[str]:
-        """
-        Certificate secret name.
-        """
-        return pulumi.get(self, "key_vault_secret_name")
-
-    @key_vault_secret_name.setter
-    def key_vault_secret_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_vault_secret_name", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CustomCertificatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -99,18 +81,6 @@ class SignalRCustomCertificateArgs:
     def certificate_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_name", value)
 
-    @property
-    @pulumi.getter(name="keyVaultSecretVersion")
-    def key_vault_secret_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Certificate secret version.
-        """
-        return pulumi.get(self, "key_vault_secret_version")
-
-    @key_vault_secret_version.setter
-    def key_vault_secret_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_vault_secret_version", value)
-
 
 class SignalRCustomCertificate(pulumi.CustomResource):
     @overload
@@ -118,9 +88,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_base_uri: Optional[pulumi.Input[str]] = None,
-                 key_vault_secret_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_secret_version: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CustomCertificatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -130,9 +98,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: Custom certificate name
-        :param pulumi.Input[str] key_vault_base_uri: Base uri of the KeyVault that stores certificate.
-        :param pulumi.Input[str] key_vault_secret_name: Certificate secret name.
-        :param pulumi.Input[str] key_vault_secret_version: Certificate secret version.
+        :param pulumi.Input[pulumi.InputType['CustomCertificatePropertiesArgs']] properties: Custom certificate properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the resource.
         """
@@ -161,9 +127,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_base_uri: Optional[pulumi.Input[str]] = None,
-                 key_vault_secret_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_secret_version: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CustomCertificatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -176,13 +140,9 @@ class SignalRCustomCertificate(pulumi.CustomResource):
             __props__ = SignalRCustomCertificateArgs.__new__(SignalRCustomCertificateArgs)
 
             __props__.__dict__["certificate_name"] = certificate_name
-            if key_vault_base_uri is None and not opts.urn:
-                raise TypeError("Missing required property 'key_vault_base_uri'")
-            __props__.__dict__["key_vault_base_uri"] = key_vault_base_uri
-            if key_vault_secret_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_vault_secret_name'")
-            __props__.__dict__["key_vault_secret_name"] = key_vault_secret_name
-            __props__.__dict__["key_vault_secret_version"] = key_vault_secret_version
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -190,7 +150,6 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRCustomCertificate")])
@@ -217,38 +176,11 @@ class SignalRCustomCertificate(pulumi.CustomResource):
 
         __props__ = SignalRCustomCertificateArgs.__new__(SignalRCustomCertificateArgs)
 
-        __props__.__dict__["key_vault_base_uri"] = None
-        __props__.__dict__["key_vault_secret_name"] = None
-        __props__.__dict__["key_vault_secret_version"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SignalRCustomCertificate(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="keyVaultBaseUri")
-    def key_vault_base_uri(self) -> pulumi.Output[str]:
-        """
-        Base uri of the KeyVault that stores certificate.
-        """
-        return pulumi.get(self, "key_vault_base_uri")
-
-    @property
-    @pulumi.getter(name="keyVaultSecretName")
-    def key_vault_secret_name(self) -> pulumi.Output[str]:
-        """
-        Certificate secret name.
-        """
-        return pulumi.get(self, "key_vault_secret_name")
-
-    @property
-    @pulumi.getter(name="keyVaultSecretVersion")
-    def key_vault_secret_version(self) -> pulumi.Output[Optional[str]]:
-        """
-        Certificate secret version.
-        """
-        return pulumi.get(self, "key_vault_secret_version")
 
     @property
     @pulumi.getter
@@ -259,12 +191,12 @@ class SignalRCustomCertificate(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.CustomCertificatePropertiesResponse']:
         """
-        Provisioning state of the resource.
+        Custom certificate properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

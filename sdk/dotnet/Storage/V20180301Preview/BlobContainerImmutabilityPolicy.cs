@@ -23,22 +23,16 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The immutability period for the blobs in the container since the policy creation, in days.
-        /// </summary>
-        [Output("immutabilityPeriodSinceCreationInDays")]
-        public Output<int> ImmutabilityPeriodSinceCreationInDays { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        /// The properties of an ImmutabilityPolicy of a blob container.
         /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ImmutabilityPolicyPropertyResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -122,16 +116,16 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The immutability period for the blobs in the container since the policy creation, in days.
-        /// </summary>
-        [Input("immutabilityPeriodSinceCreationInDays", required: true)]
-        public Input<int> ImmutabilityPeriodSinceCreationInDays { get; set; } = null!;
-
-        /// <summary>
         /// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         /// </summary>
         [Input("immutabilityPolicyName")]
         public Input<string>? ImmutabilityPolicyName { get; set; }
+
+        /// <summary>
+        /// The properties of an ImmutabilityPolicy of a blob container.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ImmutabilityPolicyPropertyArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

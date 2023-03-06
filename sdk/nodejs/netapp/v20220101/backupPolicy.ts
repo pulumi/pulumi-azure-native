@@ -38,18 +38,6 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Backup Policy Resource ID
-     */
-    public /*out*/ readonly backupPolicyId!: pulumi.Output<string>;
-    /**
-     * Daily backups count to keep
-     */
-    public readonly dailyBackupsToKeep!: pulumi.Output<number | undefined>;
-    /**
-     * The property to decide policy is enabled or not
-     */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -58,17 +46,13 @@ export class BackupPolicy extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Monthly backups count to keep
-     */
-    public readonly monthlyBackupsToKeep!: pulumi.Output<number | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure lifecycle management
+     * Backup policy Properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20220101.BackupPolicyPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -81,18 +65,6 @@ export class BackupPolicy extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * A list of volumes assigned to this policy
-     */
-    public /*out*/ readonly volumeBackups!: pulumi.Output<outputs.netapp.v20220101.VolumeBackupsResponse[]>;
-    /**
-     * Volumes using current backup policy
-     */
-    public /*out*/ readonly volumesAssigned!: pulumi.Output<number>;
-    /**
-     * Weekly backups count to keep
-     */
-    public readonly weeklyBackupsToKeep!: pulumi.Output<number | undefined>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -108,41 +80,30 @@ export class BackupPolicy extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            resourceInputs["dailyBackupsToKeep"] = args ? args.dailyBackupsToKeep : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monthlyBackupsToKeep"] = args ? args.monthlyBackupsToKeep : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
-            resourceInputs["backupPolicyId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeBackups"] = undefined /*out*/;
-            resourceInputs["volumesAssigned"] = undefined /*out*/;
         } else {
-            resourceInputs["backupPolicyId"] = undefined /*out*/;
-            resourceInputs["dailyBackupsToKeep"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["monthlyBackupsToKeep"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeBackups"] = undefined /*out*/;
-            resourceInputs["volumesAssigned"] = undefined /*out*/;
-            resourceInputs["weeklyBackupsToKeep"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:BackupPolicy" }, { type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-native:netapp/v20201201:BackupPolicy" }, { type: "azure-native:netapp/v20210201:BackupPolicy" }, { type: "azure-native:netapp/v20210401:BackupPolicy" }, { type: "azure-native:netapp/v20210401preview:BackupPolicy" }, { type: "azure-native:netapp/v20210601:BackupPolicy" }, { type: "azure-native:netapp/v20210801:BackupPolicy" }, { type: "azure-native:netapp/v20211001:BackupPolicy" }, { type: "azure-native:netapp/v20220301:BackupPolicy" }, { type: "azure-native:netapp/v20220501:BackupPolicy" }, { type: "azure-native:netapp/v20220901:BackupPolicy" }] };
@@ -164,21 +125,13 @@ export interface BackupPolicyArgs {
      */
     backupPolicyName?: pulumi.Input<string>;
     /**
-     * Daily backups count to keep
-     */
-    dailyBackupsToKeep?: pulumi.Input<number>;
-    /**
-     * The property to decide policy is enabled or not
-     */
-    enabled?: pulumi.Input<boolean>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Monthly backups count to keep
+     * Backup policy Properties
      */
-    monthlyBackupsToKeep?: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.netapp.v20220101.BackupPolicyPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -187,8 +140,4 @@ export interface BackupPolicyArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Weekly backups count to keep
-     */
-    weeklyBackupsToKeep?: pulumi.Input<number>;
 }

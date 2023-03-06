@@ -17,37 +17,27 @@ __all__ = ['SAPVirtualInstanceArgs', 'SAPVirtualInstance']
 @pulumi.input_type
 class SAPVirtualInstanceArgs:
     def __init__(__self__, *,
-                 configuration: pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']],
-                 environment: pulumi.Input[Union[str, 'SAPEnvironmentType']],
+                 properties: pulumi.Input['SAPVirtualInstancePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 sap_product: pulumi.Input[Union[str, 'SAPProductType']],
                  identity: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None,
                  sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SAPVirtualInstance resource.
-        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-        :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
+        :param pulumi.Input['SAPVirtualInstancePropertiesArgs'] properties: Defines the Virtual Instance for SAP solutions resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
         :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: Managed service identity (user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sap_product", sap_product)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
         if sap_virtual_instance_name is not None:
             pulumi.set(__self__, "sap_virtual_instance_name", sap_virtual_instance_name)
         if tags is not None:
@@ -55,27 +45,15 @@ class SAPVirtualInstanceArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']]:
+    def properties(self) -> pulumi.Input['SAPVirtualInstancePropertiesArgs']:
         """
-        Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
+        Defines the Virtual Instance for SAP solutions resource properties.
         """
-        return pulumi.get(self, "configuration")
+        return pulumi.get(self, "properties")
 
-    @configuration.setter
-    def configuration(self, value: pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
-
-    @property
-    @pulumi.getter
-    def environment(self) -> pulumi.Input[Union[str, 'SAPEnvironmentType']]:
-        """
-        Defines the environment type - Production/Non Production.
-        """
-        return pulumi.get(self, "environment")
-
-    @environment.setter
-    def environment(self, value: pulumi.Input[Union[str, 'SAPEnvironmentType']]):
-        pulumi.set(self, "environment", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['SAPVirtualInstancePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -88,18 +66,6 @@ class SAPVirtualInstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sapProduct")
-    def sap_product(self) -> pulumi.Input[Union[str, 'SAPProductType']]:
-        """
-        Defines the SAP Product type.
-        """
-        return pulumi.get(self, "sap_product")
-
-    @sap_product.setter
-    def sap_product(self, value: pulumi.Input[Union[str, 'SAPProductType']]):
-        pulumi.set(self, "sap_product", value)
 
     @property
     @pulumi.getter
@@ -124,18 +90,6 @@ class SAPVirtualInstanceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedRGConfigurationArgs']]:
-        """
-        Managed resource group configuration
-        """
-        return pulumi.get(self, "managed_resource_group_configuration")
-
-    @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedRGConfigurationArgs']]):
-        pulumi.set(self, "managed_resource_group_configuration", value)
 
     @property
     @pulumi.getter(name="sapVirtualInstanceName")
@@ -167,13 +121,10 @@ class SAPVirtualInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]]] = None,
-                 environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SAPVirtualInstancePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
                  sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -182,13 +133,10 @@ class SAPVirtualInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-        :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
         :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: Managed service identity (user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration
+        :param pulumi.Input[pulumi.InputType['SAPVirtualInstancePropertiesArgs']] properties: Defines the Virtual Instance for SAP solutions resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
         :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -216,13 +164,10 @@ class SAPVirtualInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]]] = None,
-                 environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SAPVirtualInstancePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
                  sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -234,29 +179,17 @@ class SAPVirtualInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SAPVirtualInstanceArgs.__new__(SAPVirtualInstanceArgs)
 
-            if configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration'")
-            __props__.__dict__["configuration"] = configuration
-            if environment is None and not opts.urn:
-                raise TypeError("Missing required property 'environment'")
-            __props__.__dict__["environment"] = environment
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sap_product is None and not opts.urn:
-                raise TypeError("Missing required property 'sap_product'")
-            __props__.__dict__["sap_product"] = sap_product
             __props__.__dict__["sap_virtual_instance_name"] = sap_virtual_instance_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["errors"] = None
-            __props__.__dict__["health"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["state"] = None
-            __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:SAPVirtualInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SAPVirtualInstance")])
@@ -283,54 +216,14 @@ class SAPVirtualInstance(pulumi.CustomResource):
 
         __props__ = SAPVirtualInstanceArgs.__new__(SAPVirtualInstanceArgs)
 
-        __props__.__dict__["configuration"] = None
-        __props__.__dict__["environment"] = None
-        __props__.__dict__["errors"] = None
-        __props__.__dict__["health"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["managed_resource_group_configuration"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["sap_product"] = None
-        __props__.__dict__["state"] = None
-        __props__.__dict__["status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SAPVirtualInstance(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> pulumi.Output[Any]:
-        """
-        Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-        """
-        return pulumi.get(self, "configuration")
-
-    @property
-    @pulumi.getter
-    def environment(self) -> pulumi.Output[str]:
-        """
-        Defines the environment type - Production/Non Production.
-        """
-        return pulumi.get(self, "environment")
-
-    @property
-    @pulumi.getter
-    def errors(self) -> pulumi.Output['outputs.SAPVirtualInstanceErrorResponse']:
-        """
-        Indicates any errors on the Virtual Instance for SAP solutions resource.
-        """
-        return pulumi.get(self, "errors")
-
-    @property
-    @pulumi.getter
-    def health(self) -> pulumi.Output[str]:
-        """
-        Defines the health of SAP Instances.
-        """
-        return pulumi.get(self, "health")
 
     @property
     @pulumi.getter
@@ -349,14 +242,6 @@ class SAPVirtualInstance(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> pulumi.Output[Optional['outputs.ManagedRGConfigurationResponse']]:
-        """
-        Managed resource group configuration
-        """
-        return pulumi.get(self, "managed_resource_group_configuration")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -365,36 +250,12 @@ class SAPVirtualInstance(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Defines the provisioning states.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sapProduct")
-    def sap_product(self) -> pulumi.Output[str]:
-        """
-        Defines the SAP Product type.
-        """
-        return pulumi.get(self, "sap_product")
-
-    @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.SAPVirtualInstancePropertiesResponse']:
         """
-        Defines the Virtual Instance for SAP state.
+        Defines the Virtual Instance for SAP solutions resource properties.
         """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        """
-        Defines the SAP Instance status.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

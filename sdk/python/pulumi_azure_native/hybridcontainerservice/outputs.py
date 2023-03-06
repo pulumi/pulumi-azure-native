@@ -27,6 +27,7 @@ __all__ = [
     'ControlPlaneEndpointProfileResponseControlPlaneEndpoint',
     'ControlPlaneProfileResponse',
     'HttpProxyConfigResponseResponse',
+    'HybridIdentityMetadataPropertiesResponse',
     'LinuxProfilePropertiesResponse',
     'LinuxProfilePropertiesResponsePublicKeys',
     'LinuxProfilePropertiesResponseSsh',
@@ -1156,6 +1157,85 @@ class HttpProxyConfigResponseResponse(dict):
         Username to use for connecting to proxy server
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class HybridIdentityMetadataPropertiesResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicKey":
+            suggest = "public_key"
+        elif key == "resourceUid":
+            suggest = "resource_uid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridIdentityMetadataPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridIdentityMetadataPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridIdentityMetadataPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 identity: Optional['outputs.ProvisionedClusterIdentityResponse'] = None,
+                 public_key: Optional[str] = None,
+                 resource_uid: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str provisioning_state: provisioning state of the hybridIdentityMetadata resource.
+        :param 'ProvisionedClusterIdentityResponse' identity: The identity of the provisioned cluster.
+        :param str public_key: Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
+        :param str resource_uid: Unique id of the parent provisioned cluster resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if resource_uid is not None:
+            pulumi.set(__self__, "resource_uid", resource_uid)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        provisioning state of the hybridIdentityMetadata resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ProvisionedClusterIdentityResponse']:
+        """
+        The identity of the provisioned cluster.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[str]:
+        """
+        Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter(name="resourceUid")
+    def resource_uid(self) -> Optional[str]:
+        """
+        Unique id of the parent provisioned cluster resource.
+        """
+        return pulumi.get(self, "resource_uid")
 
 
 @pulumi.output_type

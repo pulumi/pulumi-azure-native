@@ -46,14 +46,6 @@ export interface GetArcAddonArgs {
  */
 export interface GetArcAddonResult {
     /**
-     * Host OS supported by the Arc addon.
-     */
-    readonly hostPlatform: string;
-    /**
-     * Platform where the runtime is hosted.
-     */
-    readonly hostPlatformType: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -67,25 +59,9 @@ export interface GetArcAddonResult {
      */
     readonly name: string;
     /**
-     * Addon Provisioning State
+     * Properties specific to Arc addon.
      */
-    readonly provisioningState: string;
-    /**
-     * Arc resource group name
-     */
-    readonly resourceGroupName: string;
-    /**
-     * Arc resource location
-     */
-    readonly resourceLocation: string;
-    /**
-     * Arc resource Name
-     */
-    readonly resourceName: string;
-    /**
-     * Arc resource subscription Id
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.databoxedge.ArcAddonPropertiesResponse;
     /**
      * Addon type
      */
@@ -94,10 +70,6 @@ export interface GetArcAddonResult {
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * Arc resource version
-     */
-    readonly version: string;
 }
 /**
  * Gets a specific addon by name.

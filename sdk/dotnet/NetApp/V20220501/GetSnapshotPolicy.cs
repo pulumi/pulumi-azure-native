@@ -82,21 +82,9 @@ namespace Pulumi.AzureNative.NetApp.V20220501
     public sealed class GetSnapshotPolicyResult
     {
         /// <summary>
-        /// Schedule for daily snapshots
-        /// </summary>
-        public readonly Outputs.DailyScheduleResponse? DailySchedule;
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// Schedule for hourly snapshots
-        /// </summary>
-        public readonly Outputs.HourlyScheduleResponse? HourlySchedule;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -106,17 +94,13 @@ namespace Pulumi.AzureNative.NetApp.V20220501
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Schedule for monthly snapshots
-        /// </summary>
-        public readonly Outputs.MonthlyScheduleResponse? MonthlySchedule;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Snapshot policy Properties
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.SnapshotPolicyPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -129,52 +113,33 @@ namespace Pulumi.AzureNative.NetApp.V20220501
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Schedule for weekly snapshots
-        /// </summary>
-        public readonly Outputs.WeeklyScheduleResponse? WeeklySchedule;
 
         [OutputConstructor]
         private GetSnapshotPolicyResult(
-            Outputs.DailyScheduleResponse? dailySchedule,
-
-            bool? enabled,
-
             string etag,
-
-            Outputs.HourlyScheduleResponse? hourlySchedule,
 
             string id,
 
             string location,
 
-            Outputs.MonthlyScheduleResponse? monthlySchedule,
-
             string name,
 
-            string provisioningState,
+            Outputs.SnapshotPolicyPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.WeeklyScheduleResponse? weeklySchedule)
+            string type)
         {
-            DailySchedule = dailySchedule;
-            Enabled = enabled;
             Etag = etag;
-            HourlySchedule = hourlySchedule;
             Id = id;
             Location = location;
-            MonthlySchedule = monthlySchedule;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            WeeklySchedule = weeklySchedule;
         }
     }
 }

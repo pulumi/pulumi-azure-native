@@ -17,29 +17,11 @@ namespace Pulumi.AzureNative.DataShare
     public partial class KustoDatabaseDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'KustoDatabase'.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource id of the kusto database.
-        /// </summary>
-        [Output("kustoDatabaseResourceId")]
-        public Output<string> KustoDatabaseResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Location of the kusto cluster.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Name of the azure resource
@@ -48,10 +30,10 @@ namespace Pulumi.AzureNative.DataShare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the kusto database data set.
+        /// Kusto database data set properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.KustoDatabaseDataSetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -145,10 +127,10 @@ namespace Pulumi.AzureNative.DataShare
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Resource id of the kusto database.
+        /// Kusto database data set properties.
         /// </summary>
-        [Input("kustoDatabaseResourceId", required: true)]
-        public Input<string> KustoDatabaseResourceId { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.KustoDatabaseDataSetPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

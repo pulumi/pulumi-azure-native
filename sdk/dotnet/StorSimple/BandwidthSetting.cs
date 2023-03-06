@@ -29,22 +29,16 @@ namespace Pulumi.AzureNative.StorSimple
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The schedules.
+        /// The properties of the bandwidth setting.
         /// </summary>
-        [Output("schedules")]
-        public Output<ImmutableArray<Outputs.BandwidthScheduleResponse>> Schedules { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BandwidthRateSettingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of volumes that uses the bandwidth setting.
-        /// </summary>
-        [Output("volumeCount")]
-        public Output<int> VolumeCount { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,22 +108,16 @@ namespace Pulumi.AzureNative.StorSimple
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The properties of the bandwidth setting.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.BandwidthRateSettingPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("schedules", required: true)]
-        private InputList<Inputs.BandwidthScheduleArgs>? _schedules;
-
-        /// <summary>
-        /// The schedules.
-        /// </summary>
-        public InputList<Inputs.BandwidthScheduleArgs> Schedules
-        {
-            get => _schedules ?? (_schedules = new InputList<Inputs.BandwidthScheduleArgs>());
-            set => _schedules = value;
-        }
 
         public BandwidthSettingArgs()
         {

@@ -17,12 +17,6 @@ namespace Pulumi.AzureNative.NetApp.V20170815
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Active Directories
-        /// </summary>
-        [Output("activeDirectories")]
-        public Output<ImmutableArray<Outputs.ActiveDirectoryResponse>> ActiveDirectories { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -35,10 +29,10 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure lifecycle management
+        /// NetApp Account properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AccountPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -132,23 +126,17 @@ namespace Pulumi.AzureNative.NetApp.V20170815
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
-        [Input("activeDirectories")]
-        private InputList<Inputs.ActiveDirectoryArgs>? _activeDirectories;
-
-        /// <summary>
-        /// Active Directories
-        /// </summary>
-        public InputList<Inputs.ActiveDirectoryArgs> ActiveDirectories
-        {
-            get => _activeDirectories ?? (_activeDirectories = new InputList<Inputs.ActiveDirectoryArgs>());
-            set => _activeDirectories = value;
-        }
-
         /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// NetApp Account properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.AccountPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

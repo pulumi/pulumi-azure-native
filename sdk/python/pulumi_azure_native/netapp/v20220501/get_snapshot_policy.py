@@ -22,34 +22,22 @@ class GetSnapshotPolicyResult:
     """
     Snapshot policy information
     """
-    def __init__(__self__, daily_schedule=None, enabled=None, etag=None, hourly_schedule=None, id=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, weekly_schedule=None):
-        if daily_schedule and not isinstance(daily_schedule, dict):
-            raise TypeError("Expected argument 'daily_schedule' to be a dict")
-        pulumi.set(__self__, "daily_schedule", daily_schedule)
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        pulumi.set(__self__, "enabled", enabled)
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if hourly_schedule and not isinstance(hourly_schedule, dict):
-            raise TypeError("Expected argument 'hourly_schedule' to be a dict")
-        pulumi.set(__self__, "hourly_schedule", hourly_schedule)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if monthly_schedule and not isinstance(monthly_schedule, dict):
-            raise TypeError("Expected argument 'monthly_schedule' to be a dict")
-        pulumi.set(__self__, "monthly_schedule", monthly_schedule)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -59,25 +47,6 @@ class GetSnapshotPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if weekly_schedule and not isinstance(weekly_schedule, dict):
-            raise TypeError("Expected argument 'weekly_schedule' to be a dict")
-        pulumi.set(__self__, "weekly_schedule", weekly_schedule)
-
-    @property
-    @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> Optional['outputs.DailyScheduleResponse']:
-        """
-        Schedule for daily snapshots
-        """
-        return pulumi.get(self, "daily_schedule")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        The property to decide policy is enabled or not
-        """
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
@@ -86,14 +55,6 @@ class GetSnapshotPolicyResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="hourlySchedule")
-    def hourly_schedule(self) -> Optional['outputs.HourlyScheduleResponse']:
-        """
-        Schedule for hourly snapshots
-        """
-        return pulumi.get(self, "hourly_schedule")
 
     @property
     @pulumi.getter
@@ -112,14 +73,6 @@ class GetSnapshotPolicyResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="monthlySchedule")
-    def monthly_schedule(self) -> Optional['outputs.MonthlyScheduleResponse']:
-        """
-        Schedule for monthly snapshots
-        """
-        return pulumi.get(self, "monthly_schedule")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -128,12 +81,12 @@ class GetSnapshotPolicyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SnapshotPolicyPropertiesResponse':
         """
-        Azure lifecycle management
+        Snapshot policy Properties
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -159,14 +112,6 @@ class GetSnapshotPolicyResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> Optional['outputs.WeeklyScheduleResponse']:
-        """
-        Schedule for weekly snapshots
-        """
-        return pulumi.get(self, "weekly_schedule")
-
 
 class AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
     # pylint: disable=using-constant-test
@@ -174,19 +119,14 @@ class AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
         if False:
             yield self
         return GetSnapshotPolicyResult(
-            daily_schedule=self.daily_schedule,
-            enabled=self.enabled,
             etag=self.etag,
-            hourly_schedule=self.hourly_schedule,
             id=self.id,
             location=self.location,
-            monthly_schedule=self.monthly_schedule,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            weekly_schedule=self.weekly_schedule)
+            type=self.type)
 
 
 def get_snapshot_policy(account_name: Optional[str] = None,
@@ -209,19 +149,14 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20220501:getSnapshotPolicy', __args__, opts=opts, typ=GetSnapshotPolicyResult).value
 
     return AwaitableGetSnapshotPolicyResult(
-        daily_schedule=__ret__.daily_schedule,
-        enabled=__ret__.enabled,
         etag=__ret__.etag,
-        hourly_schedule=__ret__.hourly_schedule,
         id=__ret__.id,
         location=__ret__.location,
-        monthly_schedule=__ret__.monthly_schedule,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        weekly_schedule=__ret__.weekly_schedule)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_snapshot_policy)

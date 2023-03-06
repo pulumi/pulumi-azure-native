@@ -21,6 +21,7 @@ __all__ = [
     'DataImportDetailsArgs',
     'FilterFileDetailsArgs',
     'JobDeliveryInfoArgs',
+    'JobPropertiesArgs',
     'ManagedDiskDetailsArgs',
     'NotificationPreferenceArgs',
     'PreferencesArgs',
@@ -812,6 +813,79 @@ class JobDeliveryInfoArgs:
     @scheduled_date_time.setter
     def scheduled_date_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scheduled_date_time", value)
+
+
+@pulumi.input_type
+class JobPropertiesArgs:
+    def __init__(__self__, *,
+                 transfer_type: pulumi.Input[Union[str, 'TransferType']],
+                 delivery_info: Optional[pulumi.Input['JobDeliveryInfoArgs']] = None,
+                 delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
+                 details: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None):
+        """
+        Job Properties
+        :param pulumi.Input[Union[str, 'TransferType']] transfer_type: Type of the data transfer.
+        :param pulumi.Input['JobDeliveryInfoArgs'] delivery_info: Delivery Info of Job.
+        :param pulumi.Input[Union[str, 'JobDeliveryType']] delivery_type: Delivery type of Job.
+        :param pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']] details: Details of a job run. This field will only be sent for expand details filter.
+        """
+        pulumi.set(__self__, "transfer_type", transfer_type)
+        if delivery_info is not None:
+            pulumi.set(__self__, "delivery_info", delivery_info)
+        if delivery_type is None:
+            delivery_type = 'NonScheduled'
+        if delivery_type is not None:
+            pulumi.set(__self__, "delivery_type", delivery_type)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+
+    @property
+    @pulumi.getter(name="transferType")
+    def transfer_type(self) -> pulumi.Input[Union[str, 'TransferType']]:
+        """
+        Type of the data transfer.
+        """
+        return pulumi.get(self, "transfer_type")
+
+    @transfer_type.setter
+    def transfer_type(self, value: pulumi.Input[Union[str, 'TransferType']]):
+        pulumi.set(self, "transfer_type", value)
+
+    @property
+    @pulumi.getter(name="deliveryInfo")
+    def delivery_info(self) -> Optional[pulumi.Input['JobDeliveryInfoArgs']]:
+        """
+        Delivery Info of Job.
+        """
+        return pulumi.get(self, "delivery_info")
+
+    @delivery_info.setter
+    def delivery_info(self, value: Optional[pulumi.Input['JobDeliveryInfoArgs']]):
+        pulumi.set(self, "delivery_info", value)
+
+    @property
+    @pulumi.getter(name="deliveryType")
+    def delivery_type(self) -> Optional[pulumi.Input[Union[str, 'JobDeliveryType']]]:
+        """
+        Delivery type of Job.
+        """
+        return pulumi.get(self, "delivery_type")
+
+    @delivery_type.setter
+    def delivery_type(self, value: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]]):
+        pulumi.set(self, "delivery_type", value)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]:
+        """
+        Details of a job run. This field will only be sent for expand details filter.
+        """
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]):
+        pulumi.set(self, "details", value)
 
 
 @pulumi.input_type

@@ -96,41 +96,17 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// UUID v4 used to identify the Pool
+        /// Capacity pool properties
         /// </summary>
-        public readonly string PoolId;
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The qos type of the pool
-        /// </summary>
-        public readonly string? QosType;
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        public readonly string ServiceLevel;
-        /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        /// </summary>
-        public readonly double Size;
+        public readonly Outputs.PoolPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Total throughput of pool in Mibps
-        /// </summary>
-        public readonly double TotalThroughputMibps;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Utilized throughput of pool in Mibps
-        /// </summary>
-        public readonly double UtilizedThroughputMibps;
 
         [OutputConstructor]
         private GetPoolResult(
@@ -140,36 +116,18 @@ namespace Pulumi.AzureNative.NetApp
 
             string name,
 
-            string poolId,
-
-            string provisioningState,
-
-            string? qosType,
-
-            string serviceLevel,
-
-            double size,
+            Outputs.PoolPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            double totalThroughputMibps,
-
-            string type,
-
-            double utilizedThroughputMibps)
+            string type)
         {
             Id = id;
             Location = location;
             Name = name;
-            PoolId = poolId;
-            ProvisioningState = provisioningState;
-            QosType = qosType;
-            ServiceLevel = serviceLevel;
-            Size = size;
+            Properties = properties;
             Tags = tags;
-            TotalThroughputMibps = totalThroughputMibps;
             Type = type;
-            UtilizedThroughputMibps = utilizedThroughputMibps;
         }
     }
 }

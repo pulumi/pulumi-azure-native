@@ -53,6 +53,7 @@ __all__ = [
     'SystemDataResponse',
     'UniformInt64RangePartitionSchemeResponse',
     'UserAssignedIdentityResponse',
+    'VMSSExtensionPropertiesResponse',
     'VMSSExtensionResponse',
     'VaultCertificateResponse',
     'VaultSecretGroupResponse',
@@ -3291,9 +3292,9 @@ class UserAssignedIdentityResponse(dict):
 
 
 @pulumi.output_type
-class VMSSExtensionResponse(dict):
+class VMSSExtensionPropertiesResponse(dict):
     """
-    Specifies set of extensions that should be installed onto the virtual machines.
+    Describes the properties of a Virtual Machine Scale Set Extension.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3314,18 +3315,17 @@ class VMSSExtensionResponse(dict):
             suggest = "provision_after_extensions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VMSSExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VMSSExtensionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VMSSExtensionResponse.__key_warning(key)
+        VMSSExtensionPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VMSSExtensionResponse.__key_warning(key)
+        VMSSExtensionPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 name: str,
                  provisioning_state: str,
                  publisher: str,
                  type: str,
@@ -3337,8 +3337,7 @@ class VMSSExtensionResponse(dict):
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[Any] = None):
         """
-        Specifies set of extensions that should be installed onto the virtual machines.
-        :param str name: The name of the extension.
+        Describes the properties of a Virtual Machine Scale Set Extension.
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param str publisher: The name of the extension handler publisher.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -3350,7 +3349,6 @@ class VMSSExtensionResponse(dict):
         :param Sequence[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param Any settings: Json formatted public settings for the extension.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "publisher", publisher)
         pulumi.set(__self__, "type", type)
@@ -3367,14 +3365,6 @@ class VMSSExtensionResponse(dict):
             pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the extension.
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -3455,6 +3445,39 @@ class VMSSExtensionResponse(dict):
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class VMSSExtensionResponse(dict):
+    """
+    Specifies set of extensions that should be installed onto the virtual machines.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 properties: 'outputs.VMSSExtensionPropertiesResponse'):
+        """
+        Specifies set of extensions that should be installed onto the virtual machines.
+        :param str name: The name of the extension.
+        :param 'VMSSExtensionPropertiesResponse' properties: Describes the properties of a Virtual Machine Scale Set Extension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the extension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.VMSSExtensionPropertiesResponse':
+        """
+        Describes the properties of a Virtual Machine Scale Set Extension.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type

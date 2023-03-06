@@ -90,16 +90,16 @@ namespace Pulumi.AzureNative.DataLakeStore
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The virtual network rule properties to use when creating a new virtual network rule.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.CreateOrUpdateVirtualNetworkRulePropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The resource identifier for the subnet.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
         /// The name of the virtual network rule to create or update.

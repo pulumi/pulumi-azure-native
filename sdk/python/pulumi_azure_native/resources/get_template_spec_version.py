@@ -22,28 +22,19 @@ class GetTemplateSpecVersionResult:
     """
     Template Spec Version object.
     """
-    def __init__(__self__, description=None, id=None, linked_templates=None, location=None, main_template=None, metadata=None, name=None, system_data=None, tags=None, type=None, ui_form_definition=None):
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if linked_templates and not isinstance(linked_templates, list):
-            raise TypeError("Expected argument 'linked_templates' to be a list")
-        pulumi.set(__self__, "linked_templates", linked_templates)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if main_template and not isinstance(main_template, dict):
-            raise TypeError("Expected argument 'main_template' to be a dict")
-        pulumi.set(__self__, "main_template", main_template)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -53,17 +44,6 @@ class GetTemplateSpecVersionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if ui_form_definition and not isinstance(ui_form_definition, dict):
-            raise TypeError("Expected argument 'ui_form_definition' to be a dict")
-        pulumi.set(__self__, "ui_form_definition", ui_form_definition)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Template Spec version description.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -74,14 +54,6 @@ class GetTemplateSpecVersionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="linkedTemplates")
-    def linked_templates(self) -> Optional[Sequence['outputs.LinkedTemplateArtifactResponse']]:
-        """
-        An array of linked template artifacts.
-        """
-        return pulumi.get(self, "linked_templates")
-
-    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -90,28 +62,20 @@ class GetTemplateSpecVersionResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> Optional[Any]:
-        """
-        The main Azure Resource Manager template content.
-        """
-        return pulumi.get(self, "main_template")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
         Name of this resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.TemplateSpecVersionPropertiesResponse':
+        """
+        Template Spec Version properties.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -137,14 +101,6 @@ class GetTemplateSpecVersionResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="uiFormDefinition")
-    def ui_form_definition(self) -> Optional[Any]:
-        """
-        The Azure Resource Manager template UI definition content.
-        """
-        return pulumi.get(self, "ui_form_definition")
-
 
 class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
     # pylint: disable=using-constant-test
@@ -152,17 +108,13 @@ class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
         if False:
             yield self
         return GetTemplateSpecVersionResult(
-            description=self.description,
             id=self.id,
-            linked_templates=self.linked_templates,
             location=self.location,
-            main_template=self.main_template,
-            metadata=self.metadata,
             name=self.name,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            ui_form_definition=self.ui_form_definition)
+            type=self.type)
 
 
 def get_template_spec_version(resource_group_name: Optional[str] = None,
@@ -186,17 +138,13 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult).value
 
     return AwaitableGetTemplateSpecVersionResult(
-        description=__ret__.description,
         id=__ret__.id,
-        linked_templates=__ret__.linked_templates,
         location=__ret__.location,
-        main_template=__ret__.main_template,
-        metadata=__ret__.metadata,
         name=__ret__.name,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        ui_form_definition=__ret__.ui_form_definition)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_template_spec_version)

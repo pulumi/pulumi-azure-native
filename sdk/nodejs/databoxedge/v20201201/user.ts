@@ -38,17 +38,13 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * The password details.
-     */
-    public readonly encryptedPassword!: pulumi.Output<outputs.databoxedge.v20201201.AsymmetricEncryptedSecretResponse | undefined>;
-    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * List of shares that the user has rights on. This field should not be specified during user creation.
+     * The storage account credential properties.
      */
-    public /*out*/ readonly shareAccessRights!: pulumi.Output<outputs.databoxedge.v20201201.ShareAccessRightResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.databoxedge.v20201201.UserPropertiesResponse>;
     /**
      * User in DataBoxEdge Resource
      */
@@ -57,10 +53,6 @@ export class User extends pulumi.CustomResource {
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Type of the user.
-     */
-    public readonly userType!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -76,27 +68,23 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userType'");
-            }
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["encryptedPassword"] = args ? args.encryptedPassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userType"] = args ? args.userType : undefined;
-            resourceInputs["shareAccessRights"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["encryptedPassword"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["shareAccessRights"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:User" }, { type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-native:databoxedge/v20210201:User" }, { type: "azure-native:databoxedge/v20210201preview:User" }, { type: "azure-native:databoxedge/v20210601:User" }, { type: "azure-native:databoxedge/v20210601preview:User" }, { type: "azure-native:databoxedge/v20220301:User" }, { type: "azure-native:databoxedge/v20220401preview:User" }, { type: "azure-native:databoxedge/v20221201preview:User" }, { type: "azure-native:databoxedge/v20230101preview:User" }] };
@@ -114,19 +102,15 @@ export interface UserArgs {
      */
     deviceName: pulumi.Input<string>;
     /**
-     * The password details.
-     */
-    encryptedPassword?: pulumi.Input<inputs.databoxedge.v20201201.AsymmetricEncryptedSecretArgs>;
-    /**
      * The user name.
      */
     name?: pulumi.Input<string>;
     /**
+     * The storage account credential properties.
+     */
+    properties: pulumi.Input<inputs.databoxedge.v20201201.UserPropertiesArgs>;
+    /**
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Type of the user.
-     */
-    userType: pulumi.Input<string | enums.databoxedge.v20201201.UserType>;
 }

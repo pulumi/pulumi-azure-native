@@ -38,53 +38,17 @@ export class VNetPeering extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-     */
-    public readonly allowForwardedTraffic!: pulumi.Output<boolean | undefined>;
-    /**
-     * If gateway links can be used in remote virtual networking to link to this virtual network.
-     */
-    public readonly allowGatewayTransit!: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-     */
-    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
-    /**
-     * The reference to the databricks virtual network address space.
-     */
-    public readonly databricksAddressSpace!: pulumi.Output<outputs.databricks.v20180401.AddressSpaceResponse | undefined>;
-    /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-     */
-    public readonly databricksVirtualNetwork!: pulumi.Output<outputs.databricks.v20180401.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork | undefined>;
-    /**
      * Name of the virtual network peering resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The status of the virtual network peering.
+     * List of properties for vNet Peering
      */
-    public /*out*/ readonly peeringState!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the virtual network peering resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The reference to the remote virtual network address space.
-     */
-    public readonly remoteAddressSpace!: pulumi.Output<outputs.databricks.v20180401.AddressSpaceResponse | undefined>;
-    /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-     */
-    public readonly remoteVirtualNetwork!: pulumi.Output<outputs.databricks.v20180401.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork>;
+    public readonly properties!: pulumi.Output<outputs.databricks.v20180401.VirtualNetworkPeeringPropertiesFormatResponse>;
     /**
      * type of the virtual network peering resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-     */
-    public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VNetPeering resource with the given unique name, arguments, and options.
@@ -97,8 +61,8 @@ export class VNetPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.remoteVirtualNetwork === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'remoteVirtualNetwork'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -106,34 +70,16 @@ export class VNetPeering extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            resourceInputs["databricksAddressSpace"] = args ? args.databricksAddressSpace : undefined;
-            resourceInputs["databricksVirtualNetwork"] = args ? args.databricksVirtualNetwork : undefined;
             resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
-            resourceInputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["peeringState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["allowForwardedTraffic"] = undefined /*out*/;
-            resourceInputs["allowGatewayTransit"] = undefined /*out*/;
-            resourceInputs["allowVirtualNetworkAccess"] = undefined /*out*/;
-            resourceInputs["databricksAddressSpace"] = undefined /*out*/;
-            resourceInputs["databricksVirtualNetwork"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["peeringState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["remoteAddressSpace"] = undefined /*out*/;
-            resourceInputs["remoteVirtualNetwork"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["useRemoteGateways"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databricks:vNetPeering" }, { type: "azure-native:databricks/v20210401preview:vNetPeering" }, { type: "azure-native:databricks/v20220401preview:vNetPeering" }, { type: "azure-native:databricks/v20230201:vNetPeering" }] };
@@ -147,45 +93,17 @@ export class VNetPeering extends pulumi.CustomResource {
  */
 export interface VNetPeeringArgs {
     /**
-     * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-     */
-    allowForwardedTraffic?: pulumi.Input<boolean>;
-    /**
-     * If gateway links can be used in remote virtual networking to link to this virtual network.
-     */
-    allowGatewayTransit?: pulumi.Input<boolean>;
-    /**
-     * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-     */
-    allowVirtualNetworkAccess?: pulumi.Input<boolean>;
-    /**
-     * The reference to the databricks virtual network address space.
-     */
-    databricksAddressSpace?: pulumi.Input<inputs.databricks.v20180401.AddressSpaceArgs>;
-    /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-     */
-    databricksVirtualNetwork?: pulumi.Input<inputs.databricks.v20180401.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs>;
-    /**
      * The name of the workspace vNet peering.
      */
     peeringName?: pulumi.Input<string>;
     /**
-     * The reference to the remote virtual network address space.
+     * List of properties for vNet Peering
      */
-    remoteAddressSpace?: pulumi.Input<inputs.databricks.v20180401.AddressSpaceArgs>;
-    /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-     */
-    remoteVirtualNetwork: pulumi.Input<inputs.databricks.v20180401.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs>;
+    properties: pulumi.Input<inputs.databricks.v20180401.VirtualNetworkPeeringPropertiesFormatArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-     */
-    useRemoteGateways?: pulumi.Input<boolean>;
     /**
      * The name of the workspace.
      */

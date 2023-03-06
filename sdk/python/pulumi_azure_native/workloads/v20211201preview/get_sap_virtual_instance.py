@@ -22,19 +22,7 @@ class GetSAPVirtualInstanceResult:
     """
     Define the Virtual Instance for SAP solutions resource.
     """
-    def __init__(__self__, configuration=None, environment=None, errors=None, health=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, name=None, provisioning_state=None, sap_product=None, state=None, status=None, system_data=None, tags=None, type=None):
-        if configuration and not isinstance(configuration, dict):
-            raise TypeError("Expected argument 'configuration' to be a dict")
-        pulumi.set(__self__, "configuration", configuration)
-        if environment and not isinstance(environment, str):
-            raise TypeError("Expected argument 'environment' to be a str")
-        pulumi.set(__self__, "environment", environment)
-        if errors and not isinstance(errors, dict):
-            raise TypeError("Expected argument 'errors' to be a dict")
-        pulumi.set(__self__, "errors", errors)
-        if health and not isinstance(health, str):
-            raise TypeError("Expected argument 'health' to be a str")
-        pulumi.set(__self__, "health", health)
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,24 +32,12 @@ class GetSAPVirtualInstanceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if managed_resource_group_configuration and not isinstance(managed_resource_group_configuration, dict):
-            raise TypeError("Expected argument 'managed_resource_group_configuration' to be a dict")
-        pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sap_product and not isinstance(sap_product, str):
-            raise TypeError("Expected argument 'sap_product' to be a str")
-        pulumi.set(__self__, "sap_product", sap_product)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -71,38 +47,6 @@ class GetSAPVirtualInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> Any:
-        """
-        Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-        """
-        return pulumi.get(self, "configuration")
-
-    @property
-    @pulumi.getter
-    def environment(self) -> str:
-        """
-        Defines the environment type - Production/Non Production.
-        """
-        return pulumi.get(self, "environment")
-
-    @property
-    @pulumi.getter
-    def errors(self) -> 'outputs.SAPVirtualInstanceErrorResponse':
-        """
-        Indicates any errors on the Virtual Instance for SAP solutions resource.
-        """
-        return pulumi.get(self, "errors")
-
-    @property
-    @pulumi.getter
-    def health(self) -> str:
-        """
-        Defines the health of SAP Instances.
-        """
-        return pulumi.get(self, "health")
 
     @property
     @pulumi.getter
@@ -129,14 +73,6 @@ class GetSAPVirtualInstanceResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedRGConfigurationResponse']:
-        """
-        Managed resource group configuration
-        """
-        return pulumi.get(self, "managed_resource_group_configuration")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -145,36 +81,12 @@ class GetSAPVirtualInstanceResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Defines the provisioning states.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sapProduct")
-    def sap_product(self) -> str:
-        """
-        Defines the SAP Product type.
-        """
-        return pulumi.get(self, "sap_product")
-
-    @property
     @pulumi.getter
-    def state(self) -> str:
+    def properties(self) -> 'outputs.SAPVirtualInstancePropertiesResponse':
         """
-        Defines the Virtual Instance for SAP state.
+        Defines the Virtual Instance for SAP solutions resource properties.
         """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Defines the SAP Instance status.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -207,19 +119,11 @@ class AwaitableGetSAPVirtualInstanceResult(GetSAPVirtualInstanceResult):
         if False:
             yield self
         return GetSAPVirtualInstanceResult(
-            configuration=self.configuration,
-            environment=self.environment,
-            errors=self.errors,
-            health=self.health,
             id=self.id,
             identity=self.identity,
             location=self.location,
-            managed_resource_group_configuration=self.managed_resource_group_configuration,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            sap_product=self.sap_product,
-            state=self.state,
-            status=self.status,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -242,19 +146,11 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20211201preview:getSAPVirtualInstance', __args__, opts=opts, typ=GetSAPVirtualInstanceResult).value
 
     return AwaitableGetSAPVirtualInstanceResult(
-        configuration=__ret__.configuration,
-        environment=__ret__.environment,
-        errors=__ret__.errors,
-        health=__ret__.health,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
-        managed_resource_group_configuration=__ret__.managed_resource_group_configuration,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sap_product=__ret__.sap_product,
-        state=__ret__.state,
-        status=__ret__.status,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

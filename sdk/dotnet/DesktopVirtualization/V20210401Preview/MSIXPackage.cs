@@ -16,82 +16,22 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
     public partial class MSIXPackage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// User friendly Name to be displayed in the portal. 
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// VHD/CIM image path on Network Share.
-        /// </summary>
-        [Output("imagePath")]
-        public Output<string?> ImagePath { get; private set; } = null!;
-
-        /// <summary>
-        /// Make this version of the package the active one across the hostpool. 
-        /// </summary>
-        [Output("isActive")]
-        public Output<bool?> IsActive { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies how to register Package in feed.
-        /// </summary>
-        [Output("isRegularRegistration")]
-        public Output<bool?> IsRegularRegistration { get; private set; } = null!;
-
-        /// <summary>
-        /// Date Package was last updated, found in the appxmanifest.xml. 
-        /// </summary>
-        [Output("lastUpdated")]
-        public Output<string?> LastUpdated { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of package applications. 
+        /// Detailed properties for MSIX Package
         /// </summary>
-        [Output("packageApplications")]
-        public Output<ImmutableArray<Outputs.MsixPackageApplicationsResponse>> PackageApplications { get; private set; } = null!;
-
-        /// <summary>
-        /// List of package dependencies. 
-        /// </summary>
-        [Output("packageDependencies")]
-        public Output<ImmutableArray<Outputs.MsixPackageDependenciesResponse>> PackageDependencies { get; private set; } = null!;
-
-        /// <summary>
-        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
-        /// </summary>
-        [Output("packageFamilyName")]
-        public Output<string?> PackageFamilyName { get; private set; } = null!;
-
-        /// <summary>
-        /// Package Name from appxmanifest.xml. 
-        /// </summary>
-        [Output("packageName")]
-        public Output<string?> PackageName { get; private set; } = null!;
-
-        /// <summary>
-        /// Relative Path to the package inside the image. 
-        /// </summary>
-        [Output("packageRelativePath")]
-        public Output<string?> PackageRelativePath { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.MSIXPackagePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
-        /// </summary>
-        [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,40 +96,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
     public sealed class MSIXPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// User friendly Name to be displayed in the portal. 
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// The name of the host pool within the specified resource group
         /// </summary>
         [Input("hostPoolName", required: true)]
         public Input<string> HostPoolName { get; set; } = null!;
-
-        /// <summary>
-        /// VHD/CIM image path on Network Share.
-        /// </summary>
-        [Input("imagePath")]
-        public Input<string>? ImagePath { get; set; }
-
-        /// <summary>
-        /// Make this version of the package the active one across the hostpool. 
-        /// </summary>
-        [Input("isActive")]
-        public Input<bool>? IsActive { get; set; }
-
-        /// <summary>
-        /// Specifies how to register Package in feed.
-        /// </summary>
-        [Input("isRegularRegistration")]
-        public Input<bool>? IsRegularRegistration { get; set; }
-
-        /// <summary>
-        /// Date Package was last updated, found in the appxmanifest.xml. 
-        /// </summary>
-        [Input("lastUpdated")]
-        public Input<string>? LastUpdated { get; set; }
 
         /// <summary>
         /// The version specific package full name of the MSIX package within specified hostpool
@@ -197,59 +107,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         [Input("msixPackageFullName")]
         public Input<string>? MsixPackageFullName { get; set; }
 
-        [Input("packageApplications")]
-        private InputList<Inputs.MsixPackageApplicationsArgs>? _packageApplications;
-
         /// <summary>
-        /// List of package applications. 
+        /// Detailed properties for MSIX Package
         /// </summary>
-        public InputList<Inputs.MsixPackageApplicationsArgs> PackageApplications
-        {
-            get => _packageApplications ?? (_packageApplications = new InputList<Inputs.MsixPackageApplicationsArgs>());
-            set => _packageApplications = value;
-        }
-
-        [Input("packageDependencies")]
-        private InputList<Inputs.MsixPackageDependenciesArgs>? _packageDependencies;
-
-        /// <summary>
-        /// List of package dependencies. 
-        /// </summary>
-        public InputList<Inputs.MsixPackageDependenciesArgs> PackageDependencies
-        {
-            get => _packageDependencies ?? (_packageDependencies = new InputList<Inputs.MsixPackageDependenciesArgs>());
-            set => _packageDependencies = value;
-        }
-
-        /// <summary>
-        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
-        /// </summary>
-        [Input("packageFamilyName")]
-        public Input<string>? PackageFamilyName { get; set; }
-
-        /// <summary>
-        /// Package Name from appxmanifest.xml. 
-        /// </summary>
-        [Input("packageName")]
-        public Input<string>? PackageName { get; set; }
-
-        /// <summary>
-        /// Relative Path to the package inside the image. 
-        /// </summary>
-        [Input("packageRelativePath")]
-        public Input<string>? PackageRelativePath { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.MSIXPackagePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
 
         public MSIXPackageArgs()
         {

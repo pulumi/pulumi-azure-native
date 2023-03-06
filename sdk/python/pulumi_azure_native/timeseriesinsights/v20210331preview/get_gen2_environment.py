@@ -22,16 +22,7 @@ class GetGen2EnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
     """
-    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, id=None, kind=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, storage_configuration=None, tags=None, time_series_id_properties=None, type=None, warm_store_configuration=None):
-        if creation_time and not isinstance(creation_time, str):
-            raise TypeError("Expected argument 'creation_time' to be a str")
-        pulumi.set(__self__, "creation_time", creation_time)
-        if data_access_fqdn and not isinstance(data_access_fqdn, str):
-            raise TypeError("Expected argument 'data_access_fqdn' to be a str")
-        pulumi.set(__self__, "data_access_fqdn", data_access_fqdn)
-        if data_access_id and not isinstance(data_access_id, str):
-            raise TypeError("Expected argument 'data_access_id' to be a str")
-        pulumi.set(__self__, "data_access_id", data_access_id)
+    def __init__(__self__, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,60 +35,18 @@ class GetGen2EnvironmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
-            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_network_access and not isinstance(public_network_access, str):
-            raise TypeError("Expected argument 'public_network_access' to be a str")
-        pulumi.set(__self__, "public_network_access", public_network_access)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if status and not isinstance(status, dict):
-            raise TypeError("Expected argument 'status' to be a dict")
-        pulumi.set(__self__, "status", status)
-        if storage_configuration and not isinstance(storage_configuration, dict):
-            raise TypeError("Expected argument 'storage_configuration' to be a dict")
-        pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if time_series_id_properties and not isinstance(time_series_id_properties, list):
-            raise TypeError("Expected argument 'time_series_id_properties' to be a list")
-        pulumi.set(__self__, "time_series_id_properties", time_series_id_properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if warm_store_configuration and not isinstance(warm_store_configuration, dict):
-            raise TypeError("Expected argument 'warm_store_configuration' to be a dict")
-        pulumi.set(__self__, "warm_store_configuration", warm_store_configuration)
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
-        """
-        The time the resource was created.
-        """
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="dataAccessFqdn")
-    def data_access_fqdn(self) -> str:
-        """
-        The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_fqdn")
-
-    @property
-    @pulumi.getter(name="dataAccessId")
-    def data_access_id(self) -> str:
-        """
-        An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_id")
 
     @property
     @pulumi.getter
@@ -133,28 +82,12 @@ class GetGen2EnvironmentResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.Gen2EnvironmentResourcePropertiesResponse':
         """
-        The list of private endpoint connections to the environment.
+        Properties of the Gen2 environment.
         """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
-        """
-        If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-        """
-        return pulumi.get(self, "public_network_access")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -166,35 +99,11 @@ class GetGen2EnvironmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.EnvironmentStatusResponse':
-        """
-        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> 'outputs.Gen2StorageConfigurationOutputResponse':
-        """
-        The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        """
-        return pulumi.get(self, "storage_configuration")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="timeSeriesIdProperties")
-    def time_series_id_properties(self) -> Sequence['outputs.TimeSeriesIdPropertyResponse']:
-        """
-        The list of event properties which will be used to define the environment's time series id.
-        """
-        return pulumi.get(self, "time_series_id_properties")
 
     @property
     @pulumi.getter
@@ -204,14 +113,6 @@ class GetGen2EnvironmentResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="warmStoreConfiguration")
-    def warm_store_configuration(self) -> Optional['outputs.WarmStoreConfigurationPropertiesResponse']:
-        """
-        The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        """
-        return pulumi.get(self, "warm_store_configuration")
-
 
 class AwaitableGetGen2EnvironmentResult(GetGen2EnvironmentResult):
     # pylint: disable=using-constant-test
@@ -219,23 +120,14 @@ class AwaitableGetGen2EnvironmentResult(GetGen2EnvironmentResult):
         if False:
             yield self
         return GetGen2EnvironmentResult(
-            creation_time=self.creation_time,
-            data_access_fqdn=self.data_access_fqdn,
-            data_access_id=self.data_access_id,
             id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            private_endpoint_connections=self.private_endpoint_connections,
-            provisioning_state=self.provisioning_state,
-            public_network_access=self.public_network_access,
+            properties=self.properties,
             sku=self.sku,
-            status=self.status,
-            storage_configuration=self.storage_configuration,
             tags=self.tags,
-            time_series_id_properties=self.time_series_id_properties,
-            type=self.type,
-            warm_store_configuration=self.warm_store_configuration)
+            type=self.type)
 
 
 def get_gen2_environment(environment_name: Optional[str] = None,
@@ -258,23 +150,14 @@ def get_gen2_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights/v20210331preview:getGen2Environment', __args__, opts=opts, typ=GetGen2EnvironmentResult).value
 
     return AwaitableGetGen2EnvironmentResult(
-        creation_time=__ret__.creation_time,
-        data_access_fqdn=__ret__.data_access_fqdn,
-        data_access_id=__ret__.data_access_id,
         id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
+        properties=__ret__.properties,
         sku=__ret__.sku,
-        status=__ret__.status,
-        storage_configuration=__ret__.storage_configuration,
         tags=__ret__.tags,
-        time_series_id_properties=__ret__.time_series_id_properties,
-        type=__ret__.type,
-        warm_store_configuration=__ret__.warm_store_configuration)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_gen2_environment)

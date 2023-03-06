@@ -22,59 +22,22 @@ class GetIscsiTargetResult:
     """
     Response for iSCSI Target requests.
     """
-    def __init__(__self__, acl_mode=None, endpoints=None, id=None, luns=None, name=None, port=None, provisioning_state=None, static_acls=None, status=None, system_data=None, target_iqn=None, type=None):
-        if acl_mode and not isinstance(acl_mode, str):
-            raise TypeError("Expected argument 'acl_mode' to be a str")
-        pulumi.set(__self__, "acl_mode", acl_mode)
-        if endpoints and not isinstance(endpoints, list):
-            raise TypeError("Expected argument 'endpoints' to be a list")
-        pulumi.set(__self__, "endpoints", endpoints)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if luns and not isinstance(luns, list):
-            raise TypeError("Expected argument 'luns' to be a list")
-        pulumi.set(__self__, "luns", luns)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if port and not isinstance(port, int):
-            raise TypeError("Expected argument 'port' to be a int")
-        pulumi.set(__self__, "port", port)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if static_acls and not isinstance(static_acls, list):
-            raise TypeError("Expected argument 'static_acls' to be a list")
-        pulumi.set(__self__, "static_acls", static_acls)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if target_iqn and not isinstance(target_iqn, str):
-            raise TypeError("Expected argument 'target_iqn' to be a str")
-        pulumi.set(__self__, "target_iqn", target_iqn)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="aclMode")
-    def acl_mode(self) -> str:
-        """
-        Mode for Target connectivity.
-        """
-        return pulumi.get(self, "acl_mode")
-
-    @property
-    @pulumi.getter
-    def endpoints(self) -> Optional[Sequence[str]]:
-        """
-        List of private IPv4 addresses to connect to the iSCSI Target.
-        """
-        return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter
@@ -86,14 +49,6 @@ class GetIscsiTargetResult:
 
     @property
     @pulumi.getter
-    def luns(self) -> Optional[Sequence['outputs.IscsiLunResponse']]:
-        """
-        List of LUNs to be exposed through iSCSI Target.
-        """
-        return pulumi.get(self, "luns")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -102,35 +57,11 @@ class GetIscsiTargetResult:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[int]:
+    def properties(self) -> 'outputs.IscsiTargetPropertiesResponse':
         """
-        The port used by iSCSI Target portal group.
+        Properties for iSCSI Target operations.
         """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the operation on the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="staticAcls")
-    def static_acls(self) -> Optional[Sequence['outputs.AclResponse']]:
-        """
-        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        """
-        return pulumi.get(self, "static_acls")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Operational status of the iSCSI Target.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -139,14 +70,6 @@ class GetIscsiTargetResult:
         Resource metadata required by ARM RPC
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="targetIqn")
-    def target_iqn(self) -> str:
-        """
-        iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        """
-        return pulumi.get(self, "target_iqn")
 
     @property
     @pulumi.getter
@@ -163,17 +86,10 @@ class AwaitableGetIscsiTargetResult(GetIscsiTargetResult):
         if False:
             yield self
         return GetIscsiTargetResult(
-            acl_mode=self.acl_mode,
-            endpoints=self.endpoints,
             id=self.id,
-            luns=self.luns,
             name=self.name,
-            port=self.port,
-            provisioning_state=self.provisioning_state,
-            static_acls=self.static_acls,
-            status=self.status,
+            properties=self.properties,
             system_data=self.system_data,
-            target_iqn=self.target_iqn,
             type=self.type)
 
 
@@ -197,17 +113,10 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagepool/v20210401preview:getIscsiTarget', __args__, opts=opts, typ=GetIscsiTargetResult).value
 
     return AwaitableGetIscsiTargetResult(
-        acl_mode=__ret__.acl_mode,
-        endpoints=__ret__.endpoints,
         id=__ret__.id,
-        luns=__ret__.luns,
         name=__ret__.name,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        static_acls=__ret__.static_acls,
-        status=__ret__.status,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        target_iqn=__ret__.target_iqn,
         type=__ret__.type)
 
 

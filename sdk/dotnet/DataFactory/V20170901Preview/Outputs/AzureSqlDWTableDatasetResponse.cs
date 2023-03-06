@@ -37,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureSqlDWTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure SQL Data Warehouse dataset properties.
+        /// </summary>
+        public readonly Outputs.AzureSqlDWTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureSqlDWTableDatasetResponse(
@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             object? structure,
 
-            object tableName,
+            string type,
 
-            string type)
+            Outputs.AzureSqlDWTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

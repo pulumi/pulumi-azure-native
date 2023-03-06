@@ -22,16 +22,16 @@ class GetMonitoringConfigResult:
     """
     The metric setting details for the role
     """
-    def __init__(__self__, id=None, metric_configurations=None, name=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if metric_configurations and not isinstance(metric_configurations, list):
-            raise TypeError("Expected argument 'metric_configurations' to be a list")
-        pulumi.set(__self__, "metric_configurations", metric_configurations)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -45,20 +45,20 @@ class GetMonitoringConfigResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="metricConfigurations")
-    def metric_configurations(self) -> Sequence['outputs.MetricConfigurationResponse']:
-        """
-        The metrics configuration details
-        """
-        return pulumi.get(self, "metric_configurations")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The object name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.MonitoringMetricConfigurationPropertiesResponse':
+        """
+        The metric setting properties.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -76,8 +76,8 @@ class AwaitableGetMonitoringConfigResult(GetMonitoringConfigResult):
             yield self
         return GetMonitoringConfigResult(
             id=self.id,
-            metric_configurations=self.metric_configurations,
             name=self.name,
+            properties=self.properties,
             type=self.type)
 
 
@@ -103,8 +103,8 @@ def get_monitoring_config(device_name: Optional[str] = None,
 
     return AwaitableGetMonitoringConfigResult(
         id=__ret__.id,
-        metric_configurations=__ret__.metric_configurations,
         name=__ret__.name,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

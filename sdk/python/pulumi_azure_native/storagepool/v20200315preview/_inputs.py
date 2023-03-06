@@ -13,8 +13,10 @@ from ._enums import *
 __all__ = [
     'AclArgs',
     'AttributesArgs',
+    'DiskPoolCreatePropertiesArgs',
     'DiskArgs',
     'IscsiLunArgs',
+    'IscsiTargetCreatePropertiesArgs',
     'TargetPortalGroupCreateArgs',
 ]
 
@@ -125,6 +127,91 @@ class AttributesArgs:
 
 
 @pulumi.input_type
+class DiskPoolCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_id: pulumi.Input[str],
+                 tier: pulumi.Input[Union[str, 'DiskPoolTier']],
+                 additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None):
+        """
+        Properties for Disk pool create or update request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Disk pool resource; example: ["1"].
+        :param pulumi.Input[str] subnet_id: Azure Resource ID of a Subnet for the Disk pool.
+        :param pulumi.Input[Union[str, 'DiskPoolTier']] tier: Determines the SKU of VM deployed for Disk pool
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk pool.
+        :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        """
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "tier", tier)
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if disks is not None:
+            pulumi.set(__self__, "disks", disks)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Logical zone for Disk pool resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        Azure Resource ID of a Subnet for the Disk pool.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[Union[str, 'DiskPoolTier']]:
+        """
+        Determines the SKU of VM deployed for Disk pool
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[Union[str, 'DiskPoolTier']]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of additional capabilities for a Disk pool.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @additional_capabilities.setter
+    def additional_capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_capabilities", value)
+
+    @property
+    @pulumi.getter
+    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
+        """
+        List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        """
+        return pulumi.get(self, "disks")
+
+    @disks.setter
+    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]):
+        pulumi.set(self, "disks", value)
+
+
+@pulumi.input_type
 class DiskArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -183,6 +270,45 @@ class IscsiLunArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class IscsiTargetCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 tpgs: pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]],
+                 target_iqn: Optional[pulumi.Input[str]] = None):
+        """
+        Properties for iSCSI target create or update request.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]] tpgs: List of iSCSI target portal groups. Can have 1 portal group at most.
+        :param pulumi.Input[str] target_iqn: iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        pulumi.set(__self__, "tpgs", tpgs)
+        if target_iqn is not None:
+            pulumi.set(__self__, "target_iqn", target_iqn)
+
+    @property
+    @pulumi.getter
+    def tpgs(self) -> pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]]:
+        """
+        List of iSCSI target portal groups. Can have 1 portal group at most.
+        """
+        return pulumi.get(self, "tpgs")
+
+    @tpgs.setter
+    def tpgs(self, value: pulumi.Input[Sequence[pulumi.Input['TargetPortalGroupCreateArgs']]]):
+        pulumi.set(self, "tpgs", value)
+
+    @property
+    @pulumi.getter(name="targetIqn")
+    def target_iqn(self) -> Optional[pulumi.Input[str]]:
+        """
+        iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        return pulumi.get(self, "target_iqn")
+
+    @target_iqn.setter
+    def target_iqn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_iqn", value)
 
 
 @pulumi.input_type

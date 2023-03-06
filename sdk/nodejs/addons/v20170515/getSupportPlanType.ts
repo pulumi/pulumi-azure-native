@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,9 +45,9 @@ export interface GetSupportPlanTypeResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the resource.
+     * Describes Canonical support plan type and status.
      */
-    readonly provisioningState?: string;
+    readonly properties: outputs.addons.v20170515.CanonicalSupportPlanPropertiesResponse;
     /**
      * Microsoft.Addons/supportProvider
      */

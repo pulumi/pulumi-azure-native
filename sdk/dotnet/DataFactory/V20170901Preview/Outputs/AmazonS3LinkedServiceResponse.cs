@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class AmazonS3LinkedServiceResponse
     {
         /// <summary>
-        /// The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? AccessKeyId;
-        /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -33,49 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SecretAccessKey;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'AmazonS3'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Amazon S3 linked service properties.
+        /// </summary>
+        public readonly Outputs.AmazonS3LinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AmazonS3LinkedServiceResponse(
-            object? accessKeyId,
-
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? secretAccessKey,
+            string type,
 
-            string type)
+            Outputs.AmazonS3LinkedServiceTypePropertiesResponse typeProperties)
         {
-            AccessKeyId = accessKeyId;
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            SecretAccessKey = secretAccessKey;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

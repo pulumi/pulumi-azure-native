@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
     public partial class ArcAddon : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Host OS supported by the Arc addon.
-        /// </summary>
-        [Output("hostPlatform")]
-        public Output<string> HostPlatform { get; private set; } = null!;
-
-        /// <summary>
-        /// Platform where the runtime is hosted.
-        /// </summary>
-        [Output("hostPlatformType")]
-        public Output<string> HostPlatformType { get; private set; } = null!;
-
-        /// <summary>
         /// Addon type.
         /// Expected value is 'ArcForKubernetes'.
         /// </summary>
@@ -41,34 +29,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Addon Provisioning State
+        /// Properties specific to Arc addon.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Arc resource group name
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// Arc resource location
-        /// </summary>
-        [Output("resourceLocation")]
-        public Output<string> ResourceLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Arc resource Name
-        /// </summary>
-        [Output("resourceName")]
-        public Output<string> ResourceName { get; private set; } = null!;
-
-        /// <summary>
-        /// Arc resource subscription Id
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ArcAddonPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Addon type
@@ -81,12 +45,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Arc resource version
-        /// </summary>
-        [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,34 +132,22 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
+        /// Properties specific to Arc addon.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ArcAddonPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Arc resource location
-        /// </summary>
-        [Input("resourceLocation", required: true)]
-        public Input<string> ResourceLocation { get; set; } = null!;
-
-        /// <summary>
-        /// Arc resource Name
-        /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
-
-        /// <summary>
         /// The role name.
         /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
-
-        /// <summary>
-        /// Arc resource subscription Id
-        /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
 
         public ArcAddonArgs()
         {

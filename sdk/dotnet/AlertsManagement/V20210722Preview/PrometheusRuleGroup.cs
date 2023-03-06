@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
     public partial class PrometheusRuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the cluster name of the rule group evaluation.
-        /// </summary>
-        [Output("clusterName")]
-        public Output<string?> ClusterName { get; private set; } = null!;
-
-        /// <summary>
-        /// the description of the Prometheus rule group that will be included in the alert email.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// the flag that indicates whether the Prometheus rule group is enabled.
-        /// </summary>
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
-        /// the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-        /// </summary>
-        [Output("interval")]
-        public Output<string?> Interval { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -52,16 +28,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// defines the rules in the Prometheus rule group.
+        /// The Prometheus rule group properties of the resource.
         /// </summary>
-        [Output("rules")]
-        public Output<ImmutableArray<Outputs.PrometheusRuleResponse>> Rules { get; private set; } = null!;
-
-        /// <summary>
-        /// the list of resource id's that this rule group is scoped to.
-        /// </summary>
-        [Output("scopes")]
-        public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PrometheusRuleGroupPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -127,34 +97,16 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
     public sealed class PrometheusRuleGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the cluster name of the rule group evaluation.
-        /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
-
-        /// <summary>
-        /// the description of the Prometheus rule group that will be included in the alert email.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// the flag that indicates whether the Prometheus rule group is enabled.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-        /// </summary>
-        [Input("interval")]
-        public Input<string>? Interval { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The Prometheus rule group properties of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PrometheusRuleGroupPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -167,30 +119,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
         /// </summary>
         [Input("ruleGroupName")]
         public Input<string>? RuleGroupName { get; set; }
-
-        [Input("rules", required: true)]
-        private InputList<Inputs.PrometheusRuleArgs>? _rules;
-
-        /// <summary>
-        /// defines the rules in the Prometheus rule group.
-        /// </summary>
-        public InputList<Inputs.PrometheusRuleArgs> Rules
-        {
-            get => _rules ?? (_rules = new InputList<Inputs.PrometheusRuleArgs>());
-            set => _rules = value;
-        }
-
-        [Input("scopes", required: true)]
-        private InputList<string>? _scopes;
-
-        /// <summary>
-        /// the list of resource id's that this rule group is scoped to.
-        /// </summary>
-        public InputList<string> Scopes
-        {
-            get => _scopes ?? (_scopes = new InputList<string>());
-            set => _scopes = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

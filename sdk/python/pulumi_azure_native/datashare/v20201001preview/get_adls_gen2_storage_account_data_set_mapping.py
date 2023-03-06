@@ -22,78 +22,25 @@ class GetADLSGen2StorageAccountDataSetMappingResult:
     """
     ADLSGen2 storage account data set mapping.
     """
-    def __init__(__self__, container_name=None, data_set_id=None, data_set_mapping_status=None, folder=None, id=None, kind=None, location=None, mount_path=None, name=None, provisioning_state=None, storage_account_resource_id=None, system_data=None, type=None):
-        if container_name and not isinstance(container_name, str):
-            raise TypeError("Expected argument 'container_name' to be a str")
-        pulumi.set(__self__, "container_name", container_name)
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        if data_set_mapping_status and not isinstance(data_set_mapping_status, str):
-            raise TypeError("Expected argument 'data_set_mapping_status' to be a str")
-        pulumi.set(__self__, "data_set_mapping_status", data_set_mapping_status)
-        if folder and not isinstance(folder, str):
-            raise TypeError("Expected argument 'folder' to be a str")
-        pulumi.set(__self__, "folder", folder)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
-        if mount_path and not isinstance(mount_path, str):
-            raise TypeError("Expected argument 'mount_path' to be a str")
-        pulumi.set(__self__, "mount_path", mount_path)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if storage_account_resource_id and not isinstance(storage_account_resource_id, str):
-            raise TypeError("Expected argument 'storage_account_resource_id' to be a str")
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
-        """
-        Gets or sets the container name.
-        """
-        return pulumi.get(self, "container_name")
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        The id of the source data set.
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="dataSetMappingStatus")
-    def data_set_mapping_status(self) -> str:
-        """
-        Gets the status of the data set mapping.
-        """
-        return pulumi.get(self, "data_set_mapping_status")
-
-    @property
-    @pulumi.getter
-    def folder(self) -> str:
-        """
-        Gets or sets the path to folder within the container.
-        """
-        return pulumi.get(self, "folder")
 
     @property
     @pulumi.getter
@@ -114,22 +61,6 @@ class GetADLSGen2StorageAccountDataSetMappingResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        Location of the sink storage account.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="mountPath")
-    def mount_path(self) -> Optional[str]:
-        """
-        Gets or sets the mount path
-        """
-        return pulumi.get(self, "mount_path")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         Name of the azure resource
@@ -137,20 +68,12 @@ class GetADLSGen2StorageAccountDataSetMappingResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ADLSGen2StorageAccountDataSetMappingPropertiesResponse':
         """
-        Provisioning state of the data set mapping.
+        ADLSGen2 Storage account data set mapping properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> str:
-        """
-        Resource id of the sink storage account
-        """
-        return pulumi.get(self, "storage_account_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -175,17 +98,10 @@ class AwaitableGetADLSGen2StorageAccountDataSetMappingResult(GetADLSGen2StorageA
         if False:
             yield self
         return GetADLSGen2StorageAccountDataSetMappingResult(
-            container_name=self.container_name,
-            data_set_id=self.data_set_id,
-            data_set_mapping_status=self.data_set_mapping_status,
-            folder=self.folder,
             id=self.id,
             kind=self.kind,
-            location=self.location,
-            mount_path=self.mount_path,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            storage_account_resource_id=self.storage_account_resource_id,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -213,17 +129,10 @@ def get_adls_gen2_storage_account_data_set_mapping(account_name: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping', __args__, opts=opts, typ=GetADLSGen2StorageAccountDataSetMappingResult).value
 
     return AwaitableGetADLSGen2StorageAccountDataSetMappingResult(
-        container_name=__ret__.container_name,
-        data_set_id=__ret__.data_set_id,
-        data_set_mapping_status=__ret__.data_set_mapping_status,
-        folder=__ret__.folder,
         id=__ret__.id,
         kind=__ret__.kind,
-        location=__ret__.location,
-        mount_path=__ret__.mount_path,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        storage_account_resource_id=__ret__.storage_account_resource_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

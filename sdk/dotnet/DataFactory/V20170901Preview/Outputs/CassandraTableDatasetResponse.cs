@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Keyspace;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
@@ -41,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The table name of the Cassandra database. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'CassandraTable'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Cassandra dataset properties.
+        /// </summary>
+        public readonly Outputs.CassandraTableDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CassandraTableDatasetResponse(
@@ -56,26 +52,23 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            object? keyspace,
-
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             object? structure,
 
-            object? tableName,
+            string type,
 
-            string type)
+            Outputs.CassandraTableDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
-            Keyspace = keyspace;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

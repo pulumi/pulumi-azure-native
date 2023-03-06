@@ -28,40 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The data compression method used for the file system.
-        /// </summary>
-        [Input("compression")]
-        public object? Compression { get; set; }
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("fileFilter")]
-        public Input<object>? FileFilter { get; set; }
-
-        /// <summary>
-        /// The name of the on-premises file system. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("fileName")]
-        public Input<object>? FileName { get; set; }
-
-        /// <summary>
-        /// The path of the on-premises file system. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("folderPath")]
-        public Input<object>? FolderPath { get; set; }
-
-        /// <summary>
-        /// The format of the files.
-        /// </summary>
-        [Input("format")]
-        public object? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -93,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// On-premises file system dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.FileShareDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public FileShareDatasetArgs()
         {

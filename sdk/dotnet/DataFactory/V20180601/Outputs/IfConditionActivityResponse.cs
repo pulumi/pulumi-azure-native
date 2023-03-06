@@ -25,18 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
-        /// </summary>
-        public readonly Outputs.ExpressionResponse Expression;
-        /// <summary>
-        /// List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        /// </summary>
-        public readonly ImmutableArray<object> IfFalseActivities;
-        /// <summary>
-        /// List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
-        /// </summary>
-        public readonly ImmutableArray<object> IfTrueActivities;
-        /// <summary>
         /// Activity name.
         /// </summary>
         public readonly string Name;
@@ -45,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'IfCondition'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// IfCondition activity properties.
+        /// </summary>
+        public readonly Outputs.IfConditionActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -56,25 +48,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            Outputs.ExpressionResponse expression,
-
-            ImmutableArray<object> ifFalseActivities,
-
-            ImmutableArray<object> ifTrueActivities,
-
             string name,
 
             string type,
+
+            Outputs.IfConditionActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
-            Expression = expression;
-            IfFalseActivities = ifFalseActivities;
-            IfTrueActivities = ifTrueActivities;
             Name = name;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

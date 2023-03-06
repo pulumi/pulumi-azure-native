@@ -39,53 +39,21 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * The IDs of the access control records, associated with the volume.
-     */
-    public readonly accessControlRecordIds!: pulumi.Output<string[]>;
-    /**
-     * The IDs of the backup policies, in which this volume is part of.
-     */
-    public /*out*/ readonly backupPolicyIds!: pulumi.Output<string[]>;
-    /**
-     * The backup status of the volume.
-     */
-    public /*out*/ readonly backupStatus!: pulumi.Output<string>;
-    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
-    /**
-     * The monitoring status of the volume.
-     */
-    public readonly monitoringStatus!: pulumi.Output<string>;
     /**
      * The name of the object.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The operation status on the volume.
+     * The properties of the volume.
      */
-    public /*out*/ readonly operationStatus!: pulumi.Output<string>;
-    /**
-     * The size of the volume in bytes.
-     */
-    public readonly sizeInBytes!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.VolumePropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The ID of the volume container, in which this volume is created.
-     */
-    public /*out*/ readonly volumeContainerId!: pulumi.Output<string>;
-    /**
-     * The volume status.
-     */
-    public readonly volumeStatus!: pulumi.Output<string>;
-    /**
-     * The type of the volume.
-     */
-    public readonly volumeType!: pulumi.Output<string>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -98,63 +66,35 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessControlRecordIds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accessControlRecordIds'");
-            }
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.monitoringStatus === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'monitoringStatus'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sizeInBytes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sizeInBytes'");
-            }
             if ((!args || args.volumeContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeContainerName'");
             }
-            if ((!args || args.volumeStatus === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'volumeStatus'");
-            }
-            if ((!args || args.volumeType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'volumeType'");
-            }
-            resourceInputs["accessControlRecordIds"] = args ? args.accessControlRecordIds : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
             resourceInputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["volumeStatus"] = args ? args.volumeStatus : undefined;
-            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
-            resourceInputs["backupPolicyIds"] = undefined /*out*/;
-            resourceInputs["backupStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["operationStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeContainerId"] = undefined /*out*/;
         } else {
-            resourceInputs["accessControlRecordIds"] = undefined /*out*/;
-            resourceInputs["backupPolicyIds"] = undefined /*out*/;
-            resourceInputs["backupStatus"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["monitoringStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["operationStatus"] = undefined /*out*/;
-            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeContainerId"] = undefined /*out*/;
-            resourceInputs["volumeStatus"] = undefined /*out*/;
-            resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:Volume" }] };
@@ -168,10 +108,6 @@ export class Volume extends pulumi.CustomResource {
  */
 export interface VolumeArgs {
     /**
-     * The IDs of the access control records, associated with the volume.
-     */
-    accessControlRecordIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The device name
      */
     deviceName: pulumi.Input<string>;
@@ -184,17 +120,13 @@ export interface VolumeArgs {
      */
     managerName: pulumi.Input<string>;
     /**
-     * The monitoring status of the volume.
+     * The properties of the volume.
      */
-    monitoringStatus: pulumi.Input<enums.storsimple.MonitoringStatus>;
+    properties: pulumi.Input<inputs.storsimple.VolumePropertiesArgs>;
     /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The size of the volume in bytes.
-     */
-    sizeInBytes: pulumi.Input<number>;
     /**
      * The volume container name.
      */
@@ -203,12 +135,4 @@ export interface VolumeArgs {
      * The volume name.
      */
     volumeName?: pulumi.Input<string>;
-    /**
-     * The volume status.
-     */
-    volumeStatus: pulumi.Input<enums.storsimple.VolumeStatus>;
-    /**
-     * The type of the volume.
-     */
-    volumeType: pulumi.Input<enums.storsimple.VolumeType>;
 }

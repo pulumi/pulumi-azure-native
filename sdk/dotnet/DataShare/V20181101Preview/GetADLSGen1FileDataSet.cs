@@ -94,22 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     public sealed class GetADLSGen1FileDataSetResult
     {
         /// <summary>
-        /// The ADLS account name.
-        /// </summary>
-        public readonly string AccountName;
-        /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// The file name in the ADLS account.
-        /// </summary>
-        public readonly string FileName;
-        /// <summary>
-        /// The folder path within the ADLS account.
-        /// </summary>
-        public readonly string FolderPath;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -123,13 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource group of ADLS account.
+        /// ADLS Gen 1 file data set properties.
         /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Subscription id of ADLS account.
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ADLSGen1FilePropertiesResponse Properties;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
@@ -137,35 +117,20 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
 
         [OutputConstructor]
         private GetADLSGen1FileDataSetResult(
-            string accountName,
-
-            string dataSetId,
-
-            string fileName,
-
-            string folderPath,
-
             string id,
 
             string kind,
 
             string name,
 
-            string resourceGroup,
-
-            string subscriptionId,
+            Outputs.ADLSGen1FilePropertiesResponse properties,
 
             string type)
         {
-            AccountName = accountName;
-            DataSetId = dataSetId;
-            FileName = fileName;
-            FolderPath = folderPath;
             Id = id;
             Kind = kind;
             Name = name;
-            ResourceGroup = resourceGroup;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             Type = type;
         }
     }

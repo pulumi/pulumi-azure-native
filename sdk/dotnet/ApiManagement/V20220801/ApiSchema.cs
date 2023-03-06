@@ -16,22 +16,16 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public partial class ApiSchema : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
-        /// </summary>
-        [Output("components")]
-        public Output<object?> Components { get; private set; } = null!;
-
-        /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
+        /// Create or update Properties of the API Schema Document.
         /// </summary>
-        [Output("definitions")]
-        public Output<object?> Definitions { get; private set; } = null!;
+        [Output("document")]
+        public Output<Outputs.SchemaDocumentPropertiesResponse> Document { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-        /// </summary>
-        [Output("value")]
-        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>
@@ -120,22 +108,16 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
-        /// </summary>
-        [Input("components")]
-        public Input<object>? Components { get; set; }
-
-        /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
+        /// Create or update Properties of the API Schema Document.
         /// </summary>
-        [Input("definitions")]
-        public Input<object>? Definitions { get; set; }
+        [Input("document", required: true)]
+        public Input<Inputs.SchemaDocumentPropertiesArgs> Document { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -154,12 +136,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
-
-        /// <summary>
-        /// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
 
         public ApiSchemaArgs()
         {

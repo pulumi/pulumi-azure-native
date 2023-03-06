@@ -45,14 +45,6 @@ export interface GetKustoDatabaseDataSetMappingArgs {
  */
 export interface GetKustoDatabaseDataSetMappingResult {
     /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -62,21 +54,13 @@ export interface GetKustoDatabaseDataSetMappingResult {
      */
     readonly kind: "KustoDatabase";
     /**
-     * Resource id of the sink kusto cluster.
-     */
-    readonly kustoClusterResourceId: string;
-    /**
-     * Location of the sink kusto cluster.
-     */
-    readonly location: string;
-    /**
      * Name of the azure resource
      */
     readonly name: string;
     /**
-     * Provisioning state of the data set mapping.
+     * Kusto database data set mapping properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.datashare.v20200901.KustoDatabaseDataSetMappingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

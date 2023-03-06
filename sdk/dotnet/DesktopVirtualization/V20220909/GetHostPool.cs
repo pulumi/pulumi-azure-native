@@ -70,37 +70,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
     public sealed class GetHostPoolResult
     {
         /// <summary>
-        /// The session host configuration for updating agent, monitoring agent, and stack component.
-        /// </summary>
-        public readonly Outputs.AgentUpdatePropertiesResponse? AgentUpdate;
-        /// <summary>
-        /// List of applicationGroup links.
-        /// </summary>
-        public readonly ImmutableArray<string> ApplicationGroupReferences;
-        /// <summary>
-        /// Is cloud pc resource.
-        /// </summary>
-        public readonly bool CloudPcResource;
-        /// <summary>
-        /// Custom rdp property of HostPool.
-        /// </summary>
-        public readonly string? CustomRdpProperty;
-        /// <summary>
-        /// Description of HostPool.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// Friendly name of HostPool.
-        /// </summary>
-        public readonly string? FriendlyName;
-        /// <summary>
-        /// HostPool type for desktop.
-        /// </summary>
-        public readonly string HostPoolType;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -111,10 +83,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// The type of the load balancer.
-        /// </summary>
-        public readonly string LoadBalancerType;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
@@ -123,55 +91,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
-        /// The max session limit of HostPool.
-        /// </summary>
-        public readonly int? MaxSessionLimit;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// ObjectId of HostPool. (internal use)
-        /// </summary>
-        public readonly string ObjectId;
-        /// <summary>
-        /// PersonalDesktopAssignment type for HostPool.
-        /// </summary>
-        public readonly string? PersonalDesktopAssignmentType;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
-        /// The type of preferred application group type, default to Desktop Application Group
+        /// Detailed properties for HostPool
         /// </summary>
-        public readonly string PreferredAppGroupType;
-        /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        public readonly Outputs.RegistrationInfoResponse? RegistrationInfo;
-        /// <summary>
-        /// The ring number of HostPool.
-        /// </summary>
-        public readonly int? Ring;
+        public readonly Outputs.HostPoolPropertiesResponse Properties;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
-        /// <summary>
-        /// ClientId for the registered Relying Party used to issue WVD SSO certificates.
-        /// </summary>
-        public readonly string? SsoClientId;
-        /// <summary>
-        /// Path to Azure KeyVault storing the secret used for communication to ADFS.
-        /// </summary>
-        public readonly string? SsoClientSecretKeyVaultPath;
-        /// <summary>
-        /// The type of single sign on Secret Type.
-        /// </summary>
-        public readonly string? SsoSecretType;
-        /// <summary>
-        /// URL to customer ADFS server for signing WVD SSO certificates.
-        /// </summary>
-        public readonly string? SsoadfsAuthority;
-        /// <summary>
-        /// The flag to turn on/off StartVMOnConnect feature.
-        /// </summary>
-        public readonly bool? StartVMOnConnect;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -184,32 +112,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Is validation environment.
-        /// </summary>
-        public readonly bool? ValidationEnvironment;
-        /// <summary>
-        /// VM template for sessionhosts configuration within hostpool.
-        /// </summary>
-        public readonly string? VmTemplate;
 
         [OutputConstructor]
         private GetHostPoolResult(
-            Outputs.AgentUpdatePropertiesResponse? agentUpdate,
-
-            ImmutableArray<string> applicationGroupReferences,
-
-            bool cloudPcResource,
-
-            string? customRdpProperty,
-
-            string? description,
-
             string etag,
-
-            string? friendlyName,
-
-            string hostPoolType,
 
             string id,
 
@@ -217,83 +123,37 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
 
             string? kind,
 
-            string loadBalancerType,
-
             string? location,
 
             string? managedBy,
 
-            int? maxSessionLimit,
-
             string name,
-
-            string objectId,
-
-            string? personalDesktopAssignmentType,
 
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
-            string preferredAppGroupType,
-
-            Outputs.RegistrationInfoResponse? registrationInfo,
-
-            int? ring,
+            Outputs.HostPoolPropertiesResponse properties,
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
-
-            string? ssoClientId,
-
-            string? ssoClientSecretKeyVaultPath,
-
-            string? ssoSecretType,
-
-            string? ssoadfsAuthority,
-
-            bool? startVMOnConnect,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            bool? validationEnvironment,
-
-            string? vmTemplate)
+            string type)
         {
-            AgentUpdate = agentUpdate;
-            ApplicationGroupReferences = applicationGroupReferences;
-            CloudPcResource = cloudPcResource;
-            CustomRdpProperty = customRdpProperty;
-            Description = description;
             Etag = etag;
-            FriendlyName = friendlyName;
-            HostPoolType = hostPoolType;
             Id = id;
             Identity = identity;
             Kind = kind;
-            LoadBalancerType = loadBalancerType;
             Location = location;
             ManagedBy = managedBy;
-            MaxSessionLimit = maxSessionLimit;
             Name = name;
-            ObjectId = objectId;
-            PersonalDesktopAssignmentType = personalDesktopAssignmentType;
             Plan = plan;
-            PreferredAppGroupType = preferredAppGroupType;
-            RegistrationInfo = registrationInfo;
-            Ring = ring;
+            Properties = properties;
             Sku = sku;
-            SsoClientId = ssoClientId;
-            SsoClientSecretKeyVaultPath = ssoClientSecretKeyVaultPath;
-            SsoSecretType = ssoSecretType;
-            SsoadfsAuthority = ssoadfsAuthority;
-            StartVMOnConnect = startVMOnConnect;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            ValidationEnvironment = validationEnvironment;
-            VmTemplate = vmTemplate;
         }
     }
 }

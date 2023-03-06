@@ -33,6 +33,7 @@ __all__ = [
     'DiskSecretResponse',
     'ErrorResponse',
     'JobErrorDetailsResponse',
+    'JobPropertiesResponse',
     'JobStagesResponse',
     'NotificationPreferenceResponse',
     'PackageShippingDetailsResponse',
@@ -1837,6 +1838,131 @@ class JobErrorDetailsResponse(dict):
         Recommended action for the error.
         """
         return pulumi.get(self, "recommended_action")
+
+
+@pulumi.output_type
+class JobPropertiesResponse(dict):
+    """
+    Job Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cancellationReason":
+            suggest = "cancellation_reason"
+        elif key == "isCancellable":
+            suggest = "is_cancellable"
+        elif key == "isDeletable":
+            suggest = "is_deletable"
+        elif key == "isShippingAddressEditable":
+            suggest = "is_shipping_address_editable"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cancellation_reason: str,
+                 error: 'outputs.ErrorResponse',
+                 is_cancellable: bool,
+                 is_deletable: bool,
+                 is_shipping_address_editable: bool,
+                 start_time: str,
+                 status: str,
+                 details: Optional[Any] = None):
+        """
+        Job Properties
+        :param str cancellation_reason: Reason for cancellation.
+        :param 'ErrorResponse' error: Top level error for the job.
+        :param bool is_cancellable: Describes whether the job is cancellable or not.
+        :param bool is_deletable: Describes whether the job is deletable or not.
+        :param bool is_shipping_address_editable: Describes whether the shipping address is editable or not.
+        :param str start_time: Time at which the job was started in UTC ISO 8601 format.
+        :param str status: Name of the stage which is in progress.
+        :param Union['DataBoxDiskJobDetailsResponse', 'DataBoxHeavyJobDetailsResponse', 'DataBoxJobDetailsResponse'] details: Details of a job run. This field will only be sent for expand details filter.
+        """
+        pulumi.set(__self__, "cancellation_reason", cancellation_reason)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "is_cancellable", is_cancellable)
+        pulumi.set(__self__, "is_deletable", is_deletable)
+        pulumi.set(__self__, "is_shipping_address_editable", is_shipping_address_editable)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+
+    @property
+    @pulumi.getter(name="cancellationReason")
+    def cancellation_reason(self) -> str:
+        """
+        Reason for cancellation.
+        """
+        return pulumi.get(self, "cancellation_reason")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorResponse':
+        """
+        Top level error for the job.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="isCancellable")
+    def is_cancellable(self) -> bool:
+        """
+        Describes whether the job is cancellable or not.
+        """
+        return pulumi.get(self, "is_cancellable")
+
+    @property
+    @pulumi.getter(name="isDeletable")
+    def is_deletable(self) -> bool:
+        """
+        Describes whether the job is deletable or not.
+        """
+        return pulumi.get(self, "is_deletable")
+
+    @property
+    @pulumi.getter(name="isShippingAddressEditable")
+    def is_shipping_address_editable(self) -> bool:
+        """
+        Describes whether the shipping address is editable or not.
+        """
+        return pulumi.get(self, "is_shipping_address_editable")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Time at which the job was started in UTC ISO 8601 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Name of the stage which is in progress.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Any]:
+        """
+        Details of a job run. This field will only be sent for expand details filter.
+        """
+        return pulumi.get(self, "details")
 
 
 @pulumi.output_type

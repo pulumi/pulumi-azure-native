@@ -41,18 +41,6 @@ export class Assignment extends pulumi.CustomResource {
     }
 
     /**
-     * ID of the Blueprint definition resource.
-     */
-    public readonly blueprintId!: pulumi.Output<string | undefined>;
-    /**
-     * Multi-line explain this resource.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * One-liner string explain this resource.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * Managed Service Identity for this Blueprint assignment
      */
     public readonly identity!: pulumi.Output<outputs.blueprint.v20171111preview.ManagedServiceIdentityResponse>;
@@ -61,29 +49,13 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Defines how Blueprint-managed resources will be locked.
-     */
-    public readonly locks!: pulumi.Output<outputs.blueprint.v20171111preview.AssignmentLockSettingsResponse | undefined>;
-    /**
      * Name of this resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Blueprint parameter values.
+     * Properties for Assignment object.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ParameterValueBaseResponse}>;
-    /**
-     * State of the assignment.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Names and locations of resource group placeholders.
-     */
-    public readonly resourceGroups!: pulumi.Output<{[key: string]: outputs.blueprint.v20171111preview.ResourceGroupValueResponse}>;
-    /**
-     * Status of Blueprint assignment. This field is readonly.
-     */
-    public /*out*/ readonly status!: pulumi.Output<outputs.blueprint.v20171111preview.AssignmentStatusResponse>;
+    public readonly properties!: pulumi.Output<outputs.blueprint.v20171111preview.AssignmentPropertiesResponse>;
     /**
      * Type of this resource.
      */
@@ -105,38 +77,21 @@ export class Assignment extends pulumi.CustomResource {
             if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'parameters'");
-            }
-            if ((!args || args.resourceGroups === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroups'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             resourceInputs["assignmentName"] = args ? args.assignmentName : undefined;
-            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locks"] = args ? args.locks : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["blueprintId"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["locks"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGroups"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,18 +108,6 @@ export interface AssignmentArgs {
      */
     assignmentName?: pulumi.Input<string>;
     /**
-     * ID of the Blueprint definition resource.
-     */
-    blueprintId?: pulumi.Input<string>;
-    /**
-     * Multi-line explain this resource.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * One-liner string explain this resource.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Managed Service Identity for this Blueprint assignment
      */
     identity: pulumi.Input<inputs.blueprint.v20171111preview.ManagedServiceIdentityArgs>;
@@ -173,17 +116,9 @@ export interface AssignmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Defines how Blueprint-managed resources will be locked.
+     * Properties for Assignment object.
      */
-    locks?: pulumi.Input<inputs.blueprint.v20171111preview.AssignmentLockSettingsArgs>;
-    /**
-     * Blueprint parameter values.
-     */
-    parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
-    /**
-     * Names and locations of resource group placeholders.
-     */
-    resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupValueArgs>}>;
+    properties: pulumi.Input<inputs.blueprint.v20171111preview.AssignmentPropertiesArgs>;
     /**
      * azure subscriptionId, which we assign the blueprint to.
      */

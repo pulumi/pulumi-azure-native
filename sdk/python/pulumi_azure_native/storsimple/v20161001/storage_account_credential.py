@@ -17,87 +17,22 @@ __all__ = ['StorageAccountCredentialArgs', 'StorageAccountCredential']
 @pulumi.input_type
 class StorageAccountCredentialArgs:
     def __init__(__self__, *,
-                 cloud_type: pulumi.Input['CloudType'],
-                 enable_ssl: pulumi.Input['SslStatus'],
-                 end_point: pulumi.Input[str],
-                 login: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
+                 properties: pulumi.Input['StorageAccountCredentialPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 access_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
-                 credential_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None):
+                 credential_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StorageAccountCredential resource.
-        :param pulumi.Input['CloudType'] cloud_type: The cloud service provider
-        :param pulumi.Input['SslStatus'] enable_ssl: SSL needs to be enabled or not
-        :param pulumi.Input[str] end_point: The storage endpoint
-        :param pulumi.Input[str] login: The storage account login
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['StorageAccountCredentialPropertiesArgs'] properties: Credential properties
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] access_key: The details of the storage account password
         :param pulumi.Input[str] credential_name: The credential name.
-        :param pulumi.Input[str] location: The storage account's geo location
         """
-        pulumi.set(__self__, "cloud_type", cloud_type)
-        pulumi.set(__self__, "enable_ssl", enable_ssl)
-        pulumi.set(__self__, "end_point", end_point)
-        pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
         if credential_name is not None:
             pulumi.set(__self__, "credential_name", credential_name)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-
-    @property
-    @pulumi.getter(name="cloudType")
-    def cloud_type(self) -> pulumi.Input['CloudType']:
-        """
-        The cloud service provider
-        """
-        return pulumi.get(self, "cloud_type")
-
-    @cloud_type.setter
-    def cloud_type(self, value: pulumi.Input['CloudType']):
-        pulumi.set(self, "cloud_type", value)
-
-    @property
-    @pulumi.getter(name="enableSSL")
-    def enable_ssl(self) -> pulumi.Input['SslStatus']:
-        """
-        SSL needs to be enabled or not
-        """
-        return pulumi.get(self, "enable_ssl")
-
-    @enable_ssl.setter
-    def enable_ssl(self, value: pulumi.Input['SslStatus']):
-        pulumi.set(self, "enable_ssl", value)
-
-    @property
-    @pulumi.getter(name="endPoint")
-    def end_point(self) -> pulumi.Input[str]:
-        """
-        The storage endpoint
-        """
-        return pulumi.get(self, "end_point")
-
-    @end_point.setter
-    def end_point(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_point", value)
-
-    @property
-    @pulumi.getter
-    def login(self) -> pulumi.Input[str]:
-        """
-        The storage account login
-        """
-        return pulumi.get(self, "login")
-
-    @login.setter
-    def login(self, value: pulumi.Input[str]):
-        pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="managerName")
@@ -112,6 +47,18 @@ class StorageAccountCredentialArgs:
         pulumi.set(self, "manager_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['StorageAccountCredentialPropertiesArgs']:
+        """
+        Credential properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['StorageAccountCredentialPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -122,18 +69,6 @@ class StorageAccountCredentialArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
-        """
-        The details of the storage account password
-        """
-        return pulumi.get(self, "access_key")
-
-    @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
-        pulumi.set(self, "access_key", value)
 
     @property
     @pulumi.getter(name="credentialName")
@@ -147,18 +82,6 @@ class StorageAccountCredentialArgs:
     def credential_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "credential_name", value)
 
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The storage account's geo location
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
 
 warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -170,14 +93,9 @@ class StorageAccountCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 cloud_type: Optional[pulumi.Input['CloudType']] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input['SslStatus']] = None,
-                 end_point: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 login: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['StorageAccountCredentialPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -185,14 +103,9 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] access_key: The details of the storage account password
-        :param pulumi.Input['CloudType'] cloud_type: The cloud service provider
         :param pulumi.Input[str] credential_name: The credential name.
-        :param pulumi.Input['SslStatus'] enable_ssl: SSL needs to be enabled or not
-        :param pulumi.Input[str] end_point: The storage endpoint
-        :param pulumi.Input[str] location: The storage account's geo location
-        :param pulumi.Input[str] login: The storage account login
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[pulumi.InputType['StorageAccountCredentialPropertiesArgs']] properties: Credential properties
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         ...
@@ -219,14 +132,9 @@ class StorageAccountCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 cloud_type: Optional[pulumi.Input['CloudType']] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input['SslStatus']] = None,
-                 end_point: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 login: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['StorageAccountCredentialPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""StorageAccountCredential is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
@@ -238,24 +146,13 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-            __props__.__dict__["access_key"] = access_key
-            if cloud_type is None and not opts.urn:
-                raise TypeError("Missing required property 'cloud_type'")
-            __props__.__dict__["cloud_type"] = cloud_type
             __props__.__dict__["credential_name"] = credential_name
-            if enable_ssl is None and not opts.urn:
-                raise TypeError("Missing required property 'enable_ssl'")
-            __props__.__dict__["enable_ssl"] = enable_ssl
-            if end_point is None and not opts.urn:
-                raise TypeError("Missing required property 'end_point'")
-            __props__.__dict__["end_point"] = end_point
-            __props__.__dict__["location"] = location
-            if login is None and not opts.urn:
-                raise TypeError("Missing required property 'login'")
-            __props__.__dict__["login"] = login
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -285,63 +182,10 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-        __props__.__dict__["access_key"] = None
-        __props__.__dict__["cloud_type"] = None
-        __props__.__dict__["enable_ssl"] = None
-        __props__.__dict__["end_point"] = None
-        __props__.__dict__["location"] = None
-        __props__.__dict__["login"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accessKey")
-    def access_key(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
-        """
-        The details of the storage account password
-        """
-        return pulumi.get(self, "access_key")
-
-    @property
-    @pulumi.getter(name="cloudType")
-    def cloud_type(self) -> pulumi.Output[str]:
-        """
-        The cloud service provider
-        """
-        return pulumi.get(self, "cloud_type")
-
-    @property
-    @pulumi.getter(name="enableSSL")
-    def enable_ssl(self) -> pulumi.Output[str]:
-        """
-        SSL needs to be enabled or not
-        """
-        return pulumi.get(self, "enable_ssl")
-
-    @property
-    @pulumi.getter(name="endPoint")
-    def end_point(self) -> pulumi.Output[str]:
-        """
-        The storage endpoint
-        """
-        return pulumi.get(self, "end_point")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        The storage account's geo location
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def login(self) -> pulumi.Output[str]:
-        """
-        The storage account login
-        """
-        return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
@@ -350,6 +194,14 @@ class StorageAccountCredential(pulumi.CustomResource):
         The name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.StorageAccountCredentialPropertiesResponse']:
+        """
+        Credential properties
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

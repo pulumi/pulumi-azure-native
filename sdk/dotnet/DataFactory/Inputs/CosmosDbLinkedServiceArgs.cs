@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class CosmosDbLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
-        /// </summary>
-        [Input("accountEndpoint")]
-        public Input<object>? AccountEndpoint { get; set; }
-
-        /// <summary>
-        /// The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("accountKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccountKey { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,52 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("azureCloudType")]
-        public Input<object>? AzureCloudType { get; set; }
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("connectionMode")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.CosmosDbConnectionMode>? ConnectionMode { get; set; }
-
-        /// <summary>
-        /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("connectionString")]
-        public Input<object>? ConnectionString { get; set; }
-
-        /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        [Input("credential")]
-        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
-
-        /// <summary>
-        /// The name of the database. Type: string (or Expression with resultType string)
-        /// </summary>
-        [Input("database")]
-        public Input<object>? Database { get; set; }
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -100,35 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("servicePrincipalCredential")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalCredential { get; set; }
-
-        /// <summary>
-        /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalCredentialType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.CosmosDbServicePrincipalCredentialType>? ServicePrincipalCredentialType { get; set; }
-
-        /// <summary>
-        /// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId")]
-        public Input<object>? ServicePrincipalId { get; set; }
-
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tenant")]
-        public Input<object>? Tenant { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'CosmosDb'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// CosmosDB linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.CosmosDbLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public CosmosDbLinkedServiceArgs()
         {

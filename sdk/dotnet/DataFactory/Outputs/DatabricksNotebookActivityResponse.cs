@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class DatabricksNotebookActivityResponse
     {
         /// <summary>
-        /// Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? BaseParameters;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -29,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A list of libraries to be installed on the cluster that will execute the job.
-        /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Libraries;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
@@ -40,10 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Activity name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object NotebookPath;
         /// <summary>
         /// Activity policy.
         /// </summary>
@@ -54,41 +42,39 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Databricks Notebook activity properties.
+        /// </summary>
+        public readonly Outputs.DatabricksNotebookActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
 
         [OutputConstructor]
         private DatabricksNotebookActivityResponse(
-            ImmutableDictionary<string, object>? baseParameters,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            ImmutableArray<ImmutableDictionary<string, object>> libraries,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
             string name,
 
-            object notebookPath,
-
             Outputs.ActivityPolicyResponse? policy,
 
             string type,
 
+            Outputs.DatabricksNotebookActivityTypePropertiesResponse typeProperties,
+
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            BaseParameters = baseParameters;
             DependsOn = dependsOn;
             Description = description;
-            Libraries = libraries;
             LinkedServiceName = linkedServiceName;
             Name = name;
-            NotebookPath = notebookPath;
             Policy = policy;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

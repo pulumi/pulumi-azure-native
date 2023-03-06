@@ -38,61 +38,13 @@ export class ShareSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * Time at which the share subscription was created.
-     */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * The expiration date of the share subscription.
-     */
-    public readonly expirationDate!: pulumi.Output<string | undefined>;
-    /**
-     * The invitation id.
-     */
-    public readonly invitationId!: pulumi.Output<string>;
-    /**
      * Name of the azure resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Email of the provider who created the resource
+     * Properties on the share subscription
      */
-    public /*out*/ readonly providerEmail!: pulumi.Output<string>;
-    /**
-     * Name of the provider who created the resource
-     */
-    public /*out*/ readonly providerName!: pulumi.Output<string>;
-    /**
-     * Tenant name of the provider who created the resource
-     */
-    public /*out*/ readonly providerTenantName!: pulumi.Output<string>;
-    /**
-     * Provisioning state of the share subscription
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Description of share
-     */
-    public /*out*/ readonly shareDescription!: pulumi.Output<string>;
-    /**
-     * Kind of share
-     */
-    public /*out*/ readonly shareKind!: pulumi.Output<string>;
-    /**
-     * Name of the share
-     */
-    public /*out*/ readonly shareName!: pulumi.Output<string>;
-    /**
-     * Gets the current status of share subscription.
-     */
-    public /*out*/ readonly shareSubscriptionStatus!: pulumi.Output<string>;
-    /**
-     * Terms of a share
-     */
-    public /*out*/ readonly shareTerms!: pulumi.Output<string>;
-    /**
-     * Source share location.
-     */
-    public readonly sourceShareLocation!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20210801.ShareSubscriptionPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
@@ -101,14 +53,6 @@ export class ShareSubscription extends pulumi.CustomResource {
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Email of the user who created the resource
-     */
-    public /*out*/ readonly userEmail!: pulumi.Output<string>;
-    /**
-     * Name of the user who created the resource
-     */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a ShareSubscription resource with the given unique name, arguments, and options.
@@ -124,55 +68,24 @@ export class ShareSubscription extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.invitationId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'invitationId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceShareLocation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceShareLocation'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            resourceInputs["sourceShareLocation"] = args ? args.sourceShareLocation : undefined;
-            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["providerEmail"] = undefined /*out*/;
-            resourceInputs["providerName"] = undefined /*out*/;
-            resourceInputs["providerTenantName"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["shareDescription"] = undefined /*out*/;
-            resourceInputs["shareKind"] = undefined /*out*/;
-            resourceInputs["shareName"] = undefined /*out*/;
-            resourceInputs["shareSubscriptionStatus"] = undefined /*out*/;
-            resourceInputs["shareTerms"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userEmail"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["expirationDate"] = undefined /*out*/;
-            resourceInputs["invitationId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["providerEmail"] = undefined /*out*/;
-            resourceInputs["providerName"] = undefined /*out*/;
-            resourceInputs["providerTenantName"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["shareDescription"] = undefined /*out*/;
-            resourceInputs["shareKind"] = undefined /*out*/;
-            resourceInputs["shareName"] = undefined /*out*/;
-            resourceInputs["shareSubscriptionStatus"] = undefined /*out*/;
-            resourceInputs["shareTerms"] = undefined /*out*/;
-            resourceInputs["sourceShareLocation"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userEmail"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ShareSubscription" }, { type: "azure-native:datashare/v20181101preview:ShareSubscription" }, { type: "azure-native:datashare/v20191101:ShareSubscription" }, { type: "azure-native:datashare/v20200901:ShareSubscription" }, { type: "azure-native:datashare/v20201001preview:ShareSubscription" }] };
@@ -190,13 +103,9 @@ export interface ShareSubscriptionArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The expiration date of the share subscription.
+     * Properties on the share subscription
      */
-    expirationDate?: pulumi.Input<string>;
-    /**
-     * The invitation id.
-     */
-    invitationId: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.v20210801.ShareSubscriptionPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -205,8 +114,4 @@ export interface ShareSubscriptionArgs {
      * The name of the shareSubscription.
      */
     shareSubscriptionName?: pulumi.Input<string>;
-    /**
-     * Source share location.
-     */
-    sourceShareLocation: pulumi.Input<string>;
 }

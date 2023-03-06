@@ -17,22 +17,16 @@ namespace Pulumi.AzureNative.Cache.V20170201
     public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// highest IP address included in the range
-        /// </summary>
-        [Output("endIP")]
-        public Output<string> EndIP { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// lowest IP address included in the range
+        /// redis cache firewall rule properties
         /// </summary>
-        [Output("startIP")]
-        public Output<string> StartIP { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.RedisFirewallRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -105,10 +99,10 @@ namespace Pulumi.AzureNative.Cache.V20170201
         public Input<string> CacheName { get; set; } = null!;
 
         /// <summary>
-        /// highest IP address included in the range
+        /// redis cache firewall rule properties
         /// </summary>
-        [Input("endIP", required: true)]
-        public Input<string> EndIP { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.RedisFirewallRulePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -121,12 +115,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
-
-        /// <summary>
-        /// lowest IP address included in the range
-        /// </summary>
-        [Input("startIP", required: true)]
-        public Input<string> StartIP { get; set; } = null!;
 
         public FirewallRuleArgs()
         {

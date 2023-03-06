@@ -79,9 +79,9 @@ namespace Pulumi.AzureNative.Addons.V20170515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the resource.
+        /// Describes Canonical support plan type and status.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly Outputs.CanonicalSupportPlanPropertiesResponse Properties;
         /// <summary>
         /// Microsoft.Addons/supportProvider
         /// </summary>
@@ -93,13 +93,13 @@ namespace Pulumi.AzureNative.Addons.V20170515
 
             string name,
 
-            string? provisioningState,
+            Outputs.CanonicalSupportPlanPropertiesResponse properties,
 
             string type)
         {
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Type = type;
         }
     }

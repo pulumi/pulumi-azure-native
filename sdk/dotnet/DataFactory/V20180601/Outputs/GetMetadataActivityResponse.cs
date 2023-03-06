@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class GetMetadataActivityResponse
     {
         /// <summary>
-        /// GetMetadata activity dataset reference.
-        /// </summary>
-        public readonly Outputs.DatasetReferenceResponse Dataset;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -28,14 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Fields of metadata to get from dataset.
-        /// </summary>
-        public readonly ImmutableArray<object> FieldList;
-        /// <summary>
-        /// GetMetadata activity format settings.
-        /// </summary>
-        public readonly object? FormatSettings;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -49,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// GetMetadata activity store settings.
-        /// </summary>
-        public readonly object? StoreSettings;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'GetMetadata'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// GetMetadata activity properties.
+        /// </summary>
+        public readonly Outputs.GetMetadataActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -64,15 +52,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private GetMetadataActivityResponse(
-            Outputs.DatasetReferenceResponse dataset,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            ImmutableArray<object> fieldList,
-
-            object? formatSettings,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -80,22 +62,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            object? storeSettings,
-
             string type,
+
+            Outputs.GetMetadataActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Dataset = dataset;
             DependsOn = dependsOn;
             Description = description;
-            FieldList = fieldList;
-            FormatSettings = formatSettings;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            StoreSettings = storeSettings;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

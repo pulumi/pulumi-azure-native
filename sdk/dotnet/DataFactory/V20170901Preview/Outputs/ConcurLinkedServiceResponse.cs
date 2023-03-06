@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// Application client_id supplied by Concur App Management.
-        /// </summary>
-        public readonly object ClientId;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -33,77 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password corresponding to the user name that you provided in the username field.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Concur'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// Concur Service linked service properties.
         /// </summary>
-        public readonly object? UseEncryptedEndpoints;
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UseHostVerification;
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UsePeerVerification;
-        /// <summary>
-        /// The user name that you use to access Concur Service.
-        /// </summary>
-        public readonly object Username;
+        public readonly Outputs.ConcurLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ConcurLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            object clientId,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            object? useEncryptedEndpoints,
-
-            object? useHostVerification,
-
-            object? usePeerVerification,
-
-            object username)
+            Outputs.ConcurLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            ClientId = clientId;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            UseEncryptedEndpoints = useEncryptedEndpoints;
-            UseHostVerification = useHostVerification;
-            UsePeerVerification = usePeerVerification;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

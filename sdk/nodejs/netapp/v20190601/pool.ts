@@ -49,21 +49,9 @@ export class Pool extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * UUID v4 used to identify the Pool
+     * Capacity pool properties
      */
-    public /*out*/ readonly poolId!: pulumi.Output<string>;
-    /**
-     * Azure lifecycle management
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The service level of the file system
-     */
-    public readonly serviceLevel!: pulumi.Output<string>;
-    /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-     */
-    public readonly size!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20190601.PoolPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -89,33 +77,24 @@ export class Pool extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceLevel'");
-            }
-            if ((!args || args.size === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'size'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.netapp.v20190601.poolPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = (args ? args.serviceLevel : undefined) ?? "Premium";
-            resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["poolId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["poolId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serviceLevel"] = undefined /*out*/;
-            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -143,17 +122,13 @@ export interface PoolArgs {
      */
     poolName?: pulumi.Input<string>;
     /**
+     * Capacity pool properties
+     */
+    properties: pulumi.Input<inputs.netapp.v20190601.PoolPropertiesArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The service level of the file system
-     */
-    serviceLevel: pulumi.Input<string | enums.netapp.v20190601.ServiceLevel>;
-    /**
-     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-     */
-    size: pulumi.Input<number>;
     /**
      * Resource tags
      */

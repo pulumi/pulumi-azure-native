@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,17 +48,13 @@ export interface GetLinkedServiceResult {
      */
     readonly name: string;
     /**
-     * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+     * The properties of the linked service.
      */
-    readonly resourceId?: string;
+    readonly properties: outputs.operationalinsights.v20190801preview.LinkedServicePropertiesResponse;
     /**
      * Resource type.
      */
     readonly type: string;
-    /**
-     * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-     */
-    readonly writeAccessResourceId?: string;
 }
 /**
  * Gets a linked service instance.

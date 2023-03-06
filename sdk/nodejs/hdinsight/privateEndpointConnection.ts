@@ -39,25 +39,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The link identifier.
-     */
-    public /*out*/ readonly linkIdentifier!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The private endpoint of the private endpoint connection
+     * The private endpoint connection properties.
      */
-    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.hdinsight.PrivateEndpointResponse>;
-    /**
-     * The private link service connection state.
-     */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.hdinsight.PrivateLinkServiceConnectionStateResponse>;
-    /**
-     * The provisioning state, which only appears in the response.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hdinsight.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -81,28 +69,22 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["linkIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpoint"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["linkIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpoint"] = undefined /*out*/;
-            resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -126,9 +108,9 @@ export interface PrivateEndpointConnectionArgs {
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * The private link service connection state.
+     * The private endpoint connection properties.
      */
-    privateLinkServiceConnectionState: pulumi.Input<inputs.hdinsight.PrivateLinkServiceConnectionStateArgs>;
+    properties: pulumi.Input<inputs.hdinsight.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group.
      */

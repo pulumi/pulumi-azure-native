@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501
     public sealed class GetLinkerResult
     {
         /// <summary>
-        /// The authentication type.
-        /// </summary>
-        public readonly object? AuthInfo;
-        /// <summary>
-        /// The application client type
-        /// </summary>
-        public readonly string? ClientType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -86,69 +78,35 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state. 
+        /// The properties of the linker.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// connection scope in source service.
-        /// </summary>
-        public readonly string? Scope;
-        /// <summary>
-        /// An option to store secret value in secure place
-        /// </summary>
-        public readonly Outputs.SecretStoreResponse? SecretStore;
+        public readonly Outputs.LinkerPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The target service properties
-        /// </summary>
-        public readonly object? TargetService;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The VNet solution.
-        /// </summary>
-        public readonly Outputs.VNetSolutionResponse? VNetSolution;
 
         [OutputConstructor]
         private GetLinkerResult(
-            object? authInfo,
-
-            string? clientType,
-
             string id,
 
             string name,
 
-            string provisioningState,
-
-            string? scope,
-
-            Outputs.SecretStoreResponse? secretStore,
+            Outputs.LinkerPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
-            object? targetService,
-
-            string type,
-
-            Outputs.VNetSolutionResponse? vNetSolution)
+            string type)
         {
-            AuthInfo = authInfo;
-            ClientType = clientType;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            Scope = scope;
-            SecretStore = secretStore;
+            Properties = properties;
             SystemData = systemData;
-            TargetService = targetService;
             Type = type;
-            VNetSolution = vNetSolution;
         }
     }
 }

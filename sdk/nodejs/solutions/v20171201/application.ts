@@ -41,10 +41,6 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The fully qualified path of managed application definition Id.
-     */
-    public readonly applicationDefinitionId!: pulumi.Output<string | undefined>;
-    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.solutions.v20171201.IdentityResponse | undefined>;
@@ -61,29 +57,17 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
-     * The managed resource group Id.
-     */
-    public readonly managedResourceGroupId!: pulumi.Output<string>;
-    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Name and value pairs that define the managed application outputs.
-     */
-    public /*out*/ readonly outputs!: pulumi.Output<any>;
-    /**
-     * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-     */
-    public readonly parameters!: pulumi.Output<any | undefined>;
     /**
      * The plan information.
      */
     public readonly plan!: pulumi.Output<outputs.solutions.v20171201.PlanResponse | undefined>;
     /**
-     * The managed application provisioning state.
+     * The managed application properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.solutions.v20171201.ApplicationPropertiesResponse>;
     /**
      * The SKU of the resource.
      */
@@ -96,10 +80,6 @@ export class Application extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The blob URI where the UI definition file is located.
-     */
-    public readonly uiDefinitionUri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -117,45 +97,35 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.managedResourceGroupId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'managedResourceGroupId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["outputs"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["applicationDefinitionId"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
-            resourceInputs["managedResourceGroupId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["outputs"] = undefined /*out*/;
-            resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uiDefinitionUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:Application" }, { type: "azure-native:solutions/v20160901preview:Application" }, { type: "azure-native:solutions/v20170901:Application" }, { type: "azure-native:solutions/v20180201:Application" }, { type: "azure-native:solutions/v20180301:Application" }, { type: "azure-native:solutions/v20180601:Application" }, { type: "azure-native:solutions/v20180901preview:Application" }, { type: "azure-native:solutions/v20190701:Application" }, { type: "azure-native:solutions/v20200821preview:Application" }, { type: "azure-native:solutions/v20210201preview:Application" }, { type: "azure-native:solutions/v20210701:Application" }] };
@@ -168,10 +138,6 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * The fully qualified path of managed application definition Id.
-     */
-    applicationDefinitionId?: pulumi.Input<string>;
     /**
      * The name of the managed application.
      */
@@ -193,17 +159,13 @@ export interface ApplicationArgs {
      */
     managedBy?: pulumi.Input<string>;
     /**
-     * The managed resource group Id.
-     */
-    managedResourceGroupId: pulumi.Input<string>;
-    /**
-     * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-     */
-    parameters?: any;
-    /**
      * The plan information.
      */
     plan?: pulumi.Input<inputs.solutions.v20171201.PlanArgs>;
+    /**
+     * The managed application properties.
+     */
+    properties: pulumi.Input<inputs.solutions.v20171201.ApplicationPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -216,8 +178,4 @@ export interface ApplicationArgs {
      * Resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The blob URI where the UI definition file is located.
-     */
-    uiDefinitionUri?: pulumi.Input<string>;
 }

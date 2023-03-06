@@ -16,47 +16,42 @@ __all__ = ['TemplateSpecVersionArgs', 'TemplateSpecVersion']
 @pulumi.input_type
 class TemplateSpecVersionArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['TemplateSpecVersionPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  template_spec_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 main_template: Optional[Any] = None,
-                 metadata: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template_spec_version: Optional[pulumi.Input[str]] = None,
-                 ui_form_definition: Optional[Any] = None):
+                 template_spec_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TemplateSpecVersion resource.
+        :param pulumi.Input['TemplateSpecVersionPropertiesArgs'] properties: Template Spec Version properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] template_spec_name: Name of the Template Spec.
-        :param pulumi.Input[str] description: Template Spec version description.
-        :param pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]] linked_templates: An array of linked template artifacts.
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
-        :param Any main_template: The main Azure Resource Manager template content.
-        :param Any metadata: The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] template_spec_version: The version of the Template Spec.
-        :param Any ui_form_definition: The Azure Resource Manager template UI definition content.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "template_spec_name", template_spec_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if linked_templates is not None:
-            pulumi.set(__self__, "linked_templates", linked_templates)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if main_template is not None:
-            pulumi.set(__self__, "main_template", main_template)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_spec_version is not None:
             pulumi.set(__self__, "template_spec_version", template_spec_version)
-        if ui_form_definition is not None:
-            pulumi.set(__self__, "ui_form_definition", ui_form_definition)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['TemplateSpecVersionPropertiesArgs']:
+        """
+        Template Spec Version properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['TemplateSpecVersionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -84,30 +79,6 @@ class TemplateSpecVersionArgs:
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Template Spec version description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="linkedTemplates")
-    def linked_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]:
-        """
-        An array of linked template artifacts.
-        """
-        return pulumi.get(self, "linked_templates")
-
-    @linked_templates.setter
-    def linked_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]):
-        pulumi.set(self, "linked_templates", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The location of the Template Spec Version. It must match the location of the parent Template Spec.
@@ -117,30 +88,6 @@ class TemplateSpecVersionArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> Optional[Any]:
-        """
-        The main Azure Resource Manager template content.
-        """
-        return pulumi.get(self, "main_template")
-
-    @main_template.setter
-    def main_template(self, value: Optional[Any]):
-        pulumi.set(self, "main_template", value)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[Any]):
-        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter
@@ -166,34 +113,18 @@ class TemplateSpecVersionArgs:
     def template_spec_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_spec_version", value)
 
-    @property
-    @pulumi.getter(name="uiFormDefinition")
-    def ui_form_definition(self) -> Optional[Any]:
-        """
-        The Azure Resource Manager template UI definition content.
-        """
-        return pulumi.get(self, "ui_form_definition")
-
-    @ui_form_definition.setter
-    def ui_form_definition(self, value: Optional[Any]):
-        pulumi.set(self, "ui_form_definition", value)
-
 
 class TemplateSpecVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkedTemplateArtifactArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 main_template: Optional[Any] = None,
-                 metadata: Optional[Any] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['TemplateSpecVersionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None,
-                 ui_form_definition: Optional[Any] = None,
                  __props__=None):
         """
         Template Spec Version object.
@@ -201,16 +132,12 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Template Spec version description.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkedTemplateArtifactArgs']]]] linked_templates: An array of linked template artifacts.
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
-        :param Any main_template: The main Azure Resource Manager template content.
-        :param Any metadata: The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        :param pulumi.Input[pulumi.InputType['TemplateSpecVersionPropertiesArgs']] properties: Template Spec Version properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] template_spec_name: Name of the Template Spec.
         :param pulumi.Input[str] template_spec_version: The version of the Template Spec.
-        :param Any ui_form_definition: The Azure Resource Manager template UI definition content.
         """
         ...
     @overload
@@ -237,16 +164,12 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkedTemplateArtifactArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 main_template: Optional[Any] = None,
-                 metadata: Optional[Any] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['TemplateSpecVersionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None,
-                 ui_form_definition: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,11 +179,10 @@ class TemplateSpecVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TemplateSpecVersionArgs.__new__(TemplateSpecVersionArgs)
 
-            __props__.__dict__["description"] = description
-            __props__.__dict__["linked_templates"] = linked_templates
             __props__.__dict__["location"] = location
-            __props__.__dict__["main_template"] = main_template
-            __props__.__dict__["metadata"] = metadata
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -269,7 +191,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'template_spec_name'")
             __props__.__dict__["template_spec_name"] = template_spec_name
             __props__.__dict__["template_spec_version"] = template_spec_version
-            __props__.__dict__["ui_form_definition"] = ui_form_definition
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -297,33 +218,13 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         __props__ = TemplateSpecVersionArgs.__new__(TemplateSpecVersionArgs)
 
-        __props__.__dict__["description"] = None
-        __props__.__dict__["linked_templates"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["main_template"] = None
-        __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["ui_form_definition"] = None
         return TemplateSpecVersion(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Template Spec version description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="linkedTemplates")
-    def linked_templates(self) -> pulumi.Output[Optional[Sequence['outputs.LinkedTemplateArtifactResponse']]]:
-        """
-        An array of linked template artifacts.
-        """
-        return pulumi.get(self, "linked_templates")
 
     @property
     @pulumi.getter
@@ -334,28 +235,20 @@ class TemplateSpecVersion(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The main Azure Resource Manager template content.
-        """
-        return pulumi.get(self, "main_template")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Name of this resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.TemplateSpecVersionPropertiesResponse']:
+        """
+        Template Spec Version properties.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -380,12 +273,4 @@ class TemplateSpecVersion(pulumi.CustomResource):
         Type of this resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uiFormDefinition")
-    def ui_form_definition(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The Azure Resource Manager template UI definition content.
-        """
-        return pulumi.get(self, "ui_form_definition")
 

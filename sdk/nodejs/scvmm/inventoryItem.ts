@@ -39,29 +39,17 @@ export class InventoryItem extends pulumi.CustomResource {
     }
 
     /**
-     * Gets the Managed Object name in VMM for the inventory item.
-     */
-    public readonly inventoryItemName!: pulumi.Output<string>;
-    /**
-     * They inventory type.
-     */
-    public readonly inventoryType!: pulumi.Output<string>;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
-    /**
-     * Gets the tracked resource id corresponding to the inventory resource.
-     */
-    public /*out*/ readonly managedResourceId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state.
+     * Resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.scvmm.CloudInventoryItemResponse | outputs.scvmm.VirtualMachineInventoryItemResponse | outputs.scvmm.VirtualMachineTemplateInventoryItemResponse | outputs.scvmm.VirtualNetworkInventoryItemResponse>;
     /**
      * The system data.
      */
@@ -70,10 +58,6 @@ export class InventoryItem extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets the UUID (which is assigned by VMM) for the inventory item.
-     */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
 
     /**
      * Create a InventoryItem resource with the given unique name, arguments, and options.
@@ -86,8 +70,8 @@ export class InventoryItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inventoryType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'inventoryType'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -96,26 +80,19 @@ export class InventoryItem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vmmServerName'");
             }
             resourceInputs["inventoryItemName"] = args ? args.inventoryItemName : undefined;
-            resourceInputs["inventoryType"] = args ? args.inventoryType : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vmmServerName"] = args ? args.vmmServerName : undefined;
-            resourceInputs["managedResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
         } else {
-            resourceInputs["inventoryItemName"] = undefined /*out*/;
-            resourceInputs["inventoryType"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["managedResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:InventoryItem" }] };
@@ -133,13 +110,13 @@ export interface InventoryItemArgs {
      */
     inventoryItemName?: pulumi.Input<string>;
     /**
-     * They inventory type.
-     */
-    inventoryType: pulumi.Input<string | enums.scvmm.InventoryType>;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     kind?: pulumi.Input<string>;
+    /**
+     * Resource properties.
+     */
+    properties: pulumi.Input<inputs.scvmm.CloudInventoryItemArgs | inputs.scvmm.VirtualMachineInventoryItemArgs | inputs.scvmm.VirtualMachineTemplateInventoryItemArgs | inputs.scvmm.VirtualNetworkInventoryItemArgs>;
     /**
      * The name of the resource group.
      */

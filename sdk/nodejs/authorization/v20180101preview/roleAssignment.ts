@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,7 +40,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The Delegation flag for the role assignment
      */
-    public readonly canDelegate!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly canDelegate!: pulumi.Output<boolean | undefined>;
     /**
      * The role assignment name.
      */
@@ -45,11 +48,11 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The principal ID.
      */
-    public readonly principalId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly principalId!: pulumi.Output<string | undefined>;
     /**
      * The role definition ID.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly roleDefinitionId!: pulumi.Output<string | undefined>;
     /**
      * The role assignment scope.
      */
@@ -70,21 +73,19 @@ export class RoleAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.principalId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'principalId'");
-            }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleDefinitionId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["canDelegate"] = args ? args.canDelegate : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["canDelegate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["roleDefinitionId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["canDelegate"] = undefined /*out*/;
@@ -106,21 +107,13 @@ export class RoleAssignment extends pulumi.CustomResource {
  */
 export interface RoleAssignmentArgs {
     /**
-     * The delegation flag used for creating a role assignment
+     * Role assignment properties.
      */
-    canDelegate?: pulumi.Input<boolean>;
-    /**
-     * The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-     */
-    principalId: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.authorization.v20180101preview.RoleAssignmentPropertiesArgs>;
     /**
      * A GUID for the role assignment to create. The name must be unique and different for each role assignment.
      */
     roleAssignmentName?: pulumi.Input<string>;
-    /**
-     * The role definition ID used in the role assignment.
-     */
-    roleDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */

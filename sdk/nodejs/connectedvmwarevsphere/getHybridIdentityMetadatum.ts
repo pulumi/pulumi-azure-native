@@ -45,21 +45,13 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly id: string;
     /**
-     * The identity of the resource.
-     */
-    readonly identity: outputs.connectedvmwarevsphere.IdentityResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Gets or sets the Public Key.
-     */
-    readonly publicKey?: string;
+    readonly properties: outputs.connectedvmwarevsphere.HybridIdentityMetadataPropertiesResponse;
     /**
      * The system data.
      */
@@ -68,10 +60,6 @@ export interface GetHybridIdentityMetadatumResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Gets or sets the Vm Id.
-     */
-    readonly vmId?: string;
 }
 /**
  * Implements HybridIdentityMetadata GET method.

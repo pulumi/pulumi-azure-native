@@ -40,14 +40,6 @@ export interface GetWebPubSubCustomDomainArgs {
  */
 export interface GetWebPubSubCustomDomainResult {
     /**
-     * Reference to a resource.
-     */
-    readonly customCertificate: outputs.webpubsub.v20220801preview.ResourceReferenceResponse;
-    /**
-     * The custom domain name.
-     */
-    readonly domainName: string;
-    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
@@ -56,9 +48,9 @@ export interface GetWebPubSubCustomDomainResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Properties of a custom domain.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.webpubsub.v20220801preview.CustomDomainPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

@@ -38,25 +38,9 @@ export class VmmServer extends pulumi.CustomResource {
     }
 
     /**
-     * Gets or sets the connection status to the vmmServer.
-     */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
-    /**
-     * Credentials to connect to VMMServer.
-     */
-    public readonly credentials!: pulumi.Output<outputs.scvmm.v20200605preview.VMMServerPropertiesResponseCredentials | undefined>;
-    /**
-     * Gets or sets any error message if connection to vmmServer is having any issue.
-     */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
-    /**
      * The extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.scvmm.v20200605preview.ExtendedLocationResponse>;
-    /**
-     * Fqdn is the hostname/ip of the vmmServer.
-     */
-    public readonly fqdn!: pulumi.Output<string>;
     /**
      * Gets or sets the location.
      */
@@ -66,13 +50,9 @@ export class VmmServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Port is the port on which the vmmServer is listening.
+     * Resource properties.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
-    /**
-     * Gets or sets the provisioning state.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.scvmm.v20200605preview.VMMServerPropertiesResponse>;
     /**
      * The system data.
      */
@@ -85,14 +65,6 @@ export class VmmServer extends pulumi.CustomResource {
      * Resource Type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Unique ID of vmmServer.
-     */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
-    /**
-     * Version is the version of the vmmSever.
-     */
-    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a VmmServer resource with the given unique name, arguments, and options.
@@ -108,43 +80,29 @@ export class VmmServer extends pulumi.CustomResource {
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.fqdn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fqdn'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vmmServerName"] = args ? args.vmmServerName : undefined;
-            resourceInputs["connectionStatus"] = undefined /*out*/;
-            resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         } else {
-            resourceInputs["connectionStatus"] = undefined /*out*/;
-            resourceInputs["credentials"] = undefined /*out*/;
-            resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["port"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uuid"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:scvmm:VmmServer" }] };
@@ -158,25 +116,17 @@ export class VmmServer extends pulumi.CustomResource {
  */
 export interface VmmServerArgs {
     /**
-     * Credentials to connect to VMMServer.
-     */
-    credentials?: pulumi.Input<inputs.scvmm.v20200605preview.VMMServerPropertiesCredentialsArgs>;
-    /**
      * The extended location.
      */
     extendedLocation: pulumi.Input<inputs.scvmm.v20200605preview.ExtendedLocationArgs>;
-    /**
-     * Fqdn is the hostname/ip of the vmmServer.
-     */
-    fqdn: pulumi.Input<string>;
     /**
      * Gets or sets the location.
      */
     location?: pulumi.Input<string>;
     /**
-     * Port is the port on which the vmmServer is listening.
+     * Resource properties.
      */
-    port?: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.scvmm.v20200605preview.VMMServerPropertiesArgs>;
     /**
      * The name of the resource group.
      */

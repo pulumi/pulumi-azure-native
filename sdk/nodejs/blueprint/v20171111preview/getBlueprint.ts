@@ -37,49 +37,21 @@ export interface GetBlueprintArgs {
  */
 export interface GetBlueprintResult {
     /**
-     * Multi-line explain this resource.
-     */
-    readonly description?: string;
-    /**
-     * One-liner string explain this resource.
-     */
-    readonly displayName?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
-    /**
-     * Layout view of the blueprint, for UI reference.
-     */
-    readonly layout?: any;
     /**
      * Name of this resource.
      */
     readonly name: string;
     /**
-     * Parameters required by this Blueprint definition.
+     * Detailed properties for blueprint
      */
-    readonly parameters?: {[key: string]: outputs.blueprint.v20171111preview.ParameterDefinitionResponse};
-    /**
-     * Resource group placeholders defined by this Blueprint definition.
-     */
-    readonly resourceGroups?: {[key: string]: outputs.blueprint.v20171111preview.ResourceGroupDefinitionResponse};
-    /**
-     * Status of the Blueprint. This field is readonly.
-     */
-    readonly status: outputs.blueprint.v20171111preview.BlueprintStatusResponse;
-    /**
-     * The scope where this Blueprint can be applied.
-     */
-    readonly targetScope: string;
+    readonly properties: outputs.blueprint.v20171111preview.BlueprintPropertiesResponse;
     /**
      * Type of this resource.
      */
     readonly type: string;
-    /**
-     * Published versions of this blueprint.
-     */
-    readonly versions?: any;
 }
 /**
  * Get a blueprint definition.

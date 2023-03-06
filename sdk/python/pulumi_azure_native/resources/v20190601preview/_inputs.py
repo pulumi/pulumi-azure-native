@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'TemplateSpecTemplateArtifactArgs',
+    'TemplateSpecVersionPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -66,6 +67,62 @@ class TemplateSpecTemplateArtifactArgs:
 
     @template.setter
     def template(self, value: Any):
+        pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class TemplateSpecVersionPropertiesArgs:
+    def __init__(__self__, *,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 template: Optional[Any] = None):
+        """
+        Template Spec Version properties.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]] artifacts: An array of Template Spec artifacts.
+        :param pulumi.Input[str] description: Template Spec version description.
+        :param Any template: The Azure Resource Manager template content.
+        """
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]]]:
+        """
+        An array of Template Spec artifacts.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSpecTemplateArtifactArgs']]]]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Template Spec version description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[Any]:
+        """
+        The Azure Resource Manager template content.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[Any]):
         pulumi.set(self, "template", value)
 
 

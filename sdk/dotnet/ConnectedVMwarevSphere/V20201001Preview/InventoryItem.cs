@@ -16,34 +16,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     public partial class InventoryItem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// They inventory type.
-        /// </summary>
-        [Output("inventoryType")]
-        public Output<string> InventoryType { get; private set; } = null!;
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the tracked resource id corresponding to the inventory resource.
-        /// </summary>
-        [Output("managedResourceId")]
-        public Output<string?> ManagedResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the inventory item.
-        /// </summary>
-        [Output("moName")]
-        public Output<string?> MoName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
-        /// </summary>
-        [Output("moRefId")]
-        public Output<string?> MoRefId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -52,10 +28,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -127,34 +103,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public Input<string>? InventoryItemName { get; set; }
 
         /// <summary>
-        /// They inventory type.
-        /// </summary>
-        [Input("inventoryType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview.InventoryType> InventoryType { get; set; } = null!;
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Gets or sets the tracked resource id corresponding to the inventory resource.
+        /// Resource properties.
         /// </summary>
-        [Input("managedResourceId")]
-        public Input<string>? ManagedResourceId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the inventory item.
-        /// </summary>
-        [Input("moName")]
-        public Input<string>? MoName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
-        /// </summary>
-        [Input("moRefId")]
-        public Input<string>? MoRefId { get; set; }
+        [Input("properties", required: true)]
+        public object Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.

@@ -84,22 +84,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetBmcKeySetResult
     {
         /// <summary>
-        /// The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-        /// </summary>
-        public readonly string AzureGroupId;
-        /// <summary>
-        /// The more detailed status of the key set.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
-        /// The date and time after which the users in this key set will be removed from the baseboard management controllers.
-        /// </summary>
-        public readonly string Expiration;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -107,10 +91,6 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The last time this key set was validated.
-        /// </summary>
-        public readonly string LastValidation;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -120,13 +100,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The access level allowed for the users in this key set.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string PrivilegeLevel;
-        /// <summary>
-        /// The provisioning state of the baseboard management controller key set.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.BmcKeySetPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -139,65 +115,33 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique list of permitted users.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.KeySetUserResponse> UserList;
-        /// <summary>
-        /// The status evaluation of each user.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.KeySetUserStatusResponse> UserListStatus;
 
         [OutputConstructor]
         private GetBmcKeySetResult(
-            string azureGroupId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
-            string expiration,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
-
-            string lastValidation,
 
             string location,
 
             string name,
 
-            string privilegeLevel,
-
-            string provisioningState,
+            Outputs.BmcKeySetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<Outputs.KeySetUserResponse> userList,
-
-            ImmutableArray<Outputs.KeySetUserStatusResponse> userListStatus)
+            string type)
         {
-            AzureGroupId = azureGroupId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
-            Expiration = expiration;
             ExtendedLocation = extendedLocation;
             Id = id;
-            LastValidation = lastValidation;
             Location = location;
             Name = name;
-            PrivilegeLevel = privilegeLevel;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserList = userList;
-            UserListStatus = userListStatus;
         }
     }
 }

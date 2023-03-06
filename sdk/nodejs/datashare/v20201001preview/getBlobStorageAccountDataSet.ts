@@ -45,10 +45,6 @@ export interface GetBlobStorageAccountDataSetArgs {
  */
 export interface GetBlobStorageAccountDataSetResult {
     /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -58,21 +54,13 @@ export interface GetBlobStorageAccountDataSetResult {
      */
     readonly kind: "BlobStorageAccount";
     /**
-     * Location of the storage account.
-     */
-    readonly location: string;
-    /**
      * Name of the azure resource
      */
     readonly name: string;
     /**
-     * A list of storage account paths.
+     * Storage account data set properties.
      */
-    readonly paths: outputs.datashare.v20201001preview.BlobStorageAccountPathResponse[];
-    /**
-     * Resource id of the storage account.
-     */
-    readonly storageAccountResourceId: string;
+    readonly properties: outputs.datashare.v20201001preview.BlobStorageAccountDataSetPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

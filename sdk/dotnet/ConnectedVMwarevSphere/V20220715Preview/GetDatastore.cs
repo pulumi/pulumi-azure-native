@@ -70,29 +70,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
     public sealed class GetDatastoreResult
     {
         /// <summary>
-        /// Gets or sets Maximum capacity of this datastore in GBs.
-        /// </summary>
-        public readonly double CapacityGB;
-        /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        public readonly string CustomResourceName;
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Gets or sets Available space of this datastore in GBs.
-        /// </summary>
-        public readonly double FreeSpaceGB;
-        /// <summary>
         /// Gets or sets the Id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the datastore.
-        /// </summary>
-        public readonly string? InventoryItemId;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -102,25 +86,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the datastore.
-        /// </summary>
-        public readonly string MoName;
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
-        /// </summary>
-        public readonly string? MoRefId;
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
+        public readonly Outputs.DatastorePropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -133,71 +105,36 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         /// Gets or sets the type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        public readonly string Uuid;
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
-        /// </summary>
-        public readonly string? VCenterId;
 
         [OutputConstructor]
         private GetDatastoreResult(
-            double capacityGB,
-
-            string customResourceName,
-
             Outputs.ExtendedLocationResponse? extendedLocation,
 
-            double freeSpaceGB,
-
             string id,
-
-            string? inventoryItemId,
 
             string? kind,
 
             string location,
 
-            string moName,
-
-            string? moRefId,
-
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<Outputs.ResourceStatusResponse> statuses,
+            Outputs.DatastorePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uuid,
-
-            string? vCenterId)
+            string type)
         {
-            CapacityGB = capacityGB;
-            CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;
-            FreeSpaceGB = freeSpaceGB;
             Id = id;
-            InventoryItemId = inventoryItemId;
             Kind = kind;
             Location = location;
-            MoName = moName;
-            MoRefId = moRefId;
             Name = name;
-            ProvisioningState = provisioningState;
-            Statuses = statuses;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            VCenterId = vCenterId;
         }
     }
 }

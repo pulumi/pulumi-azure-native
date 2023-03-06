@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetLinkedStorageAccountResult',
@@ -21,30 +22,19 @@ class GetLinkedStorageAccountResult:
     """
     Linked storage accounts top level resource container.
     """
-    def __init__(__self__, data_source_type=None, id=None, name=None, storage_account_ids=None, type=None):
-        if data_source_type and not isinstance(data_source_type, str):
-            raise TypeError("Expected argument 'data_source_type' to be a str")
-        pulumi.set(__self__, "data_source_type", data_source_type)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if storage_account_ids and not isinstance(storage_account_ids, list):
-            raise TypeError("Expected argument 'storage_account_ids' to be a list")
-        pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSourceType")
-    def data_source_type(self) -> str:
-        """
-        Linked storage accounts type.
-        """
-        return pulumi.get(self, "data_source_type")
 
     @property
     @pulumi.getter
@@ -63,12 +53,12 @@ class GetLinkedStorageAccountResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="storageAccountIds")
-    def storage_account_ids(self) -> Optional[Sequence[str]]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.LinkedStorageAccountsPropertiesResponse':
         """
-        Linked storage accounts resources ids.
+        Linked storage accounts properties.
         """
-        return pulumi.get(self, "storage_account_ids")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -85,10 +75,9 @@ class AwaitableGetLinkedStorageAccountResult(GetLinkedStorageAccountResult):
         if False:
             yield self
         return GetLinkedStorageAccountResult(
-            data_source_type=self.data_source_type,
             id=self.id,
             name=self.name,
-            storage_account_ids=self.storage_account_ids,
+            properties=self.properties,
             type=self.type)
 
 
@@ -112,10 +101,9 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20190801preview:getLinkedStorageAccount', __args__, opts=opts, typ=GetLinkedStorageAccountResult).value
 
     return AwaitableGetLinkedStorageAccountResult(
-        data_source_type=__ret__.data_source_type,
         id=__ret__.id,
         name=__ret__.name,
-        storage_account_ids=__ret__.storage_account_ids,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

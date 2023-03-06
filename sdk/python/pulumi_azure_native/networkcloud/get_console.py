@@ -19,19 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConsoleResult:
-    def __init__(__self__, detailed_status=None, detailed_status_message=None, enabled=None, expiration=None, extended_location=None, id=None, location=None, name=None, private_link_service_id=None, provisioning_state=None, ssh_public_key=None, system_data=None, tags=None, type=None, virtual_machine_access_id=None):
-        if detailed_status and not isinstance(detailed_status, str):
-            raise TypeError("Expected argument 'detailed_status' to be a str")
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        if detailed_status_message and not isinstance(detailed_status_message, str):
-            raise TypeError("Expected argument 'detailed_status_message' to be a str")
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
-        if enabled and not isinstance(enabled, str):
-            raise TypeError("Expected argument 'enabled' to be a str")
-        pulumi.set(__self__, "enabled", enabled)
-        if expiration and not isinstance(expiration, str):
-            raise TypeError("Expected argument 'expiration' to be a str")
-        pulumi.set(__self__, "expiration", expiration)
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -44,15 +32,9 @@ class GetConsoleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if private_link_service_id and not isinstance(private_link_service_id, str):
-            raise TypeError("Expected argument 'private_link_service_id' to be a str")
-        pulumi.set(__self__, "private_link_service_id", private_link_service_id)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if ssh_public_key and not isinstance(ssh_public_key, dict):
-            raise TypeError("Expected argument 'ssh_public_key' to be a dict")
-        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -62,41 +44,6 @@ class GetConsoleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_machine_access_id and not isinstance(virtual_machine_access_id, str):
-            raise TypeError("Expected argument 'virtual_machine_access_id' to be a str")
-        pulumi.set(__self__, "virtual_machine_access_id", virtual_machine_access_id)
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> str:
-        """
-        The more detailed status of the console.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> str:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> str:
-        """
-        The indicator of whether the console access is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def expiration(self) -> Optional[str]:
-        """
-        The date and time after which the key will be disallowed access.
-        """
-        return pulumi.get(self, "expiration")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -131,25 +78,12 @@ class GetConsoleResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateLinkServiceId")
-    def private_link_service_id(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ConsolePropertiesResponse':
         """
-        The resource ID of the private link service that is used to provide virtual machine console access.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "private_link_service_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the virtual machine console.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sshPublicKey")
-    def ssh_public_key(self) -> 'outputs.SshPublicKeyResponse':
-        return pulumi.get(self, "ssh_public_key")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -175,14 +109,6 @@ class GetConsoleResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="virtualMachineAccessId")
-    def virtual_machine_access_id(self) -> str:
-        """
-        The unique identifier for the virtual machine that is used to access the console.
-        """
-        return pulumi.get(self, "virtual_machine_access_id")
-
 
 class AwaitableGetConsoleResult(GetConsoleResult):
     # pylint: disable=using-constant-test
@@ -190,21 +116,14 @@ class AwaitableGetConsoleResult(GetConsoleResult):
         if False:
             yield self
         return GetConsoleResult(
-            detailed_status=self.detailed_status,
-            detailed_status_message=self.detailed_status_message,
-            enabled=self.enabled,
-            expiration=self.expiration,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
             name=self.name,
-            private_link_service_id=self.private_link_service_id,
-            provisioning_state=self.provisioning_state,
-            ssh_public_key=self.ssh_public_key,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            virtual_machine_access_id=self.virtual_machine_access_id)
+            type=self.type)
 
 
 def get_console(console_name: Optional[str] = None,
@@ -228,21 +147,14 @@ def get_console(console_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getConsole', __args__, opts=opts, typ=GetConsoleResult).value
 
     return AwaitableGetConsoleResult(
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        enabled=__ret__.enabled,
-        expiration=__ret__.expiration,
         extended_location=__ret__.extended_location,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        private_link_service_id=__ret__.private_link_service_id,
-        provisioning_state=__ret__.provisioning_state,
-        ssh_public_key=__ret__.ssh_public_key,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machine_access_id=__ret__.virtual_machine_access_id)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_console)

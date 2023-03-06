@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class DataLakeAnalyticsUSQLActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("compilationMode")]
-        public Input<object>? CompilationMode { get; set; }
-
-        /// <summary>
-        /// The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
-        /// </summary>
-        [Input("degreeOfParallelism")]
-        public Input<object>? DegreeOfParallelism { get; set; }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -57,18 +45,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
-        /// <summary>
-        /// Parameters for U-SQL job request.
-        /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
-
         /// <summary>
         /// Activity policy.
         /// </summary>
@@ -76,35 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
-        /// </summary>
-        [Input("priority")]
-        public Input<object>? Priority { get; set; }
-
-        /// <summary>
-        /// Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("runtimeVersion")]
-        public Input<object>? RuntimeVersion { get; set; }
-
-        /// <summary>
-        /// Script linked service reference.
-        /// </summary>
-        [Input("scriptLinkedService", required: true)]
-        public Input<Inputs.LinkedServiceReferenceArgs> ScriptLinkedService { get; set; } = null!;
-
-        /// <summary>
-        /// Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("scriptPath", required: true)]
-        public Input<object> ScriptPath { get; set; } = null!;
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'DataLakeAnalyticsU-SQL'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Data Lake Analytics U-SQL activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DataLakeAnalyticsUSQLActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

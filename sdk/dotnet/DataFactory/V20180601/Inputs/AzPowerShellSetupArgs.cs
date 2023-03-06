@@ -23,10 +23,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The required version of Azure PowerShell to install.
+        /// Install Azure PowerShell type properties.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzPowerShellSetupTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzPowerShellSetupArgs()
         {

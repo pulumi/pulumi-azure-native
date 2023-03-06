@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the resource.
+        /// This type describes properties of a secret value resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.SecretValueResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -105,10 +105,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The actual value of the secret.
-        /// </summary>
-        public readonly string? Value;
 
         [OutputConstructor]
         private GetSecretValueResult(
@@ -118,21 +114,18 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 
             string name,
 
-            string provisioningState,
+            Outputs.SecretValueResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? value)
+            string type)
         {
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            Value = value;
         }
     }
 }

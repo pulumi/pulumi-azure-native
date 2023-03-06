@@ -108,10 +108,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The DNS servers to signal to UEs to use for this attached data network.
-        /// </summary>
-        public readonly ImmutableArray<string> DnsAddresses;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -136,14 +132,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The network address and port translation (NAPT) configuration.
-        /// If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
+        /// Data network properties.
         /// </summary>
-        public readonly Outputs.NaptConfigurationResponse? NaptConfiguration;
-        /// <summary>
-        /// The provisioning state of the attached data network resource.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.AttachedDataNetworkPropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -156,22 +147,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
-        /// The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
-        ///  You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
-        /// </summary>
-        public readonly ImmutableArray<string> UserEquipmentAddressPoolPrefix;
-        /// <summary>
-        /// The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
-        /// The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
-        /// </summary>
-        public readonly ImmutableArray<string> UserEquipmentStaticAddressPoolPrefix;
-        /// <summary>
-        /// The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
-        /// </summary>
-        public readonly Outputs.InterfacePropertiesResponse UserPlaneDataInterface;
 
         [OutputConstructor]
         private GetAttachedDataNetworkResult(
@@ -180,8 +155,6 @@ namespace Pulumi.AzureNative.MobileNetwork
             string? createdBy,
 
             string? createdByType,
-
-            ImmutableArray<string> dnsAddresses,
 
             string id,
 
@@ -195,40 +168,27 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string name,
 
-            Outputs.NaptConfigurationResponse? naptConfiguration,
-
-            string provisioningState,
+            Outputs.AttachedDataNetworkPropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> userEquipmentAddressPoolPrefix,
-
-            ImmutableArray<string> userEquipmentStaticAddressPoolPrefix,
-
-            Outputs.InterfacePropertiesResponse userPlaneDataInterface)
+            string type)
         {
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;
-            DnsAddresses = dnsAddresses;
             Id = id;
             LastModifiedAt = lastModifiedAt;
             LastModifiedBy = lastModifiedBy;
             LastModifiedByType = lastModifiedByType;
             Location = location;
             Name = name;
-            NaptConfiguration = naptConfiguration;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserEquipmentAddressPoolPrefix = userEquipmentAddressPoolPrefix;
-            UserEquipmentStaticAddressPoolPrefix = userEquipmentStaticAddressPoolPrefix;
-            UserPlaneDataInterface = userPlaneDataInterface;
         }
     }
 }

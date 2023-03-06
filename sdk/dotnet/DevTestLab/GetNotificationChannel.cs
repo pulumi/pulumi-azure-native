@@ -96,22 +96,6 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class GetNotificationChannelResult
     {
         /// <summary>
-        /// The creation date of the notification channel.
-        /// </summary>
-        public readonly string CreatedDate;
-        /// <summary>
-        /// Description of notification.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-        /// </summary>
-        public readonly string? EmailRecipient;
-        /// <summary>
-        /// The list of event for which this notification is enabled.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.EventResponse> Events;
-        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -124,13 +108,9 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The locale to use when sending a notification (fallback for unsupported languages is EN).
+        /// The properties of the resource.
         /// </summary>
-        public readonly string? NotificationLocale;
-        /// <summary>
-        /// The provisioning status of the resource.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.NotificationChannelPropertiesResponse Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -139,56 +119,27 @@ namespace Pulumi.AzureNative.DevTestLab
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        public readonly string UniqueIdentifier;
-        /// <summary>
-        /// The webhook URL to send notifications to.
-        /// </summary>
-        public readonly string? WebHookUrl;
 
         [OutputConstructor]
         private GetNotificationChannelResult(
-            string createdDate,
-
-            string? description,
-
-            string? emailRecipient,
-
-            ImmutableArray<Outputs.EventResponse> events,
-
             string id,
 
             string? location,
 
             string name,
 
-            string? notificationLocale,
-
-            string provisioningState,
+            Outputs.NotificationChannelPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uniqueIdentifier,
-
-            string? webHookUrl)
+            string type)
         {
-            CreatedDate = createdDate;
-            Description = description;
-            EmailRecipient = emailRecipient;
-            Events = events;
             Id = id;
             Location = location;
             Name = name;
-            NotificationLocale = notificationLocale;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
-            WebHookUrl = webHookUrl;
         }
     }
 }

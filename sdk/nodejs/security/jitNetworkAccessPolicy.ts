@@ -49,19 +49,11 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Gets the provisioning state of the Just-in-Time policy.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    public readonly requests!: pulumi.Output<outputs.security.JitNetworkAccessRequestResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.security.JitNetworkAccessPolicyPropertiesResponse>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Configurations for Microsoft.Compute/virtualMachines resource type.
-     */
-    public readonly virtualMachines!: pulumi.Output<outputs.security.JitNetworkAccessPolicyVirtualMachineResponse[]>;
 
     /**
      * Create a JitNetworkAccessPolicy resource with the given unique name, arguments, and options.
@@ -77,30 +69,26 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             if ((!args || args.ascLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ascLocation'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.virtualMachines === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'virtualMachines'");
             }
             resourceInputs["ascLocation"] = args ? args.ascLocation : undefined;
             resourceInputs["jitNetworkAccessPolicyName"] = args ? args.jitNetworkAccessPolicyName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["requests"] = args ? args.requests : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["requests"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20150601preview:JitNetworkAccessPolicy" }, { type: "azure-native:security/v20200101:JitNetworkAccessPolicy" }] };
@@ -125,13 +113,9 @@ export interface JitNetworkAccessPolicyArgs {
      * Kind of the resource
      */
     kind?: pulumi.Input<string>;
-    requests?: pulumi.Input<pulumi.Input<inputs.security.JitNetworkAccessRequestArgs>[]>;
+    properties: pulumi.Input<inputs.security.JitNetworkAccessPolicyPropertiesArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Configurations for Microsoft.Compute/virtualMachines resource type.
-     */
-    virtualMachines: pulumi.Input<pulumi.Input<inputs.security.JitNetworkAccessPolicyVirtualMachineArgs>[]>;
 }

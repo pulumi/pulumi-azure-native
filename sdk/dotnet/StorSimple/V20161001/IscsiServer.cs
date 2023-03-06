@@ -17,40 +17,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public partial class IscsiServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The backup policy id.
-        /// </summary>
-        [Output("backupScheduleGroupId")]
-        public Output<string> BackupScheduleGroupId { get; private set; } = null!;
-
-        /// <summary>
-        /// The chap id.
-        /// </summary>
-        [Output("chapId")]
-        public Output<string?> ChapId { get; private set; } = null!;
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The reverse chap id.
+        /// The properties.
         /// </summary>
-        [Output("reverseChapId")]
-        public Output<string?> ReverseChapId { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage domain id.
-        /// </summary>
-        [Output("storageDomainId")]
-        public Output<string> StorageDomainId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ISCSIServerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.
@@ -104,24 +80,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public sealed class IscsiServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The backup policy id.
-        /// </summary>
-        [Input("backupScheduleGroupId", required: true)]
-        public Input<string> BackupScheduleGroupId { get; set; } = null!;
-
-        /// <summary>
-        /// The chap id.
-        /// </summary>
-        [Input("chapId")]
-        public Input<string>? ChapId { get; set; }
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -140,22 +98,16 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ISCSIServerPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The reverse chap id.
-        /// </summary>
-        [Input("reverseChapId")]
-        public Input<string>? ReverseChapId { get; set; }
-
-        /// <summary>
-        /// The storage domain id.
-        /// </summary>
-        [Input("storageDomainId", required: true)]
-        public Input<string> StorageDomainId { get; set; } = null!;
 
         public IscsiServerArgs()
         {

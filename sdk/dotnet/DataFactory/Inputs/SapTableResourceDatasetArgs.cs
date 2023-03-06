@@ -70,17 +70,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The name of the SAP Table. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<object> TableName { get; set; } = null!;
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'SapTableResource'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// SAP Table Resource properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.SapTableResourceDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public SapTableResourceDatasetArgs()
         {

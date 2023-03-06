@@ -41,7 +41,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Determines if the connection monitor will start automatically once created.
      */
-    public readonly autoStart!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly autoStart!: pulumi.Output<boolean | undefined>;
     /**
      * Type of connection monitor.
      */
@@ -49,11 +49,11 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Describes the destination of connection monitor.
      */
-    public readonly destination!: pulumi.Output<outputs.network.ConnectionMonitorDestinationResponse | undefined>;
+    public /*out*/ readonly destination!: pulumi.Output<outputs.network.ConnectionMonitorDestinationResponse | undefined>;
     /**
      * List of connection monitor endpoints.
      */
-    public readonly endpoints!: pulumi.Output<outputs.network.ConnectionMonitorEndpointResponse[] | undefined>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.network.ConnectionMonitorEndpointResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -65,7 +65,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Monitoring interval in seconds.
      */
-    public readonly monitoringIntervalInSeconds!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly monitoringIntervalInSeconds!: pulumi.Output<number | undefined>;
     /**
      * The monitoring status of the connection monitor.
      */
@@ -77,11 +77,11 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Optional notes to be associated with the connection monitor.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly notes!: pulumi.Output<string | undefined>;
     /**
      * List of connection monitor outputs.
      */
-    public readonly outputs!: pulumi.Output<outputs.network.ConnectionMonitorOutputResponse[] | undefined>;
+    public /*out*/ readonly outputs!: pulumi.Output<outputs.network.ConnectionMonitorOutputResponse[] | undefined>;
     /**
      * The provisioning state of the connection monitor.
      */
@@ -89,7 +89,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Describes the source of connection monitor.
      */
-    public readonly source!: pulumi.Output<outputs.network.ConnectionMonitorSourceResponse | undefined>;
+    public /*out*/ readonly source!: pulumi.Output<outputs.network.ConnectionMonitorSourceResponse | undefined>;
     /**
      * The date and time when the connection monitor was started.
      */
@@ -101,11 +101,11 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * List of connection monitor test configurations.
      */
-    public readonly testConfigurations!: pulumi.Output<outputs.network.ConnectionMonitorTestConfigurationResponse[] | undefined>;
+    public /*out*/ readonly testConfigurations!: pulumi.Output<outputs.network.ConnectionMonitorTestConfigurationResponse[] | undefined>;
     /**
      * List of connection monitor test groups.
      */
-    public readonly testGroups!: pulumi.Output<outputs.network.ConnectionMonitorTestGroupResponse[] | undefined>;
+    public /*out*/ readonly testGroups!: pulumi.Output<outputs.network.ConnectionMonitorTestGroupResponse[] | undefined>;
     /**
      * Connection monitor type.
      */
@@ -125,30 +125,34 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoStart"] = (args ? args.autoStart : undefined) ?? true;
             resourceInputs["connectionMonitorName"] = args ? args.connectionMonitorName : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["migrate"] = args ? args.migrate : undefined;
-            resourceInputs["monitoringIntervalInSeconds"] = (args ? args.monitoringIntervalInSeconds : undefined) ?? 60;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.network.connectionMonitorParametersArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testConfigurations"] = args ? args.testConfigurations : undefined;
-            resourceInputs["testGroups"] = args ? args.testGroups : undefined;
+            resourceInputs["autoStart"] = undefined /*out*/;
             resourceInputs["connectionMonitorType"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["monitoringIntervalInSeconds"] = undefined /*out*/;
             resourceInputs["monitoringStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
             resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["testConfigurations"] = undefined /*out*/;
+            resourceInputs["testGroups"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["autoStart"] = undefined /*out*/;
@@ -182,21 +186,9 @@ export class ConnectionMonitor extends pulumi.CustomResource {
  */
 export interface ConnectionMonitorArgs {
     /**
-     * Determines if the connection monitor will start automatically once created.
-     */
-    autoStart?: pulumi.Input<boolean>;
-    /**
      * The name of the connection monitor.
      */
     connectionMonitorName?: pulumi.Input<string>;
-    /**
-     * Describes the destination of connection monitor.
-     */
-    destination?: pulumi.Input<inputs.network.ConnectionMonitorDestinationArgs>;
-    /**
-     * List of connection monitor endpoints.
-     */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpointArgs>[]>;
     /**
      * Connection monitor location.
      */
@@ -206,39 +198,19 @@ export interface ConnectionMonitorArgs {
      */
     migrate?: pulumi.Input<string>;
     /**
-     * Monitoring interval in seconds.
-     */
-    monitoringIntervalInSeconds?: pulumi.Input<number>;
-    /**
      * The name of the Network Watcher resource.
      */
     networkWatcherName: pulumi.Input<string>;
     /**
-     * Optional notes to be associated with the connection monitor.
+     * Properties of the connection monitor.
      */
-    notes?: pulumi.Input<string>;
-    /**
-     * List of connection monitor outputs.
-     */
-    outputs?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorOutputArgs>[]>;
+    properties: pulumi.Input<inputs.network.ConnectionMonitorParametersArgs>;
     /**
      * The name of the resource group containing Network Watcher.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Describes the source of connection monitor.
-     */
-    source?: pulumi.Input<inputs.network.ConnectionMonitorSourceArgs>;
-    /**
      * Connection monitor tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * List of connection monitor test configurations.
-     */
-    testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestConfigurationArgs>[]>;
-    /**
-     * List of connection monitor test groups.
-     */
-    testGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestGroupArgs>[]>;
 }

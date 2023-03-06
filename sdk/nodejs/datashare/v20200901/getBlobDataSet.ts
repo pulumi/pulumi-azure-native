@@ -45,18 +45,6 @@ export interface GetBlobDataSetArgs {
  */
 export interface GetBlobDataSetResult {
     /**
-     * Container that has the file path.
-     */
-    readonly containerName: string;
-    /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
-     * File path within the source data set
-     */
-    readonly filePath: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -70,17 +58,9 @@ export interface GetBlobDataSetResult {
      */
     readonly name: string;
     /**
-     * Resource group of storage account
+     * Blob data set properties.
      */
-    readonly resourceGroup: string;
-    /**
-     * Storage account name of the source data set
-     */
-    readonly storageAccountName: string;
-    /**
-     * Subscription id of storage account
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.v20200901.BlobPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

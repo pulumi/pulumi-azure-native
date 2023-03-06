@@ -38,6 +38,7 @@ __all__ = [
     'LinuxOperatingSystemProfileResponse',
     'NetworkPropertiesResponse',
     'OsProfileResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'QuotaInfoResponse',
@@ -2011,6 +2012,84 @@ class OsProfileResponse(dict):
         The Linux OS profile.
         """
         return pulumi.get(self, "linux_operating_system_profile")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    The private endpoint connection properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 link_identifier: str,
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str):
+        """
+        The private endpoint connection properties.
+        :param str link_identifier: The link identifier.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint of the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state.
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        """
+        pulumi.set(__self__, "link_identifier", link_identifier)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> str:
+        """
+        The link identifier.
+        """
+        return pulumi.get(self, "link_identifier")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        The private endpoint of the private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        The private link service connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

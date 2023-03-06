@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
     public partial class Lab : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
-        /// </summary>
-        [Output("autoShutdownProfile")]
-        public Output<Outputs.AutoShutdownProfileResponse> AutoShutdownProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
-        /// </summary>
-        [Output("connectionProfile")]
-        public Output<Outputs.ConnectionProfileResponse> ConnectionProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the lab.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
-        /// </summary>
-        [Output("labPlanId")]
-        public Output<string?> LabPlanId { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -52,34 +28,10 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        /// Lab resource properties
         /// </summary>
-        [Output("networkProfile")]
-        public Output<Outputs.LabNetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Current provisioning state of the lab.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The lab user list management profile.
-        /// </summary>
-        [Output("rosterProfile")]
-        public Output<Outputs.RosterProfileResponse?> RosterProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// The lab security profile.
-        /// </summary>
-        [Output("securityProfile")]
-        public Output<Outputs.SecurityProfileResponse> SecurityProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// The lab state.
-        /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LabPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the lab.
@@ -94,22 +46,10 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The title of the lab.
-        /// </summary>
-        [Output("title")]
-        public Output<string?> Title { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The profile used for creating lab virtual machines.
-        /// </summary>
-        [Output("virtualMachineProfile")]
-        public Output<Outputs.VirtualMachineProfileResponse> VirtualMachineProfile { get; private set; } = null!;
 
 
         /// <summary>
@@ -162,34 +102,10 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
     public sealed class LabArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
-        /// </summary>
-        [Input("autoShutdownProfile", required: true)]
-        public Input<Inputs.AutoShutdownProfileArgs> AutoShutdownProfile { get; set; } = null!;
-
-        /// <summary>
-        /// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
-        /// </summary>
-        [Input("connectionProfile", required: true)]
-        public Input<Inputs.ConnectionProfileArgs> ConnectionProfile { get; set; } = null!;
-
-        /// <summary>
-        /// The description of the lab.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
         /// </summary>
         [Input("labName")]
         public Input<string>? LabName { get; set; }
-
-        /// <summary>
-        /// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
-        /// </summary>
-        [Input("labPlanId")]
-        public Input<string>? LabPlanId { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -198,28 +114,16 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        /// Lab resource properties
         /// </summary>
-        [Input("networkProfile")]
-        public Input<Inputs.LabNetworkProfileArgs>? NetworkProfile { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.LabPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The lab user list management profile.
-        /// </summary>
-        [Input("rosterProfile")]
-        public Input<Inputs.RosterProfileArgs>? RosterProfile { get; set; }
-
-        /// <summary>
-        /// The lab security profile.
-        /// </summary>
-        [Input("securityProfile", required: true)]
-        public Input<Inputs.SecurityProfileArgs> SecurityProfile { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -232,18 +136,6 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The title of the lab.
-        /// </summary>
-        [Input("title")]
-        public Input<string>? Title { get; set; }
-
-        /// <summary>
-        /// The profile used for creating lab virtual machines.
-        /// </summary>
-        [Input("virtualMachineProfile", required: true)]
-        public Input<Inputs.VirtualMachineProfileArgs> VirtualMachineProfile { get; set; } = null!;
 
         public LabArgs()
         {

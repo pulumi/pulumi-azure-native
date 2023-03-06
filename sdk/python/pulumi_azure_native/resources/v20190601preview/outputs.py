@@ -8,12 +8,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'SystemDataResponse',
     'TemplateSpecTemplateArtifactResponse',
     'TemplateSpecVersionInfoResponse',
+    'TemplateSpecVersionPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -233,5 +235,52 @@ class TemplateSpecVersionInfoResponse(dict):
         The timestamp of when the version was last modified.
         """
         return pulumi.get(self, "time_modified")
+
+
+@pulumi.output_type
+class TemplateSpecVersionPropertiesResponse(dict):
+    """
+    Template Spec Version properties.
+    """
+    def __init__(__self__, *,
+                 artifacts: Optional[Sequence['outputs.TemplateSpecTemplateArtifactResponse']] = None,
+                 description: Optional[str] = None,
+                 template: Optional[Any] = None):
+        """
+        Template Spec Version properties.
+        :param Sequence['TemplateSpecTemplateArtifactResponse'] artifacts: An array of Template Spec artifacts.
+        :param str description: Template Spec version description.
+        :param Any template: The Azure Resource Manager template content.
+        """
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[Sequence['outputs.TemplateSpecTemplateArtifactResponse']]:
+        """
+        An array of Template Spec artifacts.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Template Spec version description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[Any]:
+        """
+        The Azure Resource Manager template content.
+        """
+        return pulumi.get(self, "template")
 
 

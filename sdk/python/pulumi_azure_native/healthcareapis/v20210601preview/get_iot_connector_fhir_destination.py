@@ -22,16 +22,10 @@ class GetIotConnectorFhirDestinationResult:
     """
     IoT Connector FHIR destination definition.
     """
-    def __init__(__self__, etag=None, fhir_mapping=None, fhir_service_resource_id=None, id=None, location=None, name=None, resource_identity_resolution_type=None, system_data=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if fhir_mapping and not isinstance(fhir_mapping, dict):
-            raise TypeError("Expected argument 'fhir_mapping' to be a dict")
-        pulumi.set(__self__, "fhir_mapping", fhir_mapping)
-        if fhir_service_resource_id and not isinstance(fhir_service_resource_id, str):
-            raise TypeError("Expected argument 'fhir_service_resource_id' to be a str")
-        pulumi.set(__self__, "fhir_service_resource_id", fhir_service_resource_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,9 +35,9 @@ class GetIotConnectorFhirDestinationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if resource_identity_resolution_type and not isinstance(resource_identity_resolution_type, str):
-            raise TypeError("Expected argument 'resource_identity_resolution_type' to be a str")
-        pulumi.set(__self__, "resource_identity_resolution_type", resource_identity_resolution_type)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -58,22 +52,6 @@ class GetIotConnectorFhirDestinationResult:
         An etag associated with the resource, used for optimistic concurrency when editing it.
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="fhirMapping")
-    def fhir_mapping(self) -> 'outputs.IotMappingPropertiesResponse':
-        """
-        FHIR Mappings
-        """
-        return pulumi.get(self, "fhir_mapping")
-
-    @property
-    @pulumi.getter(name="fhirServiceResourceId")
-    def fhir_service_resource_id(self) -> str:
-        """
-        Fully qualified resource id of the FHIR service to connect to.
-        """
-        return pulumi.get(self, "fhir_service_resource_id")
 
     @property
     @pulumi.getter
@@ -100,12 +78,12 @@ class GetIotConnectorFhirDestinationResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceIdentityResolutionType")
-    def resource_identity_resolution_type(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.IotFhirDestinationPropertiesResponse':
         """
-        Determines how resource identity is resolved on the destination.
+        IoT FHIR Destination settings.
         """
-        return pulumi.get(self, "resource_identity_resolution_type")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -131,12 +109,10 @@ class AwaitableGetIotConnectorFhirDestinationResult(GetIotConnectorFhirDestinati
             yield self
         return GetIotConnectorFhirDestinationResult(
             etag=self.etag,
-            fhir_mapping=self.fhir_mapping,
-            fhir_service_resource_id=self.fhir_service_resource_id,
             id=self.id,
             location=self.location,
             name=self.name,
-            resource_identity_resolution_type=self.resource_identity_resolution_type,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -165,12 +141,10 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
 
     return AwaitableGetIotConnectorFhirDestinationResult(
         etag=__ret__.etag,
-        fhir_mapping=__ret__.fhir_mapping,
-        fhir_service_resource_id=__ret__.fhir_service_resource_id,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        resource_identity_resolution_type=__ret__.resource_identity_resolution_type,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

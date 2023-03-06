@@ -44,25 +44,13 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly id: string;
     /**
-     * The link identifier.
-     */
-    readonly linkIdentifier: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The private endpoint of the private endpoint connection
+     * The private endpoint connection properties.
      */
-    readonly privateEndpoint: outputs.hdinsight.v20210601.PrivateEndpointResponse;
-    /**
-     * The private link service connection state.
-     */
-    readonly privateLinkServiceConnectionState: outputs.hdinsight.v20210601.PrivateLinkServiceConnectionStateResponse;
-    /**
-     * The provisioning state, which only appears in the response.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.hdinsight.v20210601.PrivateEndpointConnectionPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

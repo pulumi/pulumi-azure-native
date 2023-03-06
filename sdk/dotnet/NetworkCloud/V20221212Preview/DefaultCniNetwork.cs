@@ -13,81 +13,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class DefaultCniNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID of the Network Cloud cluster this default CNI network is associated with.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
-        /// </summary>
-        [Output("cniAsNumber")]
-        public Output<double> CniAsNumber { get; private set; } = null!;
-
-        [Output("cniBgpConfiguration")]
-        public Output<Outputs.CniBgpConfigurationResponse?> CniBgpConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the default CNI network.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The L3 isolation fabric BGP peering connectivity information necessary for BGP peering the Hybrid AKS Cluster with the switch fabric.
-        /// </summary>
-        [Output("fabricBgpPeers")]
-        public Output<ImmutableArray<Outputs.BgpPeerResponse>> FabricBgpPeers { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of Hybrid AKS cluster resource ID(s) that are associated with this default CNI network.
-        /// </summary>
-        [Output("hybridAksClustersAssociatedIds")]
-        public Output<ImmutableArray<string>> HybridAksClustersAssociatedIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the interface that will be present in the virtual machine to represent this network.
-        /// </summary>
-        [Output("interfaceName")]
-        public Output<string> InterfaceName { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the IP address allocation.
-        /// </summary>
-        [Output("ipAllocationType")]
-        public Output<string?> IpAllocationType { get; private set; } = null!;
-
-        /// <summary>
-        /// The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-        /// is IPV4 or DualStack.
-        /// </summary>
-        [Output("ipv4ConnectedPrefix")]
-        public Output<string?> Ipv4ConnectedPrefix { get; private set; } = null!;
-
-        /// <summary>
-        /// The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-        /// is IPV6 or DualStack.
-        /// </summary>
-        [Output("ipv6ConnectedPrefix")]
-        public Output<string?> Ipv6ConnectedPrefix { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the Network Fabric l3IsolationDomain.
-        /// </summary>
-        [Output("l3IsolationDomainId")]
-        public Output<string> L3IsolationDomainId { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -102,10 +31,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the default CNI network.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DefaultCniNetworkPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -124,12 +53,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The VLAN from the l3IsolationDomain that is used for this network.
-        /// </summary>
-        [Output("vlan")]
-        public Output<double> Vlan { get; private set; } = null!;
 
 
         /// <summary>
@@ -180,9 +103,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
     public sealed class DefaultCniNetworkArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cniBgpConfiguration")]
-        public Input<Inputs.CniBgpConfigurationArgs>? CniBgpConfiguration { get; set; }
-
         /// <summary>
         /// The name of the default CNI network.
         /// </summary>
@@ -196,36 +116,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
-        /// The type of the IP address allocation.
-        /// </summary>
-        [Input("ipAllocationType")]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.V20221212Preview.IpAllocationType>? IpAllocationType { get; set; }
-
-        /// <summary>
-        /// The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-        /// is IPV4 or DualStack.
-        /// </summary>
-        [Input("ipv4ConnectedPrefix")]
-        public Input<string>? Ipv4ConnectedPrefix { get; set; }
-
-        /// <summary>
-        /// The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
-        /// is IPV6 or DualStack.
-        /// </summary>
-        [Input("ipv6ConnectedPrefix")]
-        public Input<string>? Ipv6ConnectedPrefix { get; set; }
-
-        /// <summary>
-        /// The resource ID of the Network Fabric l3IsolationDomain.
-        /// </summary>
-        [Input("l3IsolationDomainId", required: true)]
-        public Input<string> L3IsolationDomainId { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The list of the resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.DefaultCniNetworkPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -245,15 +145,8 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The VLAN from the l3IsolationDomain that is used for this network.
-        /// </summary>
-        [Input("vlan", required: true)]
-        public Input<double> Vlan { get; set; } = null!;
-
         public DefaultCniNetworkArgs()
         {
-            IpAllocationType = "DualStack";
         }
         public static new DefaultCniNetworkArgs Empty => new DefaultCniNetworkArgs();
     }

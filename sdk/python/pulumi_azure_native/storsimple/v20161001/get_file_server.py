@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetFileServerResult',
@@ -23,52 +24,19 @@ class GetFileServerResult:
     """
     The file server.
     """
-    def __init__(__self__, backup_schedule_group_id=None, description=None, domain_name=None, id=None, name=None, storage_domain_id=None, type=None):
-        if backup_schedule_group_id and not isinstance(backup_schedule_group_id, str):
-            raise TypeError("Expected argument 'backup_schedule_group_id' to be a str")
-        pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if domain_name and not isinstance(domain_name, str):
-            raise TypeError("Expected argument 'domain_name' to be a str")
-        pulumi.set(__self__, "domain_name", domain_name)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if storage_domain_id and not isinstance(storage_domain_id, str):
-            raise TypeError("Expected argument 'storage_domain_id' to be a str")
-        pulumi.set(__self__, "storage_domain_id", storage_domain_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="backupScheduleGroupId")
-    def backup_schedule_group_id(self) -> str:
-        """
-        The backup policy id.
-        """
-        return pulumi.get(self, "backup_schedule_group_id")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the file server
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
-        """
-        Domain of the file server
-        """
-        return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
@@ -87,12 +55,12 @@ class GetFileServerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="storageDomainId")
-    def storage_domain_id(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.FileServerPropertiesResponse':
         """
-        The storage domain id.
+        The properties.
         """
-        return pulumi.get(self, "storage_domain_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -109,12 +77,9 @@ class AwaitableGetFileServerResult(GetFileServerResult):
         if False:
             yield self
         return GetFileServerResult(
-            backup_schedule_group_id=self.backup_schedule_group_id,
-            description=self.description,
-            domain_name=self.domain_name,
             id=self.id,
             name=self.name,
-            storage_domain_id=self.storage_domain_id,
+            properties=self.properties,
             type=self.type)
 
 
@@ -142,12 +107,9 @@ def get_file_server(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20161001:getFileServer', __args__, opts=opts, typ=GetFileServerResult).value
 
     return AwaitableGetFileServerResult(
-        backup_schedule_group_id=__ret__.backup_schedule_group_id,
-        description=__ret__.description,
-        domain_name=__ret__.domain_name,
         id=__ret__.id,
         name=__ret__.name,
-        storage_domain_id=__ret__.storage_domain_id,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

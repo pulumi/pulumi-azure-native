@@ -16,40 +16,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
     public partial class ApplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource Type of ApplicationGroup.
-        /// </summary>
-        [Output("applicationGroupType")]
-        public Output<string> ApplicationGroupType { get; private set; } = null!;
-
-        /// <summary>
-        /// Is cloud pc resource.
-        /// </summary>
-        [Output("cloudPcResource")]
-        public Output<bool> CloudPcResource { get; private set; } = null!;
-
-        /// <summary>
-        /// Description of ApplicationGroup.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Friendly name of ApplicationGroup.
-        /// </summary>
-        [Output("friendlyName")]
-        public Output<string?> FriendlyName { get; private set; } = null!;
-
-        /// <summary>
-        /// HostPool arm path of ApplicationGroup.
-        /// </summary>
-        [Output("hostPoolArmPath")]
-        public Output<string> HostPoolArmPath { get; private set; } = null!;
 
         [Output("identity")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
@@ -78,14 +48,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// ObjectId of ApplicationGroup. (internal use)
-        /// </summary>
-        [Output("objectId")]
-        public Output<string> ObjectId { get; private set; } = null!;
-
         [Output("plan")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
+
+        /// <summary>
+        /// Detailed properties for ApplicationGroup
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.ApplicationGroupPropertiesResponse> Properties { get; private set; } = null!;
 
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
@@ -107,12 +77,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Workspace arm path of ApplicationGroup.
-        /// </summary>
-        [Output("workspaceArmPath")]
-        public Output<string> WorkspaceArmPath { get; private set; } = null!;
 
 
         /// <summary>
@@ -185,30 +149,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
         [Input("applicationGroupName")]
         public Input<string>? ApplicationGroupName { get; set; }
 
-        /// <summary>
-        /// Resource Type of ApplicationGroup.
-        /// </summary>
-        [Input("applicationGroupType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20221014Preview.ApplicationGroupType> ApplicationGroupType { get; set; } = null!;
-
-        /// <summary>
-        /// Description of ApplicationGroup.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Friendly name of ApplicationGroup.
-        /// </summary>
-        [Input("friendlyName")]
-        public Input<string>? FriendlyName { get; set; }
-
-        /// <summary>
-        /// HostPool arm path of ApplicationGroup.
-        /// </summary>
-        [Input("hostPoolArmPath", required: true)]
-        public Input<string> HostPoolArmPath { get; set; } = null!;
-
         [Input("identity")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
 
@@ -232,6 +172,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
 
         [Input("plan")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Detailed properties for ApplicationGroup
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ApplicationGroupPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

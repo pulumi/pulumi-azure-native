@@ -11,9 +11,1245 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ADLSGen1FilePropertiesArgs',
+    'ADLSGen1FolderPropertiesArgs',
+    'ADLSGen2FileDataSetMappingPropertiesArgs',
+    'ADLSGen2FilePropertiesArgs',
+    'ADLSGen2FileSystemDataSetMappingPropertiesArgs',
+    'ADLSGen2FileSystemPropertiesArgs',
+    'ADLSGen2FolderDataSetMappingPropertiesArgs',
+    'ADLSGen2FolderPropertiesArgs',
+    'BlobContainerMappingPropertiesArgs',
+    'BlobContainerPropertiesArgs',
+    'BlobFolderMappingPropertiesArgs',
+    'BlobFolderPropertiesArgs',
+    'BlobMappingPropertiesArgs',
+    'BlobPropertiesArgs',
     'IdentityArgs',
+    'KustoClusterDataSetMappingPropertiesArgs',
+    'KustoClusterDataSetPropertiesArgs',
+    'KustoDatabaseDataSetMappingPropertiesArgs',
+    'KustoDatabaseDataSetPropertiesArgs',
+    'KustoTableDataSetMappingPropertiesArgs',
+    'KustoTableDataSetPropertiesArgs',
+    'ScheduledSynchronizationSettingPropertiesArgs',
+    'ScheduledTriggerPropertiesArgs',
+    'ShareSubscriptionPropertiesArgs',
+    'SqlDBTableDataSetMappingPropertiesArgs',
+    'SqlDWTableDataSetMappingPropertiesArgs',
+    'SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs',
+    'SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs',
     'TableLevelSharingPropertiesArgs',
 ]
+
+@pulumi.input_type
+class ADLSGen1FilePropertiesArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 file_name: pulumi.Input[str],
+                 folder_path: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the ADLS Gen1 file data set.
+        :param pulumi.Input[str] account_name: The ADLS account name.
+        :param pulumi.Input[str] file_name: The file name in the ADLS account.
+        :param pulumi.Input[str] folder_path: The folder path within the ADLS account.
+        :param pulumi.Input[str] resource_group: Resource group of ADLS account.
+        :param pulumi.Input[str] subscription_id: Subscription id of ADLS account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "file_name", file_name)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The ADLS account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> pulumi.Input[str]:
+        """
+        The file name in the ADLS account.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_name", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> pulumi.Input[str]:
+        """
+        The folder path within the ADLS account.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of ADLS account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of ADLS account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class ADLSGen1FolderPropertiesArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 folder_path: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the ADLS Gen1 folder data set.
+        :param pulumi.Input[str] account_name: The ADLS account name.
+        :param pulumi.Input[str] folder_path: The folder path within the ADLS account.
+        :param pulumi.Input[str] resource_group: Resource group of ADLS account.
+        :param pulumi.Input[str] subscription_id: Subscription id of ADLS account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The ADLS account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> pulumi.Input[str]:
+        """
+        The folder path within the ADLS account.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of ADLS account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of ADLS account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class ADLSGen2FileDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 file_path: pulumi.Input[str],
+                 file_system: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str],
+                 output_type: Optional[pulumi.Input[Union[str, 'OutputType']]] = None):
+        """
+        ADLS Gen 2 file data set mapping property bag.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] file_path: File path within the file system.
+        :param pulumi.Input[str] file_system: File system to which the file belongs.
+        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
+        :param pulumi.Input[Union[str, 'OutputType']] output_type: Type of output file
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if output_type is not None:
+            pulumi.set(__self__, "output_type", output_type)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> pulumi.Input[str]:
+        """
+        File path within the file system.
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> pulumi.Input[str]:
+        """
+        File system to which the file belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="outputType")
+    def output_type(self) -> Optional[pulumi.Input[Union[str, 'OutputType']]]:
+        """
+        Type of output file
+        """
+        return pulumi.get(self, "output_type")
+
+    @output_type.setter
+    def output_type(self, value: Optional[pulumi.Input[Union[str, 'OutputType']]]):
+        pulumi.set(self, "output_type", value)
+
+
+@pulumi.input_type
+class ADLSGen2FilePropertiesArgs:
+    def __init__(__self__, *,
+                 file_path: pulumi.Input[str],
+                 file_system: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the ADLS Gen2 file data set.
+        :param pulumi.Input[str] file_path: File path within the file system.
+        :param pulumi.Input[str] file_system: File system to which the file belongs.
+        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> pulumi.Input[str]:
+        """
+        File path within the file system.
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> pulumi.Input[str]:
+        """
+        File system to which the file belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class ADLSGen2FileSystemDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 file_system: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        ADLS Gen 2 file system data set mapping property bag.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] file_system: The file system name.
+        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> pulumi.Input[str]:
+        """
+        The file system name.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class ADLSGen2FileSystemPropertiesArgs:
+    def __init__(__self__, *,
+                 file_system: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the ADLS Gen2 file system data set.
+        :param pulumi.Input[str] file_system: The file system name.
+        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> pulumi.Input[str]:
+        """
+        The file system name.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class ADLSGen2FolderDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 file_system: pulumi.Input[str],
+                 folder_path: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        ADLS Gen 2 folder data set mapping property bag.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] file_system: File system to which the folder belongs.
+        :param pulumi.Input[str] folder_path: Folder path within the file system.
+        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> pulumi.Input[str]:
+        """
+        File system to which the folder belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> pulumi.Input[str]:
+        """
+        Folder path within the file system.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class ADLSGen2FolderPropertiesArgs:
+    def __init__(__self__, *,
+                 file_system: pulumi.Input[str],
+                 folder_path: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the ADLS Gen2 folder data set.
+        :param pulumi.Input[str] file_system: File system to which the folder belongs.
+        :param pulumi.Input[str] folder_path: Folder path within the file system.
+        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "file_system", file_system)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> pulumi.Input[str]:
+        """
+        File system to which the folder belongs.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> pulumi.Input[str]:
+        """
+        Folder path within the file system.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class BlobContainerMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 data_set_id: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Azure storage Blob container data set mapping property bag.
+        :param pulumi.Input[str] container_name: BLOB Container name.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        BLOB Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class BlobContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the BLOB container data set.
+        :param pulumi.Input[str] container_name: BLOB Container name.
+        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        BLOB Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class BlobFolderMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 data_set_id: pulumi.Input[str],
+                 prefix: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Azure storage Blob folder data set mapping property bag.
+        :param pulumi.Input[str] container_name: Container that has the file path.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] prefix: Prefix for blob folder
+        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        """
+        Prefix for blob folder
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class BlobFolderPropertiesArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 prefix: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the blob folder data set.
+        :param pulumi.Input[str] container_name: Container that has the file path.
+        :param pulumi.Input[str] prefix: Prefix for blob folder
+        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        """
+        Prefix for blob folder
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class BlobMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 data_set_id: pulumi.Input[str],
+                 file_path: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str],
+                 output_type: Optional[pulumi.Input[Union[str, 'OutputType']]] = None):
+        """
+        Azure storage Blob data set mapping property bag.
+        :param pulumi.Input[str] container_name: Container that has the file path.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] file_path: File path within the source data set
+        :param pulumi.Input[str] resource_group: Resource group of storage account.
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set.
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account.
+        :param pulumi.Input[Union[str, 'OutputType']] output_type: File output type
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if output_type is not None:
+            pulumi.set(__self__, "output_type", output_type)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> pulumi.Input[str]:
+        """
+        File path within the source data set
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="outputType")
+    def output_type(self) -> Optional[pulumi.Input[Union[str, 'OutputType']]]:
+        """
+        File output type
+        """
+        return pulumi.get(self, "output_type")
+
+    @output_type.setter
+    def output_type(self, value: Optional[pulumi.Input[Union[str, 'OutputType']]]):
+        pulumi.set(self, "output_type", value)
+
+
+@pulumi.input_type
+class BlobPropertiesArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 file_path: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        Properties of the blob data set.
+        :param pulumi.Input[str] container_name: Container that has the file path.
+        :param pulumi.Input[str] file_path: File path within the source data set
+        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
+        :param pulumi.Input[str] subscription_id: Subscription id of storage account
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        Container that has the file path.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> pulumi.Input[str]:
+        """
+        File path within the source data set
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        Resource group of storage account
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        Storage account name of the source data set
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        Subscription id of storage account
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
 
 @pulumi.input_type
 class IdentityArgs:
@@ -37,6 +1273,577 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class KustoClusterDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 kusto_cluster_resource_id: pulumi.Input[str]):
+        """
+        Properties of the Kusto cluster data set mapping
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] kusto_cluster_resource_id: Resource id of the sink kusto cluster.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="kustoClusterResourceId")
+    def kusto_cluster_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the sink kusto cluster.
+        """
+        return pulumi.get(self, "kusto_cluster_resource_id")
+
+    @kusto_cluster_resource_id.setter
+    def kusto_cluster_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kusto_cluster_resource_id", value)
+
+
+@pulumi.input_type
+class KustoClusterDataSetPropertiesArgs:
+    def __init__(__self__, *,
+                 kusto_cluster_resource_id: pulumi.Input[str]):
+        """
+        Properties of the kusto cluster data set.
+        :param pulumi.Input[str] kusto_cluster_resource_id: Resource id of the kusto cluster.
+        """
+        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+
+    @property
+    @pulumi.getter(name="kustoClusterResourceId")
+    def kusto_cluster_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the kusto cluster.
+        """
+        return pulumi.get(self, "kusto_cluster_resource_id")
+
+    @kusto_cluster_resource_id.setter
+    def kusto_cluster_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kusto_cluster_resource_id", value)
+
+
+@pulumi.input_type
+class KustoDatabaseDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 kusto_cluster_resource_id: pulumi.Input[str]):
+        """
+        Properties of the Kusto database data set mapping
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] kusto_cluster_resource_id: Resource id of the sink kusto cluster.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="kustoClusterResourceId")
+    def kusto_cluster_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the sink kusto cluster.
+        """
+        return pulumi.get(self, "kusto_cluster_resource_id")
+
+    @kusto_cluster_resource_id.setter
+    def kusto_cluster_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kusto_cluster_resource_id", value)
+
+
+@pulumi.input_type
+class KustoDatabaseDataSetPropertiesArgs:
+    def __init__(__self__, *,
+                 kusto_database_resource_id: pulumi.Input[str]):
+        """
+        Properties of the kusto database data set.
+        :param pulumi.Input[str] kusto_database_resource_id: Resource id of the kusto database.
+        """
+        pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
+
+    @property
+    @pulumi.getter(name="kustoDatabaseResourceId")
+    def kusto_database_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the kusto database.
+        """
+        return pulumi.get(self, "kusto_database_resource_id")
+
+    @kusto_database_resource_id.setter
+    def kusto_database_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kusto_database_resource_id", value)
+
+
+@pulumi.input_type
+class KustoTableDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 kusto_cluster_resource_id: pulumi.Input[str]):
+        """
+        Properties of the Kusto database data set mapping
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] kusto_cluster_resource_id: Resource id of the sink kusto cluster.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "kusto_cluster_resource_id", kusto_cluster_resource_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="kustoClusterResourceId")
+    def kusto_cluster_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the sink kusto cluster.
+        """
+        return pulumi.get(self, "kusto_cluster_resource_id")
+
+    @kusto_cluster_resource_id.setter
+    def kusto_cluster_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kusto_cluster_resource_id", value)
+
+
+@pulumi.input_type
+class KustoTableDataSetPropertiesArgs:
+    def __init__(__self__, *,
+                 kusto_database_resource_id: pulumi.Input[str],
+                 table_level_sharing_properties: pulumi.Input['TableLevelSharingPropertiesArgs']):
+        """
+        Properties of the kusto table data set.
+        :param pulumi.Input[str] kusto_database_resource_id: Resource id of the kusto database.
+        :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing properties for kusto database
+        """
+        pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
+        pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
+
+    @property
+    @pulumi.getter(name="kustoDatabaseResourceId")
+    def kusto_database_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the kusto database.
+        """
+        return pulumi.get(self, "kusto_database_resource_id")
+
+    @kusto_database_resource_id.setter
+    def kusto_database_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kusto_database_resource_id", value)
+
+    @property
+    @pulumi.getter(name="tableLevelSharingProperties")
+    def table_level_sharing_properties(self) -> pulumi.Input['TableLevelSharingPropertiesArgs']:
+        """
+        Table level sharing properties for kusto database
+        """
+        return pulumi.get(self, "table_level_sharing_properties")
+
+    @table_level_sharing_properties.setter
+    def table_level_sharing_properties(self, value: pulumi.Input['TableLevelSharingPropertiesArgs']):
+        pulumi.set(self, "table_level_sharing_properties", value)
+
+
+@pulumi.input_type
+class ScheduledSynchronizationSettingPropertiesArgs:
+    def __init__(__self__, *,
+                 recurrence_interval: pulumi.Input[Union[str, 'RecurrenceInterval']],
+                 synchronization_time: pulumi.Input[str]):
+        """
+        A Scheduled synchronization setting data transfer object.
+        :param pulumi.Input[Union[str, 'RecurrenceInterval']] recurrence_interval: Recurrence Interval
+        :param pulumi.Input[str] synchronization_time: Synchronization time
+        """
+        pulumi.set(__self__, "recurrence_interval", recurrence_interval)
+        pulumi.set(__self__, "synchronization_time", synchronization_time)
+
+    @property
+    @pulumi.getter(name="recurrenceInterval")
+    def recurrence_interval(self) -> pulumi.Input[Union[str, 'RecurrenceInterval']]:
+        """
+        Recurrence Interval
+        """
+        return pulumi.get(self, "recurrence_interval")
+
+    @recurrence_interval.setter
+    def recurrence_interval(self, value: pulumi.Input[Union[str, 'RecurrenceInterval']]):
+        pulumi.set(self, "recurrence_interval", value)
+
+    @property
+    @pulumi.getter(name="synchronizationTime")
+    def synchronization_time(self) -> pulumi.Input[str]:
+        """
+        Synchronization time
+        """
+        return pulumi.get(self, "synchronization_time")
+
+    @synchronization_time.setter
+    def synchronization_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "synchronization_time", value)
+
+
+@pulumi.input_type
+class ScheduledTriggerPropertiesArgs:
+    def __init__(__self__, *,
+                 recurrence_interval: pulumi.Input[Union[str, 'RecurrenceInterval']],
+                 synchronization_time: pulumi.Input[str],
+                 synchronization_mode: Optional[pulumi.Input[Union[str, 'SynchronizationMode']]] = None):
+        """
+        A Scheduled trigger data transfer object.
+        :param pulumi.Input[Union[str, 'RecurrenceInterval']] recurrence_interval: Recurrence Interval
+        :param pulumi.Input[str] synchronization_time: Synchronization time
+        :param pulumi.Input[Union[str, 'SynchronizationMode']] synchronization_mode: Synchronization mode
+        """
+        pulumi.set(__self__, "recurrence_interval", recurrence_interval)
+        pulumi.set(__self__, "synchronization_time", synchronization_time)
+        if synchronization_mode is not None:
+            pulumi.set(__self__, "synchronization_mode", synchronization_mode)
+
+    @property
+    @pulumi.getter(name="recurrenceInterval")
+    def recurrence_interval(self) -> pulumi.Input[Union[str, 'RecurrenceInterval']]:
+        """
+        Recurrence Interval
+        """
+        return pulumi.get(self, "recurrence_interval")
+
+    @recurrence_interval.setter
+    def recurrence_interval(self, value: pulumi.Input[Union[str, 'RecurrenceInterval']]):
+        pulumi.set(self, "recurrence_interval", value)
+
+    @property
+    @pulumi.getter(name="synchronizationTime")
+    def synchronization_time(self) -> pulumi.Input[str]:
+        """
+        Synchronization time
+        """
+        return pulumi.get(self, "synchronization_time")
+
+    @synchronization_time.setter
+    def synchronization_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "synchronization_time", value)
+
+    @property
+    @pulumi.getter(name="synchronizationMode")
+    def synchronization_mode(self) -> Optional[pulumi.Input[Union[str, 'SynchronizationMode']]]:
+        """
+        Synchronization mode
+        """
+        return pulumi.get(self, "synchronization_mode")
+
+    @synchronization_mode.setter
+    def synchronization_mode(self, value: Optional[pulumi.Input[Union[str, 'SynchronizationMode']]]):
+        pulumi.set(self, "synchronization_mode", value)
+
+
+@pulumi.input_type
+class ShareSubscriptionPropertiesArgs:
+    def __init__(__self__, *,
+                 invitation_id: pulumi.Input[str],
+                 source_share_location: pulumi.Input[str],
+                 expiration_date: Optional[pulumi.Input[str]] = None):
+        """
+        Share subscription property bag.
+        :param pulumi.Input[str] invitation_id: The invitation id.
+        :param pulumi.Input[str] source_share_location: Source share location.
+        :param pulumi.Input[str] expiration_date: The expiration date of the share subscription.
+        """
+        pulumi.set(__self__, "invitation_id", invitation_id)
+        pulumi.set(__self__, "source_share_location", source_share_location)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+
+    @property
+    @pulumi.getter(name="invitationId")
+    def invitation_id(self) -> pulumi.Input[str]:
+        """
+        The invitation id.
+        """
+        return pulumi.get(self, "invitation_id")
+
+    @invitation_id.setter
+    def invitation_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "invitation_id", value)
+
+    @property
+    @pulumi.getter(name="sourceShareLocation")
+    def source_share_location(self) -> pulumi.Input[str]:
+        """
+        Source share location.
+        """
+        return pulumi.get(self, "source_share_location")
+
+    @source_share_location.setter
+    def source_share_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_share_location", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date of the share subscription.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+
+@pulumi.input_type
+class SqlDBTableDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 schema_name: pulumi.Input[str],
+                 sql_server_resource_id: pulumi.Input[str],
+                 table_name: pulumi.Input[str]):
+        """
+        Properties of the SQL DB table data set mapping.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] database_name: DatabaseName name of the sink data set
+        :param pulumi.Input[str] schema_name: Schema of the table. Default value is dbo.
+        :param pulumi.Input[str] sql_server_resource_id: Resource id of SQL server
+        :param pulumi.Input[str] table_name: SQL DB table name.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        DatabaseName name of the sink data set
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[str]:
+        """
+        Schema of the table. Default value is dbo.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter(name="sqlServerResourceId")
+    def sql_server_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of SQL server
+        """
+        return pulumi.get(self, "sql_server_resource_id")
+
+    @sql_server_resource_id.setter
+    def sql_server_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_server_resource_id", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        SQL DB table name.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+
+@pulumi.input_type
+class SqlDWTableDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 data_warehouse_name: pulumi.Input[str],
+                 schema_name: pulumi.Input[str],
+                 sql_server_resource_id: pulumi.Input[str],
+                 table_name: pulumi.Input[str]):
+        """
+        Properties of the SQL DW table data set mapping.
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] data_warehouse_name: DataWarehouse name of the source data set
+        :param pulumi.Input[str] schema_name: Schema of the table. Default value is dbo.
+        :param pulumi.Input[str] sql_server_resource_id: Resource id of SQL server
+        :param pulumi.Input[str] table_name: SQL DW table name.
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "data_warehouse_name", data_warehouse_name)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "sql_server_resource_id", sql_server_resource_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="dataWarehouseName")
+    def data_warehouse_name(self) -> pulumi.Input[str]:
+        """
+        DataWarehouse name of the source data set
+        """
+        return pulumi.get(self, "data_warehouse_name")
+
+    @data_warehouse_name.setter
+    def data_warehouse_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_warehouse_name", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[str]:
+        """
+        Schema of the table. Default value is dbo.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter(name="sqlServerResourceId")
+    def sql_server_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of SQL server
+        """
+        return pulumi.get(self, "sql_server_resource_id")
+
+    @sql_server_resource_id.setter
+    def sql_server_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_server_resource_id", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        SQL DW table name.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+
+@pulumi.input_type
+class SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 data_set_id: pulumi.Input[str],
+                 synapse_workspace_sql_pool_table_resource_id: pulumi.Input[str]):
+        """
+        Properties of the Synapse Workspace SQL Pool Table data set mapping
+        :param pulumi.Input[str] data_set_id: The id of the source data set.
+        :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
+        """
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
+
+    @property
+    @pulumi.getter(name="dataSetId")
+    def data_set_id(self) -> pulumi.Input[str]:
+        """
+        The id of the source data set.
+        """
+        return pulumi.get(self, "data_set_id")
+
+    @data_set_id.setter
+    def data_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="synapseWorkspaceSqlPoolTableResourceId")
+    def synapse_workspace_sql_pool_table_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the Synapse Workspace SQL Pool Table
+        """
+        return pulumi.get(self, "synapse_workspace_sql_pool_table_resource_id")
+
+    @synapse_workspace_sql_pool_table_resource_id.setter
+    def synapse_workspace_sql_pool_table_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "synapse_workspace_sql_pool_table_resource_id", value)
+
+
+@pulumi.input_type
+class SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs:
+    def __init__(__self__, *,
+                 synapse_workspace_sql_pool_table_resource_id: pulumi.Input[str]):
+        """
+        Properties of the Synapse Workspace SQL Pool Table data set.
+        :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
+        """
+        pulumi.set(__self__, "synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
+
+    @property
+    @pulumi.getter(name="synapseWorkspaceSqlPoolTableResourceId")
+    def synapse_workspace_sql_pool_table_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource id of the Synapse Workspace SQL Pool Table
+        """
+        return pulumi.get(self, "synapse_workspace_sql_pool_table_resource_id")
+
+    @synapse_workspace_sql_pool_table_resource_id.setter
+    def synapse_workspace_sql_pool_table_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "synapse_workspace_sql_pool_table_resource_id", value)
 
 
 @pulumi.input_type

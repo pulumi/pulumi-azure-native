@@ -26,6 +26,7 @@ __all__ = [
     'ManagementResourcePreferencesArgs',
     'NotificationPreferenceArgs',
     'OrderItemDetailsArgs',
+    'OrderItemPropertiesArgs',
     'PreferencesArgs',
     'ProductDetailsArgs',
     'ShippingAddressArgs',
@@ -759,6 +760,59 @@ class OrderItemDetailsArgs:
     @preferences.setter
     def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
         pulumi.set(self, "preferences", value)
+
+
+@pulumi.input_type
+class OrderItemPropertiesArgs:
+    def __init__(__self__, *,
+                 address_details: pulumi.Input['AddressDetailsArgs'],
+                 order_id: pulumi.Input[str],
+                 order_item_details: pulumi.Input['OrderItemDetailsArgs']):
+        """
+        Represents order item properties.
+        :param pulumi.Input['AddressDetailsArgs'] address_details: Represents shipping and return address for order item.
+        :param pulumi.Input[str] order_id: Id of the order to which order item belongs to.
+        :param pulumi.Input['OrderItemDetailsArgs'] order_item_details: Represents order item details.
+        """
+        pulumi.set(__self__, "address_details", address_details)
+        pulumi.set(__self__, "order_id", order_id)
+        pulumi.set(__self__, "order_item_details", order_item_details)
+
+    @property
+    @pulumi.getter(name="addressDetails")
+    def address_details(self) -> pulumi.Input['AddressDetailsArgs']:
+        """
+        Represents shipping and return address for order item.
+        """
+        return pulumi.get(self, "address_details")
+
+    @address_details.setter
+    def address_details(self, value: pulumi.Input['AddressDetailsArgs']):
+        pulumi.set(self, "address_details", value)
+
+    @property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> pulumi.Input[str]:
+        """
+        Id of the order to which order item belongs to.
+        """
+        return pulumi.get(self, "order_id")
+
+    @order_id.setter
+    def order_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order_id", value)
+
+    @property
+    @pulumi.getter(name="orderItemDetails")
+    def order_item_details(self) -> pulumi.Input['OrderItemDetailsArgs']:
+        """
+        Represents order item details.
+        """
+        return pulumi.get(self, "order_item_details")
+
+    @order_item_details.setter
+    def order_item_details(self, value: pulumi.Input['OrderItemDetailsArgs']):
+        pulumi.set(self, "order_item_details", value)
 
 
 @pulumi.input_type

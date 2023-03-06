@@ -21,82 +21,47 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// Type of authentication (Required to specify MSI) used to connect to AzureFunction. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Authentication;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
-        /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        public readonly Outputs.CredentialReferenceResponse? Credential;
         /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// The endpoint of the Azure Function App. URL will be in the format https://&lt;accountName&gt;.azurewebsites.net.
-        /// </summary>
-        public readonly object FunctionAppUrl;
-        /// <summary>
-        /// Function or Host key for Azure Function App.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? FunctionKey;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Allowed token audiences for azure function.
-        /// </summary>
-        public readonly object? ResourceId;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureFunction'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Function linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureFunctionLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureFunctionLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            object? authentication,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
-
-            Outputs.CredentialReferenceResponse? credential,
 
             string? description,
 
-            object? encryptedCredential,
-
-            object functionAppUrl,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? functionKey,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? resourceId,
+            string type,
 
-            string type)
+            Outputs.AzureFunctionLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            Authentication = authentication;
             ConnectVia = connectVia;
-            Credential = credential;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            FunctionAppUrl = functionAppUrl;
-            FunctionKey = functionKey;
             Parameters = parameters;
-            ResourceId = resourceId;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

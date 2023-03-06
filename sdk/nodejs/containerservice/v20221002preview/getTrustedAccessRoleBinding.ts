@@ -48,17 +48,9 @@ export interface GetTrustedAccessRoleBindingResult {
      */
     readonly name: string;
     /**
-     * The current provisioning state of trusted access role binding.
+     * Properties for trusted access role binding
      */
-    readonly provisioningState: string;
-    /**
-     * A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
-     */
-    readonly roles: string[];
-    /**
-     * The ARM resource ID of source resource that trusted access is configured for.
-     */
-    readonly sourceResourceId: string;
+    readonly properties: outputs.containerservice.v20221002preview.TrustedAccessRoleBindingPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

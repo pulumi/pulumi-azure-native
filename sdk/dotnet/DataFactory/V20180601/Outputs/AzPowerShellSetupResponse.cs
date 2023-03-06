@@ -22,18 +22,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The required version of Azure PowerShell to install.
+        /// Install Azure PowerShell type properties.
         /// </summary>
-        public readonly string Version;
+        public readonly Outputs.AzPowerShellSetupTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzPowerShellSetupResponse(
             string type,
 
-            string version)
+            Outputs.AzPowerShellSetupTypePropertiesResponse typeProperties)
         {
             Type = type;
-            Version = version;
+            TypeProperties = typeProperties;
         }
     }
 }

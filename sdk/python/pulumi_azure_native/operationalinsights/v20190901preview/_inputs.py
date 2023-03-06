@@ -10,8 +10,18 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
+    'LogAnalyticsQueryPackPropertiesArgs',
     'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
 ]
+
+@pulumi.input_type
+class LogAnalyticsQueryPackPropertiesArgs:
+    def __init__(__self__):
+        """
+        Properties that define a Log Analytics QueryPack resource.
+        """
+        pass
+
 
 @pulumi.input_type
 class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:

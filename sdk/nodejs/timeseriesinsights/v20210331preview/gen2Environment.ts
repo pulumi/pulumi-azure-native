@@ -38,18 +38,6 @@ export class Gen2Environment extends pulumi.CustomResource {
     }
 
     /**
-     * The time the resource was created.
-     */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
-    /**
-     * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    public /*out*/ readonly dataAccessFqdn!: pulumi.Output<string>;
-    /**
-     * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    public /*out*/ readonly dataAccessId!: pulumi.Output<string>;
-    /**
      * The kind of the environment.
      * Expected value is 'Gen2'.
      */
@@ -63,45 +51,21 @@ export class Gen2Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The list of private endpoint connections to the environment.
+     * Properties of the Gen2 environment.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.PrivateEndpointConnectionResponse[]>;
-    /**
-     * Provisioning state of the resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-     */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.Gen2EnvironmentResourcePropertiesResponse>;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     public readonly sku!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.SkuResponse>;
     /**
-     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-     */
-    public /*out*/ readonly status!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.EnvironmentStatusResponse>;
-    /**
-     * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-     */
-    public readonly storageConfiguration!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.Gen2StorageConfigurationOutputResponse>;
-    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The list of event properties which will be used to define the environment's time series id.
-     */
-    public readonly timeSeriesIdProperties!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.TimeSeriesIdPropertyResponse[]>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-     */
-    public readonly warmStoreConfiguration!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.WarmStoreConfigurationPropertiesResponse | undefined>;
 
     /**
      * Create a Gen2Environment resource with the given unique name, arguments, and options.
@@ -117,53 +81,32 @@ export class Gen2Environment extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.storageConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageConfiguration'");
-            }
-            if ((!args || args.timeSeriesIdProperties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'timeSeriesIdProperties'");
-            }
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["kind"] = "Gen2";
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "enabled";
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.timeseriesinsights.v20210331preview.gen2EnvironmentCreationPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeSeriesIdProperties"] = args ? args.timeSeriesIdProperties : undefined;
-            resourceInputs["warmStoreConfiguration"] = args ? args.warmStoreConfiguration : undefined;
-            resourceInputs["creationTime"] = undefined /*out*/;
-            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
-            resourceInputs["dataAccessId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["creationTime"] = undefined /*out*/;
-            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
-            resourceInputs["dataAccessId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["storageConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["timeSeriesIdProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["warmStoreConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20170228preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20171115:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Gen2Environment" }] };
@@ -190,9 +133,9 @@ export interface Gen2EnvironmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+     * Properties used to create a Gen2 environment.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.timeseriesinsights.v20210331preview.PublicNetworkAccess>;
+    properties: pulumi.Input<inputs.timeseriesinsights.v20210331preview.Gen2EnvironmentCreationPropertiesArgs>;
     /**
      * Name of an Azure Resource group.
      */
@@ -202,19 +145,7 @@ export interface Gen2EnvironmentArgs {
      */
     sku: pulumi.Input<inputs.timeseriesinsights.v20210331preview.SkuArgs>;
     /**
-     * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-     */
-    storageConfiguration: pulumi.Input<inputs.timeseriesinsights.v20210331preview.Gen2StorageConfigurationInputArgs>;
-    /**
      * Key-value pairs of additional properties for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The list of event properties which will be used to define the environment's time series id.
-     */
-    timeSeriesIdProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20210331preview.TimeSeriesIdPropertyArgs>[]>;
-    /**
-     * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-     */
-    warmStoreConfiguration?: pulumi.Input<inputs.timeseriesinsights.v20210331preview.WarmStoreConfigurationPropertiesArgs>;
 }

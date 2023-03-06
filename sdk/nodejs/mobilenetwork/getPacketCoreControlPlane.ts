@@ -36,14 +36,6 @@ export interface GetPacketCoreControlPlaneArgs {
  */
 export interface GetPacketCoreControlPlaneResult {
     /**
-     * The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
-     */
-    readonly controlPlaneAccessInterface: outputs.mobilenetwork.InterfacePropertiesResponse;
-    /**
-     * The core network technology generation (5G core or EPC / 4G core).
-     */
-    readonly coreNetworkTechnology?: string;
-    /**
      * The timestamp of resource creation (UTC).
      */
     readonly createdAt?: string;
@@ -64,10 +56,6 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly identity?: outputs.mobilenetwork.ManagedServiceIdentityResponse;
     /**
-     * Settings to allow interoperability with third party components e.g. RANs and UEs.
-     */
-    readonly interopSettings?: any;
-    /**
      * The timestamp of resource last modification (UTC)
      */
     readonly lastModifiedAt?: string;
@@ -80,33 +68,17 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly lastModifiedByType?: string;
     /**
-     * The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-     */
-    readonly localDiagnosticsAccess?: outputs.mobilenetwork.LocalDiagnosticsAccessConfigurationResponse;
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
-    /**
-     * Mobile network in which this packet core control plane is deployed.
-     */
-    readonly mobileNetwork: outputs.mobilenetwork.MobileNetworkResourceIdResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The platform where the packet core is deployed.
+     * Packet core control plane Properties.
      */
-    readonly platform?: outputs.mobilenetwork.PlatformConfigurationResponse;
-    /**
-     * The provisioning state of the packet core control plane resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
-     */
-    readonly sku: string;
+    readonly properties: outputs.mobilenetwork.PacketCoreControlPlanePropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -119,10 +91,6 @@ export interface GetPacketCoreControlPlaneResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The version of the packet core software that is deployed.
-     */
-    readonly version?: string;
 }
 /**
  * Gets information about the specified packet core control plane.

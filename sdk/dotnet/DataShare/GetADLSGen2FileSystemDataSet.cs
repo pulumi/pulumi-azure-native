@@ -96,14 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetADLSGen2FileSystemDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// The file system name.
-        /// </summary>
-        public readonly string FileSystem;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -117,17 +109,9 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource group of storage account
+        /// ADLS Gen 2 file system data set properties.
         /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ADLSGen2FileSystemPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -139,34 +123,22 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetADLSGen2FileSystemDataSetResult(
-            string dataSetId,
-
-            string fileSystem,
-
             string id,
 
             string kind,
 
             string name,
 
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.ADLSGen2FileSystemPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
-            FileSystem = fileSystem;
             Id = id;
             Kind = kind;
             Name = name;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

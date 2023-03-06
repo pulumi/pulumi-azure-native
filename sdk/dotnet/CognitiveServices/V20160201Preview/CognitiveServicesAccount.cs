@@ -144,6 +144,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Must exist in the request. Must not be null.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<object> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group within the user's subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetGuestDiagnosticsSettingsAssociationResult',
@@ -21,10 +22,7 @@ class GetGuestDiagnosticsSettingsAssociationResult:
     """
     Virtual machine guest diagnostic settings resource.
     """
-    def __init__(__self__, guest_diagnostic_settings_name=None, id=None, location=None, name=None, tags=None, type=None):
-        if guest_diagnostic_settings_name and not isinstance(guest_diagnostic_settings_name, str):
-            raise TypeError("Expected argument 'guest_diagnostic_settings_name' to be a str")
-        pulumi.set(__self__, "guest_diagnostic_settings_name", guest_diagnostic_settings_name)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,20 +32,15 @@ class GetGuestDiagnosticsSettingsAssociationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="guestDiagnosticSettingsName")
-    def guest_diagnostic_settings_name(self) -> str:
-        """
-        The guest diagnostic settings name.
-        """
-        return pulumi.get(self, "guest_diagnostic_settings_name")
 
     @property
     @pulumi.getter
@@ -75,6 +68,14 @@ class GetGuestDiagnosticsSettingsAssociationResult:
 
     @property
     @pulumi.getter
+    def properties(self) -> 'outputs.GuestDiagnosticSettingsAssociationResponse':
+        """
+        The diagnostics settings associations of the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
@@ -96,10 +97,10 @@ class AwaitableGetGuestDiagnosticsSettingsAssociationResult(GetGuestDiagnosticsS
         if False:
             yield self
         return GetGuestDiagnosticsSettingsAssociationResult(
-            guest_diagnostic_settings_name=self.guest_diagnostic_settings_name,
             id=self.id,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -122,10 +123,10 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getGuestDiagnosticsSettingsAssociation', __args__, opts=opts, typ=GetGuestDiagnosticsSettingsAssociationResult).value
 
     return AwaitableGetGuestDiagnosticsSettingsAssociationResult(
-        guest_diagnostic_settings_name=__ret__.guest_diagnostic_settings_name,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

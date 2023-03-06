@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.SignalRService.V20220801Preview
     public partial class SignalRCustomCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Base uri of the KeyVault that stores certificate.
-        /// </summary>
-        [Output("keyVaultBaseUri")]
-        public Output<string> KeyVaultBaseUri { get; private set; } = null!;
-
-        /// <summary>
-        /// Certificate secret name.
-        /// </summary>
-        [Output("keyVaultSecretName")]
-        public Output<string> KeyVaultSecretName { get; private set; } = null!;
-
-        /// <summary>
-        /// Certificate secret version.
-        /// </summary>
-        [Output("keyVaultSecretVersion")]
-        public Output<string?> KeyVaultSecretVersion { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Custom certificate properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.CustomCertificatePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -114,22 +96,10 @@ namespace Pulumi.AzureNative.SignalRService.V20220801Preview
         public Input<string>? CertificateName { get; set; }
 
         /// <summary>
-        /// Base uri of the KeyVault that stores certificate.
+        /// Custom certificate properties.
         /// </summary>
-        [Input("keyVaultBaseUri", required: true)]
-        public Input<string> KeyVaultBaseUri { get; set; } = null!;
-
-        /// <summary>
-        /// Certificate secret name.
-        /// </summary>
-        [Input("keyVaultSecretName", required: true)]
-        public Input<string> KeyVaultSecretName { get; set; } = null!;
-
-        /// <summary>
-        /// Certificate secret version.
-        /// </summary>
-        [Input("keyVaultSecretVersion")]
-        public Input<string>? KeyVaultSecretVersion { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.CustomCertificatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

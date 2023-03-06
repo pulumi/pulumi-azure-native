@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     public partial class Rack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
-        /// </summary>
-        [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the rack.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
@@ -58,28 +34,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the rack resource.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
-        /// </summary>
-        [Output("rackLocation")]
-        public Output<string> RackLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
-        /// </summary>
-        [Output("rackSerialNumber")]
-        public Output<string> RackSerialNumber { get; private set; } = null!;
-
-        /// <summary>
-        /// The SKU for the rack.
-        /// </summary>
-        [Output("rackSkuId")]
-        public Output<string> RackSkuId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.RackPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -149,12 +107,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class RackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
-        /// </summary>
-        [Input("availabilityZone", required: true)]
-        public Input<string> AvailabilityZone { get; set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Input("extendedLocation", required: true)]
@@ -167,28 +119,16 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
+        /// The list of the resource properties.
         /// </summary>
-        [Input("rackLocation", required: true)]
-        public Input<string> RackLocation { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.RackPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the rack.
         /// </summary>
         [Input("rackName")]
         public Input<string>? RackName { get; set; }
-
-        /// <summary>
-        /// The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
-        /// </summary>
-        [Input("rackSerialNumber", required: true)]
-        public Input<string> RackSerialNumber { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU for the rack.
-        /// </summary>
-        [Input("rackSkuId", required: true)]
-        public Input<string> RackSkuId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

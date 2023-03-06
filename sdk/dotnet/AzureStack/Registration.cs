@@ -123,16 +123,16 @@ namespace Pulumi.AzureNative.AzureStack
         public InputUnion<string, Pulumi.AzureNative.AzureStack.Location>? Location { get; set; }
 
         /// <summary>
+        /// Properties of the Azure Stack registration resource
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.RegistrationParameterPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Azure Stack registration.
         /// </summary>
         [Input("registrationName")]
         public Input<string>? RegistrationName { get; set; }
-
-        /// <summary>
-        /// The token identifying registered Azure Stack
-        /// </summary>
-        [Input("registrationToken", required: true)]
-        public Input<string> RegistrationToken { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group.

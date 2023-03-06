@@ -41,18 +41,6 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
-     * The identity
-     */
-    readonly clusterId: number;
-    /**
-     * The cluster size
-     */
-    readonly clusterSize: number;
-    /**
-     * The hosts
-     */
-    readonly hosts: string[];
-    /**
      * Resource ID.
      */
     readonly id: string;
@@ -61,9 +49,9 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
-     * The state of the cluster provisioning
+     * The properties of a cluster resource
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.avs.ClusterPropertiesResponse;
     /**
      * The cluster SKU
      */

@@ -40,22 +40,6 @@ export interface GetStandardEnvironmentArgs {
  */
 export interface GetStandardEnvironmentResult {
     /**
-     * The time the resource was created.
-     */
-    readonly creationTime: string;
-    /**
-     * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    readonly dataAccessFqdn: string;
-    /**
-     * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    readonly dataAccessId: string;
-    /**
-     * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-     */
-    readonly dataRetentionTime: string;
-    /**
      * Resource Id
      */
     readonly id: string;
@@ -73,25 +57,13 @@ export interface GetStandardEnvironmentResult {
      */
     readonly name: string;
     /**
-     * The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+     * Properties of the standard environment.
      */
-    readonly partitionKeyProperties?: outputs.timeseriesinsights.v20180815preview.TimeSeriesIdPropertyResponse[];
-    /**
-     * Provisioning state of the resource.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.timeseriesinsights.v20180815preview.StandardEnvironmentResourcePropertiesResponse;
     /**
      * The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     readonly sku: outputs.timeseriesinsights.v20180815preview.SkuResponse;
-    /**
-     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-     */
-    readonly status: outputs.timeseriesinsights.v20180815preview.EnvironmentStatusResponse;
-    /**
-     * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-     */
-    readonly storageLimitExceededBehavior?: string;
     /**
      * Resource tags
      */

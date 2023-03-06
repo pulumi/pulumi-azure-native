@@ -17,30 +17,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public partial class IoTAddon : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Host OS supported by the IoT addon.
-        /// </summary>
-        [Output("hostPlatform")]
-        public Output<string> HostPlatform { get; private set; } = null!;
-
-        /// <summary>
-        /// Platform where the runtime is hosted.
-        /// </summary>
-        [Output("hostPlatformType")]
-        public Output<string> HostPlatformType { get; private set; } = null!;
-
-        /// <summary>
-        /// IoT device metadata to which appliance needs to be connected.
-        /// </summary>
-        [Output("ioTDeviceDetails")]
-        public Output<Outputs.IoTDeviceInfoResponse> IoTDeviceDetails { get; private set; } = null!;
-
-        /// <summary>
-        /// IoT edge device to which the IoT Addon needs to be configured.
-        /// </summary>
-        [Output("ioTEdgeDeviceDetails")]
-        public Output<Outputs.IoTDeviceInfoResponse> IoTEdgeDeviceDetails { get; private set; } = null!;
-
-        /// <summary>
         /// Addon type.
         /// Expected value is 'IotEdge'.
         /// </summary>
@@ -54,10 +30,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Addon Provisioning State
+        /// Properties specific to IOT addon.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IoTAddonPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Addon type
@@ -70,12 +46,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Version of IoT running on the appliance.
-        /// </summary>
-        [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,23 +126,17 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// IoT device metadata to which appliance needs to be connected.
-        /// </summary>
-        [Input("ioTDeviceDetails", required: true)]
-        public Input<Inputs.IoTDeviceInfoArgs> IoTDeviceDetails { get; set; } = null!;
-
-        /// <summary>
-        /// IoT edge device to which the IoT Addon needs to be configured.
-        /// </summary>
-        [Input("ioTEdgeDeviceDetails", required: true)]
-        public Input<Inputs.IoTDeviceInfoArgs> IoTEdgeDeviceDetails { get; set; } = null!;
-
-        /// <summary>
         /// Addon type.
         /// Expected value is 'IotEdge'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
+
+        /// <summary>
+        /// Properties specific to IOT addon.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.IoTAddonPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

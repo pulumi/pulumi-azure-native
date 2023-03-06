@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A list of libraries to be installed on the cluster that will execute the job.
-        /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Libraries;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
@@ -37,22 +33,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Command line parameters that will be passed to the Python file.
-        /// </summary>
-        public readonly ImmutableArray<object> Parameters;
-        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
-        /// <summary>
-        /// The URI of the Python file to be executed. DBFS paths are supported. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object PythonFile;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'DatabricksSparkPython'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Databricks SparkPython activity properties.
+        /// </summary>
+        public readonly Outputs.DatabricksSparkPythonActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -64,31 +56,25 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            ImmutableArray<ImmutableDictionary<string, object>> libraries,
-
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
             string name,
 
-            ImmutableArray<object> parameters,
-
             Outputs.ActivityPolicyResponse? policy,
 
-            object pythonFile,
-
             string type,
+
+            Outputs.DatabricksSparkPythonActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
-            Libraries = libraries;
             LinkedServiceName = linkedServiceName;
             Name = name;
-            Parameters = parameters;
             Policy = policy;
-            PythonFile = pythonFile;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

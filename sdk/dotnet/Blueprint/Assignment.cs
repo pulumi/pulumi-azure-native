@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.Blueprint
     public partial class Assignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the published version of a blueprint definition.
-        /// </summary>
-        [Output("blueprintId")]
-        public Output<string?> BlueprintId { get; private set; } = null!;
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// Managed identity for this blueprint assignment.
         /// </summary>
         [Output("identity")]
@@ -47,46 +29,16 @@ namespace Pulumi.AzureNative.Blueprint
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Defines how resources deployed by a blueprint assignment are locked.
-        /// </summary>
-        [Output("locks")]
-        public Output<Outputs.AssignmentLockSettingsResponse?> Locks { get; private set; } = null!;
-
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Blueprint assignment parameter values.
+        /// Properties for blueprint assignment object.
         /// </summary>
-        [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterValueResponse>> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the blueprint assignment.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Names and locations of resource group placeholders.
-        /// </summary>
-        [Output("resourceGroups")]
-        public Output<ImmutableDictionary<string, Outputs.ResourceGroupValueResponse>> ResourceGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
-        /// </summary>
-        [Output("scope")]
-        public Output<string?> Scope { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of blueprint assignment. This field is readonly.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.AssignmentStatusResponse> Status { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
@@ -150,24 +102,6 @@ namespace Pulumi.AzureNative.Blueprint
         public Input<string>? AssignmentName { get; set; }
 
         /// <summary>
-        /// ID of the published version of a blueprint definition.
-        /// </summary>
-        [Input("blueprintId")]
-        public Input<string>? BlueprintId { get; set; }
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Managed identity for this blueprint assignment.
         /// </summary>
         [Input("identity", required: true)]
@@ -180,46 +114,16 @@ namespace Pulumi.AzureNative.Blueprint
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Defines how resources deployed by a blueprint assignment are locked.
+        /// Properties for blueprint assignment object.
         /// </summary>
-        [Input("locks")]
-        public Input<Inputs.AssignmentLockSettingsArgs>? Locks { get; set; }
-
-        [Input("parameters", required: true)]
-        private InputMap<Inputs.ParameterValueArgs>? _parameters;
-
-        /// <summary>
-        /// Blueprint assignment parameter values.
-        /// </summary>
-        public InputMap<Inputs.ParameterValueArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterValueArgs>());
-            set => _parameters = value;
-        }
-
-        [Input("resourceGroups", required: true)]
-        private InputMap<Inputs.ResourceGroupValueArgs>? _resourceGroups;
-
-        /// <summary>
-        /// Names and locations of resource group placeholders.
-        /// </summary>
-        public InputMap<Inputs.ResourceGroupValueArgs> ResourceGroups
-        {
-            get => _resourceGroups ?? (_resourceGroups = new InputMap<Inputs.ResourceGroupValueArgs>());
-            set => _resourceGroups = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.AssignmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         /// </summary>
         [Input("resourceScope", required: true)]
         public Input<string> ResourceScope { get; set; } = null!;
-
-        /// <summary>
-        /// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
 
         public AssignmentArgs()
         {

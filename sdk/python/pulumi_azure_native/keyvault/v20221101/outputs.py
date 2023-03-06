@@ -16,6 +16,7 @@ __all__ = [
     'ActionResponse',
     'IPRuleResponse',
     'KeyAttributesResponse',
+    'KeyPropertiesResponse',
     'KeyReleasePolicyResponse',
     'KeyRotationPolicyAttributesResponse',
     'LifetimeActionResponse',
@@ -272,6 +273,148 @@ class KeyAttributesResponse(dict):
         Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "not_before")
+
+
+@pulumi.output_type
+class KeyPropertiesResponse(dict):
+    """
+    The properties of the key.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUri":
+            suggest = "key_uri"
+        elif key == "keyUriWithVersion":
+            suggest = "key_uri_with_version"
+        elif key == "curveName":
+            suggest = "curve_name"
+        elif key == "keyOps":
+            suggest = "key_ops"
+        elif key == "keySize":
+            suggest = "key_size"
+        elif key == "releasePolicy":
+            suggest = "release_policy"
+        elif key == "rotationPolicy":
+            suggest = "rotation_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_uri: str,
+                 key_uri_with_version: str,
+                 attributes: Optional['outputs.KeyAttributesResponse'] = None,
+                 curve_name: Optional[str] = None,
+                 key_ops: Optional[Sequence[str]] = None,
+                 key_size: Optional[int] = None,
+                 kty: Optional[str] = None,
+                 release_policy: Optional['outputs.KeyReleasePolicyResponse'] = None,
+                 rotation_policy: Optional['outputs.RotationPolicyResponse'] = None):
+        """
+        The properties of the key.
+        :param str key_uri: The URI to retrieve the current version of the key.
+        :param str key_uri_with_version: The URI to retrieve the specific version of the key.
+        :param 'KeyAttributesResponse' attributes: The attributes of the key.
+        :param str curve_name: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        :param int key_size: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        :param str kty: The type of the key. For valid values, see JsonWebKeyType.
+        :param 'KeyReleasePolicyResponse' release_policy: Key release policy in response. It will be used for both output and input. Omitted if empty
+        :param 'RotationPolicyResponse' rotation_policy: Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        """
+        pulumi.set(__self__, "key_uri", key_uri)
+        pulumi.set(__self__, "key_uri_with_version", key_uri_with_version)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if curve_name is not None:
+            pulumi.set(__self__, "curve_name", curve_name)
+        if key_ops is not None:
+            pulumi.set(__self__, "key_ops", key_ops)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
+        if kty is not None:
+            pulumi.set(__self__, "kty", kty)
+        if release_policy is not None:
+            pulumi.set(__self__, "release_policy", release_policy)
+        if rotation_policy is not None:
+            pulumi.set(__self__, "rotation_policy", rotation_policy)
+
+    @property
+    @pulumi.getter(name="keyUri")
+    def key_uri(self) -> str:
+        """
+        The URI to retrieve the current version of the key.
+        """
+        return pulumi.get(self, "key_uri")
+
+    @property
+    @pulumi.getter(name="keyUriWithVersion")
+    def key_uri_with_version(self) -> str:
+        """
+        The URI to retrieve the specific version of the key.
+        """
+        return pulumi.get(self, "key_uri_with_version")
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional['outputs.KeyAttributesResponse']:
+        """
+        The attributes of the key.
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="curveName")
+    def curve_name(self) -> Optional[str]:
+        """
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        """
+        return pulumi.get(self, "curve_name")
+
+    @property
+    @pulumi.getter(name="keyOps")
+    def key_ops(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "key_ops")
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[int]:
+        """
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        """
+        return pulumi.get(self, "key_size")
+
+    @property
+    @pulumi.getter
+    def kty(self) -> Optional[str]:
+        """
+        The type of the key. For valid values, see JsonWebKeyType.
+        """
+        return pulumi.get(self, "kty")
+
+    @property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> Optional['outputs.KeyReleasePolicyResponse']:
+        """
+        Key release policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "release_policy")
+
+    @property
+    @pulumi.getter(name="rotationPolicy")
+    def rotation_policy(self) -> Optional['outputs.RotationPolicyResponse']:
+        """
+        Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "rotation_policy")
 
 
 @pulumi.output_type

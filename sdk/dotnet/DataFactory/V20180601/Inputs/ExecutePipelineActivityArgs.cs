@@ -39,24 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
-        /// <summary>
-        /// Pipeline parameters.
-        /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// Pipeline reference.
-        /// </summary>
-        [Input("pipeline", required: true)]
-        public Input<Inputs.PipelineReferenceArgs> Pipeline { get; set; } = null!;
-
         /// <summary>
         /// Execute pipeline activity policy.
         /// </summary>
@@ -70,6 +52,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Execute pipeline activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ExecutePipelineActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
+
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;
 
@@ -81,12 +69,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
             get => _userProperties ?? (_userProperties = new InputList<Inputs.UserPropertyArgs>());
             set => _userProperties = value;
         }
-
-        /// <summary>
-        /// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
-        /// </summary>
-        [Input("waitOnCompletion")]
-        public Input<bool>? WaitOnCompletion { get; set; }
 
         public ExecutePipelineActivityArgs()
         {

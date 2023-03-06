@@ -38,25 +38,13 @@ export class SignalRCustomCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * Base uri of the KeyVault that stores certificate.
-     */
-    public readonly keyVaultBaseUri!: pulumi.Output<string>;
-    /**
-     * Certificate secret name.
-     */
-    public readonly keyVaultSecretName!: pulumi.Output<string>;
-    /**
-     * Certificate secret version.
-     */
-    public readonly keyVaultSecretVersion!: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the resource.
+     * Custom certificate properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.signalrservice.v20220801preview.CustomCertificatePropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -77,11 +65,8 @@ export class SignalRCustomCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyVaultBaseUri === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyVaultBaseUri'");
-            }
-            if ((!args || args.keyVaultSecretName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyVaultSecretName'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -90,21 +75,15 @@ export class SignalRCustomCertificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["keyVaultBaseUri"] = args ? args.keyVaultBaseUri : undefined;
-            resourceInputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
-            resourceInputs["keyVaultSecretVersion"] = args ? args.keyVaultSecretVersion : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["keyVaultBaseUri"] = undefined /*out*/;
-            resourceInputs["keyVaultSecretName"] = undefined /*out*/;
-            resourceInputs["keyVaultSecretVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -124,17 +103,9 @@ export interface SignalRCustomCertificateArgs {
      */
     certificateName?: pulumi.Input<string>;
     /**
-     * Base uri of the KeyVault that stores certificate.
+     * Custom certificate properties.
      */
-    keyVaultBaseUri: pulumi.Input<string>;
-    /**
-     * Certificate secret name.
-     */
-    keyVaultSecretName: pulumi.Input<string>;
-    /**
-     * Certificate secret version.
-     */
-    keyVaultSecretVersion?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.signalrservice.v20220801preview.CustomCertificatePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

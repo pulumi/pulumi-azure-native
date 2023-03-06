@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'PrometheusRuleGroupActionResponse',
+    'PrometheusRuleGroupPropertiesResponse',
     'PrometheusRuleResolveConfigurationResponse',
     'PrometheusRuleResponse',
     'SystemDataResponse',
@@ -69,6 +70,104 @@ class PrometheusRuleGroupActionResponse(dict):
         The properties of an action group object.
         """
         return pulumi.get(self, "action_properties")
+
+
+@pulumi.output_type
+class PrometheusRuleGroupPropertiesResponse(dict):
+    """
+    An alert rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrometheusRuleGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrometheusRuleGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrometheusRuleGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.PrometheusRuleResponse'],
+                 scopes: Sequence[str],
+                 cluster_name: Optional[str] = None,
+                 description: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 interval: Optional[str] = None):
+        """
+        An alert rule.
+        :param Sequence['PrometheusRuleResponse'] rules: defines the rules in the Prometheus rule group.
+        :param Sequence[str] scopes: the list of resource id's that this rule group is scoped to.
+        :param str cluster_name: the cluster name of the rule group evaluation.
+        :param str description: the description of the Prometheus rule group that will be included in the alert email.
+        :param bool enabled: the flag that indicates whether the Prometheus rule group is enabled.
+        :param str interval: the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
+        """
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "scopes", scopes)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.PrometheusRuleResponse']:
+        """
+        defines the rules in the Prometheus rule group.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        the list of resource id's that this rule group is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[str]:
+        """
+        the cluster name of the rule group evaluation.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        the description of the Prometheus rule group that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        the flag that indicates whether the Prometheus rule group is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[str]:
+        """
+        the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
+        """
+        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type

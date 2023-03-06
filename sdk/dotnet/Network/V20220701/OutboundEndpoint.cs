@@ -34,22 +34,10 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the outbound endpoint.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resourceGuid property of the outbound endpoint resource.
-        /// </summary>
-        [Output("resourceGuid")]
-        public Output<string> ResourceGuid { get; private set; } = null!;
-
-        /// <summary>
-        /// The reference to the subnet used for the outbound endpoint.
-        /// </summary>
-        [Output("subnet")]
-        public Output<Outputs.SubResourceResponse> Subnet { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.OutboundEndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -138,16 +126,16 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Input<string>? OutboundEndpointName { get; set; }
 
         /// <summary>
+        /// Properties of the outbound endpoint.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.OutboundEndpointPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The reference to the subnet used for the outbound endpoint.
-        /// </summary>
-        [Input("subnet", required: true)]
-        public Input<Inputs.SubResourceArgs> Subnet { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

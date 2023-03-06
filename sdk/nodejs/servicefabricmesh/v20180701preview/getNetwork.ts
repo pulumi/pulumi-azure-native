@@ -37,21 +37,9 @@ export interface GetNetworkArgs {
  */
 export interface GetNetworkResult {
     /**
-     * the address prefix for this network.
-     */
-    readonly addressPrefix: string;
-    /**
-     * User readable description of the network.
-     */
-    readonly description?: string;
-    /**
      * Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Configuration for public connectivity for this network.
-     */
-    readonly ingressConfig?: outputs.servicefabricmesh.v20180701preview.IngressConfigResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -61,9 +49,9 @@ export interface GetNetworkResult {
      */
     readonly name: string;
     /**
-     * State of the resource.
+     * Describes properties of a network resource.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.servicefabricmesh.v20180701preview.NetworkResourcePropertiesResponse;
     /**
      * Resource tags.
      */

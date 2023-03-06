@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -38,25 +41,13 @@ export class FileServer extends pulumi.CustomResource {
     }
 
     /**
-     * The backup policy id.
-     */
-    public readonly backupScheduleGroupId!: pulumi.Output<string>;
-    /**
-     * The description of the file server
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Domain of the file server
-     */
-    public readonly domainName!: pulumi.Output<string>;
-    /**
      * The name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The storage domain id.
+     * The properties.
      */
-    public readonly storageDomainId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.FileServerPropertiesResponse>;
     /**
      * The type.
      */
@@ -75,40 +66,28 @@ export class FileServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupScheduleGroupId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'backupScheduleGroupId'");
-            }
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
-            }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
             }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageDomainId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageDomainId'");
-            }
-            resourceInputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["fileServerName"] = args ? args.fileServerName : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageDomainId"] = args ? args.storageDomainId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["backupScheduleGroupId"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["storageDomainId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,21 +100,9 @@ export class FileServer extends pulumi.CustomResource {
  */
 export interface FileServerArgs {
     /**
-     * The backup policy id.
-     */
-    backupScheduleGroupId: pulumi.Input<string>;
-    /**
-     * The description of the file server
-     */
-    description?: pulumi.Input<string>;
-    /**
      * The device name.
      */
     deviceName: pulumi.Input<string>;
-    /**
-     * Domain of the file server
-     */
-    domainName: pulumi.Input<string>;
     /**
      * The file server name.
      */
@@ -145,11 +112,11 @@ export interface FileServerArgs {
      */
     managerName: pulumi.Input<string>;
     /**
+     * The properties.
+     */
+    properties: pulumi.Input<inputs.storsimple.v20161001.FileServerPropertiesArgs>;
+    /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The storage domain id.
-     */
-    storageDomainId: pulumi.Input<string>;
 }

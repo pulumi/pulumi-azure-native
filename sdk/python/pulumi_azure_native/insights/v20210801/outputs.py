@@ -17,6 +17,7 @@ __all__ = [
     'ConditionResponseFailingPeriods',
     'DimensionResponse',
     'ScheduledQueryRuleCriteriaResponse',
+    'ScheduledQueryRulePropertiesResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'WorkbookResourceResponseIdentity',
@@ -360,6 +361,266 @@ class ScheduledQueryRuleCriteriaResponse(dict):
         A list of conditions to evaluate against the specified scopes
         """
         return pulumi.get(self, "all_of")
+
+
+@pulumi.output_type
+class ScheduledQueryRulePropertiesResponse(dict):
+    """
+    scheduled query rule Definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdWithApiVersion":
+            suggest = "created_with_api_version"
+        elif key == "isLegacyLogAnalyticsRule":
+            suggest = "is_legacy_log_analytics_rule"
+        elif key == "isWorkspaceAlertsStorageConfigured":
+            suggest = "is_workspace_alerts_storage_configured"
+        elif key == "autoMitigate":
+            suggest = "auto_mitigate"
+        elif key == "checkWorkspaceAlertsStorageConfigured":
+            suggest = "check_workspace_alerts_storage_configured"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "evaluationFrequency":
+            suggest = "evaluation_frequency"
+        elif key == "muteActionsDuration":
+            suggest = "mute_actions_duration"
+        elif key == "overrideQueryTimeRange":
+            suggest = "override_query_time_range"
+        elif key == "skipQueryValidation":
+            suggest = "skip_query_validation"
+        elif key == "targetResourceTypes":
+            suggest = "target_resource_types"
+        elif key == "windowSize":
+            suggest = "window_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_with_api_version: str,
+                 criteria: 'outputs.ScheduledQueryRuleCriteriaResponse',
+                 enabled: bool,
+                 is_legacy_log_analytics_rule: bool,
+                 is_workspace_alerts_storage_configured: bool,
+                 scopes: Sequence[str],
+                 actions: Optional['outputs.ActionsResponse'] = None,
+                 auto_mitigate: Optional[bool] = None,
+                 check_workspace_alerts_storage_configured: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 evaluation_frequency: Optional[str] = None,
+                 mute_actions_duration: Optional[str] = None,
+                 override_query_time_range: Optional[str] = None,
+                 severity: Optional[float] = None,
+                 skip_query_validation: Optional[bool] = None,
+                 target_resource_types: Optional[Sequence[str]] = None,
+                 window_size: Optional[str] = None):
+        """
+        scheduled query rule Definition
+        :param str created_with_api_version: The api-version used when creating this alert rule
+        :param 'ScheduledQueryRuleCriteriaResponse' criteria: The rule criteria that defines the conditions of the scheduled query rule.
+        :param bool enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+        :param bool is_legacy_log_analytics_rule: True if alert rule is legacy Log Analytic rule
+        :param bool is_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule has been configured to be stored in the customer's storage. The default is false.
+        :param Sequence[str] scopes: The list of resource id's that this scheduled query rule is scoped to.
+        :param 'ActionsResponse' actions: Actions to invoke when the alert fires.
+        :param bool auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        :param bool check_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
+        :param str description: The description of the scheduled query rule.
+        :param str display_name: The display name of the alert rule
+        :param str evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
+        :param str mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
+        :param str override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
+        :param float severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
+        :param bool skip_query_validation: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
+        :param Sequence[str] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
+        :param str window_size: The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
+        """
+        pulumi.set(__self__, "created_with_api_version", created_with_api_version)
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "is_legacy_log_analytics_rule", is_legacy_log_analytics_rule)
+        pulumi.set(__self__, "is_workspace_alerts_storage_configured", is_workspace_alerts_storage_configured)
+        pulumi.set(__self__, "scopes", scopes)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if check_workspace_alerts_storage_configured is not None:
+            pulumi.set(__self__, "check_workspace_alerts_storage_configured", check_workspace_alerts_storage_configured)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if evaluation_frequency is not None:
+            pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        if mute_actions_duration is not None:
+            pulumi.set(__self__, "mute_actions_duration", mute_actions_duration)
+        if override_query_time_range is not None:
+            pulumi.set(__self__, "override_query_time_range", override_query_time_range)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if skip_query_validation is not None:
+            pulumi.set(__self__, "skip_query_validation", skip_query_validation)
+        if target_resource_types is not None:
+            pulumi.set(__self__, "target_resource_types", target_resource_types)
+        if window_size is not None:
+            pulumi.set(__self__, "window_size", window_size)
+
+    @property
+    @pulumi.getter(name="createdWithApiVersion")
+    def created_with_api_version(self) -> str:
+        """
+        The api-version used when creating this alert rule
+        """
+        return pulumi.get(self, "created_with_api_version")
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> 'outputs.ScheduledQueryRuleCriteriaResponse':
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="isLegacyLogAnalyticsRule")
+    def is_legacy_log_analytics_rule(self) -> bool:
+        """
+        True if alert rule is legacy Log Analytic rule
+        """
+        return pulumi.get(self, "is_legacy_log_analytics_rule")
+
+    @property
+    @pulumi.getter(name="isWorkspaceAlertsStorageConfigured")
+    def is_workspace_alerts_storage_configured(self) -> bool:
+        """
+        The flag which indicates whether this scheduled query rule has been configured to be stored in the customer's storage. The default is false.
+        """
+        return pulumi.get(self, "is_workspace_alerts_storage_configured")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        The list of resource id's that this scheduled query rule is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional['outputs.ActionsResponse']:
+        """
+        Actions to invoke when the alert fires.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[bool]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @property
+    @pulumi.getter(name="checkWorkspaceAlertsStorageConfigured")
+    def check_workspace_alerts_storage_configured(self) -> Optional[bool]:
+        """
+        The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "check_workspace_alerts_storage_configured")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the scheduled query rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> Optional[str]:
+        """
+        How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter(name="muteActionsDuration")
+    def mute_actions_duration(self) -> Optional[str]:
+        """
+        Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "mute_actions_duration")
+
+    @property
+    @pulumi.getter(name="overrideQueryTimeRange")
+    def override_query_time_range(self) -> Optional[str]:
+        """
+        If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "override_query_time_range")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[float]:
+        """
+        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="skipQueryValidation")
+    def skip_query_validation(self) -> Optional[bool]:
+        """
+        The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "skip_query_validation")
+
+    @property
+    @pulumi.getter(name="targetResourceTypes")
+    def target_resource_types(self) -> Optional[Sequence[str]]:
+        """
+        List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
+        """
+        return pulumi.get(self, "target_resource_types")
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[str]:
+        """
+        The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "window_size")
 
 
 @pulumi.output_type

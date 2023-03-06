@@ -64,17 +64,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Network Address and Port Translation configuration.
-        /// If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        /// Data network properties.
         /// </summary>
-        [Output("naptConfiguration")]
-        public Output<Outputs.NaptConfigurationResponse?> NaptConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the attached data network resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AttachedDataNetworkPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -93,27 +86,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        /// </summary>
-        [Output("userEquipmentAddressPoolPrefix")]
-        public Output<ImmutableArray<string>> UserEquipmentAddressPoolPrefix { get; private set; } = null!;
-
-        /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        /// The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        /// </summary>
-        [Output("userEquipmentStaticAddressPoolPrefix")]
-        public Output<ImmutableArray<string>> UserEquipmentStaticAddressPoolPrefix { get; private set; } = null!;
-
-        /// <summary>
-        /// The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
-        /// </summary>
-        [Output("userPlaneDataInterface")]
-        public Output<Outputs.InterfacePropertiesResponse> UserPlaneDataInterface { get; private set; } = null!;
 
 
         /// <summary>
@@ -215,13 +187,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Network Address and Port Translation configuration.
-        /// If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
-        /// </summary>
-        [Input("naptConfiguration")]
-        public Input<Inputs.NaptConfigurationArgs>? NaptConfiguration { get; set; }
-
-        /// <summary>
         /// The name of the packet core control plane.
         /// </summary>
         [Input("packetCoreControlPlaneName", required: true)]
@@ -232,6 +197,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         [Input("packetCoreDataPlaneName", required: true)]
         public Input<string> PacketCoreDataPlaneName { get; set; } = null!;
+
+        /// <summary>
+        /// Data network properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.AttachedDataNetworkPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -250,39 +221,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        [Input("userEquipmentAddressPoolPrefix")]
-        private InputList<string>? _userEquipmentAddressPoolPrefix;
-
-        /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        /// </summary>
-        public InputList<string> UserEquipmentAddressPoolPrefix
-        {
-            get => _userEquipmentAddressPoolPrefix ?? (_userEquipmentAddressPoolPrefix = new InputList<string>());
-            set => _userEquipmentAddressPoolPrefix = value;
-        }
-
-        [Input("userEquipmentStaticAddressPoolPrefix")]
-        private InputList<string>? _userEquipmentStaticAddressPoolPrefix;
-
-        /// <summary>
-        /// The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        /// The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        /// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        /// </summary>
-        public InputList<string> UserEquipmentStaticAddressPoolPrefix
-        {
-            get => _userEquipmentStaticAddressPoolPrefix ?? (_userEquipmentStaticAddressPoolPrefix = new InputList<string>());
-            set => _userEquipmentStaticAddressPoolPrefix = value;
-        }
-
-        /// <summary>
-        /// The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
-        /// </summary>
-        [Input("userPlaneDataInterface", required: true)]
-        public Input<Inputs.InterfacePropertiesArgs> UserPlaneDataInterface { get; set; } = null!;
 
         public AttachedDataNetworkArgs()
         {

@@ -82,18 +82,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public sealed class GetTemplateArtifactResult
     {
         /// <summary>
-        /// Artifacts which need to be deployed before the specified artifact.
-        /// </summary>
-        public readonly ImmutableArray<string> DependsOn;
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
@@ -107,17 +95,9 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Template parameter values.
+        /// Properties for template artifact
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterValueBaseResponse> Parameters;
-        /// <summary>
-        /// If applicable, the name of the resource group placeholder to which the template will be deployed.
-        /// </summary>
-        public readonly string? ResourceGroup;
-        /// <summary>
-        /// The Azure Resource Manager template body.
-        /// </summary>
-        public readonly object Template;
+        public readonly Outputs.TemplateArtifactPropertiesResponse Properties;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -125,35 +105,20 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 
         [OutputConstructor]
         private GetTemplateArtifactResult(
-            ImmutableArray<string> dependsOn,
-
-            string? description,
-
-            string? displayName,
-
             string id,
 
             string kind,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterValueBaseResponse> parameters,
-
-            string? resourceGroup,
-
-            object template,
+            Outputs.TemplateArtifactPropertiesResponse properties,
 
             string type)
         {
-            DependsOn = dependsOn;
-            Description = description;
-            DisplayName = displayName;
             Id = id;
             Kind = kind;
             Name = name;
-            Parameters = parameters;
-            ResourceGroup = resourceGroup;
-            Template = template;
+            Properties = properties;
             Type = type;
         }
     }

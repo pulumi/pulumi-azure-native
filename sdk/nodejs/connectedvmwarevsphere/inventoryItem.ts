@@ -39,33 +39,17 @@ export class InventoryItem extends pulumi.CustomResource {
     }
 
     /**
-     * They inventory type.
-     */
-    public readonly inventoryType!: pulumi.Output<string>;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets the tracked resource id corresponding to the inventory resource.
-     */
-    public readonly managedResourceId!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets the vCenter Managed Object name for the inventory item.
-     */
-    public readonly moName!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
-     */
-    public readonly moRefId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.connectedvmwarevsphere.ClusterInventoryItemResponse | outputs.connectedvmwarevsphere.DatastoreInventoryItemResponse | outputs.connectedvmwarevsphere.HostInventoryItemResponse | outputs.connectedvmwarevsphere.ResourcePoolInventoryItemResponse | outputs.connectedvmwarevsphere.VirtualMachineInventoryItemResponse | outputs.connectedvmwarevsphere.VirtualMachineTemplateInventoryItemResponse | outputs.connectedvmwarevsphere.VirtualNetworkInventoryItemResponse>;
     /**
      * The system data.
      */
@@ -86,8 +70,8 @@ export class InventoryItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inventoryType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'inventoryType'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -96,25 +80,17 @@ export class InventoryItem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vcenterName'");
             }
             resourceInputs["inventoryItemName"] = args ? args.inventoryItemName : undefined;
-            resourceInputs["inventoryType"] = args ? args.inventoryType : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managedResourceId"] = args ? args.managedResourceId : undefined;
-            resourceInputs["moName"] = args ? args.moName : undefined;
-            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["inventoryType"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["managedResourceId"] = undefined /*out*/;
-            resourceInputs["moName"] = undefined /*out*/;
-            resourceInputs["moRefId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -134,25 +110,13 @@ export interface InventoryItemArgs {
      */
     inventoryItemName?: pulumi.Input<string>;
     /**
-     * They inventory type.
-     */
-    inventoryType: pulumi.Input<string | enums.connectedvmwarevsphere.InventoryType>;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     kind?: pulumi.Input<string>;
     /**
-     * Gets or sets the tracked resource id corresponding to the inventory resource.
+     * Resource properties.
      */
-    managedResourceId?: pulumi.Input<string>;
-    /**
-     * Gets or sets the vCenter Managed Object name for the inventory item.
-     */
-    moName?: pulumi.Input<string>;
-    /**
-     * Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
-     */
-    moRefId?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.connectedvmwarevsphere.ClusterInventoryItemArgs | inputs.connectedvmwarevsphere.DatastoreInventoryItemArgs | inputs.connectedvmwarevsphere.HostInventoryItemArgs | inputs.connectedvmwarevsphere.ResourcePoolInventoryItemArgs | inputs.connectedvmwarevsphere.VirtualMachineInventoryItemArgs | inputs.connectedvmwarevsphere.VirtualMachineTemplateInventoryItemArgs | inputs.connectedvmwarevsphere.VirtualNetworkInventoryItemArgs>;
     /**
      * The Resource Group Name.
      */

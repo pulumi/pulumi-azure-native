@@ -37,22 +37,6 @@ export interface GetApplianceDefinitionArgs {
  */
 export interface GetApplianceDefinitionResult {
     /**
-     * The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-     */
-    readonly artifacts?: outputs.solutions.v20160901preview.ApplianceArtifactResponse[];
-    /**
-     * The appliance provider authorizations.
-     */
-    readonly authorizations: outputs.solutions.v20160901preview.ApplianceProviderAuthorizationResponse[];
-    /**
-     * The appliance definition description.
-     */
-    readonly description?: string;
-    /**
-     * The appliance definition display name.
-     */
-    readonly displayName?: string;
-    /**
      * Resource ID
      */
     readonly id: string;
@@ -65,10 +49,6 @@ export interface GetApplianceDefinitionResult {
      */
     readonly location?: string;
     /**
-     * The appliance lock level.
-     */
-    readonly lockLevel: string;
-    /**
      * ID of the resource that manages this resource.
      */
     readonly managedBy?: string;
@@ -77,9 +57,9 @@ export interface GetApplianceDefinitionResult {
      */
     readonly name: string;
     /**
-     * The appliance definition package file Uri.
+     * The appliance definition properties.
      */
-    readonly packageFileUri: string;
+    readonly properties: outputs.solutions.v20160901preview.ApplianceDefinitionPropertiesResponse;
     /**
      * The SKU of the resource.
      */

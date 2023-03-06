@@ -15,7 +15,9 @@ __all__ = [
     'ActiveDirectoryResponse',
     'ExportPolicyRuleResponse',
     'MountTargetPropertiesResponse',
+    'PoolPropertiesResponse',
     'ReplicationObjectResponse',
+    'VolumePropertiesResponse',
     'VolumePropertiesResponseDataProtection',
     'VolumePropertiesResponseExportPolicy',
 ]
@@ -423,6 +425,84 @@ class MountTargetPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PoolPropertiesResponse(dict):
+    """
+    Pool properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "poolId":
+            suggest = "pool_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceLevel":
+            suggest = "service_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pool_id: str,
+                 provisioning_state: str,
+                 service_level: str,
+                 size: float):
+        """
+        Pool properties
+        :param str pool_id: UUID v4 used to identify the Pool
+        :param str provisioning_state: Azure lifecycle management
+        :param str service_level: The service level of the file system
+        :param float size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        pulumi.set(__self__, "pool_id", pool_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_level is None:
+            service_level = 'Premium'
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter(name="poolId")
+    def pool_id(self) -> str:
+        """
+        UUID v4 used to identify the Pool
+        """
+        return pulumi.get(self, "pool_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> str:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter
+    def size(self) -> float:
+        """
+        Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
 class ReplicationObjectResponse(dict):
     """
     Replication properties
@@ -499,6 +579,225 @@ class ReplicationObjectResponse(dict):
         Id
         """
         return pulumi.get(self, "replication_id")
+
+
+@pulumi.output_type
+class VolumePropertiesResponse(dict):
+    """
+    Volume properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baremetalTenantId":
+            suggest = "baremetal_tenant_id"
+        elif key == "creationToken":
+            suggest = "creation_token"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "usageThreshold":
+            suggest = "usage_threshold"
+        elif key == "usedBytes":
+            suggest = "used_bytes"
+        elif key == "dataProtection":
+            suggest = "data_protection"
+        elif key == "exportPolicy":
+            suggest = "export_policy"
+        elif key == "mountTargets":
+            suggest = "mount_targets"
+        elif key == "protocolTypes":
+            suggest = "protocol_types"
+        elif key == "serviceLevel":
+            suggest = "service_level"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 baremetal_tenant_id: str,
+                 creation_token: str,
+                 file_system_id: str,
+                 provisioning_state: str,
+                 subnet_id: str,
+                 usage_threshold: float,
+                 used_bytes: float,
+                 data_protection: Optional['outputs.VolumePropertiesResponseDataProtection'] = None,
+                 export_policy: Optional['outputs.VolumePropertiesResponseExportPolicy'] = None,
+                 mount_targets: Optional[Sequence['outputs.MountTargetPropertiesResponse']] = None,
+                 protocol_types: Optional[Sequence[str]] = None,
+                 service_level: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
+                 volume_type: Optional[str] = None):
+        """
+        Volume properties
+        :param str baremetal_tenant_id: Unique Baremetal Tenant Identifier.
+        :param str creation_token: A unique file path for the volume. Used when creating mount targets
+        :param str file_system_id: Unique FileSystem Identifier.
+        :param str provisioning_state: Azure lifecycle management
+        :param str subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param 'VolumePropertiesResponseDataProtection' data_protection: DataProtection volume, can have a replication object
+        :param 'VolumePropertiesResponseExportPolicy' export_policy: Set of export policy rules
+        :param Sequence['MountTargetPropertiesResponse'] mount_targets: List of mount targets
+        :param Sequence[str] protocol_types: Set of protocol types
+        :param str service_level: The service level of the file system
+        :param str snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
+        :param str volume_type: What type of volume is this
+        """
+        pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
+        pulumi.set(__self__, "creation_token", creation_token)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if usage_threshold is None:
+            usage_threshold = 107374182400
+        pulumi.set(__self__, "usage_threshold", usage_threshold)
+        pulumi.set(__self__, "used_bytes", used_bytes)
+        if data_protection is not None:
+            pulumi.set(__self__, "data_protection", data_protection)
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
+        if mount_targets is not None:
+            pulumi.set(__self__, "mount_targets", mount_targets)
+        if protocol_types is not None:
+            pulumi.set(__self__, "protocol_types", protocol_types)
+        if service_level is None:
+            service_level = 'Premium'
+        if service_level is not None:
+            pulumi.set(__self__, "service_level", service_level)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="baremetalTenantId")
+    def baremetal_tenant_id(self) -> str:
+        """
+        Unique Baremetal Tenant Identifier.
+        """
+        return pulumi.get(self, "baremetal_tenant_id")
+
+    @property
+    @pulumi.getter(name="creationToken")
+    def creation_token(self) -> str:
+        """
+        A unique file path for the volume. Used when creating mount targets
+        """
+        return pulumi.get(self, "creation_token")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        Unique FileSystem Identifier.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="usageThreshold")
+    def usage_threshold(self) -> float:
+        """
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        """
+        return pulumi.get(self, "usage_threshold")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> float:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
+    @property
+    @pulumi.getter(name="dataProtection")
+    def data_protection(self) -> Optional['outputs.VolumePropertiesResponseDataProtection']:
+        """
+        DataProtection volume, can have a replication object
+        """
+        return pulumi.get(self, "data_protection")
+
+    @property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+        """
+        Set of export policy rules
+        """
+        return pulumi.get(self, "export_policy")
+
+    @property
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> Optional[Sequence['outputs.MountTargetPropertiesResponse']]:
+        """
+        List of mount targets
+        """
+        return pulumi.get(self, "mount_targets")
+
+    @property
+    @pulumi.getter(name="protocolTypes")
+    def protocol_types(self) -> Optional[Sequence[str]]:
+        """
+        Set of protocol types
+        """
+        return pulumi.get(self, "protocol_types")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> Optional[str]:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[str]:
+        """
+        What type of volume is this
+        """
+        return pulumi.get(self, "volume_type")
 
 
 @pulumi.output_type

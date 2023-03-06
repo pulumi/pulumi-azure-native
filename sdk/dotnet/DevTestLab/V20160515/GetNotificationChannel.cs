@@ -95,18 +95,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public sealed class GetNotificationChannelResult
     {
         /// <summary>
-        /// The creation date of the notification channel.
-        /// </summary>
-        public readonly string CreatedDate;
-        /// <summary>
-        /// Description of notification.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The list of event for which this notification is enabled.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.EventResponse> Events;
-        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -119,9 +107,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly Outputs.NotificationChannelPropertiesResponse Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -130,50 +118,27 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        public readonly string? UniqueIdentifier;
-        /// <summary>
-        /// The webhook URL to send notifications to.
-        /// </summary>
-        public readonly string? WebHookUrl;
 
         [OutputConstructor]
         private GetNotificationChannelResult(
-            string createdDate,
-
-            string? description,
-
-            ImmutableArray<Outputs.EventResponse> events,
-
             string id,
 
             string? location,
 
             string name,
 
-            string? provisioningState,
+            Outputs.NotificationChannelPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? uniqueIdentifier,
-
-            string? webHookUrl)
+            string type)
         {
-            CreatedDate = createdDate;
-            Description = description;
-            Events = events;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
-            WebHookUrl = webHookUrl;
         }
     }
 }

@@ -134,46 +134,16 @@ namespace Pulumi.AzureNative.Automation.V20220808
     public sealed class SourceControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The auto async of the source control. Default is false.
-        /// </summary>
-        [Input("autoSync")]
-        public Input<bool>? AutoSync { get; set; }
-
-        /// <summary>
         /// The name of the automation account.
         /// </summary>
         [Input("automationAccountName", required: true)]
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The repo branch of the source control. Include branch as empty string for VsoTfvc.
+        /// The properties of the source control.
         /// </summary>
-        [Input("branch")]
-        public Input<string>? Branch { get; set; }
-
-        /// <summary>
-        /// The user description of the source control.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The folder path of the source control. Path must be relative.
-        /// </summary>
-        [Input("folderPath")]
-        public Input<string>? FolderPath { get; set; }
-
-        /// <summary>
-        /// The auto publish of the source control. Default is true.
-        /// </summary>
-        [Input("publishRunbook")]
-        public Input<bool>? PublishRunbook { get; set; }
-
-        /// <summary>
-        /// The repo url of the source control.
-        /// </summary>
-        [Input("repoUrl")]
-        public Input<string>? RepoUrl { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SourceControlCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -182,22 +152,10 @@ namespace Pulumi.AzureNative.Automation.V20220808
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The authorization token for the repo of the source control.
-        /// </summary>
-        [Input("securityToken")]
-        public Input<Inputs.SourceControlSecurityTokenPropertiesArgs>? SecurityToken { get; set; }
-
-        /// <summary>
         /// The source control name.
         /// </summary>
         [Input("sourceControlName")]
         public Input<string>? SourceControlName { get; set; }
-
-        /// <summary>
-        /// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
-        /// </summary>
-        [Input("sourceType")]
-        public InputUnion<string, Pulumi.AzureNative.Automation.V20220808.SourceType>? SourceType { get; set; }
 
         public SourceControlArgs()
         {

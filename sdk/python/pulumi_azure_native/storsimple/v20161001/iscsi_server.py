@@ -8,58 +8,33 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IscsiServerArgs', 'IscsiServer']
 
 @pulumi.input_type
 class IscsiServerArgs:
     def __init__(__self__, *,
-                 backup_schedule_group_id: pulumi.Input[str],
                  device_name: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
+                 properties: pulumi.Input['ISCSIServerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 storage_domain_id: pulumi.Input[str],
-                 chap_id: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 iscsi_server_name: Optional[pulumi.Input[str]] = None,
-                 reverse_chap_id: Optional[pulumi.Input[str]] = None):
+                 iscsi_server_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IscsiServer resource.
-        :param pulumi.Input[str] backup_schedule_group_id: The backup policy id.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['ISCSIServerPropertiesArgs'] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[str] storage_domain_id: The storage domain id.
-        :param pulumi.Input[str] chap_id: The chap id.
-        :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
-        :param pulumi.Input[str] reverse_chap_id: The reverse chap id.
         """
-        pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_domain_id", storage_domain_id)
-        if chap_id is not None:
-            pulumi.set(__self__, "chap_id", chap_id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if iscsi_server_name is not None:
             pulumi.set(__self__, "iscsi_server_name", iscsi_server_name)
-        if reverse_chap_id is not None:
-            pulumi.set(__self__, "reverse_chap_id", reverse_chap_id)
-
-    @property
-    @pulumi.getter(name="backupScheduleGroupId")
-    def backup_schedule_group_id(self) -> pulumi.Input[str]:
-        """
-        The backup policy id.
-        """
-        return pulumi.get(self, "backup_schedule_group_id")
-
-    @backup_schedule_group_id.setter
-    def backup_schedule_group_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "backup_schedule_group_id", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -86,6 +61,18 @@ class IscsiServerArgs:
         pulumi.set(self, "manager_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ISCSIServerPropertiesArgs']:
+        """
+        The properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ISCSIServerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -96,42 +83,6 @@ class IscsiServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="storageDomainId")
-    def storage_domain_id(self) -> pulumi.Input[str]:
-        """
-        The storage domain id.
-        """
-        return pulumi.get(self, "storage_domain_id")
-
-    @storage_domain_id.setter
-    def storage_domain_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_domain_id", value)
-
-    @property
-    @pulumi.getter(name="chapId")
-    def chap_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The chap id.
-        """
-        return pulumi.get(self, "chap_id")
-
-    @chap_id.setter
-    def chap_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "chap_id", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="iscsiServerName")
@@ -145,18 +96,6 @@ class IscsiServerArgs:
     def iscsi_server_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "iscsi_server_name", value)
 
-    @property
-    @pulumi.getter(name="reverseChapId")
-    def reverse_chap_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reverse chap id.
-        """
-        return pulumi.get(self, "reverse_chap_id")
-
-    @reverse_chap_id.setter
-    def reverse_chap_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "reverse_chap_id", value)
-
 
 warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -168,30 +107,22 @@ class IscsiServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_schedule_group_id: Optional[pulumi.Input[str]] = None,
-                 chap_id: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ISCSIServerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 reverse_chap_id: Optional[pulumi.Input[str]] = None,
-                 storage_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The iSCSI server.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backup_schedule_group_id: The backup policy id.
-        :param pulumi.Input[str] chap_id: The chap id.
-        :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[pulumi.InputType['ISCSIServerPropertiesArgs']] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[str] reverse_chap_id: The reverse chap id.
-        :param pulumi.Input[str] storage_domain_id: The storage domain id.
         """
         ...
     @overload
@@ -217,15 +148,11 @@ class IscsiServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_schedule_group_id: Optional[pulumi.Input[str]] = None,
-                 chap_id: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ISCSIServerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 reverse_chap_id: Optional[pulumi.Input[str]] = None,
-                 storage_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""IscsiServer is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,11 +163,6 @@ class IscsiServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IscsiServerArgs.__new__(IscsiServerArgs)
 
-            if backup_schedule_group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_schedule_group_id'")
-            __props__.__dict__["backup_schedule_group_id"] = backup_schedule_group_id
-            __props__.__dict__["chap_id"] = chap_id
-            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
@@ -248,13 +170,12 @@ class IscsiServer(pulumi.CustomResource):
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["reverse_chap_id"] = reverse_chap_id
-            if storage_domain_id is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_domain_id'")
-            __props__.__dict__["storage_domain_id"] = storage_domain_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         super(IscsiServer, __self__).__init__(
@@ -279,38 +200,10 @@ class IscsiServer(pulumi.CustomResource):
 
         __props__ = IscsiServerArgs.__new__(IscsiServerArgs)
 
-        __props__.__dict__["backup_schedule_group_id"] = None
-        __props__.__dict__["chap_id"] = None
-        __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["reverse_chap_id"] = None
-        __props__.__dict__["storage_domain_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return IscsiServer(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="backupScheduleGroupId")
-    def backup_schedule_group_id(self) -> pulumi.Output[str]:
-        """
-        The backup policy id.
-        """
-        return pulumi.get(self, "backup_schedule_group_id")
-
-    @property
-    @pulumi.getter(name="chapId")
-    def chap_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The chap id.
-        """
-        return pulumi.get(self, "chap_id")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -321,20 +214,12 @@ class IscsiServer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="reverseChapId")
-    def reverse_chap_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ISCSIServerPropertiesResponse']:
         """
-        The reverse chap id.
+        The properties.
         """
-        return pulumi.get(self, "reverse_chap_id")
-
-    @property
-    @pulumi.getter(name="storageDomainId")
-    def storage_domain_id(self) -> pulumi.Output[str]:
-        """
-        The storage domain id.
-        """
-        return pulumi.get(self, "storage_domain_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

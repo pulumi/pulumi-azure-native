@@ -22,7 +22,7 @@ class GetSimPolicyResult:
     """
     SIM policy resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, default_slice=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, registration_timer=None, rfsp_index=None, slice_configurations=None, system_data=None, tags=None, type=None, ue_ambr=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -32,9 +32,6 @@ class GetSimPolicyResult:
         if created_by_type and not isinstance(created_by_type, str):
             raise TypeError("Expected argument 'created_by_type' to be a str")
         pulumi.set(__self__, "created_by_type", created_by_type)
-        if default_slice and not isinstance(default_slice, dict):
-            raise TypeError("Expected argument 'default_slice' to be a dict")
-        pulumi.set(__self__, "default_slice", default_slice)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,18 +50,9 @@ class GetSimPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if registration_timer and not isinstance(registration_timer, int):
-            raise TypeError("Expected argument 'registration_timer' to be a int")
-        pulumi.set(__self__, "registration_timer", registration_timer)
-        if rfsp_index and not isinstance(rfsp_index, int):
-            raise TypeError("Expected argument 'rfsp_index' to be a int")
-        pulumi.set(__self__, "rfsp_index", rfsp_index)
-        if slice_configurations and not isinstance(slice_configurations, list):
-            raise TypeError("Expected argument 'slice_configurations' to be a list")
-        pulumi.set(__self__, "slice_configurations", slice_configurations)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -74,9 +62,6 @@ class GetSimPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if ue_ambr and not isinstance(ue_ambr, dict):
-            raise TypeError("Expected argument 'ue_ambr' to be a dict")
-        pulumi.set(__self__, "ue_ambr", ue_ambr)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -101,14 +86,6 @@ class GetSimPolicyResult:
         The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="defaultSlice")
-    def default_slice(self) -> 'outputs.SliceResourceIdResponse':
-        """
-        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
-        """
-        return pulumi.get(self, "default_slice")
 
     @property
     @pulumi.getter
@@ -159,36 +136,12 @@ class GetSimPolicyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SimPolicyPropertiesFormatResponse':
         """
-        The provisioning state of the SIM policy resource.
+        SIM policy Properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="registrationTimer")
-    def registration_timer(self) -> Optional[int]:
-        """
-        Interval for the UE periodic registration update procedure, in seconds.
-        """
-        return pulumi.get(self, "registration_timer")
-
-    @property
-    @pulumi.getter(name="rfspIndex")
-    def rfsp_index(self) -> Optional[int]:
-        """
-        RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
-        """
-        return pulumi.get(self, "rfsp_index")
-
-    @property
-    @pulumi.getter(name="sliceConfigurations")
-    def slice_configurations(self) -> Sequence['outputs.SliceConfigurationResponse']:
-        """
-        The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        """
-        return pulumi.get(self, "slice_configurations")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -214,14 +167,6 @@ class GetSimPolicyResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="ueAmbr")
-    def ue_ambr(self) -> 'outputs.AmbrResponse':
-        """
-        Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-        """
-        return pulumi.get(self, "ue_ambr")
-
 
 class AwaitableGetSimPolicyResult(GetSimPolicyResult):
     # pylint: disable=using-constant-test
@@ -232,21 +177,16 @@ class AwaitableGetSimPolicyResult(GetSimPolicyResult):
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_type=self.created_by_type,
-            default_slice=self.default_slice,
             id=self.id,
             last_modified_at=self.last_modified_at,
             last_modified_by=self.last_modified_by,
             last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            registration_timer=self.registration_timer,
-            rfsp_index=self.rfsp_index,
-            slice_configurations=self.slice_configurations,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            ue_ambr=self.ue_ambr)
+            type=self.type)
 
 
 def get_sim_policy(mobile_network_name: Optional[str] = None,
@@ -272,21 +212,16 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
         created_at=__ret__.created_at,
         created_by=__ret__.created_by,
         created_by_type=__ret__.created_by_type,
-        default_slice=__ret__.default_slice,
         id=__ret__.id,
         last_modified_at=__ret__.last_modified_at,
         last_modified_by=__ret__.last_modified_by,
         last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        registration_timer=__ret__.registration_timer,
-        rfsp_index=__ret__.rfsp_index,
-        slice_configurations=__ret__.slice_configurations,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        ue_ambr=__ret__.ue_ambr)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_sim_policy)

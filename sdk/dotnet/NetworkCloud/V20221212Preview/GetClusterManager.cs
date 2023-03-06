@@ -70,30 +70,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public sealed class GetClusterManagerResult
     {
         /// <summary>
-        /// The resource ID of the Log Analytics workspace that is used for the logs collection.
-        /// </summary>
-        public readonly string? AnalyticsWorkspaceId;
-        /// <summary>
-        /// Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-        /// </summary>
-        public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterAvailableVersionResponse> ClusterVersions;
-        /// <summary>
-        /// The detailed status that provides additional information about the cluster manager.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
-        /// The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-        /// </summary>
-        public readonly string FabricControllerId;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -102,22 +78,13 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The configuration of the managed resource group associated with the resource.
-        /// </summary>
-        public readonly Outputs.ManagedResourceGroupConfigurationResponse? ManagedResourceGroupConfiguration;
-        /// <summary>
-        /// The extended location (custom location) that represents the cluster manager's control plane location.
-        ///  This extended location is used when creating cluster and rack manifest resources.
-        /// </summary>
-        public readonly Outputs.ExtendedLocationResponse ManagerExtendedLocation;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the cluster manager.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.ClusterManagerPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -130,61 +97,30 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-        /// </summary>
-        public readonly string? VmSize;
 
         [OutputConstructor]
         private GetClusterManagerResult(
-            string? analyticsWorkspaceId,
-
-            ImmutableArray<string> availabilityZones,
-
-            ImmutableArray<Outputs.ClusterAvailableVersionResponse> clusterVersions,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
-            string fabricControllerId,
-
             string id,
 
             string location,
 
-            Outputs.ManagedResourceGroupConfigurationResponse? managedResourceGroupConfiguration,
-
-            Outputs.ExtendedLocationResponse managerExtendedLocation,
-
             string name,
 
-            string provisioningState,
+            Outputs.ClusterManagerPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? vmSize)
+            string type)
         {
-            AnalyticsWorkspaceId = analyticsWorkspaceId;
-            AvailabilityZones = availabilityZones;
-            ClusterVersions = clusterVersions;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
-            FabricControllerId = fabricControllerId;
             Id = id;
             Location = location;
-            ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
-            ManagerExtendedLocation = managerExtendedLocation;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VmSize = vmSize;
         }
     }
 }

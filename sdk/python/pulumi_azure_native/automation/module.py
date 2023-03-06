@@ -17,7 +17,7 @@ __all__ = ['ModuleArgs', 'Module']
 class ModuleArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
-                 content_link: pulumi.Input['ContentLinkArgs'],
+                 properties: pulumi.Input['ModuleCreateOrUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  module_name: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class ModuleArgs:
         """
         The set of arguments for constructing a Module resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
+        :param pulumi.Input['ModuleCreateOrUpdatePropertiesArgs'] properties: Gets or sets the module create properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[str] module_name: The name of module.
@@ -34,7 +34,7 @@ class ModuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "content_link", content_link)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -58,16 +58,16 @@ class ModuleArgs:
         pulumi.set(self, "automation_account_name", value)
 
     @property
-    @pulumi.getter(name="contentLink")
-    def content_link(self) -> pulumi.Input['ContentLinkArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ModuleCreateOrUpdatePropertiesArgs']:
         """
-        Gets or sets the module content link.
+        Gets or sets the module create properties.
         """
-        return pulumi.get(self, "content_link")
+        return pulumi.get(self, "properties")
 
-    @content_link.setter
-    def content_link(self, value: pulumi.Input['ContentLinkArgs']):
-        pulumi.set(self, "content_link", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ModuleCreateOrUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -136,10 +136,10 @@ class Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  module_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ModuleCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -150,10 +150,10 @@ class Module(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] content_link: Gets or sets the module content link.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[str] module_name: The name of module.
         :param pulumi.Input[str] name: Gets or sets name of the resource.
+        :param pulumi.Input[pulumi.InputType['ModuleCreateOrUpdatePropertiesArgs']] properties: Gets or sets the module create properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
@@ -183,10 +183,10 @@ class Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  module_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ModuleCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -201,17 +201,18 @@ class Module(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
-            if content_link is None and not opts.urn:
-                raise TypeError("Missing required property 'content_link'")
-            __props__.__dict__["content_link"] = content_link
             __props__.__dict__["location"] = location
             __props__.__dict__["module_name"] = module_name
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["activity_count"] = None
+            __props__.__dict__["content_link"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["error"] = None

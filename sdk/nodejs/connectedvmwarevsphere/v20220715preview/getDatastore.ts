@@ -35,29 +35,13 @@ export interface GetDatastoreArgs {
  */
 export interface GetDatastoreResult {
     /**
-     * Gets or sets Maximum capacity of this datastore in GBs.
-     */
-    readonly capacityGB: number;
-    /**
-     * Gets the name of the corresponding resource in Kubernetes.
-     */
-    readonly customResourceName: string;
-    /**
      * Gets or sets the extended location.
      */
     readonly extendedLocation?: outputs.connectedvmwarevsphere.v20220715preview.ExtendedLocationResponse;
     /**
-     * Gets or sets Available space of this datastore in GBs.
-     */
-    readonly freeSpaceGB: number;
-    /**
      * Gets or sets the Id.
      */
     readonly id: string;
-    /**
-     * Gets or sets the inventory Item ID for the datastore.
-     */
-    readonly inventoryItemId?: string;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -67,25 +51,13 @@ export interface GetDatastoreResult {
      */
     readonly location: string;
     /**
-     * Gets or sets the vCenter Managed Object name for the datastore.
-     */
-    readonly moName: string;
-    /**
-     * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
-     */
-    readonly moRefId?: string;
-    /**
      * Gets or sets the name.
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Resource properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The resource status information.
-     */
-    readonly statuses: outputs.connectedvmwarevsphere.v20220715preview.ResourceStatusResponse[];
+    readonly properties: outputs.connectedvmwarevsphere.v20220715preview.DatastorePropertiesResponse;
     /**
      * The system data.
      */
@@ -98,14 +70,6 @@ export interface GetDatastoreResult {
      * Gets or sets the type of the resource.
      */
     readonly type: string;
-    /**
-     * Gets or sets a unique identifier for this resource.
-     */
-    readonly uuid: string;
-    /**
-     * Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
-     */
-    readonly vCenterId?: string;
 }
 /**
  * Implements datastore GET method.

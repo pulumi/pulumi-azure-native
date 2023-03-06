@@ -17,46 +17,10 @@ namespace Pulumi.AzureNative.AVS
     public partial class PrivateCloud : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An ExpressRoute Circuit
-        /// </summary>
-        [Output("circuit")]
-        public Output<Outputs.CircuitResponse?> Circuit { get; private set; } = null!;
-
-        /// <summary>
-        /// The endpoints
-        /// </summary>
-        [Output("endpoints")]
-        public Output<Outputs.EndpointsResponse> Endpoints { get; private set; } = null!;
-
-        /// <summary>
-        /// vCenter Single Sign On Identity Sources
-        /// </summary>
-        [Output("identitySources")]
-        public Output<ImmutableArray<Outputs.IdentitySourceResponse>> IdentitySources { get; private set; } = null!;
-
-        /// <summary>
-        /// Connectivity to internet is enabled or disabled
-        /// </summary>
-        [Output("internet")]
-        public Output<string?> Internet { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The default cluster used for management
-        /// </summary>
-        [Output("managementCluster")]
-        public Output<Outputs.ManagementClusterResponse> ManagementCluster { get; private set; } = null!;
-
-        /// <summary>
-        /// Network used to access vCenter Server and NSX-T Manager
-        /// </summary>
-        [Output("managementNetwork")]
-        public Output<string> ManagementNetwork { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -65,34 +29,10 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        /// The properties of a private cloud resource
         /// </summary>
-        [Output("networkBlock")]
-        public Output<string> NetworkBlock { get; private set; } = null!;
-
-        /// <summary>
-        /// Thumbprint of the NSX-T Manager SSL certificate
-        /// </summary>
-        [Output("nsxtCertificateThumbprint")]
-        public Output<string> NsxtCertificateThumbprint { get; private set; } = null!;
-
-        /// <summary>
-        /// Optionally, set the NSX-T Manager password when the private cloud is created
-        /// </summary>
-        [Output("nsxtPassword")]
-        public Output<string?> NsxtPassword { get; private set; } = null!;
-
-        /// <summary>
-        /// Used for virtual machine cold migration, cloning, and snapshot migration
-        /// </summary>
-        [Output("provisioningNetwork")]
-        public Output<string> ProvisioningNetwork { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PrivateCloudPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The private cloud SKU
@@ -111,24 +51,6 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Thumbprint of the vCenter Server SSL certificate
-        /// </summary>
-        [Output("vcenterCertificateThumbprint")]
-        public Output<string> VcenterCertificateThumbprint { get; private set; } = null!;
-
-        /// <summary>
-        /// Optionally, set the vCenter admin password when the private cloud is created
-        /// </summary>
-        [Output("vcenterPassword")]
-        public Output<string?> VcenterPassword { get; private set; } = null!;
-
-        /// <summary>
-        /// Used for live migration of virtual machines
-        /// </summary>
-        [Output("vmotionNetwork")]
-        public Output<string> VmotionNetwork { get; private set; } = null!;
 
 
         /// <summary>
@@ -184,24 +106,6 @@ namespace Pulumi.AzureNative.AVS
 
     public sealed class PrivateCloudArgs : global::Pulumi.ResourceArgs
     {
-        [Input("identitySources")]
-        private InputList<Inputs.IdentitySourceArgs>? _identitySources;
-
-        /// <summary>
-        /// vCenter Single Sign On Identity Sources
-        /// </summary>
-        public InputList<Inputs.IdentitySourceArgs> IdentitySources
-        {
-            get => _identitySources ?? (_identitySources = new InputList<Inputs.IdentitySourceArgs>());
-            set => _identitySources = value;
-        }
-
-        /// <summary>
-        /// Connectivity to internet is enabled or disabled
-        /// </summary>
-        [Input("internet")]
-        public InputUnion<string, Pulumi.AzureNative.AVS.InternetEnum>? Internet { get; set; }
-
         /// <summary>
         /// Resource location
         /// </summary>
@@ -209,28 +113,16 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The default cluster used for management
-        /// </summary>
-        [Input("managementCluster", required: true)]
-        public Input<Inputs.ManagementClusterArgs> ManagementCluster { get; set; } = null!;
-
-        /// <summary>
-        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-        /// </summary>
-        [Input("networkBlock", required: true)]
-        public Input<string> NetworkBlock { get; set; } = null!;
-
-        /// <summary>
-        /// Optionally, set the NSX-T Manager password when the private cloud is created
-        /// </summary>
-        [Input("nsxtPassword")]
-        public Input<string>? NsxtPassword { get; set; }
-
-        /// <summary>
         /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName")]
         public Input<string>? PrivateCloudName { get; set; }
+
+        /// <summary>
+        /// The properties of a private cloud resource
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PrivateCloudPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -256,15 +148,8 @@ namespace Pulumi.AzureNative.AVS
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Optionally, set the vCenter admin password when the private cloud is created
-        /// </summary>
-        [Input("vcenterPassword")]
-        public Input<string>? VcenterPassword { get; set; }
-
         public PrivateCloudArgs()
         {
-            Internet = "Disabled";
         }
         public static new PrivateCloudArgs Empty => new PrivateCloudArgs();
     }

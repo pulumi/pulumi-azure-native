@@ -94,17 +94,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
     public sealed class GetApiSchemaResult
     {
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
-        /// </summary>
-        public readonly object? Components;
-        /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
+        /// Create or update Properties of the API Schema Document.
         /// </summary>
-        public readonly object? Definitions;
+        public readonly Outputs.SchemaDocumentPropertiesResponse Document;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -117,34 +113,24 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-        /// </summary>
-        public readonly string? Value;
 
         [OutputConstructor]
         private GetApiSchemaResult(
-            object? components,
-
             string contentType,
 
-            object? definitions,
+            Outputs.SchemaDocumentPropertiesResponse document,
 
             string id,
 
             string name,
 
-            string type,
-
-            string? value)
+            string type)
         {
-            Components = components;
             ContentType = contentType;
-            Definitions = definitions;
+            Document = document;
             Id = id;
             Name = name;
             Type = type;
-            Value = value;
         }
     }
 }

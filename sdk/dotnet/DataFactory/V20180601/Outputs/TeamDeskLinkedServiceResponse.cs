@@ -21,14 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The api token for the TeamDesk source.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ApiToken;
-        /// <summary>
-        /// The authentication type to use.
-        /// </summary>
-        public readonly string AuthenticationType;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -37,66 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password of the TeamDesk source.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'TeamDesk'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+        /// TeamDesk linked service properties.
         /// </summary>
-        public readonly object Url;
-        /// <summary>
-        /// The username of the TeamDesk source. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? UserName;
+        public readonly Outputs.TeamDeskLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private TeamDeskLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? apiToken,
-
-            string authenticationType,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            object url,
-
-            object? userName)
+            Outputs.TeamDeskLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            ApiToken = apiToken;
-            AuthenticationType = authenticationType;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            Url = url;
-            UserName = userName;
+            TypeProperties = typeProperties;
         }
     }
 }

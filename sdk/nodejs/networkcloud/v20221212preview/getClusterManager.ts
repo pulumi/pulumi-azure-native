@@ -32,30 +32,6 @@ export interface GetClusterManagerArgs {
 
 export interface GetClusterManagerResult {
     /**
-     * The resource ID of the Log Analytics workspace that is used for the logs collection.
-     */
-    readonly analyticsWorkspaceId?: string;
-    /**
-     * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-     */
-    readonly availabilityZones?: string[];
-    /**
-     * The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
-     */
-    readonly clusterVersions: outputs.networkcloud.v20221212preview.ClusterAvailableVersionResponse[];
-    /**
-     * The detailed status that provides additional information about the cluster manager.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
-     * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-     */
-    readonly fabricControllerId: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -64,22 +40,13 @@ export interface GetClusterManagerResult {
      */
     readonly location: string;
     /**
-     * The configuration of the managed resource group associated with the resource.
-     */
-    readonly managedResourceGroupConfiguration?: outputs.networkcloud.v20221212preview.ManagedResourceGroupConfigurationResponse;
-    /**
-     * The extended location (custom location) that represents the cluster manager's control plane location.
-     *  This extended location is used when creating cluster and rack manifest resources.
-     */
-    readonly managerExtendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the cluster manager.
+     * The list of the resource properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.networkcloud.v20221212preview.ClusterManagerPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -92,10 +59,6 @@ export interface GetClusterManagerResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-     */
-    readonly vmSize?: string;
 }
 /**
  * Get the properties of the provided cluster manager.

@@ -35,25 +35,9 @@ export interface GetPrometheusRuleGroupArgs {
  */
 export interface GetPrometheusRuleGroupResult {
     /**
-     * the cluster name of the rule group evaluation.
-     */
-    readonly clusterName?: string;
-    /**
-     * the description of the Prometheus rule group that will be included in the alert email.
-     */
-    readonly description?: string;
-    /**
-     * the flag that indicates whether the Prometheus rule group is enabled.
-     */
-    readonly enabled?: boolean;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * the interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
-     */
-    readonly interval?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -63,13 +47,9 @@ export interface GetPrometheusRuleGroupResult {
      */
     readonly name: string;
     /**
-     * defines the rules in the Prometheus rule group.
+     * The Prometheus rule group properties of the resource.
      */
-    readonly rules: outputs.alertsmanagement.v20210722preview.PrometheusRuleResponse[];
-    /**
-     * the list of resource id's that this rule group is scoped to.
-     */
-    readonly scopes: string[];
+    readonly properties: outputs.alertsmanagement.v20210722preview.PrometheusRuleGroupPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

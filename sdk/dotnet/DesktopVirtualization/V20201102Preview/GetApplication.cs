@@ -83,65 +83,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201102Preview
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// Resource Type of Application.
-        /// </summary>
-        public readonly string? ApplicationType;
-        /// <summary>
-        /// Command Line Arguments for Application.
-        /// </summary>
-        public readonly string? CommandLineArguments;
-        /// <summary>
-        /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-        /// </summary>
-        public readonly string CommandLineSetting;
-        /// <summary>
-        /// Description of Application.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// Specifies a path for the executable file for the application.
-        /// </summary>
-        public readonly string? FilePath;
-        /// <summary>
-        /// Friendly name of Application.
-        /// </summary>
-        public readonly string? FriendlyName;
-        /// <summary>
-        /// the icon a 64 bit string as a byte array.
-        /// </summary>
-        public readonly string IconContent;
-        /// <summary>
-        /// Hash of the icon.
-        /// </summary>
-        public readonly string IconHash;
-        /// <summary>
-        /// Index of the icon.
-        /// </summary>
-        public readonly int? IconIndex;
-        /// <summary>
-        /// Path to icon.
-        /// </summary>
-        public readonly string? IconPath;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Specifies the package application Id for MSIX applications
-        /// </summary>
-        public readonly string? MsixPackageApplicationId;
-        /// <summary>
-        /// Specifies the package family name for MSIX applications
-        /// </summary>
-        public readonly string? MsixPackageFamilyName;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies whether to show the RemoteApp program in the RD Web Access server.
+        /// Detailed properties for Application
         /// </summary>
-        public readonly bool? ShowInPortal;
+        public readonly Outputs.ApplicationPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -149,53 +101,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201102Preview
 
         [OutputConstructor]
         private GetApplicationResult(
-            string? applicationType,
-
-            string? commandLineArguments,
-
-            string commandLineSetting,
-
-            string? description,
-
-            string? filePath,
-
-            string? friendlyName,
-
-            string iconContent,
-
-            string iconHash,
-
-            int? iconIndex,
-
-            string? iconPath,
-
             string id,
-
-            string? msixPackageApplicationId,
-
-            string? msixPackageFamilyName,
 
             string name,
 
-            bool? showInPortal,
+            Outputs.ApplicationPropertiesResponse properties,
 
             string type)
         {
-            ApplicationType = applicationType;
-            CommandLineArguments = commandLineArguments;
-            CommandLineSetting = commandLineSetting;
-            Description = description;
-            FilePath = filePath;
-            FriendlyName = friendlyName;
-            IconContent = iconContent;
-            IconHash = iconHash;
-            IconIndex = iconIndex;
-            IconPath = iconPath;
             Id = id;
-            MsixPackageApplicationId = msixPackageApplicationId;
-            MsixPackageFamilyName = msixPackageFamilyName;
             Name = name;
-            ShowInPortal = showInPortal;
+            Properties = properties;
             Type = type;
         }
     }

@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
     public partial class FileEventTrigger : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-        /// </summary>
-        [Output("customContextTag")]
-        public Output<string?> CustomContextTag { get; private set; } = null!;
-
-        /// <summary>
         /// Trigger Kind.
         /// Expected value is 'FileEvent'.
         /// </summary>
@@ -35,16 +29,10 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Role sink info.
+        /// File trigger properties.
         /// </summary>
-        [Output("sinkInfo")]
-        public Output<Outputs.RoleSinkInfoResponse> SinkInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// File event source details.
-        /// </summary>
-        [Output("sourceInfo")]
-        public Output<Outputs.FileSourceInfoResponse> SourceInfo { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.FileTriggerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
@@ -123,12 +111,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
     public sealed class FileEventTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-        /// </summary>
-        [Input("customContextTag")]
-        public Input<string>? CustomContextTag { get; set; }
-
-        /// <summary>
         /// Creates or updates a trigger
         /// </summary>
         [Input("deviceName", required: true)]
@@ -148,22 +130,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// File trigger properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.FileTriggerPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Role sink info.
-        /// </summary>
-        [Input("sinkInfo", required: true)]
-        public Input<Inputs.RoleSinkInfoArgs> SinkInfo { get; set; } = null!;
-
-        /// <summary>
-        /// File event source details.
-        /// </summary>
-        [Input("sourceInfo", required: true)]
-        public Input<Inputs.FileSourceInfoArgs> SourceInfo { get; set; } = null!;
 
         public FileEventTriggerArgs()
         {

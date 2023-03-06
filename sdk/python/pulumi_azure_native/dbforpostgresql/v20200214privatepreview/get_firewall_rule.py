@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetFirewallRuleResult',
@@ -21,30 +22,19 @@ class GetFirewallRuleResult:
     """
     Represents a server firewall rule.
     """
-    def __init__(__self__, end_ip_address=None, id=None, name=None, start_ip_address=None, type=None):
-        if end_ip_address and not isinstance(end_ip_address, str):
-            raise TypeError("Expected argument 'end_ip_address' to be a str")
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if start_ip_address and not isinstance(start_ip_address, str):
-            raise TypeError("Expected argument 'start_ip_address' to be a str")
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> str:
-        """
-        The end IP address of the server firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "end_ip_address")
 
     @property
     @pulumi.getter
@@ -63,12 +53,12 @@ class GetFirewallRuleResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.FirewallRulePropertiesResponse':
         """
-        The start IP address of the server firewall rule. Must be IPv4 format.
+        The properties of a firewall rule.
         """
-        return pulumi.get(self, "start_ip_address")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -85,10 +75,9 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
         if False:
             yield self
         return GetFirewallRuleResult(
-            end_ip_address=self.end_ip_address,
             id=self.id,
             name=self.name,
-            start_ip_address=self.start_ip_address,
+            properties=self.properties,
             type=self.type)
 
 
@@ -112,10 +101,9 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql/v20200214privatepreview:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
-        end_ip_address=__ret__.end_ip_address,
         id=__ret__.id,
         name=__ret__.name,
-        start_ip_address=__ret__.start_ip_address,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

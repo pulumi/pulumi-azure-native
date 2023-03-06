@@ -72,41 +72,13 @@ namespace Pulumi.AzureNative.ScVmm
     public sealed class GetVirtualMachineResult
     {
         /// <summary>
-        /// Availability Sets in vm.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachinePropertiesResponseAvailabilitySets> AvailabilitySets;
-        /// <summary>
-        /// Type of checkpoint supported for the vm.
-        /// </summary>
-        public readonly string? CheckpointType;
-        /// <summary>
-        /// Checkpoints in the vm.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.CheckpointResponse> Checkpoints;
-        /// <summary>
-        /// ARM Id of the cloud resource to use for deploying the vm.
-        /// </summary>
-        public readonly string? CloudId;
-        /// <summary>
         /// The extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// Gets or sets the generation for the vm.
-        /// </summary>
-        public readonly int? Generation;
-        /// <summary>
-        /// Hardware properties.
-        /// </summary>
-        public readonly Outputs.HardwareProfileResponse? HardwareProfile;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        public readonly string? InventoryItemId;
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
@@ -116,25 +88,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network properties.
+        /// Resource properties.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
-        /// <summary>
-        /// OS properties.
-        /// </summary>
-        public readonly Outputs.OsProfileResponse? OsProfile;
-        /// <summary>
-        /// Gets the power state of the virtual machine.
-        /// </summary>
-        public readonly string PowerState;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Storage properties.
-        /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.VirtualMachinePropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -144,97 +100,36 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// ARM Id of the template resource to use for deploying the vm.
-        /// </summary>
-        public readonly string? TemplateId;
-        /// <summary>
         /// Resource Type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Unique ID of the virtual machine.
-        /// </summary>
-        public readonly string? Uuid;
-        /// <summary>
-        /// VMName is the name of VM on the SCVMM server.
-        /// </summary>
-        public readonly string? VmName;
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        public readonly string? VmmServerId;
 
         [OutputConstructor]
         private GetVirtualMachineResult(
-            ImmutableArray<Outputs.VirtualMachinePropertiesResponseAvailabilitySets> availabilitySets,
-
-            string? checkpointType,
-
-            ImmutableArray<Outputs.CheckpointResponse> checkpoints,
-
-            string? cloudId,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
-            int? generation,
-
-            Outputs.HardwareProfileResponse? hardwareProfile,
-
             string id,
-
-            string? inventoryItemId,
 
             string location,
 
             string name,
 
-            Outputs.NetworkProfileResponse? networkProfile,
-
-            Outputs.OsProfileResponse? osProfile,
-
-            string powerState,
-
-            string provisioningState,
-
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.VirtualMachinePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? templateId,
-
-            string type,
-
-            string? uuid,
-
-            string? vmName,
-
-            string? vmmServerId)
+            string type)
         {
-            AvailabilitySets = availabilitySets;
-            CheckpointType = checkpointType;
-            Checkpoints = checkpoints;
-            CloudId = cloudId;
             ExtendedLocation = extendedLocation;
-            Generation = generation;
-            HardwareProfile = hardwareProfile;
             Id = id;
-            InventoryItemId = inventoryItemId;
             Location = location;
             Name = name;
-            NetworkProfile = networkProfile;
-            OsProfile = osProfile;
-            PowerState = powerState;
-            ProvisioningState = provisioningState;
-            StorageProfile = storageProfile;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            TemplateId = templateId;
             Type = type;
-            Uuid = uuid;
-            VmName = vmName;
-            VmmServerId = vmmServerId;
         }
     }
 }

@@ -17,52 +17,10 @@ namespace Pulumi.AzureNative.Logic
     public partial class IntegrationAccountMap : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        [Output("changedTime")]
-        public Output<string> ChangedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The content.
-        /// </summary>
-        [Output("content")]
-        public Output<string?> Content { get; private set; } = null!;
-
-        /// <summary>
-        /// The content link.
-        /// </summary>
-        [Output("contentLink")]
-        public Output<Outputs.ContentLinkResponse> ContentLink { get; private set; } = null!;
-
-        /// <summary>
-        /// The content type.
-        /// </summary>
-        [Output("contentType")]
-        public Output<string?> ContentType { get; private set; } = null!;
-
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The map type.
-        /// </summary>
-        [Output("mapType")]
-        public Output<string> MapType { get; private set; } = null!;
-
-        /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Output("metadata")]
-        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -71,10 +29,10 @@ namespace Pulumi.AzureNative.Logic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters schema of integration account map.
+        /// The integration account map properties.
         /// </summary>
-        [Output("parametersSchema")]
-        public Output<Outputs.IntegrationAccountMapPropertiesResponseParametersSchema?> ParametersSchema { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IntegrationAccountMapPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -141,18 +99,6 @@ namespace Pulumi.AzureNative.Logic
     public sealed class IntegrationAccountMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content.
-        /// </summary>
-        [Input("content")]
-        public Input<string>? Content { get; set; }
-
-        /// <summary>
-        /// The content type.
-        /// </summary>
-        [Input("contentType")]
-        public Input<string>? ContentType { get; set; }
-
-        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -171,22 +117,10 @@ namespace Pulumi.AzureNative.Logic
         public Input<string>? MapName { get; set; }
 
         /// <summary>
-        /// The map type.
+        /// The integration account map properties.
         /// </summary>
-        [Input("mapType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Logic.MapType> MapType { get; set; } = null!;
-
-        /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
-
-        /// <summary>
-        /// The parameters schema of integration account map.
-        /// </summary>
-        [Input("parametersSchema")]
-        public Input<Inputs.IntegrationAccountMapPropertiesParametersSchemaArgs>? ParametersSchema { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.IntegrationAccountMapPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

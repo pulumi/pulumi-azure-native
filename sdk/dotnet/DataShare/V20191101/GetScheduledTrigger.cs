@@ -94,10 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     public sealed class GetScheduledTriggerResult
     {
         /// <summary>
-        /// Time at which the trigger was created.
-        /// </summary>
-        public readonly string CreatedAt;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -111,69 +107,31 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state
+        /// Properties of scheduled synchronization
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Recurrence Interval
-        /// </summary>
-        public readonly string RecurrenceInterval;
-        /// <summary>
-        /// Synchronization mode
-        /// </summary>
-        public readonly string? SynchronizationMode;
-        /// <summary>
-        /// Synchronization time
-        /// </summary>
-        public readonly string SynchronizationTime;
-        /// <summary>
-        /// Gets the trigger state
-        /// </summary>
-        public readonly string TriggerStatus;
+        public readonly Outputs.ScheduledTriggerPropertiesResponse Properties;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Name of the user who created the trigger.
-        /// </summary>
-        public readonly string UserName;
 
         [OutputConstructor]
         private GetScheduledTriggerResult(
-            string createdAt,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
+            Outputs.ScheduledTriggerPropertiesResponse properties,
 
-            string recurrenceInterval,
-
-            string? synchronizationMode,
-
-            string synchronizationTime,
-
-            string triggerStatus,
-
-            string type,
-
-            string userName)
+            string type)
         {
-            CreatedAt = createdAt;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            RecurrenceInterval = recurrenceInterval;
-            SynchronizationMode = synchronizationMode;
-            SynchronizationTime = synchronizationTime;
-            TriggerStatus = triggerStatus;
+            Properties = properties;
             Type = type;
-            UserName = userName;
         }
     }
 }

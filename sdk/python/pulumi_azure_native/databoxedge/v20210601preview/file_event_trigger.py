@@ -18,29 +18,22 @@ class FileEventTriggerArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['FileTriggerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 sink_info: pulumi.Input['RoleSinkInfoArgs'],
-                 source_info: pulumi.Input['FileSourceInfoArgs'],
-                 custom_context_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FileEventTrigger resource.
         :param pulumi.Input[str] device_name: Creates or updates a trigger
         :param pulumi.Input[str] kind: Trigger Kind.
                Expected value is 'FileEvent'.
+        :param pulumi.Input['FileTriggerPropertiesArgs'] properties: File trigger properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input['RoleSinkInfoArgs'] sink_info: Role sink info.
-        :param pulumi.Input['FileSourceInfoArgs'] source_info: File event source details.
-        :param pulumi.Input[str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
         :param pulumi.Input[str] name: The trigger name.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "kind", 'FileEvent')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sink_info", sink_info)
-        pulumi.set(__self__, "source_info", source_info)
-        if custom_context_tag is not None:
-            pulumi.set(__self__, "custom_context_tag", custom_context_tag)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -70,6 +63,18 @@ class FileEventTriggerArgs:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['FileTriggerPropertiesArgs']:
+        """
+        File trigger properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['FileTriggerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -80,42 +85,6 @@ class FileEventTriggerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sinkInfo")
-    def sink_info(self) -> pulumi.Input['RoleSinkInfoArgs']:
-        """
-        Role sink info.
-        """
-        return pulumi.get(self, "sink_info")
-
-    @sink_info.setter
-    def sink_info(self, value: pulumi.Input['RoleSinkInfoArgs']):
-        pulumi.set(self, "sink_info", value)
-
-    @property
-    @pulumi.getter(name="sourceInfo")
-    def source_info(self) -> pulumi.Input['FileSourceInfoArgs']:
-        """
-        File event source details.
-        """
-        return pulumi.get(self, "source_info")
-
-    @source_info.setter
-    def source_info(self, value: pulumi.Input['FileSourceInfoArgs']):
-        pulumi.set(self, "source_info", value)
-
-    @property
-    @pulumi.getter(name="customContextTag")
-    def custom_context_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-        """
-        return pulumi.get(self, "custom_context_tag")
-
-    @custom_context_tag.setter
-    def custom_context_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_context_tag", value)
 
     @property
     @pulumi.getter
@@ -135,27 +104,23 @@ class FileEventTrigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_context_tag: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['FileTriggerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sink_info: Optional[pulumi.Input[pulumi.InputType['RoleSinkInfoArgs']]] = None,
-                 source_info: Optional[pulumi.Input[pulumi.InputType['FileSourceInfoArgs']]] = None,
                  __props__=None):
         """
         Trigger details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
         :param pulumi.Input[str] device_name: Creates or updates a trigger
         :param pulumi.Input[str] kind: Trigger Kind.
                Expected value is 'FileEvent'.
         :param pulumi.Input[str] name: The trigger name.
+        :param pulumi.Input[pulumi.InputType['FileTriggerPropertiesArgs']] properties: File trigger properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[pulumi.InputType['RoleSinkInfoArgs']] sink_info: Role sink info.
-        :param pulumi.Input[pulumi.InputType['FileSourceInfoArgs']] source_info: File event source details.
         """
         ...
     @overload
@@ -181,13 +146,11 @@ class FileEventTrigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_context_tag: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['FileTriggerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sink_info: Optional[pulumi.Input[pulumi.InputType['RoleSinkInfoArgs']]] = None,
-                 source_info: Optional[pulumi.Input[pulumi.InputType['FileSourceInfoArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,7 +160,6 @@ class FileEventTrigger(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FileEventTriggerArgs.__new__(FileEventTriggerArgs)
 
-            __props__.__dict__["custom_context_tag"] = custom_context_tag
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
@@ -205,15 +167,12 @@ class FileEventTrigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'FileEvent'
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sink_info is None and not opts.urn:
-                raise TypeError("Missing required property 'sink_info'")
-            __props__.__dict__["sink_info"] = sink_info
-            if source_info is None and not opts.urn:
-                raise TypeError("Missing required property 'source_info'")
-            __props__.__dict__["source_info"] = source_info
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:FileEventTrigger")])
@@ -240,22 +199,12 @@ class FileEventTrigger(pulumi.CustomResource):
 
         __props__ = FileEventTriggerArgs.__new__(FileEventTriggerArgs)
 
-        __props__.__dict__["custom_context_tag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["sink_info"] = None
-        __props__.__dict__["source_info"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FileEventTrigger(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="customContextTag")
-    def custom_context_tag(self) -> pulumi.Output[Optional[str]]:
-        """
-        A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-        """
-        return pulumi.get(self, "custom_context_tag")
 
     @property
     @pulumi.getter
@@ -275,20 +224,12 @@ class FileEventTrigger(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="sinkInfo")
-    def sink_info(self) -> pulumi.Output['outputs.RoleSinkInfoResponse']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.FileTriggerPropertiesResponse']:
         """
-        Role sink info.
+        File trigger properties.
         """
-        return pulumi.get(self, "sink_info")
-
-    @property
-    @pulumi.getter(name="sourceInfo")
-    def source_info(self) -> pulumi.Output['outputs.FileSourceInfoResponse']:
-        """
-        File event source details.
-        """
-        return pulumi.get(self, "source_info")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

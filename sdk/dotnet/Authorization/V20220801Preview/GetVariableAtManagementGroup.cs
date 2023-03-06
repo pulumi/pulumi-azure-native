@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
     public sealed class GetVariableAtManagementGroupResult
     {
         /// <summary>
-        /// Variable column definitions.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PolicyVariableColumnResponse> Columns;
-        /// <summary>
         /// The ID of the variable.
         /// </summary>
         public readonly string Id;
@@ -81,6 +77,10 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         /// The name of the variable.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Properties for the variable.
+        /// </summary>
+        public readonly Outputs.PolicyVariablePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -92,19 +92,19 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
 
         [OutputConstructor]
         private GetVariableAtManagementGroupResult(
-            ImmutableArray<Outputs.PolicyVariableColumnResponse> columns,
-
             string id,
 
             string name,
+
+            Outputs.PolicyVariablePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            Columns = columns;
             Id = id;
             Name = name;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

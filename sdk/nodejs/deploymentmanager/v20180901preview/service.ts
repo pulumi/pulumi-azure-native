@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -46,17 +49,13 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The properties that define a service in a service topology.
+     */
+    public readonly properties!: pulumi.Output<outputs.deploymentmanager.v20180901preview.ServiceResourceResponseProperties>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The Azure location to which the resources in the service belong to or should be deployed to.
-     */
-    public readonly targetLocation!: pulumi.Output<string>;
-    /**
-     * The subscription to which the resources in the service belong to or should be deployed to.
-     */
-    public readonly targetSubscriptionId!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -75,33 +74,28 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.serviceTopologyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
-            if ((!args || args.targetLocation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetLocation'");
-            }
-            if ((!args || args.targetSubscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetSubscriptionId'");
-            }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["serviceTopologyName"] = args ? args.serviceTopologyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetLocation"] = args ? args.targetLocation : undefined;
-            resourceInputs["targetSubscriptionId"] = args ? args.targetSubscriptionId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["targetLocation"] = undefined /*out*/;
-            resourceInputs["targetSubscriptionId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,6 +114,10 @@ export interface ServiceArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The properties that define a service in a service topology.
+     */
+    properties: pulumi.Input<inputs.deploymentmanager.v20180901preview.ServiceResourcePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -135,12 +133,4 @@ export interface ServiceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Azure location to which the resources in the service belong to or should be deployed to.
-     */
-    targetLocation: pulumi.Input<string>;
-    /**
-     * The subscription to which the resources in the service belong to or should be deployed to.
-     */
-    targetSubscriptionId: pulumi.Input<string>;
 }

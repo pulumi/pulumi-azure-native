@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetJitNetworkAccessPolicyResult:
-    def __init__(__self__, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,18 +32,12 @@ class GetJitNetworkAccessPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if requests and not isinstance(requests, list):
-            raise TypeError("Expected argument 'requests' to be a list")
-        pulumi.set(__self__, "requests", requests)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_machines and not isinstance(virtual_machines, list):
-            raise TypeError("Expected argument 'virtual_machines' to be a list")
-        pulumi.set(__self__, "virtual_machines", virtual_machines)
 
     @property
     @pulumi.getter
@@ -78,17 +72,9 @@ class GetJitNetworkAccessPolicyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Gets the provisioning state of the Just-in-Time policy.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def requests(self) -> Optional[Sequence['outputs.JitNetworkAccessRequestResponse']]:
-        return pulumi.get(self, "requests")
+    def properties(self) -> 'outputs.JitNetworkAccessPolicyPropertiesResponse':
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -97,14 +83,6 @@ class GetJitNetworkAccessPolicyResult:
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Sequence['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
-        """
-        Configurations for Microsoft.Compute/virtualMachines resource type.
-        """
-        return pulumi.get(self, "virtual_machines")
 
 
 class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
@@ -117,10 +95,8 @@ class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            requests=self.requests,
-            type=self.type,
-            virtual_machines=self.virtual_machines)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_jit_network_access_policy(asc_location: Optional[str] = None,
@@ -148,10 +124,8 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        requests=__ret__.requests,
-        type=__ret__.type,
-        virtual_machines=__ret__.virtual_machines)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_jit_network_access_policy)

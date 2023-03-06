@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The collection name of the CosmosDB (MongoDB API) database. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Collection;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
@@ -53,12 +49,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'CosmosDbMongoDbApiCollection'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// CosmosDB (MongoDB API) database dataset properties.
+        /// </summary>
+        public readonly Outputs.CosmosDbMongoDbApiCollectionDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CosmosDbMongoDbApiCollectionDatasetResponse(
             ImmutableArray<object> annotations,
-
-            object collection,
 
             string? description,
 
@@ -72,10 +70,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.CosmosDbMongoDbApiCollectionDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            Collection = collection;
             Description = description;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
@@ -83,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Schema = schema;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

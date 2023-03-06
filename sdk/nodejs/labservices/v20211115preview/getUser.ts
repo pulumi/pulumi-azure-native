@@ -40,49 +40,21 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * The amount of usage quota time the user gets in addition to the lab usage quota.
-     */
-    readonly additionalUsageQuota?: string;
-    /**
-     * Display name of the user, for example user's full name.
-     */
-    readonly displayName: string;
-    /**
-     * Email address of the user.
-     */
-    readonly email: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Date and time when the invitation message was sent to the user.
-     */
-    readonly invitationSent: string;
-    /**
-     * State of the invitation message for the user.
-     */
-    readonly invitationState: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Current provisioning state of the user resource.
+     * User resource properties
      */
-    readonly provisioningState: string;
-    /**
-     * State of the user's registration within the lab.
-     */
-    readonly registrationState: string;
+    readonly properties: outputs.labservices.v20211115preview.UserPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the user resource.
      */
     readonly systemData: outputs.labservices.v20211115preview.SystemDataResponse;
-    /**
-     * How long the user has used their virtual machines in this lab.
-     */
-    readonly totalUsage: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

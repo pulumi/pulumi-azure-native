@@ -38,30 +38,18 @@ export class BlobStorageAccountDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'BlobStorageAccount'.
      */
     public readonly kind!: pulumi.Output<"BlobStorageAccount">;
     /**
-     * Location of the storage account.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * Name of the azure resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * A list of storage account paths.
+     * Storage account data set properties.
      */
-    public readonly paths!: pulumi.Output<outputs.datashare.v20201001preview.BlobStorageAccountPathResponse[]>;
-    /**
-     * Resource id of the storage account.
-     */
-    public readonly storageAccountResourceId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20201001preview.BlobStorageAccountDataSetPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
@@ -88,8 +76,8 @@ export class BlobStorageAccountDataSet extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.paths === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'paths'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -97,28 +85,19 @@ export class BlobStorageAccountDataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.storageAccountResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountResourceId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
             resourceInputs["kind"] = "BlobStorageAccount";
-            resourceInputs["paths"] = args ? args.paths : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["paths"] = undefined /*out*/;
-            resourceInputs["storageAccountResourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -147,9 +126,9 @@ export interface BlobStorageAccountDataSetArgs {
      */
     kind: pulumi.Input<"BlobStorageAccount">;
     /**
-     * A list of storage account paths.
+     * Storage account data set properties.
      */
-    paths: pulumi.Input<pulumi.Input<inputs.datashare.v20201001preview.BlobStorageAccountPathArgs>[]>;
+    properties: pulumi.Input<inputs.datashare.v20201001preview.BlobStorageAccountDataSetPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -158,8 +137,4 @@ export interface BlobStorageAccountDataSetArgs {
      * The name of the share to add the data set to.
      */
     shareName: pulumi.Input<string>;
-    /**
-     * Resource id of the storage account.
-     */
-    storageAccountResourceId: pulumi.Input<string>;
 }

@@ -22,86 +22,25 @@ class GetIntegrationAccountMapResult:
     """
     The integration account map.
     """
-    def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, id=None, location=None, map_type=None, metadata=None, name=None, parameters_schema=None, tags=None, type=None):
-        if changed_time and not isinstance(changed_time, str):
-            raise TypeError("Expected argument 'changed_time' to be a str")
-        pulumi.set(__self__, "changed_time", changed_time)
-        if content and not isinstance(content, str):
-            raise TypeError("Expected argument 'content' to be a str")
-        pulumi.set(__self__, "content", content)
-        if content_link and not isinstance(content_link, dict):
-            raise TypeError("Expected argument 'content_link' to be a dict")
-        pulumi.set(__self__, "content_link", content_link)
-        if content_type and not isinstance(content_type, str):
-            raise TypeError("Expected argument 'content_type' to be a str")
-        pulumi.set(__self__, "content_type", content_type)
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        pulumi.set(__self__, "created_time", created_time)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if map_type and not isinstance(map_type, str):
-            raise TypeError("Expected argument 'map_type' to be a str")
-        pulumi.set(__self__, "map_type", map_type)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if parameters_schema and not isinstance(parameters_schema, dict):
-            raise TypeError("Expected argument 'parameters_schema' to be a dict")
-        pulumi.set(__self__, "parameters_schema", parameters_schema)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
-        """
-        The changed time.
-        """
-        return pulumi.get(self, "changed_time")
-
-    @property
-    @pulumi.getter
-    def content(self) -> Optional[str]:
-        """
-        The content.
-        """
-        return pulumi.get(self, "content")
-
-    @property
-    @pulumi.getter(name="contentLink")
-    def content_link(self) -> 'outputs.ContentLinkResponse':
-        """
-        The content link.
-        """
-        return pulumi.get(self, "content_link")
-
-    @property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
-        """
-        The content type.
-        """
-        return pulumi.get(self, "content_type")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        The created time.
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -120,22 +59,6 @@ class GetIntegrationAccountMapResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mapType")
-    def map_type(self) -> str:
-        """
-        The map type.
-        """
-        return pulumi.get(self, "map_type")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        The metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -144,12 +67,12 @@ class GetIntegrationAccountMapResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="parametersSchema")
-    def parameters_schema(self) -> Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.IntegrationAccountMapPropertiesResponse':
         """
-        The parameters schema of integration account map.
+        The integration account map properties.
         """
-        return pulumi.get(self, "parameters_schema")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -174,17 +97,10 @@ class AwaitableGetIntegrationAccountMapResult(GetIntegrationAccountMapResult):
         if False:
             yield self
         return GetIntegrationAccountMapResult(
-            changed_time=self.changed_time,
-            content=self.content,
-            content_link=self.content_link,
-            content_type=self.content_type,
-            created_time=self.created_time,
             id=self.id,
             location=self.location,
-            map_type=self.map_type,
-            metadata=self.metadata,
             name=self.name,
-            parameters_schema=self.parameters_schema,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -209,17 +125,10 @@ def get_integration_account_map(integration_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20190501:getIntegrationAccountMap', __args__, opts=opts, typ=GetIntegrationAccountMapResult).value
 
     return AwaitableGetIntegrationAccountMapResult(
-        changed_time=__ret__.changed_time,
-        content=__ret__.content,
-        content_link=__ret__.content_link,
-        content_type=__ret__.content_type,
-        created_time=__ret__.created_time,
         id=__ret__.id,
         location=__ret__.location,
-        map_type=__ret__.map_type,
-        metadata=__ret__.metadata,
         name=__ret__.name,
-        parameters_schema=__ret__.parameters_schema,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

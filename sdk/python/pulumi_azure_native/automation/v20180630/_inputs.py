@@ -13,6 +13,8 @@ from ._enums import *
 __all__ = [
     'ContentHashArgs',
     'ContentLinkArgs',
+    'PythonPackageCreatePropertiesArgs',
+    'RunbookCreateOrUpdatePropertiesArgs',
     'RunbookDraftArgs',
     'RunbookParameterArgs',
 ]
@@ -109,6 +111,148 @@ class ContentLinkArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class PythonPackageCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 content_link: pulumi.Input['ContentLinkArgs']):
+        """
+        The parameters supplied to the create or update module properties.
+        :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
+        """
+        pulumi.set(__self__, "content_link", content_link)
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> pulumi.Input['ContentLinkArgs']:
+        """
+        Gets or sets the module content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @content_link.setter
+    def content_link(self, value: pulumi.Input['ContentLinkArgs']):
+        pulumi.set(self, "content_link", value)
+
+
+@pulumi.input_type
+class RunbookCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 runbook_type: pulumi.Input[Union[str, 'RunbookTypeEnum']],
+                 description: Optional[pulumi.Input[str]] = None,
+                 draft: Optional[pulumi.Input['RunbookDraftArgs']] = None,
+                 log_activity_trace: Optional[pulumi.Input[int]] = None,
+                 log_progress: Optional[pulumi.Input[bool]] = None,
+                 log_verbose: Optional[pulumi.Input[bool]] = None,
+                 publish_content_link: Optional[pulumi.Input['ContentLinkArgs']] = None):
+        """
+        The parameters supplied to the create or update runbook properties.
+        :param pulumi.Input[Union[str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
+        :param pulumi.Input[str] description: Gets or sets the description of the runbook.
+        :param pulumi.Input['RunbookDraftArgs'] draft: Gets or sets the draft runbook properties.
+        :param pulumi.Input[int] log_activity_trace: Gets or sets the activity-level tracing options of the runbook.
+        :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
+        :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
+        :param pulumi.Input['ContentLinkArgs'] publish_content_link: Gets or sets the published runbook content link.
+        """
+        pulumi.set(__self__, "runbook_type", runbook_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if draft is not None:
+            pulumi.set(__self__, "draft", draft)
+        if log_activity_trace is not None:
+            pulumi.set(__self__, "log_activity_trace", log_activity_trace)
+        if log_progress is not None:
+            pulumi.set(__self__, "log_progress", log_progress)
+        if log_verbose is not None:
+            pulumi.set(__self__, "log_verbose", log_verbose)
+        if publish_content_link is not None:
+            pulumi.set(__self__, "publish_content_link", publish_content_link)
+
+    @property
+    @pulumi.getter(name="runbookType")
+    def runbook_type(self) -> pulumi.Input[Union[str, 'RunbookTypeEnum']]:
+        """
+        Gets or sets the type of the runbook.
+        """
+        return pulumi.get(self, "runbook_type")
+
+    @runbook_type.setter
+    def runbook_type(self, value: pulumi.Input[Union[str, 'RunbookTypeEnum']]):
+        pulumi.set(self, "runbook_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the description of the runbook.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def draft(self) -> Optional[pulumi.Input['RunbookDraftArgs']]:
+        """
+        Gets or sets the draft runbook properties.
+        """
+        return pulumi.get(self, "draft")
+
+    @draft.setter
+    def draft(self, value: Optional[pulumi.Input['RunbookDraftArgs']]):
+        pulumi.set(self, "draft", value)
+
+    @property
+    @pulumi.getter(name="logActivityTrace")
+    def log_activity_trace(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the activity-level tracing options of the runbook.
+        """
+        return pulumi.get(self, "log_activity_trace")
+
+    @log_activity_trace.setter
+    def log_activity_trace(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "log_activity_trace", value)
+
+    @property
+    @pulumi.getter(name="logProgress")
+    def log_progress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets progress log option.
+        """
+        return pulumi.get(self, "log_progress")
+
+    @log_progress.setter
+    def log_progress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_progress", value)
+
+    @property
+    @pulumi.getter(name="logVerbose")
+    def log_verbose(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets verbose log option.
+        """
+        return pulumi.get(self, "log_verbose")
+
+    @log_verbose.setter
+    def log_verbose(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_verbose", value)
+
+    @property
+    @pulumi.getter(name="publishContentLink")
+    def publish_content_link(self) -> Optional[pulumi.Input['ContentLinkArgs']]:
+        """
+        Gets or sets the published runbook content link.
+        """
+        return pulumi.get(self, "publish_content_link")
+
+    @publish_content_link.setter
+    def publish_content_link(self, value: Optional[pulumi.Input['ContentLinkArgs']]):
+        pulumi.set(self, "publish_content_link", value)
 
 
 @pulumi.input_type

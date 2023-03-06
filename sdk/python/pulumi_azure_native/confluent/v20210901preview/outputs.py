@@ -8,9 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'OfferDetailResponse',
+    'OrganizationResourcePropertiesResponse',
     'SystemDataResponse',
     'UserDetailResponse',
 ]
@@ -113,6 +115,110 @@ class OfferDetailResponse(dict):
         Offer Plan Term unit
         """
         return pulumi.get(self, "term_unit")
+
+
+@pulumi.output_type
+class OrganizationResourcePropertiesResponse(dict):
+    """
+    Organization resource property
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "offerDetail":
+            suggest = "offer_detail"
+        elif key == "organizationId":
+            suggest = "organization_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ssoUrl":
+            suggest = "sso_url"
+        elif key == "userDetail":
+            suggest = "user_detail"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_time: str,
+                 offer_detail: 'outputs.OfferDetailResponse',
+                 organization_id: str,
+                 provisioning_state: str,
+                 sso_url: str,
+                 user_detail: 'outputs.UserDetailResponse'):
+        """
+        Organization resource property
+        :param str created_time: The creation time of the resource.
+        :param 'OfferDetailResponse' offer_detail: Confluent offer detail
+        :param str organization_id: Id of the Confluent organization.
+        :param str provisioning_state: Provision states for confluent RP
+        :param str sso_url: SSO url for the Confluent organization.
+        :param 'UserDetailResponse' user_detail: Subscriber detail
+        """
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "offer_detail", offer_detail)
+        pulumi.set(__self__, "organization_id", organization_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sso_url", sso_url)
+        pulumi.set(__self__, "user_detail", user_detail)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The creation time of the resource.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="offerDetail")
+    def offer_detail(self) -> 'outputs.OfferDetailResponse':
+        """
+        Confluent offer detail
+        """
+        return pulumi.get(self, "offer_detail")
+
+    @property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> str:
+        """
+        Id of the Confluent organization.
+        """
+        return pulumi.get(self, "organization_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provision states for confluent RP
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="ssoUrl")
+    def sso_url(self) -> str:
+        """
+        SSO url for the Confluent organization.
+        """
+        return pulumi.get(self, "sso_url")
+
+    @property
+    @pulumi.getter(name="userDetail")
+    def user_detail(self) -> 'outputs.UserDetailResponse':
+        """
+        Subscriber detail
+        """
+        return pulumi.get(self, "user_detail")
 
 
 @pulumi.output_type

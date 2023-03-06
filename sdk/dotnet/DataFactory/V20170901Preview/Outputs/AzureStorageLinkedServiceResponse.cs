@@ -25,30 +25,22 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object? ConnectionString;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SasUri;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureStorage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Storage linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureStorageLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureStorageLinkedServiceResponse(
@@ -56,26 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? connectionString,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? sasUri,
+            string type,
 
-            string type)
+            Outputs.AzureStorageLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            SasUri = sasUri;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

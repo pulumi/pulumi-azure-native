@@ -22,25 +22,16 @@ class GetIscsiTargetResult:
     """
     Response for iSCSI target requests.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, status=None, target_iqn=None, tpgs=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
-        if target_iqn and not isinstance(target_iqn, str):
-            raise TypeError("Expected argument 'target_iqn' to be a str")
-        pulumi.set(__self__, "target_iqn", target_iqn)
-        if tpgs and not isinstance(tpgs, list):
-            raise TypeError("Expected argument 'tpgs' to be a list")
-        pulumi.set(__self__, "tpgs", tpgs)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -62,36 +53,12 @@ class GetIscsiTargetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the operation on the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def status(self) -> str:
+    def properties(self) -> 'outputs.IscsiTargetPropertiesResponse':
         """
-        Operational status of the iSCSI target.
+        Properties for iSCSI target operations.
         """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="targetIqn")
-    def target_iqn(self) -> str:
-        """
-        iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        """
-        return pulumi.get(self, "target_iqn")
-
-    @property
-    @pulumi.getter
-    def tpgs(self) -> Sequence['outputs.TargetPortalGroupResponse']:
-        """
-        List of iSCSI target portal groups. Can have 1 portal group at most.
-        """
-        return pulumi.get(self, "tpgs")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -110,10 +77,7 @@ class AwaitableGetIscsiTargetResult(GetIscsiTargetResult):
         return GetIscsiTargetResult(
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            status=self.status,
-            target_iqn=self.target_iqn,
-            tpgs=self.tpgs,
+            properties=self.properties,
             type=self.type)
 
 
@@ -140,10 +104,7 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     return AwaitableGetIscsiTargetResult(
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        target_iqn=__ret__.target_iqn,
-        tpgs=__ret__.tpgs,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

@@ -84,11 +84,8 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'options'");
-            }
-            if ((!args || args.resource === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resource'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -96,8 +93,7 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["collectionName"] = args ? args.collectionName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["indexes"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -137,13 +133,9 @@ export interface DatabaseAccountMongoDBCollectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+     * Properties to create and update Azure Cosmos DB MongoDB collection.
      */
-    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The standard JSON format of a MongoDB collection
-     */
-    resource: pulumi.Input<inputs.documentdb.v20150401.MongoDBCollectionResourceArgs>;
+    properties: pulumi.Input<inputs.documentdb.v20150401.MongoDBCollectionCreateUpdatePropertiesArgs>;
     /**
      * Name of an Azure resource group.
      */

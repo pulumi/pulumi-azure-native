@@ -18,18 +18,18 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The private link service connection state.
+        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The private endpoint connection properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if private_endpoint_connection_name is not None:
             pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
@@ -47,16 +47,16 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "cluster_name", value)
 
     @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
         """
-        The private link service connection state.
+        The private endpoint connection properties.
         """
-        return pulumi.get(self, "private_link_service_connection_state")
+        return pulumi.get(self, "properties")
 
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        pulumi.set(self, "private_link_service_connection_state", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -90,7 +90,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -100,7 +100,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: The private link service connection state.
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']] properties: The private endpoint connection properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         ...
@@ -129,7 +129,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -144,16 +144,13 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
-            if private_link_service_connection_state is None and not opts.urn:
-                raise TypeError("Missing required property 'private_link_service_connection_state'")
-            __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["link_identifier"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["private_endpoint"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight:PrivateEndpointConnection")])
@@ -180,22 +177,11 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
-        __props__.__dict__["link_identifier"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["private_endpoint"] = None
-        __props__.__dict__["private_link_service_connection_state"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="linkIdentifier")
-    def link_identifier(self) -> pulumi.Output[str]:
-        """
-        The link identifier.
-        """
-        return pulumi.get(self, "link_identifier")
 
     @property
     @pulumi.getter
@@ -206,28 +192,12 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output['outputs.PrivateEndpointResponse']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.PrivateEndpointConnectionPropertiesResponse']:
         """
-        The private endpoint of the private endpoint connection
+        The private endpoint connection properties.
         """
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
-        """
-        The private link service connection state.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state, which only appears in the response.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

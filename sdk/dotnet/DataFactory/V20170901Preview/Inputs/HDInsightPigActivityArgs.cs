@@ -15,30 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class HDInsightPigActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("arguments")]
-        private InputList<object>? _arguments;
-
-        /// <summary>
-        /// User specified arguments to HDInsightActivity.
-        /// </summary>
-        public InputList<object> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputList<object>());
-            set => _arguments = value;
-        }
-
-        [Input("defines")]
-        private InputMap<object>? _defines;
-
-        /// <summary>
-        /// Allows user to specify defines for Pig job request.
-        /// </summary>
-        public InputMap<object> Defines
-        {
-            get => _defines ?? (_defines = new InputMap<object>());
-            set => _defines = value;
-        }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -56,12 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Debug info option.
-        /// </summary>
-        [Input("getDebugInfo")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.HDInsightActivityDebugInfoOption>? GetDebugInfo { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -82,35 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// Script linked service reference.
-        /// </summary>
-        [Input("scriptLinkedService")]
-        public Input<Inputs.LinkedServiceReferenceArgs>? ScriptLinkedService { get; set; }
-
-        /// <summary>
-        /// Script path. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("scriptPath")]
-        public Input<object>? ScriptPath { get; set; }
-
-        [Input("storageLinkedServices")]
-        private InputList<Inputs.LinkedServiceReferenceArgs>? _storageLinkedServices;
-
-        /// <summary>
-        /// Storage linked service references.
-        /// </summary>
-        public InputList<Inputs.LinkedServiceReferenceArgs> StorageLinkedServices
-        {
-            get => _storageLinkedServices ?? (_storageLinkedServices = new InputList<Inputs.LinkedServiceReferenceArgs>());
-            set => _storageLinkedServices = value;
-        }
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'HDInsightPig'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// HDInsight Pig activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HDInsightPigActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public HDInsightPigActivityArgs()
         {

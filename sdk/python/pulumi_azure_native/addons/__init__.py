@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .get_support_plan_type import *
 from .support_plan_type import *
+from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:

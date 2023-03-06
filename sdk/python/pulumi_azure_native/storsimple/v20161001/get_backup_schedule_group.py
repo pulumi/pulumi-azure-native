@@ -24,16 +24,16 @@ class GetBackupScheduleGroupResult:
     """
     The Backup Schedule Group
     """
-    def __init__(__self__, id=None, name=None, start_time=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if start_time and not isinstance(start_time, dict):
-            raise TypeError("Expected argument 'start_time' to be a dict")
-        pulumi.set(__self__, "start_time", start_time)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -55,12 +55,12 @@ class GetBackupScheduleGroupResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> 'outputs.TimeResponse':
+    @pulumi.getter
+    def properties(self) -> 'outputs.BackupScheduleGroupPropertiesResponse':
         """
-        The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+        Properties of BackupScheduleGroup
         """
-        return pulumi.get(self, "start_time")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -79,7 +79,7 @@ class AwaitableGetBackupScheduleGroupResult(GetBackupScheduleGroupResult):
         return GetBackupScheduleGroupResult(
             id=self.id,
             name=self.name,
-            start_time=self.start_time,
+            properties=self.properties,
             type=self.type)
 
 
@@ -109,7 +109,7 @@ def get_backup_schedule_group(device_name: Optional[str] = None,
     return AwaitableGetBackupScheduleGroupResult(
         id=__ret__.id,
         name=__ret__.name,
-        start_time=__ret__.start_time,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

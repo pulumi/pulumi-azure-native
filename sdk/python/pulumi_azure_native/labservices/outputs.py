@@ -19,6 +19,7 @@ __all__ = [
     'GalleryImageReferenceResponse',
     'LabDetailsResponse',
     'LabPlanNetworkProfileResponse',
+    'LabPlanPropertiesResponse',
     'LatestOperationResultResponse',
     'NetworkInterfaceResponse',
     'OperationBatchStatusResponseItemResponse',
@@ -27,6 +28,7 @@ __all__ = [
     'RegionalAvailabilityResponse',
     'ResourceSetResponse',
     'ResourceSettingsResponse',
+    'SchedulePropertiesResponse',
     'SizeAvailabilityResponse',
     'SizeConfigurationPropertiesResponse',
     'SizeInfoResponse',
@@ -630,6 +632,143 @@ class LabPlanNetworkProfileResponse(dict):
 
 
 @pulumi.output_type
+class LabPlanPropertiesResponse(dict):
+    """
+    Lab plan resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allowedRegions":
+            suggest = "allowed_regions"
+        elif key == "defaultAutoShutdownProfile":
+            suggest = "default_auto_shutdown_profile"
+        elif key == "defaultConnectionProfile":
+            suggest = "default_connection_profile"
+        elif key == "defaultNetworkProfile":
+            suggest = "default_network_profile"
+        elif key == "linkedLmsInstance":
+            suggest = "linked_lms_instance"
+        elif key == "sharedGalleryId":
+            suggest = "shared_gallery_id"
+        elif key == "supportInfo":
+            suggest = "support_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabPlanPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabPlanPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabPlanPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 allowed_regions: Optional[Sequence[str]] = None,
+                 default_auto_shutdown_profile: Optional['outputs.AutoShutdownProfileResponse'] = None,
+                 default_connection_profile: Optional['outputs.ConnectionProfileResponse'] = None,
+                 default_network_profile: Optional['outputs.LabPlanNetworkProfileResponse'] = None,
+                 linked_lms_instance: Optional[str] = None,
+                 shared_gallery_id: Optional[str] = None,
+                 support_info: Optional['outputs.SupportInfoResponse'] = None):
+        """
+        Lab plan resource properties
+        :param str provisioning_state: Current provisioning state of the lab plan.
+        :param Sequence[str] allowed_regions: The allowed regions for the lab creator to use when creating labs using this lab plan.
+        :param 'AutoShutdownProfileResponse' default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+        :param 'ConnectionProfileResponse' default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+        :param 'LabPlanNetworkProfileResponse' default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        :param str linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
+        :param str shared_gallery_id: Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
+        :param 'SupportInfoResponse' support_info: Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if allowed_regions is not None:
+            pulumi.set(__self__, "allowed_regions", allowed_regions)
+        if default_auto_shutdown_profile is not None:
+            pulumi.set(__self__, "default_auto_shutdown_profile", default_auto_shutdown_profile)
+        if default_connection_profile is not None:
+            pulumi.set(__self__, "default_connection_profile", default_connection_profile)
+        if default_network_profile is not None:
+            pulumi.set(__self__, "default_network_profile", default_network_profile)
+        if linked_lms_instance is not None:
+            pulumi.set(__self__, "linked_lms_instance", linked_lms_instance)
+        if shared_gallery_id is not None:
+            pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
+        if support_info is not None:
+            pulumi.set(__self__, "support_info", support_info)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current provisioning state of the lab plan.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="allowedRegions")
+    def allowed_regions(self) -> Optional[Sequence[str]]:
+        """
+        The allowed regions for the lab creator to use when creating labs using this lab plan.
+        """
+        return pulumi.get(self, "allowed_regions")
+
+    @property
+    @pulumi.getter(name="defaultAutoShutdownProfile")
+    def default_auto_shutdown_profile(self) -> Optional['outputs.AutoShutdownProfileResponse']:
+        """
+        The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+        """
+        return pulumi.get(self, "default_auto_shutdown_profile")
+
+    @property
+    @pulumi.getter(name="defaultConnectionProfile")
+    def default_connection_profile(self) -> Optional['outputs.ConnectionProfileResponse']:
+        """
+        The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+        """
+        return pulumi.get(self, "default_connection_profile")
+
+    @property
+    @pulumi.getter(name="defaultNetworkProfile")
+    def default_network_profile(self) -> Optional['outputs.LabPlanNetworkProfileResponse']:
+        """
+        The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        """
+        return pulumi.get(self, "default_network_profile")
+
+    @property
+    @pulumi.getter(name="linkedLmsInstance")
+    def linked_lms_instance(self) -> Optional[str]:
+        """
+        Base Url of the lms instance this lab plan can link lab rosters against.
+        """
+        return pulumi.get(self, "linked_lms_instance")
+
+    @property
+    @pulumi.getter(name="sharedGalleryId")
+    def shared_gallery_id(self) -> Optional[str]:
+        """
+        Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
+        """
+        return pulumi.get(self, "shared_gallery_id")
+
+    @property
+    @pulumi.getter(name="supportInfo")
+    def support_info(self) -> Optional['outputs.SupportInfoResponse']:
+        """
+        Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+        """
+        return pulumi.get(self, "support_info")
+
+
+@pulumi.output_type
 class LatestOperationResultResponse(dict):
     """
     Details of the status of an operation.
@@ -1180,6 +1319,111 @@ class ResourceSettingsResponse(dict):
         The size of the virtual machine
         """
         return pulumi.get(self, "size")
+
+
+@pulumi.output_type
+class SchedulePropertiesResponse(dict):
+    """
+    Schedule resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "stopAt":
+            suggest = "stop_at"
+        elif key == "timeZoneId":
+            suggest = "time_zone_id"
+        elif key == "recurrencePattern":
+            suggest = "recurrence_pattern"
+        elif key == "startAt":
+            suggest = "start_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchedulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchedulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 stop_at: str,
+                 time_zone_id: str,
+                 notes: Optional[str] = None,
+                 recurrence_pattern: Optional['outputs.RecurrencePatternResponse'] = None,
+                 start_at: Optional[str] = None):
+        """
+        Schedule resource properties
+        :param str provisioning_state: Current provisioning state of the schedule.
+        :param str stop_at: When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+        :param str time_zone_id: The IANA timezone id for the schedule.
+        :param str notes: Notes for this schedule.
+        :param 'RecurrencePatternResponse' recurrence_pattern: The recurrence pattern of the scheduled actions.
+        :param str start_at: When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "stop_at", stop_at)
+        pulumi.set(__self__, "time_zone_id", time_zone_id)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if recurrence_pattern is not None:
+            pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current provisioning state of the schedule.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="stopAt")
+    def stop_at(self) -> str:
+        """
+        When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        return pulumi.get(self, "stop_at")
+
+    @property
+    @pulumi.getter(name="timeZoneId")
+    def time_zone_id(self) -> str:
+        """
+        The IANA timezone id for the schedule.
+        """
+        return pulumi.get(self, "time_zone_id")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        Notes for this schedule.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="recurrencePattern")
+    def recurrence_pattern(self) -> Optional['outputs.RecurrencePatternResponse']:
+        """
+        The recurrence pattern of the scheduled actions.
+        """
+        return pulumi.get(self, "recurrence_pattern")
+
+    @property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[str]:
+        """
+        When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+        """
+        return pulumi.get(self, "start_at")
 
 
 @pulumi.output_type

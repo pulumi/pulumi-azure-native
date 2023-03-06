@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-        /// </summary>
-        [Output("controlPlaneAccessInterface")]
-        public Output<Outputs.InterfacePropertiesResponse> ControlPlaneAccessInterface { get; private set; } = null!;
-
-        /// <summary>
-        /// The core network technology generation.
-        /// </summary>
-        [Output("coreNetworkTechnology")]
-        public Output<string?> CoreNetworkTechnology { get; private set; } = null!;
-
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         [Output("createdAt")]
@@ -44,12 +32,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         [Output("createdByType")]
         public Output<string?> CreatedByType { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure ARC custom location where the packet core is deployed.
-        /// </summary>
-        [Output("customLocation")]
-        public Output<Outputs.CustomLocationResourceIdResponse?> CustomLocation { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)
@@ -76,22 +58,16 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Mobile network that this packet core control plane belongs to
-        /// </summary>
-        [Output("mobileNetwork")]
-        public Output<Outputs.MobileNetworkResourceIdResponse> MobileNetwork { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the packet core control plane resource.
+        /// Packet core control plane Properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PacketCoreControlPlanePropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -110,12 +86,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The version of the packet core software that is deployed.
-        /// </summary>
-        [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,18 +139,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     public sealed class PacketCoreControlPlaneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
-        /// </summary>
-        [Input("controlPlaneAccessInterface", required: true)]
-        public Input<Inputs.InterfacePropertiesArgs> ControlPlaneAccessInterface { get; set; } = null!;
-
-        /// <summary>
-        /// The core network technology generation.
-        /// </summary>
-        [Input("coreNetworkTechnology")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.V20220301Preview.CoreNetworkType>? CoreNetworkTechnology { get; set; }
-
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         [Input("createdAt")]
@@ -197,12 +155,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         [Input("createdByType")]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.V20220301Preview.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
-        /// Azure ARC custom location where the packet core is deployed.
-        /// </summary>
-        [Input("customLocation")]
-        public Input<Inputs.CustomLocationResourceIdArgs>? CustomLocation { get; set; }
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)
@@ -229,16 +181,16 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Mobile network that this packet core control plane belongs to
-        /// </summary>
-        [Input("mobileNetwork", required: true)]
-        public Input<Inputs.MobileNetworkResourceIdArgs> MobileNetwork { get; set; } = null!;
-
-        /// <summary>
         /// The name of the packet core control plane.
         /// </summary>
         [Input("packetCoreControlPlaneName")]
         public Input<string>? PacketCoreControlPlaneName { get; set; }
+
+        /// <summary>
+        /// Packet core control plane Properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PacketCoreControlPlanePropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -257,12 +209,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The version of the packet core software that is deployed.
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
 
         public PacketCoreControlPlaneArgs()
         {

@@ -29,28 +29,10 @@ namespace Pulumi.AzureNative.NetApp.V20190701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// UUID v4 used to identify the Pool
+        /// Capacity pool properties
         /// </summary>
-        [Output("poolId")]
-        public Output<string> PoolId { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Output("serviceLevel")]
-        public Output<string> ServiceLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        /// </summary>
-        [Output("size")]
-        public Output<double> Size { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PoolPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -157,22 +139,16 @@ namespace Pulumi.AzureNative.NetApp.V20190701
         public Input<string>? PoolName { get; set; }
 
         /// <summary>
+        /// Capacity pool properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PoolPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Input("serviceLevel", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.V20190701.ServiceLevel> ServiceLevel { get; set; } = null!;
-
-        /// <summary>
-        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        /// </summary>
-        [Input("size", required: true)]
-        public Input<double> Size { get; set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -182,7 +158,6 @@ namespace Pulumi.AzureNative.NetApp.V20190701
 
         public PoolArgs()
         {
-            ServiceLevel = "Premium";
         }
         public static new PoolArgs Empty => new PoolArgs();
     }

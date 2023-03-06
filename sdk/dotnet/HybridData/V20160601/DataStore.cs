@@ -17,40 +17,16 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     public partial class DataStore : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-        /// </summary>
-        [Output("customerSecrets")]
-        public Output<ImmutableArray<Outputs.CustomerSecretResponse>> CustomerSecrets { get; private set; } = null!;
-
-        /// <summary>
-        /// The arm id of the data store type.
-        /// </summary>
-        [Output("dataStoreTypeId")]
-        public Output<string> DataStoreTypeId { get; private set; } = null!;
-
-        /// <summary>
-        /// A generic json used differently by each data source type.
-        /// </summary>
-        [Output("extendedProperties")]
-        public Output<object?> ExtendedProperties { get; private set; } = null!;
-
-        /// <summary>
         /// Name of the object.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Arm Id for the manager resource to which the data source is associated. This is optional.
+        /// DataStore properties.
         /// </summary>
-        [Output("repositoryId")]
-        public Output<string?> RepositoryId { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the data source.
-        /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DataStorePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object.
@@ -108,18 +84,6 @@ namespace Pulumi.AzureNative.HybridData.V20160601
 
     public sealed class DataStoreArgs : global::Pulumi.ResourceArgs
     {
-        [Input("customerSecrets")]
-        private InputList<Inputs.CustomerSecretArgs>? _customerSecrets;
-
-        /// <summary>
-        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-        /// </summary>
-        public InputList<Inputs.CustomerSecretArgs> CustomerSecrets
-        {
-            get => _customerSecrets ?? (_customerSecrets = new InputList<Inputs.CustomerSecretArgs>());
-            set => _customerSecrets = value;
-        }
-
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
@@ -133,34 +97,16 @@ namespace Pulumi.AzureNative.HybridData.V20160601
         public Input<string>? DataStoreName { get; set; }
 
         /// <summary>
-        /// The arm id of the data store type.
+        /// DataStore properties.
         /// </summary>
-        [Input("dataStoreTypeId", required: true)]
-        public Input<string> DataStoreTypeId { get; set; } = null!;
-
-        /// <summary>
-        /// A generic json used differently by each data source type.
-        /// </summary>
-        [Input("extendedProperties")]
-        public Input<object>? ExtendedProperties { get; set; }
-
-        /// <summary>
-        /// Arm Id for the manager resource to which the data source is associated. This is optional.
-        /// </summary>
-        [Input("repositoryId")]
-        public Input<string>? RepositoryId { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.DataStorePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// State of the data source.
-        /// </summary>
-        [Input("state", required: true)]
-        public Input<Pulumi.AzureNative.HybridData.V20160601.State> State { get; set; } = null!;
 
         public DataStoreArgs()
         {

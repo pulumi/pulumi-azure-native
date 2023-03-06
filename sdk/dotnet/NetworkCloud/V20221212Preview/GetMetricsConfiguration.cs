@@ -82,26 +82,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public sealed class GetMetricsConfigurationResult
     {
         /// <summary>
-        /// The interval in minutes by which metrics will be collected.
-        /// </summary>
-        public readonly double CollectionInterval;
-        /// <summary>
-        /// The more detailed status of the metrics configuration.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
-        /// The list of metrics that are available for the cluster but disabled at the moment.
-        /// </summary>
-        public readonly ImmutableArray<string> DisabledMetrics;
-        /// <summary>
-        /// The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-        /// </summary>
-        public readonly ImmutableArray<string> EnabledMetrics;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -118,9 +98,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the metrics configuration.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.ClusterMetricsConfigurationPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -136,16 +116,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
         [OutputConstructor]
         private GetMetricsConfigurationResult(
-            double collectionInterval,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
-            ImmutableArray<string> disabledMetrics,
-
-            ImmutableArray<string> enabledMetrics,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -154,7 +124,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
             string name,
 
-            string provisioningState,
+            Outputs.ClusterMetricsConfigurationPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -162,16 +132,11 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
             string type)
         {
-            CollectionInterval = collectionInterval;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
-            DisabledMetrics = disabledMetrics;
-            EnabledMetrics = enabledMetrics;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

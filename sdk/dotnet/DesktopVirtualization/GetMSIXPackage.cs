@@ -84,106 +84,36 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetMSIXPackageResult
     {
         /// <summary>
-        /// User friendly Name to be displayed in the portal. 
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// VHD/CIM image path on Network Share.
-        /// </summary>
-        public readonly string? ImagePath;
-        /// <summary>
-        /// Make this version of the package the active one across the hostpool. 
-        /// </summary>
-        public readonly bool? IsActive;
-        /// <summary>
-        /// Specifies how to register Package in feed.
-        /// </summary>
-        public readonly bool? IsRegularRegistration;
-        /// <summary>
-        /// Date Package was last updated, found in the appxmanifest.xml. 
-        /// </summary>
-        public readonly string? LastUpdated;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of package applications. 
+        /// Detailed properties for MSIX Package
         /// </summary>
-        public readonly ImmutableArray<Outputs.MsixPackageApplicationsResponse> PackageApplications;
-        /// <summary>
-        /// List of package dependencies. 
-        /// </summary>
-        public readonly ImmutableArray<Outputs.MsixPackageDependenciesResponse> PackageDependencies;
-        /// <summary>
-        /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
-        /// </summary>
-        public readonly string? PackageFamilyName;
-        /// <summary>
-        /// Package Name from appxmanifest.xml. 
-        /// </summary>
-        public readonly string? PackageName;
-        /// <summary>
-        /// Relative Path to the package inside the image. 
-        /// </summary>
-        public readonly string? PackageRelativePath;
+        public readonly Outputs.MSIXPackagePropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
-        /// </summary>
-        public readonly string? Version;
 
         [OutputConstructor]
         private GetMSIXPackageResult(
-            string? displayName,
-
             string id,
-
-            string? imagePath,
-
-            bool? isActive,
-
-            bool? isRegularRegistration,
-
-            string? lastUpdated,
 
             string name,
 
-            ImmutableArray<Outputs.MsixPackageApplicationsResponse> packageApplications,
+            Outputs.MSIXPackagePropertiesResponse properties,
 
-            ImmutableArray<Outputs.MsixPackageDependenciesResponse> packageDependencies,
-
-            string? packageFamilyName,
-
-            string? packageName,
-
-            string? packageRelativePath,
-
-            string type,
-
-            string? version)
+            string type)
         {
-            DisplayName = displayName;
             Id = id;
-            ImagePath = imagePath;
-            IsActive = isActive;
-            IsRegularRegistration = isRegularRegistration;
-            LastUpdated = lastUpdated;
             Name = name;
-            PackageApplications = packageApplications;
-            PackageDependencies = packageDependencies;
-            PackageFamilyName = packageFamilyName;
-            PackageName = packageName;
-            PackageRelativePath = packageRelativePath;
+            Properties = properties;
             Type = type;
-            Version = version;
         }
     }
 }

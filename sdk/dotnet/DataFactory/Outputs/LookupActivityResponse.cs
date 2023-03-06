@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class LookupActivityResponse
     {
         /// <summary>
-        /// Lookup activity dataset reference.
-        /// </summary>
-        public readonly Outputs.DatasetReferenceResponse Dataset;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -28,10 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? FirstRowOnly;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -45,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// Dataset-specific source properties, same as copy activity source.
-        /// </summary>
-        public readonly object Source;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Lookup'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Lookup activity properties.
+        /// </summary>
+        public readonly Outputs.LookupActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -60,13 +52,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private LookupActivityResponse(
-            Outputs.DatasetReferenceResponse dataset,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            object? firstRowOnly,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -74,21 +62,19 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            object source,
-
             string type,
+
+            Outputs.LookupActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Dataset = dataset;
             DependsOn = dependsOn;
             Description = description;
-            FirstRowOnly = firstRowOnly;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            Source = source;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

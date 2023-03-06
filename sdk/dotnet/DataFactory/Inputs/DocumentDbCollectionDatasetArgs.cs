@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Document Database collection name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("collectionName", required: true)]
-        public Input<object> CollectionName { get; set; } = null!;
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
@@ -81,6 +75,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// DocumentDB Collection dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DocumentDbCollectionDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public DocumentDbCollectionDatasetArgs()
         {

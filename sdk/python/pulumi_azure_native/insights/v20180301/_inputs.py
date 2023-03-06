@@ -21,6 +21,7 @@ __all__ = [
     'LogicAppReceiverArgs',
     'MetricAlertActionArgs',
     'MetricAlertMultipleResourceMultipleMetricCriteriaArgs',
+    'MetricAlertPropertiesArgs',
     'MetricAlertSingleResourceMultipleMetricCriteriaArgs',
     'MetricCriteriaArgs',
     'MetricDimensionArgs',
@@ -706,6 +707,184 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
     @all_of.setter
     def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]):
         pulumi.set(self, "all_of", value)
+
+
+@pulumi.input_type
+class MetricAlertPropertiesArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']],
+                 enabled: pulumi.Input[bool],
+                 evaluation_frequency: pulumi.Input[str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 severity: pulumi.Input[int],
+                 window_size: pulumi.Input[str],
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 target_resource_region: Optional[pulumi.Input[str]] = None,
+                 target_resource_type: Optional[pulumi.Input[str]] = None):
+        """
+        An alert rule.
+        :param pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']] criteria: defines the specific alert criteria information.
+        :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
+        :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
+        :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}
+        :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        :param pulumi.Input[str] description: the description of the metric alert that will be included in the alert email.
+        :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "window_size", window_size)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if target_resource_region is not None:
+            pulumi.set(__self__, "target_resource_region", target_resource_region)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']]:
+        """
+        defines the specific alert criteria information.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']]):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        the flag that indicates whether the metric alert is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> pulumi.Input[str]:
+        """
+        how often the metric alert is evaluated represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @evaluation_frequency.setter
+    def evaluation_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "evaluation_frequency", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        the list of resource id's that this metric alert is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[int]:
+        """
+        Alert severity {0, 1, 2, 3, 4}
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> pulumi.Input[str]:
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "window_size", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @auto_mitigate.setter
+    def auto_mitigate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_mitigate", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        the description of the metric alert that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="targetResourceRegion")
+    def target_resource_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        return pulumi.get(self, "target_resource_region")
+
+    @target_resource_region.setter
+    def target_resource_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_region", value)
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @target_resource_type.setter
+    def target_resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_type", value)
 
 
 @pulumi.input_type

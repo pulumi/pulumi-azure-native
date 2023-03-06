@@ -96,14 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetBlobContainerDataSetResult
     {
         /// <summary>
-        /// BLOB Container name.
-        /// </summary>
-        public readonly string ContainerName;
-        /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -117,17 +109,9 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource group of storage account
+        /// Blob container data set properties.
         /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.BlobContainerPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -139,34 +123,22 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetBlobContainerDataSetResult(
-            string containerName,
-
-            string dataSetId,
-
             string id,
 
             string kind,
 
             string name,
 
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.BlobContainerPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ContainerName = containerName;
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
             Name = name;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

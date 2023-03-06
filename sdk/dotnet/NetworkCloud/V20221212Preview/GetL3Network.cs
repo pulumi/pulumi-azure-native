@@ -70,59 +70,13 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public sealed class GetL3NetworkResult
     {
         /// <summary>
-        /// The resource ID of the Network Cloud cluster this L3 network is associated with.
-        /// </summary>
-        public readonly string ClusterId;
-        /// <summary>
-        /// The more detailed status of the L3 network.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
-        /// </summary>
-        public readonly ImmutableArray<string> HybridAksClustersAssociatedIds;
-        /// <summary>
-        /// The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
-        /// </summary>
-        public readonly string? HybridAksIpamEnabled;
-        /// <summary>
-        /// The network plugin type for Hybrid AKS.
-        /// </summary>
-        public readonly string? HybridAksPluginType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        /// </summary>
-        public readonly string? InterfaceName;
-        /// <summary>
-        /// The type of the IP address allocation, defaulted to "DualStack".
-        /// </summary>
-        public readonly string? IpAllocationType;
-        /// <summary>
-        /// The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
-        /// is IPV4 or DualStack.
-        /// </summary>
-        public readonly string? Ipv4ConnectedPrefix;
-        /// <summary>
-        /// The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
-        /// is IPV6 or DualStack.
-        /// </summary>
-        public readonly string? Ipv6ConnectedPrefix;
-        /// <summary>
-        /// The resource ID of the Network Fabric l3IsolationDomain.
-        /// </summary>
-        public readonly string L3IsolationDomainId;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -132,9 +86,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the L3 network.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.L3NetworkPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -147,80 +101,33 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
-        /// </summary>
-        public readonly ImmutableArray<string> VirtualMachinesAssociatedIds;
-        /// <summary>
-        /// The VLAN from the l3IsolationDomain that is used for this network.
-        /// </summary>
-        public readonly double Vlan;
 
         [OutputConstructor]
         private GetL3NetworkResult(
-            string clusterId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
-            ImmutableArray<string> hybridAksClustersAssociatedIds,
-
-            string? hybridAksIpamEnabled,
-
-            string? hybridAksPluginType,
-
             string id,
-
-            string? interfaceName,
-
-            string? ipAllocationType,
-
-            string? ipv4ConnectedPrefix,
-
-            string? ipv6ConnectedPrefix,
-
-            string l3IsolationDomainId,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.L3NetworkPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> virtualMachinesAssociatedIds,
-
-            double vlan)
+            string type)
         {
-            ClusterId = clusterId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
-            HybridAksClustersAssociatedIds = hybridAksClustersAssociatedIds;
-            HybridAksIpamEnabled = hybridAksIpamEnabled;
-            HybridAksPluginType = hybridAksPluginType;
             Id = id;
-            InterfaceName = interfaceName;
-            IpAllocationType = ipAllocationType;
-            Ipv4ConnectedPrefix = ipv4ConnectedPrefix;
-            Ipv6ConnectedPrefix = ipv6ConnectedPrefix;
-            L3IsolationDomainId = l3IsolationDomainId;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VirtualMachinesAssociatedIds = virtualMachinesAssociatedIds;
-            Vlan = vlan;
         }
     }
 }

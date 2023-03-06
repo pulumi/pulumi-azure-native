@@ -22,19 +22,7 @@ class GetGen1EnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
     """
-    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, id=None, kind=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, supports_customer_managed_key=None, tags=None, type=None):
-        if creation_time and not isinstance(creation_time, str):
-            raise TypeError("Expected argument 'creation_time' to be a str")
-        pulumi.set(__self__, "creation_time", creation_time)
-        if data_access_fqdn and not isinstance(data_access_fqdn, str):
-            raise TypeError("Expected argument 'data_access_fqdn' to be a str")
-        pulumi.set(__self__, "data_access_fqdn", data_access_fqdn)
-        if data_access_id and not isinstance(data_access_id, str):
-            raise TypeError("Expected argument 'data_access_id' to be a str")
-        pulumi.set(__self__, "data_access_id", data_access_id)
-        if data_retention_time and not isinstance(data_retention_time, str):
-            raise TypeError("Expected argument 'data_retention_time' to be a str")
-        pulumi.set(__self__, "data_retention_time", data_retention_time)
+    def __init__(__self__, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,62 +35,18 @@ class GetGen1EnvironmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if partition_key_properties and not isinstance(partition_key_properties, list):
-            raise TypeError("Expected argument 'partition_key_properties' to be a list")
-        pulumi.set(__self__, "partition_key_properties", partition_key_properties)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if status and not isinstance(status, dict):
-            raise TypeError("Expected argument 'status' to be a dict")
-        pulumi.set(__self__, "status", status)
-        if storage_limit_exceeded_behavior and not isinstance(storage_limit_exceeded_behavior, str):
-            raise TypeError("Expected argument 'storage_limit_exceeded_behavior' to be a str")
-        pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
-        if supports_customer_managed_key and not isinstance(supports_customer_managed_key, bool):
-            raise TypeError("Expected argument 'supports_customer_managed_key' to be a bool")
-        pulumi.set(__self__, "supports_customer_managed_key", supports_customer_managed_key)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
-        """
-        The time the resource was created.
-        """
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="dataAccessFqdn")
-    def data_access_fqdn(self) -> str:
-        """
-        The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_fqdn")
-
-    @property
-    @pulumi.getter(name="dataAccessId")
-    def data_access_id(self) -> str:
-        """
-        An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_id")
-
-    @property
-    @pulumi.getter(name="dataRetentionTime")
-    def data_retention_time(self) -> str:
-        """
-        ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-        """
-        return pulumi.get(self, "data_retention_time")
 
     @property
     @pulumi.getter
@@ -138,20 +82,12 @@ class GetGen1EnvironmentResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> Optional[Sequence['outputs.TimeSeriesIdPropertyResponse']]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.Gen1EnvironmentResourcePropertiesResponse':
         """
-        The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        Properties of the Gen1 environment.
         """
-        return pulumi.get(self, "partition_key_properties")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -160,30 +96,6 @@ class GetGen1EnvironmentResult:
         The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def status(self) -> 'outputs.EnvironmentStatusResponse':
-        """
-        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageLimitExceededBehavior")
-    def storage_limit_exceeded_behavior(self) -> Optional[str]:
-        """
-        The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-        """
-        return pulumi.get(self, "storage_limit_exceeded_behavior")
-
-    @property
-    @pulumi.getter(name="supportsCustomerManagedKey")
-    def supports_customer_managed_key(self) -> bool:
-        """
-        Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
-        """
-        return pulumi.get(self, "supports_customer_managed_key")
 
     @property
     @pulumi.getter
@@ -208,20 +120,12 @@ class AwaitableGetGen1EnvironmentResult(GetGen1EnvironmentResult):
         if False:
             yield self
         return GetGen1EnvironmentResult(
-            creation_time=self.creation_time,
-            data_access_fqdn=self.data_access_fqdn,
-            data_access_id=self.data_access_id,
-            data_retention_time=self.data_retention_time,
             id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            partition_key_properties=self.partition_key_properties,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             sku=self.sku,
-            status=self.status,
-            storage_limit_exceeded_behavior=self.storage_limit_exceeded_behavior,
-            supports_customer_managed_key=self.supports_customer_managed_key,
             tags=self.tags,
             type=self.type)
 
@@ -246,20 +150,12 @@ def get_gen1_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights/v20210630preview:getGen1Environment', __args__, opts=opts, typ=GetGen1EnvironmentResult).value
 
     return AwaitableGetGen1EnvironmentResult(
-        creation_time=__ret__.creation_time,
-        data_access_fqdn=__ret__.data_access_fqdn,
-        data_access_id=__ret__.data_access_id,
-        data_retention_time=__ret__.data_retention_time,
         id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        partition_key_properties=__ret__.partition_key_properties,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         sku=__ret__.sku,
-        status=__ret__.status,
-        storage_limit_exceeded_behavior=__ret__.storage_limit_exceeded_behavior,
-        supports_customer_managed_key=__ret__.supports_customer_managed_key,
         tags=__ret__.tags,
         type=__ret__.type)
 

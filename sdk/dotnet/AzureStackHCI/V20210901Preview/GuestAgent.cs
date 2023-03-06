@@ -16,40 +16,16 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public partial class GuestAgent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Username / Password Credentials to provision guest agent.
-        /// </summary>
-        [Output("credentials")]
-        public Output<Outputs.GuestCredentialResponse?> Credentials { get; private set; } = null!;
-
-        /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        [Output("httpProxyConfig")]
-        public Output<Outputs.HttpProxyConfigurationResponse?> HttpProxyConfig { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The guest agent provisioning action.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningAction")]
-        public Output<string?> ProvisioningAction { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The guest agent status.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.GuestAgentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -109,28 +85,16 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public sealed class GuestAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Username / Password Credentials to provision guest agent.
-        /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.GuestCredentialArgs>? Credentials { get; set; }
-
-        /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        [Input("httpProxyConfig")]
-        public Input<Inputs.HttpProxyConfigurationArgs>? HttpProxyConfig { get; set; }
-
-        /// <summary>
         /// Name of the guestAgents.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The guest agent provisioning action.
+        /// Resource properties.
         /// </summary>
-        [Input("provisioningAction")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.V20210901Preview.ProvisioningAction>? ProvisioningAction { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.GuestAgentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

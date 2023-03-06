@@ -29,13 +29,9 @@ namespace Pulumi.AzureNative.Network.V20181201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The provisioning state of the P2SVpnServerConfiguration Radius Server root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// Properties of the P2SVpnServerConfiguration Radius Server root certificate.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The certificate public data.
-        /// </summary>
-        public readonly string PublicCertData;
+        public readonly Outputs.P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatResponse Properties;
 
         [OutputConstructor]
         private P2SVpnServerConfigRadiusServerRootCertificateResponse(
@@ -45,15 +41,12 @@ namespace Pulumi.AzureNative.Network.V20181201.Outputs
 
             string? name,
 
-            string provisioningState,
-
-            string publicCertData)
+            Outputs.P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatResponse properties)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            PublicCertData = publicCertData;
+            Properties = properties;
         }
     }
 }

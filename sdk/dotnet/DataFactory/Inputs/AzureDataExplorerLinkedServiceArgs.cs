@@ -34,28 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The credential reference containing authentication information.
-        /// </summary>
-        [Input("credential")]
-        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
-
-        /// <summary>
-        /// Database name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("database", required: true)]
-        public Input<object> Database { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The endpoint of Azure Data Explorer (the engine's endpoint). URL will be in the format https://&lt;clusterName&gt;.&lt;regionName&gt;.kusto.windows.net. Type: string (or Expression with resultType string)
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<object> Endpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -70,29 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("servicePrincipalId")]
-        public Input<object>? ServicePrincipalId { get; set; }
-
-        /// <summary>
-        /// The key of the service principal used to authenticate against Kusto.
-        /// </summary>
-        [Input("servicePrincipalKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
-
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tenant")]
-        public Input<object>? Tenant { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureDataExplorer'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Data Explorer (Kusto) linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureDataExplorerLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureDataExplorerLinkedServiceArgs()
         {

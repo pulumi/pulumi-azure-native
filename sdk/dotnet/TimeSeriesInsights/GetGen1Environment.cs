@@ -84,22 +84,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public sealed class GetGen1EnvironmentResult
     {
         /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        public readonly string CreationTime;
-        /// <summary>
-        /// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        public readonly string DataAccessFqdn;
-        /// <summary>
-        /// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        public readonly string DataAccessId;
-        /// <summary>
-        /// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-        /// </summary>
-        public readonly string DataRetentionTime;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -117,25 +101,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        /// Properties of the Gen1 environment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TimeSeriesIdPropertyResponse> PartitionKeyProperties;
-        /// <summary>
-        /// Provisioning state of the resource.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.Gen1EnvironmentResourcePropertiesResponse Properties;
         /// <summary>
         /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
-        /// <summary>
-        /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        /// </summary>
-        public readonly Outputs.EnvironmentStatusResponse Status;
-        /// <summary>
-        /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-        /// </summary>
-        public readonly string? StorageLimitExceededBehavior;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -147,14 +119,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
         [OutputConstructor]
         private GetGen1EnvironmentResult(
-            string creationTime,
-
-            string dataAccessFqdn,
-
-            string dataAccessId,
-
-            string dataRetentionTime,
-
             string id,
 
             string kind,
@@ -163,33 +127,20 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             string name,
 
-            ImmutableArray<Outputs.TimeSeriesIdPropertyResponse> partitionKeyProperties,
-
-            string provisioningState,
+            Outputs.Gen1EnvironmentResourcePropertiesResponse properties,
 
             Outputs.SkuResponse sku,
-
-            Outputs.EnvironmentStatusResponse status,
-
-            string? storageLimitExceededBehavior,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            CreationTime = creationTime;
-            DataAccessFqdn = dataAccessFqdn;
-            DataAccessId = dataAccessId;
-            DataRetentionTime = dataRetentionTime;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
-            PartitionKeyProperties = partitionKeyProperties;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Sku = sku;
-            Status = status;
-            StorageLimitExceededBehavior = storageLimitExceededBehavior;
             Tags = tags;
             Type = type;
         }

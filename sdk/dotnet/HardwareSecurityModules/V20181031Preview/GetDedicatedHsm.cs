@@ -82,25 +82,13 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the network interfaces of the dedicated hsm.
+        /// Properties of the dedicated HSM
         /// </summary>
-        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
-        /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.DedicatedHsmPropertiesResponse Properties;
         /// <summary>
         /// SKU details
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
-        /// <summary>
-        /// This field will be used when RP does not support Availability zones.
-        /// </summary>
-        public readonly string? StampId;
-        /// <summary>
-        /// Resource Status Message.
-        /// </summary>
-        public readonly string StatusMessage;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -122,15 +110,9 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
 
             string name,
 
-            Outputs.NetworkProfileResponse? networkProfile,
-
-            string provisioningState,
+            Outputs.DedicatedHsmPropertiesResponse properties,
 
             Outputs.SkuResponse sku,
-
-            string? stampId,
-
-            string statusMessage,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -141,11 +123,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
             Id = id;
             Location = location;
             Name = name;
-            NetworkProfile = networkProfile;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Sku = sku;
-            StampId = stampId;
-            StatusMessage = statusMessage;
             Tags = tags;
             Type = type;
             Zones = zones;

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetApiSchemaResult',
@@ -21,16 +22,13 @@ class GetApiSchemaResult:
     """
     API Schema Contract details.
     """
-    def __init__(__self__, components=None, content_type=None, definitions=None, id=None, name=None, type=None, value=None):
-        if components and not isinstance(components, dict):
-            raise TypeError("Expected argument 'components' to be a dict")
-        pulumi.set(__self__, "components", components)
+    def __init__(__self__, content_type=None, document=None, id=None, name=None, type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
-        if definitions and not isinstance(definitions, dict):
-            raise TypeError("Expected argument 'definitions' to be a dict")
-        pulumi.set(__self__, "definitions", definitions)
+        if document and not isinstance(document, dict):
+            raise TypeError("Expected argument 'document' to be a dict")
+        pulumi.set(__self__, "document", document)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,17 +38,6 @@ class GetApiSchemaResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if value and not isinstance(value, str):
-            raise TypeError("Expected argument 'value' to be a str")
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def components(self) -> Optional[Any]:
-        """
-        Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
-        """
-        return pulumi.get(self, "components")
 
     @property
     @pulumi.getter(name="contentType")
@@ -62,11 +49,11 @@ class GetApiSchemaResult:
 
     @property
     @pulumi.getter
-    def definitions(self) -> Optional[Any]:
+    def document(self) -> 'outputs.SchemaDocumentPropertiesResponse':
         """
-        Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
+        Create or update Properties of the API Schema Document.
         """
-        return pulumi.get(self, "definitions")
+        return pulumi.get(self, "document")
 
     @property
     @pulumi.getter
@@ -92,14 +79,6 @@ class GetApiSchemaResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-        """
-        return pulumi.get(self, "value")
-
 
 class AwaitableGetApiSchemaResult(GetApiSchemaResult):
     # pylint: disable=using-constant-test
@@ -107,13 +86,11 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
         if False:
             yield self
         return GetApiSchemaResult(
-            components=self.components,
             content_type=self.content_type,
-            definitions=self.definitions,
+            document=self.document,
             id=self.id,
             name=self.name,
-            type=self.type,
-            value=self.value)
+            type=self.type)
 
 
 def get_api_schema(api_id: Optional[str] = None,
@@ -139,13 +116,11 @@ def get_api_schema(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220401preview:getApiSchema', __args__, opts=opts, typ=GetApiSchemaResult).value
 
     return AwaitableGetApiSchemaResult(
-        components=__ret__.components,
         content_type=__ret__.content_type,
-        definitions=__ret__.definitions,
+        document=__ret__.document,
         id=__ret__.id,
         name=__ret__.name,
-        type=__ret__.type,
-        value=__ret__.value)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_api_schema)

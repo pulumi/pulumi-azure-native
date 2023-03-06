@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ManagementLockOwnerArgs',
+    'ManagementLockPropertiesArgs',
     'PrivateLinkAssociationPropertiesArgs',
 ]
 
@@ -37,6 +38,61 @@ class ManagementLockOwnerArgs:
     @application_id.setter
     def application_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_id", value)
+
+
+@pulumi.input_type
+class ManagementLockPropertiesArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[Union[str, 'LockLevel']],
+                 notes: Optional[pulumi.Input[str]] = None,
+                 owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
+        """
+        The lock properties.
+        :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]] owners: The owners of the lock.
+        """
+        pulumi.set(__self__, "level", level)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if owners is not None:
+            pulumi.set(__self__, "owners", owners)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Union[str, 'LockLevel']]:
+        """
+        The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Union[str, 'LockLevel']]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Notes about the lock. Maximum of 512 characters.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter
+    def owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]:
+        """
+        The owners of the lock.
+        """
+        return pulumi.get(self, "owners")
+
+    @owners.setter
+    def owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]):
+        pulumi.set(self, "owners", value)
 
 
 @pulumi.input_type

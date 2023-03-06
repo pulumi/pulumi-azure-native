@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.DevTestLab
     public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The display name of the Azure Resource Manager template that produced the environment.
-        /// </summary>
-        [Output("armTemplateDisplayName")]
-        public Output<string?> ArmTemplateDisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// The creator of the environment.
-        /// </summary>
-        [Output("createdByUser")]
-        public Output<string> CreatedByUser { get; private set; } = null!;
-
-        /// <summary>
-        /// The deployment properties of the environment.
-        /// </summary>
-        [Output("deploymentProperties")]
-        public Output<Outputs.EnvironmentDeploymentPropertiesResponse?> DeploymentProperties { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -47,16 +29,10 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The identifier of the resource group containing the environment's resources.
-        /// </summary>
-        [Output("resourceGroupId")]
-        public Output<string> ResourceGroupId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.EnvironmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -69,12 +45,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,18 +97,6 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display name of the Azure Resource Manager template that produced the environment.
-        /// </summary>
-        [Input("armTemplateDisplayName")]
-        public Input<string>? ArmTemplateDisplayName { get; set; }
-
-        /// <summary>
-        /// The deployment properties of the environment.
-        /// </summary>
-        [Input("deploymentProperties")]
-        public Input<Inputs.EnvironmentDeploymentPropertiesArgs>? DeploymentProperties { get; set; }
-
-        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -155,6 +113,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The properties of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.EnvironmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

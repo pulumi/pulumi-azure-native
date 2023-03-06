@@ -16,22 +16,16 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The password details.
-        /// </summary>
-        [Output("encryptedPassword")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponse?> EncryptedPassword { get; private set; } = null!;
-
-        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of shares that the user has rights on. This field should not be specified during user creation.
+        /// The storage account credential properties.
         /// </summary>
-        [Output("shareAccessRights")]
-        public Output<ImmutableArray<Outputs.ShareAccessRightResponse>> ShareAccessRights { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.UserPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// User in DataBoxEdge Resource
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Type of the user.
-        /// </summary>
-        [Output("userType")]
-        public Output<string?> UserType { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,28 +109,22 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// The password details.
-        /// </summary>
-        [Input("encryptedPassword")]
-        public Input<Inputs.AsymmetricEncryptedSecretArgs>? EncryptedPassword { get; set; }
-
-        /// <summary>
         /// The user name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The storage account credential properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.UserPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the user.
-        /// </summary>
-        [Input("userType")]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20210201Preview.UserType>? UserType { get; set; }
 
         public UserArgs()
         {

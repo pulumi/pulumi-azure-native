@@ -17,7 +17,7 @@ __all__ = ['MobileNetworkArgs', 'MobileNetwork']
 @pulumi.input_type
 class MobileNetworkArgs:
     def __init__(__self__, *,
-                 public_land_mobile_network_identifier: pulumi.Input['PlmnIdArgs'],
+                 properties: pulumi.Input['MobileNetworkPropertiesFormatArgs'],
                  resource_group_name: pulumi.Input[str],
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class MobileNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MobileNetwork resource.
-        :param pulumi.Input['PlmnIdArgs'] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        :param pulumi.Input['MobileNetworkPropertiesFormatArgs'] properties: Mobile network properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
@@ -42,7 +42,7 @@ class MobileNetworkArgs:
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "public_land_mobile_network_identifier", public_land_mobile_network_identifier)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -64,16 +64,16 @@ class MobileNetworkArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="publicLandMobileNetworkIdentifier")
-    def public_land_mobile_network_identifier(self) -> pulumi.Input['PlmnIdArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['MobileNetworkPropertiesFormatArgs']:
         """
-        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        Mobile network properties.
         """
-        return pulumi.get(self, "public_land_mobile_network_identifier")
+        return pulumi.get(self, "properties")
 
-    @public_land_mobile_network_identifier.setter
-    def public_land_mobile_network_identifier(self, value: pulumi.Input['PlmnIdArgs']):
-        pulumi.set(self, "public_land_mobile_network_identifier", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['MobileNetworkPropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -209,7 +209,7 @@ class MobileNetwork(pulumi.CustomResource):
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 public_land_mobile_network_identifier: Optional[pulumi.Input[pulumi.InputType['PlmnIdArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MobileNetworkPropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -227,7 +227,7 @@ class MobileNetwork(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[pulumi.InputType['PlmnIdArgs']] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        :param pulumi.Input[pulumi.InputType['MobileNetworkPropertiesFormatArgs']] properties: Mobile network properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -264,7 +264,7 @@ class MobileNetwork(pulumi.CustomResource):
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 public_land_mobile_network_identifier: Optional[pulumi.Input[pulumi.InputType['PlmnIdArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MobileNetworkPropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -284,16 +284,14 @@ class MobileNetwork(pulumi.CustomResource):
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["location"] = location
             __props__.__dict__["mobile_network_name"] = mobile_network_name
-            if public_land_mobile_network_identifier is None and not opts.urn:
-                raise TypeError("Missing required property 'public_land_mobile_network_identifier'")
-            __props__.__dict__["public_land_mobile_network_identifier"] = public_land_mobile_network_identifier
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["service_key"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:MobileNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:MobileNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:MobileNetwork")])
@@ -328,9 +326,7 @@ class MobileNetwork(pulumi.CustomResource):
         __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["public_land_mobile_network_identifier"] = None
-        __props__.__dict__["service_key"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -401,28 +397,12 @@ class MobileNetwork(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.MobileNetworkPropertiesFormatResponse']:
         """
-        The provisioning state of the mobile network resource.
+        Mobile network properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicLandMobileNetworkIdentifier")
-    def public_land_mobile_network_identifier(self) -> pulumi.Output['outputs.PlmnIdResponse']:
-        """
-        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
-        """
-        return pulumi.get(self, "public_land_mobile_network_identifier")
-
-    @property
-    @pulumi.getter(name="serviceKey")
-    def service_key(self) -> pulumi.Output[str]:
-        """
-        The mobile network resource identifier
-        """
-        return pulumi.get(self, "service_key")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

@@ -11,9 +11,33 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'LinkedServicePropertiesArgs',
     'MachineReferenceWithHintsArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class LinkedServicePropertiesArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str]):
+        """
+        Linked service properties.
+        :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the resource that will be linked to the workspace.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
 
 @pulumi.input_type
 class MachineReferenceWithHintsArgs:

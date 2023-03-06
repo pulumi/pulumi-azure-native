@@ -17,54 +17,30 @@ __all__ = ['IscsiTargetArgs', 'IscsiTarget']
 @pulumi.input_type
 class IscsiTargetArgs:
     def __init__(__self__, *,
-                 acl_mode: pulumi.Input[Union[str, 'IscsiTargetAclMode']],
                  disk_pool_name: pulumi.Input[str],
+                 properties: pulumi.Input['IscsiTargetCreatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]] = None,
-                 target_iqn: Optional[pulumi.Input[str]] = None):
+                 managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IscsiTarget resource.
-        :param pulumi.Input[Union[str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
         :param pulumi.Input[str] disk_pool_name: The name of the Disk Pool.
+        :param pulumi.Input['IscsiTargetCreatePropertiesArgs'] properties: Properties for iSCSI Target create request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] iscsi_target_name: The name of the iSCSI Target.
-        :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: List of LUNs to be exposed through iSCSI Target.
         :param pulumi.Input[str] managed_by: Azure resource id. Indicates if this resource is managed by another Azure resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_by_extended: List of Azure resource ids that manage this resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AclArgs']]] static_acls: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        :param pulumi.Input[str] target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
-        pulumi.set(__self__, "acl_mode", acl_mode)
         pulumi.set(__self__, "disk_pool_name", disk_pool_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if iscsi_target_name is not None:
             pulumi.set(__self__, "iscsi_target_name", iscsi_target_name)
-        if luns is not None:
-            pulumi.set(__self__, "luns", luns)
         if managed_by is not None:
             pulumi.set(__self__, "managed_by", managed_by)
         if managed_by_extended is not None:
             pulumi.set(__self__, "managed_by_extended", managed_by_extended)
-        if static_acls is not None:
-            pulumi.set(__self__, "static_acls", static_acls)
-        if target_iqn is not None:
-            pulumi.set(__self__, "target_iqn", target_iqn)
-
-    @property
-    @pulumi.getter(name="aclMode")
-    def acl_mode(self) -> pulumi.Input[Union[str, 'IscsiTargetAclMode']]:
-        """
-        Mode for Target connectivity.
-        """
-        return pulumi.get(self, "acl_mode")
-
-    @acl_mode.setter
-    def acl_mode(self, value: pulumi.Input[Union[str, 'IscsiTargetAclMode']]):
-        pulumi.set(self, "acl_mode", value)
 
     @property
     @pulumi.getter(name="diskPoolName")
@@ -77,6 +53,18 @@ class IscsiTargetArgs:
     @disk_pool_name.setter
     def disk_pool_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "disk_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['IscsiTargetCreatePropertiesArgs']:
+        """
+        Properties for iSCSI Target create request.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['IscsiTargetCreatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,18 +91,6 @@ class IscsiTargetArgs:
         pulumi.set(self, "iscsi_target_name", value)
 
     @property
-    @pulumi.getter
-    def luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]]:
-        """
-        List of LUNs to be exposed through iSCSI Target.
-        """
-        return pulumi.get(self, "luns")
-
-    @luns.setter
-    def luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]]):
-        pulumi.set(self, "luns", value)
-
-    @property
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> Optional[pulumi.Input[str]]:
         """
@@ -138,60 +114,30 @@ class IscsiTargetArgs:
     def managed_by_extended(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "managed_by_extended", value)
 
-    @property
-    @pulumi.getter(name="staticAcls")
-    def static_acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]]:
-        """
-        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        """
-        return pulumi.get(self, "static_acls")
-
-    @static_acls.setter
-    def static_acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]]):
-        pulumi.set(self, "static_acls", value)
-
-    @property
-    @pulumi.getter(name="targetIqn")
-    def target_iqn(self) -> Optional[pulumi.Input[str]]:
-        """
-        iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        """
-        return pulumi.get(self, "target_iqn")
-
-    @target_iqn.setter
-    def target_iqn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target_iqn", value)
-
 
 class IscsiTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_mode: Optional[pulumi.Input[Union[str, 'IscsiTargetAclMode']]] = None,
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IscsiLunArgs']]]]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IscsiTargetCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclArgs']]]]] = None,
-                 target_iqn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Response for iSCSI Target requests.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
         :param pulumi.Input[str] disk_pool_name: The name of the Disk Pool.
         :param pulumi.Input[str] iscsi_target_name: The name of the iSCSI Target.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IscsiLunArgs']]]] luns: List of LUNs to be exposed through iSCSI Target.
         :param pulumi.Input[str] managed_by: Azure resource id. Indicates if this resource is managed by another Azure resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_by_extended: List of Azure resource ids that manage this resource.
+        :param pulumi.Input[pulumi.InputType['IscsiTargetCreatePropertiesArgs']] properties: Properties for iSCSI Target create request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclArgs']]]] static_acls: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        :param pulumi.Input[str] target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
         ...
     @overload
@@ -217,15 +163,12 @@ class IscsiTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_mode: Optional[pulumi.Input[Union[str, 'IscsiTargetAclMode']]] = None,
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IscsiLunArgs']]]]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IscsiTargetCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclArgs']]]]] = None,
-                 target_iqn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,27 +178,19 @@ class IscsiTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IscsiTargetArgs.__new__(IscsiTargetArgs)
 
-            if acl_mode is None and not opts.urn:
-                raise TypeError("Missing required property 'acl_mode'")
-            __props__.__dict__["acl_mode"] = acl_mode
             if disk_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_pool_name'")
             __props__.__dict__["disk_pool_name"] = disk_pool_name
             __props__.__dict__["iscsi_target_name"] = iscsi_target_name
-            __props__.__dict__["luns"] = luns
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["managed_by_extended"] = managed_by_extended
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["static_acls"] = static_acls
-            __props__.__dict__["target_iqn"] = target_iqn
-            __props__.__dict__["endpoints"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["port"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["sessions"] = None
-            __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagepool:IscsiTarget"), pulumi.Alias(type_="azure-native:storagepool/v20200315preview:IscsiTarget"), pulumi.Alias(type_="azure-native:storagepool/v20210401preview:IscsiTarget")])
@@ -282,45 +217,13 @@ class IscsiTarget(pulumi.CustomResource):
 
         __props__ = IscsiTargetArgs.__new__(IscsiTargetArgs)
 
-        __props__.__dict__["acl_mode"] = None
-        __props__.__dict__["endpoints"] = None
-        __props__.__dict__["luns"] = None
         __props__.__dict__["managed_by"] = None
         __props__.__dict__["managed_by_extended"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["port"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["sessions"] = None
-        __props__.__dict__["static_acls"] = None
-        __props__.__dict__["status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["target_iqn"] = None
         __props__.__dict__["type"] = None
         return IscsiTarget(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="aclMode")
-    def acl_mode(self) -> pulumi.Output[str]:
-        """
-        Mode for Target connectivity.
-        """
-        return pulumi.get(self, "acl_mode")
-
-    @property
-    @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of private IPv4 addresses to connect to the iSCSI Target.
-        """
-        return pulumi.get(self, "endpoints")
-
-    @property
-    @pulumi.getter
-    def luns(self) -> pulumi.Output[Optional[Sequence['outputs.IscsiLunResponse']]]:
-        """
-        List of LUNs to be exposed through iSCSI Target.
-        """
-        return pulumi.get(self, "luns")
 
     @property
     @pulumi.getter(name="managedBy")
@@ -348,43 +251,11 @@ class IscsiTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[int]]:
+    def properties(self) -> pulumi.Output['outputs.IscsiTargetPropertiesResponse']:
         """
-        The port used by iSCSI Target portal group.
+        Properties for iSCSI Target operations.
         """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        State of the operation on the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def sessions(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of identifiers for active sessions on the iSCSI target
-        """
-        return pulumi.get(self, "sessions")
-
-    @property
-    @pulumi.getter(name="staticAcls")
-    def static_acls(self) -> pulumi.Output[Optional[Sequence['outputs.AclResponse']]]:
-        """
-        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        """
-        return pulumi.get(self, "static_acls")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        """
-        Operational status of the iSCSI Target.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -393,14 +264,6 @@ class IscsiTarget(pulumi.CustomResource):
         Resource metadata required by ARM RPC
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="targetIqn")
-    def target_iqn(self) -> pulumi.Output[str]:
-        """
-        iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        """
-        return pulumi.get(self, "target_iqn")
 
     @property
     @pulumi.getter

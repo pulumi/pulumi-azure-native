@@ -22,25 +22,18 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The name of the environment variable.
+        /// Add environment variable type properties.
         /// </summary>
-        public readonly string VariableName;
-        /// <summary>
-        /// The value of the environment variable.
-        /// </summary>
-        public readonly string VariableValue;
+        public readonly Outputs.EnvironmentVariableSetupTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private EnvironmentVariableSetupResponse(
             string type,
 
-            string variableName,
-
-            string variableValue)
+            Outputs.EnvironmentVariableSetupTypePropertiesResponse typeProperties)
         {
             Type = type;
-            VariableName = variableName;
-            VariableValue = variableValue;
+            TypeProperties = typeProperties;
         }
     }
 }

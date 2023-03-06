@@ -22,13 +22,7 @@ class GetTemplateSpecVersionResult:
     """
     Template Spec Version object.
     """
-    def __init__(__self__, artifacts=None, description=None, id=None, location=None, name=None, system_data=None, tags=None, template=None, type=None):
-        if artifacts and not isinstance(artifacts, list):
-            raise TypeError("Expected argument 'artifacts' to be a list")
-        pulumi.set(__self__, "artifacts", artifacts)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,34 +32,18 @@ class GetTemplateSpecVersionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if template and not isinstance(template, dict):
-            raise TypeError("Expected argument 'template' to be a dict")
-        pulumi.set(__self__, "template", template)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.TemplateSpecTemplateArtifactResponse']]:
-        """
-        An array of Template Spec artifacts.
-        """
-        return pulumi.get(self, "artifacts")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Template Spec version description.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -92,6 +70,14 @@ class GetTemplateSpecVersionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.TemplateSpecVersionPropertiesResponse':
+        """
+        Template Spec Version properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -109,14 +95,6 @@ class GetTemplateSpecVersionResult:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[Any]:
-        """
-        The Azure Resource Manager template content.
-        """
-        return pulumi.get(self, "template")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         Type of this resource.
@@ -130,14 +108,12 @@ class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
         if False:
             yield self
         return GetTemplateSpecVersionResult(
-            artifacts=self.artifacts,
-            description=self.description,
             id=self.id,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            template=self.template,
             type=self.type)
 
 
@@ -161,14 +137,12 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources/v20190601preview:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult).value
 
     return AwaitableGetTemplateSpecVersionResult(
-        artifacts=__ret__.artifacts,
-        description=__ret__.description,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        template=__ret__.template,
         type=__ret__.type)
 
 

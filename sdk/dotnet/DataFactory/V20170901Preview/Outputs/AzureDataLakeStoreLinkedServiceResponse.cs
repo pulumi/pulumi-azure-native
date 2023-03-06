@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
     public sealed class AzureDataLakeStoreLinkedServiceResponse
     {
         /// <summary>
-        /// Data Lake Store account name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? AccountName;
-        /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -29,88 +25,43 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// Data Lake Store service URI. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object DataLakeStoreUri;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ResourceGroupName;
-        /// <summary>
-        /// The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ServicePrincipalId;
-        /// <summary>
-        /// The Key of the application used to authenticate against the Azure Data Lake Store account.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
-        /// <summary>
-        /// Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? SubscriptionId;
-        /// <summary>
-        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Tenant;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureDataLakeStore'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Data Lake Store linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureDataLakeStoreLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureDataLakeStoreLinkedServiceResponse(
-            object? accountName,
-
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object dataLakeStoreUri,
-
             string? description,
-
-            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? resourceGroupName,
+            string type,
 
-            object? servicePrincipalId,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
-
-            object? subscriptionId,
-
-            object? tenant,
-
-            string type)
+            Outputs.AzureDataLakeStoreLinkedServiceTypePropertiesResponse typeProperties)
         {
-            AccountName = accountName;
             Annotations = annotations;
             ConnectVia = connectVia;
-            DataLakeStoreUri = dataLakeStoreUri;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            ResourceGroupName = resourceGroupName;
-            ServicePrincipalId = servicePrincipalId;
-            ServicePrincipalKey = servicePrincipalKey;
-            SubscriptionId = subscriptionId;
-            Tenant = tenant;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

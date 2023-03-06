@@ -11,9 +11,162 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'PolicyExemptionPropertiesArgs',
     'ResourceSelectorArgs',
     'SelectorArgs',
 ]
+
+@pulumi.input_type
+class PolicyExemptionPropertiesArgs:
+    def __init__(__self__, *,
+                 exemption_category: pulumi.Input[Union[str, 'ExemptionCategory']],
+                 policy_assignment_id: pulumi.Input[str],
+                 assignment_scope_validation: Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 expires_on: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]] = None):
+        """
+        The policy exemption properties.
+        :param pulumi.Input[Union[str, 'ExemptionCategory']] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
+        :param pulumi.Input[Union[str, 'AssignmentScopeValidation']] assignment_scope_validation: The option whether validate the exemption is at or under the assignment scope.
+        :param pulumi.Input[str] description: The description of the policy exemption.
+        :param pulumi.Input[str] display_name: The display name of the policy exemption.
+        :param pulumi.Input[str] expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        :param Any metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]] resource_selectors: The resource selector list to filter policies by resource properties.
+        """
+        pulumi.set(__self__, "exemption_category", exemption_category)
+        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        if assignment_scope_validation is None:
+            assignment_scope_validation = 'Default'
+        if assignment_scope_validation is not None:
+            pulumi.set(__self__, "assignment_scope_validation", assignment_scope_validation)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if expires_on is not None:
+            pulumi.set(__self__, "expires_on", expires_on)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if policy_definition_reference_ids is not None:
+            pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
+        if resource_selectors is not None:
+            pulumi.set(__self__, "resource_selectors", resource_selectors)
+
+    @property
+    @pulumi.getter(name="exemptionCategory")
+    def exemption_category(self) -> pulumi.Input[Union[str, 'ExemptionCategory']]:
+        """
+        The policy exemption category. Possible values are Waiver and Mitigated.
+        """
+        return pulumi.get(self, "exemption_category")
+
+    @exemption_category.setter
+    def exemption_category(self, value: pulumi.Input[Union[str, 'ExemptionCategory']]):
+        pulumi.set(self, "exemption_category", value)
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the policy assignment that is being exempted.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @policy_assignment_id.setter
+    def policy_assignment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_assignment_id", value)
+
+    @property
+    @pulumi.getter(name="assignmentScopeValidation")
+    def assignment_scope_validation(self) -> Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]]:
+        """
+        The option whether validate the exemption is at or under the assignment scope.
+        """
+        return pulumi.get(self, "assignment_scope_validation")
+
+    @assignment_scope_validation.setter
+    def assignment_scope_validation(self, value: Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]]):
+        pulumi.set(self, "assignment_scope_validation", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the policy exemption.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the policy exemption.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+        """
+        return pulumi.get(self, "expires_on")
+
+    @expires_on.setter
+    def expires_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expires_on", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceIds")
+    def policy_definition_reference_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_ids")
+
+    @policy_definition_reference_ids.setter
+    def policy_definition_reference_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "policy_definition_reference_ids", value)
+
+    @property
+    @pulumi.getter(name="resourceSelectors")
+    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]:
+        """
+        The resource selector list to filter policies by resource properties.
+        """
+        return pulumi.get(self, "resource_selectors")
+
+    @resource_selectors.setter
+    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]):
+        pulumi.set(self, "resource_selectors", value)
+
 
 @pulumi.input_type
 class ResourceSelectorArgs:

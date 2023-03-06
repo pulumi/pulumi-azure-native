@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,22 +45,6 @@ export interface GetADLSGen1FileDataSetArgs {
  */
 export interface GetADLSGen1FileDataSetResult {
     /**
-     * The ADLS account name.
-     */
-    readonly accountName: string;
-    /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
-     * The file name in the ADLS account.
-     */
-    readonly fileName: string;
-    /**
-     * The folder path within the ADLS account.
-     */
-    readonly folderPath: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -71,13 +58,9 @@ export interface GetADLSGen1FileDataSetResult {
      */
     readonly name: string;
     /**
-     * Resource group of ADLS account.
+     * ADLS Gen 1 file data set properties.
      */
-    readonly resourceGroup: string;
-    /**
-     * Subscription id of ADLS account.
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.v20191101.ADLSGen1FilePropertiesResponse;
     /**
      * Type of the azure resource
      */

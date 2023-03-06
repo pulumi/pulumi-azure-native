@@ -16,23 +16,11 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public partial class ADLSGen2StorageAccountDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'AdlsGen2StorageAccount'.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Location of the ADLSGen2 storage account.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Name of the azure resource
@@ -41,16 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of ADLSGen2 storage account paths.
+        /// ADLSGen2 storage account data set properties.
         /// </summary>
-        [Output("paths")]
-        public Output<ImmutableArray<Outputs.ADLSGen2StorageAccountPathResponse>> Paths { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource id of the ADLSGen2 storage account.
-        /// </summary>
-        [Output("storageAccountResourceId")]
-        public Output<string> StorageAccountResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ADLSGen2StorageAccountDataSetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -143,17 +125,11 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
 
-        [Input("paths", required: true)]
-        private InputList<Inputs.ADLSGen2StorageAccountPathArgs>? _paths;
-
         /// <summary>
-        /// A list of ADLSGen2 storage account paths.
+        /// ADLSGen2 storage account data set properties.
         /// </summary>
-        public InputList<Inputs.ADLSGen2StorageAccountPathArgs> Paths
-        {
-            get => _paths ?? (_paths = new InputList<Inputs.ADLSGen2StorageAccountPathArgs>());
-            set => _paths = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.ADLSGen2StorageAccountDataSetPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -166,12 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource id of the ADLSGen2 storage account.
-        /// </summary>
-        [Input("storageAccountResourceId", required: true)]
-        public Input<string> StorageAccountResourceId { get; set; } = null!;
 
         public ADLSGen2StorageAccountDataSetArgs()
         {

@@ -42,14 +42,6 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * FHIR Mappings
-     */
-    public readonly fhirMapping!: pulumi.Output<outputs.healthcareapis.v20211101.IotMappingPropertiesResponse>;
-    /**
-     * Fully qualified resource id of the FHIR service to connect to.
-     */
-    public readonly fhirServiceResourceId!: pulumi.Output<string>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -58,9 +50,9 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Determines how resource identity is resolved on the destination.
+     * IoT FHIR Destination settings.
      */
-    public readonly resourceIdentityResolutionType!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.healthcareapis.v20211101.IotFhirDestinationPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -81,31 +73,23 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fhirMapping === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fhirMapping'");
-            }
-            if ((!args || args.fhirServiceResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fhirServiceResourceId'");
-            }
             if ((!args || args.iotConnectorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iotConnectorName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.resourceIdentityResolutionType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceIdentityResolutionType'");
             }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["fhirDestinationName"] = args ? args.fhirDestinationName : undefined;
-            resourceInputs["fhirMapping"] = args ? args.fhirMapping : undefined;
-            resourceInputs["fhirServiceResourceId"] = args ? args.fhirServiceResourceId : undefined;
             resourceInputs["iotConnectorName"] = args ? args.iotConnectorName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceIdentityResolutionType"] = args ? args.resourceIdentityResolutionType : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -113,11 +97,9 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["fhirMapping"] = undefined /*out*/;
-            resourceInputs["fhirServiceResourceId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["resourceIdentityResolutionType"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -137,14 +119,6 @@ export interface IotConnectorFhirDestinationArgs {
      */
     fhirDestinationName?: pulumi.Input<string>;
     /**
-     * FHIR Mappings
-     */
-    fhirMapping: pulumi.Input<inputs.healthcareapis.v20211101.IotMappingPropertiesArgs>;
-    /**
-     * Fully qualified resource id of the FHIR service to connect to.
-     */
-    fhirServiceResourceId: pulumi.Input<string>;
-    /**
      * The name of IoT Connector resource.
      */
     iotConnectorName: pulumi.Input<string>;
@@ -153,13 +127,13 @@ export interface IotConnectorFhirDestinationArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * IoT FHIR Destination settings.
+     */
+    properties: pulumi.Input<inputs.healthcareapis.v20211101.IotFhirDestinationPropertiesArgs>;
+    /**
      * The name of the resource group that contains the service instance.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Determines how resource identity is resolved on the destination.
-     */
-    resourceIdentityResolutionType: pulumi.Input<string | enums.healthcareapis.v20211101.IotIdentityResolutionType>;
     /**
      * The name of workspace resource.
      */

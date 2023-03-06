@@ -34,17 +34,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Set Variable activity properties.
+        /// </summary>
+        public readonly Outputs.SetVariableActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
-        /// <summary>
-        /// Value to be set. Could be a static value or Expression
-        /// </summary>
-        public readonly object? Value;
-        /// <summary>
-        /// Name of the variable whose value needs to be set.
-        /// </summary>
-        public readonly string? VariableName;
 
         [OutputConstructor]
         private SetVariableActivityResponse(
@@ -56,19 +52,16 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            ImmutableArray<Outputs.UserPropertyResponse> userProperties,
+            Outputs.SetVariableActivityTypePropertiesResponse typeProperties,
 
-            object? value,
-
-            string? variableName)
+            ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
             Name = name;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
-            Value = value;
-            VariableName = variableName;
         }
     }
 }

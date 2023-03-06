@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// A predicate expression that can be used to filter the specific rows to extract from Office 365. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Predicate;
-        /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
         public readonly object? Schema;
@@ -49,14 +45,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object TableName;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'Office365Table'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Office365 dataset properties.
+        /// </summary>
+        public readonly Outputs.Office365DatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private Office365DatasetResponse(
@@ -70,26 +66,23 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object? predicate,
-
             object? schema,
 
             object? structure,
 
-            object tableName,
+            string type,
 
-            string type)
+            Outputs.Office365DatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             Description = description;
             Folder = folder;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
-            Predicate = predicate;
             Schema = schema;
             Structure = structure;
-            TableName = tableName;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

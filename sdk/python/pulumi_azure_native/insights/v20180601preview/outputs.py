@@ -16,6 +16,8 @@ __all__ = [
     'EtwEventConfigurationResponse',
     'EtwProviderConfigurationResponse',
     'EventLogConfigurationResponse',
+    'GuestDiagnosticSettingsAssociationResponse',
+    'GuestDiagnosticSettingsResponse',
     'PerformanceCounterConfigurationResponse',
     'SinkConfigurationResponse',
 ]
@@ -199,6 +201,109 @@ class EventLogConfigurationResponse(dict):
     @pulumi.getter
     def filter(self) -> Optional[str]:
         return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class GuestDiagnosticSettingsAssociationResponse(dict):
+    """
+    A guest diagnostic settings association.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guestDiagnosticSettingsName":
+            suggest = "guest_diagnostic_settings_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestDiagnosticSettingsAssociationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestDiagnosticSettingsAssociationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestDiagnosticSettingsAssociationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guest_diagnostic_settings_name: str):
+        """
+        A guest diagnostic settings association.
+        :param str guest_diagnostic_settings_name: The guest diagnostic settings name.
+        """
+        pulumi.set(__self__, "guest_diagnostic_settings_name", guest_diagnostic_settings_name)
+
+    @property
+    @pulumi.getter(name="guestDiagnosticSettingsName")
+    def guest_diagnostic_settings_name(self) -> str:
+        """
+        The guest diagnostic settings name.
+        """
+        return pulumi.get(self, "guest_diagnostic_settings_name")
+
+
+@pulumi.output_type
+class GuestDiagnosticSettingsResponse(dict):
+    """
+    Virtual machine diagnostic settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSources":
+            suggest = "data_sources"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "proxySetting":
+            suggest = "proxy_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestDiagnosticSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestDiagnosticSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestDiagnosticSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_sources: Optional[Sequence['outputs.DataSourceResponse']] = None,
+                 os_type: Optional[str] = None,
+                 proxy_setting: Optional[str] = None):
+        """
+        Virtual machine diagnostic settings
+        :param Sequence['DataSourceResponse'] data_sources: the array of data source object which are configured to collect and send data
+        :param str os_type: Operating system type for the configuration
+        """
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if proxy_setting is not None:
+            pulumi.set(__self__, "proxy_setting", proxy_setting)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional[Sequence['outputs.DataSourceResponse']]:
+        """
+        the array of data source object which are configured to collect and send data
+        """
+        return pulumi.get(self, "data_sources")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        Operating system type for the configuration
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="proxySetting")
+    def proxy_setting(self) -> Optional[str]:
+        return pulumi.get(self, "proxy_setting")
 
 
 @pulumi.output_type

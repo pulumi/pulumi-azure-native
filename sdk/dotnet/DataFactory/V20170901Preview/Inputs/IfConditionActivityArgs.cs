@@ -34,36 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
-        /// </summary>
-        [Input("expression", required: true)]
-        public Input<Inputs.ExpressionArgs> Expression { get; set; } = null!;
-
-        [Input("ifFalseActivities")]
-        private InputList<object>? _ifFalseActivities;
-
-        /// <summary>
-        /// List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        /// </summary>
-        public InputList<object> IfFalseActivities
-        {
-            get => _ifFalseActivities ?? (_ifFalseActivities = new InputList<object>());
-            set => _ifFalseActivities = value;
-        }
-
-        [Input("ifTrueActivities")]
-        private InputList<object>? _ifTrueActivities;
-
-        /// <summary>
-        /// List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
-        /// </summary>
-        public InputList<object> IfTrueActivities
-        {
-            get => _ifTrueActivities ?? (_ifTrueActivities = new InputList<object>());
-            set => _ifTrueActivities = value;
-        }
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
@@ -75,6 +45,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// IfCondition activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.IfConditionActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public IfConditionActivityArgs()
         {

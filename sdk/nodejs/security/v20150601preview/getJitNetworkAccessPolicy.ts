@@ -54,19 +54,11 @@ export interface GetJitNetworkAccessPolicyResult {
      * Resource name
      */
     readonly name: string;
-    /**
-     * Gets the provisioning state of the Just-in-Time policy.
-     */
-    readonly provisioningState: string;
-    readonly requests?: outputs.security.v20150601preview.JitNetworkAccessRequestResponse[];
+    readonly properties: outputs.security.v20150601preview.JitNetworkAccessPolicyPropertiesResponse;
     /**
      * Resource type
      */
     readonly type: string;
-    /**
-     * Configurations for Microsoft.Compute/virtualMachines resource type.
-     */
-    readonly virtualMachines: outputs.security.v20150601preview.JitNetworkAccessPolicyVirtualMachineResponse[];
 }
 /**
  * Policies for protecting resources using Just-in-Time access control for the subscription, location

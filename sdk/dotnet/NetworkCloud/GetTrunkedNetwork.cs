@@ -72,41 +72,13 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetTrunkedNetworkResult
     {
         /// <summary>
-        /// The resource ID of the Network Cloud cluster this trunked network is associated with.
-        /// </summary>
-        public readonly string ClusterId;
-        /// <summary>
-        /// The more detailed status of the trunked network.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
-        /// </summary>
-        public readonly ImmutableArray<string> HybridAksClustersAssociatedIds;
-        /// <summary>
-        /// The network plugin type for Hybrid AKS.
-        /// </summary>
-        public readonly string? HybridAksPluginType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-        /// </summary>
-        public readonly string? InterfaceName;
-        /// <summary>
-        /// The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
-        /// </summary>
-        public readonly ImmutableArray<string> IsolationDomainIds;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -116,9 +88,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the trunked network.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.TrunkedNetworkPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -131,68 +103,33 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
-        /// </summary>
-        public readonly ImmutableArray<string> VirtualMachinesAssociatedIds;
-        /// <summary>
-        /// The list of vlans that are selected from the isolation domains for trunking.
-        /// </summary>
-        public readonly ImmutableArray<double> Vlans;
 
         [OutputConstructor]
         private GetTrunkedNetworkResult(
-            string clusterId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
-            ImmutableArray<string> hybridAksClustersAssociatedIds,
-
-            string? hybridAksPluginType,
-
             string id,
-
-            string? interfaceName,
-
-            ImmutableArray<string> isolationDomainIds,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.TrunkedNetworkPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> virtualMachinesAssociatedIds,
-
-            ImmutableArray<double> vlans)
+            string type)
         {
-            ClusterId = clusterId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
-            HybridAksClustersAssociatedIds = hybridAksClustersAssociatedIds;
-            HybridAksPluginType = hybridAksPluginType;
             Id = id;
-            InterfaceName = interfaceName;
-            IsolationDomainIds = isolationDomainIds;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VirtualMachinesAssociatedIds = virtualMachinesAssociatedIds;
-            Vlans = vlans;
         }
     }
 }

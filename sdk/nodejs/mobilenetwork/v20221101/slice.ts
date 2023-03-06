@@ -38,10 +38,6 @@ export class Slice extends pulumi.CustomResource {
     }
 
     /**
-     * An optional description for this network slice.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -50,13 +46,9 @@ export class Slice extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the network slice resource.
+     * Slice properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-     */
-    public readonly snssai!: pulumi.Output<outputs.mobilenetwork.v20221101.SnssaiResponse>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.v20221101.SlicePropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -84,29 +76,25 @@ export class Slice extends pulumi.CustomResource {
             if ((!args || args.mobileNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.snssai === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'snssai'");
-            }
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sliceName"] = args ? args.sliceName : undefined;
-            resourceInputs["snssai"] = args ? args.snssai : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["snssai"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -123,10 +111,6 @@ export class Slice extends pulumi.CustomResource {
  */
 export interface SliceArgs {
     /**
-     * An optional description for this network slice.
-     */
-    description?: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -135,6 +119,10 @@ export interface SliceArgs {
      */
     mobileNetworkName: pulumi.Input<string>;
     /**
+     * Slice properties.
+     */
+    properties: pulumi.Input<inputs.mobilenetwork.v20221101.SlicePropertiesFormatArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -142,10 +130,6 @@ export interface SliceArgs {
      * The name of the network slice.
      */
     sliceName?: pulumi.Input<string>;
-    /**
-     * Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-     */
-    snssai: pulumi.Input<inputs.mobilenetwork.v20221101.SnssaiArgs>;
     /**
      * Resource tags.
      */

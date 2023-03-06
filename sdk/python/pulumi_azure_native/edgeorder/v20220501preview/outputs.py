@@ -39,6 +39,7 @@ __all__ = [
     'ManagementResourcePreferencesResponse',
     'NotificationPreferenceResponse',
     'OrderItemDetailsResponse',
+    'OrderItemPropertiesResponse',
     'Pav2MeterDetailsResponse',
     'PreferencesResponse',
     'ProductDetailsResponse',
@@ -1976,6 +1977,84 @@ class OrderItemDetailsResponse(dict):
         Customer notification Preferences.
         """
         return pulumi.get(self, "preferences")
+
+
+@pulumi.output_type
+class OrderItemPropertiesResponse(dict):
+    """
+    Represents order item properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDetails":
+            suggest = "address_details"
+        elif key == "orderId":
+            suggest = "order_id"
+        elif key == "orderItemDetails":
+            suggest = "order_item_details"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderItemPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderItemPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderItemPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_details: 'outputs.AddressDetailsResponse',
+                 order_id: str,
+                 order_item_details: 'outputs.OrderItemDetailsResponse',
+                 start_time: str):
+        """
+        Represents order item properties.
+        :param 'AddressDetailsResponse' address_details: Represents shipping and return address for order item.
+        :param str order_id: Id of the order to which order item belongs to.
+        :param 'OrderItemDetailsResponse' order_item_details: Represents order item details.
+        :param str start_time: Start time of order item.
+        """
+        pulumi.set(__self__, "address_details", address_details)
+        pulumi.set(__self__, "order_id", order_id)
+        pulumi.set(__self__, "order_item_details", order_item_details)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="addressDetails")
+    def address_details(self) -> 'outputs.AddressDetailsResponse':
+        """
+        Represents shipping and return address for order item.
+        """
+        return pulumi.get(self, "address_details")
+
+    @property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> str:
+        """
+        Id of the order to which order item belongs to.
+        """
+        return pulumi.get(self, "order_id")
+
+    @property
+    @pulumi.getter(name="orderItemDetails")
+    def order_item_details(self) -> 'outputs.OrderItemDetailsResponse':
+        """
+        Represents order item details.
+        """
+        return pulumi.get(self, "order_item_details")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time of order item.
+        """
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type

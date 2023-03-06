@@ -17,28 +17,10 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of References to Assessments created on this group.
-        /// </summary>
-        [Output("assessments")]
-        public Output<ImmutableArray<string>> Assessments { get; private set; } = null!;
-
-        /// <summary>
-        /// Time when this project was created. Date-Time represented in ISO-8601 format.
-        /// </summary>
-        [Output("createdTimestamp")]
-        public Output<string> CreatedTimestamp { get; private set; } = null!;
-
-        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
-
-        /// <summary>
-        /// List of machine names that are part of this group.
-        /// </summary>
-        [Output("machines")]
-        public Output<ImmutableArray<string>> Machines { get; private set; } = null!;
 
         /// <summary>
         /// Name of the group.
@@ -47,16 +29,16 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Properties of the group.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.GroupPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Type of the object = [Microsoft.Migrate/projects/groups].
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-        /// </summary>
-        [Output("updatedTimestamp")]
-        public Output<string> UpdatedTimestamp { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,23 +101,17 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        [Input("machines", required: true)]
-        private InputList<string>? _machines;
-
-        /// <summary>
-        /// List of machine names that are part of this group.
-        /// </summary>
-        public InputList<string> Machines
-        {
-            get => _machines ?? (_machines = new InputList<string>());
-            set => _machines = value;
-        }
-
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Properties of the group.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.GroupPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
         /// <summary>
-        /// Log settings of script activity.
-        /// </summary>
-        [Input("logSettings")]
-        public Input<Inputs.ScriptActivityTypePropertiesLogSettingsArgs>? LogSettings { get; set; }
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
@@ -58,29 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        /// </summary>
-        [Input("scriptBlockExecutionTimeout")]
-        public Input<object>? ScriptBlockExecutionTimeout { get; set; }
-
-        [Input("scripts")]
-        private InputList<Inputs.ScriptActivityScriptBlockArgs>? _scripts;
-
-        /// <summary>
-        /// Array of script blocks. Type: array.
-        /// </summary>
-        public InputList<Inputs.ScriptActivityScriptBlockArgs> Scripts
-        {
-            get => _scripts ?? (_scripts = new InputList<Inputs.ScriptActivityScriptBlockArgs>());
-            set => _scripts = value;
-        }
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Script'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Script activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ScriptActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

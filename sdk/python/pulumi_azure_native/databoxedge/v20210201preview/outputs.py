@@ -13,18 +13,23 @@ from ._enums import *
 
 __all__ = [
     'AddressResponse',
+    'ArcAddonPropertiesResponse',
     'AsymmetricEncryptedSecretResponse',
     'AuthenticationResponse',
     'AzureContainerInfoResponse',
+    'BandwidthSchedulePropertiesResponse',
     'ClientAccessRightResponse',
     'CniConfigResponse',
     'ComputeResourceResponse',
     'ContactDetailsResponse',
+    'ContainerPropertiesResponse',
     'EdgeProfileResponse',
     'EdgeProfileSubscriptionResponse',
     'EtcdInfoResponse',
     'FileSourceInfoResponse',
+    'FileTriggerPropertiesResponse',
     'ImageRepositoryCredentialResponse',
+    'IoTAddonPropertiesResponse',
     'IoTDeviceInfoResponse',
     'IoTEdgeAgentInfoResponse',
     'KubernetesClusterInfoResponse',
@@ -39,9 +44,11 @@ __all__ = [
     'MetricCounterResponse',
     'MetricCounterSetResponse',
     'MetricDimensionResponse',
+    'MonitoringMetricConfigurationPropertiesResponse',
     'MountPointMapResponse',
     'NodeInfoResponse',
     'OrderStatusResponse',
+    'PeriodicTimerPropertiesResponse',
     'PeriodicTimerSourceInfoResponse',
     'RefreshDetailsResponse',
     'ResourceIdentityResponse',
@@ -49,12 +56,16 @@ __all__ = [
     'RoleSinkInfoResponse',
     'SecretResponse',
     'ShareAccessRightResponse',
+    'SharePropertiesResponse',
     'SkuResponse',
+    'StorageAccountCredentialPropertiesResponse',
+    'StorageAccountPropertiesResponse',
     'SubscriptionRegisteredFeaturesResponse',
     'SymmetricKeyResponse',
     'SystemDataResponse',
     'TrackingInfoResponse',
     'UserAccessRightResponse',
+    'UserPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -172,6 +183,134 @@ class AddressResponse(dict):
         The state name.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class ArcAddonPropertiesResponse(dict):
+    """
+    Arc addon properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostPlatform":
+            suggest = "host_platform"
+        elif key == "hostPlatformType":
+            suggest = "host_platform_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "resourceLocation":
+            suggest = "resource_location"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArcAddonPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArcAddonPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArcAddonPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_platform: str,
+                 host_platform_type: str,
+                 provisioning_state: str,
+                 resource_group_name: str,
+                 resource_location: str,
+                 resource_name: str,
+                 subscription_id: str,
+                 version: str):
+        """
+        Arc addon properties.
+        :param str host_platform: Host OS supported by the Arc addon.
+        :param str host_platform_type: Platform where the runtime is hosted.
+        :param str provisioning_state: Addon Provisioning State
+        :param str resource_group_name: Arc resource group name
+        :param str resource_location: Arc resource location
+        :param str resource_name: Arc resource Name
+        :param str subscription_id: Arc resource subscription Id
+        :param str version: Arc resource version
+        """
+        pulumi.set(__self__, "host_platform", host_platform)
+        pulumi.set(__self__, "host_platform_type", host_platform_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_location", resource_location)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="hostPlatform")
+    def host_platform(self) -> str:
+        """
+        Host OS supported by the Arc addon.
+        """
+        return pulumi.get(self, "host_platform")
+
+    @property
+    @pulumi.getter(name="hostPlatformType")
+    def host_platform_type(self) -> str:
+        """
+        Platform where the runtime is hosted.
+        """
+        return pulumi.get(self, "host_platform_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Addon Provisioning State
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        Arc resource group name
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceLocation")
+    def resource_location(self) -> str:
+        """
+        Arc resource location
+        """
+        return pulumi.get(self, "resource_location")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        """
+        Arc resource Name
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Arc resource subscription Id
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Arc resource version
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -341,6 +480,78 @@ class AzureContainerInfoResponse(dict):
         ID of the storage account credential used to access storage.
         """
         return pulumi.get(self, "storage_account_credential_id")
+
+
+@pulumi.output_type
+class BandwidthSchedulePropertiesResponse(dict):
+    """
+    The properties of the bandwidth schedule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rateInMbps":
+            suggest = "rate_in_mbps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BandwidthSchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BandwidthSchedulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BandwidthSchedulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days: Sequence[str],
+                 rate_in_mbps: int,
+                 start: str,
+                 stop: str):
+        """
+        The properties of the bandwidth schedule.
+        :param Sequence[str] days: The days of the week when this schedule is applicable.
+        :param int rate_in_mbps: The bandwidth rate in Mbps.
+        :param str start: The start time of the schedule in UTC.
+        :param str stop: The stop time of the schedule in UTC.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
+        pulumi.set(__self__, "start", start)
+        pulumi.set(__self__, "stop", stop)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Sequence[str]:
+        """
+        The days of the week when this schedule is applicable.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="rateInMbps")
+    def rate_in_mbps(self) -> int:
+        """
+        The bandwidth rate in Mbps.
+        """
+        return pulumi.get(self, "rate_in_mbps")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The start time of the schedule in UTC.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def stop(self) -> str:
+        """
+        The stop time of the schedule in UTC.
+        """
+        return pulumi.get(self, "stop")
 
 
 @pulumi.output_type
@@ -596,6 +807,84 @@ class ContactDetailsResponse(dict):
 
 
 @pulumi.output_type
+class ContainerPropertiesResponse(dict):
+    """
+    The container properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerStatus":
+            suggest = "container_status"
+        elif key == "createdDateTime":
+            suggest = "created_date_time"
+        elif key == "dataFormat":
+            suggest = "data_format"
+        elif key == "refreshDetails":
+            suggest = "refresh_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_status: str,
+                 created_date_time: str,
+                 data_format: str,
+                 refresh_details: 'outputs.RefreshDetailsResponse'):
+        """
+        The container properties.
+        :param str container_status: Current status of the container.
+        :param str created_date_time: The UTC time when container got created.
+        :param str data_format: DataFormat for Container
+        :param 'RefreshDetailsResponse' refresh_details: Details of the refresh job on this container.
+        """
+        pulumi.set(__self__, "container_status", container_status)
+        pulumi.set(__self__, "created_date_time", created_date_time)
+        pulumi.set(__self__, "data_format", data_format)
+        pulumi.set(__self__, "refresh_details", refresh_details)
+
+    @property
+    @pulumi.getter(name="containerStatus")
+    def container_status(self) -> str:
+        """
+        Current status of the container.
+        """
+        return pulumi.get(self, "container_status")
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> str:
+        """
+        The UTC time when container got created.
+        """
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> str:
+        """
+        DataFormat for Container
+        """
+        return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="refreshDetails")
+    def refresh_details(self) -> 'outputs.RefreshDetailsResponse':
+        """
+        Details of the refresh job on this container.
+        """
+        return pulumi.get(self, "refresh_details")
+
+
+@pulumi.output_type
 class EdgeProfileResponse(dict):
     """
     Details about Edge Profile for the resource
@@ -821,6 +1110,72 @@ class FileSourceInfoResponse(dict):
 
 
 @pulumi.output_type
+class FileTriggerPropertiesResponse(dict):
+    """
+    File trigger properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sinkInfo":
+            suggest = "sink_info"
+        elif key == "sourceInfo":
+            suggest = "source_info"
+        elif key == "customContextTag":
+            suggest = "custom_context_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileTriggerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileTriggerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileTriggerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sink_info: 'outputs.RoleSinkInfoResponse',
+                 source_info: 'outputs.FileSourceInfoResponse',
+                 custom_context_tag: Optional[str] = None):
+        """
+        File trigger properties.
+        :param 'RoleSinkInfoResponse' sink_info: Role sink info.
+        :param 'FileSourceInfoResponse' source_info: File event source details.
+        :param str custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        pulumi.set(__self__, "sink_info", sink_info)
+        pulumi.set(__self__, "source_info", source_info)
+        if custom_context_tag is not None:
+            pulumi.set(__self__, "custom_context_tag", custom_context_tag)
+
+    @property
+    @pulumi.getter(name="sinkInfo")
+    def sink_info(self) -> 'outputs.RoleSinkInfoResponse':
+        """
+        Role sink info.
+        """
+        return pulumi.get(self, "sink_info")
+
+    @property
+    @pulumi.getter(name="sourceInfo")
+    def source_info(self) -> 'outputs.FileSourceInfoResponse':
+        """
+        File event source details.
+        """
+        return pulumi.get(self, "source_info")
+
+    @property
+    @pulumi.getter(name="customContextTag")
+    def custom_context_tag(self) -> Optional[str]:
+        """
+        A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        return pulumi.get(self, "custom_context_tag")
+
+
+@pulumi.output_type
 class ImageRepositoryCredentialResponse(dict):
     """
     Image repository credential.
@@ -882,6 +1237,108 @@ class ImageRepositoryCredentialResponse(dict):
         Repository user password.
         """
         return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class IoTAddonPropertiesResponse(dict):
+    """
+    IoT addon properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostPlatform":
+            suggest = "host_platform"
+        elif key == "hostPlatformType":
+            suggest = "host_platform_type"
+        elif key == "ioTDeviceDetails":
+            suggest = "io_t_device_details"
+        elif key == "ioTEdgeDeviceDetails":
+            suggest = "io_t_edge_device_details"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTAddonPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTAddonPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTAddonPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_platform: str,
+                 host_platform_type: str,
+                 io_t_device_details: 'outputs.IoTDeviceInfoResponse',
+                 io_t_edge_device_details: 'outputs.IoTDeviceInfoResponse',
+                 provisioning_state: str,
+                 version: str):
+        """
+        IoT addon properties.
+        :param str host_platform: Host OS supported by the IoT addon.
+        :param str host_platform_type: Platform where the runtime is hosted.
+        :param 'IoTDeviceInfoResponse' io_t_device_details: IoT device metadata to which appliance needs to be connected.
+        :param 'IoTDeviceInfoResponse' io_t_edge_device_details: IoT edge device to which the IoT Addon needs to be configured.
+        :param str provisioning_state: Addon Provisioning State
+        :param str version: Version of IoT running on the appliance.
+        """
+        pulumi.set(__self__, "host_platform", host_platform)
+        pulumi.set(__self__, "host_platform_type", host_platform_type)
+        pulumi.set(__self__, "io_t_device_details", io_t_device_details)
+        pulumi.set(__self__, "io_t_edge_device_details", io_t_edge_device_details)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="hostPlatform")
+    def host_platform(self) -> str:
+        """
+        Host OS supported by the IoT addon.
+        """
+        return pulumi.get(self, "host_platform")
+
+    @property
+    @pulumi.getter(name="hostPlatformType")
+    def host_platform_type(self) -> str:
+        """
+        Platform where the runtime is hosted.
+        """
+        return pulumi.get(self, "host_platform_type")
+
+    @property
+    @pulumi.getter(name="ioTDeviceDetails")
+    def io_t_device_details(self) -> 'outputs.IoTDeviceInfoResponse':
+        """
+        IoT device metadata to which appliance needs to be connected.
+        """
+        return pulumi.get(self, "io_t_device_details")
+
+    @property
+    @pulumi.getter(name="ioTEdgeDeviceDetails")
+    def io_t_edge_device_details(self) -> 'outputs.IoTDeviceInfoResponse':
+        """
+        IoT edge device to which the IoT Addon needs to be configured.
+        """
+        return pulumi.get(self, "io_t_edge_device_details")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Addon Provisioning State
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Version of IoT running on the appliance.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -1677,6 +2134,45 @@ class MetricDimensionResponse(dict):
 
 
 @pulumi.output_type
+class MonitoringMetricConfigurationPropertiesResponse(dict):
+    """
+    Metrics properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricConfigurations":
+            suggest = "metric_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringMetricConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringMetricConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringMetricConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_configurations: Sequence['outputs.MetricConfigurationResponse']):
+        """
+        Metrics properties
+        :param Sequence['MetricConfigurationResponse'] metric_configurations: The metrics configuration details
+        """
+        pulumi.set(__self__, "metric_configurations", metric_configurations)
+
+    @property
+    @pulumi.getter(name="metricConfigurations")
+    def metric_configurations(self) -> Sequence['outputs.MetricConfigurationResponse']:
+        """
+        The metrics configuration details
+        """
+        return pulumi.get(self, "metric_configurations")
+
+
+@pulumi.output_type
 class MountPointMapResponse(dict):
     """
     The share mount point.
@@ -1917,6 +2413,72 @@ class OrderStatusResponse(dict):
         Comments related to this status change.
         """
         return pulumi.get(self, "comments")
+
+
+@pulumi.output_type
+class PeriodicTimerPropertiesResponse(dict):
+    """
+    Periodic timer trigger properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sinkInfo":
+            suggest = "sink_info"
+        elif key == "sourceInfo":
+            suggest = "source_info"
+        elif key == "customContextTag":
+            suggest = "custom_context_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PeriodicTimerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PeriodicTimerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PeriodicTimerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sink_info: 'outputs.RoleSinkInfoResponse',
+                 source_info: 'outputs.PeriodicTimerSourceInfoResponse',
+                 custom_context_tag: Optional[str] = None):
+        """
+        Periodic timer trigger properties.
+        :param 'RoleSinkInfoResponse' sink_info: Role Sink information.
+        :param 'PeriodicTimerSourceInfoResponse' source_info: Periodic timer details.
+        :param str custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        pulumi.set(__self__, "sink_info", sink_info)
+        pulumi.set(__self__, "source_info", source_info)
+        if custom_context_tag is not None:
+            pulumi.set(__self__, "custom_context_tag", custom_context_tag)
+
+    @property
+    @pulumi.getter(name="sinkInfo")
+    def sink_info(self) -> 'outputs.RoleSinkInfoResponse':
+        """
+        Role Sink information.
+        """
+        return pulumi.get(self, "sink_info")
+
+    @property
+    @pulumi.getter(name="sourceInfo")
+    def source_info(self) -> 'outputs.PeriodicTimerSourceInfoResponse':
+        """
+        Periodic timer details.
+        """
+        return pulumi.get(self, "source_info")
+
+    @property
+    @pulumi.getter(name="customContextTag")
+    def custom_context_tag(self) -> Optional[str]:
+        """
+        A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+        """
+        return pulumi.get(self, "custom_context_tag")
 
 
 @pulumi.output_type
@@ -2308,6 +2870,166 @@ class ShareAccessRightResponse(dict):
 
 
 @pulumi.output_type
+class SharePropertiesResponse(dict):
+    """
+    The share properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessProtocol":
+            suggest = "access_protocol"
+        elif key == "monitoringStatus":
+            suggest = "monitoring_status"
+        elif key == "shareMappings":
+            suggest = "share_mappings"
+        elif key == "shareStatus":
+            suggest = "share_status"
+        elif key == "azureContainerInfo":
+            suggest = "azure_container_info"
+        elif key == "clientAccessRights":
+            suggest = "client_access_rights"
+        elif key == "dataPolicy":
+            suggest = "data_policy"
+        elif key == "refreshDetails":
+            suggest = "refresh_details"
+        elif key == "userAccessRights":
+            suggest = "user_access_rights"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_protocol: str,
+                 monitoring_status: str,
+                 share_mappings: Sequence['outputs.MountPointMapResponse'],
+                 share_status: str,
+                 azure_container_info: Optional['outputs.AzureContainerInfoResponse'] = None,
+                 client_access_rights: Optional[Sequence['outputs.ClientAccessRightResponse']] = None,
+                 data_policy: Optional[str] = None,
+                 description: Optional[str] = None,
+                 refresh_details: Optional['outputs.RefreshDetailsResponse'] = None,
+                 user_access_rights: Optional[Sequence['outputs.UserAccessRightResponse']] = None):
+        """
+        The share properties.
+        :param str access_protocol: Access protocol to be used by the share.
+        :param str monitoring_status: Current monitoring status of the share.
+        :param Sequence['MountPointMapResponse'] share_mappings: Share mount point to the role.
+        :param str share_status: Current status of the share.
+        :param 'AzureContainerInfoResponse' azure_container_info: Azure container mapping for the share.
+        :param Sequence['ClientAccessRightResponse'] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        :param str data_policy: Data policy of the share.
+        :param str description: Description for the share.
+        :param 'RefreshDetailsResponse' refresh_details: Details of the refresh job on this share.
+        :param Sequence['UserAccessRightResponse'] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        """
+        pulumi.set(__self__, "access_protocol", access_protocol)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
+        pulumi.set(__self__, "share_mappings", share_mappings)
+        pulumi.set(__self__, "share_status", share_status)
+        if azure_container_info is not None:
+            pulumi.set(__self__, "azure_container_info", azure_container_info)
+        if client_access_rights is not None:
+            pulumi.set(__self__, "client_access_rights", client_access_rights)
+        if data_policy is not None:
+            pulumi.set(__self__, "data_policy", data_policy)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if refresh_details is not None:
+            pulumi.set(__self__, "refresh_details", refresh_details)
+        if user_access_rights is not None:
+            pulumi.set(__self__, "user_access_rights", user_access_rights)
+
+    @property
+    @pulumi.getter(name="accessProtocol")
+    def access_protocol(self) -> str:
+        """
+        Access protocol to be used by the share.
+        """
+        return pulumi.get(self, "access_protocol")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> str:
+        """
+        Current monitoring status of the share.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter(name="shareMappings")
+    def share_mappings(self) -> Sequence['outputs.MountPointMapResponse']:
+        """
+        Share mount point to the role.
+        """
+        return pulumi.get(self, "share_mappings")
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> str:
+        """
+        Current status of the share.
+        """
+        return pulumi.get(self, "share_status")
+
+    @property
+    @pulumi.getter(name="azureContainerInfo")
+    def azure_container_info(self) -> Optional['outputs.AzureContainerInfoResponse']:
+        """
+        Azure container mapping for the share.
+        """
+        return pulumi.get(self, "azure_container_info")
+
+    @property
+    @pulumi.getter(name="clientAccessRights")
+    def client_access_rights(self) -> Optional[Sequence['outputs.ClientAccessRightResponse']]:
+        """
+        List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        """
+        return pulumi.get(self, "client_access_rights")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> Optional[str]:
+        """
+        Data policy of the share.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description for the share.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="refreshDetails")
+    def refresh_details(self) -> Optional['outputs.RefreshDetailsResponse']:
+        """
+        Details of the refresh job on this share.
+        """
+        return pulumi.get(self, "refresh_details")
+
+    @property
+    @pulumi.getter(name="userAccessRights")
+    def user_access_rights(self) -> Optional[Sequence['outputs.UserAccessRightResponse']]:
+        """
+        Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        """
+        return pulumi.get(self, "user_access_rights")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The SKU type.
@@ -2340,6 +3062,244 @@ class SkuResponse(dict):
         The SKU tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class StorageAccountCredentialPropertiesResponse(dict):
+    """
+    The storage account credential properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountType":
+            suggest = "account_type"
+        elif key == "sslStatus":
+            suggest = "ssl_status"
+        elif key == "accountKey":
+            suggest = "account_key"
+        elif key == "blobDomainName":
+            suggest = "blob_domain_name"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_type: str,
+                 alias: str,
+                 ssl_status: str,
+                 account_key: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None,
+                 blob_domain_name: Optional[str] = None,
+                 connection_string: Optional[str] = None,
+                 storage_account_id: Optional[str] = None,
+                 user_name: Optional[str] = None):
+        """
+        The storage account credential properties.
+        :param str account_type: Type of storage accessed on the storage account.
+        :param str alias: Alias for the storage account.
+        :param str ssl_status: Signifies whether SSL needs to be enabled or not.
+        :param 'AsymmetricEncryptedSecretResponse' account_key: Encrypted storage key.
+        :param str blob_domain_name: Blob end point for private clouds.
+        :param str connection_string: Connection string for the storage account. Use this string if username and account key are not specified.
+        :param str storage_account_id: Id of the storage account.
+        :param str user_name: Username for the storage account.
+        """
+        pulumi.set(__self__, "account_type", account_type)
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "ssl_status", ssl_status)
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if blob_domain_name is not None:
+            pulumi.set(__self__, "blob_domain_name", blob_domain_name)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> str:
+        """
+        Type of storage accessed on the storage account.
+        """
+        return pulumi.get(self, "account_type")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
+        """
+        Alias for the storage account.
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="sslStatus")
+    def ssl_status(self) -> str:
+        """
+        Signifies whether SSL needs to be enabled or not.
+        """
+        return pulumi.get(self, "ssl_status")
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        Encrypted storage key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="blobDomainName")
+    def blob_domain_name(self) -> Optional[str]:
+        """
+        Blob end point for private clouds.
+        """
+        return pulumi.get(self, "blob_domain_name")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        Connection string for the storage account. Use this string if username and account key are not specified.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        """
+        Id of the storage account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        Username for the storage account.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class StorageAccountPropertiesResponse(dict):
+    """
+    The storage account properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobEndpoint":
+            suggest = "blob_endpoint"
+        elif key == "containerCount":
+            suggest = "container_count"
+        elif key == "dataPolicy":
+            suggest = "data_policy"
+        elif key == "storageAccountCredentialId":
+            suggest = "storage_account_credential_id"
+        elif key == "storageAccountStatus":
+            suggest = "storage_account_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blob_endpoint: str,
+                 container_count: int,
+                 data_policy: str,
+                 description: Optional[str] = None,
+                 storage_account_credential_id: Optional[str] = None,
+                 storage_account_status: Optional[str] = None):
+        """
+        The storage account properties.
+        :param str blob_endpoint: BlobEndpoint of Storage Account
+        :param int container_count: The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+        :param str data_policy: Data policy of the storage Account.
+        :param str description: Description for the storage Account.
+        :param str storage_account_credential_id: Storage Account Credential Id
+        :param str storage_account_status: Current status of the storage account
+        """
+        pulumi.set(__self__, "blob_endpoint", blob_endpoint)
+        pulumi.set(__self__, "container_count", container_count)
+        pulumi.set(__self__, "data_policy", data_policy)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if storage_account_credential_id is not None:
+            pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+        if storage_account_status is not None:
+            pulumi.set(__self__, "storage_account_status", storage_account_status)
+
+    @property
+    @pulumi.getter(name="blobEndpoint")
+    def blob_endpoint(self) -> str:
+        """
+        BlobEndpoint of Storage Account
+        """
+        return pulumi.get(self, "blob_endpoint")
+
+    @property
+    @pulumi.getter(name="containerCount")
+    def container_count(self) -> int:
+        """
+        The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+        """
+        return pulumi.get(self, "container_count")
+
+    @property
+    @pulumi.getter(name="dataPolicy")
+    def data_policy(self) -> str:
+        """
+        Data policy of the storage Account.
+        """
+        return pulumi.get(self, "data_policy")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description for the storage Account.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> Optional[str]:
+        """
+        Storage Account Credential Id
+        """
+        return pulumi.get(self, "storage_account_credential_id")
+
+    @property
+    @pulumi.getter(name="storageAccountStatus")
+    def storage_account_status(self) -> Optional[str]:
+        """
+        Current status of the storage account
+        """
+        return pulumi.get(self, "storage_account_status")
 
 
 @pulumi.output_type
@@ -2645,5 +3605,72 @@ class UserAccessRightResponse(dict):
         User ID (already existing in the device).
         """
         return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class UserPropertiesResponse(dict):
+    """
+    The user properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareAccessRights":
+            suggest = "share_access_rights"
+        elif key == "encryptedPassword":
+            suggest = "encrypted_password"
+        elif key == "userType":
+            suggest = "user_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_access_rights: Sequence['outputs.ShareAccessRightResponse'],
+                 encrypted_password: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None,
+                 user_type: Optional[str] = None):
+        """
+        The user properties.
+        :param Sequence['ShareAccessRightResponse'] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
+        :param 'AsymmetricEncryptedSecretResponse' encrypted_password: The password details.
+        :param str user_type: Type of the user.
+        """
+        pulumi.set(__self__, "share_access_rights", share_access_rights)
+        if encrypted_password is not None:
+            pulumi.set(__self__, "encrypted_password", encrypted_password)
+        if user_type is not None:
+            pulumi.set(__self__, "user_type", user_type)
+
+    @property
+    @pulumi.getter(name="shareAccessRights")
+    def share_access_rights(self) -> Sequence['outputs.ShareAccessRightResponse']:
+        """
+        List of shares that the user has rights on. This field should not be specified during user creation.
+        """
+        return pulumi.get(self, "share_access_rights")
+
+    @property
+    @pulumi.getter(name="encryptedPassword")
+    def encrypted_password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        The password details.
+        """
+        return pulumi.get(self, "encrypted_password")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> Optional[str]:
+        """
+        Type of the user.
+        """
+        return pulumi.get(self, "user_type")
 
 

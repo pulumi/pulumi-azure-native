@@ -41,53 +41,21 @@ export interface GetSoftwareUpdateConfigurationByNameArgs {
  */
 export interface GetSoftwareUpdateConfigurationByNameResult {
     /**
-     * CreatedBy property, which only appears in the response.
-     */
-    readonly createdBy: string;
-    /**
-     * Creation time of the resource, which only appears in the response.
-     */
-    readonly creationTime: string;
-    /**
-     * Details of provisioning error
-     */
-    readonly error?: outputs.automation.ErrorResponseResponse;
-    /**
      * Resource Id.
      */
     readonly id: string;
-    /**
-     * LastModifiedBy property, which only appears in the response.
-     */
-    readonly lastModifiedBy: string;
-    /**
-     * Last time resource was modified, which only appears in the response.
-     */
-    readonly lastModifiedTime: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Provisioning state for the software update configuration, which only appears in the response.
+     * Software update configuration properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Schedule information for the Software update configuration
-     */
-    readonly scheduleInfo: outputs.automation.SUCSchedulePropertiesResponse;
-    /**
-     * Tasks information for the Software update configuration.
-     */
-    readonly tasks?: outputs.automation.SoftwareUpdateConfigurationTasksResponse;
+    readonly properties: outputs.automation.SoftwareUpdateConfigurationPropertiesResponse;
     /**
      * Resource type
      */
     readonly type: string;
-    /**
-     * update specific properties for the Software update configuration
-     */
-    readonly updateConfiguration: outputs.automation.UpdateConfigurationResponse;
 }
 /**
  * Get a single software update configuration by name.

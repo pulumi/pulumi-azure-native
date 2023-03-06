@@ -17,76 +17,10 @@ namespace Pulumi.AzureNative.ScVmm
     public partial class VirtualMachineTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets computer name.
-        /// </summary>
-        [Output("computerName")]
-        public Output<string> ComputerName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the desired number of vCPUs for the vm.
-        /// </summary>
-        [Output("cpuCount")]
-        public Output<int> CpuCount { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the disks of the template.
-        /// </summary>
-        [Output("disks")]
-        public Output<ImmutableArray<Outputs.VirtualDiskResponse>> Disks { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether to enable dynamic memory or not.
-        /// </summary>
-        [Output("dynamicMemoryEnabled")]
-        public Output<string> DynamicMemoryEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the max dynamic memory for the vm.
-        /// </summary>
-        [Output("dynamicMemoryMaxMB")]
-        public Output<int> DynamicMemoryMaxMB { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the min dynamic memory for the vm.
-        /// </summary>
-        [Output("dynamicMemoryMinMB")]
-        public Output<int> DynamicMemoryMinMB { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the generation for the vm.
-        /// </summary>
-        [Output("generation")]
-        public Output<int> Generation { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        [Output("inventoryItemId")]
-        public Output<string?> InventoryItemId { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the vm template is customizable or not.
-        /// </summary>
-        [Output("isCustomizable")]
-        public Output<string> IsCustomizable { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets highly available property.
-        /// </summary>
-        [Output("isHighlyAvailable")]
-        public Output<string> IsHighlyAvailable { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
-        /// </summary>
-        [Output("limitCpuForMigration")]
-        public Output<string> LimitCpuForMigration { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the location.
@@ -95,40 +29,16 @@ namespace Pulumi.AzureNative.ScVmm
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// MemoryMB is the desired size of a virtual machine's memory, in MB.
-        /// </summary>
-        [Output("memoryMB")]
-        public Output<int> MemoryMB { get; private set; } = null!;
-
-        /// <summary>
         /// Resource Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the network interfaces of the template.
+        /// Resource properties.
         /// </summary>
-        [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfacesResponse>> NetworkInterfaces { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets os name.
-        /// </summary>
-        [Output("osName")]
-        public Output<string> OsName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the type of the os.
-        /// </summary>
-        [Output("osType")]
-        public Output<string> OsType { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VirtualMachineTemplatePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -147,18 +57,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique ID of the virtual machine template.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string?> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        [Output("vmmServerId")]
-        public Output<string?> VmmServerId { get; private set; } = null!;
 
 
         /// <summary>
@@ -216,16 +114,16 @@ namespace Pulumi.AzureNative.ScVmm
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        [Input("inventoryItemId")]
-        public Input<string>? InventoryItemId { get; set; }
-
-        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.VirtualMachineTemplatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -246,22 +144,10 @@ namespace Pulumi.AzureNative.ScVmm
         }
 
         /// <summary>
-        /// Unique ID of the virtual machine template.
-        /// </summary>
-        [Input("uuid")]
-        public Input<string>? Uuid { get; set; }
-
-        /// <summary>
         /// Name of the VirtualMachineTemplate.
         /// </summary>
         [Input("virtualMachineTemplateName")]
         public Input<string>? VirtualMachineTemplateName { get; set; }
-
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        [Input("vmmServerId")]
-        public Input<string>? VmmServerId { get; set; }
 
         public VirtualMachineTemplateArgs()
         {

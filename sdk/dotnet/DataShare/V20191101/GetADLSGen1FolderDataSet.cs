@@ -94,18 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     public sealed class GetADLSGen1FolderDataSetResult
     {
         /// <summary>
-        /// The ADLS account name.
-        /// </summary>
-        public readonly string AccountName;
-        /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// The folder path within the ADLS account.
-        /// </summary>
-        public readonly string FolderPath;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -119,13 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource group of ADLS account.
+        /// ADLS Gen 1 folder data set properties.
         /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Subscription id of ADLS account.
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ADLSGen1FolderPropertiesResponse Properties;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
@@ -133,32 +117,20 @@ namespace Pulumi.AzureNative.DataShare.V20191101
 
         [OutputConstructor]
         private GetADLSGen1FolderDataSetResult(
-            string accountName,
-
-            string dataSetId,
-
-            string folderPath,
-
             string id,
 
             string kind,
 
             string name,
 
-            string resourceGroup,
-
-            string subscriptionId,
+            Outputs.ADLSGen1FolderPropertiesResponse properties,
 
             string type)
         {
-            AccountName = accountName;
-            DataSetId = dataSetId;
-            FolderPath = folderPath;
             Id = id;
             Kind = kind;
             Name = name;
-            ResourceGroup = resourceGroup;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             Type = type;
         }
     }

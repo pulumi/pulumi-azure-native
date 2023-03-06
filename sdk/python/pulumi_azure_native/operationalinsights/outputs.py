@@ -18,11 +18,15 @@ __all__ = [
     'ColumnResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
+    'LinkedServicePropertiesResponse',
+    'LinkedStorageAccountsPropertiesResponse',
+    'LogAnalyticsQueryPackPropertiesResponse',
     'LogAnalyticsQueryPackQueryPropertiesResponseRelated',
     'MachineReferenceWithHintsResponse',
     'PrivateLinkScopedResourceResponse',
     'RestoredLogsResponse',
     'ResultStatisticsResponse',
+    'SavedSearchPropertiesResponse',
     'SchemaResponse',
     'SearchResultsResponse',
     'StorageAccountResponse',
@@ -476,6 +480,205 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LinkedServicePropertiesResponse(dict):
+    """
+    Linked service properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "writeAccessResourceId":
+            suggest = "write_access_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServicePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServicePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 write_access_resource_id: Optional[str] = None):
+        """
+        Linked service properties.
+        :param str provisioning_state: The provisioning state of the linked service.
+        :param str resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+        :param str write_access_resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+        """
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if write_access_resource_id is not None:
+            pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the linked service.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="writeAccessResourceId")
+    def write_access_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+        """
+        return pulumi.get(self, "write_access_resource_id")
+
+
+@pulumi.output_type
+class LinkedStorageAccountsPropertiesResponse(dict):
+    """
+    Linked storage accounts properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceType":
+            suggest = "data_source_type"
+        elif key == "storageAccountIds":
+            suggest = "storage_account_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedStorageAccountsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedStorageAccountsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedStorageAccountsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_type: str,
+                 storage_account_ids: Optional[Sequence[str]] = None):
+        """
+        Linked storage accounts properties.
+        :param str data_source_type: Linked storage accounts type.
+        :param Sequence[str] storage_account_ids: Linked storage accounts resources ids.
+        """
+        pulumi.set(__self__, "data_source_type", data_source_type)
+        if storage_account_ids is not None:
+            pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+
+    @property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> str:
+        """
+        Linked storage accounts type.
+        """
+        return pulumi.get(self, "data_source_type")
+
+    @property
+    @pulumi.getter(name="storageAccountIds")
+    def storage_account_ids(self) -> Optional[Sequence[str]]:
+        """
+        Linked storage accounts resources ids.
+        """
+        return pulumi.get(self, "storage_account_ids")
+
+
+@pulumi.output_type
+class LogAnalyticsQueryPackPropertiesResponse(dict):
+    """
+    Properties that define a Log Analytics QueryPack resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "queryPackId":
+            suggest = "query_pack_id"
+        elif key == "timeCreated":
+            suggest = "time_created"
+        elif key == "timeModified":
+            suggest = "time_modified"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogAnalyticsQueryPackPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogAnalyticsQueryPackPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogAnalyticsQueryPackPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 query_pack_id: str,
+                 time_created: str,
+                 time_modified: str):
+        """
+        Properties that define a Log Analytics QueryPack resource.
+        :param str provisioning_state: Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        :param str query_pack_id: The unique ID of your application. This field cannot be changed.
+        :param str time_created: Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
+        :param str time_modified: Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "query_pack_id", query_pack_id)
+        pulumi.set(__self__, "time_created", time_created)
+        pulumi.set(__self__, "time_modified", time_modified)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryPackId")
+    def query_pack_id(self) -> str:
+        """
+        The unique ID of your application. This field cannot be changed.
+        """
+        return pulumi.get(self, "query_pack_id")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter(name="timeModified")
+    def time_modified(self) -> str:
+        """
+        Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
+        """
+        return pulumi.get(self, "time_modified")
+
+
+@pulumi.output_type
 class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
     """
     The related metadata items for the function.
@@ -807,6 +1010,119 @@ class ResultStatisticsResponse(dict):
         Search job completion percentage.
         """
         return pulumi.get(self, "progress")
+
+
+@pulumi.output_type
+class SavedSearchPropertiesResponse(dict):
+    """
+    Value object for saved search results.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "functionAlias":
+            suggest = "function_alias"
+        elif key == "functionParameters":
+            suggest = "function_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SavedSearchPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SavedSearchPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SavedSearchPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: str,
+                 display_name: str,
+                 query: str,
+                 function_alias: Optional[str] = None,
+                 function_parameters: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.TagResponse']] = None,
+                 version: Optional[float] = None):
+        """
+        Value object for saved search results.
+        :param str category: The category of the saved search. This helps the user to find a saved search faster. 
+        :param str display_name: Saved search display name.
+        :param str query: The query expression for the saved search.
+        :param str function_alias: The function alias if query serves as a function.
+        :param str function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
+        :param Sequence['TagResponse'] tags: The tags attached to the saved search.
+        :param float version: The version number of the query language. The current version is 2 and is the default.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "query", query)
+        if function_alias is not None:
+            pulumi.set(__self__, "function_alias", function_alias)
+        if function_parameters is not None:
+            pulumi.set(__self__, "function_parameters", function_parameters)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        The category of the saved search. This helps the user to find a saved search faster. 
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Saved search display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query expression for the saved search.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="functionAlias")
+    def function_alias(self) -> Optional[str]:
+        """
+        The function alias if query serves as a function.
+        """
+        return pulumi.get(self, "function_alias")
+
+    @property
+    @pulumi.getter(name="functionParameters")
+    def function_parameters(self) -> Optional[str]:
+        """
+        The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
+        """
+        return pulumi.get(self, "function_parameters")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.TagResponse']]:
+        """
+        The tags attached to the saved search.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
+        """
+        The version number of the query language. The current version is 2 and is the default.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

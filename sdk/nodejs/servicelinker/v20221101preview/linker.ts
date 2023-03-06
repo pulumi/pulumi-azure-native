@@ -38,53 +38,21 @@ export class Linker extends pulumi.CustomResource {
     }
 
     /**
-     * The authentication type.
-     */
-    public readonly authInfo!: pulumi.Output<outputs.servicelinker.v20221101preview.AccessKeyInfoBaseResponse | outputs.servicelinker.v20221101preview.SecretAuthInfoResponse | outputs.servicelinker.v20221101preview.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.v20221101preview.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.v20221101preview.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.v20221101preview.UserAccountAuthInfoResponse | outputs.servicelinker.v20221101preview.UserAssignedIdentityAuthInfoResponse | undefined>;
-    /**
-     * The application client type
-     */
-    public readonly clientType!: pulumi.Output<string | undefined>;
-    /**
-     * The connection information consumed by applications, including secrets, connection strings.
-     */
-    public readonly configurationInfo!: pulumi.Output<outputs.servicelinker.v20221101preview.ConfigurationInfoResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state. 
+     * The properties of the Linker.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The network solution.
-     */
-    public readonly publicNetworkSolution!: pulumi.Output<outputs.servicelinker.v20221101preview.PublicNetworkSolutionResponse | undefined>;
-    /**
-     * connection scope in source service.
-     */
-    public readonly scope!: pulumi.Output<string | undefined>;
-    /**
-     * An option to store secret value in secure place
-     */
-    public readonly secretStore!: pulumi.Output<outputs.servicelinker.v20221101preview.SecretStoreResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.servicelinker.v20221101preview.LinkerPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicelinker.v20221101preview.SystemDataResponse>;
     /**
-     * The target service properties
-     */
-    public readonly targetService!: pulumi.Output<outputs.servicelinker.v20221101preview.AzureResourceResponse | outputs.servicelinker.v20221101preview.ConfluentBootstrapServerResponse | outputs.servicelinker.v20221101preview.ConfluentSchemaRegistryResponse | outputs.servicelinker.v20221101preview.SelfHostedServerResponse | undefined>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The VNet solution.
-     */
-    public readonly vNetSolution!: pulumi.Output<outputs.servicelinker.v20221101preview.VNetSolutionResponse | undefined>;
 
     /**
      * Create a Linker resource with the given unique name, arguments, and options.
@@ -97,36 +65,23 @@ export class Linker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["authInfo"] = args ? args.authInfo : undefined;
-            resourceInputs["clientType"] = args ? args.clientType : undefined;
-            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
             resourceInputs["linkerName"] = args ? args.linkerName : undefined;
-            resourceInputs["publicNetworkSolution"] = args ? args.publicNetworkSolution : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
-            resourceInputs["targetService"] = args ? args.targetService : undefined;
-            resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["authInfo"] = undefined /*out*/;
-            resourceInputs["clientType"] = undefined /*out*/;
-            resourceInputs["configurationInfo"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicNetworkSolution"] = undefined /*out*/;
-            resourceInputs["scope"] = undefined /*out*/;
-            resourceInputs["secretStore"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["targetService"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vNetSolution"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicelinker:Linker" }, { type: "azure-native:servicelinker/v20211101preview:Linker" }, { type: "azure-native:servicelinker/v20220101preview:Linker" }, { type: "azure-native:servicelinker/v20220501:Linker" }] };
@@ -140,43 +95,15 @@ export class Linker extends pulumi.CustomResource {
  */
 export interface LinkerArgs {
     /**
-     * The authentication type.
-     */
-    authInfo?: pulumi.Input<inputs.servicelinker.v20221101preview.AccessKeyInfoBaseArgs | inputs.servicelinker.v20221101preview.SecretAuthInfoArgs | inputs.servicelinker.v20221101preview.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.v20221101preview.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.v20221101preview.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.v20221101preview.UserAccountAuthInfoArgs | inputs.servicelinker.v20221101preview.UserAssignedIdentityAuthInfoArgs>;
-    /**
-     * The application client type
-     */
-    clientType?: pulumi.Input<string | enums.servicelinker.v20221101preview.ClientType>;
-    /**
-     * The connection information consumed by applications, including secrets, connection strings.
-     */
-    configurationInfo?: pulumi.Input<inputs.servicelinker.v20221101preview.ConfigurationInfoArgs>;
-    /**
      * The name Linker resource.
      */
     linkerName?: pulumi.Input<string>;
     /**
-     * The network solution.
+     * The properties of the Linker.
      */
-    publicNetworkSolution?: pulumi.Input<inputs.servicelinker.v20221101preview.PublicNetworkSolutionArgs>;
+    properties: pulumi.Input<inputs.servicelinker.v20221101preview.LinkerPropertiesArgs>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
-    /**
-     * connection scope in source service.
-     */
-    scope?: pulumi.Input<string>;
-    /**
-     * An option to store secret value in secure place
-     */
-    secretStore?: pulumi.Input<inputs.servicelinker.v20221101preview.SecretStoreArgs>;
-    /**
-     * The target service properties
-     */
-    targetService?: pulumi.Input<inputs.servicelinker.v20221101preview.AzureResourceArgs | inputs.servicelinker.v20221101preview.ConfluentBootstrapServerArgs | inputs.servicelinker.v20221101preview.ConfluentSchemaRegistryArgs | inputs.servicelinker.v20221101preview.SelfHostedServerArgs>;
-    /**
-     * The VNet solution.
-     */
-    vNetSolution?: pulumi.Input<inputs.servicelinker.v20221101preview.VNetSolutionArgs>;
 }

@@ -19,16 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVolumeResult:
-    def __init__(__self__, attached_to=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, serial_number=None, size_mi_b=None, system_data=None, tags=None, type=None):
-        if attached_to and not isinstance(attached_to, list):
-            raise TypeError("Expected argument 'attached_to' to be a list")
-        pulumi.set(__self__, "attached_to", attached_to)
-        if detailed_status and not isinstance(detailed_status, str):
-            raise TypeError("Expected argument 'detailed_status' to be a str")
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        if detailed_status_message and not isinstance(detailed_status_message, str):
-            raise TypeError("Expected argument 'detailed_status_message' to be a str")
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -41,15 +32,9 @@ class GetVolumeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if serial_number and not isinstance(serial_number, str):
-            raise TypeError("Expected argument 'serial_number' to be a str")
-        pulumi.set(__self__, "serial_number", serial_number)
-        if size_mi_b and not isinstance(size_mi_b, float):
-            raise TypeError("Expected argument 'size_mi_b' to be a float")
-        pulumi.set(__self__, "size_mi_b", size_mi_b)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -59,30 +44,6 @@ class GetVolumeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="attachedTo")
-    def attached_to(self) -> Sequence[str]:
-        """
-        The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
-        """
-        return pulumi.get(self, "attached_to")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> str:
-        """
-        The more detailed status of the volume.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> str:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -117,28 +78,12 @@ class GetVolumeResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.VolumePropertiesResponse':
         """
-        The provisioning state of the volume.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> str:
-        """
-        The unique identifier of the volume.
-        """
-        return pulumi.get(self, "serial_number")
-
-    @property
-    @pulumi.getter(name="sizeMiB")
-    def size_mi_b(self) -> float:
-        """
-        The size of the allocation for this volume in Mebibytes.
-        """
-        return pulumi.get(self, "size_mi_b")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -171,16 +116,11 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
-            attached_to=self.attached_to,
-            detailed_status=self.detailed_status,
-            detailed_status_message=self.detailed_status_message,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            serial_number=self.serial_number,
-            size_mi_b=self.size_mi_b,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -203,16 +143,11 @@ def get_volume(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud/v20221212preview:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        attached_to=__ret__.attached_to,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
         extended_location=__ret__.extended_location,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        serial_number=__ret__.serial_number,
-        size_mi_b=__ret__.size_mi_b,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['DisasterRecoveryConfigurationArgs', 'DisasterRecoveryConfiguration']
 
@@ -128,15 +129,9 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
-            __props__.__dict__["auto_failover"] = None
-            __props__.__dict__["failover_policy"] = None
             __props__.__dict__["location"] = None
-            __props__.__dict__["logical_server_name"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["partner_logical_server_name"] = None
-            __props__.__dict__["partner_server_id"] = None
-            __props__.__dict__["role"] = None
-            __props__.__dict__["status"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:DisasterRecoveryConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -162,33 +157,11 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
         __props__ = DisasterRecoveryConfigurationArgs.__new__(DisasterRecoveryConfigurationArgs)
 
-        __props__.__dict__["auto_failover"] = None
-        __props__.__dict__["failover_policy"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["logical_server_name"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["partner_logical_server_name"] = None
-        __props__.__dict__["partner_server_id"] = None
-        __props__.__dict__["role"] = None
-        __props__.__dict__["status"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return DisasterRecoveryConfiguration(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="autoFailover")
-    def auto_failover(self) -> pulumi.Output[str]:
-        """
-        Whether or not failover can be done automatically.
-        """
-        return pulumi.get(self, "auto_failover")
-
-    @property
-    @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> pulumi.Output[str]:
-        """
-        How aggressive the automatic failover should be.
-        """
-        return pulumi.get(self, "failover_policy")
 
     @property
     @pulumi.getter
@@ -199,14 +172,6 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="logicalServerName")
-    def logical_server_name(self) -> pulumi.Output[str]:
-        """
-        Logical name of the server.
-        """
-        return pulumi.get(self, "logical_server_name")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -215,36 +180,12 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="partnerLogicalServerName")
-    def partner_logical_server_name(self) -> pulumi.Output[str]:
-        """
-        Logical name of the partner server.
-        """
-        return pulumi.get(self, "partner_logical_server_name")
-
-    @property
-    @pulumi.getter(name="partnerServerId")
-    def partner_server_id(self) -> pulumi.Output[str]:
-        """
-        Id of the partner server.
-        """
-        return pulumi.get(self, "partner_server_id")
-
-    @property
     @pulumi.getter
-    def role(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.DisasterRecoveryConfigurationPropertiesResponse']:
         """
-        The role of the current server in the disaster recovery configuration.
+        The properties representing the resource.
         """
-        return pulumi.get(self, "role")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        """
-        The status of the disaster recovery configuration.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

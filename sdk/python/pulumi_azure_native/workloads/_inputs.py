@@ -48,6 +48,7 @@ __all__ = [
     'PrometheusHaClusterProviderInstancePropertiesArgs',
     'PrometheusOSProviderInstancePropertiesArgs',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgs',
+    'SAPVirtualInstancePropertiesArgs',
     'SapNetWeaverProviderInstancePropertiesArgs',
     'SearchProfileArgs',
     'ServiceInitiatedSoftwareConfigurationArgs',
@@ -2599,6 +2600,75 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
     @high_availability_software_configuration.setter
     def high_availability_software_configuration(self, value: Optional[pulumi.Input['HighAvailabilitySoftwareConfigurationArgs']]):
         pulumi.set(self, "high_availability_software_configuration", value)
+
+
+@pulumi.input_type
+class SAPVirtualInstancePropertiesArgs:
+    def __init__(__self__, *,
+                 configuration: pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']],
+                 environment: pulumi.Input[Union[str, 'SAPEnvironmentType']],
+                 sap_product: pulumi.Input[Union[str, 'SAPProductType']],
+                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None):
+        """
+        Defines the Virtual Instance for SAP solutions resource properties.
+        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
+        :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
+        :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
+        :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "sap_product", sap_product)
+        if managed_resource_group_configuration is not None:
+            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']]:
+        """
+        Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> pulumi.Input[Union[str, 'SAPEnvironmentType']]:
+        """
+        Defines the environment type - Production/Non Production.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: pulumi.Input[Union[str, 'SAPEnvironmentType']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="sapProduct")
+    def sap_product(self) -> pulumi.Input[Union[str, 'SAPProductType']]:
+        """
+        Defines the SAP Product type.
+        """
+        return pulumi.get(self, "sap_product")
+
+    @sap_product.setter
+    def sap_product(self, value: pulumi.Input[Union[str, 'SAPProductType']]):
+        pulumi.set(self, "sap_product", value)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupConfiguration")
+    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedRGConfigurationArgs']]:
+        """
+        Managed resource group configuration
+        """
+        return pulumi.get(self, "managed_resource_group_configuration")
+
+    @managed_resource_group_configuration.setter
+    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedRGConfigurationArgs']]):
+        pulumi.set(self, "managed_resource_group_configuration", value)
 
 
 @pulumi.input_type

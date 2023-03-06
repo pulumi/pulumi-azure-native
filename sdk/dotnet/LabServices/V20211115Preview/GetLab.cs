@@ -70,25 +70,9 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     public sealed class GetLabResult
     {
         /// <summary>
-        /// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
-        /// </summary>
-        public readonly Outputs.AutoShutdownProfileResponse AutoShutdownProfile;
-        /// <summary>
-        /// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
-        /// </summary>
-        public readonly Outputs.ConnectionProfileResponse ConnectionProfile;
-        /// <summary>
-        /// The description of the lab.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
-        /// </summary>
-        public readonly string? LabPlanId;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -98,25 +82,9 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        /// Lab resource properties
         /// </summary>
-        public readonly Outputs.LabNetworkProfileResponse? NetworkProfile;
-        /// <summary>
-        /// Current provisioning state of the lab.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The lab user list management profile.
-        /// </summary>
-        public readonly Outputs.RosterProfileResponse? RosterProfile;
-        /// <summary>
-        /// The lab security profile.
-        /// </summary>
-        public readonly Outputs.SecurityProfileResponse SecurityProfile;
-        /// <summary>
-        /// The lab state.
-        /// </summary>
-        public readonly string State;
+        public readonly Outputs.LabPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the lab.
         /// </summary>
@@ -126,71 +94,33 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The title of the lab.
-        /// </summary>
-        public readonly string? Title;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The profile used for creating lab virtual machines.
-        /// </summary>
-        public readonly Outputs.VirtualMachineProfileResponse VirtualMachineProfile;
 
         [OutputConstructor]
         private GetLabResult(
-            Outputs.AutoShutdownProfileResponse autoShutdownProfile,
-
-            Outputs.ConnectionProfileResponse connectionProfile,
-
-            string? description,
-
             string id,
-
-            string? labPlanId,
 
             string location,
 
             string name,
 
-            Outputs.LabNetworkProfileResponse? networkProfile,
-
-            string provisioningState,
-
-            Outputs.RosterProfileResponse? rosterProfile,
-
-            Outputs.SecurityProfileResponse securityProfile,
-
-            string state,
+            Outputs.LabPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? title,
-
-            string type,
-
-            Outputs.VirtualMachineProfileResponse virtualMachineProfile)
+            string type)
         {
-            AutoShutdownProfile = autoShutdownProfile;
-            ConnectionProfile = connectionProfile;
-            Description = description;
             Id = id;
-            LabPlanId = labPlanId;
             Location = location;
             Name = name;
-            NetworkProfile = networkProfile;
-            ProvisioningState = provisioningState;
-            RosterProfile = rosterProfile;
-            SecurityProfile = securityProfile;
-            State = state;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            Title = title;
             Type = type;
-            VirtualMachineProfile = virtualMachineProfile;
         }
     }
 }

@@ -11,8 +11,31 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AuthorizationRulePropertiesResponse',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class AuthorizationRulePropertiesResponse(dict):
+    """
+    AuthorizationRule properties.
+    """
+    def __init__(__self__, *,
+                 rights: Sequence[str]):
+        """
+        AuthorizationRule properties.
+        :param Sequence[str] rights: The rights associated with the rule.
+        """
+        pulumi.set(__self__, "rights", rights)
+
+    @property
+    @pulumi.getter
+    def rights(self) -> Sequence[str]:
+        """
+        The rights associated with the rule.
+        """
+        return pulumi.get(self, "rights")
+
 
 @pulumi.output_type
 class SkuResponse(dict):

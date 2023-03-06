@@ -46,17 +46,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Recurrence schedule configuration.
-        /// </summary>
-        [Input("recurrence", required: true)]
-        public Input<Inputs.ScheduleTriggerRecurrenceArgs> Recurrence { get; set; } = null!;
-
-        /// <summary>
         /// Trigger type.
         /// Expected value is 'ScheduleTrigger'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Schedule Trigger properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ScheduleTriggerTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ScheduleTriggerArgs()
         {

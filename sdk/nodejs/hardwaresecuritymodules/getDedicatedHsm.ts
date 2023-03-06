@@ -48,25 +48,13 @@ export interface GetDedicatedHsmResult {
      */
     readonly name: string;
     /**
-     * Specifies the network interfaces of the dedicated hsm.
+     * Properties of the dedicated HSM
      */
-    readonly networkProfile?: outputs.hardwaresecuritymodules.NetworkProfileResponse;
-    /**
-     * Provisioning state.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.hardwaresecuritymodules.DedicatedHsmPropertiesResponse;
     /**
      * SKU details
      */
     readonly sku: outputs.hardwaresecuritymodules.SkuResponse;
-    /**
-     * This field will be used when RP does not support Availability zones.
-     */
-    readonly stampId?: string;
-    /**
-     * Resource Status Message.
-     */
-    readonly statusMessage: string;
     /**
      * Resource tags
      */

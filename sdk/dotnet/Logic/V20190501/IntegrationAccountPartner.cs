@@ -16,34 +16,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public partial class IntegrationAccountPartner : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        [Output("changedTime")]
-        public Output<string> ChangedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The partner content.
-        /// </summary>
-        [Output("content")]
-        public Output<Outputs.PartnerContentResponse> Content { get; private set; } = null!;
-
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Output("metadata")]
-        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -52,10 +28,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The partner type.
+        /// The integration account partner properties.
         /// </summary>
-        [Output("partnerType")]
-        public Output<string> PartnerType { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IntegrationAccountPartnerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -122,12 +98,6 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public sealed class IntegrationAccountPartnerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The partner content.
-        /// </summary>
-        [Input("content", required: true)]
-        public Input<Inputs.PartnerContentArgs> Content { get; set; } = null!;
-
-        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -140,22 +110,16 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
-
-        /// <summary>
         /// The integration account partner name.
         /// </summary>
         [Input("partnerName")]
         public Input<string>? PartnerName { get; set; }
 
         /// <summary>
-        /// The partner type.
+        /// The integration account partner properties.
         /// </summary>
-        [Input("partnerType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Logic.V20190501.PartnerType> PartnerType { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.IntegrationAccountPartnerPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

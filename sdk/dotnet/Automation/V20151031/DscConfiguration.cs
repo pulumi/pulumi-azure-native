@@ -169,28 +169,10 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
-        /// Gets or sets the description of the configuration.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// Gets or sets the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Gets or sets progress log option.
-        /// </summary>
-        [Input("logProgress")]
-        public Input<bool>? LogProgress { get; set; }
-
-        /// <summary>
-        /// Gets or sets verbose log option.
-        /// </summary>
-        [Input("logVerbose")]
-        public Input<bool>? LogVerbose { get; set; }
 
         /// <summary>
         /// Gets or sets name of the resource.
@@ -198,29 +180,17 @@ namespace Pulumi.AzureNative.Automation.V20151031
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("parameters")]
-        private InputMap<Inputs.DscConfigurationParameterArgs>? _parameters;
-
         /// <summary>
-        /// Gets or sets the configuration parameters.
+        /// Gets or sets configuration create or update properties.
         /// </summary>
-        public InputMap<Inputs.DscConfigurationParameterArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.DscConfigurationParameterArgs>());
-            set => _parameters = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.DscConfigurationCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        [Input("source", required: true)]
-        public Input<Inputs.ContentSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

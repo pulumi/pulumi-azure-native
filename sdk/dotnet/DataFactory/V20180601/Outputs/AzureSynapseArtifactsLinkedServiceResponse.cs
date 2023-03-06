@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// Required to specify MSI, if using system assigned managed identity as authentication method. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Authentication;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -32,10 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// https://&lt;workspacename&gt;.dev.azuresynapse.net, Azure Synapse Analytics workspace URL. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Endpoint;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -46,36 +38,30 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
+        /// Azure Synapse Analytics (Artifacts) linked service properties.
         /// </summary>
-        public readonly object? WorkspaceResourceId;
+        public readonly Outputs.AzureSynapseArtifactsLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureSynapseArtifactsLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            object? authentication,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
-
-            object endpoint,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type,
 
-            object? workspaceResourceId)
+            Outputs.AzureSynapseArtifactsLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            Authentication = authentication;
             ConnectVia = connectVia;
             Description = description;
-            Endpoint = endpoint;
             Parameters = parameters;
             Type = type;
-            WorkspaceResourceId = workspaceResourceId;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -16,6 +16,7 @@ __all__ = [
     'CriteriaArgs',
     'DimensionArgs',
     'LogMetricTriggerArgs',
+    'LogSearchRuleArgs',
     'LogToMetricActionArgs',
     'ScheduleArgs',
     'SourceArgs',
@@ -327,6 +328,126 @@ class LogMetricTriggerArgs:
     @threshold_operator.setter
     def threshold_operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]):
         pulumi.set(self, "threshold_operator", value)
+
+
+@pulumi.input_type
+class LogSearchRuleArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']],
+                 source: pulumi.Input['SourceArgs'],
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[Union[str, 'Enabled']]] = None,
+                 schedule: Optional[pulumi.Input['ScheduleArgs']] = None):
+        """
+        Log Search Rule Definition
+        :param pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']] action: Action needs to be taken on rule execution.
+        :param pulumi.Input['SourceArgs'] source: Data Source against which rule will Query Data
+        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        :param pulumi.Input[str] description: The description of the Log Search rule.
+        :param pulumi.Input[str] display_name: The display name of the alert rule
+        :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        :param pulumi.Input['ScheduleArgs'] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "source", source)
+        if auto_mitigate is None:
+            auto_mitigate = False
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']]:
+        """
+        Action needs to be taken on rule execution.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['SourceArgs']:
+        """
+        Data Source against which rule will Query Data
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['SourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @auto_mitigate.setter
+    def auto_mitigate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_mitigate", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Log Search rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[Union[str, 'Enabled']]]:
+        """
+        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[Union[str, 'Enabled']]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['ScheduleArgs']]:
+        """
+        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['ScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
 
 
 @pulumi.input_type

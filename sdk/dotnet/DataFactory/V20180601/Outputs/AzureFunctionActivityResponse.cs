@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class AzureFunctionActivityResponse
     {
         /// <summary>
-        /// Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Body;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -29,21 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Name of the Function that the Azure Function Activity will call. Type: string (or Expression with resultType string)
-        /// </summary>
-        public readonly object FunctionName;
-        /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Headers;
-        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
-        /// <summary>
-        /// Rest API method for target endpoint.
-        /// </summary>
-        public readonly string Method;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -58,25 +42,21 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Azure Function activity properties.
+        /// </summary>
+        public readonly Outputs.AzureFunctionActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
 
         [OutputConstructor]
         private AzureFunctionActivityResponse(
-            object? body,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
-            object functionName,
-
-            object? headers,
-
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
-
-            string method,
 
             string name,
 
@@ -84,18 +64,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
+            Outputs.AzureFunctionActivityTypePropertiesResponse typeProperties,
+
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Body = body;
             DependsOn = dependsOn;
             Description = description;
-            FunctionName = functionName;
-            Headers = headers;
             LinkedServiceName = linkedServiceName;
-            Method = method;
             Name = name;
             Policy = policy;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

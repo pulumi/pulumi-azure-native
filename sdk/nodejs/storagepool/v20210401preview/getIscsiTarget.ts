@@ -40,49 +40,21 @@ export interface GetIscsiTargetArgs {
  */
 export interface GetIscsiTargetResult {
     /**
-     * Mode for Target connectivity.
-     */
-    readonly aclMode: string;
-    /**
-     * List of private IPv4 addresses to connect to the iSCSI Target.
-     */
-    readonly endpoints?: string[];
-    /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * List of LUNs to be exposed through iSCSI Target.
-     */
-    readonly luns?: outputs.storagepool.v20210401preview.IscsiLunResponse[];
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The port used by iSCSI Target portal group.
+     * Properties for iSCSI Target operations.
      */
-    readonly port?: number;
-    /**
-     * State of the operation on the resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-     */
-    readonly staticAcls?: outputs.storagepool.v20210401preview.AclResponse[];
-    /**
-     * Operational status of the iSCSI Target.
-     */
-    readonly status: string;
+    readonly properties: outputs.storagepool.v20210401preview.IscsiTargetPropertiesResponse;
     /**
      * Resource metadata required by ARM RPC
      */
     readonly systemData: outputs.storagepool.v20210401preview.SystemMetadataResponse;
-    /**
-     * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-     */
-    readonly targetIqn: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
     public partial class DiskPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of additional capabilities for Disk Pool.
-        /// </summary>
-        [Output("additionalCapabilities")]
-        public Output<ImmutableArray<string>> AdditionalCapabilities { get; private set; } = null!;
-
-        /// <summary>
-        /// Logical zone for Disk Pool resource; example: ["1"].
-        /// </summary>
-        [Output("availabilityZones")]
-        public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
-
-        /// <summary>
-        /// List of Azure Managed Disks to attach to a Disk Pool.
-        /// </summary>
-        [Output("disks")]
-        public Output<ImmutableArray<Outputs.DiskResponse>> Disks { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives.
         /// </summary>
         [Output("location")]
@@ -46,22 +28,10 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the operation on the resource.
+        /// Properties of Disk Pool.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Operational status of the Disk Pool.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure Resource ID of a Subnet for the Disk Pool.
-        /// </summary>
-        [Output("subnetId")]
-        public Output<string> SubnetId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DiskPoolPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource metadata required by ARM RPC
@@ -138,53 +108,23 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
 
     public sealed class DiskPoolArgs : global::Pulumi.ResourceArgs
     {
-        [Input("additionalCapabilities")]
-        private InputList<string>? _additionalCapabilities;
-
-        /// <summary>
-        /// List of additional capabilities for a Disk Pool.
-        /// </summary>
-        public InputList<string> AdditionalCapabilities
-        {
-            get => _additionalCapabilities ?? (_additionalCapabilities = new InputList<string>());
-            set => _additionalCapabilities = value;
-        }
-
-        [Input("availabilityZones")]
-        private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// Logical zone for Disk Pool resource; example: ["1"].
-        /// </summary>
-        public InputList<string> AvailabilityZones
-        {
-            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
-            set => _availabilityZones = value;
-        }
-
         /// <summary>
         /// The name of the Disk Pool.
         /// </summary>
         [Input("diskPoolName")]
         public Input<string>? DiskPoolName { get; set; }
 
-        [Input("disks")]
-        private InputList<Inputs.DiskArgs>? _disks;
-
-        /// <summary>
-        /// List of Azure Managed Disks to attach to a Disk Pool.
-        /// </summary>
-        public InputList<Inputs.DiskArgs> Disks
-        {
-            get => _disks ?? (_disks = new InputList<Inputs.DiskArgs>());
-            set => _disks = value;
-        }
-
         /// <summary>
         /// The geo-location where the resource lives.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties for Disk Pool create request.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.DiskPoolCreatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -197,12 +137,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// Azure Resource ID of a Subnet for the Disk Pool.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

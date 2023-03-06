@@ -83,10 +83,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
     public sealed class GetUserResult
     {
         /// <summary>
-        /// The password details.
-        /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptedPassword;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -95,9 +91,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of shares that the user has rights on. This field should not be specified during user creation.
+        /// The storage account credential properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ShareAccessRightResponse> ShareAccessRights;
+        public readonly Outputs.UserPropertiesResponse Properties;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -105,20 +101,17 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
 
         [OutputConstructor]
         private GetUserResult(
-            Outputs.AsymmetricEncryptedSecretResponse? encryptedPassword,
-
             string id,
 
             string name,
 
-            ImmutableArray<Outputs.ShareAccessRightResponse> shareAccessRights,
+            Outputs.UserPropertiesResponse properties,
 
             string type)
         {
-            EncryptedPassword = encryptedPassword;
             Id = id;
             Name = name;
-            ShareAccessRights = shareAccessRights;
+            Properties = properties;
             Type = type;
         }
     }

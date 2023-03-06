@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IntegrationAccountSessionArgs', 'IntegrationAccountSession']
 
@@ -15,24 +17,23 @@ __all__ = ['IntegrationAccountSessionArgs', 'IntegrationAccountSession']
 class IntegrationAccountSessionArgs:
     def __init__(__self__, *,
                  integration_account_name: pulumi.Input[str],
+                 properties: pulumi.Input['IntegrationAccountSessionPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 content: Optional[Any] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  session_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountSession resource.
         :param pulumi.Input[str] integration_account_name: The integration account name.
+        :param pulumi.Input['IntegrationAccountSessionPropertiesArgs'] properties: The integration account session properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param Any content: The session content.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] session_name: The integration account session name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "integration_account_name", integration_account_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if content is not None:
-            pulumi.set(__self__, "content", content)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if session_name is not None:
@@ -53,6 +54,18 @@ class IntegrationAccountSessionArgs:
         pulumi.set(self, "integration_account_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['IntegrationAccountSessionPropertiesArgs']:
+        """
+        The integration account session properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['IntegrationAccountSessionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -63,18 +76,6 @@ class IntegrationAccountSessionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def content(self) -> Optional[Any]:
-        """
-        The session content.
-        """
-        return pulumi.get(self, "content")
-
-    @content.setter
-    def content(self, value: Optional[Any]):
-        pulumi.set(self, "content", value)
 
     @property
     @pulumi.getter
@@ -118,9 +119,9 @@ class IntegrationAccountSession(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[Any] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountSessionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -131,9 +132,9 @@ class IntegrationAccountSession(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any content: The session content.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountSessionPropertiesArgs']] properties: The integration account session properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] session_name: The integration account session name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -163,9 +164,9 @@ class IntegrationAccountSession(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[Any] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountSessionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -178,18 +179,18 @@ class IntegrationAccountSession(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountSessionArgs.__new__(IntegrationAccountSessionArgs)
 
-            __props__.__dict__["content"] = content
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__.__dict__["integration_account_name"] = integration_account_name
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["session_name"] = session_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["changed_time"] = None
-            __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSession")])
@@ -216,38 +217,12 @@ class IntegrationAccountSession(pulumi.CustomResource):
 
         __props__ = IntegrationAccountSessionArgs.__new__(IntegrationAccountSessionArgs)
 
-        __props__.__dict__["changed_time"] = None
-        __props__.__dict__["content"] = None
-        __props__.__dict__["created_time"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return IntegrationAccountSession(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="changedTime")
-    def changed_time(self) -> pulumi.Output[str]:
-        """
-        The changed time.
-        """
-        return pulumi.get(self, "changed_time")
-
-    @property
-    @pulumi.getter
-    def content(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The session content.
-        """
-        return pulumi.get(self, "content")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
-        """
-        The created time.
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -264,6 +239,14 @@ class IntegrationAccountSession(pulumi.CustomResource):
         Gets the resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.IntegrationAccountSessionPropertiesResponse']:
+        """
+        The integration account session properties.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

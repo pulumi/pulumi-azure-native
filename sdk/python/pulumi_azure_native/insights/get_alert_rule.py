@@ -22,37 +22,19 @@ class GetAlertRuleResult:
     """
     The alert rule resource.
     """
-    def __init__(__self__, action=None, actions=None, condition=None, description=None, id=None, is_enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
-        if action and not isinstance(action, dict):
-            raise TypeError("Expected argument 'action' to be a dict")
-        pulumi.set(__self__, "action", action)
-        if actions and not isinstance(actions, list):
-            raise TypeError("Expected argument 'actions' to be a list")
-        pulumi.set(__self__, "actions", actions)
-        if condition and not isinstance(condition, dict):
-            raise TypeError("Expected argument 'condition' to be a dict")
-        pulumi.set(__self__, "condition", condition)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_enabled and not isinstance(is_enabled, bool):
-            raise TypeError("Expected argument 'is_enabled' to be a bool")
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        if last_updated_time and not isinstance(last_updated_time, str):
-            raise TypeError("Expected argument 'last_updated_time' to be a str")
-        pulumi.set(__self__, "last_updated_time", last_updated_time)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -62,59 +44,11 @@ class GetAlertRuleResult:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[Any]:
-        """
-        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-        """
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence[Any]]:
-        """
-        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        """
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def condition(self) -> Any:
-        """
-        the condition that results in the alert rule being activated.
-        """
-        return pulumi.get(self, "condition")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        the description of the alert rule that will be included in the alert email.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
     def id(self) -> str:
         """
         Azure resource Id
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> bool:
-        """
-        the flag that indicates whether the alert rule is enabled.
-        """
-        return pulumi.get(self, "is_enabled")
-
-    @property
-    @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
-        """
-        Last time the rule was updated in ISO8601 format.
-        """
-        return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
@@ -133,12 +67,12 @@ class GetAlertRuleResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.AlertRuleResponse':
         """
-        the provisioning state.
+        The alert rule properties of the resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -163,16 +97,10 @@ class AwaitableGetAlertRuleResult(GetAlertRuleResult):
         if False:
             yield self
         return GetAlertRuleResult(
-            action=self.action,
-            actions=self.actions,
-            condition=self.condition,
-            description=self.description,
             id=self.id,
-            is_enabled=self.is_enabled,
-            last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -195,16 +123,10 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult).value
 
     return AwaitableGetAlertRuleResult(
-        action=__ret__.action,
-        actions=__ret__.actions,
-        condition=__ret__.condition,
-        description=__ret__.description,
         id=__ret__.id,
-        is_enabled=__ret__.is_enabled,
-        last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

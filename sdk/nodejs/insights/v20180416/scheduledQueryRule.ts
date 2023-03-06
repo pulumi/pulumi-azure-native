@@ -38,45 +38,13 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     }
 
     /**
-     * Action needs to be taken on rule execution.
-     */
-    public readonly action!: pulumi.Output<outputs.insights.v20180416.AlertingActionResponse | outputs.insights.v20180416.LogToMetricActionResponse>;
-    /**
-     * The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-     */
-    public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
-    /**
-     * The api-version used when creating this alert rule
-     */
-    public /*out*/ readonly createdWithApiVersion!: pulumi.Output<string>;
-    /**
-     * The description of the Log Search rule.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The display name of the alert rule
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-     */
-    public readonly enabled!: pulumi.Output<string | undefined>;
-    /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * True if alert rule is legacy Log Analytic rule
-     */
-    public /*out*/ readonly isLegacyLogAnalyticsRule!: pulumi.Output<boolean>;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
-    /**
-     * Last time the rule was updated in IS08601 format.
-     */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -86,17 +54,9 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the scheduled query rule
+     * The rule properties of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-     */
-    public readonly schedule!: pulumi.Output<outputs.insights.v20180416.ScheduleResponse | undefined>;
-    /**
-     * Data Source against which rule will Query Data
-     */
-    public readonly source!: pulumi.Output<outputs.insights.v20180416.SourceResponse>;
+    public readonly properties!: pulumi.Output<outputs.insights.v20180416.LogSearchRuleResponse>;
     /**
      * Resource tags
      */
@@ -117,50 +77,27 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'action'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'source'");
-            }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["autoMitigate"] = (args ? args.autoMitigate : undefined) ?? false;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.insights.v20180416.logSearchRuleArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["createdWithApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["action"] = undefined /*out*/;
-            resourceInputs["autoMitigate"] = undefined /*out*/;
-            resourceInputs["createdWithApiVersion"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["schedule"] = undefined /*out*/;
-            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -176,29 +113,13 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
  */
 export interface ScheduledQueryRuleArgs {
     /**
-     * Action needs to be taken on rule execution.
-     */
-    action: pulumi.Input<inputs.insights.v20180416.AlertingActionArgs | inputs.insights.v20180416.LogToMetricActionArgs>;
-    /**
-     * The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-     */
-    autoMitigate?: pulumi.Input<boolean>;
-    /**
-     * The description of the Log Search rule.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The display name of the alert rule
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-     */
-    enabled?: pulumi.Input<string | enums.insights.v20180416.Enabled>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
+    /**
+     * The rule properties of the resource.
+     */
+    properties: pulumi.Input<inputs.insights.v20180416.LogSearchRuleArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -207,14 +128,6 @@ export interface ScheduledQueryRuleArgs {
      * The name of the rule.
      */
     ruleName?: pulumi.Input<string>;
-    /**
-     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-     */
-    schedule?: pulumi.Input<inputs.insights.v20180416.ScheduleArgs>;
-    /**
-     * Data Source against which rule will Query Data
-     */
-    source: pulumi.Input<inputs.insights.v20180416.SourceArgs>;
     /**
      * Resource tags
      */

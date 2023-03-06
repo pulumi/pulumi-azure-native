@@ -22,16 +22,7 @@ class GetADLSGen1FolderDataSetResult:
     """
     An ADLS Gen 1 folder data set.
     """
-    def __init__(__self__, account_name=None, data_set_id=None, folder_path=None, id=None, kind=None, name=None, resource_group=None, subscription_id=None, system_data=None, type=None):
-        if account_name and not isinstance(account_name, str):
-            raise TypeError("Expected argument 'account_name' to be a str")
-        pulumi.set(__self__, "account_name", account_name)
-        if data_set_id and not isinstance(data_set_id, str):
-            raise TypeError("Expected argument 'data_set_id' to be a str")
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        if folder_path and not isinstance(folder_path, str):
-            raise TypeError("Expected argument 'folder_path' to be a str")
-        pulumi.set(__self__, "folder_path", folder_path)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,42 +32,15 @@ class GetADLSGen1FolderDataSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if resource_group and not isinstance(resource_group, str):
-            raise TypeError("Expected argument 'resource_group' to be a str")
-        pulumi.set(__self__, "resource_group", resource_group)
-        if subscription_id and not isinstance(subscription_id, str):
-            raise TypeError("Expected argument 'subscription_id' to be a str")
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
-        """
-        The ADLS account name.
-        """
-        return pulumi.get(self, "account_name")
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> str:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="folderPath")
-    def folder_path(self) -> str:
-        """
-        The folder path within the ADLS account.
-        """
-        return pulumi.get(self, "folder_path")
 
     @property
     @pulumi.getter
@@ -104,20 +68,12 @@ class GetADLSGen1FolderDataSetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ADLSGen1FolderPropertiesResponse':
         """
-        Resource group of ADLS account.
+        ADLS Gen 1 folder data set properties.
         """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        Subscription id of ADLS account.
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -142,14 +98,10 @@ class AwaitableGetADLSGen1FolderDataSetResult(GetADLSGen1FolderDataSetResult):
         if False:
             yield self
         return GetADLSGen1FolderDataSetResult(
-            account_name=self.account_name,
-            data_set_id=self.data_set_id,
-            folder_path=self.folder_path,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            resource_group=self.resource_group,
-            subscription_id=self.subscription_id,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -177,14 +129,10 @@ def get_adls_gen1_folder_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getADLSGen1FolderDataSet', __args__, opts=opts, typ=GetADLSGen1FolderDataSetResult).value
 
     return AwaitableGetADLSGen1FolderDataSetResult(
-        account_name=__ret__.account_name,
-        data_set_id=__ret__.data_set_id,
-        folder_path=__ret__.folder_path,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        resource_group=__ret__.resource_group,
-        subscription_id=__ret__.subscription_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

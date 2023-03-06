@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,18 +41,6 @@ export interface GetRoleAssignmentArtifactArgs {
  */
 export interface GetRoleAssignmentArtifactResult {
     /**
-     * Artifacts which need to be deployed before the specified artifact.
-     */
-    readonly dependsOn?: string[];
-    /**
-     * Multi-line explain this resource.
-     */
-    readonly description?: string;
-    /**
-     * One-liner string explain this resource.
-     */
-    readonly displayName?: string;
-    /**
      * String Id used to locate any resource on Azure.
      */
     readonly id: string;
@@ -63,17 +54,9 @@ export interface GetRoleAssignmentArtifactResult {
      */
     readonly name: string;
     /**
-     * Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
+     * Properties for a Role assignment blueprint artifact.
      */
-    readonly principalIds: any;
-    /**
-     * RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
-     */
-    readonly resourceGroup?: string;
-    /**
-     * Azure resource ID of the RoleDefinition.
-     */
-    readonly roleDefinitionId: string;
+    readonly properties: outputs.blueprint.RoleAssignmentArtifactPropertiesResponse;
     /**
      * Type of this resource.
      */

@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Custom linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<object> TypeProperties { get; set; } = null!;
+
         public CustomDataSourceLinkedServiceArgs()
         {
         }

@@ -22,43 +22,22 @@ class GetLabPlanResult:
     """
     Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
     """
-    def __init__(__self__, allowed_regions=None, default_auto_shutdown_profile=None, default_connection_profile=None, default_network_profile=None, id=None, identity=None, linked_lms_instance=None, location=None, name=None, provisioning_state=None, shared_gallery_id=None, support_info=None, system_data=None, tags=None, type=None):
-        if allowed_regions and not isinstance(allowed_regions, list):
-            raise TypeError("Expected argument 'allowed_regions' to be a list")
-        pulumi.set(__self__, "allowed_regions", allowed_regions)
-        if default_auto_shutdown_profile and not isinstance(default_auto_shutdown_profile, dict):
-            raise TypeError("Expected argument 'default_auto_shutdown_profile' to be a dict")
-        pulumi.set(__self__, "default_auto_shutdown_profile", default_auto_shutdown_profile)
-        if default_connection_profile and not isinstance(default_connection_profile, dict):
-            raise TypeError("Expected argument 'default_connection_profile' to be a dict")
-        pulumi.set(__self__, "default_connection_profile", default_connection_profile)
-        if default_network_profile and not isinstance(default_network_profile, dict):
-            raise TypeError("Expected argument 'default_network_profile' to be a dict")
-        pulumi.set(__self__, "default_network_profile", default_network_profile)
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
-        if linked_lms_instance and not isinstance(linked_lms_instance, str):
-            raise TypeError("Expected argument 'linked_lms_instance' to be a str")
-        pulumi.set(__self__, "linked_lms_instance", linked_lms_instance)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if shared_gallery_id and not isinstance(shared_gallery_id, str):
-            raise TypeError("Expected argument 'shared_gallery_id' to be a str")
-        pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
-        if support_info and not isinstance(support_info, dict):
-            raise TypeError("Expected argument 'support_info' to be a dict")
-        pulumi.set(__self__, "support_info", support_info)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -68,38 +47,6 @@ class GetLabPlanResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="allowedRegions")
-    def allowed_regions(self) -> Optional[Sequence[str]]:
-        """
-        The allowed regions for the lab creator to use when creating labs using this lab plan.
-        """
-        return pulumi.get(self, "allowed_regions")
-
-    @property
-    @pulumi.getter(name="defaultAutoShutdownProfile")
-    def default_auto_shutdown_profile(self) -> Optional['outputs.AutoShutdownProfileResponse']:
-        """
-        The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-        """
-        return pulumi.get(self, "default_auto_shutdown_profile")
-
-    @property
-    @pulumi.getter(name="defaultConnectionProfile")
-    def default_connection_profile(self) -> Optional['outputs.ConnectionProfileResponse']:
-        """
-        The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-        """
-        return pulumi.get(self, "default_connection_profile")
-
-    @property
-    @pulumi.getter(name="defaultNetworkProfile")
-    def default_network_profile(self) -> Optional['outputs.LabPlanNetworkProfileResponse']:
-        """
-        The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-        """
-        return pulumi.get(self, "default_network_profile")
 
     @property
     @pulumi.getter
@@ -118,14 +65,6 @@ class GetLabPlanResult:
         return pulumi.get(self, "identity")
 
     @property
-    @pulumi.getter(name="linkedLmsInstance")
-    def linked_lms_instance(self) -> Optional[str]:
-        """
-        Base Url of the lms instance this lab plan can link lab rosters against.
-        """
-        return pulumi.get(self, "linked_lms_instance")
-
-    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -142,28 +81,12 @@ class GetLabPlanResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.LabPlanPropertiesResponse':
         """
-        Current provisioning state of the lab plan.
+        Lab plan resource properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sharedGalleryId")
-    def shared_gallery_id(self) -> Optional[str]:
-        """
-        Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-        """
-        return pulumi.get(self, "shared_gallery_id")
-
-    @property
-    @pulumi.getter(name="supportInfo")
-    def support_info(self) -> Optional['outputs.SupportInfoResponse']:
-        """
-        Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-        """
-        return pulumi.get(self, "support_info")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -196,18 +119,11 @@ class AwaitableGetLabPlanResult(GetLabPlanResult):
         if False:
             yield self
         return GetLabPlanResult(
-            allowed_regions=self.allowed_regions,
-            default_auto_shutdown_profile=self.default_auto_shutdown_profile,
-            default_connection_profile=self.default_connection_profile,
-            default_network_profile=self.default_network_profile,
             id=self.id,
             identity=self.identity,
-            linked_lms_instance=self.linked_lms_instance,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            shared_gallery_id=self.shared_gallery_id,
-            support_info=self.support_info,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -230,18 +146,11 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20220801:getLabPlan', __args__, opts=opts, typ=GetLabPlanResult).value
 
     return AwaitableGetLabPlanResult(
-        allowed_regions=__ret__.allowed_regions,
-        default_auto_shutdown_profile=__ret__.default_auto_shutdown_profile,
-        default_connection_profile=__ret__.default_connection_profile,
-        default_network_profile=__ret__.default_network_profile,
         id=__ret__.id,
         identity=__ret__.identity,
-        linked_lms_instance=__ret__.linked_lms_instance,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        shared_gallery_id=__ret__.shared_gallery_id,
-        support_info=__ret__.support_info,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

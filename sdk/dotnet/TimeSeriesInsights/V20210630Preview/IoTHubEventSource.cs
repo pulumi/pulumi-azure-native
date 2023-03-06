@@ -16,47 +16,11 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
     public partial class IoTHubEventSource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the iot hub's consumer group that holds the partitions from which events will be read.
-        /// </summary>
-        [Output("consumerGroupName")]
-        public Output<string> ConsumerGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource id of the event source in Azure Resource Manager.
-        /// </summary>
-        [Output("eventSourceResourceId")]
-        public Output<string> EventSourceResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the iot hub.
-        /// </summary>
-        [Output("iotHubName")]
-        public Output<string> IotHubName { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-        /// </summary>
-        [Output("keyName")]
-        public Output<string> KeyName { get; private set; } = null!;
-
-        /// <summary>
         /// The kind of the event source.
         /// Expected value is 'Microsoft.IoTHub'.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-        /// </summary>
-        [Output("localTimestamp")]
-        public Output<Outputs.LocalTimestampResponse?> LocalTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -71,28 +35,16 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of the IoTHub event source resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.IoTHubEventSourceResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-        /// </summary>
-        [Output("time")]
-        public Output<string?> Time { get; private set; } = null!;
-
-        /// <summary>
-        /// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-        /// </summary>
-        [Output("timestampPropertyName")]
-        public Output<string?> TimestampPropertyName { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -162,12 +114,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
     public sealed class IoTHubEventSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the iot hub's consumer group that holds the partitions from which events will be read.
-        /// </summary>
-        [Input("consumerGroupName", required: true)]
-        public Input<string> ConsumerGroupName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
         [Input("environmentName", required: true)]
@@ -178,24 +124,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         /// </summary>
         [Input("eventSourceName")]
         public Input<string>? EventSourceName { get; set; }
-
-        /// <summary>
-        /// The resource id of the event source in Azure Resource Manager.
-        /// </summary>
-        [Input("eventSourceResourceId", required: true)]
-        public Input<string> EventSourceResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the iot hub.
-        /// </summary>
-        [Input("iotHubName", required: true)]
-        public Input<string> IotHubName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
-        /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
         /// The kind of the event source.
@@ -217,16 +145,16 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Properties of the IoTHub event source that are required on create or update requests.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.IoTHubEventSourceCreationPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses.
-        /// </summary>
-        [Input("sharedAccessKey", required: true)]
-        public Input<string> SharedAccessKey { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -239,24 +167,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-        /// </summary>
-        [Input("time")]
-        public Input<string>? Time { get; set; }
-
-        /// <summary>
-        /// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-        /// </summary>
-        [Input("timestampPropertyName")]
-        public Input<string>? TimestampPropertyName { get; set; }
-
-        /// <summary>
-        /// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
-        /// </summary>
-        [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview.IngressStartAtType>? Type { get; set; }
 
         public IoTHubEventSourceArgs()
         {

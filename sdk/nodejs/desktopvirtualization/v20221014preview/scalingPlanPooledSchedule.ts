@@ -38,77 +38,13 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * Set of days of the week on which this schedule is active.
-     */
-    public readonly daysOfWeek!: pulumi.Output<string[] | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Load balancing algorithm for off-peak period.
+     * Detailed properties for ScalingPlanPooledSchedule
      */
-    public readonly offPeakLoadBalancingAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * Starting time for off-peak period.
-     */
-    public readonly offPeakStartTime!: pulumi.Output<outputs.desktopvirtualization.v20221014preview.TimeResponse | undefined>;
-    /**
-     * Load balancing algorithm for peak period.
-     */
-    public readonly peakLoadBalancingAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * Starting time for peak period.
-     */
-    public readonly peakStartTime!: pulumi.Output<outputs.desktopvirtualization.v20221014preview.TimeResponse | undefined>;
-    /**
-     * Capacity threshold for ramp down period.
-     */
-    public readonly rampDownCapacityThresholdPct!: pulumi.Output<number | undefined>;
-    /**
-     * Should users be logged off forcefully from hosts.
-     */
-    public readonly rampDownForceLogoffUsers!: pulumi.Output<boolean | undefined>;
-    /**
-     * Load balancing algorithm for ramp down period.
-     */
-    public readonly rampDownLoadBalancingAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * Minimum host percentage for ramp down period.
-     */
-    public readonly rampDownMinimumHostsPct!: pulumi.Output<number | undefined>;
-    /**
-     * Notification message for users during ramp down period.
-     */
-    public readonly rampDownNotificationMessage!: pulumi.Output<string | undefined>;
-    /**
-     * Starting time for ramp down period.
-     */
-    public readonly rampDownStartTime!: pulumi.Output<outputs.desktopvirtualization.v20221014preview.TimeResponse | undefined>;
-    /**
-     * Specifies when to stop hosts during ramp down period.
-     */
-    public readonly rampDownStopHostsWhen!: pulumi.Output<string | undefined>;
-    /**
-     * Number of minutes to wait to stop hosts during ramp down period.
-     */
-    public readonly rampDownWaitTimeMinutes!: pulumi.Output<number | undefined>;
-    /**
-     * Capacity threshold for ramp up period.
-     */
-    public readonly rampUpCapacityThresholdPct!: pulumi.Output<number | undefined>;
-    /**
-     * Load balancing algorithm for ramp up period.
-     */
-    public readonly rampUpLoadBalancingAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * Minimum host percentage for ramp up period.
-     */
-    public readonly rampUpMinimumHostsPct!: pulumi.Output<number | undefined>;
-    /**
-     * Starting time for ramp up period.
-     */
-    public readonly rampUpStartTime!: pulumi.Output<outputs.desktopvirtualization.v20221014preview.TimeResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.desktopvirtualization.v20221014preview.ScalingPlanPooledSchedulePropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -129,29 +65,16 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.scalingPlanName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalingPlanName'");
             }
-            resourceInputs["daysOfWeek"] = args ? args.daysOfWeek : undefined;
-            resourceInputs["offPeakLoadBalancingAlgorithm"] = args ? args.offPeakLoadBalancingAlgorithm : undefined;
-            resourceInputs["offPeakStartTime"] = args ? args.offPeakStartTime : undefined;
-            resourceInputs["peakLoadBalancingAlgorithm"] = args ? args.peakLoadBalancingAlgorithm : undefined;
-            resourceInputs["peakStartTime"] = args ? args.peakStartTime : undefined;
-            resourceInputs["rampDownCapacityThresholdPct"] = args ? args.rampDownCapacityThresholdPct : undefined;
-            resourceInputs["rampDownForceLogoffUsers"] = args ? args.rampDownForceLogoffUsers : undefined;
-            resourceInputs["rampDownLoadBalancingAlgorithm"] = args ? args.rampDownLoadBalancingAlgorithm : undefined;
-            resourceInputs["rampDownMinimumHostsPct"] = args ? args.rampDownMinimumHostsPct : undefined;
-            resourceInputs["rampDownNotificationMessage"] = args ? args.rampDownNotificationMessage : undefined;
-            resourceInputs["rampDownStartTime"] = args ? args.rampDownStartTime : undefined;
-            resourceInputs["rampDownStopHostsWhen"] = args ? args.rampDownStopHostsWhen : undefined;
-            resourceInputs["rampDownWaitTimeMinutes"] = args ? args.rampDownWaitTimeMinutes : undefined;
-            resourceInputs["rampUpCapacityThresholdPct"] = args ? args.rampUpCapacityThresholdPct : undefined;
-            resourceInputs["rampUpLoadBalancingAlgorithm"] = args ? args.rampUpLoadBalancingAlgorithm : undefined;
-            resourceInputs["rampUpMinimumHostsPct"] = args ? args.rampUpMinimumHostsPct : undefined;
-            resourceInputs["rampUpStartTime"] = args ? args.rampUpStartTime : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
             resourceInputs["scalingPlanScheduleName"] = args ? args.scalingPlanScheduleName : undefined;
@@ -159,24 +82,8 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["daysOfWeek"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["offPeakLoadBalancingAlgorithm"] = undefined /*out*/;
-            resourceInputs["offPeakStartTime"] = undefined /*out*/;
-            resourceInputs["peakLoadBalancingAlgorithm"] = undefined /*out*/;
-            resourceInputs["peakStartTime"] = undefined /*out*/;
-            resourceInputs["rampDownCapacityThresholdPct"] = undefined /*out*/;
-            resourceInputs["rampDownForceLogoffUsers"] = undefined /*out*/;
-            resourceInputs["rampDownLoadBalancingAlgorithm"] = undefined /*out*/;
-            resourceInputs["rampDownMinimumHostsPct"] = undefined /*out*/;
-            resourceInputs["rampDownNotificationMessage"] = undefined /*out*/;
-            resourceInputs["rampDownStartTime"] = undefined /*out*/;
-            resourceInputs["rampDownStopHostsWhen"] = undefined /*out*/;
-            resourceInputs["rampDownWaitTimeMinutes"] = undefined /*out*/;
-            resourceInputs["rampUpCapacityThresholdPct"] = undefined /*out*/;
-            resourceInputs["rampUpLoadBalancingAlgorithm"] = undefined /*out*/;
-            resourceInputs["rampUpMinimumHostsPct"] = undefined /*out*/;
-            resourceInputs["rampUpStartTime"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -192,73 +99,9 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
  */
 export interface ScalingPlanPooledScheduleArgs {
     /**
-     * Set of days of the week on which this schedule is active.
+     * Detailed properties for ScalingPlanPooledSchedule
      */
-    daysOfWeek?: pulumi.Input<pulumi.Input<string | enums.desktopvirtualization.v20221014preview.DayOfWeek>[]>;
-    /**
-     * Load balancing algorithm for off-peak period.
-     */
-    offPeakLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.v20221014preview.SessionHostLoadBalancingAlgorithm>;
-    /**
-     * Starting time for off-peak period.
-     */
-    offPeakStartTime?: pulumi.Input<inputs.desktopvirtualization.v20221014preview.TimeArgs>;
-    /**
-     * Load balancing algorithm for peak period.
-     */
-    peakLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.v20221014preview.SessionHostLoadBalancingAlgorithm>;
-    /**
-     * Starting time for peak period.
-     */
-    peakStartTime?: pulumi.Input<inputs.desktopvirtualization.v20221014preview.TimeArgs>;
-    /**
-     * Capacity threshold for ramp down period.
-     */
-    rampDownCapacityThresholdPct?: pulumi.Input<number>;
-    /**
-     * Should users be logged off forcefully from hosts.
-     */
-    rampDownForceLogoffUsers?: pulumi.Input<boolean>;
-    /**
-     * Load balancing algorithm for ramp down period.
-     */
-    rampDownLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.v20221014preview.SessionHostLoadBalancingAlgorithm>;
-    /**
-     * Minimum host percentage for ramp down period.
-     */
-    rampDownMinimumHostsPct?: pulumi.Input<number>;
-    /**
-     * Notification message for users during ramp down period.
-     */
-    rampDownNotificationMessage?: pulumi.Input<string>;
-    /**
-     * Starting time for ramp down period.
-     */
-    rampDownStartTime?: pulumi.Input<inputs.desktopvirtualization.v20221014preview.TimeArgs>;
-    /**
-     * Specifies when to stop hosts during ramp down period.
-     */
-    rampDownStopHostsWhen?: pulumi.Input<string | enums.desktopvirtualization.v20221014preview.StopHostsWhen>;
-    /**
-     * Number of minutes to wait to stop hosts during ramp down period.
-     */
-    rampDownWaitTimeMinutes?: pulumi.Input<number>;
-    /**
-     * Capacity threshold for ramp up period.
-     */
-    rampUpCapacityThresholdPct?: pulumi.Input<number>;
-    /**
-     * Load balancing algorithm for ramp up period.
-     */
-    rampUpLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.v20221014preview.SessionHostLoadBalancingAlgorithm>;
-    /**
-     * Minimum host percentage for ramp up period.
-     */
-    rampUpMinimumHostsPct?: pulumi.Input<number>;
-    /**
-     * Starting time for ramp up period.
-     */
-    rampUpStartTime?: pulumi.Input<inputs.desktopvirtualization.v20221014preview.TimeArgs>;
+    properties: pulumi.Input<inputs.desktopvirtualization.v20221014preview.ScalingPlanPooledSchedulePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

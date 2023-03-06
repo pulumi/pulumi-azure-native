@@ -35,53 +35,13 @@ export interface GetVirtualNetworkGatewayConnectionArgs {
  */
 export interface GetVirtualNetworkGatewayConnectionResult {
     /**
-     * The authorizationKey.
-     */
-    readonly authorizationKey?: string;
-    /**
-     * Connection protocol used for this connection.
-     */
-    readonly connectionProtocol?: string;
-    /**
-     * Virtual Network Gateway connection status.
-     */
-    readonly connectionStatus: string;
-    /**
-     * Gateway connection type.
-     */
-    readonly connectionType: string;
-    /**
-     * The egress bytes transferred in this connection.
-     */
-    readonly egressBytesTransferred: number;
-    /**
-     * EnableBgp flag.
-     */
-    readonly enableBgp?: boolean;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
     /**
-     * Bypass ExpressRoute Gateway for data forwarding.
-     */
-    readonly expressRouteGatewayBypass?: boolean;
-    /**
      * Resource ID.
      */
     readonly id?: string;
-    /**
-     * The ingress bytes transferred in this connection.
-     */
-    readonly ingressBytesTransferred: number;
-    /**
-     * The IPSec Policies to be considered by this connection.
-     */
-    readonly ipsecPolicies?: outputs.network.v20190701.IpsecPolicyResponse[];
-    /**
-     * The reference to local network gateway resource.
-     */
-    readonly localNetworkGateway2?: outputs.network.v20190701.LocalNetworkGatewayResponse;
     /**
      * Resource location.
      */
@@ -91,53 +51,17 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly name: string;
     /**
-     * The reference to peerings resource.
+     * Properties of the virtual network gateway connection.
      */
-    readonly peer?: outputs.network.v20190701.SubResourceResponse;
-    /**
-     * The provisioning state of the virtual network gateway connection resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * The resource GUID property of the virtual network gateway connection resource.
-     */
-    readonly resourceGuid?: string;
-    /**
-     * The routing weight.
-     */
-    readonly routingWeight?: number;
-    /**
-     * The IPSec shared key.
-     */
-    readonly sharedKey?: string;
+    readonly properties: outputs.network.v20190701.VirtualNetworkGatewayConnectionPropertiesFormatResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The Traffic Selector Policies to be considered by this connection.
-     */
-    readonly trafficSelectorPolicies?: outputs.network.v20190701.TrafficSelectorPolicyResponse[];
-    /**
-     * Collection of all tunnels' connection health status.
-     */
-    readonly tunnelConnectionStatus: outputs.network.v20190701.TunnelConnectionHealthResponse[];
-    /**
      * Resource type.
      */
     readonly type: string;
-    /**
-     * Enable policy-based traffic selectors.
-     */
-    readonly usePolicyBasedTrafficSelectors?: boolean;
-    /**
-     * The reference to virtual network gateway resource.
-     */
-    readonly virtualNetworkGateway1: outputs.network.v20190701.VirtualNetworkGatewayResponse;
-    /**
-     * The reference to virtual network gateway resource.
-     */
-    readonly virtualNetworkGateway2?: outputs.network.v20190701.VirtualNetworkGatewayResponse;
 }
 /**
  * Gets the specified virtual network gateway connection by resource group.

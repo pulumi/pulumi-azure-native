@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public partial class Slice : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An optional description for this network slice.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -34,16 +28,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the network slice resource.
+        /// Slice properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-        /// </summary>
-        [Output("snssai")]
-        public Output<Outputs.SnssaiResponse> Snssai { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SlicePropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -115,12 +103,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public sealed class SliceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An optional description for this network slice.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -133,6 +115,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         public Input<string> MobileNetworkName { get; set; } = null!;
 
         /// <summary>
+        /// Slice properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.SlicePropertiesFormatArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -143,12 +131,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         [Input("sliceName")]
         public Input<string>? SliceName { get; set; }
-
-        /// <summary>
-        /// Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-        /// </summary>
-        [Input("snssai", required: true)]
-        public Input<Inputs.SnssaiArgs> Snssai { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

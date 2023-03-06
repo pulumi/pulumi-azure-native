@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -34,18 +37,6 @@ export interface GetManagerExtendedInfoArgs {
  */
 export interface GetManagerExtendedInfoResult {
     /**
-     * Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-     */
-    readonly algorithm: string;
-    /**
-     * Represents the CEK of the resource
-     */
-    readonly encryptionKey?: string;
-    /**
-     * Represents the Cert thumbprint that was used to encrypt the CEK
-     */
-    readonly encryptionKeyThumbprint?: string;
-    /**
      * ETag of the Resource
      */
     readonly etag?: string;
@@ -54,25 +45,17 @@ export interface GetManagerExtendedInfoResult {
      */
     readonly id: string;
     /**
-     * Represents the CIK of the resource
-     */
-    readonly integrityKey: string;
-    /**
      * The name.
      */
     readonly name: string;
     /**
-     * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+     * The extended info properties.
      */
-    readonly portalCertificateThumbprint?: string;
+    readonly properties: outputs.storsimple.v20161001.ManagerExtendedInfoPropertiesResponse;
     /**
      * The type.
      */
     readonly type: string;
-    /**
-     * Represents the version of the ExtendedInfo object being persisted
-     */
-    readonly version?: string;
 }
 /**
  * Returns the extended information of the specified manager name.

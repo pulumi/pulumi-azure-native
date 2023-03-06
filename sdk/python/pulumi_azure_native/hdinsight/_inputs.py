@@ -35,6 +35,7 @@ __all__ = [
     'LinuxOperatingSystemProfileArgs',
     'NetworkPropertiesArgs',
     'OsProfileArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RoleArgs',
     'RuntimeScriptActionArgs',
@@ -1380,6 +1381,29 @@ class OsProfileArgs:
     @linux_operating_system_profile.setter
     def linux_operating_system_profile(self, value: Optional[pulumi.Input['LinuxOperatingSystemProfileArgs']]):
         pulumi.set(self, "linux_operating_system_profile", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        """
+        The private endpoint connection properties.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The private link service connection state.
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        The private link service connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 @pulumi.input_type

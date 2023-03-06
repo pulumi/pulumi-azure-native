@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class AmazonS3CompatibleLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access key identifier of the Amazon S3 Compatible Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("accessKeyId")]
-        public Input<object>? AccessKeyId { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -45,18 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// If true, use S3 path-style access instead of virtual hosted-style access. Default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("forcePathStyle")]
-        public Input<object>? ForcePathStyle { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -70,23 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The secret access key of the Amazon S3 Compatible Identity and Access Management (IAM) user.
-        /// </summary>
-        [Input("secretAccessKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SecretAccessKey { get; set; }
-
-        /// <summary>
-        /// This value specifies the endpoint to access with the Amazon S3 Compatible Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("serviceUrl")]
-        public Input<object>? ServiceUrl { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AmazonS3Compatible'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Amazon S3 Compatible linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AmazonS3CompatibleLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AmazonS3CompatibleLinkedServiceArgs()
         {

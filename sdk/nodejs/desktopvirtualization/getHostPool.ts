@@ -36,33 +36,9 @@ export interface GetHostPoolArgs {
  */
 export interface GetHostPoolResult {
     /**
-     * List of applicationGroup links.
-     */
-    readonly applicationGroupReferences: string[];
-    /**
-     * Is cloud pc resource.
-     */
-    readonly cloudPcResource: boolean;
-    /**
-     * Custom rdp property of HostPool.
-     */
-    readonly customRdpProperty?: string;
-    /**
-     * Description of HostPool.
-     */
-    readonly description?: string;
-    /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
     readonly etag: string;
-    /**
-     * Friendly name of HostPool.
-     */
-    readonly friendlyName?: string;
-    /**
-     * HostPool type for desktop.
-     */
-    readonly hostPoolType: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -73,10 +49,6 @@ export interface GetHostPoolResult {
      */
     readonly kind?: string;
     /**
-     * The type of the load balancer.
-     */
-    readonly loadBalancerType: string;
-    /**
      * The geo-location where the resource lives
      */
     readonly location?: string;
@@ -85,59 +57,15 @@ export interface GetHostPoolResult {
      */
     readonly managedBy?: string;
     /**
-     * The max session limit of HostPool.
-     */
-    readonly maxSessionLimit?: number;
-    /**
-     * The registration info of HostPool.
-     */
-    readonly migrationRequest?: outputs.desktopvirtualization.MigrationRequestPropertiesResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * ObjectId of HostPool. (internal use)
-     */
-    readonly objectId: string;
-    /**
-     * PersonalDesktopAssignment type for HostPool.
-     */
-    readonly personalDesktopAssignmentType?: string;
     readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
     /**
-     * The type of preferred application group type, default to Desktop Application Group
+     * Detailed properties for HostPool
      */
-    readonly preferredAppGroupType: string;
-    /**
-     * The registration info of HostPool.
-     */
-    readonly registrationInfo?: outputs.desktopvirtualization.RegistrationInfoResponse;
-    /**
-     * The ring number of HostPool.
-     */
-    readonly ring?: number;
+    readonly properties: outputs.desktopvirtualization.HostPoolPropertiesResponse;
     readonly sku?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku;
-    /**
-     * ClientId for the registered Relying Party used to issue WVD SSO certificates.
-     */
-    readonly ssoClientId?: string;
-    /**
-     * Path to Azure KeyVault storing the secret used for communication to ADFS.
-     */
-    readonly ssoClientSecretKeyVaultPath?: string;
-    /**
-     * The type of single sign on Secret Type.
-     */
-    readonly ssoSecretType?: string;
-    /**
-     * URL to customer ADFS server for signing WVD SSO certificates.
-     */
-    readonly ssoadfsAuthority?: string;
-    /**
-     * The flag to turn on/off StartVMOnConnect feature.
-     */
-    readonly startVMOnConnect?: boolean;
     /**
      * Resource tags.
      */
@@ -146,14 +74,6 @@ export interface GetHostPoolResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Is validation environment.
-     */
-    readonly validationEnvironment?: boolean;
-    /**
-     * VM template for sessionhosts configuration within hostpool.
-     */
-    readonly vmTemplate?: string;
 }
 /**
  * Get a host pool.

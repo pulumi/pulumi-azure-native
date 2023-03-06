@@ -94,14 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     public sealed class GetKustoDatabaseDataSetMappingResult
     {
         /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -111,21 +103,13 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Resource id of the sink kusto cluster.
-        /// </summary>
-        public readonly string KustoClusterResourceId;
-        /// <summary>
-        /// Location of the sink kusto cluster.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Kusto database data set mapping properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.KustoDatabaseDataSetMappingPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -137,34 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20210801
 
         [OutputConstructor]
         private GetKustoDatabaseDataSetMappingResult(
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
             string id,
 
             string kind,
 
-            string kustoClusterResourceId,
-
-            string location,
-
             string name,
 
-            string provisioningState,
+            Outputs.KustoDatabaseDataSetMappingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
             Id = id;
             Kind = kind;
-            KustoClusterResourceId = kustoClusterResourceId;
-            Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

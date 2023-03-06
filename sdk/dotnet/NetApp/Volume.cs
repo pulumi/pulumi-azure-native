@@ -17,76 +17,10 @@ namespace Pulumi.AzureNative.NetApp
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
-        /// </summary>
-        [Output("backupId")]
-        public Output<string?> BackupId { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique Baremetal Tenant Identifier.
-        /// </summary>
-        [Output("baremetalTenantId")]
-        public Output<string> BaremetalTenantId { get; private set; } = null!;
-
-        /// <summary>
-        /// A unique file path for the volume. Used when creating mount targets
-        /// </summary>
-        [Output("creationToken")]
-        public Output<string> CreationToken { get; private set; } = null!;
-
-        /// <summary>
-        /// DataProtection type volumes include an object containing details of the replication
-        /// </summary>
-        [Output("dataProtection")]
-        public Output<Outputs.VolumePropertiesResponseDataProtection?> DataProtection { get; private set; } = null!;
-
-        /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-        /// </summary>
-        [Output("encryptionKeySource")]
-        public Output<string?> EncryptionKeySource { get; private set; } = null!;
-
-        /// <summary>
-        /// Set of export policy rules
-        /// </summary>
-        [Output("exportPolicy")]
-        public Output<Outputs.VolumePropertiesResponseExportPolicy?> ExportPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique FileSystem Identifier.
-        /// </summary>
-        [Output("fileSystemId")]
-        public Output<string> FileSystemId { get; private set; } = null!;
-
-        /// <summary>
-        /// Restoring
-        /// </summary>
-        [Output("isRestoring")]
-        public Output<bool?> IsRestoring { get; private set; } = null!;
-
-        /// <summary>
-        /// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        [Output("kerberosEnabled")]
-        public Output<bool?> KerberosEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether LDAP is enabled or not for a given NFS volume.
-        /// </summary>
-        [Output("ldapEnabled")]
-        public Output<bool?> LdapEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// List of mount targets
-        /// </summary>
-        [Output("mountTargets")]
-        public Output<ImmutableArray<Outputs.MountTargetPropertiesResponse>> MountTargets { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -95,58 +29,10 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
+        /// Volume properties
         /// </summary>
-        [Output("protocolTypes")]
-        public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure lifecycle management
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-        /// </summary>
-        [Output("securityStyle")]
-        public Output<string?> SecurityStyle { get; private set; } = null!;
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Output("serviceLevel")]
-        public Output<string?> ServiceLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
-        /// </summary>
-        [Output("smbContinuouslyAvailable")]
-        public Output<bool?> SmbContinuouslyAvailable { get; private set; } = null!;
-
-        /// <summary>
-        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        /// </summary>
-        [Output("smbEncryption")]
-        public Output<bool?> SmbEncryption { get; private set; } = null!;
-
-        /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
-        /// </summary>
-        [Output("snapshotDirectoryVisible")]
-        public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
-
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
-        /// </summary>
-        [Output("snapshotId")]
-        public Output<string?> SnapshotId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        /// </summary>
-        [Output("subnetId")]
-        public Output<string> SubnetId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VolumePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -154,26 +40,11 @@ namespace Pulumi.AzureNative.NetApp
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        [Output("throughputMibps")]
-        public Output<double?> ThroughputMibps { get; private set; } = null!;
-
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        /// </summary>
-        [Output("usageThreshold")]
-        public Output<double> UsageThreshold { get; private set; } = null!;
-
-        /// <summary>
-        /// What type of volume is this
-        /// </summary>
-        [Output("volumeType")]
-        public Output<string?> VolumeType { get; private set; } = null!;
 
 
         /// <summary>
@@ -256,54 +127,6 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
-        /// </summary>
-        [Input("backupId")]
-        public Input<string>? BackupId { get; set; }
-
-        /// <summary>
-        /// A unique file path for the volume. Used when creating mount targets
-        /// </summary>
-        [Input("creationToken", required: true)]
-        public Input<string> CreationToken { get; set; } = null!;
-
-        /// <summary>
-        /// DataProtection type volumes include an object containing details of the replication
-        /// </summary>
-        [Input("dataProtection")]
-        public Input<Inputs.VolumePropertiesDataProtectionArgs>? DataProtection { get; set; }
-
-        /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-        /// </summary>
-        [Input("encryptionKeySource")]
-        public Input<string>? EncryptionKeySource { get; set; }
-
-        /// <summary>
-        /// Set of export policy rules
-        /// </summary>
-        [Input("exportPolicy")]
-        public Input<Inputs.VolumePropertiesExportPolicyArgs>? ExportPolicy { get; set; }
-
-        /// <summary>
-        /// Restoring
-        /// </summary>
-        [Input("isRestoring")]
-        public Input<bool>? IsRestoring { get; set; }
-
-        /// <summary>
-        /// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        [Input("kerberosEnabled")]
-        public Input<bool>? KerberosEnabled { get; set; }
-
-        /// <summary>
-        /// Specifies whether LDAP is enabled or not for a given NFS volume.
-        /// </summary>
-        [Input("ldapEnabled")]
-        public Input<bool>? LdapEnabled { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
@@ -315,65 +138,17 @@ namespace Pulumi.AzureNative.NetApp
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
 
-        [Input("protocolTypes")]
-        private InputList<string>? _protocolTypes;
-
         /// <summary>
-        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
+        /// Volume properties
         /// </summary>
-        public InputList<string> ProtocolTypes
-        {
-            get => _protocolTypes ?? (_protocolTypes = new InputList<string>());
-            set => _protocolTypes = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.VolumePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-        /// </summary>
-        [Input("securityStyle")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.SecurityStyle>? SecurityStyle { get; set; }
-
-        /// <summary>
-        /// The service level of the file system
-        /// </summary>
-        [Input("serviceLevel")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.ServiceLevel>? ServiceLevel { get; set; }
-
-        /// <summary>
-        /// Enables continuously available share property for smb volume. Only applicable for SMB volume
-        /// </summary>
-        [Input("smbContinuouslyAvailable")]
-        public Input<bool>? SmbContinuouslyAvailable { get; set; }
-
-        /// <summary>
-        /// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        /// </summary>
-        [Input("smbEncryption")]
-        public Input<bool>? SmbEncryption { get; set; }
-
-        /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
-        /// </summary>
-        [Input("snapshotDirectoryVisible")]
-        public Input<bool>? SnapshotDirectoryVisible { get; set; }
-
-        /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        /// <summary>
-        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -387,38 +162,14 @@ namespace Pulumi.AzureNative.NetApp
             set => _tags = value;
         }
 
-        [Input("throughputMibps")]
-        public Input<double>? ThroughputMibps { get; set; }
-
-        /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        /// </summary>
-        [Input("usageThreshold", required: true)]
-        public Input<double> UsageThreshold { get; set; } = null!;
-
         /// <summary>
         /// The name of the volume
         /// </summary>
         [Input("volumeName")]
         public Input<string>? VolumeName { get; set; }
 
-        /// <summary>
-        /// What type of volume is this
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
         public VolumeArgs()
         {
-            KerberosEnabled = false;
-            LdapEnabled = false;
-            SecurityStyle = "unix";
-            ServiceLevel = "Premium";
-            SmbContinuouslyAvailable = false;
-            SmbEncryption = false;
-            SnapshotDirectoryVisible = true;
-            ThroughputMibps = 0;
-            UsageThreshold = 107374182400;
         }
         public static new VolumeArgs Empty => new VolumeArgs();
     }

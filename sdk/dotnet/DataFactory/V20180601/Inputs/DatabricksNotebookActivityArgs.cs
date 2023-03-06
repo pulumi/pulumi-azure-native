@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class DatabricksNotebookActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("baseParameters")]
-        private InputMap<object>? _baseParameters;
-
-        /// <summary>
-        /// Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
-        /// </summary>
-        public InputMap<object> BaseParameters
-        {
-            get => _baseParameters ?? (_baseParameters = new InputMap<object>());
-            set => _baseParameters = value;
-        }
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -45,18 +33,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("libraries")]
-        private InputList<ImmutableDictionary<string, object>>? _libraries;
-
-        /// <summary>
-        /// A list of libraries to be installed on the cluster that will execute the job.
-        /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Libraries
-        {
-            get => _libraries ?? (_libraries = new InputList<ImmutableDictionary<string, object>>());
-            set => _libraries = value;
-        }
-
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -70,12 +46,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("notebookPath", required: true)]
-        public Input<object> NotebookPath { get; set; } = null!;
-
-        /// <summary>
         /// Activity policy.
         /// </summary>
         [Input("policy")]
@@ -87,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Databricks Notebook activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.DatabricksNotebookActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

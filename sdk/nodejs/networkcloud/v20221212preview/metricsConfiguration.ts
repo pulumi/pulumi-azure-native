@@ -35,26 +35,6 @@ export class MetricsConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The interval in minutes by which metrics will be collected.
-     */
-    public readonly collectionInterval!: pulumi.Output<number>;
-    /**
-     * The more detailed status of the metrics configuration.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
-     * The list of metrics that are available for the cluster but disabled at the moment.
-     */
-    public /*out*/ readonly disabledMetrics!: pulumi.Output<string[]>;
-    /**
-     * The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-     */
-    public readonly enabledMetrics!: pulumi.Output<string[] | undefined>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.v20221212preview.ExtendedLocationResponse>;
@@ -67,9 +47,9 @@ export class MetricsConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the metrics configuration.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.v20221212preview.ClusterMetricsConfigurationPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -97,40 +77,30 @@ export class MetricsConfiguration extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.collectionInterval === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'collectionInterval'");
-            }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["collectionInterval"] = args ? args.collectionInterval : undefined;
-            resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["metricsConfigurationName"] = args ? args.metricsConfigurationName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["disabledMetrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["collectionInterval"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["disabledMetrics"] = undefined /*out*/;
-            resourceInputs["enabledMetrics"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -151,14 +121,6 @@ export interface MetricsConfigurationArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The interval in minutes by which metrics will be collected.
-     */
-    collectionInterval: pulumi.Input<number>;
-    /**
-     * The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-     */
-    enabledMetrics?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.v20221212preview.ExtendedLocationArgs>;
@@ -170,6 +132,10 @@ export interface MetricsConfigurationArgs {
      * The name of the metrics configuration for the cluster.
      */
     metricsConfigurationName?: pulumi.Input<string>;
+    /**
+     * The list of the resource properties.
+     */
+    properties: pulumi.Input<inputs.networkcloud.v20221212preview.ClusterMetricsConfigurationPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

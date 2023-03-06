@@ -70,29 +70,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
     public sealed class GetScalingPlanResult
     {
         /// <summary>
-        /// Description of scaling plan.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// Exclusion tag for scaling plan.
-        /// </summary>
-        public readonly string? ExclusionTag;
-        /// <summary>
-        /// User friendly name of scaling plan.
-        /// </summary>
-        public readonly string? FriendlyName;
-        /// <summary>
-        /// List of ScalingHostPoolReference definitions.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ScalingHostPoolReferenceResponse> HostPoolReferences;
-        /// <summary>
-        /// HostPool type for desktop.
-        /// </summary>
-        public readonly string? HostPoolType;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -114,15 +94,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// ObjectId of scaling plan. (internal use)
-        /// </summary>
-        public readonly string ObjectId;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
-        /// List of ScalingPlanPooledSchedule definitions.
+        /// Detailed properties for scaling plan.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScalingScheduleResponse> Schedules;
+        public readonly Outputs.ScalingPlanPropertiesResponse Properties;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -133,27 +109,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Timezone of the scaling plan.
-        /// </summary>
-        public readonly string TimeZone;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetScalingPlanResult(
-            string? description,
-
             string etag,
-
-            string? exclusionTag,
-
-            string? friendlyName,
-
-            ImmutableArray<Outputs.ScalingHostPoolReferenceResponse> hostPoolReferences,
-
-            string? hostPoolType,
 
             string id,
 
@@ -167,11 +129,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
 
             string name,
 
-            string objectId,
-
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
-            ImmutableArray<Outputs.ScalingScheduleResponse> schedules,
+            Outputs.ScalingPlanPropertiesResponse properties,
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
@@ -179,29 +139,20 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string timeZone,
-
             string type)
         {
-            Description = description;
             Etag = etag;
-            ExclusionTag = exclusionTag;
-            FriendlyName = friendlyName;
-            HostPoolReferences = hostPoolReferences;
-            HostPoolType = hostPoolType;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             ManagedBy = managedBy;
             Name = name;
-            ObjectId = objectId;
             Plan = plan;
-            Schedules = schedules;
+            Properties = properties;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;
-            TimeZone = timeZone;
             Type = type;
         }
     }

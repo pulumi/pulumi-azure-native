@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class AzureBatchLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Azure Batch account access key.
-        /// </summary>
-        [Input("accessKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccessKey { get; set; }
-
-        /// <summary>
-        /// The Azure Batch account name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("accountName", required: true)]
-        public Input<object> AccountName { get; set; } = null!;
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The Azure Batch URI. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("batchUri", required: true)]
-        public Input<object> BatchUri { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -56,18 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// The Azure Storage linked service reference.
-        /// </summary>
-        [Input("linkedServiceName", required: true)]
-        public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -82,17 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The Azure Batch pool name. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("poolName", required: true)]
-        public Input<object> PoolName { get; set; } = null!;
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureBatch'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Batch linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureBatchLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureBatchLinkedServiceArgs()
         {

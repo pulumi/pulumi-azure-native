@@ -189,6 +189,7 @@ class Administrator(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["name"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Administrator")])
@@ -216,11 +217,8 @@ class Administrator(pulumi.CustomResource):
         __props__ = AdministratorArgs.__new__(AdministratorArgs)
 
         __props__.__dict__["name"] = None
-        __props__.__dict__["object_id"] = None
-        __props__.__dict__["principal_name"] = None
-        __props__.__dict__["principal_type"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return Administrator(resource_name, opts=opts, __props__=__props__)
 
@@ -233,28 +231,12 @@ class Administrator(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.AdministratorPropertiesResponse']:
         """
-        The objectId of the Active Directory administrator.
+        Properties of the active directory administrator.
         """
-        return pulumi.get(self, "object_id")
-
-    @property
-    @pulumi.getter(name="principalName")
-    def principal_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Active Directory administrator principal name.
-        """
-        return pulumi.get(self, "principal_name")
-
-    @property
-    @pulumi.getter(name="principalType")
-    def principal_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The principal type used to represent the type of Active Directory Administrator.
-        """
-        return pulumi.get(self, "principal_type")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -263,14 +245,6 @@ class Administrator(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The tenantId of the Active Directory administrator.
-        """
-        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

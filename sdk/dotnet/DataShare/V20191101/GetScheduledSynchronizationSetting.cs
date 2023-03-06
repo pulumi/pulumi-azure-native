@@ -94,10 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     public sealed class GetScheduledSynchronizationSettingResult
     {
         /// <summary>
-        /// Time at which the synchronization setting was created.
-        /// </summary>
-        public readonly string CreatedAt;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -111,55 +107,31 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state
+        /// Properties of scheduled synchronization
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Recurrence Interval
-        /// </summary>
-        public readonly string RecurrenceInterval;
-        /// <summary>
-        /// Synchronization time
-        /// </summary>
-        public readonly string SynchronizationTime;
+        public readonly Outputs.ScheduledSynchronizationSettingPropertiesResponse Properties;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Name of the user who created the synchronization setting.
-        /// </summary>
-        public readonly string UserName;
 
         [OutputConstructor]
         private GetScheduledSynchronizationSettingResult(
-            string createdAt,
-
             string id,
 
             string kind,
 
             string name,
 
-            string provisioningState,
+            Outputs.ScheduledSynchronizationSettingPropertiesResponse properties,
 
-            string recurrenceInterval,
-
-            string synchronizationTime,
-
-            string type,
-
-            string userName)
+            string type)
         {
-            CreatedAt = createdAt;
             Id = id;
             Kind = kind;
             Name = name;
-            ProvisioningState = provisioningState;
-            RecurrenceInterval = recurrenceInterval;
-            SynchronizationTime = synchronizationTime;
+            Properties = properties;
             Type = type;
-            UserName = userName;
         }
     }
 }

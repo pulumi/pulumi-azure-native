@@ -25,21 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The CosmosDB (MongoDB API) connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object ConnectionString;
-        /// <summary>
-        /// The name of the CosmosDB (MongoDB API) database that you want to access. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Database;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Whether the CosmosDB (MongoDB API) server version is higher than 3.2. The default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? IsServerVersionAbove32;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -49,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'CosmosDbMongoDbApi'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// CosmosDB (MongoDB API) linked service properties.
+        /// </summary>
+        public readonly Outputs.CosmosDbMongoDbApiLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private CosmosDbMongoDbApiLinkedServiceResponse(
@@ -56,26 +48,20 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object connectionString,
-
-            object database,
-
             string? description,
-
-            object? isServerVersionAbove32,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            Outputs.CosmosDbMongoDbApiLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
-            Database = database;
             Description = description;
-            IsServerVersionAbove32 = isServerVersionAbove32;
             Parameters = parameters;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

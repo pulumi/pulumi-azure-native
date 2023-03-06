@@ -29,14 +29,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Pipeline parameters.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
-        /// <summary>
-        /// Pipeline reference.
-        /// </summary>
-        public readonly Outputs.PipelineReferenceResponse Pipeline;
-        /// <summary>
         /// Execute pipeline activity policy.
         /// </summary>
         public readonly Outputs.ExecutePipelineActivityPolicyResponse? Policy;
@@ -46,13 +38,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Execute pipeline activity properties.
+        /// </summary>
+        public readonly Outputs.ExecutePipelineActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
-        /// <summary>
-        /// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
-        /// </summary>
-        public readonly bool? WaitOnCompletion;
 
         [OutputConstructor]
         private ExecutePipelineActivityResponse(
@@ -62,27 +54,21 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
-            ImmutableDictionary<string, object>? parameters,
-
-            Outputs.PipelineReferenceResponse pipeline,
-
             Outputs.ExecutePipelineActivityPolicyResponse? policy,
 
             string type,
 
-            ImmutableArray<Outputs.UserPropertyResponse> userProperties,
+            Outputs.ExecutePipelineActivityTypePropertiesResponse typeProperties,
 
-            bool? waitOnCompletion)
+            ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
             Name = name;
-            Parameters = parameters;
-            Pipeline = pipeline;
             Policy = policy;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
-            WaitOnCompletion = waitOnCompletion;
         }
     }
 }

@@ -44,25 +44,13 @@ export interface GetSignalRCustomCertificateResult {
      */
     readonly id: string;
     /**
-     * Base uri of the KeyVault that stores certificate.
-     */
-    readonly keyVaultBaseUri: string;
-    /**
-     * Certificate secret name.
-     */
-    readonly keyVaultSecretName: string;
-    /**
-     * Certificate secret version.
-     */
-    readonly keyVaultSecretVersion?: string;
-    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * Provisioning state of the resource.
+     * Custom certificate properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.signalrservice.v20220801preview.CustomCertificatePropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

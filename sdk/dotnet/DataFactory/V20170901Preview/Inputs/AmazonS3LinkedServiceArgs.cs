@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class AmazonS3LinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("accessKeyId")]
-        public Input<object>? AccessKeyId { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -45,12 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -64,17 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
-        /// </summary>
-        [Input("secretAccessKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SecretAccessKey { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AmazonS3'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Amazon S3 linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AmazonS3LinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AmazonS3LinkedServiceArgs()
         {

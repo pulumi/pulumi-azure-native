@@ -83,10 +83,6 @@ namespace Pulumi.AzureNative.Cache.V20160401
     public sealed class GetRedisFirewallRuleResult
     {
         /// <summary>
-        /// highest IP address included in the range
-        /// </summary>
-        public readonly string EndIP;
-        /// <summary>
         /// resource ID (of the firewall rule)
         /// </summary>
         public readonly string Id;
@@ -95,9 +91,9 @@ namespace Pulumi.AzureNative.Cache.V20160401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// lowest IP address included in the range
+        /// redis cache firewall rule properties
         /// </summary>
-        public readonly string StartIP;
+        public readonly Outputs.RedisFirewallRulePropertiesResponse Properties;
         /// <summary>
         /// type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
         /// </summary>
@@ -105,20 +101,17 @@ namespace Pulumi.AzureNative.Cache.V20160401
 
         [OutputConstructor]
         private GetRedisFirewallRuleResult(
-            string endIP,
-
             string id,
 
             string name,
 
-            string startIP,
+            Outputs.RedisFirewallRulePropertiesResponse properties,
 
             string type)
         {
-            EndIP = endIP;
             Id = id;
             Name = name;
-            StartIP = startIP;
+            Properties = properties;
             Type = type;
         }
     }

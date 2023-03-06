@@ -35,12 +35,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string?> CreatedByType { get; private set; } = null!;
 
         /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
-        /// </summary>
-        [Output("defaultSlice")]
-        public Output<Outputs.SliceResourceIdResponse> DefaultSlice { get; private set; } = null!;
-
-        /// <summary>
         /// The timestamp of resource last modification (UTC)
         /// </summary>
         [Output("lastModifiedAt")]
@@ -71,28 +65,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the SIM policy resource.
+        /// SIM policy Properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
-        /// </summary>
-        [Output("registrationTimer")]
-        public Output<int?> RegistrationTimer { get; private set; } = null!;
-
-        /// <summary>
-        /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
-        /// </summary>
-        [Output("rfspIndex")]
-        public Output<int?> RfspIndex { get; private set; } = null!;
-
-        /// <summary>
-        /// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        /// </summary>
-        [Output("sliceConfigurations")]
-        public Output<ImmutableArray<Outputs.SliceConfigurationResponse>> SliceConfigurations { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SimPolicyPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -111,12 +87,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-        /// </summary>
-        [Output("ueAmbr")]
-        public Output<Outputs.AmbrResponse> UeAmbr { get; private set; } = null!;
 
 
         /// <summary>
@@ -188,12 +158,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
 
         /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
-        /// </summary>
-        [Input("defaultSlice", required: true)]
-        public Input<Inputs.SliceResourceIdArgs> DefaultSlice { get; set; } = null!;
-
-        /// <summary>
         /// The timestamp of resource last modification (UTC)
         /// </summary>
         [Input("lastModifiedAt")]
@@ -224,10 +188,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string> MobileNetworkName { get; set; } = null!;
 
         /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
+        /// SIM policy Properties.
         /// </summary>
-        [Input("registrationTimer")]
-        public Input<int>? RegistrationTimer { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SimPolicyPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -236,28 +200,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
-        /// </summary>
-        [Input("rfspIndex")]
-        public Input<int>? RfspIndex { get; set; }
-
-        /// <summary>
         /// The name of the SIM policy.
         /// </summary>
         [Input("simPolicyName")]
         public Input<string>? SimPolicyName { get; set; }
-
-        [Input("sliceConfigurations", required: true)]
-        private InputList<Inputs.SliceConfigurationArgs>? _sliceConfigurations;
-
-        /// <summary>
-        /// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        /// </summary>
-        public InputList<Inputs.SliceConfigurationArgs> SliceConfigurations
-        {
-            get => _sliceConfigurations ?? (_sliceConfigurations = new InputList<Inputs.SliceConfigurationArgs>());
-            set => _sliceConfigurations = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -271,15 +217,8 @@ namespace Pulumi.AzureNative.MobileNetwork
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-        /// </summary>
-        [Input("ueAmbr", required: true)]
-        public Input<Inputs.AmbrArgs> UeAmbr { get; set; } = null!;
-
         public SimPolicyArgs()
         {
-            RegistrationTimer = 3240;
         }
         public static new SimPolicyArgs Empty => new SimPolicyArgs();
     }

@@ -32,35 +32,6 @@ export interface GetVirtualMachineArgs {
 
 export interface GetVirtualMachineResult {
     /**
-     * The name of the administrator to which the ssh public keys will be added into the authorized keys.
-     */
-    readonly adminUsername: string;
-    /**
-     * The resource ID of the bare metal machine the virtual machine has landed to.
-     */
-    readonly bareMetalMachineId: string;
-    /**
-     * Selects the boot method for the virtual machine.
-     */
-    readonly bootMethod?: string;
-    readonly cloudServicesNetworkAttachment: outputs.networkcloud.v20221212preview.NetworkAttachmentResponse;
-    /**
-     * The resource ID of the cluster the virtual machine is created for.
-     */
-    readonly clusterId: string;
-    /**
-     * The number of CPU cores in the virtual machine.
-     */
-    readonly cpuCores: number;
-    /**
-     * The more detailed status of the virtual machine.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
@@ -69,46 +40,17 @@ export interface GetVirtualMachineResult {
      */
     readonly id: string;
     /**
-     * Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
-     */
-    readonly isolateEmulatorThread?: string;
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
-    /**
-     * The memory size of the virtual machine in GB.
-     */
-    readonly memorySizeGB: number;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The list of network attachments to the virtual machine.
+     * The list of the resource properties.
      */
-    readonly networkAttachments?: outputs.networkcloud.v20221212preview.NetworkAttachmentResponse[];
-    /**
-     * The Base64 encoded cloud-init network data.
-     */
-    readonly networkData?: string;
-    /**
-     * The scheduling hints for the virtual machine.
-     */
-    readonly placementHints?: outputs.networkcloud.v20221212preview.VirtualMachinePlacementHintResponse[];
-    /**
-     * The power state of the virtual machine.
-     */
-    readonly powerState: string;
-    /**
-     * The provisioning state of the virtual machine.
-     */
-    readonly provisioningState: string;
-    /**
-     * The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
-     */
-    readonly sshPublicKeys?: outputs.networkcloud.v20221212preview.SshPublicKeyResponse[];
-    readonly storageProfile: outputs.networkcloud.v20221212preview.StorageProfileResponse;
+    readonly properties: outputs.networkcloud.v20221212preview.VirtualMachinePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -121,27 +63,6 @@ export interface GetVirtualMachineResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The Base64 encoded cloud-init user data.
-     */
-    readonly userData?: string;
-    /**
-     * Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
-     */
-    readonly virtioInterface?: string;
-    /**
-     * The type of the device model to use.
-     */
-    readonly vmDeviceModel?: string;
-    /**
-     * The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
-     */
-    readonly vmImage: string;
-    readonly vmImageRepositoryCredentials?: outputs.networkcloud.v20221212preview.ImageRepositoryCredentialsResponse;
-    /**
-     * The resource IDs of volumes that are attached to the virtual machine.
-     */
-    readonly volumes: string[];
 }
 /**
  * Get properties of the provided virtual machine.

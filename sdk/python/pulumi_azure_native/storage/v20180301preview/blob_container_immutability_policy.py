@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['BlobContainerImmutabilityPolicyArgs', 'BlobContainerImmutabilityPolicy']
 
@@ -16,20 +18,20 @@ class BlobContainerImmutabilityPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  container_name: pulumi.Input[str],
-                 immutability_period_since_creation_in_days: pulumi.Input[int],
+                 properties: pulumi.Input['ImmutabilityPolicyPropertyArgs'],
                  resource_group_name: pulumi.Input[str],
                  immutability_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BlobContainerImmutabilityPolicy resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param pulumi.Input['ImmutabilityPolicyPropertyArgs'] properties: The properties of an ImmutabilityPolicy of a blob container.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if immutability_policy_name is not None:
             pulumi.set(__self__, "immutability_policy_name", immutability_policy_name)
@@ -59,16 +61,16 @@ class BlobContainerImmutabilityPolicyArgs:
         pulumi.set(self, "container_name", value)
 
     @property
-    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> pulumi.Input[int]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ImmutabilityPolicyPropertyArgs']:
         """
-        The immutability period for the blobs in the container since the policy creation, in days.
+        The properties of an ImmutabilityPolicy of a blob container.
         """
-        return pulumi.get(self, "immutability_period_since_creation_in_days")
+        return pulumi.get(self, "properties")
 
-    @immutability_period_since_creation_in_days.setter
-    def immutability_period_since_creation_in_days(self, value: pulumi.Input[int]):
-        pulumi.set(self, "immutability_period_since_creation_in_days", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ImmutabilityPolicyPropertyArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -107,8 +109,8 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ImmutabilityPolicyPropertyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -118,8 +120,8 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param pulumi.Input[str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
+        :param pulumi.Input[pulumi.InputType['ImmutabilityPolicyPropertyArgs']] properties: The properties of an ImmutabilityPolicy of a blob container.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
         ...
@@ -148,8 +150,8 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ImmutabilityPolicyPropertyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""BlobContainerImmutabilityPolicy is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
@@ -167,16 +169,15 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
-            if immutability_period_since_creation_in_days is None and not opts.urn:
-                raise TypeError("Missing required property 'immutability_period_since_creation_in_days'")
-            __props__.__dict__["immutability_period_since_creation_in_days"] = immutability_period_since_creation_in_days
             __props__.__dict__["immutability_policy_name"] = immutability_policy_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20180201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20180701:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210401:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210601:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210901:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20220501:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20220901:BlobContainerImmutabilityPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -203,9 +204,8 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         __props__ = BlobContainerImmutabilityPolicyArgs.__new__(BlobContainerImmutabilityPolicyArgs)
 
         __props__.__dict__["etag"] = None
-        __props__.__dict__["immutability_period_since_creation_in_days"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return BlobContainerImmutabilityPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -218,14 +218,6 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
-    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> pulumi.Output[int]:
-        """
-        The immutability period for the blobs in the container since the policy creation, in days.
-        """
-        return pulumi.get(self, "immutability_period_since_creation_in_days")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -235,11 +227,11 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.ImmutabilityPolicyPropertyResponse']:
         """
-        The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        The properties of an ImmutabilityPolicy of a blob container.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     public partial class RoleAssignmentArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Artifacts which need to be deployed before the specified artifact.
-        /// </summary>
-        [Output("dependsOn")]
-        public Output<ImmutableArray<string>> DependsOn { get; private set; } = null!;
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the kind of blueprint artifact.
         /// Expected value is 'roleAssignment'.
         /// </summary>
@@ -47,22 +29,10 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
+        /// Properties for a Role assignment blueprint artifact.
         /// </summary>
-        [Output("principalIds")]
-        public Output<object> PrincipalIds { get; private set; } = null!;
-
-        /// <summary>
-        /// RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
-        /// </summary>
-        [Output("resourceGroup")]
-        public Output<string?> ResourceGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure resource ID of the RoleDefinition.
-        /// </summary>
-        [Output("roleDefinitionId")]
-        public Output<string> RoleDefinitionId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.RoleAssignmentArtifactPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
@@ -138,30 +108,6 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         [Input("blueprintName", required: true)]
         public Input<string> BlueprintName { get; set; } = null!;
 
-        [Input("dependsOn")]
-        private InputList<string>? _dependsOn;
-
-        /// <summary>
-        /// Artifacts which need to be deployed before the specified artifact.
-        /// </summary>
-        public InputList<string> DependsOn
-        {
-            get => _dependsOn ?? (_dependsOn = new InputList<string>());
-            set => _dependsOn = value;
-        }
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
         /// <summary>
         /// Specifies the kind of blueprint artifact.
         /// Expected value is 'roleAssignment'.
@@ -170,28 +116,16 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
+        /// Properties for a Role assignment blueprint artifact.
         /// </summary>
-        [Input("principalIds", required: true)]
-        public Input<object> PrincipalIds { get; set; } = null!;
-
-        /// <summary>
-        /// RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
-        /// </summary>
-        [Input("resourceGroup")]
-        public Input<string>? ResourceGroup { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.RoleAssignmentArtifactPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         /// </summary>
         [Input("resourceScope", required: true)]
         public Input<string> ResourceScope { get; set; } = null!;
-
-        /// <summary>
-        /// Azure resource ID of the RoleDefinition.
-        /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public Input<string> RoleDefinitionId { get; set; } = null!;
 
         public RoleAssignmentArtifactArgs()
         {

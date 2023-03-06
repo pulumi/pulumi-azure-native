@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -33,10 +36,6 @@ export interface GetGuestDiagnosticsSettingsAssociationArgs {
  */
 export interface GetGuestDiagnosticsSettingsAssociationResult {
     /**
-     * The guest diagnostic settings name.
-     */
-    readonly guestDiagnosticSettingsName: string;
-    /**
      * Azure resource Id
      */
     readonly id: string;
@@ -48,6 +47,10 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
      * Azure resource name
      */
     readonly name: string;
+    /**
+     * The diagnostics settings associations of the resource.
+     */
+    readonly properties: outputs.insights.GuestDiagnosticSettingsAssociationResponse;
     /**
      * Resource tags
      */

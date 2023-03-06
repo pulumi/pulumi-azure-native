@@ -149,12 +149,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-        /// </summary>
-        [Input("dataRetentionTime", required: true)]
-        public Input<string> DataRetentionTime { get; set; } = null!;
-
-        /// <summary>
         /// Name of the environment
         /// </summary>
         [Input("environmentName")]
@@ -166,17 +160,11 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("partitionKeyProperties")]
-        private InputList<Inputs.PartitionKeyPropertyArgs>? _partitionKeyProperties;
-
         /// <summary>
-        /// The list of partition keys according to which the data in the environment will be ordered.
+        /// Properties used to create an environment.
         /// </summary>
-        public InputList<Inputs.PartitionKeyPropertyArgs> PartitionKeyProperties
-        {
-            get => _partitionKeyProperties ?? (_partitionKeyProperties = new InputList<Inputs.PartitionKeyPropertyArgs>());
-            set => _partitionKeyProperties = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.EnvironmentCreationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -189,12 +177,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-        /// </summary>
-        [Input("storageLimitExceededBehavior")]
-        public Input<Pulumi.AzureNative.TimeSeriesInsights.V20171115.StorageLimitExceededBehavior>? StorageLimitExceededBehavior { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

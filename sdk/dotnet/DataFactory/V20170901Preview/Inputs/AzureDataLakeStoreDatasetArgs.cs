@@ -28,34 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The data compression method used for the item(s) in the Azure Data Lake Store.
-        /// </summary>
-        [Input("compression")]
-        public object? Compression { get; set; }
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("fileName")]
-        public Input<object>? FileName { get; set; }
-
-        /// <summary>
-        /// Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("folderPath", required: true)]
-        public Input<object> FolderPath { get; set; } = null!;
-
-        /// <summary>
-        /// The format of the Data Lake Store.
-        /// </summary>
-        [Input("format")]
-        public object? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -87,6 +63,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Data Lake Store dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureDataLakeStoreDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureDataLakeStoreDatasetArgs()
         {

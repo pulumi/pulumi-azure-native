@@ -47,53 +47,21 @@ export interface GetJobDefinitionArgs {
  */
 export interface GetJobDefinitionResult {
     /**
-     * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-     */
-    readonly customerSecrets?: outputs.hybriddata.v20160601.CustomerSecretResponse[];
-    /**
-     * A generic json used differently by each data service type.
-     */
-    readonly dataServiceInput?: any;
-    /**
-     * Data Sink Id associated to the job definition.
-     */
-    readonly dataSinkId: string;
-    /**
-     * Data Source Id associated to the job definition.
-     */
-    readonly dataSourceId: string;
-    /**
      * Id of the object.
      */
     readonly id: string;
-    /**
-     * Last modified time of the job definition.
-     */
-    readonly lastModifiedTime?: string;
     /**
      * Name of the object.
      */
     readonly name: string;
     /**
-     * This is the preferred geo location for the job to run.
+     * JobDefinition properties.
      */
-    readonly runLocation?: string;
-    /**
-     * Schedule for running the job definition
-     */
-    readonly schedules?: outputs.hybriddata.v20160601.ScheduleResponse[];
-    /**
-     * State of the job definition.
-     */
-    readonly state: string;
+    readonly properties: outputs.hybriddata.v20160601.JobDefinitionPropertiesResponse;
     /**
      * Type of the object.
      */
     readonly type: string;
-    /**
-     * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-     */
-    readonly userConfirmation?: string;
 }
 /**
  * This method gets job definition object by name.

@@ -15,104 +15,11 @@ namespace Pulumi.AzureNative.NetworkCloud
     [AzureNativeResourceType("azure-native:networkcloud:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
-        [Output("aggregatorOrSingleRackDefinition")]
-        public Output<Outputs.RackDefinitionResponse> AggregatorOrSingleRackDefinition { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
-        /// </summary>
-        [Output("analyticsWorkspaceId")]
-        public Output<string> AnalyticsWorkspaceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of cluster runtime version upgrades available for this cluster.
-        /// </summary>
-        [Output("availableUpgradeVersions")]
-        public Output<ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse>> AvailableUpgradeVersions { get; private set; } = null!;
-
-        [Output("clusterCapacity")]
-        public Output<Outputs.ClusterCapacityResponse?> ClusterCapacity { get; private set; } = null!;
-
-        /// <summary>
-        /// The latest heartbeat status between the cluster manager and the cluster.
-        /// </summary>
-        [Output("clusterConnectionStatus")]
-        public Output<string> ClusterConnectionStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The extended location (custom location) that represents the cluster's control plane location.
-        /// This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
-        /// </summary>
-        [Output("clusterExtendedLocation")]
-        public Output<Outputs.ExtendedLocationResponse> ClusterExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The customer-provided location information to identify where the cluster resides.
-        /// </summary>
-        [Output("clusterLocation")]
-        public Output<string?> ClusterLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The latest connectivity status between cluster manager and the cluster.
-        /// </summary>
-        [Output("clusterManagerConnectionStatus")]
-        public Output<string> ClusterManagerConnectionStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
-        /// </summary>
-        [Output("clusterManagerId")]
-        public Output<string> ClusterManagerId { get; private set; } = null!;
-
-        [Output("clusterServicePrincipal")]
-        public Output<Outputs.ServicePrincipalInformationResponse?> ClusterServicePrincipal { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of rack configuration for the cluster.
-        /// </summary>
-        [Output("clusterType")]
-        public Output<string> ClusterType { get; private set; } = null!;
-
-        /// <summary>
-        /// The current runtime version of the cluster.
-        /// </summary>
-        [Output("clusterVersion")]
-        public Output<string> ClusterVersion { get; private set; } = null!;
-
-        [Output("computeDeploymentThreshold")]
-        public Output<Outputs.ValidationThresholdResponse?> ComputeDeploymentThreshold { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of rack definitions for the compute racks in a multi-rack
-        /// cluster, or an empty list in a single-rack cluster.
-        /// </summary>
-        [Output("computeRackDefinitions")]
-        public Output<ImmutableArray<Outputs.RackDefinitionResponse>> ComputeRackDefinitions { get; private set; } = null!;
-
-        /// <summary>
-        /// The current detailed status of the cluster.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
         /// <summary>
         /// The extended location of the cluster manager associated with the cluster.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The extended location (custom location) that represents the Hybrid AKS control plane location.
-        /// This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
-        /// </summary>
-        [Output("hybridAksExtendedLocation")]
-        public Output<Outputs.ExtendedLocationResponse> HybridAksExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -121,40 +28,16 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the managed resource group associated with the resource.
-        /// </summary>
-        [Output("managedResourceGroupConfiguration")]
-        public Output<Outputs.ManagedResourceGroupConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// The count of Manual Action Taken (MAT) events that have not been validated.
-        /// </summary>
-        [Output("manualActionCount")]
-        public Output<double> ManualActionCount { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Network Fabric associated with the cluster.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("networkFabricId")]
-        public Output<string> NetworkFabricId { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the cluster.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The support end date of the runtime version of the cluster.
-        /// </summary>
-        [Output("supportExpiryDate")]
-        public Output<string> SupportExpiryDate { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -173,12 +56,6 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of workload resource IDs that are hosted within this cluster.
-        /// </summary>
-        [Output("workloadResourceIds")]
-        public Output<ImmutableArray<string>> WorkloadResourceIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -229,60 +106,11 @@ namespace Pulumi.AzureNative.NetworkCloud
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aggregatorOrSingleRackDefinition", required: true)]
-        public Input<Inputs.RackDefinitionArgs> AggregatorOrSingleRackDefinition { get; set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
-        /// </summary>
-        [Input("analyticsWorkspaceId", required: true)]
-        public Input<string> AnalyticsWorkspaceId { get; set; } = null!;
-
-        [Input("clusterCapacity")]
-        public Input<Inputs.ClusterCapacityArgs>? ClusterCapacity { get; set; }
-
-        /// <summary>
-        /// The customer-provided location information to identify where the cluster resides.
-        /// </summary>
-        [Input("clusterLocation")]
-        public Input<string>? ClusterLocation { get; set; }
-
         /// <summary>
         /// The name of the cluster.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
-
-        [Input("clusterServicePrincipal")]
-        public Input<Inputs.ServicePrincipalInformationArgs>? ClusterServicePrincipal { get; set; }
-
-        /// <summary>
-        /// The type of rack configuration for the cluster.
-        /// </summary>
-        [Input("clusterType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.ClusterType> ClusterType { get; set; } = null!;
-
-        /// <summary>
-        /// The current runtime version of the cluster.
-        /// </summary>
-        [Input("clusterVersion", required: true)]
-        public Input<string> ClusterVersion { get; set; } = null!;
-
-        [Input("computeDeploymentThreshold")]
-        public Input<Inputs.ValidationThresholdArgs>? ComputeDeploymentThreshold { get; set; }
-
-        [Input("computeRackDefinitions")]
-        private InputList<Inputs.RackDefinitionArgs>? _computeRackDefinitions;
-
-        /// <summary>
-        /// The list of rack definitions for the compute racks in a multi-rack
-        /// cluster, or an empty list in a single-rack cluster.
-        /// </summary>
-        public InputList<Inputs.RackDefinitionArgs> ComputeRackDefinitions
-        {
-            get => _computeRackDefinitions ?? (_computeRackDefinitions = new InputList<Inputs.RackDefinitionArgs>());
-            set => _computeRackDefinitions = value;
-        }
 
         /// <summary>
         /// The extended location of the cluster manager associated with the cluster.
@@ -297,16 +125,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The configuration of the managed resource group associated with the resource.
+        /// The list of the resource properties.
         /// </summary>
-        [Input("managedResourceGroupConfiguration")]
-        public Input<Inputs.ManagedResourceGroupConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
-
-        /// <summary>
-        /// The resource ID of the Network Fabric associated with the cluster.
-        /// </summary>
-        [Input("networkFabricId", required: true)]
-        public Input<string> NetworkFabricId { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.ClusterPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -52,21 +52,9 @@ export interface GetSimResult {
      */
     readonly createdByType?: string;
     /**
-     * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
-     */
-    readonly deviceType?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The integrated circuit card ID (ICCID) for the SIM.
-     */
-    readonly integratedCircuitCardIdentifier?: string;
-    /**
-     * The international mobile subscriber identity (IMSI) for the SIM.
-     */
-    readonly internationalMobileSubscriberIdentity: string;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -84,21 +72,9 @@ export interface GetSimResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the SIM resource.
+     * SIM Properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The SIM policy used by this SIM.
-     */
-    readonly simPolicy?: outputs.mobilenetwork.v20220401preview.SimPolicyResourceIdResponse;
-    /**
-     * The state of the SIM resource.
-     */
-    readonly simState: string;
-    /**
-     * A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-     */
-    readonly staticIpConfiguration?: outputs.mobilenetwork.v20220401preview.SimStaticIpPropertiesResponse[];
+    readonly properties: outputs.mobilenetwork.v20220401preview.SimPropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

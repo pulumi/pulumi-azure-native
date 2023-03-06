@@ -39,10 +39,6 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
     }
 
     /**
-     * the array of data source object which are configured to collect and send data
-     */
-    public readonly dataSources!: pulumi.Output<outputs.insights.DataSourceResponse[] | undefined>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -51,10 +47,9 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Operating system type for the configuration
+     * The diagnostic settings to be applied to azure resources.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
-    public readonly proxySetting!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.insights.GuestDiagnosticSettingsResponse>;
     /**
      * Resource tags
      */
@@ -75,24 +70,23 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["diagnosticSettingsName"] = args ? args.diagnosticSettingsName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["proxySetting"] = args ? args.proxySetting : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
-            resourceInputs["proxySetting"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -108,10 +102,6 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
  */
 export interface GuestDiagnosticsSettingArgs {
     /**
-     * the array of data source object which are configured to collect and send data
-     */
-    dataSources?: pulumi.Input<pulumi.Input<inputs.insights.DataSourceArgs>[]>;
-    /**
      * The name of the diagnostic setting.
      */
     diagnosticSettingsName?: pulumi.Input<string>;
@@ -120,10 +110,9 @@ export interface GuestDiagnosticsSettingArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Operating system type for the configuration
+     * The diagnostic settings to be applied to azure resources.
      */
-    osType?: pulumi.Input<string>;
-    proxySetting?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.insights.GuestDiagnosticSettingsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

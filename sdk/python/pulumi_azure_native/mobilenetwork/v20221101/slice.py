@@ -17,27 +17,23 @@ __all__ = ['SliceArgs', 'Slice']
 class SliceArgs:
     def __init__(__self__, *,
                  mobile_network_name: pulumi.Input[str],
+                 properties: pulumi.Input['SlicePropertiesFormatArgs'],
                  resource_group_name: pulumi.Input[str],
-                 snssai: pulumi.Input['SnssaiArgs'],
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  slice_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Slice resource.
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
+        :param pulumi.Input['SlicePropertiesFormatArgs'] properties: Slice properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SnssaiArgs'] snssai: Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-        :param pulumi.Input[str] description: An optional description for this network slice.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] slice_name: The name of the network slice.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "mobile_network_name", mobile_network_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "snssai", snssai)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if slice_name is not None:
@@ -58,6 +54,18 @@ class SliceArgs:
         pulumi.set(self, "mobile_network_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SlicePropertiesFormatArgs']:
+        """
+        Slice properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SlicePropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -68,30 +76,6 @@ class SliceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def snssai(self) -> pulumi.Input['SnssaiArgs']:
-        """
-        Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-        """
-        return pulumi.get(self, "snssai")
-
-    @snssai.setter
-    def snssai(self, value: pulumi.Input['SnssaiArgs']):
-        pulumi.set(self, "snssai", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional description for this network slice.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -135,12 +119,11 @@ class Slice(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SlicePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slice_name: Optional[pulumi.Input[str]] = None,
-                 snssai: Optional[pulumi.Input[pulumi.InputType['SnssaiArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -148,12 +131,11 @@ class Slice(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: An optional description for this network slice.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
+        :param pulumi.Input[pulumi.InputType['SlicePropertiesFormatArgs']] properties: Slice properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] slice_name: The name of the network slice.
-        :param pulumi.Input[pulumi.InputType['SnssaiArgs']] snssai: Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -180,12 +162,11 @@ class Slice(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SlicePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slice_name: Optional[pulumi.Input[str]] = None,
-                 snssai: Optional[pulumi.Input[pulumi.InputType['SnssaiArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -196,21 +177,19 @@ class Slice(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SliceArgs.__new__(SliceArgs)
 
-            __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location
             if mobile_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'mobile_network_name'")
             __props__.__dict__["mobile_network_name"] = mobile_network_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["slice_name"] = slice_name
-            if snssai is None and not opts.urn:
-                raise TypeError("Missing required property 'snssai'")
-            __props__.__dict__["snssai"] = snssai
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Slice")])
@@ -237,23 +216,13 @@ class Slice(pulumi.CustomResource):
 
         __props__ = SliceArgs.__new__(SliceArgs)
 
-        __props__.__dict__["description"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["snssai"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Slice(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        An optional description for this network slice.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -272,20 +241,12 @@ class Slice(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state of the network slice resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def snssai(self) -> pulumi.Output['outputs.SnssaiResponse']:
+    def properties(self) -> pulumi.Output['outputs.SlicePropertiesFormatResponse']:
         """
-        Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        Slice properties.
         """
-        return pulumi.get(self, "snssai")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

@@ -48,17 +48,13 @@ export interface GetVirtualNetworkLinkResult {
      */
     readonly id: string;
     /**
-     * Metadata attached to the virtual network link.
-     */
-    readonly metadata?: {[key: string]: string};
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the virtual network link.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.network.v20220701.VirtualNetworkLinkPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -67,10 +63,6 @@ export interface GetVirtualNetworkLinkResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The reference to the virtual network. This cannot be changed after creation.
-     */
-    readonly virtualNetwork: outputs.network.v20220701.SubResourceResponse;
 }
 /**
  * Gets properties of a virtual network link to a DNS forwarding ruleset.

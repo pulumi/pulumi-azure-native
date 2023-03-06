@@ -16,28 +16,39 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['AccountPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
-                 active_directories: Optional[pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Account resource.
+        :param pulumi.Input['AccountPropertiesArgs'] properties: NetApp Account properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryArgs']]] active_directories: Active Directories
         :param pulumi.Input[str] location: Resource location
         :param Any tags: Resource tags
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
-        if active_directories is not None:
-            pulumi.set(__self__, "active_directories", active_directories)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['AccountPropertiesArgs']:
+        """
+        NetApp Account properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['AccountPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -62,18 +73,6 @@ class AccountArgs:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
-
-    @property
-    @pulumi.getter(name="activeDirectories")
-    def active_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryArgs']]]]:
-        """
-        Active Directories
-        """
-        return pulumi.get(self, "active_directories")
-
-    @active_directories.setter
-    def active_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryArgs']]]]):
-        pulumi.set(self, "active_directories", value)
 
     @property
     @pulumi.getter
@@ -111,8 +110,8 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 active_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AccountPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -122,8 +121,8 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]] active_directories: Active Directories
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[pulumi.InputType['AccountPropertiesArgs']] properties: NetApp Account properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param Any tags: Resource tags
         """
@@ -152,8 +151,8 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 active_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AccountPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -167,14 +166,15 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["account_name"] = account_name
-            __props__.__dict__["active_directories"] = active_directories
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Account"), pulumi.Alias(type_="azure-native:netapp/v20190501:Account"), pulumi.Alias(type_="azure-native:netapp/v20190601:Account"), pulumi.Alias(type_="azure-native:netapp/v20190701:Account"), pulumi.Alias(type_="azure-native:netapp/v20190801:Account"), pulumi.Alias(type_="azure-native:netapp/v20191001:Account"), pulumi.Alias(type_="azure-native:netapp/v20191101:Account"), pulumi.Alias(type_="azure-native:netapp/v20200201:Account"), pulumi.Alias(type_="azure-native:netapp/v20200301:Account"), pulumi.Alias(type_="azure-native:netapp/v20200501:Account"), pulumi.Alias(type_="azure-native:netapp/v20200601:Account"), pulumi.Alias(type_="azure-native:netapp/v20200701:Account"), pulumi.Alias(type_="azure-native:netapp/v20200801:Account"), pulumi.Alias(type_="azure-native:netapp/v20200901:Account"), pulumi.Alias(type_="azure-native:netapp/v20201101:Account"), pulumi.Alias(type_="azure-native:netapp/v20201201:Account"), pulumi.Alias(type_="azure-native:netapp/v20210201:Account"), pulumi.Alias(type_="azure-native:netapp/v20210401:Account"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Account"), pulumi.Alias(type_="azure-native:netapp/v20210601:Account"), pulumi.Alias(type_="azure-native:netapp/v20210801:Account"), pulumi.Alias(type_="azure-native:netapp/v20211001:Account"), pulumi.Alias(type_="azure-native:netapp/v20220101:Account"), pulumi.Alias(type_="azure-native:netapp/v20220301:Account"), pulumi.Alias(type_="azure-native:netapp/v20220501:Account"), pulumi.Alias(type_="azure-native:netapp/v20220901:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -200,21 +200,12 @@ class Account(pulumi.CustomResource):
 
         __props__ = AccountArgs.__new__(AccountArgs)
 
-        __props__.__dict__["active_directories"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="activeDirectories")
-    def active_directories(self) -> pulumi.Output[Optional[Sequence['outputs.ActiveDirectoryResponse']]]:
-        """
-        Active Directories
-        """
-        return pulumi.get(self, "active_directories")
 
     @property
     @pulumi.getter
@@ -233,12 +224,12 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.AccountPropertiesResponse']:
         """
-        Azure lifecycle management
+        NetApp Account properties
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

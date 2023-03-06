@@ -128,23 +128,11 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         [Input("keyspaceName")]
         public Input<string>? KeyspaceName { get; set; }
 
-        [Input("options", required: true)]
-        private InputMap<string>? _options;
-
         /// <summary>
-        /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        /// Properties to create and update Azure Cosmos DB Cassandra keyspace.
         /// </summary>
-        public InputMap<string> Options
-        {
-            get => _options ?? (_options = new InputMap<string>());
-            set => _options = value;
-        }
-
-        /// <summary>
-        /// The standard JSON format of a Cassandra keyspace
-        /// </summary>
-        [Input("resource", required: true)]
-        public Input<Inputs.CassandraKeyspaceResourceArgs> Resource { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.CassandraKeyspaceCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

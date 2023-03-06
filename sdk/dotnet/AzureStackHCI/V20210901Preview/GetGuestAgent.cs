@@ -82,14 +82,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public sealed class GetGuestAgentResult
     {
         /// <summary>
-        /// Username / Password Credentials to provision guest agent.
-        /// </summary>
-        public readonly Outputs.GuestCredentialResponse? Credentials;
-        /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        public readonly Outputs.HttpProxyConfigurationResponse? HttpProxyConfig;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -98,17 +90,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The guest agent provisioning action.
+        /// Resource properties.
         /// </summary>
-        public readonly string? ProvisioningAction;
-        /// <summary>
-        /// The provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The guest agent status.
-        /// </summary>
-        public readonly string Status;
+        public readonly Outputs.GuestAgentPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -120,31 +104,19 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 
         [OutputConstructor]
         private GetGuestAgentResult(
-            Outputs.GuestCredentialResponse? credentials,
-
-            Outputs.HttpProxyConfigurationResponse? httpProxyConfig,
-
             string id,
 
             string name,
 
-            string? provisioningAction,
-
-            string provisioningState,
-
-            string status,
+            Outputs.GuestAgentPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            Credentials = credentials;
-            HttpProxyConfig = httpProxyConfig;
             Id = id;
             Name = name;
-            ProvisioningAction = provisioningAction;
-            ProvisioningState = provisioningState;
-            Status = status;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

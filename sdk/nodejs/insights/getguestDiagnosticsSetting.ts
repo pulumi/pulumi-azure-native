@@ -36,10 +36,6 @@ export interface GetguestDiagnosticsSettingArgs {
  */
 export interface GetguestDiagnosticsSettingResult {
     /**
-     * the array of data source object which are configured to collect and send data
-     */
-    readonly dataSources?: outputs.insights.DataSourceResponse[];
-    /**
      * Azure resource Id
      */
     readonly id: string;
@@ -52,10 +48,9 @@ export interface GetguestDiagnosticsSettingResult {
      */
     readonly name: string;
     /**
-     * Operating system type for the configuration
+     * The diagnostic settings to be applied to azure resources.
      */
-    readonly osType?: string;
-    readonly proxySetting?: string;
+    readonly properties: outputs.insights.GuestDiagnosticSettingsResponse;
     /**
      * Resource tags
      */

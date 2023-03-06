@@ -16,40 +16,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public partial class VirtualMachineTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        [Output("customResourceName")]
-        public Output<string> CustomResourceName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the disks the template.
-        /// </summary>
-        [Output("disks")]
-        public Output<ImmutableArray<Outputs.VirtualDiskResponse>> Disks { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Firmware type
-        /// </summary>
-        [Output("firmwareType")]
-        public Output<string> FirmwareType { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the folder path of the template.
-        /// </summary>
-        [Output("folderPath")]
-        public Output<string> FolderPath { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the virtual machine template.
-        /// </summary>
-        [Output("inventoryItemId")]
-        public Output<string?> InventoryItemId { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -64,72 +34,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets memory size in MBs for the template.
-        /// </summary>
-        [Output("memorySizeMB")]
-        public Output<int> MemorySizeMB { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the virtual machine template.
-        /// </summary>
-        [Output("moName")]
-        public Output<string> MoName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
-        /// template.
-        /// </summary>
-        [Output("moRefId")]
-        public Output<string?> MoRefId { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the network interfaces of the template.
+        /// Resource properties.
         /// </summary>
-        [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceResponse>> NetworkInterfaces { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the number of vCPUs for the template.
-        /// </summary>
-        [Output("numCPUs")]
-        public Output<int> NumCPUs { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the number of cores per socket for the template.
-        /// Defaults to 1 if unspecified.
-        /// </summary>
-        [Output("numCoresPerSocket")]
-        public Output<int> NumCoresPerSocket { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets os name.
-        /// </summary>
-        [Output("osName")]
-        public Output<string> OsName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the type of the os.
-        /// </summary>
-        [Output("osType")]
-        public Output<string> OsType { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        [Output("statuses")]
-        public Output<ImmutableArray<Outputs.ResourceStatusResponse>> Statuses { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.VirtualMachineTemplatePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -144,34 +58,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the current version of VMware Tools.
-        /// </summary>
-        [Output("toolsVersion")]
-        public Output<string> ToolsVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the current version status of VMware Tools installed in the guest operating system.
-        /// </summary>
-        [Output("toolsVersionStatus")]
-        public Output<string> ToolsVersionStatus { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this template resides.
-        /// </summary>
-        [Output("vCenterId")]
-        public Output<string?> VCenterId { get; private set; } = null!;
 
 
         /// <summary>
@@ -231,12 +121,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
-        /// Gets or sets the inventory Item ID for the virtual machine template.
-        /// </summary>
-        [Input("inventoryItemId")]
-        public Input<string>? InventoryItemId { get; set; }
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
@@ -249,11 +133,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
-        /// template.
+        /// Resource properties.
         /// </summary>
-        [Input("moRefId")]
-        public Input<string>? MoRefId { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.VirtualMachineTemplatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.
@@ -272,12 +155,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this template resides.
-        /// </summary>
-        [Input("vCenterId")]
-        public Input<string>? VCenterId { get; set; }
 
         /// <summary>
         /// Name of the virtual machine template resource.

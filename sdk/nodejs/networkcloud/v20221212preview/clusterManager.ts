@@ -35,50 +35,17 @@ export class ClusterManager extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID of the Log Analytics workspace that is used for the logs collection.
-     */
-    public readonly analyticsWorkspaceId!: pulumi.Output<string | undefined>;
-    /**
-     * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-     */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
-    /**
-     * The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
-     */
-    public /*out*/ readonly clusterVersions!: pulumi.Output<outputs.networkcloud.v20221212preview.ClusterAvailableVersionResponse[]>;
-    /**
-     * The detailed status that provides additional information about the cluster manager.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
-     * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-     */
-    public readonly fabricControllerId!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * The configuration of the managed resource group associated with the resource.
-     */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.networkcloud.v20221212preview.ManagedResourceGroupConfigurationResponse | undefined>;
-    /**
-     * The extended location (custom location) that represents the cluster manager's control plane location.
-     *  This extended location is used when creating cluster and rack manifest resources.
-     */
-    public /*out*/ readonly managerExtendedLocation!: pulumi.Output<outputs.networkcloud.v20221212preview.ExtendedLocationResponse>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the cluster manager.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.v20221212preview.ClusterManagerPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -91,10 +58,6 @@ export class ClusterManager extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-     */
-    public readonly vmSize!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ClusterManager resource with the given unique name, arguments, and options.
@@ -107,45 +70,27 @@ export class ClusterManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fabricControllerId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fabricControllerId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["analyticsWorkspaceId"] = args ? args.analyticsWorkspaceId : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["clusterManagerName"] = args ? args.clusterManagerName : undefined;
-            resourceInputs["fabricControllerId"] = args ? args.fabricControllerId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
-            resourceInputs["clusterVersions"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["managerExtendedLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["analyticsWorkspaceId"] = undefined /*out*/;
-            resourceInputs["availabilityZones"] = undefined /*out*/;
-            resourceInputs["clusterVersions"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["fabricControllerId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["managedResourceGroupConfiguration"] = undefined /*out*/;
-            resourceInputs["managerExtendedLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:ClusterManager" }] };
@@ -159,29 +104,17 @@ export class ClusterManager extends pulumi.CustomResource {
  */
 export interface ClusterManagerArgs {
     /**
-     * The resource ID of the Log Analytics workspace that is used for the logs collection.
-     */
-    analyticsWorkspaceId?: pulumi.Input<string>;
-    /**
-     * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-     */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The name of the cluster manager.
      */
     clusterManagerName?: pulumi.Input<string>;
-    /**
-     * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-     */
-    fabricControllerId: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The configuration of the managed resource group associated with the resource.
+     * The list of the resource properties.
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.networkcloud.v20221212preview.ManagedResourceGroupConfigurationArgs>;
+    properties: pulumi.Input<inputs.networkcloud.v20221212preview.ClusterManagerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -190,8 +123,4 @@ export interface ClusterManagerArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-     */
-    vmSize?: pulumi.Input<string>;
 }

@@ -16,45 +16,6 @@ namespace Pulumi.AzureNative.KeyVault.V20221101
     public partial class Key : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The attributes of the key.
-        /// </summary>
-        [Output("attributes")]
-        public Output<Outputs.KeyAttributesResponse?> Attributes { get; private set; } = null!;
-
-        /// <summary>
-        /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-        /// </summary>
-        [Output("curveName")]
-        public Output<string?> CurveName { get; private set; } = null!;
-
-        [Output("keyOps")]
-        public Output<ImmutableArray<string>> KeyOps { get; private set; } = null!;
-
-        /// <summary>
-        /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-        /// </summary>
-        [Output("keySize")]
-        public Output<int?> KeySize { get; private set; } = null!;
-
-        /// <summary>
-        /// The URI to retrieve the current version of the key.
-        /// </summary>
-        [Output("keyUri")]
-        public Output<string> KeyUri { get; private set; } = null!;
-
-        /// <summary>
-        /// The URI to retrieve the specific version of the key.
-        /// </summary>
-        [Output("keyUriWithVersion")]
-        public Output<string> KeyUriWithVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the key. For valid values, see JsonWebKeyType.
-        /// </summary>
-        [Output("kty")]
-        public Output<string?> Kty { get; private set; } = null!;
-
-        /// <summary>
         /// Azure location of the key vault resource.
         /// </summary>
         [Output("location")]
@@ -67,16 +28,10 @@ namespace Pulumi.AzureNative.KeyVault.V20221101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key release policy in response. It will be used for both output and input. Omitted if empty
+        /// The properties of the key.
         /// </summary>
-        [Output("releasePolicy")]
-        public Output<Outputs.KeyReleasePolicyResponse?> ReleasePolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// Key rotation policy in response. It will be used for both output and input. Omitted if empty
-        /// </summary>
-        [Output("rotationPolicy")]
-        public Output<Outputs.RotationPolicyResponse?> RotationPolicy { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.KeyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Tags assigned to the key vault resource.

@@ -39,41 +39,21 @@ export class Linker extends pulumi.CustomResource {
     }
 
     /**
-     * The authentication type.
-     */
-    public readonly authInfo!: pulumi.Output<outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
-    /**
-     * The application client type
-     */
-    public readonly clientType!: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state. 
+     * The properties of the linker.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * An option to store secret value in secure place
-     */
-    public readonly secretStore!: pulumi.Output<outputs.servicelinker.SecretStoreResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.servicelinker.LinkerPropertiesResponse>;
     /**
      * The system data.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicelinker.SystemDataResponse>;
     /**
-     * The resource Id of target service.
-     */
-    public readonly targetId!: pulumi.Output<string | undefined>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The VNet solution.
-     */
-    public readonly vNetSolution!: pulumi.Output<outputs.servicelinker.VNetSolutionResponse | undefined>;
 
     /**
      * Create a Linker resource with the given unique name, arguments, and options.
@@ -86,30 +66,23 @@ export class Linker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["authInfo"] = args ? args.authInfo : undefined;
-            resourceInputs["clientType"] = args ? args.clientType : undefined;
             resourceInputs["linkerName"] = args ? args.linkerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
-            resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["authInfo"] = undefined /*out*/;
-            resourceInputs["clientType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["secretStore"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["targetId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vNetSolution"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20211101preview:Linker" }, { type: "azure-native:servicelinker/v20220101preview:Linker" }, { type: "azure-native:servicelinker/v20220501:Linker" }, { type: "azure-native:servicelinker/v20221101preview:Linker" }] };
@@ -123,31 +96,15 @@ export class Linker extends pulumi.CustomResource {
  */
 export interface LinkerArgs {
     /**
-     * The authentication type.
-     */
-    authInfo?: pulumi.Input<inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
-    /**
-     * The application client type
-     */
-    clientType?: pulumi.Input<string | enums.servicelinker.ClientType>;
-    /**
      * The name Linker resource.
      */
     linkerName?: pulumi.Input<string>;
     /**
+     * The properties of the linker.
+     */
+    properties: pulumi.Input<inputs.servicelinker.LinkerPropertiesArgs>;
+    /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
-    /**
-     * An option to store secret value in secure place
-     */
-    secretStore?: pulumi.Input<inputs.servicelinker.SecretStoreArgs>;
-    /**
-     * The resource Id of target service.
-     */
-    targetId?: pulumi.Input<string>;
-    /**
-     * The VNet solution.
-     */
-    vNetSolution?: pulumi.Input<inputs.servicelinker.VNetSolutionArgs>;
 }

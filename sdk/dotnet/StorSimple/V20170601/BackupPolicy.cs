@@ -16,22 +16,10 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-        /// </summary>
-        [Output("backupPolicyCreationType")]
-        public Output<string> BackupPolicyCreationType { get; private set; } = null!;
-
-        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// The time of the last backup for the backup policy.
-        /// </summary>
-        [Output("lastBackupTime")]
-        public Output<string> LastBackupTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the object.
@@ -40,40 +28,16 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The time of the next backup for the backup policy.
+        /// The properties of the backup policy.
         /// </summary>
-        [Output("nextBackupTime")]
-        public Output<string> NextBackupTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether at least one of the schedules in the backup policy is active or not.
-        /// </summary>
-        [Output("scheduledBackupStatus")]
-        public Output<string> ScheduledBackupStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The count of schedules the backup policy contains.
-        /// </summary>
-        [Output("schedulesCount")]
-        public Output<double> SchedulesCount { get; private set; } = null!;
-
-        /// <summary>
-        /// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-        /// </summary>
-        [Output("ssmHostName")]
-        public Output<string> SsmHostName { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupPolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The path IDs of the volumes which are part of the backup policy.
-        /// </summary>
-        [Output("volumeIds")]
-        public Output<ImmutableArray<string>> VolumeIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,22 +113,16 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The properties of the backup policy.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.BackupPolicyPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("volumeIds", required: true)]
-        private InputList<string>? _volumeIds;
-
-        /// <summary>
-        /// The path IDs of the volumes which are part of the backup policy.
-        /// </summary>
-        public InputList<string> VolumeIds
-        {
-            get => _volumeIds ?? (_volumeIds = new InputList<string>());
-            set => _volumeIds = value;
-        }
 
         public BackupPolicyArgs()
         {

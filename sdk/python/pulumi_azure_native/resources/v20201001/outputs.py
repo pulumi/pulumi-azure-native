@@ -17,6 +17,8 @@ __all__ = [
     'AliasPatternResponse',
     'AliasResponse',
     'ApiProfileResponse',
+    'AzureCliScriptPropertiesResponse',
+    'AzurePowerShellScriptPropertiesResponse',
     'BasicDependencyResponse',
     'ContainerConfigurationResponse',
     'DebugSettingResponse',
@@ -346,6 +348,460 @@ class ApiProfileResponse(dict):
         The profile version.
         """
         return pulumi.get(self, "profile_version")
+
+
+@pulumi.output_type
+class AzureCliScriptPropertiesResponse(dict):
+    """
+    Properties of the Azure CLI script object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azCliVersion":
+            suggest = "az_cli_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "retentionInterval":
+            suggest = "retention_interval"
+        elif key == "cleanupPreference":
+            suggest = "cleanup_preference"
+        elif key == "containerSettings":
+            suggest = "container_settings"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "primaryScriptUri":
+            suggest = "primary_script_uri"
+        elif key == "scriptContent":
+            suggest = "script_content"
+        elif key == "storageAccountSettings":
+            suggest = "storage_account_settings"
+        elif key == "supportingScriptUris":
+            suggest = "supporting_script_uris"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureCliScriptPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureCliScriptPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureCliScriptPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 az_cli_version: str,
+                 outputs: Mapping[str, Any],
+                 provisioning_state: str,
+                 retention_interval: str,
+                 status: 'outputs.ScriptStatusResponse',
+                 arguments: Optional[str] = None,
+                 cleanup_preference: Optional[str] = None,
+                 container_settings: Optional['outputs.ContainerConfigurationResponse'] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+                 force_update_tag: Optional[str] = None,
+                 primary_script_uri: Optional[str] = None,
+                 script_content: Optional[str] = None,
+                 storage_account_settings: Optional['outputs.StorageAccountConfigurationResponse'] = None,
+                 supporting_script_uris: Optional[Sequence[str]] = None,
+                 timeout: Optional[str] = None):
+        """
+        Properties of the Azure CLI script object.
+        :param str az_cli_version: Azure CLI module version to be used.
+        :param Mapping[str, Any] outputs: List of script outputs.
+        :param str provisioning_state: State of the script execution. This only appears in the response.
+        :param str retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
+        :param 'ScriptStatusResponse' status: Contains the results of script execution.
+        :param str arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        :param str cleanup_preference: The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+        :param 'ContainerConfigurationResponse' container_settings: Container settings.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to pass over to the script.
+        :param str force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
+        :param str primary_script_uri: Uri for the script. This is the entry point for the external script.
+        :param str script_content: Script body.
+        :param 'StorageAccountConfigurationResponse' storage_account_settings: Storage Account settings.
+        :param Sequence[str] supporting_script_uris: Supporting files for the external script.
+        :param str timeout: Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
+        """
+        pulumi.set(__self__, "az_cli_version", az_cli_version)
+        pulumi.set(__self__, "outputs", outputs)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "retention_interval", retention_interval)
+        pulumi.set(__self__, "status", status)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if cleanup_preference is None:
+            cleanup_preference = 'Always'
+        if cleanup_preference is not None:
+            pulumi.set(__self__, "cleanup_preference", cleanup_preference)
+        if container_settings is not None:
+            pulumi.set(__self__, "container_settings", container_settings)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if primary_script_uri is not None:
+            pulumi.set(__self__, "primary_script_uri", primary_script_uri)
+        if script_content is not None:
+            pulumi.set(__self__, "script_content", script_content)
+        if storage_account_settings is not None:
+            pulumi.set(__self__, "storage_account_settings", storage_account_settings)
+        if supporting_script_uris is not None:
+            pulumi.set(__self__, "supporting_script_uris", supporting_script_uris)
+        if timeout is None:
+            timeout = 'P1D'
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="azCliVersion")
+    def az_cli_version(self) -> str:
+        """
+        Azure CLI module version to be used.
+        """
+        return pulumi.get(self, "az_cli_version")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Mapping[str, Any]:
+        """
+        List of script outputs.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the script execution. This only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retentionInterval")
+    def retention_interval(self) -> str:
+        """
+        Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
+        """
+        return pulumi.get(self, "retention_interval")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.ScriptStatusResponse':
+        """
+        Contains the results of script execution.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[str]:
+        """
+        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="cleanupPreference")
+    def cleanup_preference(self) -> Optional[str]:
+        """
+        The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+        """
+        return pulumi.get(self, "cleanup_preference")
+
+    @property
+    @pulumi.getter(name="containerSettings")
+    def container_settings(self) -> Optional['outputs.ContainerConfigurationResponse']:
+        """
+        Container settings.
+        """
+        return pulumi.get(self, "container_settings")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
+        """
+        The environment variables to pass over to the script.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[str]:
+        """
+        Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="primaryScriptUri")
+    def primary_script_uri(self) -> Optional[str]:
+        """
+        Uri for the script. This is the entry point for the external script.
+        """
+        return pulumi.get(self, "primary_script_uri")
+
+    @property
+    @pulumi.getter(name="scriptContent")
+    def script_content(self) -> Optional[str]:
+        """
+        Script body.
+        """
+        return pulumi.get(self, "script_content")
+
+    @property
+    @pulumi.getter(name="storageAccountSettings")
+    def storage_account_settings(self) -> Optional['outputs.StorageAccountConfigurationResponse']:
+        """
+        Storage Account settings.
+        """
+        return pulumi.get(self, "storage_account_settings")
+
+    @property
+    @pulumi.getter(name="supportingScriptUris")
+    def supporting_script_uris(self) -> Optional[Sequence[str]]:
+        """
+        Supporting files for the external script.
+        """
+        return pulumi.get(self, "supporting_script_uris")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[str]:
+        """
+        Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class AzurePowerShellScriptPropertiesResponse(dict):
+    """
+    Properties of the Azure PowerShell script object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azPowerShellVersion":
+            suggest = "az_power_shell_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "retentionInterval":
+            suggest = "retention_interval"
+        elif key == "cleanupPreference":
+            suggest = "cleanup_preference"
+        elif key == "containerSettings":
+            suggest = "container_settings"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "primaryScriptUri":
+            suggest = "primary_script_uri"
+        elif key == "scriptContent":
+            suggest = "script_content"
+        elif key == "storageAccountSettings":
+            suggest = "storage_account_settings"
+        elif key == "supportingScriptUris":
+            suggest = "supporting_script_uris"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzurePowerShellScriptPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzurePowerShellScriptPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzurePowerShellScriptPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 az_power_shell_version: str,
+                 outputs: Mapping[str, Any],
+                 provisioning_state: str,
+                 retention_interval: str,
+                 status: 'outputs.ScriptStatusResponse',
+                 arguments: Optional[str] = None,
+                 cleanup_preference: Optional[str] = None,
+                 container_settings: Optional['outputs.ContainerConfigurationResponse'] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+                 force_update_tag: Optional[str] = None,
+                 primary_script_uri: Optional[str] = None,
+                 script_content: Optional[str] = None,
+                 storage_account_settings: Optional['outputs.StorageAccountConfigurationResponse'] = None,
+                 supporting_script_uris: Optional[Sequence[str]] = None,
+                 timeout: Optional[str] = None):
+        """
+        Properties of the Azure PowerShell script object.
+        :param str az_power_shell_version: Azure PowerShell module version to be used.
+        :param Mapping[str, Any] outputs: List of script outputs.
+        :param str provisioning_state: State of the script execution. This only appears in the response.
+        :param str retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
+        :param 'ScriptStatusResponse' status: Contains the results of script execution.
+        :param str arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        :param str cleanup_preference: The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+        :param 'ContainerConfigurationResponse' container_settings: Container settings.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to pass over to the script.
+        :param str force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
+        :param str primary_script_uri: Uri for the script. This is the entry point for the external script.
+        :param str script_content: Script body.
+        :param 'StorageAccountConfigurationResponse' storage_account_settings: Storage Account settings.
+        :param Sequence[str] supporting_script_uris: Supporting files for the external script.
+        :param str timeout: Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
+        """
+        pulumi.set(__self__, "az_power_shell_version", az_power_shell_version)
+        pulumi.set(__self__, "outputs", outputs)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "retention_interval", retention_interval)
+        pulumi.set(__self__, "status", status)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if cleanup_preference is None:
+            cleanup_preference = 'Always'
+        if cleanup_preference is not None:
+            pulumi.set(__self__, "cleanup_preference", cleanup_preference)
+        if container_settings is not None:
+            pulumi.set(__self__, "container_settings", container_settings)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if primary_script_uri is not None:
+            pulumi.set(__self__, "primary_script_uri", primary_script_uri)
+        if script_content is not None:
+            pulumi.set(__self__, "script_content", script_content)
+        if storage_account_settings is not None:
+            pulumi.set(__self__, "storage_account_settings", storage_account_settings)
+        if supporting_script_uris is not None:
+            pulumi.set(__self__, "supporting_script_uris", supporting_script_uris)
+        if timeout is None:
+            timeout = 'P1D'
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="azPowerShellVersion")
+    def az_power_shell_version(self) -> str:
+        """
+        Azure PowerShell module version to be used.
+        """
+        return pulumi.get(self, "az_power_shell_version")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Mapping[str, Any]:
+        """
+        List of script outputs.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the script execution. This only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retentionInterval")
+    def retention_interval(self) -> str:
+        """
+        Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
+        """
+        return pulumi.get(self, "retention_interval")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.ScriptStatusResponse':
+        """
+        Contains the results of script execution.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[str]:
+        """
+        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="cleanupPreference")
+    def cleanup_preference(self) -> Optional[str]:
+        """
+        The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+        """
+        return pulumi.get(self, "cleanup_preference")
+
+    @property
+    @pulumi.getter(name="containerSettings")
+    def container_settings(self) -> Optional['outputs.ContainerConfigurationResponse']:
+        """
+        Container settings.
+        """
+        return pulumi.get(self, "container_settings")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
+        """
+        The environment variables to pass over to the script.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[str]:
+        """
+        Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="primaryScriptUri")
+    def primary_script_uri(self) -> Optional[str]:
+        """
+        Uri for the script. This is the entry point for the external script.
+        """
+        return pulumi.get(self, "primary_script_uri")
+
+    @property
+    @pulumi.getter(name="scriptContent")
+    def script_content(self) -> Optional[str]:
+        """
+        Script body.
+        """
+        return pulumi.get(self, "script_content")
+
+    @property
+    @pulumi.getter(name="storageAccountSettings")
+    def storage_account_settings(self) -> Optional['outputs.StorageAccountConfigurationResponse']:
+        """
+        Storage Account settings.
+        """
+        return pulumi.get(self, "storage_account_settings")
+
+    @property
+    @pulumi.getter(name="supportingScriptUris")
+    def supporting_script_uris(self) -> Optional[Sequence[str]]:
+        """
+        Supporting files for the external script.
+        """
+        return pulumi.get(self, "supporting_script_uris")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[str]:
+        """
+        Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
+        """
+        return pulumi.get(self, "timeout")
 
 
 @pulumi.output_type

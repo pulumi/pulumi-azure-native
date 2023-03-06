@@ -15,24 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class ExecuteDataFlowActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Compute properties for data flow activity.
-        /// </summary>
-        [Input("compute")]
-        public Input<Inputs.ExecuteDataFlowActivityTypePropertiesComputeArgs>? Compute { get; set; }
-
-        /// <summary>
-        /// Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
-        /// </summary>
-        [Input("continueOnError")]
-        public Input<object>? ContinueOnError { get; set; }
-
-        /// <summary>
-        /// Data flow reference.
-        /// </summary>
-        [Input("dataFlow", required: true)]
-        public Input<Inputs.DataFlowReferenceArgs> DataFlow { get; set; } = null!;
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -50,12 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The integration runtime reference.
-        /// </summary>
-        [Input("integrationRuntime")]
-        public Input<Inputs.IntegrationRuntimeReferenceArgs>? IntegrationRuntime { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -76,35 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
-        /// </summary>
-        [Input("runConcurrently")]
-        public Input<object>? RunConcurrently { get; set; }
-
-        /// <summary>
-        /// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
-        /// </summary>
-        [Input("sourceStagingConcurrency")]
-        public Input<object>? SourceStagingConcurrency { get; set; }
-
-        /// <summary>
-        /// Staging info for execute data flow activity.
-        /// </summary>
-        [Input("staging")]
-        public Input<Inputs.DataFlowStagingInfoArgs>? Staging { get; set; }
-
-        /// <summary>
-        /// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
-        /// </summary>
-        [Input("traceLevel")]
-        public Input<object>? TraceLevel { get; set; }
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'ExecuteDataFlow'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Execute data flow activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ExecuteDataFlowActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

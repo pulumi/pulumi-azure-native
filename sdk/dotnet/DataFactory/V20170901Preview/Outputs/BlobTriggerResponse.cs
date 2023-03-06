@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The path of the container/folder that will trigger the pipeline.
-        /// </summary>
-        public readonly string FolderPath;
-        /// <summary>
-        /// The Azure Storage linked service reference.
-        /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse LinkedService;
-        /// <summary>
-        /// The max number of parallel files to handle when it is triggered.
-        /// </summary>
-        public readonly int MaxConcurrency;
-        /// <summary>
         /// Pipelines that need to be started.
         /// </summary>
         public readonly ImmutableArray<Outputs.TriggerPipelineReferenceResponse> Pipelines;
@@ -45,30 +33,28 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'BlobTrigger'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Blob Trigger properties.
+        /// </summary>
+        public readonly Outputs.BlobTriggerResponseTypeProperties TypeProperties;
 
         [OutputConstructor]
         private BlobTriggerResponse(
             string? description,
 
-            string folderPath,
-
-            Outputs.LinkedServiceReferenceResponse linkedService,
-
-            int maxConcurrency,
-
             ImmutableArray<Outputs.TriggerPipelineReferenceResponse> pipelines,
 
             string runtimeState,
 
-            string type)
+            string type,
+
+            Outputs.BlobTriggerResponseTypeProperties typeProperties)
         {
             Description = description;
-            FolderPath = folderPath;
-            LinkedService = linkedService;
-            MaxConcurrency = maxConcurrency;
             Pipelines = pipelines;
             RuntimeState = runtimeState;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

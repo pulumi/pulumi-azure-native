@@ -17,50 +17,22 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview.Outputs
     public sealed class InitContainerDefinitionResponse
     {
         /// <summary>
-        /// The command to execute within the init container in exec form.
-        /// </summary>
-        public readonly ImmutableArray<string> Command;
-        /// <summary>
-        /// The environment variables to set in the init container.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentVariableResponse> EnvironmentVariables;
-        /// <summary>
-        /// The image of the init container.
-        /// </summary>
-        public readonly string? Image;
-        /// <summary>
-        /// The instance view of the init container. Only valid in response.
-        /// </summary>
-        public readonly Outputs.InitContainerPropertiesDefinitionResponseInstanceView InstanceView;
-        /// <summary>
         /// The name for the init container.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The volume mounts available to the init container.
+        /// The properties for the init container.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeMountResponse> VolumeMounts;
+        public readonly Outputs.InitContainerPropertiesDefinitionResponse Properties;
 
         [OutputConstructor]
         private InitContainerDefinitionResponse(
-            ImmutableArray<string> command,
-
-            ImmutableArray<Outputs.EnvironmentVariableResponse> environmentVariables,
-
-            string? image,
-
-            Outputs.InitContainerPropertiesDefinitionResponseInstanceView instanceView,
-
             string name,
 
-            ImmutableArray<Outputs.VolumeMountResponse> volumeMounts)
+            Outputs.InitContainerPropertiesDefinitionResponse properties)
         {
-            Command = command;
-            EnvironmentVariables = environmentVariables;
-            Image = image;
-            InstanceView = instanceView;
             Name = name;
-            VolumeMounts = volumeMounts;
+            Properties = properties;
         }
     }
 }

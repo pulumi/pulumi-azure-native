@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     public partial class SynapseWorkspaceSqlPoolTableDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        [Output("dataSetId")]
-        public Output<string> DataSetId { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of data set.
         /// Expected value is 'SynapseWorkspaceSqlPoolTable'.
         /// </summary>
@@ -35,10 +29,10 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource id of the Synapse Workspace SQL Pool Table
+        /// Synapse Workspace Sql Pool Table data set properties.
         /// </summary>
-        [Output("synapseWorkspaceSqlPoolTableResourceId")]
-        public Output<string> SynapseWorkspaceSqlPoolTableResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SynapseWorkspaceSqlPoolTableDataSetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// System Data of the Azure resource.
@@ -132,6 +126,12 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
+        /// Synapse Workspace Sql Pool Table data set properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -142,12 +142,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource id of the Synapse Workspace SQL Pool Table
-        /// </summary>
-        [Input("synapseWorkspaceSqlPoolTableResourceId", required: true)]
-        public Input<string> SynapseWorkspaceSqlPoolTableResourceId { get; set; } = null!;
 
         public SynapseWorkspaceSqlPoolTableDataSetArgs()
         {

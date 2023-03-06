@@ -84,18 +84,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public sealed class GetGen2EnvironmentResult
     {
         /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        public readonly string CreationTime;
-        /// <summary>
-        /// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        public readonly string DataAccessFqdn;
-        /// <summary>
-        /// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        public readonly string DataAccessId;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -113,46 +101,24 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Properties of the Gen2 environment.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.Gen2EnvironmentResourcePropertiesResponse Properties;
         /// <summary>
         /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        /// </summary>
-        public readonly Outputs.EnvironmentStatusResponse Status;
-        /// <summary>
-        /// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-        /// </summary>
-        public readonly Outputs.Gen2StorageConfigurationOutputResponse StorageConfiguration;
-        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The list of event properties which will be used to define the environment's time series id.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TimeSeriesIdPropertyResponse> TimeSeriesIdProperties;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-        /// </summary>
-        public readonly Outputs.WarmStoreConfigurationPropertiesResponse? WarmStoreConfiguration;
 
         [OutputConstructor]
         private GetGen2EnvironmentResult(
-            string creationTime,
-
-            string dataAccessFqdn,
-
-            string dataAccessId,
-
             string id,
 
             string kind,
@@ -161,37 +127,22 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             string name,
 
-            string provisioningState,
+            Outputs.Gen2EnvironmentResourcePropertiesResponse properties,
 
             Outputs.SkuResponse sku,
 
-            Outputs.EnvironmentStatusResponse status,
-
-            Outputs.Gen2StorageConfigurationOutputResponse storageConfiguration,
-
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TimeSeriesIdPropertyResponse> timeSeriesIdProperties,
-
-            string type,
-
-            Outputs.WarmStoreConfigurationPropertiesResponse? warmStoreConfiguration)
+            string type)
         {
-            CreationTime = creationTime;
-            DataAccessFqdn = dataAccessFqdn;
-            DataAccessId = dataAccessId;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Sku = sku;
-            Status = status;
-            StorageConfiguration = storageConfiguration;
             Tags = tags;
-            TimeSeriesIdProperties = timeSeriesIdProperties;
             Type = type;
-            WarmStoreConfiguration = warmStoreConfiguration;
         }
     }
 }

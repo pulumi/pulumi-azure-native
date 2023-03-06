@@ -22,31 +22,22 @@ class GetHybridIdentityMetadatumResult:
     """
     Defines the HybridIdentityMetadata.
     """
-    def __init__(__self__, id=None, identity=None, name=None, provisioning_state=None, public_key=None, system_data=None, type=None, vm_id=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_key and not isinstance(public_key, str):
-            raise TypeError("Expected argument 'public_key' to be a str")
-        pulumi.set(__self__, "public_key", public_key)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if vm_id and not isinstance(vm_id, str):
-            raise TypeError("Expected argument 'vm_id' to be a str")
-        pulumi.set(__self__, "vm_id", vm_id)
 
     @property
     @pulumi.getter
@@ -58,14 +49,6 @@ class GetHybridIdentityMetadatumResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.IdentityResponse':
-        """
-        The identity of the resource.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -73,20 +56,12 @@ class GetHybridIdentityMetadatumResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.HybridIdentityMetadataPropertiesResponse':
         """
-        Gets or sets the provisioning state.
+        Resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[str]:
-        """
-        Gets or sets the Public Key.
-        """
-        return pulumi.get(self, "public_key")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -104,14 +79,6 @@ class GetHybridIdentityMetadatumResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="vmId")
-    def vm_id(self) -> Optional[str]:
-        """
-        Gets or sets the Vm Id.
-        """
-        return pulumi.get(self, "vm_id")
-
 
 class AwaitableGetHybridIdentityMetadatumResult(GetHybridIdentityMetadatumResult):
     # pylint: disable=using-constant-test
@@ -120,13 +87,10 @@ class AwaitableGetHybridIdentityMetadatumResult(GetHybridIdentityMetadatumResult
             yield self
         return GetHybridIdentityMetadatumResult(
             id=self.id,
-            identity=self.identity,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            public_key=self.public_key,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            vm_id=self.vm_id)
+            type=self.type)
 
 
 def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
@@ -151,13 +115,10 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
 
     return AwaitableGetHybridIdentityMetadatumResult(
         id=__ret__.id,
-        identity=__ret__.identity,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_key=__ret__.public_key,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        vm_id=__ret__.vm_id)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_hybrid_identity_metadatum)

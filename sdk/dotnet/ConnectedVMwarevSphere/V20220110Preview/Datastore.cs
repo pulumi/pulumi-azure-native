@@ -16,22 +16,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public partial class Datastore : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets the name of the corresponding resource in Kubernetes.
-        /// </summary>
-        [Output("customResourceName")]
-        public Output<string> CustomResourceName { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the datastore.
-        /// </summary>
-        [Output("inventoryItemId")]
-        public Output<string?> InventoryItemId { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -46,34 +34,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the datastore.
-        /// </summary>
-        [Output("moName")]
-        public Output<string> MoName { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
-        /// </summary>
-        [Output("moRefId")]
-        public Output<string?> MoRefId { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the resource.
+        /// Resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource status information.
-        /// </summary>
-        [Output("statuses")]
-        public Output<ImmutableArray<Outputs.ResourceStatusResponse>> Statuses { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DatastorePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system data.
@@ -92,18 +62,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets a unique identifier for this resource.
-        /// </summary>
-        [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
-        /// </summary>
-        [Output("vCenterId")]
-        public Output<string?> VCenterId { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,12 +127,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
-        /// Gets or sets the inventory Item ID for the datastore.
-        /// </summary>
-        [Input("inventoryItemId")]
-        public Input<string>? InventoryItemId { get; set; }
-
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
@@ -187,10 +139,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
+        /// Resource properties.
         /// </summary>
-        [Input("moRefId")]
-        public Input<string>? MoRefId { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.DatastorePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name.
@@ -209,12 +161,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
-        /// </summary>
-        [Input("vCenterId")]
-        public Input<string>? VCenterId { get; set; }
 
         public DatastoreArgs()
         {

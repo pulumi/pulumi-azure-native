@@ -72,45 +72,9 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetHybridAksClusterResult
     {
         /// <summary>
-        /// The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
-        /// </summary>
-        public readonly ImmutableArray<string> AssociatedNetworkIds;
-        /// <summary>
-        /// The resource ID of the associated cloud services network.
-        /// </summary>
-        public readonly string CloudServicesNetworkId;
-        /// <summary>
-        /// The resource ID of the Network Cloud cluster hosting the Hybrid AKS cluster.
-        /// </summary>
-        public readonly string ClusterId;
-        /// <summary>
-        /// The number of control plane node VMs.
-        /// </summary>
-        public readonly double ControlPlaneCount;
-        /// <summary>
-        /// The list of node configurations detailing associated VMs that are part of the control plane nodes of this Hybrid AKS cluster.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.NodeConfigurationResponse> ControlPlaneNodes;
-        /// <summary>
-        /// The resource ID of the associated default CNI network.
-        /// </summary>
-        public readonly string DefaultCniNetworkId;
-        /// <summary>
-        /// The more detailed status of this Hybrid AKS cluster.
-        /// </summary>
-        public readonly string DetailedStatus;
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        public readonly string DetailedStatusMessage;
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
-        /// <summary>
-        /// The resource ID of the Hybrid AKS cluster that this additional information is for.
-        /// </summary>
-        public readonly string HybridAksProvisionedClusterId;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -124,9 +88,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the Hybrid AKS cluster resource.
+        /// The list of the resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.HybridAksClusterPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -139,40 +103,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The resource IDs of volumes that are attached to the Hybrid AKS cluster.
-        /// </summary>
-        public readonly ImmutableArray<string> Volumes;
-        /// <summary>
-        /// The number of worker node VMs.
-        /// </summary>
-        public readonly double WorkerCount;
-        /// <summary>
-        /// The list of node configurations detailing associated VMs that are part of the worker nodes of this Hybrid AKS cluster.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.NodeConfigurationResponse> WorkerNodes;
 
         [OutputConstructor]
         private GetHybridAksClusterResult(
-            ImmutableArray<string> associatedNetworkIds,
-
-            string cloudServicesNetworkId,
-
-            string clusterId,
-
-            double controlPlaneCount,
-
-            ImmutableArray<Outputs.NodeConfigurationResponse> controlPlaneNodes,
-
-            string defaultCniNetworkId,
-
-            string detailedStatus,
-
-            string detailedStatusMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
-
-            string hybridAksProvisionedClusterId,
 
             string id,
 
@@ -180,40 +114,22 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string name,
 
-            string provisioningState,
+            Outputs.HybridAksClusterPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> volumes,
-
-            double workerCount,
-
-            ImmutableArray<Outputs.NodeConfigurationResponse> workerNodes)
+            string type)
         {
-            AssociatedNetworkIds = associatedNetworkIds;
-            CloudServicesNetworkId = cloudServicesNetworkId;
-            ClusterId = clusterId;
-            ControlPlaneCount = controlPlaneCount;
-            ControlPlaneNodes = controlPlaneNodes;
-            DefaultCniNetworkId = defaultCniNetworkId;
-            DetailedStatus = detailedStatus;
-            DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;
-            HybridAksProvisionedClusterId = hybridAksProvisionedClusterId;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Volumes = volumes;
-            WorkerCount = workerCount;
-            WorkerNodes = workerNodes;
         }
     }
 }

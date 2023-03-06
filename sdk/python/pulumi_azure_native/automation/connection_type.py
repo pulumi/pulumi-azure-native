@@ -17,28 +17,24 @@ __all__ = ['ConnectionTypeArgs', 'ConnectionType']
 class ConnectionTypeArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
-                 field_definitions: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]],
                  name: pulumi.Input[str],
+                 properties: pulumi.Input['ConnectionTypeCreateOrUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 connection_type_name: Optional[pulumi.Input[str]] = None,
-                 is_global: Optional[pulumi.Input[bool]] = None):
+                 connection_type_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectionType resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]] field_definitions: Gets or sets the field definitions of the connection type.
         :param pulumi.Input[str] name: Gets or sets the name of the connection type.
+        :param pulumi.Input['ConnectionTypeCreateOrUpdatePropertiesArgs'] properties: Gets or sets the value of the connection type.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] connection_type_name: The parameters supplied to the create or update connection type operation.
-        :param pulumi.Input[bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "field_definitions", field_definitions)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if connection_type_name is not None:
             pulumi.set(__self__, "connection_type_name", connection_type_name)
-        if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -53,18 +49,6 @@ class ConnectionTypeArgs:
         pulumi.set(self, "automation_account_name", value)
 
     @property
-    @pulumi.getter(name="fieldDefinitions")
-    def field_definitions(self) -> pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]]:
-        """
-        Gets or sets the field definitions of the connection type.
-        """
-        return pulumi.get(self, "field_definitions")
-
-    @field_definitions.setter
-    def field_definitions(self, value: pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]]):
-        pulumi.set(self, "field_definitions", value)
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
@@ -75,6 +59,18 @@ class ConnectionTypeArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ConnectionTypeCreateOrUpdatePropertiesArgs']:
+        """
+        Gets or sets the value of the connection type.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ConnectionTypeCreateOrUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,18 +96,6 @@ class ConnectionTypeArgs:
     def connection_type_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_type_name", value)
 
-    @property
-    @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Gets or sets a Boolean value to indicate if the connection type is global.
-        """
-        return pulumi.get(self, "is_global")
-
-    @is_global.setter
-    def is_global(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_global", value)
-
 
 class ConnectionType(pulumi.CustomResource):
     @overload
@@ -120,9 +104,8 @@ class ConnectionType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_type_name: Optional[pulumi.Input[str]] = None,
-                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FieldDefinitionArgs']]]]] = None,
-                 is_global: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionTypeCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -133,9 +116,8 @@ class ConnectionType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] connection_type_name: The parameters supplied to the create or update connection type operation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FieldDefinitionArgs']]]] field_definitions: Gets or sets the field definitions of the connection type.
-        :param pulumi.Input[bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
         :param pulumi.Input[str] name: Gets or sets the name of the connection type.
+        :param pulumi.Input[pulumi.InputType['ConnectionTypeCreateOrUpdatePropertiesArgs']] properties: Gets or sets the value of the connection type.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         """
         ...
@@ -165,9 +147,8 @@ class ConnectionType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_type_name: Optional[pulumi.Input[str]] = None,
-                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FieldDefinitionArgs']]]]] = None,
-                 is_global: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionTypeCreateOrUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -182,18 +163,19 @@ class ConnectionType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["connection_type_name"] = connection_type_name
-            if field_definitions is None and not opts.urn:
-                raise TypeError("Missing required property 'field_definitions'")
-            __props__.__dict__["field_definitions"] = field_definitions
-            __props__.__dict__["is_global"] = is_global
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["description"] = None
+            __props__.__dict__["field_definitions"] = None
+            __props__.__dict__["is_global"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20190601:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20200113preview:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20220808:ConnectionType")])

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetSnapshotResult',
@@ -23,13 +24,7 @@ class GetSnapshotResult:
     """
     Snapshot of a Volume
     """
-    def __init__(__self__, creation_date=None, file_system_id=None, id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, type=None):
-        if creation_date and not isinstance(creation_date, str):
-            raise TypeError("Expected argument 'creation_date' to be a str")
-        pulumi.set(__self__, "creation_date", creation_date)
-        if file_system_id and not isinstance(file_system_id, str):
-            raise TypeError("Expected argument 'file_system_id' to be a str")
-        pulumi.set(__self__, "file_system_id", file_system_id)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,31 +34,12 @@ class GetSnapshotResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if snapshot_id and not isinstance(snapshot_id, str):
-            raise TypeError("Expected argument 'snapshot_id' to be a str")
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
-        """
-        The creation date of the snapshot
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
-        """
-        UUID v4 used to identify the FileSystem
-        """
-        return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter
@@ -90,20 +66,12 @@ class GetSnapshotResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.SnapshotPropertiesResponse':
         """
-        Azure lifecycle management
+        Snapshot Properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
-        """
-        UUID v4 used to identify the Snapshot
-        """
-        return pulumi.get(self, "snapshot_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -120,13 +88,10 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
         if False:
             yield self
         return GetSnapshotResult(
-            creation_date=self.creation_date,
-            file_system_id=self.file_system_id,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            snapshot_id=self.snapshot_id,
+            properties=self.properties,
             type=self.type)
 
 
@@ -157,13 +122,10 @@ def get_snapshot(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20170815:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        creation_date=__ret__.creation_date,
-        file_system_id=__ret__.file_system_id,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        snapshot_id=__ret__.snapshot_id,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

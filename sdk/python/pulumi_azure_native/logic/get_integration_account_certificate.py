@@ -22,53 +22,25 @@ class GetIntegrationAccountCertificateResult:
     """
     The integration account certificate.
     """
-    def __init__(__self__, changed_time=None, created_time=None, id=None, key=None, location=None, metadata=None, name=None, public_certificate=None, tags=None, type=None):
-        if changed_time and not isinstance(changed_time, str):
-            raise TypeError("Expected argument 'changed_time' to be a str")
-        pulumi.set(__self__, "changed_time", changed_time)
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        pulumi.set(__self__, "created_time", created_time)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if key and not isinstance(key, dict):
-            raise TypeError("Expected argument 'key' to be a dict")
-        pulumi.set(__self__, "key", key)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if public_certificate and not isinstance(public_certificate, str):
-            raise TypeError("Expected argument 'public_certificate' to be a str")
-        pulumi.set(__self__, "public_certificate", public_certificate)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
-        """
-        The changed time.
-        """
-        return pulumi.get(self, "changed_time")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        The created time.
-        """
-        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -80,27 +52,11 @@ class GetIntegrationAccountCertificateResult:
 
     @property
     @pulumi.getter
-    def key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
-        """
-        The key details in the key vault.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        The metadata.
-        """
-        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -111,12 +67,12 @@ class GetIntegrationAccountCertificateResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="publicCertificate")
-    def public_certificate(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.IntegrationAccountCertificatePropertiesResponse':
         """
-        The public certificate.
+        The integration account certificate properties.
         """
-        return pulumi.get(self, "public_certificate")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -141,14 +97,10 @@ class AwaitableGetIntegrationAccountCertificateResult(GetIntegrationAccountCerti
         if False:
             yield self
         return GetIntegrationAccountCertificateResult(
-            changed_time=self.changed_time,
-            created_time=self.created_time,
             id=self.id,
-            key=self.key,
             location=self.location,
-            metadata=self.metadata,
             name=self.name,
-            public_certificate=self.public_certificate,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -174,14 +126,10 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic:getIntegrationAccountCertificate', __args__, opts=opts, typ=GetIntegrationAccountCertificateResult).value
 
     return AwaitableGetIntegrationAccountCertificateResult(
-        changed_time=__ret__.changed_time,
-        created_time=__ret__.created_time,
         id=__ret__.id,
-        key=__ret__.key,
         location=__ret__.location,
-        metadata=__ret__.metadata,
         name=__ret__.name,
-        public_certificate=__ret__.public_certificate,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

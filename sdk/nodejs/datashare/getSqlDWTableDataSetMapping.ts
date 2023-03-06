@@ -46,18 +46,6 @@ export interface GetSqlDWTableDataSetMappingArgs {
  */
 export interface GetSqlDWTableDataSetMappingResult {
     /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
-     * DataWarehouse name of the source data set
-     */
-    readonly dataWarehouseName: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -71,25 +59,13 @@ export interface GetSqlDWTableDataSetMappingResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the data set mapping.
+     * Sql DW data set mapping properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Schema of the table. Default value is dbo.
-     */
-    readonly schemaName: string;
-    /**
-     * Resource id of SQL server
-     */
-    readonly sqlServerResourceId: string;
+    readonly properties: outputs.datashare.SqlDWTableDataSetMappingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */
     readonly systemData: outputs.datashare.SystemDataResponse;
-    /**
-     * SQL DW table name.
-     */
-    readonly tableName: string;
     /**
      * Type of the azure resource
      */

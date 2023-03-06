@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ADLSGen2FileSystemDataSetArgs', 'ADLSGen2FileSystemDataSet']
 
@@ -15,35 +17,26 @@ __all__ = ['ADLSGen2FileSystemDataSetArgs', 'ADLSGen2FileSystemDataSet']
 class ADLSGen2FileSystemDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 file_system: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 resource_group: pulumi.Input[str],
+                 properties: pulumi.Input['ADLSGen2FileSystemPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
-                 storage_account_name: pulumi.Input[str],
-                 subscription_id: pulumi.Input[str],
                  data_set_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ADLSGen2FileSystemDataSet resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] file_system: The file system name.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'AdlsGen2FileSystem'.
-        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input['ADLSGen2FileSystemPropertiesArgs'] properties: ADLS Gen 2 file system data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
-        :param pulumi.Input[str] subscription_id: Subscription id of storage account
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "file_system", file_system)
         pulumi.set(__self__, "kind", 'AdlsGen2FileSystem')
-        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
         if data_set_name is not None:
             pulumi.set(__self__, "data_set_name", data_set_name)
 
@@ -60,18 +53,6 @@ class ADLSGen2FileSystemDataSetArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="fileSystem")
-    def file_system(self) -> pulumi.Input[str]:
-        """
-        The file system name.
-        """
-        return pulumi.get(self, "file_system")
-
-    @file_system.setter
-    def file_system(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_system", value)
-
-    @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
@@ -85,16 +66,16 @@ class ADLSGen2FileSystemDataSetArgs:
         pulumi.set(self, "kind", value)
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ADLSGen2FileSystemPropertiesArgs']:
         """
-        Resource group of storage account
+        ADLS Gen 2 file system data set properties.
         """
-        return pulumi.get(self, "resource_group")
+        return pulumi.get(self, "properties")
 
-    @resource_group.setter
-    def resource_group(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ADLSGen2FileSystemPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -121,30 +102,6 @@ class ADLSGen2FileSystemDataSetArgs:
         pulumi.set(self, "share_name", value)
 
     @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[str]:
-        """
-        Storage account name of the source data set
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[str]:
-        """
-        Subscription id of storage account
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subscription_id", value)
-
-    @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -164,13 +121,10 @@ class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
-                 file_system: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ADLSGen2FileSystemPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An ADLS Gen 2 file system data set.
@@ -179,14 +133,11 @@ class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
-        :param pulumi.Input[str] file_system: The file system name.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'AdlsGen2FileSystem'.
-        :param pulumi.Input[str] resource_group: Resource group of storage account
+        :param pulumi.Input[pulumi.InputType['ADLSGen2FileSystemPropertiesArgs']] properties: ADLS Gen 2 file system data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] storage_account_name: Storage account name of the source data set
-        :param pulumi.Input[str] subscription_id: Subscription id of storage account
         """
         ...
     @overload
@@ -214,13 +165,10 @@ class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
-                 file_system: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ADLSGen2FileSystemPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,28 +182,18 @@ class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["data_set_name"] = data_set_name
-            if file_system is None and not opts.urn:
-                raise TypeError("Missing required property 'file_system'")
-            __props__.__dict__["file_system"] = file_system
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'AdlsGen2FileSystem'
-            if resource_group is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group'")
-            __props__.__dict__["resource_group"] = resource_group
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
-            __props__.__dict__["storage_account_name"] = storage_account_name
-            if subscription_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subscription_id'")
-            __props__.__dict__["subscription_id"] = subscription_id
-            __props__.__dict__["data_set_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ADLSGen2FileSystemDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:ADLSGen2FileSystemDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet")])
@@ -282,31 +220,11 @@ class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
 
         __props__ = ADLSGen2FileSystemDataSetArgs.__new__(ADLSGen2FileSystemDataSetArgs)
 
-        __props__.__dict__["data_set_id"] = None
-        __props__.__dict__["file_system"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["resource_group"] = None
-        __props__.__dict__["storage_account_name"] = None
-        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ADLSGen2FileSystemDataSet(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
-
-    @property
-    @pulumi.getter(name="fileSystem")
-    def file_system(self) -> pulumi.Output[str]:
-        """
-        The file system name.
-        """
-        return pulumi.get(self, "file_system")
 
     @property
     @pulumi.getter
@@ -326,28 +244,12 @@ class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ADLSGen2FileSystemPropertiesResponse']:
         """
-        Resource group of storage account
+        ADLS Gen 2 file system data set properties.
         """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Output[str]:
-        """
-        Storage account name of the source data set
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Output[str]:
-        """
-        Subscription id of storage account
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

@@ -22,10 +22,7 @@ class GetDnsResolverResult:
     """
     Describes a DNS resolver.
     """
-    def __init__(__self__, dns_resolver_state=None, etag=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, tags=None, type=None, virtual_network=None):
-        if dns_resolver_state and not isinstance(dns_resolver_state, str):
-            raise TypeError("Expected argument 'dns_resolver_state' to be a str")
-        pulumi.set(__self__, "dns_resolver_state", dns_resolver_state)
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -38,12 +35,9 @@ class GetDnsResolverResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        pulumi.set(__self__, "resource_guid", resource_guid)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -53,17 +47,6 @@ class GetDnsResolverResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_network and not isinstance(virtual_network, dict):
-            raise TypeError("Expected argument 'virtual_network' to be a dict")
-        pulumi.set(__self__, "virtual_network", virtual_network)
-
-    @property
-    @pulumi.getter(name="dnsResolverState")
-    def dns_resolver_state(self) -> str:
-        """
-        The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
-        """
-        return pulumi.get(self, "dns_resolver_state")
 
     @property
     @pulumi.getter
@@ -98,20 +81,12 @@ class GetDnsResolverResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.DnsResolverPropertiesResponse':
         """
-        The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+        Properties of the DNS resolver.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
-        """
-        The resourceGuid property of the DNS resolver resource.
-        """
-        return pulumi.get(self, "resource_guid")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -137,14 +112,6 @@ class GetDnsResolverResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> 'outputs.SubResourceResponse':
-        """
-        The reference to the virtual network. This cannot be changed after creation.
-        """
-        return pulumi.get(self, "virtual_network")
-
 
 class AwaitableGetDnsResolverResult(GetDnsResolverResult):
     # pylint: disable=using-constant-test
@@ -152,17 +119,14 @@ class AwaitableGetDnsResolverResult(GetDnsResolverResult):
         if False:
             yield self
         return GetDnsResolverResult(
-            dns_resolver_state=self.dns_resolver_state,
             etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            resource_guid=self.resource_guid,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            virtual_network=self.virtual_network)
+            type=self.type)
 
 
 def get_dns_resolver(dns_resolver_name: Optional[str] = None,
@@ -182,17 +146,14 @@ def get_dns_resolver(dns_resolver_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220701:getDnsResolver', __args__, opts=opts, typ=GetDnsResolverResult).value
 
     return AwaitableGetDnsResolverResult(
-        dns_resolver_state=__ret__.dns_resolver_state,
         etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_network=__ret__.virtual_network)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_dns_resolver)

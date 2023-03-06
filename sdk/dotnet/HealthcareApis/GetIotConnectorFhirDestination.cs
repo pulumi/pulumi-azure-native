@@ -100,14 +100,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// FHIR Mappings
-        /// </summary>
-        public readonly Outputs.IotMappingPropertiesResponse FhirMapping;
-        /// <summary>
-        /// Fully qualified resource id of the FHIR service to connect to.
-        /// </summary>
-        public readonly string FhirServiceResourceId;
-        /// <summary>
         /// The resource identifier.
         /// </summary>
         public readonly string Id;
@@ -120,9 +112,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Determines how resource identity is resolved on the destination.
+        /// IoT FHIR Destination settings.
         /// </summary>
-        public readonly string ResourceIdentityResolutionType;
+        public readonly Outputs.IotFhirDestinationPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -136,29 +128,23 @@ namespace Pulumi.AzureNative.HealthcareApis
         private GetIotConnectorFhirDestinationResult(
             string? etag,
 
-            Outputs.IotMappingPropertiesResponse fhirMapping,
-
-            string fhirServiceResourceId,
-
             string id,
 
             string? location,
 
             string name,
 
-            string resourceIdentityResolutionType,
+            Outputs.IotFhirDestinationPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Etag = etag;
-            FhirMapping = fhirMapping;
-            FhirServiceResourceId = fhirServiceResourceId;
             Id = id;
             Location = location;
             Name = name;
-            ResourceIdentityResolutionType = resourceIdentityResolutionType;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

@@ -29,30 +29,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// Host name of the server. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Host;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Password to logon the server.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'FileServer'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// User ID to logon the server. Type: string (or Expression with resultType string).
+        /// File system linked service properties.
         /// </summary>
-        public readonly object? UserId;
+        public readonly Outputs.FileServerLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private FileServerLinkedServiceResponse(
@@ -62,27 +50,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            object? encryptedCredential,
-
-            object host,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            object? userId)
+            Outputs.FileServerLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            Host = host;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            UserId = userId;
+            TypeProperties = typeProperties;
         }
     }
 }

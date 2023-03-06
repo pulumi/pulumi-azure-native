@@ -70,53 +70,13 @@ namespace Pulumi.AzureNative.Network.V20181101
     public sealed class GetVirtualNetworkGatewayConnectionResult
     {
         /// <summary>
-        /// The authorizationKey.
-        /// </summary>
-        public readonly string? AuthorizationKey;
-        /// <summary>
-        /// Connection protocol used for this connection
-        /// </summary>
-        public readonly string? ConnectionProtocol;
-        /// <summary>
-        /// Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
-        /// </summary>
-        public readonly string ConnectionStatus;
-        /// <summary>
-        /// Gateway connection type. Possible values are: 'Ipsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
-        /// </summary>
-        public readonly string ConnectionType;
-        /// <summary>
-        /// The egress bytes transferred in this connection.
-        /// </summary>
-        public readonly double EgressBytesTransferred;
-        /// <summary>
-        /// EnableBgp flag
-        /// </summary>
-        public readonly bool? EnableBgp;
-        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Bypass ExpressRoute Gateway for data forwarding
-        /// </summary>
-        public readonly bool? ExpressRouteGatewayBypass;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The ingress bytes transferred in this connection.
-        /// </summary>
-        public readonly double IngressBytesTransferred;
-        /// <summary>
-        /// The IPSec Policies to be considered by this connection.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IpsecPolicyResponse> IpsecPolicies;
-        /// <summary>
-        /// The reference to local network gateway resource.
-        /// </summary>
-        public readonly Outputs.LocalNetworkGatewayResponse? LocalNetworkGateway2;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -126,127 +86,41 @@ namespace Pulumi.AzureNative.Network.V20181101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The reference to peerings resource.
+        /// Properties of the virtual network gateway connection.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? Peer;
-        /// <summary>
-        /// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resource GUID property of the VirtualNetworkGatewayConnection resource.
-        /// </summary>
-        public readonly string? ResourceGuid;
-        /// <summary>
-        /// The routing weight.
-        /// </summary>
-        public readonly int? RoutingWeight;
-        /// <summary>
-        /// The IPSec shared key.
-        /// </summary>
-        public readonly string? SharedKey;
+        public readonly Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Collection of all tunnels' connection health status.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TunnelConnectionHealthResponse> TunnelConnectionStatus;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Enable policy-based traffic selectors.
-        /// </summary>
-        public readonly bool? UsePolicyBasedTrafficSelectors;
-        /// <summary>
-        /// The reference to virtual network gateway resource.
-        /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponse VirtualNetworkGateway1;
-        /// <summary>
-        /// The reference to virtual network gateway resource.
-        /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponse? VirtualNetworkGateway2;
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayConnectionResult(
-            string? authorizationKey,
-
-            string? connectionProtocol,
-
-            string connectionStatus,
-
-            string connectionType,
-
-            double egressBytesTransferred,
-
-            bool? enableBgp,
-
             string? etag,
 
-            bool? expressRouteGatewayBypass,
-
             string? id,
-
-            double ingressBytesTransferred,
-
-            ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
-
-            Outputs.LocalNetworkGatewayResponse? localNetworkGateway2,
 
             string? location,
 
             string name,
 
-            Outputs.SubResourceResponse? peer,
-
-            string provisioningState,
-
-            string? resourceGuid,
-
-            int? routingWeight,
-
-            string? sharedKey,
+            Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TunnelConnectionHealthResponse> tunnelConnectionStatus,
-
-            string type,
-
-            bool? usePolicyBasedTrafficSelectors,
-
-            Outputs.VirtualNetworkGatewayResponse virtualNetworkGateway1,
-
-            Outputs.VirtualNetworkGatewayResponse? virtualNetworkGateway2)
+            string type)
         {
-            AuthorizationKey = authorizationKey;
-            ConnectionProtocol = connectionProtocol;
-            ConnectionStatus = connectionStatus;
-            ConnectionType = connectionType;
-            EgressBytesTransferred = egressBytesTransferred;
-            EnableBgp = enableBgp;
             Etag = etag;
-            ExpressRouteGatewayBypass = expressRouteGatewayBypass;
             Id = id;
-            IngressBytesTransferred = ingressBytesTransferred;
-            IpsecPolicies = ipsecPolicies;
-            LocalNetworkGateway2 = localNetworkGateway2;
             Location = location;
             Name = name;
-            Peer = peer;
-            ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
-            RoutingWeight = routingWeight;
-            SharedKey = sharedKey;
+            Properties = properties;
             Tags = tags;
-            TunnelConnectionStatus = tunnelConnectionStatus;
             Type = type;
-            UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
-            VirtualNetworkGateway1 = virtualNetworkGateway1;
-            VirtualNetworkGateway2 = virtualNetworkGateway2;
         }
     }
 }

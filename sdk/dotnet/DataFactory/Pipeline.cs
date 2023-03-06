@@ -17,40 +17,10 @@ namespace Pulumi.AzureNative.DataFactory
     public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of activities in pipeline.
-        /// </summary>
-        [Output("activities")]
-        public Output<ImmutableArray<object>> Activities { get; private set; } = null!;
-
-        /// <summary>
-        /// List of tags that can be used for describing the Pipeline.
-        /// </summary>
-        [Output("annotations")]
-        public Output<ImmutableArray<object>> Annotations { get; private set; } = null!;
-
-        /// <summary>
-        /// The max number of concurrent runs for the pipeline.
-        /// </summary>
-        [Output("concurrency")]
-        public Output<int?> Concurrency { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the pipeline.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-        /// </summary>
-        [Output("folder")]
-        public Output<Outputs.PipelineResponseFolder?> Folder { get; private set; } = null!;
 
         /// <summary>
         /// The resource name.
@@ -59,34 +29,16 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of parameters for pipeline.
+        /// Properties of the pipeline.
         /// </summary>
-        [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// Pipeline Policy.
-        /// </summary>
-        [Output("policy")]
-        public Output<Outputs.PipelinePolicyResponse?> Policy { get; private set; } = null!;
-
-        /// <summary>
-        /// Dimensions emitted by Pipeline.
-        /// </summary>
-        [Output("runDimensions")]
-        public Output<ImmutableDictionary<string, object>?> RunDimensions { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PipelineResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// List of variables for pipeline.
-        /// </summary>
-        [Output("variables")]
-        public Output<ImmutableDictionary<string, Outputs.VariableSpecificationResponse>?> Variables { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,65 +90,11 @@ namespace Pulumi.AzureNative.DataFactory
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
-        [Input("activities")]
-        private InputList<object>? _activities;
-
-        /// <summary>
-        /// List of activities in pipeline.
-        /// </summary>
-        public InputList<object> Activities
-        {
-            get => _activities ?? (_activities = new InputList<object>());
-            set => _activities = value;
-        }
-
-        [Input("annotations")]
-        private InputList<object>? _annotations;
-
-        /// <summary>
-        /// List of tags that can be used for describing the Pipeline.
-        /// </summary>
-        public InputList<object> Annotations
-        {
-            get => _annotations ?? (_annotations = new InputList<object>());
-            set => _annotations = value;
-        }
-
-        /// <summary>
-        /// The max number of concurrent runs for the pipeline.
-        /// </summary>
-        [Input("concurrency")]
-        public Input<int>? Concurrency { get; set; }
-
-        /// <summary>
-        /// The description of the pipeline.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
         /// <summary>
         /// The factory name.
         /// </summary>
         [Input("factoryName", required: true)]
         public Input<string> FactoryName { get; set; } = null!;
-
-        /// <summary>
-        /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-        /// </summary>
-        [Input("folder")]
-        public Input<Inputs.PipelineFolderArgs>? Folder { get; set; }
-
-        [Input("parameters")]
-        private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
-
-        /// <summary>
-        /// List of parameters for pipeline.
-        /// </summary>
-        public InputMap<Inputs.ParameterSpecificationArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterSpecificationArgs>());
-            set => _parameters = value;
-        }
 
         /// <summary>
         /// The pipeline name.
@@ -205,40 +103,16 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<string>? PipelineName { get; set; }
 
         /// <summary>
-        /// Pipeline Policy.
+        /// Properties of the pipeline.
         /// </summary>
-        [Input("policy")]
-        public Input<Inputs.PipelinePolicyArgs>? Policy { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.PipelineArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("runDimensions")]
-        private InputMap<object>? _runDimensions;
-
-        /// <summary>
-        /// Dimensions emitted by Pipeline.
-        /// </summary>
-        public InputMap<object> RunDimensions
-        {
-            get => _runDimensions ?? (_runDimensions = new InputMap<object>());
-            set => _runDimensions = value;
-        }
-
-        [Input("variables")]
-        private InputMap<Inputs.VariableSpecificationArgs>? _variables;
-
-        /// <summary>
-        /// List of variables for pipeline.
-        /// </summary>
-        public InputMap<Inputs.VariableSpecificationArgs> Variables
-        {
-            get => _variables ?? (_variables = new InputMap<Inputs.VariableSpecificationArgs>());
-            set => _variables = value;
-        }
 
         public PipelineArgs()
         {

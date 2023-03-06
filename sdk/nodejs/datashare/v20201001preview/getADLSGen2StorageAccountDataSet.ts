@@ -45,10 +45,6 @@ export interface GetADLSGen2StorageAccountDataSetArgs {
  */
 export interface GetADLSGen2StorageAccountDataSetResult {
     /**
-     * Unique id for identifying a data set resource
-     */
-    readonly dataSetId: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -58,21 +54,13 @@ export interface GetADLSGen2StorageAccountDataSetResult {
      */
     readonly kind: "AdlsGen2StorageAccount";
     /**
-     * Location of the ADLSGen2 storage account.
-     */
-    readonly location: string;
-    /**
      * Name of the azure resource
      */
     readonly name: string;
     /**
-     * A list of ADLSGen2 storage account paths.
+     * ADLSGen2 storage account data set properties.
      */
-    readonly paths: outputs.datashare.v20201001preview.ADLSGen2StorageAccountPathResponse[];
-    /**
-     * Resource id of the ADLSGen2 storage account.
-     */
-    readonly storageAccountResourceId: string;
+    readonly properties: outputs.datashare.v20201001preview.ADLSGen2StorageAccountDataSetPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

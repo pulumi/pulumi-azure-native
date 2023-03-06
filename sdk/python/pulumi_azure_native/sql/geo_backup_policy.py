@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['GeoBackupPolicyArgs', 'GeoBackupPolicy']
 
@@ -16,22 +18,22 @@ __all__ = ['GeoBackupPolicyArgs', 'GeoBackupPolicy']
 class GeoBackupPolicyArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
+                 properties: pulumi.Input['GeoBackupPolicyPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
-                 state: pulumi.Input['GeoBackupPolicyState'],
                  geo_backup_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GeoBackupPolicy resource.
         :param pulumi.Input[str] database_name: The name of the database.
+        :param pulumi.Input['GeoBackupPolicyPropertiesArgs'] properties: The properties of the geo backup policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
         :param pulumi.Input[str] geo_backup_policy_name: The name of the geo backup policy.
         """
         pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "state", state)
         if geo_backup_policy_name is not None:
             pulumi.set(__self__, "geo_backup_policy_name", geo_backup_policy_name)
 
@@ -46,6 +48,18 @@ class GeoBackupPolicyArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['GeoBackupPolicyPropertiesArgs']:
+        """
+        The properties of the geo backup policy.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['GeoBackupPolicyPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -72,18 +86,6 @@ class GeoBackupPolicyArgs:
         pulumi.set(self, "server_name", value)
 
     @property
-    @pulumi.getter
-    def state(self) -> pulumi.Input['GeoBackupPolicyState']:
-        """
-        The state of the geo backup policy.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: pulumi.Input['GeoBackupPolicyState']):
-        pulumi.set(self, "state", value)
-
-    @property
     @pulumi.getter(name="geoBackupPolicyName")
     def geo_backup_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,9 +105,9 @@ class GeoBackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  geo_backup_policy_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GeoBackupPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
                  __props__=None):
         """
         A database geo backup policy.
@@ -115,9 +117,9 @@ class GeoBackupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] geo_backup_policy_name: The name of the geo backup policy.
+        :param pulumi.Input[pulumi.InputType['GeoBackupPolicyPropertiesArgs']] properties: The properties of the geo backup policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
         """
         ...
     @overload
@@ -146,9 +148,9 @@ class GeoBackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  geo_backup_policy_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GeoBackupPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -162,19 +164,18 @@ class GeoBackupPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["geo_backup_policy_name"] = geo_backup_policy_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
-            if state is None and not opts.urn:
-                raise TypeError("Missing required property 'state'")
-            __props__.__dict__["state"] = state
             __props__.__dict__["kind"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["storage_type"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:GeoBackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -203,8 +204,7 @@ class GeoBackupPolicy(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["state"] = None
-        __props__.__dict__["storage_type"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return GeoBackupPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -234,19 +234,11 @@ class GeoBackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def properties(self) -> pulumi.Output['outputs.GeoBackupPolicyPropertiesResponse']:
         """
-        The state of the geo backup policy.
+        The properties of the geo backup policy.
         """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Output[str]:
-        """
-        The storage type of the geo backup policy.
-        """
-        return pulumi.get(self, "storage_type")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

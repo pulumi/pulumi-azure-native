@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,10 +41,6 @@ export interface GetLinkedStorageAccountArgs {
  */
 export interface GetLinkedStorageAccountResult {
     /**
-     * Linked storage accounts type.
-     */
-    readonly dataSourceType: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -50,9 +49,9 @@ export interface GetLinkedStorageAccountResult {
      */
     readonly name: string;
     /**
-     * Linked storage accounts resources ids.
+     * Linked storage accounts properties.
      */
-    readonly storageAccountIds?: string[];
+    readonly properties: outputs.operationalinsights.LinkedStorageAccountsPropertiesResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

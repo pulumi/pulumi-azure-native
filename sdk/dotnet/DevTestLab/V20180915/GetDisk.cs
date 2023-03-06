@@ -106,57 +106,21 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public sealed class GetDiskResult
     {
         /// <summary>
-        /// The creation date of the disk.
-        /// </summary>
-        public readonly string CreatedDate;
-        /// <summary>
-        /// When backed by a blob, the name of the VHD blob without extension.
-        /// </summary>
-        public readonly string? DiskBlobName;
-        /// <summary>
-        /// The size of the disk in Gibibytes.
-        /// </summary>
-        public readonly int? DiskSizeGiB;
-        /// <summary>
-        /// The storage type for the disk (i.e. Standard, Premium).
-        /// </summary>
-        public readonly string? DiskType;
-        /// <summary>
-        /// When backed by a blob, the URI of underlying blob.
-        /// </summary>
-        public readonly string? DiskUri;
-        /// <summary>
-        /// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-        /// </summary>
-        public readonly string? HostCaching;
-        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The resource ID of the VM to which this disk is leased.
-        /// </summary>
-        public readonly string? LeasedByLabVmId;
         /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// When backed by managed disk, this is the ID of the compute disk resource.
-        /// </summary>
-        public readonly string? ManagedDiskId;
-        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning status of the resource.
+        /// The properties of the resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// When backed by a blob, the storage account where the blob is.
-        /// </summary>
-        public readonly string? StorageAccountId;
+        public readonly Outputs.DiskPropertiesResponse Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -165,61 +129,27 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        public readonly string UniqueIdentifier;
 
         [OutputConstructor]
         private GetDiskResult(
-            string createdDate,
-
-            string? diskBlobName,
-
-            int? diskSizeGiB,
-
-            string? diskType,
-
-            string? diskUri,
-
-            string? hostCaching,
-
             string id,
-
-            string? leasedByLabVmId,
 
             string? location,
 
-            string? managedDiskId,
-
             string name,
 
-            string provisioningState,
-
-            string? storageAccountId,
+            Outputs.DiskPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uniqueIdentifier)
+            string type)
         {
-            CreatedDate = createdDate;
-            DiskBlobName = diskBlobName;
-            DiskSizeGiB = diskSizeGiB;
-            DiskType = diskType;
-            DiskUri = diskUri;
-            HostCaching = hostCaching;
             Id = id;
-            LeasedByLabVmId = leasedByLabVmId;
             Location = location;
-            ManagedDiskId = managedDiskId;
             Name = name;
-            ProvisioningState = provisioningState;
-            StorageAccountId = storageAccountId;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

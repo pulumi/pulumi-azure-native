@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.NetworkCloud
     [AzureNativeResourceType("azure-native:networkcloud:StorageAppliance")]
     public partial class StorageAppliance : global::Pulumi.CustomResource
     {
-        [Output("administratorCredentials")]
-        public Output<Outputs.AdministrativeCredentialsResponse> AdministratorCredentials { get; private set; } = null!;
-
-        /// <summary>
-        /// The total capacity of the storage appliance.
-        /// </summary>
-        [Output("capacity")]
-        public Output<double> Capacity { get; private set; } = null!;
-
-        /// <summary>
-        /// The amount of storage consumed.
-        /// </summary>
-        [Output("capacityUsed")]
-        public Output<double> CapacityUsed { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the cluster this storage appliance is associated with.
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
-        /// The detailed status of the storage appliance.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -61,58 +28,16 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint for the management interface of the storage appliance.
-        /// </summary>
-        [Output("managementIpv4Address")]
-        public Output<string> ManagementIpv4Address { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the storage appliance.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the rack where this storage appliance resides.
-        /// </summary>
-        [Output("rackId")]
-        public Output<string> RackId { get; private set; } = null!;
-
-        /// <summary>
-        /// The slot the storage appliance is in the rack based on the BOM configuration.
-        /// </summary>
-        [Output("rackSlot")]
-        public Output<double> RackSlot { get; private set; } = null!;
-
-        /// <summary>
-        /// The indicator of whether the storage appliance supports remote vendor management.
-        /// </summary>
-        [Output("remoteVendorManagementFeature")]
-        public Output<string> RemoteVendorManagementFeature { get; private set; } = null!;
-
-        /// <summary>
-        /// The indicator of whether the remote vendor management feature is enabled or disabled, or unsupported if it is an unsupported feature.
-        /// </summary>
-        [Output("remoteVendorManagementStatus")]
-        public Output<string> RemoteVendorManagementStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The serial number for the storage appliance.
-        /// </summary>
-        [Output("serialNumber")]
-        public Output<string> SerialNumber { get; private set; } = null!;
-
-        /// <summary>
-        /// The SKU for the storage appliance.
-        /// </summary>
-        [Output("storageApplianceSkuId")]
-        public Output<string> StorageApplianceSkuId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.StorageAppliancePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -181,9 +106,6 @@ namespace Pulumi.AzureNative.NetworkCloud
 
     public sealed class StorageApplianceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("administratorCredentials", required: true)]
-        public Input<Inputs.AdministrativeCredentialsArgs> AdministratorCredentials { get; set; } = null!;
-
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -197,16 +119,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The resource ID of the rack where this storage appliance resides.
+        /// The list of the resource properties.
         /// </summary>
-        [Input("rackId", required: true)]
-        public Input<string> RackId { get; set; } = null!;
-
-        /// <summary>
-        /// The slot the storage appliance is in the rack based on the BOM configuration.
-        /// </summary>
-        [Input("rackSlot", required: true)]
-        public Input<double> RackSlot { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.StorageAppliancePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -215,22 +131,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The serial number for the storage appliance.
-        /// </summary>
-        [Input("serialNumber", required: true)]
-        public Input<string> SerialNumber { get; set; } = null!;
-
-        /// <summary>
         /// The name of the storage appliance.
         /// </summary>
         [Input("storageApplianceName")]
         public Input<string>? StorageApplianceName { get; set; }
-
-        /// <summary>
-        /// The SKU for the storage appliance.
-        /// </summary>
-        [Input("storageApplianceSkuId", required: true)]
-        public Input<string> StorageApplianceSkuId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

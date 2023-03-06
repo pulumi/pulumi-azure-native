@@ -34,18 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The MongoDB connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<object> ConnectionString { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("database", required: true)]
-        public Input<object> Database { get; set; } = null!;
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -69,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// MongoDB linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.MongoDbV2LinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public MongoDbV2LinkedServiceArgs()
         {

@@ -16,52 +16,16 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
     public partial class Connector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authentication type.
-        /// </summary>
-        [Output("authInfo")]
-        public Output<object?> AuthInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// The application client type
-        /// </summary>
-        [Output("clientType")]
-        public Output<string?> ClientType { get; private set; } = null!;
-
-        /// <summary>
-        /// The connection information consumed by applications, including secrets, connection strings.
-        /// </summary>
-        [Output("configurationInfo")]
-        public Output<Outputs.ConfigurationInfoResponse?> ConfigurationInfo { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state. 
+        /// The properties of the Linker.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The network solution.
-        /// </summary>
-        [Output("publicNetworkSolution")]
-        public Output<Outputs.PublicNetworkSolutionResponse?> PublicNetworkSolution { get; private set; } = null!;
-
-        /// <summary>
-        /// connection scope in source service.
-        /// </summary>
-        [Output("scope")]
-        public Output<string?> Scope { get; private set; } = null!;
-
-        /// <summary>
-        /// An option to store secret value in secure place
-        /// </summary>
-        [Output("secretStore")]
-        public Output<Outputs.SecretStoreResponse?> SecretStore { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.LinkerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -70,22 +34,10 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The target service properties
-        /// </summary>
-        [Output("targetService")]
-        public Output<object?> TargetService { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The VNet solution.
-        /// </summary>
-        [Output("vNetSolution")]
-        public Output<Outputs.VNetSolutionResponse?> VNetSolution { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,24 +85,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
     public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication type.
-        /// </summary>
-        [Input("authInfo")]
-        public object? AuthInfo { get; set; }
-
-        /// <summary>
-        /// The application client type
-        /// </summary>
-        [Input("clientType")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceLinker.V20221101Preview.ClientType>? ClientType { get; set; }
-
-        /// <summary>
-        /// The connection information consumed by applications, including secrets, connection strings.
-        /// </summary>
-        [Input("configurationInfo")]
-        public Input<Inputs.ConfigurationInfoArgs>? ConfigurationInfo { get; set; }
-
-        /// <summary>
         /// The name of resource.
         /// </summary>
         [Input("connectorName")]
@@ -163,10 +97,10 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The network solution.
+        /// The properties of the Linker.
         /// </summary>
-        [Input("publicNetworkSolution")]
-        public Input<Inputs.PublicNetworkSolutionArgs>? PublicNetworkSolution { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.LinkerPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -175,34 +109,10 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// connection scope in source service.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        /// <summary>
-        /// An option to store secret value in secure place
-        /// </summary>
-        [Input("secretStore")]
-        public Input<Inputs.SecretStoreArgs>? SecretStore { get; set; }
-
-        /// <summary>
         /// The ID of the target subscription.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
-
-        /// <summary>
-        /// The target service properties
-        /// </summary>
-        [Input("targetService")]
-        public object? TargetService { get; set; }
-
-        /// <summary>
-        /// The VNet solution.
-        /// </summary>
-        [Input("vNetSolution")]
-        public Input<Inputs.VNetSolutionArgs>? VNetSolution { get; set; }
 
         public ConnectorArgs()
         {

@@ -34,24 +34,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public Output<string?> CreatedByType { get; private set; } = null!;
 
         /// <summary>
-        /// An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
-        /// </summary>
-        [Output("deviceType")]
-        public Output<string?> DeviceType { get; private set; } = null!;
-
-        /// <summary>
-        /// The Integrated Circuit Card ID (ICC Id) for the sim.
-        /// </summary>
-        [Output("integratedCircuitCardIdentifier")]
-        public Output<string?> IntegratedCircuitCardIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// The International Mobile Subscriber Identity (IMSI) for the sim.
-        /// </summary>
-        [Output("internationalMobileSubscriberIdentity")]
-        public Output<string> InternationalMobileSubscriberIdentity { get; private set; } = null!;
-
-        /// <summary>
         /// The timestamp of resource last modification (UTC)
         /// </summary>
         [Output("lastModifiedAt")]
@@ -76,40 +58,16 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Mobile network that this sim belongs to
-        /// </summary>
-        [Output("mobileNetwork")]
-        public Output<Outputs.MobileNetworkResourceIdResponse?> MobileNetwork { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the sim resource.
+        /// Sim Properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The simPolicy used by this sim.
-        /// </summary>
-        [Output("simPolicy")]
-        public Output<Outputs.SimPolicyResourceIdResponse?> SimPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// The state of the sim resource.
-        /// </summary>
-        [Output("simState")]
-        public Output<string> SimState { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-        /// </summary>
-        [Output("staticIpConfiguration")]
-        public Output<ImmutableArray<Outputs.SimStaticIpPropertiesResponse>> StaticIpConfiguration { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SimPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -175,12 +133,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     public sealed class SimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ki value for the sim.
-        /// </summary>
-        [Input("authenticationKey")]
-        public Input<string>? AuthenticationKey { get; set; }
-
-        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         [Input("createdAt")]
@@ -197,24 +149,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         [Input("createdByType")]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.V20220301Preview.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
-        /// An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
-        /// </summary>
-        [Input("deviceType")]
-        public Input<string>? DeviceType { get; set; }
-
-        /// <summary>
-        /// The Integrated Circuit Card ID (ICC Id) for the sim.
-        /// </summary>
-        [Input("integratedCircuitCardIdentifier")]
-        public Input<string>? IntegratedCircuitCardIdentifier { get; set; }
-
-        /// <summary>
-        /// The International Mobile Subscriber Identity (IMSI) for the sim.
-        /// </summary>
-        [Input("internationalMobileSubscriberIdentity", required: true)]
-        public Input<string> InternationalMobileSubscriberIdentity { get; set; } = null!;
 
         /// <summary>
         /// The timestamp of resource last modification (UTC)
@@ -241,16 +175,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Mobile network that this sim belongs to
+        /// Sim Properties.
         /// </summary>
-        [Input("mobileNetwork")]
-        public Input<Inputs.MobileNetworkResourceIdArgs>? MobileNetwork { get; set; }
-
-        /// <summary>
-        /// The Opc value for the sim.
-        /// </summary>
-        [Input("operatorKeyCode")]
-        public Input<string>? OperatorKeyCode { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SimPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -263,24 +191,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         [Input("simName")]
         public Input<string>? SimName { get; set; }
-
-        /// <summary>
-        /// The simPolicy used by this sim.
-        /// </summary>
-        [Input("simPolicy")]
-        public Input<Inputs.SimPolicyResourceIdArgs>? SimPolicy { get; set; }
-
-        [Input("staticIpConfiguration")]
-        private InputList<Inputs.SimStaticIpPropertiesArgs>? _staticIpConfiguration;
-
-        /// <summary>
-        /// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-        /// </summary>
-        public InputList<Inputs.SimStaticIpPropertiesArgs> StaticIpConfiguration
-        {
-            get => _staticIpConfiguration ?? (_staticIpConfiguration = new InputList<Inputs.SimStaticIpPropertiesArgs>());
-            set => _staticIpConfiguration = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

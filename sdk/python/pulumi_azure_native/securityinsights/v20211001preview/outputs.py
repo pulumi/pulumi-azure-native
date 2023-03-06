@@ -17,6 +17,7 @@ __all__ = [
     'AlertDetailsOverrideResponse',
     'AlertsDataTypeOfDataConnectorResponse',
     'AutomationRuleModifyPropertiesActionResponse',
+    'AutomationRulePropertiesResponse',
     'AutomationRulePropertyValuesConditionResponse',
     'AutomationRuleRunPlaybookActionResponse',
     'AutomationRuleTriggeringLogicResponse',
@@ -391,6 +392,132 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
     @pulumi.getter(name="actionConfiguration")
     def action_configuration(self) -> Optional['outputs.IncidentPropertiesActionResponse']:
         return pulumi.get(self, "action_configuration")
+
+
+@pulumi.output_type
+class AutomationRulePropertiesResponse(dict):
+    """
+    Automation rule properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdTimeUtc":
+            suggest = "created_time_utc"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedTimeUtc":
+            suggest = "last_modified_time_utc"
+        elif key == "triggeringLogic":
+            suggest = "triggering_logic"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Sequence[Any],
+                 created_by: 'outputs.ClientInfoResponse',
+                 created_time_utc: str,
+                 display_name: str,
+                 last_modified_by: 'outputs.ClientInfoResponse',
+                 last_modified_time_utc: str,
+                 order: int,
+                 triggering_logic: 'outputs.AutomationRuleTriggeringLogicResponse'):
+        """
+        Automation rule properties
+        :param Sequence[Union['AutomationRuleModifyPropertiesActionResponse', 'AutomationRuleRunPlaybookActionResponse']] actions: The actions to execute when the automation rule is triggered
+        :param 'ClientInfoResponse' created_by: Information on the client (user or application) that made some action
+        :param str created_time_utc: The time the automation rule was created
+        :param str display_name: The display name of the automation rule
+        :param 'ClientInfoResponse' last_modified_by: Information on the client (user or application) that made some action
+        :param str last_modified_time_utc: The last time the automation rule was updated
+        :param int order: The order of execution of the automation rule
+        :param 'AutomationRuleTriggeringLogicResponse' triggering_logic: Describes automation rule triggering logic
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_time_utc", created_time_utc)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        pulumi.set(__self__, "last_modified_time_utc", last_modified_time_utc)
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "triggering_logic", triggering_logic)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[Any]:
+        """
+        The actions to execute when the automation rule is triggered
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> 'outputs.ClientInfoResponse':
+        """
+        Information on the client (user or application) that made some action
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdTimeUtc")
+    def created_time_utc(self) -> str:
+        """
+        The time the automation rule was created
+        """
+        return pulumi.get(self, "created_time_utc")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The display name of the automation rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> 'outputs.ClientInfoResponse':
+        """
+        Information on the client (user or application) that made some action
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedTimeUtc")
+    def last_modified_time_utc(self) -> str:
+        """
+        The last time the automation rule was updated
+        """
+        return pulumi.get(self, "last_modified_time_utc")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The order of execution of the automation rule
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="triggeringLogic")
+    def triggering_logic(self) -> 'outputs.AutomationRuleTriggeringLogicResponse':
+        """
+        Describes automation rule triggering logic
+        """
+        return pulumi.get(self, "triggering_logic")
 
 
 @pulumi.output_type

@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
     public sealed class ManagedIntegrationRuntimeResponse
     {
         /// <summary>
-        /// The compute resource for managed integration runtime.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeComputePropertiesResponse? ComputeProperties;
-        /// <summary>
-        /// The name of virtual network to which Azure-SSIS integration runtime will join
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeCustomerVirtualNetworkResponse? CustomerVirtualNetwork;
-        /// <summary>
         /// Integration runtime description.
         /// </summary>
         public readonly string? Description;
@@ -41,21 +33,17 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
         /// </summary>
         public readonly string? ReferenceName;
         /// <summary>
-        /// SSIS properties for managed integration runtime.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeSsisPropertiesResponse? SsisProperties;
-        /// <summary>
         /// The type of integration runtime.
         /// Expected value is 'Managed'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Managed integration runtime properties.
+        /// </summary>
+        public readonly Outputs.ManagedIntegrationRuntimeTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ManagedIntegrationRuntimeResponse(
-            Outputs.IntegrationRuntimeComputePropertiesResponse? computeProperties,
-
-            Outputs.IntegrationRuntimeCustomerVirtualNetworkResponse? customerVirtualNetwork,
-
             string? description,
 
             string? id,
@@ -64,18 +52,16 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
 
             string? referenceName,
 
-            Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
+            string type,
 
-            string type)
+            Outputs.ManagedIntegrationRuntimeTypePropertiesResponse typeProperties)
         {
-            ComputeProperties = computeProperties;
-            CustomerVirtualNetwork = customerVirtualNetwork;
             Description = description;
             Id = id;
             ProvisioningState = provisioningState;
             ReferenceName = referenceName;
-            SsisProperties = ssisProperties;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

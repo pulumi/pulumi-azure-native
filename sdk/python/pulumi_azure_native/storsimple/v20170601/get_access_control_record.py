@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetAccessControlRecordResult',
@@ -21,25 +22,22 @@ class GetAccessControlRecordResult:
     """
     The access control record.
     """
-    def __init__(__self__, id=None, initiator_name=None, kind=None, name=None, type=None, volume_count=None):
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if initiator_name and not isinstance(initiator_name, str):
-            raise TypeError("Expected argument 'initiator_name' to be a str")
-        pulumi.set(__self__, "initiator_name", initiator_name)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_count and not isinstance(volume_count, int):
-            raise TypeError("Expected argument 'volume_count' to be a int")
-        pulumi.set(__self__, "volume_count", volume_count)
 
     @property
     @pulumi.getter
@@ -48,14 +46,6 @@ class GetAccessControlRecordResult:
         The path ID that uniquely identifies the object.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="initiatorName")
-    def initiator_name(self) -> str:
-        """
-        The iSCSI initiator name (IQN).
-        """
-        return pulumi.get(self, "initiator_name")
 
     @property
     @pulumi.getter
@@ -75,19 +65,19 @@ class GetAccessControlRecordResult:
 
     @property
     @pulumi.getter
+    def properties(self) -> 'outputs.AccessControlRecordPropertiesResponse':
+        """
+        The properties of access control record.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> int:
-        """
-        The number of volumes using the access control record.
-        """
-        return pulumi.get(self, "volume_count")
 
 
 class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
@@ -97,11 +87,10 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
             yield self
         return GetAccessControlRecordResult(
             id=self.id,
-            initiator_name=self.initiator_name,
             kind=self.kind,
             name=self.name,
-            type=self.type,
-            volume_count=self.volume_count)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_access_control_record(access_control_record_name: Optional[str] = None,
@@ -125,11 +114,10 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
 
     return AwaitableGetAccessControlRecordResult(
         id=__ret__.id,
-        initiator_name=__ret__.initiator_name,
         kind=__ret__.kind,
         name=__ret__.name,
-        type=__ret__.type,
-        volume_count=__ret__.volume_count)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_access_control_record)

@@ -16,28 +16,16 @@ namespace Pulumi.AzureNative.HDInsight.V20210601.Inputs
     public sealed class PrivateLinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
-        /// </summary>
-        [Input("groupId", required: true)]
-        public Input<string> GroupId { get; set; } = null!;
-
-        [Input("ipConfigurations", required: true)]
-        private InputList<Inputs.IPConfigurationArgs>? _ipConfigurations;
-
-        /// <summary>
-        /// The IP configurations for the private link service.
-        /// </summary>
-        public InputList<Inputs.IPConfigurationArgs> IpConfigurations
-        {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.IPConfigurationArgs>());
-            set => _ipConfigurations = value;
-        }
-
-        /// <summary>
         /// The name of private link configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The private link configuration properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PrivateLinkConfigurationPropertiesArgs> Properties { get; set; } = null!;
 
         public PrivateLinkConfigurationArgs()
         {

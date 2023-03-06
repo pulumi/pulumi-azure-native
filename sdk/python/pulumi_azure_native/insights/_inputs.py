@@ -16,6 +16,7 @@ __all__ = [
     'AlertRuleAllOfConditionArgs',
     'AlertRuleAnyOfOrLeafConditionArgs',
     'AlertRuleLeafConditionArgs',
+    'AlertRuleArgs',
     'AlertingActionArgs',
     'ApplicationInsightsComponentAnalyticsItemPropertiesArgs',
     'ApplicationInsightsComponentDataVolumeCapArgs',
@@ -24,9 +25,11 @@ __all__ = [
     'AutomationRunbookReceiverArgs',
     'AutoscaleNotificationArgs',
     'AutoscaleProfileArgs',
+    'AutoscaleSettingArgs',
     'AzNsActionGroupArgs',
     'AzureAppPushReceiverArgs',
     'AzureFunctionReceiverArgs',
+    'AzureMonitorPrivateLinkScopePropertiesArgs',
     'CriteriaArgs',
     'DataCollectionEndpointNetworkAclsArgs',
     'DataCollectionRuleDataSourcesArgs',
@@ -44,10 +47,14 @@ __all__ = [
     'EtwProviderConfigurationArgs',
     'EventLogConfigurationArgs',
     'ExtensionDataSourceArgs',
+    'GuestDiagnosticSettingsAssociationArgs',
+    'GuestDiagnosticSettingsArgs',
     'ItsmReceiverArgs',
     'LocationThresholdRuleConditionArgs',
     'LogAnalyticsDestinationArgs',
     'LogMetricTriggerArgs',
+    'LogProfilePropertiesArgs',
+    'LogSearchRuleArgs',
     'LogSettingsArgs',
     'LogToMetricActionArgs',
     'LogicAppReceiverArgs',
@@ -56,6 +63,7 @@ __all__ = [
     'ManagementGroupLogSettingsArgs',
     'MetricAlertActionArgs',
     'MetricAlertMultipleResourceMultipleMetricCriteriaArgs',
+    'MetricAlertPropertiesArgs',
     'MetricAlertSingleResourceMultipleMetricCriteriaArgs',
     'MetricCriteriaArgs',
     'MetricDimensionArgs',
@@ -323,6 +331,123 @@ class AlertRuleLeafConditionArgs:
     @field.setter
     def field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field", value)
+
+
+@pulumi.input_type
+class AlertRuleArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']],
+                 is_enabled: pulumi.Input[bool],
+                 name: pulumi.Input[str],
+                 action: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None):
+        """
+        An alert rule.
+        :param pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']] condition: the condition that results in the alert rule being activated.
+        :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
+        :param pulumi.Input[str] name: the name of the alert rule.
+        :param pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
+        :param pulumi.Input[str] provisioning_state: the provisioning state.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]:
+        """
+        the condition that results in the alert rule being activated.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        the name of the alert rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -959,6 +1084,111 @@ class AutoscaleProfileArgs:
 
 
 @pulumi.input_type
+class AutoscaleSettingArgs:
+    def __init__(__self__, *,
+                 profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
+                 target_resource_uri: Optional[pulumi.Input[str]] = None):
+        """
+        A setting that contains all of the configuration for the automatic scaling of a resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        :param pulumi.Input[str] name: the name of the autoscale setting.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]] notifications: the collection of notifications.
+        :param pulumi.Input[str] target_resource_location: the location of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        pulumi.set(__self__, "profiles", profiles)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
+        if target_resource_uri is not None:
+            pulumi.set(__self__, "target_resource_uri", target_resource_uri)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]]:
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]]):
+        pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the name of the autoscale setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]:
+        """
+        the collection of notifications.
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]]):
+        pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @target_resource_location.setter
+    def target_resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_location", value)
+
+    @property
+    @pulumi.getter(name="targetResourceUri")
+    def target_resource_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_uri")
+
+    @target_resource_uri.setter
+    def target_resource_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_uri", value)
+
+
+@pulumi.input_type
 class AzNsActionGroupArgs:
     def __init__(__self__, *,
                  action_group: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1136,6 +1366,15 @@ class AzureFunctionReceiverArgs:
     @use_common_alert_schema.setter
     def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
+
+
+@pulumi.input_type
+class AzureMonitorPrivateLinkScopePropertiesArgs:
+    def __init__(__self__):
+        """
+        Properties that define a Azure Monitor PrivateLinkScope resource.
+        """
+        pass
 
 
 @pulumi.input_type
@@ -2053,6 +2292,81 @@ class ExtensionDataSourceArgs:
 
 
 @pulumi.input_type
+class GuestDiagnosticSettingsAssociationArgs:
+    def __init__(__self__, *,
+                 guest_diagnostic_settings_name: pulumi.Input[str]):
+        """
+        A guest diagnostic settings association.
+        :param pulumi.Input[str] guest_diagnostic_settings_name: The guest diagnostic settings name.
+        """
+        pulumi.set(__self__, "guest_diagnostic_settings_name", guest_diagnostic_settings_name)
+
+    @property
+    @pulumi.getter(name="guestDiagnosticSettingsName")
+    def guest_diagnostic_settings_name(self) -> pulumi.Input[str]:
+        """
+        The guest diagnostic settings name.
+        """
+        return pulumi.get(self, "guest_diagnostic_settings_name")
+
+    @guest_diagnostic_settings_name.setter
+    def guest_diagnostic_settings_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "guest_diagnostic_settings_name", value)
+
+
+@pulumi.input_type
+class GuestDiagnosticSettingsArgs:
+    def __init__(__self__, *,
+                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 proxy_setting: Optional[pulumi.Input[str]] = None):
+        """
+        Virtual machine diagnostic settings
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]] data_sources: the array of data source object which are configured to collect and send data
+        :param pulumi.Input[str] os_type: Operating system type for the configuration
+        """
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if proxy_setting is not None:
+            pulumi.set(__self__, "proxy_setting", proxy_setting)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]]:
+        """
+        the array of data source object which are configured to collect and send data
+        """
+        return pulumi.get(self, "data_sources")
+
+    @data_sources.setter
+    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]]]):
+        pulumi.set(self, "data_sources", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operating system type for the configuration
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="proxySetting")
+    def proxy_setting(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "proxy_setting")
+
+    @proxy_setting.setter
+    def proxy_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy_setting", value)
+
+
+@pulumi.input_type
 class ItsmReceiverArgs:
     def __init__(__self__, *,
                  connection_id: pulumi.Input[str],
@@ -2319,6 +2633,211 @@ class LogMetricTriggerArgs:
     @threshold_operator.setter
     def threshold_operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]):
         pulumi.set(self, "threshold_operator", value)
+
+
+@pulumi.input_type
+class LogProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 categories: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 locations: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 retention_policy: pulumi.Input['RetentionPolicyArgs'],
+                 service_bus_rule_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        The log profile properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for the events in the log.
+        :param pulumi.Input[str] service_bus_rule_id: The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        :param pulumi.Input[str] storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        pulumi.set(__self__, "categories", categories)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "retention_policy", retention_policy)
+        if service_bus_rule_id is not None:
+            pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "categories", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> pulumi.Input['RetentionPolicyArgs']:
+        """
+        the retention policy for the events in the log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: pulumi.Input['RetentionPolicyArgs']):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter(name="serviceBusRuleId")
+    def service_bus_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        """
+        return pulumi.get(self, "service_bus_rule_id")
+
+    @service_bus_rule_id.setter
+    def service_bus_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_bus_rule_id", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource id of the storage account to which you would like to send the Activity Log.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+
+@pulumi.input_type
+class LogSearchRuleArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']],
+                 source: pulumi.Input['SourceArgs'],
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[Union[str, 'Enabled']]] = None,
+                 schedule: Optional[pulumi.Input['ScheduleArgs']] = None):
+        """
+        Log Search Rule Definition
+        :param pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']] action: Action needs to be taken on rule execution.
+        :param pulumi.Input['SourceArgs'] source: Data Source against which rule will Query Data
+        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        :param pulumi.Input[str] description: The description of the Log Search rule.
+        :param pulumi.Input[str] display_name: The display name of the alert rule
+        :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        :param pulumi.Input['ScheduleArgs'] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "source", source)
+        if auto_mitigate is None:
+            auto_mitigate = False
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']]:
+        """
+        Action needs to be taken on rule execution.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['SourceArgs']:
+        """
+        Data Source against which rule will Query Data
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['SourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @auto_mitigate.setter
+    def auto_mitigate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_mitigate", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Log Search rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[Union[str, 'Enabled']]]:
+        """
+        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[Union[str, 'Enabled']]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['ScheduleArgs']]:
+        """
+        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['ScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
 
 
 @pulumi.input_type
@@ -2717,6 +3236,184 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
     @all_of.setter
     def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]):
         pulumi.set(self, "all_of", value)
+
+
+@pulumi.input_type
+class MetricAlertPropertiesArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']],
+                 enabled: pulumi.Input[bool],
+                 evaluation_frequency: pulumi.Input[str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 severity: pulumi.Input[int],
+                 window_size: pulumi.Input[str],
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 target_resource_region: Optional[pulumi.Input[str]] = None,
+                 target_resource_type: Optional[pulumi.Input[str]] = None):
+        """
+        An alert rule.
+        :param pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']] criteria: defines the specific alert criteria information.
+        :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
+        :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
+        :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}
+        :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        :param pulumi.Input[str] description: the description of the metric alert that will be included in the alert email.
+        :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "window_size", window_size)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if target_resource_region is not None:
+            pulumi.set(__self__, "target_resource_region", target_resource_region)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']]:
+        """
+        defines the specific alert criteria information.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']]):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        the flag that indicates whether the metric alert is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> pulumi.Input[str]:
+        """
+        how often the metric alert is evaluated represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @evaluation_frequency.setter
+    def evaluation_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "evaluation_frequency", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        the list of resource id's that this metric alert is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[int]:
+        """
+        Alert severity {0, 1, 2, 3, 4}
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> pulumi.Input[str]:
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "window_size", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]:
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @auto_mitigate.setter
+    def auto_mitigate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_mitigate", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        the description of the metric alert that will be included in the alert email.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="targetResourceRegion")
+    def target_resource_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        return pulumi.get(self, "target_resource_region")
+
+    @target_resource_region.setter
+    def target_resource_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_region", value)
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @target_resource_type.setter
+    def target_resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_type", value)
 
 
 @pulumi.input_type

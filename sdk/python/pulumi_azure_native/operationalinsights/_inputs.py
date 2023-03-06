@@ -15,9 +15,13 @@ __all__ = [
     'ColumnArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
+    'LinkedServicePropertiesArgs',
+    'LinkedStorageAccountsPropertiesArgs',
+    'LogAnalyticsQueryPackPropertiesArgs',
     'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
     'MachineReferenceWithHintsArgs',
     'RestoredLogsArgs',
+    'SavedSearchPropertiesArgs',
     'SchemaArgs',
     'SearchResultsArgs',
     'StorageAccountArgs',
@@ -267,6 +271,95 @@ class KeyVaultPropertiesArgs:
 
 
 @pulumi.input_type
+class LinkedServicePropertiesArgs:
+    def __init__(__self__, *,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'LinkedServiceEntityStatus']]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 write_access_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Linked service properties.
+        :param pulumi.Input[Union[str, 'LinkedServiceEntityStatus']] provisioning_state: The provisioning state of the linked service.
+        :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+        :param pulumi.Input[str] write_access_resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+        """
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if write_access_resource_id is not None:
+            pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'LinkedServiceEntityStatus']]]:
+        """
+        The provisioning state of the linked service.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'LinkedServiceEntityStatus']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="writeAccessResourceId")
+    def write_access_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+        """
+        return pulumi.get(self, "write_access_resource_id")
+
+    @write_access_resource_id.setter
+    def write_access_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "write_access_resource_id", value)
+
+
+@pulumi.input_type
+class LinkedStorageAccountsPropertiesArgs:
+    def __init__(__self__, *,
+                 storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Linked storage accounts properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
+        """
+        if storage_account_ids is not None:
+            pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+
+    @property
+    @pulumi.getter(name="storageAccountIds")
+    def storage_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Linked storage accounts resources ids.
+        """
+        return pulumi.get(self, "storage_account_ids")
+
+    @storage_account_ids.setter
+    def storage_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "storage_account_ids", value)
+
+
+@pulumi.input_type
+class LogAnalyticsQueryPackPropertiesArgs:
+    def __init__(__self__):
+        """
+        Properties that define a Log Analytics QueryPack resource.
+        """
+        pass
+
+
+@pulumi.input_type
 class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
     def __init__(__self__, *,
                  categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -416,6 +509,123 @@ class RestoredLogsArgs:
     @start_restore_time.setter
     def start_restore_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_restore_time", value)
+
+
+@pulumi.input_type
+class SavedSearchPropertiesArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[str],
+                 display_name: pulumi.Input[str],
+                 query: pulumi.Input[str],
+                 function_alias: Optional[pulumi.Input[str]] = None,
+                 function_parameters: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]] = None,
+                 version: Optional[pulumi.Input[float]] = None):
+        """
+        Value object for saved search results.
+        :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
+        :param pulumi.Input[str] display_name: Saved search display name.
+        :param pulumi.Input[str] query: The query expression for the saved search.
+        :param pulumi.Input[str] function_alias: The function alias if query serves as a function.
+        :param pulumi.Input[str] function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
+        :param pulumi.Input[Sequence[pulumi.Input['TagArgs']]] tags: The tags attached to the saved search.
+        :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "query", query)
+        if function_alias is not None:
+            pulumi.set(__self__, "function_alias", function_alias)
+        if function_parameters is not None:
+            pulumi.set(__self__, "function_parameters", function_parameters)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[str]:
+        """
+        The category of the saved search. This helps the user to find a saved search faster. 
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[str]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        Saved search display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        """
+        The query expression for the saved search.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="functionAlias")
+    def function_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The function alias if query serves as a function.
+        """
+        return pulumi.get(self, "function_alias")
+
+    @function_alias.setter
+    def function_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_alias", value)
+
+    @property
+    @pulumi.getter(name="functionParameters")
+    def function_parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
+        """
+        return pulumi.get(self, "function_parameters")
+
+    @function_parameters.setter
+    def function_parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_parameters", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]:
+        """
+        The tags attached to the saved search.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[float]]:
+        """
+        The version number of the query language. The current version is 2 and is the default.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

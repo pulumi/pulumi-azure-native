@@ -41,22 +41,6 @@ export class ApplianceDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-     */
-    public readonly artifacts!: pulumi.Output<outputs.solutions.v20160901preview.ApplianceArtifactResponse[] | undefined>;
-    /**
-     * The appliance provider authorizations.
-     */
-    public readonly authorizations!: pulumi.Output<outputs.solutions.v20160901preview.ApplianceProviderAuthorizationResponse[]>;
-    /**
-     * The appliance definition description.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The appliance definition display name.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.solutions.v20160901preview.IdentityResponse | undefined>;
@@ -64,10 +48,6 @@ export class ApplianceDefinition extends pulumi.CustomResource {
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The appliance lock level.
-     */
-    public readonly lockLevel!: pulumi.Output<string>;
     /**
      * ID of the resource that manages this resource.
      */
@@ -77,9 +57,9 @@ export class ApplianceDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The appliance definition package file Uri.
+     * The appliance definition properties.
      */
-    public readonly packageFileUri!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.solutions.v20160901preview.ApplianceDefinitionPropertiesResponse>;
     /**
      * The SKU of the resource.
      */
@@ -106,44 +86,28 @@ export class ApplianceDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'authorizations'");
-            }
-            if ((!args || args.lockLevel === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'lockLevel'");
-            }
-            if ((!args || args.packageFileUri === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'packageFileUri'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["applianceDefinitionName"] = args ? args.applianceDefinitionName : undefined;
-            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["artifacts"] = undefined /*out*/;
-            resourceInputs["authorizations"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["lockLevel"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["packageFileUri"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -164,22 +128,6 @@ export interface ApplianceDefinitionArgs {
      */
     applianceDefinitionName?: pulumi.Input<string>;
     /**
-     * The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-     */
-    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceArtifactArgs>[]>;
-    /**
-     * The appliance provider authorizations.
-     */
-    authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceProviderAuthorizationArgs>[]>;
-    /**
-     * The appliance definition description.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The appliance definition display name.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * The identity of the resource.
      */
     identity?: pulumi.Input<inputs.solutions.v20160901preview.IdentityArgs>;
@@ -188,17 +136,13 @@ export interface ApplianceDefinitionArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The appliance lock level.
-     */
-    lockLevel: pulumi.Input<enums.solutions.v20160901preview.ApplianceLockLevel>;
-    /**
      * ID of the resource that manages this resource.
      */
     managedBy?: pulumi.Input<string>;
     /**
-     * The appliance definition package file Uri.
+     * The appliance definition properties.
      */
-    packageFileUri: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.solutions.v20160901preview.ApplianceDefinitionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

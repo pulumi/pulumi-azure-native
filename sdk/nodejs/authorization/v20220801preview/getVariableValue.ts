@@ -43,6 +43,10 @@ export interface GetVariableValueResult {
      */
     readonly name: string;
     /**
+     * Properties for the variable value.
+     */
+    readonly properties: outputs.authorization.v20220801preview.PolicyVariableValuePropertiesResponse;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.authorization.v20220801preview.SystemDataResponse;
@@ -50,10 +54,6 @@ export interface GetVariableValueResult {
      * The type of the resource (Microsoft.Authorization/variables/values).
      */
     readonly type: string;
-    /**
-     * Variable value column value array.
-     */
-    readonly values: outputs.authorization.v20220801preview.PolicyVariableValueColumnValueResponse[];
 }
 /**
  * This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.

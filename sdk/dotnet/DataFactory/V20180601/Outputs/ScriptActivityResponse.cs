@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
         /// <summary>
-        /// Log settings of script activity.
-        /// </summary>
-        public readonly Outputs.ScriptActivityTypePropertiesResponseLogSettings? LogSettings;
-        /// <summary>
         /// Activity name.
         /// </summary>
         public readonly string Name;
@@ -41,18 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        /// </summary>
-        public readonly object? ScriptBlockExecutionTimeout;
-        /// <summary>
-        /// Array of script blocks. Type: array.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ScriptActivityScriptBlockResponse> Scripts;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Script'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Script activity properties.
+        /// </summary>
+        public readonly Outputs.ScriptActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -66,29 +58,23 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            Outputs.ScriptActivityTypePropertiesResponseLogSettings? logSettings,
-
             string name,
 
             Outputs.ActivityPolicyResponse? policy,
 
-            object? scriptBlockExecutionTimeout,
-
-            ImmutableArray<Outputs.ScriptActivityScriptBlockResponse> scripts,
-
             string type,
+
+            Outputs.ScriptActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
             LinkedServiceName = linkedServiceName;
-            LogSettings = logSettings;
             Name = name;
             Policy = policy;
-            ScriptBlockExecutionTimeout = scriptBlockExecutionTimeout;
-            Scripts = scripts;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

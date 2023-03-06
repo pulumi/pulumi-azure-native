@@ -32,18 +32,9 @@ export interface GetAdaptiveApplicationControlArgs {
 
 export interface GetAdaptiveApplicationControlResult {
     /**
-     * The configuration status of the machines group or machine or rule
-     */
-    readonly configurationStatus: string;
-    /**
-     * The application control policy enforcement/protection mode of the machine group
-     */
-    readonly enforcementMode?: string;
-    /**
      * Resource Id
      */
     readonly id: string;
-    readonly issues: outputs.security.v20200101.AdaptiveApplicationControlIssueSummaryResponse[];
     /**
      * Location where the resource is stored
      */
@@ -52,24 +43,14 @@ export interface GetAdaptiveApplicationControlResult {
      * Resource name
      */
     readonly name: string;
-    readonly pathRecommendations?: outputs.security.v20200101.PathRecommendationResponse[];
     /**
-     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+     * Represents a machines group and set of rules to be allowed running on a machine
      */
-    readonly protectionMode?: outputs.security.v20200101.ProtectionModeResponse;
-    /**
-     * The initial recommendation status of the machine group or machine
-     */
-    readonly recommendationStatus: string;
-    /**
-     * The source type of the machine group
-     */
-    readonly sourceSystem: string;
+    readonly properties: outputs.security.v20200101.AdaptiveApplicationControlGroupDataResponse;
     /**
      * Resource type
      */
     readonly type: string;
-    readonly vmRecommendations?: outputs.security.v20200101.VmRecommendationResponse[];
 }
 /**
  * Gets an application control VM/server group.

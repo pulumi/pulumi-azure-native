@@ -50,18 +50,6 @@ export class Sim extends pulumi.CustomResource {
      */
     public readonly createdByType!: pulumi.Output<string | undefined>;
     /**
-     * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
-     */
-    public readonly deviceType!: pulumi.Output<string | undefined>;
-    /**
-     * The integrated circuit card ID (ICCID) for the SIM.
-     */
-    public readonly integratedCircuitCardIdentifier!: pulumi.Output<string | undefined>;
-    /**
-     * The international mobile subscriber identity (IMSI) for the SIM.
-     */
-    public readonly internationalMobileSubscriberIdentity!: pulumi.Output<string>;
-    /**
      * The timestamp of resource last modification (UTC)
      */
     public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
@@ -78,21 +66,9 @@ export class Sim extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the SIM resource.
+     * SIM Properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The SIM policy used by this SIM.
-     */
-    public readonly simPolicy!: pulumi.Output<outputs.mobilenetwork.v20220401preview.SimPolicyResourceIdResponse | undefined>;
-    /**
-     * The state of the SIM resource.
-     */
-    public /*out*/ readonly simState!: pulumi.Output<string>;
-    /**
-     * A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-     */
-    public readonly staticIpConfiguration!: pulumi.Output<outputs.mobilenetwork.v20220401preview.SimStaticIpPropertiesResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.mobilenetwork.v20220401preview.SimPropertiesFormatResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -113,8 +89,8 @@ export class Sim extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.internationalMobileSubscriberIdentity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'internationalMobileSubscriberIdentity'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -122,42 +98,28 @@ export class Sim extends pulumi.CustomResource {
             if ((!args || args.simGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'simGroupName'");
             }
-            resourceInputs["authenticationKey"] = args ? args.authenticationKey : undefined;
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["deviceType"] = args ? args.deviceType : undefined;
-            resourceInputs["integratedCircuitCardIdentifier"] = args ? args.integratedCircuitCardIdentifier : undefined;
-            resourceInputs["internationalMobileSubscriberIdentity"] = args ? args.internationalMobileSubscriberIdentity : undefined;
             resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
-            resourceInputs["operatorKeyCode"] = args ? args.operatorKeyCode : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["simGroupName"] = args ? args.simGroupName : undefined;
             resourceInputs["simName"] = args ? args.simName : undefined;
-            resourceInputs["simPolicy"] = args ? args.simPolicy : undefined;
-            resourceInputs["staticIpConfiguration"] = args ? args.staticIpConfiguration : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["simState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;
-            resourceInputs["deviceType"] = undefined /*out*/;
-            resourceInputs["integratedCircuitCardIdentifier"] = undefined /*out*/;
-            resourceInputs["internationalMobileSubscriberIdentity"] = undefined /*out*/;
             resourceInputs["lastModifiedAt"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["simPolicy"] = undefined /*out*/;
-            resourceInputs["simState"] = undefined /*out*/;
-            resourceInputs["staticIpConfiguration"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -173,10 +135,6 @@ export class Sim extends pulumi.CustomResource {
  */
 export interface SimArgs {
     /**
-     * The Ki value for the SIM.
-     */
-    authenticationKey?: pulumi.Input<string>;
-    /**
      * The timestamp of resource creation (UTC).
      */
     createdAt?: pulumi.Input<string>;
@@ -188,18 +146,6 @@ export interface SimArgs {
      * The type of identity that created the resource.
      */
     createdByType?: pulumi.Input<string | enums.mobilenetwork.v20220401preview.CreatedByType>;
-    /**
-     * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
-     */
-    deviceType?: pulumi.Input<string>;
-    /**
-     * The integrated circuit card ID (ICCID) for the SIM.
-     */
-    integratedCircuitCardIdentifier?: pulumi.Input<string>;
-    /**
-     * The international mobile subscriber identity (IMSI) for the SIM.
-     */
-    internationalMobileSubscriberIdentity: pulumi.Input<string>;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -213,9 +159,9 @@ export interface SimArgs {
      */
     lastModifiedByType?: pulumi.Input<string | enums.mobilenetwork.v20220401preview.CreatedByType>;
     /**
-     * The Opc value for the SIM.
+     * SIM Properties.
      */
-    operatorKeyCode?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.mobilenetwork.v20220401preview.SimPropertiesFormatArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -228,12 +174,4 @@ export interface SimArgs {
      * The name of the SIM.
      */
     simName?: pulumi.Input<string>;
-    /**
-     * The SIM policy used by this SIM.
-     */
-    simPolicy?: pulumi.Input<inputs.mobilenetwork.v20220401preview.SimPolicyResourceIdArgs>;
-    /**
-     * A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
-     */
-    staticIpConfiguration?: pulumi.Input<pulumi.Input<inputs.mobilenetwork.v20220401preview.SimStaticIpPropertiesArgs>[]>;
 }

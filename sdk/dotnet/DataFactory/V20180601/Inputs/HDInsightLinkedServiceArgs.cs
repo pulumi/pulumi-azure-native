@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// HDInsight cluster URI. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("clusterUri", required: true)]
-        public Input<object> ClusterUri { get; set; } = null!;
-
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -44,36 +38,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
-        /// <summary>
-        /// Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("fileSystem")]
-        public Input<object>? FileSystem { get; set; }
-
-        /// <summary>
-        /// A reference to the Azure SQL linked service that points to the HCatalog database.
-        /// </summary>
-        [Input("hcatalogLinkedServiceName")]
-        public Input<Inputs.LinkedServiceReferenceArgs>? HcatalogLinkedServiceName { get; set; }
-
-        /// <summary>
-        /// Specify if the HDInsight is created with ESP (Enterprise Security Package). Type: Boolean.
-        /// </summary>
-        [Input("isEspEnabled")]
-        public Input<object>? IsEspEnabled { get; set; }
-
-        /// <summary>
-        /// The Azure Storage linked service reference.
-        /// </summary>
-        [Input("linkedServiceName")]
-        public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -88,12 +52,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// HDInsight cluster password.
-        /// </summary>
-        [Input("password")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'HDInsight'.
         /// </summary>
@@ -101,10 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// HDInsight cluster user name. Type: string (or Expression with resultType string).
+        /// HDInsight linked service properties.
         /// </summary>
-        [Input("userName")]
-        public Input<object>? UserName { get; set; }
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.HDInsightLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public HDInsightLinkedServiceArgs()
         {

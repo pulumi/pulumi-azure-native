@@ -22,13 +22,7 @@ class GetArcAddonResult:
     """
     Arc Addon.
     """
-    def __init__(__self__, host_platform=None, host_platform_type=None, id=None, kind=None, name=None, provisioning_state=None, resource_group_name=None, resource_location=None, resource_name=None, subscription_id=None, system_data=None, type=None, version=None):
-        if host_platform and not isinstance(host_platform, str):
-            raise TypeError("Expected argument 'host_platform' to be a str")
-        pulumi.set(__self__, "host_platform", host_platform)
-        if host_platform_type and not isinstance(host_platform_type, str):
-            raise TypeError("Expected argument 'host_platform_type' to be a str")
-        pulumi.set(__self__, "host_platform_type", host_platform_type)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,46 +32,15 @@ class GetArcAddonResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if resource_location and not isinstance(resource_location, str):
-            raise TypeError("Expected argument 'resource_location' to be a str")
-        pulumi.set(__self__, "resource_location", resource_location)
-        if resource_name and not isinstance(resource_name, str):
-            raise TypeError("Expected argument 'resource_name' to be a str")
-        pulumi.set(__self__, "resource_name", resource_name)
-        if subscription_id and not isinstance(subscription_id, str):
-            raise TypeError("Expected argument 'subscription_id' to be a str")
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="hostPlatform")
-    def host_platform(self) -> str:
-        """
-        Host OS supported by the Arc addon.
-        """
-        return pulumi.get(self, "host_platform")
-
-    @property
-    @pulumi.getter(name="hostPlatformType")
-    def host_platform_type(self) -> str:
-        """
-        Platform where the runtime is hosted.
-        """
-        return pulumi.get(self, "host_platform_type")
 
     @property
     @pulumi.getter
@@ -105,44 +68,12 @@ class GetArcAddonResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ArcAddonPropertiesResponse':
         """
-        Addon Provisioning State
+        Properties specific to Arc addon.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
-        """
-        Arc resource group name
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter(name="resourceLocation")
-    def resource_location(self) -> str:
-        """
-        Arc resource location
-        """
-        return pulumi.get(self, "resource_location")
-
-    @property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> str:
-        """
-        Arc resource Name
-        """
-        return pulumi.get(self, "resource_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        Arc resource subscription Id
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -160,14 +91,6 @@ class GetArcAddonResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def version(self) -> str:
-        """
-        Arc resource version
-        """
-        return pulumi.get(self, "version")
-
 
 class AwaitableGetArcAddonResult(GetArcAddonResult):
     # pylint: disable=using-constant-test
@@ -175,19 +98,12 @@ class AwaitableGetArcAddonResult(GetArcAddonResult):
         if False:
             yield self
         return GetArcAddonResult(
-            host_platform=self.host_platform,
-            host_platform_type=self.host_platform_type,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            resource_group_name=self.resource_group_name,
-            resource_location=self.resource_location,
-            resource_name=self.resource_name,
-            subscription_id=self.subscription_id,
+            properties=self.properties,
             system_data=self.system_data,
-            type=self.type,
-            version=self.version)
+            type=self.type)
 
 
 def get_arc_addon(addon_name: Optional[str] = None,
@@ -213,19 +129,12 @@ def get_arc_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20201201:getArcAddon', __args__, opts=opts, typ=GetArcAddonResult).value
 
     return AwaitableGetArcAddonResult(
-        host_platform=__ret__.host_platform,
-        host_platform_type=__ret__.host_platform_type,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_group_name=__ret__.resource_group_name,
-        resource_location=__ret__.resource_location,
-        resource_name=__ret__.resource_name,
-        subscription_id=__ret__.subscription_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_arc_addon)

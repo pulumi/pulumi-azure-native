@@ -90,25 +90,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The objectId of the Active Directory administrator.
+        /// Properties of the active directory administrator.
         /// </summary>
-        public readonly string? ObjectId;
-        /// <summary>
-        /// Active Directory administrator principal name.
-        /// </summary>
-        public readonly string? PrincipalName;
-        /// <summary>
-        /// The principal type used to represent the type of Active Directory Administrator.
-        /// </summary>
-        public readonly string? PrincipalType;
+        public readonly Outputs.AdministratorPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// The tenantId of the Active Directory administrator.
-        /// </summary>
-        public readonly string? TenantId;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -120,25 +108,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 
             string name,
 
-            string? objectId,
-
-            string? principalName,
-
-            string? principalType,
+            Outputs.AdministratorPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
-
-            string? tenantId,
 
             string type)
         {
             Id = id;
             Name = name;
-            ObjectId = objectId;
-            PrincipalName = principalName;
-            PrincipalType = principalType;
+            Properties = properties;
             SystemData = systemData;
-            TenantId = tenantId;
             Type = type;
         }
     }

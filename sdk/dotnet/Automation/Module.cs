@@ -171,12 +171,6 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the module content link.
-        /// </summary>
-        [Input("contentLink", required: true)]
-        public Input<Inputs.ContentLinkArgs> ContentLink { get; set; } = null!;
-
-        /// <summary>
         /// Gets or sets the location of the resource.
         /// </summary>
         [Input("location")]
@@ -193,6 +187,12 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the module create properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ModuleCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

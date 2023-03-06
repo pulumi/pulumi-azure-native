@@ -17,67 +17,34 @@ __all__ = ['AutomationRuleArgs', 'AutomationRule']
 @pulumi.input_type
 class AutomationRuleArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
-                 display_name: pulumi.Input[str],
-                 order: pulumi.Input[int],
+                 properties: pulumi.Input['AutomationRulePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs'],
                  workspace_name: pulumi.Input[str],
                  automation_rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered.
-        :param pulumi.Input[str] display_name: The display name of the automation rule.
-        :param pulumi.Input[int] order: The order of execution of the automation rule.
+        :param pulumi.Input['AutomationRulePropertiesArgs'] properties: Automation rule properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['AutomationRuleTriggeringLogicArgs'] triggering_logic: Describes automation rule triggering logic.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "triggering_logic", triggering_logic)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if automation_rule_id is not None:
             pulumi.set(__self__, "automation_rule_id", automation_rule_id)
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]:
+    def properties(self) -> pulumi.Input['AutomationRulePropertiesArgs']:
         """
-        The actions to execute when the automation rule is triggered.
+        Automation rule properties
         """
-        return pulumi.get(self, "actions")
+        return pulumi.get(self, "properties")
 
-    @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]):
-        pulumi.set(self, "actions", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[str]:
-        """
-        The display name of the automation rule.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[int]:
-        """
-        The order of execution of the automation rule.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[int]):
-        pulumi.set(self, "order", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['AutomationRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -90,18 +57,6 @@ class AutomationRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="triggeringLogic")
-    def triggering_logic(self) -> pulumi.Input['AutomationRuleTriggeringLogicArgs']:
-        """
-        Describes automation rule triggering logic.
-        """
-        return pulumi.get(self, "triggering_logic")
-
-    @triggering_logic.setter
-    def triggering_logic(self, value: pulumi.Input['AutomationRuleTriggeringLogicArgs']):
-        pulumi.set(self, "triggering_logic", value)
 
     @property
     @pulumi.getter(name="workspaceName")
@@ -133,24 +88,18 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleAddIncidentTaskActionArgs'], pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AutomationRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a AutomationRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleAddIncidentTaskActionArgs'], pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]] actions: The actions to execute when the automation rule is triggered.
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
-        :param pulumi.Input[str] display_name: The display name of the automation rule.
-        :param pulumi.Input[int] order: The order of execution of the automation rule.
+        :param pulumi.Input[pulumi.InputType['AutomationRulePropertiesArgs']] properties: Automation rule properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']] triggering_logic: Describes automation rule triggering logic.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -176,12 +125,9 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleAddIncidentTaskActionArgs'], pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AutomationRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -192,30 +138,17 @@ class AutomationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
-            if actions is None and not opts.urn:
-                raise TypeError("Missing required property 'actions'")
-            __props__.__dict__["actions"] = actions
             __props__.__dict__["automation_rule_id"] = automation_rule_id
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
-            __props__.__dict__["display_name"] = display_name
-            if order is None and not opts.urn:
-                raise TypeError("Missing required property 'order'")
-            __props__.__dict__["order"] = order
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if triggering_logic is None and not opts.urn:
-                raise TypeError("Missing required property 'triggering_logic'")
-            __props__.__dict__["triggering_logic"] = triggering_logic
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
-            __props__.__dict__["created_by"] = None
-            __props__.__dict__["created_time_utc"] = None
             __props__.__dict__["etag"] = None
-            __props__.__dict__["last_modified_by"] = None
-            __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -243,51 +176,12 @@ class AutomationRule(pulumi.CustomResource):
 
         __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
-        __props__.__dict__["actions"] = None
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_time_utc"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
-        __props__.__dict__["last_modified_by"] = None
-        __props__.__dict__["last_modified_time_utc"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["order"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["triggering_logic"] = None
         __props__.__dict__["type"] = None
         return AutomationRule(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> pulumi.Output[Sequence[Any]]:
-        """
-        The actions to execute when the automation rule is triggered.
-        """
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output['outputs.ClientInfoResponse']:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdTimeUtc")
-    def created_time_utc(self) -> pulumi.Output[str]:
-        """
-        The time the automation rule was created.
-        """
-        return pulumi.get(self, "created_time_utc")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
-        """
-        The display name of the automation rule.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -296,22 +190,6 @@ class AutomationRule(pulumi.CustomResource):
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output['outputs.ClientInfoResponse']:
-        """
-        Information on the client (user or application) that made some action
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedTimeUtc")
-    def last_modified_time_utc(self) -> pulumi.Output[str]:
-        """
-        The last time the automation rule was updated.
-        """
-        return pulumi.get(self, "last_modified_time_utc")
 
     @property
     @pulumi.getter
@@ -323,11 +201,11 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def order(self) -> pulumi.Output[int]:
+    def properties(self) -> pulumi.Output['outputs.AutomationRulePropertiesResponse']:
         """
-        The order of execution of the automation rule.
+        Automation rule properties
         """
-        return pulumi.get(self, "order")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -336,14 +214,6 @@ class AutomationRule(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="triggeringLogic")
-    def triggering_logic(self) -> pulumi.Output['outputs.AutomationRuleTriggeringLogicResponse']:
-        """
-        Describes automation rule triggering logic.
-        """
-        return pulumi.get(self, "triggering_logic")
 
     @property
     @pulumi.getter

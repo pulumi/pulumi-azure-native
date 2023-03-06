@@ -82,37 +82,21 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public sealed class GetIntegrationAccountCertificateResult
     {
         /// <summary>
-        /// The changed time.
-        /// </summary>
-        public readonly string ChangedTime;
-        /// <summary>
-        /// The created time.
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The key details in the key vault.
-        /// </summary>
-        public readonly Outputs.KeyVaultKeyReferenceResponse? Key;
         /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The metadata.
-        /// </summary>
-        public readonly object? Metadata;
-        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The public certificate.
+        /// The integration account certificate properties.
         /// </summary>
-        public readonly string? PublicCertificate;
+        public readonly Outputs.IntegrationAccountCertificatePropertiesResponse Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -124,34 +108,22 @@ namespace Pulumi.AzureNative.Logic.V20190501
 
         [OutputConstructor]
         private GetIntegrationAccountCertificateResult(
-            string changedTime,
-
-            string createdTime,
-
             string id,
-
-            Outputs.KeyVaultKeyReferenceResponse? key,
 
             string? location,
 
-            object? metadata,
-
             string name,
 
-            string? publicCertificate,
+            Outputs.IntegrationAccountCertificatePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ChangedTime = changedTime;
-            CreatedTime = createdTime;
             Id = id;
-            Key = key;
             Location = location;
-            Metadata = metadata;
             Name = name;
-            PublicCertificate = publicCertificate;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

@@ -28,34 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         }
 
         /// <summary>
-        /// The data compression method used for the blob storage.
-        /// </summary>
-        [Input("compression")]
-        public object? Compression { get; set; }
-
-        /// <summary>
         /// Dataset description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the Azure Blob. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("fileName")]
-        public Input<object>? FileName { get; set; }
-
-        /// <summary>
-        /// The path of the Azure Blob storage. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("folderPath")]
-        public Input<object>? FolderPath { get; set; }
-
-        /// <summary>
-        /// The format of the Azure Blob storage.
-        /// </summary>
-        [Input("format")]
-        public object? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -82,17 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The root of blob path. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableRootLocation")]
-        public Input<object>? TableRootLocation { get; set; }
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureBlob'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Blob dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureBlobDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureBlobDatasetArgs()
         {

@@ -12,6 +12,9 @@ from ._enums import *
 
 __all__ = [
     'CreateFirewallRuleWithAccountParametersArgs',
+    'CreateOrUpdateFirewallRulePropertiesArgs',
+    'CreateOrUpdateTrustedIdProviderPropertiesArgs',
+    'CreateOrUpdateVirtualNetworkRulePropertiesArgs',
     'CreateTrustedIdProviderWithAccountParametersArgs',
     'CreateVirtualNetworkRuleWithAccountParametersArgs',
     'EncryptionConfigArgs',
@@ -22,17 +25,52 @@ __all__ = [
 @pulumi.input_type
 class CreateFirewallRuleWithAccountParametersArgs:
     def __init__(__self__, *,
-                 end_ip_address: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 start_ip_address: pulumi.Input[str]):
+                 properties: pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs']):
         """
         The parameters used to create a new firewall rule while creating a new Data Lake Store account.
-        :param pulumi.Input[str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param pulumi.Input[str] name: The unique name of the firewall rule to create.
+        :param pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs'] properties: The firewall rule properties to use when creating a new firewall rule.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The unique name of the firewall rule to create.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs']:
+        """
+        The firewall rule properties to use when creating a new firewall rule.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateOrUpdateFirewallRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class CreateOrUpdateFirewallRulePropertiesArgs:
+    def __init__(__self__, *,
+                 end_ip_address: pulumi.Input[str],
+                 start_ip_address: pulumi.Input[str]):
+        """
+        The firewall rule properties to use when creating a new firewall rule.
+        :param pulumi.Input[str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
         pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "start_ip_address", start_ip_address)
 
     @property
@@ -48,18 +86,6 @@ class CreateFirewallRuleWithAccountParametersArgs:
         pulumi.set(self, "end_ip_address", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The unique name of the firewall rule to create.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> pulumi.Input[str]:
         """
@@ -73,17 +99,14 @@ class CreateFirewallRuleWithAccountParametersArgs:
 
 
 @pulumi.input_type
-class CreateTrustedIdProviderWithAccountParametersArgs:
+class CreateOrUpdateTrustedIdProviderPropertiesArgs:
     def __init__(__self__, *,
-                 id_provider: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 id_provider: pulumi.Input[str]):
         """
-        The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
+        The trusted identity provider properties to use when creating a new trusted identity provider.
         :param pulumi.Input[str] id_provider: The URL of this trusted identity provider.
-        :param pulumi.Input[str] name: The unique name of the trusted identity provider to create.
         """
         pulumi.set(__self__, "id_provider", id_provider)
-        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="idProvider")
@@ -97,6 +120,43 @@ class CreateTrustedIdProviderWithAccountParametersArgs:
     def id_provider(self, value: pulumi.Input[str]):
         pulumi.set(self, "id_provider", value)
 
+
+@pulumi.input_type
+class CreateOrUpdateVirtualNetworkRulePropertiesArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str]):
+        """
+        The virtual network rule properties to use when creating a new virtual network rule.
+        :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The resource identifier for the subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class CreateTrustedIdProviderWithAccountParametersArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 properties: pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs']):
+        """
+        The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
+        :param pulumi.Input[str] name: The unique name of the trusted identity provider to create.
+        :param pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs'] properties: The trusted identity provider properties to use when creating a new trusted identity provider.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
@@ -109,19 +169,31 @@ class CreateTrustedIdProviderWithAccountParametersArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs']:
+        """
+        The trusted identity provider properties to use when creating a new trusted identity provider.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateOrUpdateTrustedIdProviderPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
 
 @pulumi.input_type
 class CreateVirtualNetworkRuleWithAccountParametersArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 subnet_id: pulumi.Input[str]):
+                 properties: pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs']):
         """
         The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
         :param pulumi.Input[str] name: The unique name of the virtual network rule to create.
-        :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
+        :param pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs'] properties: The virtual network rule properties to use when creating a new virtual network rule.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
@@ -136,16 +208,16 @@ class CreateVirtualNetworkRuleWithAccountParametersArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs']:
         """
-        The resource identifier for the subnet.
+        The virtual network rule properties to use when creating a new virtual network rule.
         """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "properties")
 
-    @subnet_id.setter
-    def subnet_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subnet_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateOrUpdateVirtualNetworkRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

@@ -8,17 +8,24 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'AssignmentLockSettingsResponse',
+    'AssignmentPropertiesResponse',
     'AssignmentStatusResponse',
+    'BlueprintPropertiesResponse',
     'BlueprintStatusResponse',
     'ManagedServiceIdentityResponse',
     'ParameterDefinitionResponse',
     'ParameterValueBaseResponse',
+    'PolicyAssignmentArtifactPropertiesResponse',
+    'PublishedBlueprintPropertiesResponse',
     'ResourceGroupDefinitionResponse',
     'ResourceGroupValueResponse',
+    'RoleAssignmentArtifactPropertiesResponse',
+    'TemplateArtifactPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -42,6 +49,132 @@ class AssignmentLockSettingsResponse(dict):
         Lock mode.
         """
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class AssignmentPropertiesResponse(dict):
+    """
+    Detailed properties for Assignment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+        elif key == "blueprintId":
+            suggest = "blueprint_id"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameters: Mapping[str, 'outputs.ParameterValueBaseResponse'],
+                 provisioning_state: str,
+                 resource_groups: Mapping[str, 'outputs.ResourceGroupValueResponse'],
+                 status: 'outputs.AssignmentStatusResponse',
+                 blueprint_id: Optional[str] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 locks: Optional['outputs.AssignmentLockSettingsResponse'] = None):
+        """
+        Detailed properties for Assignment.
+        :param Mapping[str, 'ParameterValueBaseResponse'] parameters: Blueprint parameter values.
+        :param str provisioning_state: State of the assignment.
+        :param Mapping[str, 'ResourceGroupValueResponse'] resource_groups: Names and locations of resource group placeholders.
+        :param 'AssignmentStatusResponse' status: Status of Blueprint assignment. This field is readonly.
+        :param str blueprint_id: ID of the Blueprint definition resource.
+        :param str description: Multi-line explain this resource.
+        :param str display_name: One-liner string explain this resource.
+        :param 'AssignmentLockSettingsResponse' locks: Defines how Blueprint-managed resources will be locked.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_groups", resource_groups)
+        pulumi.set(__self__, "status", status)
+        if blueprint_id is not None:
+            pulumi.set(__self__, "blueprint_id", blueprint_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if locks is not None:
+            pulumi.set(__self__, "locks", locks)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, 'outputs.ParameterValueBaseResponse']:
+        """
+        Blueprint parameter values.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the assignment.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Mapping[str, 'outputs.ResourceGroupValueResponse']:
+        """
+        Names and locations of resource group placeholders.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.AssignmentStatusResponse':
+        """
+        Status of Blueprint assignment. This field is readonly.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="blueprintId")
+    def blueprint_id(self) -> Optional[str]:
+        """
+        ID of the Blueprint definition resource.
+        """
+        return pulumi.get(self, "blueprint_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Multi-line explain this resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        One-liner string explain this resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def locks(self) -> Optional['outputs.AssignmentLockSettingsResponse']:
+        """
+        Defines how Blueprint-managed resources will be locked.
+        """
+        return pulumi.get(self, "locks")
 
 
 @pulumi.output_type
@@ -94,6 +227,132 @@ class AssignmentStatusResponse(dict):
         Creation time of this blueprint.
         """
         return pulumi.get(self, "time_created")
+
+
+@pulumi.output_type
+class BlueprintPropertiesResponse(dict):
+    """
+    Schema for Blueprint properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetScope":
+            suggest = "target_scope"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlueprintPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlueprintPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlueprintPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: 'outputs.BlueprintStatusResponse',
+                 target_scope: str,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 layout: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterDefinitionResponse']] = None,
+                 resource_groups: Optional[Mapping[str, 'outputs.ResourceGroupDefinitionResponse']] = None,
+                 versions: Optional[Any] = None):
+        """
+        Schema for Blueprint properties.
+        :param 'BlueprintStatusResponse' status: Status of the Blueprint. This field is readonly.
+        :param str target_scope: The scope where this Blueprint can be applied.
+        :param str description: Multi-line explain this resource.
+        :param str display_name: One-liner string explain this resource.
+        :param Any layout: Layout view of the blueprint, for UI reference.
+        :param Mapping[str, 'ParameterDefinitionResponse'] parameters: Parameters required by this Blueprint definition.
+        :param Mapping[str, 'ResourceGroupDefinitionResponse'] resource_groups: Resource group placeholders defined by this Blueprint definition.
+        :param Any versions: Published versions of this blueprint.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "target_scope", target_scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if layout is not None:
+            pulumi.set(__self__, "layout", layout)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.BlueprintStatusResponse':
+        """
+        Status of the Blueprint. This field is readonly.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="targetScope")
+    def target_scope(self) -> str:
+        """
+        The scope where this Blueprint can be applied.
+        """
+        return pulumi.get(self, "target_scope")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Multi-line explain this resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        One-liner string explain this resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def layout(self) -> Optional[Any]:
+        """
+        Layout view of the blueprint, for UI reference.
+        """
+        return pulumi.get(self, "layout")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionResponse']]:
+        """
+        Parameters required by this Blueprint definition.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[Mapping[str, 'outputs.ResourceGroupDefinitionResponse']]:
+        """
+        Resource group placeholders defined by this Blueprint definition.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[Any]:
+        """
+        Published versions of this blueprint.
+        """
+        return pulumi.get(self, "versions")
 
 
 @pulumi.output_type
@@ -342,6 +601,241 @@ class ParameterValueBaseResponse(dict):
 
 
 @pulumi.output_type
+class PolicyAssignmentArtifactPropertiesResponse(dict):
+    """
+    PolicyAssignment properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDefinitionId":
+            suggest = "policy_definition_id"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentArtifactPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyAssignmentArtifactPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyAssignmentArtifactPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameters: Mapping[str, 'outputs.ParameterValueBaseResponse'],
+                 policy_definition_id: str,
+                 depends_on: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 resource_group: Optional[str] = None):
+        """
+        PolicyAssignment properties
+        :param Mapping[str, 'ParameterValueBaseResponse'] parameters: Parameter values for the policy definition.
+        :param str policy_definition_id: Azure resource ID of the policy definition.
+        :param Sequence[str] depends_on: Artifacts which need to be deployed before the specified artifact.
+        :param str description: Multi-line explain this resource.
+        :param str display_name: One-liner string explain this resource.
+        :param str resource_group: Name of the resource group placeholder to which the policy will be assigned.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, 'outputs.ParameterValueBaseResponse']:
+        """
+        Parameter values for the policy definition.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyDefinitionId")
+    def policy_definition_id(self) -> str:
+        """
+        Azure resource ID of the policy definition.
+        """
+        return pulumi.get(self, "policy_definition_id")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence[str]]:
+        """
+        Artifacts which need to be deployed before the specified artifact.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Multi-line explain this resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        One-liner string explain this resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Name of the resource group placeholder to which the policy will be assigned.
+        """
+        return pulumi.get(self, "resource_group")
+
+
+@pulumi.output_type
+class PublishedBlueprintPropertiesResponse(dict):
+    """
+    Schema for published Blueprint properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blueprintName":
+            suggest = "blueprint_name"
+        elif key == "changeNotes":
+            suggest = "change_notes"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+        elif key == "targetScope":
+            suggest = "target_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublishedBlueprintPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublishedBlueprintPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublishedBlueprintPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: 'outputs.BlueprintStatusResponse',
+                 blueprint_name: Optional[str] = None,
+                 change_notes: Optional[str] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterDefinitionResponse']] = None,
+                 resource_groups: Optional[Mapping[str, 'outputs.ResourceGroupDefinitionResponse']] = None,
+                 target_scope: Optional[str] = None):
+        """
+        Schema for published Blueprint properties.
+        :param 'BlueprintStatusResponse' status: Status of the Blueprint. This field is readonly.
+        :param str blueprint_name: Name of the Blueprint definition.
+        :param str change_notes: Version-specific change notes
+        :param str description: Multi-line explain this resource.
+        :param str display_name: One-liner string explain this resource.
+        :param Mapping[str, 'ParameterDefinitionResponse'] parameters: Parameters required by this Blueprint definition.
+        :param Mapping[str, 'ResourceGroupDefinitionResponse'] resource_groups: Resource group placeholders defined by this Blueprint definition.
+        :param str target_scope: The scope where this Blueprint can be applied.
+        """
+        pulumi.set(__self__, "status", status)
+        if blueprint_name is not None:
+            pulumi.set(__self__, "blueprint_name", blueprint_name)
+        if change_notes is not None:
+            pulumi.set(__self__, "change_notes", change_notes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if target_scope is not None:
+            pulumi.set(__self__, "target_scope", target_scope)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.BlueprintStatusResponse':
+        """
+        Status of the Blueprint. This field is readonly.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="blueprintName")
+    def blueprint_name(self) -> Optional[str]:
+        """
+        Name of the Blueprint definition.
+        """
+        return pulumi.get(self, "blueprint_name")
+
+    @property
+    @pulumi.getter(name="changeNotes")
+    def change_notes(self) -> Optional[str]:
+        """
+        Version-specific change notes
+        """
+        return pulumi.get(self, "change_notes")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Multi-line explain this resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        One-liner string explain this resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionResponse']]:
+        """
+        Parameters required by this Blueprint definition.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[Mapping[str, 'outputs.ResourceGroupDefinitionResponse']]:
+        """
+        Resource group placeholders defined by this Blueprint definition.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @property
+    @pulumi.getter(name="targetScope")
+    def target_scope(self) -> Optional[str]:
+        """
+        The scope where this Blueprint can be applied.
+        """
+        return pulumi.get(self, "target_scope")
+
+
+@pulumi.output_type
 class ResourceGroupDefinitionResponse(dict):
     """
     Represents an Azure resource group in a Blueprint definition.
@@ -478,5 +972,213 @@ class ResourceGroupValueResponse(dict):
         Name of the resource group
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RoleAssignmentArtifactPropertiesResponse(dict):
+    """
+    Properties of the Role assignment artifact.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalIds":
+            suggest = "principal_ids"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleAssignmentArtifactPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleAssignmentArtifactPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleAssignmentArtifactPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_ids: Any,
+                 role_definition_id: str,
+                 depends_on: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 resource_group: Optional[str] = None):
+        """
+        Properties of the Role assignment artifact.
+        :param Any principal_ids: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+        :param str role_definition_id: Azure resource ID of the RoleDefinition.
+        :param Sequence[str] depends_on: Artifacts which need to be deployed before the specified artifact.
+        :param str description: Multi-line explain this resource.
+        :param str display_name: One-liner string explain this resource.
+        :param str resource_group: RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
+        """
+        pulumi.set(__self__, "principal_ids", principal_ids)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+
+    @property
+    @pulumi.getter(name="principalIds")
+    def principal_ids(self) -> Any:
+        """
+        Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+        """
+        return pulumi.get(self, "principal_ids")
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> str:
+        """
+        Azure resource ID of the RoleDefinition.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence[str]]:
+        """
+        Artifacts which need to be deployed before the specified artifact.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Multi-line explain this resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        One-liner string explain this resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
+        """
+        return pulumi.get(self, "resource_group")
+
+
+@pulumi.output_type
+class TemplateArtifactPropertiesResponse(dict):
+    """
+    Properties of a Template Artifact.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateArtifactPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateArtifactPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateArtifactPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameters: Mapping[str, 'outputs.ParameterValueBaseResponse'],
+                 template: Any,
+                 depends_on: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 resource_group: Optional[str] = None):
+        """
+        Properties of a Template Artifact.
+        :param Mapping[str, 'ParameterValueBaseResponse'] parameters: Template parameter values.
+        :param Any template: The Azure Resource Manager template body.
+        :param Sequence[str] depends_on: Artifacts which need to be deployed before the specified artifact.
+        :param str description: Multi-line explain this resource.
+        :param str display_name: One-liner string explain this resource.
+        :param str resource_group: If applicable, the name of the resource group placeholder to which the template will be deployed.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "template", template)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, 'outputs.ParameterValueBaseResponse']:
+        """
+        Template parameter values.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Any:
+        """
+        The Azure Resource Manager template body.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence[str]]:
+        """
+        Artifacts which need to be deployed before the specified artifact.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Multi-line explain this resource.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        One-liner string explain this resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        If applicable, the name of the resource group placeholder to which the template will be deployed.
+        """
+        return pulumi.get(self, "resource_group")
 
 

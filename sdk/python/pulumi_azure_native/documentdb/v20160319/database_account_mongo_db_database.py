@@ -16,21 +16,18 @@ __all__ = ['DatabaseAccountMongoDBDatabaseArgs', 'DatabaseAccountMongoDBDatabase
 class DatabaseAccountMongoDBDatabaseArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 options: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 resource: pulumi.Input['MongoDBDatabaseResourceArgs'],
+                 properties: pulumi.Input['MongoDBDatabaseCreateUpdatePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  database_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatabaseAccountMongoDBDatabase resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input['MongoDBDatabaseResourceArgs'] resource: The standard JSON format of a MongoDB database
+        :param pulumi.Input['MongoDBDatabaseCreateUpdatePropertiesArgs'] properties: Properties to create and update Azure Cosmos DB MongoDB database.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
@@ -49,27 +46,15 @@ class DatabaseAccountMongoDBDatabaseArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+    def properties(self) -> pulumi.Input['MongoDBDatabaseCreateUpdatePropertiesArgs']:
         """
-        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        Properties to create and update Azure Cosmos DB MongoDB database.
         """
-        return pulumi.get(self, "options")
+        return pulumi.get(self, "properties")
 
-    @options.setter
-    def options(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> pulumi.Input['MongoDBDatabaseResourceArgs']:
-        """
-        The standard JSON format of a MongoDB database
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: pulumi.Input['MongoDBDatabaseResourceArgs']):
-        pulumi.set(self, "resource", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['MongoDBDatabaseCreateUpdatePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -108,8 +93,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MongoDBDatabaseCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -119,8 +103,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-        :param pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']] resource: The standard JSON format of a MongoDB database
+        :param pulumi.Input[pulumi.InputType['MongoDBDatabaseCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB MongoDB database.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         """
         ...
@@ -149,8 +132,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource: Optional[pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['MongoDBDatabaseCreateUpdatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""DatabaseAccountMongoDBDatabase is deprecated: Version 2016-03-19 will be removed in v2 of the provider.""")
@@ -166,12 +148,9 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["database_name"] = database_name
-            if options is None and not opts.urn:
-                raise TypeError("Missing required property 'options'")
-            __props__.__dict__["options"] = options
-            if resource is None and not opts.urn:
-                raise TypeError("Missing required property 'resource'")
-            __props__.__dict__["resource"] = resource
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name

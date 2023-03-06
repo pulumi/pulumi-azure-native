@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class FilterActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Condition to be used for filtering the input.
-        /// </summary>
-        [Input("condition", required: true)]
-        public Input<Inputs.ExpressionArgs> Condition { get; set; } = null!;
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -40,12 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Input array on which filter should be applied.
-        /// </summary>
-        [Input("items", required: true)]
-        public Input<Inputs.ExpressionArgs> Items { get; set; } = null!;
-
-        /// <summary>
         /// Activity name.
         /// </summary>
         [Input("name", required: true)]
@@ -57,6 +45,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Filter activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.FilterActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         [Input("userProperties")]
         private InputList<Inputs.UserPropertyArgs>? _userProperties;

@@ -18,7 +18,9 @@ __all__ = [
     'LinuxPropertiesArgs',
     'NonAzureQueryPropertiesArgs',
     'SchedulePropertiesArgs',
+    'SoftwareUpdateConfigurationPropertiesArgs',
     'SoftwareUpdateConfigurationTasksArgs',
+    'SourceControlCreateOrUpdatePropertiesArgs',
     'SourceControlSecurityTokenPropertiesArgs',
     'TagSettingsPropertiesArgs',
     'TargetPropertiesArgs',
@@ -550,6 +552,76 @@ class SchedulePropertiesArgs:
 
 
 @pulumi.input_type
+class SoftwareUpdateConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 schedule_info: pulumi.Input['SchedulePropertiesArgs'],
+                 update_configuration: pulumi.Input['UpdateConfigurationArgs'],
+                 error: Optional[pulumi.Input['ErrorResponseArgs']] = None,
+                 tasks: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']] = None):
+        """
+        Software update configuration properties.
+        :param pulumi.Input['SchedulePropertiesArgs'] schedule_info: Schedule information for the Software update configuration
+        :param pulumi.Input['UpdateConfigurationArgs'] update_configuration: update specific properties for the Software update configuration
+        :param pulumi.Input['ErrorResponseArgs'] error: Details of provisioning error
+        :param pulumi.Input['SoftwareUpdateConfigurationTasksArgs'] tasks: Tasks information for the Software update configuration.
+        """
+        pulumi.set(__self__, "schedule_info", schedule_info)
+        pulumi.set(__self__, "update_configuration", update_configuration)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if tasks is not None:
+            pulumi.set(__self__, "tasks", tasks)
+
+    @property
+    @pulumi.getter(name="scheduleInfo")
+    def schedule_info(self) -> pulumi.Input['SchedulePropertiesArgs']:
+        """
+        Schedule information for the Software update configuration
+        """
+        return pulumi.get(self, "schedule_info")
+
+    @schedule_info.setter
+    def schedule_info(self, value: pulumi.Input['SchedulePropertiesArgs']):
+        pulumi.set(self, "schedule_info", value)
+
+    @property
+    @pulumi.getter(name="updateConfiguration")
+    def update_configuration(self) -> pulumi.Input['UpdateConfigurationArgs']:
+        """
+        update specific properties for the Software update configuration
+        """
+        return pulumi.get(self, "update_configuration")
+
+    @update_configuration.setter
+    def update_configuration(self, value: pulumi.Input['UpdateConfigurationArgs']):
+        pulumi.set(self, "update_configuration", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input['ErrorResponseArgs']]:
+        """
+        Details of provisioning error
+        """
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input['ErrorResponseArgs']]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter
+    def tasks(self) -> Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']]:
+        """
+        Tasks information for the Software update configuration.
+        """
+        return pulumi.get(self, "tasks")
+
+    @tasks.setter
+    def tasks(self, value: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']]):
+        pulumi.set(self, "tasks", value)
+
+
+@pulumi.input_type
 class SoftwareUpdateConfigurationTasksArgs:
     def __init__(__self__, *,
                  post_task: Optional[pulumi.Input['TaskPropertiesArgs']] = None,
@@ -587,6 +659,142 @@ class SoftwareUpdateConfigurationTasksArgs:
     @pre_task.setter
     def pre_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
         pulumi.set(self, "pre_task", value)
+
+
+@pulumi.input_type
+class SourceControlCreateOrUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 auto_sync: Optional[pulumi.Input[bool]] = None,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 folder_path: Optional[pulumi.Input[str]] = None,
+                 publish_runbook: Optional[pulumi.Input[bool]] = None,
+                 repo_url: Optional[pulumi.Input[str]] = None,
+                 security_token: Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']] = None,
+                 source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None):
+        """
+        The properties of the create source control operation.
+        :param pulumi.Input[bool] auto_sync: The auto async of the source control. Default is false.
+        :param pulumi.Input[str] branch: The repo branch of the source control. Include branch as empty string for VsoTfvc.
+        :param pulumi.Input[str] description: The user description of the source control.
+        :param pulumi.Input[str] folder_path: The folder path of the source control. Path must be relative.
+        :param pulumi.Input[bool] publish_runbook: The auto publish of the source control. Default is true.
+        :param pulumi.Input[str] repo_url: The repo url of the source control.
+        :param pulumi.Input['SourceControlSecurityTokenPropertiesArgs'] security_token: The authorization token for the repo of the source control.
+        :param pulumi.Input[Union[str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+        """
+        if auto_sync is not None:
+            pulumi.set(__self__, "auto_sync", auto_sync)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if publish_runbook is not None:
+            pulumi.set(__self__, "publish_runbook", publish_runbook)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if security_token is not None:
+            pulumi.set(__self__, "security_token", security_token)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="autoSync")
+    def auto_sync(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The auto async of the source control. Default is false.
+        """
+        return pulumi.get(self, "auto_sync")
+
+    @auto_sync.setter
+    def auto_sync(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_sync", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repo branch of the source control. Include branch as empty string for VsoTfvc.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user description of the source control.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The folder path of the source control. Path must be relative.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter(name="publishRunbook")
+    def publish_runbook(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The auto publish of the source control. Default is true.
+        """
+        return pulumi.get(self, "publish_runbook")
+
+    @publish_runbook.setter
+    def publish_runbook(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publish_runbook", value)
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repo url of the source control.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @repo_url.setter
+    def repo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repo_url", value)
+
+    @property
+    @pulumi.getter(name="securityToken")
+    def security_token(self) -> Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']]:
+        """
+        The authorization token for the repo of the source control.
+        """
+        return pulumi.get(self, "security_token")
+
+    @security_token.setter
+    def security_token(self, value: Optional[pulumi.Input['SourceControlSecurityTokenPropertiesArgs']]):
+        pulumi.set(self, "security_token", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[Union[str, 'SourceType']]]:
+        """
+        The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[Union[str, 'SourceType']]]):
+        pulumi.set(self, "source_type", value)
 
 
 @pulumi.input_type

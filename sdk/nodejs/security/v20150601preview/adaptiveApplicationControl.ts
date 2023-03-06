@@ -39,15 +39,6 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     }
 
     /**
-     * The configuration status of the VM/server group or machine or rule on the machine
-     */
-    public /*out*/ readonly configurationStatus!: pulumi.Output<string | undefined>;
-    /**
-     * The application control policy enforcement/protection mode of the VM/server group
-     */
-    public readonly enforcementMode!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly issues!: pulumi.Output<outputs.security.v20150601preview.AppWhitelistingIssueSummaryResponse[] | undefined>;
-    /**
      * Location where the resource is stored
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
@@ -55,24 +46,14 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly pathRecommendations!: pulumi.Output<outputs.security.v20150601preview.PathRecommendationResponse[] | undefined>;
     /**
-     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+     * Represents a VM/server group and set of rules that are Recommended by Microsoft Defender for Cloud to be allowed
      */
-    public readonly protectionMode!: pulumi.Output<outputs.security.v20150601preview.ProtectionModeResponse | undefined>;
-    /**
-     * The recommendation status of the VM/server group or VM/server
-     */
-    public /*out*/ readonly recommendationStatus!: pulumi.Output<string | undefined>;
-    /**
-     * The source type of the VM/server group
-     */
-    public /*out*/ readonly sourceSystem!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20150601preview.AppWhitelistingGroupDataResponse>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    public readonly vmRecommendations!: pulumi.Output<outputs.security.v20150601preview.VmRecommendationResponse[] | undefined>;
 
     /**
      * Create a AdaptiveApplicationControl resource with the given unique name, arguments, and options.
@@ -96,25 +77,15 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             resourceInputs["pathRecommendations"] = args ? args.pathRecommendations : undefined;
             resourceInputs["protectionMode"] = args ? args.protectionMode : undefined;
             resourceInputs["vmRecommendations"] = args ? args.vmRecommendations : undefined;
-            resourceInputs["configurationStatus"] = undefined /*out*/;
-            resourceInputs["issues"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["recommendationStatus"] = undefined /*out*/;
-            resourceInputs["sourceSystem"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["configurationStatus"] = undefined /*out*/;
-            resourceInputs["enforcementMode"] = undefined /*out*/;
-            resourceInputs["issues"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["pathRecommendations"] = undefined /*out*/;
-            resourceInputs["protectionMode"] = undefined /*out*/;
-            resourceInputs["recommendationStatus"] = undefined /*out*/;
-            resourceInputs["sourceSystem"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmRecommendations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:security:AdaptiveApplicationControl" }, { type: "azure-native:security/v20200101:AdaptiveApplicationControl" }] };

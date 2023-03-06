@@ -42,17 +42,13 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * Metadata attached to the virtual network link.
-     */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the virtual network link.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.network.v20220701.VirtualNetworkLinkPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -61,10 +57,6 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The reference to the virtual network. This cannot be changed after creation.
-     */
-    public readonly virtualNetwork!: pulumi.Output<outputs.network.v20220701.SubResourceResponse>;
 
     /**
      * Create a VirtualNetworkLink resource with the given unique name, arguments, and options.
@@ -80,30 +72,26 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             if ((!args || args.dnsForwardingRulesetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsForwardingRulesetName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetwork'");
-            }
             resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
             resourceInputs["virtualNetworkLinkName"] = args ? args.virtualNetworkLinkName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:VirtualNetworkLink" }] };
@@ -121,17 +109,13 @@ export interface VirtualNetworkLinkArgs {
      */
     dnsForwardingRulesetName: pulumi.Input<string>;
     /**
-     * Metadata attached to the virtual network link.
+     * Properties of the virtual network link.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties: pulumi.Input<inputs.network.v20220701.VirtualNetworkLinkPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The reference to the virtual network. This cannot be changed after creation.
-     */
-    virtualNetwork: pulumi.Input<inputs.network.v20220701.SubResourceArgs>;
     /**
      * The name of the virtual network link.
      */

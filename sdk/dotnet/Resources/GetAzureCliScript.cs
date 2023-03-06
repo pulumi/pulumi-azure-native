@@ -72,30 +72,6 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetAzureCliScriptResult
     {
         /// <summary>
-        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
-        /// </summary>
-        public readonly string? Arguments;
-        /// <summary>
-        /// Azure CLI module version to be used.
-        /// </summary>
-        public readonly string AzCliVersion;
-        /// <summary>
-        /// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-        /// </summary>
-        public readonly string? CleanupPreference;
-        /// <summary>
-        /// Container settings.
-        /// </summary>
-        public readonly Outputs.ContainerConfigurationResponse? ContainerSettings;
-        /// <summary>
-        /// The environment variables to pass over to the script.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentVariableResponse> EnvironmentVariables;
-        /// <summary>
-        /// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-        /// </summary>
-        public readonly string? ForceUpdateTag;
-        /// <summary>
         /// String Id used to locate any resource on Azure.
         /// </summary>
         public readonly string Id;
@@ -117,37 +93,9 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of script outputs.
+        /// Properties of the Azure CLI script object.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Outputs;
-        /// <summary>
-        /// Uri for the script. This is the entry point for the external script.
-        /// </summary>
-        public readonly string? PrimaryScriptUri;
-        /// <summary>
-        /// State of the script execution. This only appears in the response.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-        /// </summary>
-        public readonly string RetentionInterval;
-        /// <summary>
-        /// Script body.
-        /// </summary>
-        public readonly string? ScriptContent;
-        /// <summary>
-        /// Contains the results of script execution.
-        /// </summary>
-        public readonly Outputs.ScriptStatusResponse Status;
-        /// <summary>
-        /// Storage Account settings.
-        /// </summary>
-        public readonly Outputs.StorageAccountConfigurationResponse? StorageAccountSettings;
-        /// <summary>
-        /// Supporting files for the external script.
-        /// </summary>
-        public readonly ImmutableArray<string> SupportingScriptUris;
+        public readonly Outputs.AzureCliScriptPropertiesResponse Properties;
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
@@ -157,28 +105,12 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-        /// </summary>
-        public readonly string? Timeout;
-        /// <summary>
         /// Type of this resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAzureCliScriptResult(
-            string? arguments,
-
-            string azCliVersion,
-
-            string? cleanupPreference,
-
-            Outputs.ContainerConfigurationResponse? containerSettings,
-
-            ImmutableArray<Outputs.EnvironmentVariableResponse> environmentVariables,
-
-            string? forceUpdateTag,
-
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -189,52 +121,22 @@ namespace Pulumi.AzureNative.Resources
 
             string name,
 
-            ImmutableDictionary<string, object> outputs,
-
-            string? primaryScriptUri,
-
-            string provisioningState,
-
-            string retentionInterval,
-
-            string? scriptContent,
-
-            Outputs.ScriptStatusResponse status,
-
-            Outputs.StorageAccountConfigurationResponse? storageAccountSettings,
-
-            ImmutableArray<string> supportingScriptUris,
+            Outputs.AzureCliScriptPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? timeout,
-
             string type)
         {
-            Arguments = arguments;
-            AzCliVersion = azCliVersion;
-            CleanupPreference = cleanupPreference;
-            ContainerSettings = containerSettings;
-            EnvironmentVariables = environmentVariables;
-            ForceUpdateTag = forceUpdateTag;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
-            Outputs = outputs;
-            PrimaryScriptUri = primaryScriptUri;
-            ProvisioningState = provisioningState;
-            RetentionInterval = retentionInterval;
-            ScriptContent = scriptContent;
-            Status = status;
-            StorageAccountSettings = storageAccountSettings;
-            SupportingScriptUris = supportingScriptUris;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            Timeout = timeout;
             Type = type;
         }
     }

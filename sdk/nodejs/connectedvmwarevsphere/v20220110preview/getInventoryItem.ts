@@ -44,33 +44,17 @@ export interface GetInventoryItemResult {
      */
     readonly id: string;
     /**
-     * They inventory type.
-     */
-    readonly inventoryType: string;
-    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     readonly kind?: string;
-    /**
-     * Gets or sets the tracked resource id corresponding to the inventory resource.
-     */
-    readonly managedResourceId?: string;
-    /**
-     * Gets or sets the vCenter Managed Object name for the inventory item.
-     */
-    readonly moName?: string;
-    /**
-     * Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
-     */
-    readonly moRefId?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state.
+     * Resource properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.connectedvmwarevsphere.v20220110preview.ClusterInventoryItemResponse | outputs.connectedvmwarevsphere.v20220110preview.DatastoreInventoryItemResponse | outputs.connectedvmwarevsphere.v20220110preview.HostInventoryItemResponse | outputs.connectedvmwarevsphere.v20220110preview.ResourcePoolInventoryItemResponse | outputs.connectedvmwarevsphere.v20220110preview.VirtualMachineInventoryItemResponse | outputs.connectedvmwarevsphere.v20220110preview.VirtualMachineTemplateInventoryItemResponse | outputs.connectedvmwarevsphere.v20220110preview.VirtualNetworkInventoryItemResponse;
     /**
      * The system data.
      */

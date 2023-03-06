@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,18 +38,6 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * The ADLS account name.
-     */
-    public readonly accountName!: pulumi.Output<string>;
-    /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
-     * The folder path within the ADLS account.
-     */
-    public readonly folderPath!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'AdlsGen1Folder'.
      */
@@ -56,13 +47,9 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource group of ADLS account.
+     * ADLS Gen 1 folder data set properties.
      */
-    public readonly resourceGroup!: pulumi.Output<string>;
-    /**
-     * Subscription id of ADLS account.
-     */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20191101.ADLSGen1FolderPropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -82,14 +69,11 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.folderPath === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'folderPath'");
-            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroup'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -97,28 +81,18 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
             resourceInputs["kind"] = "AdlsGen1Folder";
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["accountName"] = undefined /*out*/;
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["folderPath"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["resourceGroup"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -133,7 +107,7 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
  */
 export interface ADLSGen1FolderDataSetArgs {
     /**
-     * The ADLS account name.
+     * The name of the share account.
      */
     accountName: pulumi.Input<string>;
     /**
@@ -141,18 +115,14 @@ export interface ADLSGen1FolderDataSetArgs {
      */
     dataSetName?: pulumi.Input<string>;
     /**
-     * The folder path within the ADLS account.
-     */
-    folderPath: pulumi.Input<string>;
-    /**
      * Kind of data set.
      * Expected value is 'AdlsGen1Folder'.
      */
     kind: pulumi.Input<"AdlsGen1Folder">;
     /**
-     * Resource group of ADLS account.
+     * ADLS Gen 1 folder data set properties.
      */
-    resourceGroup: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.datashare.v20191101.ADLSGen1FolderPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -161,8 +131,4 @@ export interface ADLSGen1FolderDataSetArgs {
      * The name of the share to add the data set to.
      */
     shareName: pulumi.Input<string>;
-    /**
-     * Subscription id of ADLS account.
-     */
-    subscriptionId: pulumi.Input<string>;
 }

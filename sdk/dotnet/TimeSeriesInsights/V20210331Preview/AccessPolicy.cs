@@ -106,40 +106,19 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         public Input<string>? AccessPolicyName { get; set; }
 
         /// <summary>
-        /// An description of the access policy.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
 
-        /// <summary>
-        /// The objectId of the principal in Azure Active Directory.
-        /// </summary>
-        [Input("principalObjectId")]
-        public Input<string>? PrincipalObjectId { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.AccessPolicyResourcePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("roles")]
-        private InputList<Union<string, Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview.AccessPolicyRole>>? _roles;
-
-        /// <summary>
-        /// The list of roles the principal is assigned on the environment.
-        /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview.AccessPolicyRole>> Roles
-        {
-            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview.AccessPolicyRole>>());
-            set => _roles = value;
-        }
 
         public AccessPolicyArgs()
         {

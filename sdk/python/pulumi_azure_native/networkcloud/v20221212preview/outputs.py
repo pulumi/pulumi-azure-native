@@ -14,21 +14,32 @@ from ._enums import *
 __all__ = [
     'AdministrativeCredentialsResponse',
     'BareMetalMachineConfigurationDataResponse',
+    'BareMetalMachineKeySetPropertiesResponse',
+    'BareMetalMachinePropertiesResponse',
     'BgpPeerResponse',
+    'BmcKeySetPropertiesResponse',
     'ClusterAvailableUpgradeVersionResponse',
     'ClusterAvailableVersionResponse',
     'ClusterCapacityResponse',
+    'ClusterManagerPropertiesResponse',
+    'ClusterMetricsConfigurationPropertiesResponse',
+    'ClusterPropertiesResponse',
     'CniBgpConfigurationResponse',
     'CommunityAdvertisementResponse',
+    'ConsolePropertiesResponse',
+    'DefaultCniNetworkPropertiesResponse',
     'EgressEndpointResponse',
     'EndpointDependencyResponse',
     'ExtendedLocationResponse',
     'HardwareInventoryNetworkInterfaceResponse',
     'HardwareInventoryResponse',
     'HardwareValidationStatusResponse',
+    'HybridAksClusterPropertiesResponse',
     'ImageRepositoryCredentialsResponse',
     'KeySetUserResponse',
     'KeySetUserStatusResponse',
+    'L2NetworkPropertiesResponse',
+    'L3NetworkPropertiesResponse',
     'LldpNeighborResponse',
     'ManagedResourceGroupConfigurationResponse',
     'NetworkAttachmentResponse',
@@ -37,13 +48,18 @@ __all__ = [
     'NodeResponse',
     'OsDiskResponse',
     'RackDefinitionResponse',
+    'RackPropertiesResponse',
     'ServicePrincipalInformationResponse',
     'SshPublicKeyResponse',
     'StorageApplianceConfigurationDataResponse',
+    'StorageAppliancePropertiesResponse',
     'StorageProfileResponse',
     'SystemDataResponse',
+    'TrunkedNetworkPropertiesResponse',
     'ValidationThresholdResponse',
     'VirtualMachinePlacementHintResponse',
+    'VirtualMachinePropertiesResponse',
+    'VolumePropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -202,6 +218,533 @@ class BareMetalMachineConfigurationDataResponse(dict):
 
 
 @pulumi.output_type
+class BareMetalMachineKeySetPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureGroupId":
+            suggest = "azure_group_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "jumpHostsAllowed":
+            suggest = "jump_hosts_allowed"
+        elif key == "lastValidation":
+            suggest = "last_validation"
+        elif key == "privilegeLevel":
+            suggest = "privilege_level"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "userList":
+            suggest = "user_list"
+        elif key == "userListStatus":
+            suggest = "user_list_status"
+        elif key == "osGroupName":
+            suggest = "os_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BareMetalMachineKeySetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BareMetalMachineKeySetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BareMetalMachineKeySetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_group_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 expiration: str,
+                 jump_hosts_allowed: Sequence[str],
+                 last_validation: str,
+                 privilege_level: str,
+                 provisioning_state: str,
+                 user_list: Sequence['outputs.KeySetUserResponse'],
+                 user_list_status: Sequence['outputs.KeySetUserStatusResponse'],
+                 os_group_name: Optional[str] = None):
+        """
+        :param str azure_group_id: The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        :param str detailed_status: The more detailed status of the key set.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str expiration: The date and time after which the users in this key set will be removed from the bare metal machines.
+        :param Sequence[str] jump_hosts_allowed: The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
+        :param str last_validation: The last time this key set was validated.
+        :param str privilege_level: The access level allowed for the users in this key set.
+        :param str provisioning_state: The provisioning state of the bare metal machine key set.
+        :param Sequence['KeySetUserResponse'] user_list: The unique list of permitted users.
+        :param Sequence['KeySetUserStatusResponse'] user_list_status: The status evaluation of each user.
+        :param str os_group_name: The name of the group that users will be assigned to on the operating system of the machines.
+        """
+        pulumi.set(__self__, "azure_group_id", azure_group_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "expiration", expiration)
+        pulumi.set(__self__, "jump_hosts_allowed", jump_hosts_allowed)
+        pulumi.set(__self__, "last_validation", last_validation)
+        pulumi.set(__self__, "privilege_level", privilege_level)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "user_list", user_list)
+        pulumi.set(__self__, "user_list_status", user_list_status)
+        if os_group_name is not None:
+            pulumi.set(__self__, "os_group_name", os_group_name)
+
+    @property
+    @pulumi.getter(name="azureGroupId")
+    def azure_group_id(self) -> str:
+        """
+        The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        """
+        return pulumi.get(self, "azure_group_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the key set.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> str:
+        """
+        The date and time after which the users in this key set will be removed from the bare metal machines.
+        """
+        return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter(name="jumpHostsAllowed")
+    def jump_hosts_allowed(self) -> Sequence[str]:
+        """
+        The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
+        """
+        return pulumi.get(self, "jump_hosts_allowed")
+
+    @property
+    @pulumi.getter(name="lastValidation")
+    def last_validation(self) -> str:
+        """
+        The last time this key set was validated.
+        """
+        return pulumi.get(self, "last_validation")
+
+    @property
+    @pulumi.getter(name="privilegeLevel")
+    def privilege_level(self) -> str:
+        """
+        The access level allowed for the users in this key set.
+        """
+        return pulumi.get(self, "privilege_level")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the bare metal machine key set.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="userList")
+    def user_list(self) -> Sequence['outputs.KeySetUserResponse']:
+        """
+        The unique list of permitted users.
+        """
+        return pulumi.get(self, "user_list")
+
+    @property
+    @pulumi.getter(name="userListStatus")
+    def user_list_status(self) -> Sequence['outputs.KeySetUserStatusResponse']:
+        """
+        The status evaluation of each user.
+        """
+        return pulumi.get(self, "user_list_status")
+
+    @property
+    @pulumi.getter(name="osGroupName")
+    def os_group_name(self) -> Optional[str]:
+        """
+        The name of the group that users will be assigned to on the operating system of the machines.
+        """
+        return pulumi.get(self, "os_group_name")
+
+
+@pulumi.output_type
+class BareMetalMachinePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bmcConnectionString":
+            suggest = "bmc_connection_string"
+        elif key == "bmcCredentials":
+            suggest = "bmc_credentials"
+        elif key == "bmcMacAddress":
+            suggest = "bmc_mac_address"
+        elif key == "bootMacAddress":
+            suggest = "boot_mac_address"
+        elif key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "cordonStatus":
+            suggest = "cordon_status"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "hybridAksClustersAssociatedIds":
+            suggest = "hybrid_aks_clusters_associated_ids"
+        elif key == "kubernetesNodeName":
+            suggest = "kubernetes_node_name"
+        elif key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+        elif key == "machineDetails":
+            suggest = "machine_details"
+        elif key == "machineName":
+            suggest = "machine_name"
+        elif key == "machineSkuId":
+            suggest = "machine_sku_id"
+        elif key == "oamIpv4Address":
+            suggest = "oam_ipv4_address"
+        elif key == "oamIpv6Address":
+            suggest = "oam_ipv6_address"
+        elif key == "osImage":
+            suggest = "os_image"
+        elif key == "powerState":
+            suggest = "power_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "rackId":
+            suggest = "rack_id"
+        elif key == "rackSlot":
+            suggest = "rack_slot"
+        elif key == "readyState":
+            suggest = "ready_state"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "virtualMachinesAssociatedIds":
+            suggest = "virtual_machines_associated_ids"
+        elif key == "hardwareInventory":
+            suggest = "hardware_inventory"
+        elif key == "hardwareValidationStatus":
+            suggest = "hardware_validation_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BareMetalMachinePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BareMetalMachinePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BareMetalMachinePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bmc_connection_string: str,
+                 bmc_credentials: 'outputs.AdministrativeCredentialsResponse',
+                 bmc_mac_address: str,
+                 boot_mac_address: str,
+                 cluster_id: str,
+                 cordon_status: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 hybrid_aks_clusters_associated_ids: Sequence[str],
+                 kubernetes_node_name: str,
+                 kubernetes_version: str,
+                 machine_details: str,
+                 machine_name: str,
+                 machine_sku_id: str,
+                 oam_ipv4_address: str,
+                 oam_ipv6_address: str,
+                 os_image: str,
+                 power_state: str,
+                 provisioning_state: str,
+                 rack_id: str,
+                 rack_slot: float,
+                 ready_state: str,
+                 serial_number: str,
+                 service_tag: str,
+                 virtual_machines_associated_ids: Sequence[str],
+                 hardware_inventory: Optional['outputs.HardwareInventoryResponse'] = None,
+                 hardware_validation_status: Optional['outputs.HardwareValidationStatusResponse'] = None):
+        """
+        :param str bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
+        :param str bmc_mac_address: The MAC address of the BMC device.
+        :param str boot_mac_address: The MAC address of a NIC connected to the PXE network.
+        :param str cluster_id: The resource ID of the cluster this bare metal machine is associated with.
+        :param str cordon_status: The cordon status of the bare metal machine.
+        :param str detailed_status: The more detailed status of the bare metal machine.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param Sequence[str] hybrid_aks_clusters_associated_ids: The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+        :param str kubernetes_node_name: The name of this machine represented by the host object in the Cluster's Kubernetes control plane.
+        :param str kubernetes_version: The version of Kubernetes running on this machine.
+        :param str machine_details: The custom details provided by the customer.
+        :param str machine_name: The OS-level hostname assigned to this machine.
+        :param str machine_sku_id: The unique internal identifier of the bare metal machine SKU.
+        :param str oam_ipv4_address: The IPv4 address that is assigned to the bare metal machine during the cluster deployment.
+        :param str oam_ipv6_address: The IPv6 address that is assigned to the bare metal machine during the cluster deployment.
+        :param str os_image: The image that is currently provisioned to the OS disk.
+        :param str power_state: The power state derived from the baseboard management controller.
+        :param str provisioning_state: The provisioning state of the bare metal machine.
+        :param str rack_id: The resource ID of the rack where this bare metal machine resides.
+        :param float rack_slot: The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
+        :param str ready_state: The indicator of whether the bare metal machine is ready to receive workloads.
+        :param str serial_number: The serial number of the bare metal machine.
+        :param str service_tag: The discovered value of the machine's service tag.
+        :param Sequence[str] virtual_machines_associated_ids: The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+        """
+        pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
+        pulumi.set(__self__, "bmc_credentials", bmc_credentials)
+        pulumi.set(__self__, "bmc_mac_address", bmc_mac_address)
+        pulumi.set(__self__, "boot_mac_address", boot_mac_address)
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "cordon_status", cordon_status)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "hybrid_aks_clusters_associated_ids", hybrid_aks_clusters_associated_ids)
+        pulumi.set(__self__, "kubernetes_node_name", kubernetes_node_name)
+        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        pulumi.set(__self__, "machine_details", machine_details)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "machine_sku_id", machine_sku_id)
+        pulumi.set(__self__, "oam_ipv4_address", oam_ipv4_address)
+        pulumi.set(__self__, "oam_ipv6_address", oam_ipv6_address)
+        pulumi.set(__self__, "os_image", os_image)
+        pulumi.set(__self__, "power_state", power_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "rack_id", rack_id)
+        pulumi.set(__self__, "rack_slot", rack_slot)
+        pulumi.set(__self__, "ready_state", ready_state)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "service_tag", service_tag)
+        pulumi.set(__self__, "virtual_machines_associated_ids", virtual_machines_associated_ids)
+        if hardware_inventory is not None:
+            pulumi.set(__self__, "hardware_inventory", hardware_inventory)
+        if hardware_validation_status is not None:
+            pulumi.set(__self__, "hardware_validation_status", hardware_validation_status)
+
+    @property
+    @pulumi.getter(name="bmcConnectionString")
+    def bmc_connection_string(self) -> str:
+        """
+        The connection string for the baseboard management controller including IP address and protocol.
+        """
+        return pulumi.get(self, "bmc_connection_string")
+
+    @property
+    @pulumi.getter(name="bmcCredentials")
+    def bmc_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
+        return pulumi.get(self, "bmc_credentials")
+
+    @property
+    @pulumi.getter(name="bmcMacAddress")
+    def bmc_mac_address(self) -> str:
+        """
+        The MAC address of the BMC device.
+        """
+        return pulumi.get(self, "bmc_mac_address")
+
+    @property
+    @pulumi.getter(name="bootMacAddress")
+    def boot_mac_address(self) -> str:
+        """
+        The MAC address of a NIC connected to the PXE network.
+        """
+        return pulumi.get(self, "boot_mac_address")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the cluster this bare metal machine is associated with.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="cordonStatus")
+    def cordon_status(self) -> str:
+        """
+        The cordon status of the bare metal machine.
+        """
+        return pulumi.get(self, "cordon_status")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the bare metal machine.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="hybridAksClustersAssociatedIds")
+    def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
+        """
+        The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+        """
+        return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
+
+    @property
+    @pulumi.getter(name="kubernetesNodeName")
+    def kubernetes_node_name(self) -> str:
+        """
+        The name of this machine represented by the host object in the Cluster's Kubernetes control plane.
+        """
+        return pulumi.get(self, "kubernetes_node_name")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> str:
+        """
+        The version of Kubernetes running on this machine.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter(name="machineDetails")
+    def machine_details(self) -> str:
+        """
+        The custom details provided by the customer.
+        """
+        return pulumi.get(self, "machine_details")
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        The OS-level hostname assigned to this machine.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter(name="machineSkuId")
+    def machine_sku_id(self) -> str:
+        """
+        The unique internal identifier of the bare metal machine SKU.
+        """
+        return pulumi.get(self, "machine_sku_id")
+
+    @property
+    @pulumi.getter(name="oamIpv4Address")
+    def oam_ipv4_address(self) -> str:
+        """
+        The IPv4 address that is assigned to the bare metal machine during the cluster deployment.
+        """
+        return pulumi.get(self, "oam_ipv4_address")
+
+    @property
+    @pulumi.getter(name="oamIpv6Address")
+    def oam_ipv6_address(self) -> str:
+        """
+        The IPv6 address that is assigned to the bare metal machine during the cluster deployment.
+        """
+        return pulumi.get(self, "oam_ipv6_address")
+
+    @property
+    @pulumi.getter(name="osImage")
+    def os_image(self) -> str:
+        """
+        The image that is currently provisioned to the OS disk.
+        """
+        return pulumi.get(self, "os_image")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        The power state derived from the baseboard management controller.
+        """
+        return pulumi.get(self, "power_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the bare metal machine.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rackId")
+    def rack_id(self) -> str:
+        """
+        The resource ID of the rack where this bare metal machine resides.
+        """
+        return pulumi.get(self, "rack_id")
+
+    @property
+    @pulumi.getter(name="rackSlot")
+    def rack_slot(self) -> float:
+        """
+        The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
+        """
+        return pulumi.get(self, "rack_slot")
+
+    @property
+    @pulumi.getter(name="readyState")
+    def ready_state(self) -> str:
+        """
+        The indicator of whether the bare metal machine is ready to receive workloads.
+        """
+        return pulumi.get(self, "ready_state")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        The serial number of the bare metal machine.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> str:
+        """
+        The discovered value of the machine's service tag.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @property
+    @pulumi.getter(name="virtualMachinesAssociatedIds")
+    def virtual_machines_associated_ids(self) -> Sequence[str]:
+        """
+        The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+        """
+        return pulumi.get(self, "virtual_machines_associated_ids")
+
+    @property
+    @pulumi.getter(name="hardwareInventory")
+    def hardware_inventory(self) -> Optional['outputs.HardwareInventoryResponse']:
+        return pulumi.get(self, "hardware_inventory")
+
+    @property
+    @pulumi.getter(name="hardwareValidationStatus")
+    def hardware_validation_status(self) -> Optional['outputs.HardwareValidationStatusResponse']:
+        return pulumi.get(self, "hardware_validation_status")
+
+
+@pulumi.output_type
 class BgpPeerResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -247,6 +790,143 @@ class BgpPeerResponse(dict):
         The IPv4 or IPv6 address to peer with the associated CNI Network. The IP version type will drive a peering with the same version type from the Default CNI Network. For example, IPv4 to IPv4 or IPv6 to IPv6.
         """
         return pulumi.get(self, "peer_ip")
+
+
+@pulumi.output_type
+class BmcKeySetPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureGroupId":
+            suggest = "azure_group_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "lastValidation":
+            suggest = "last_validation"
+        elif key == "privilegeLevel":
+            suggest = "privilege_level"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "userList":
+            suggest = "user_list"
+        elif key == "userListStatus":
+            suggest = "user_list_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BmcKeySetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BmcKeySetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BmcKeySetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_group_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 expiration: str,
+                 last_validation: str,
+                 privilege_level: str,
+                 provisioning_state: str,
+                 user_list: Sequence['outputs.KeySetUserResponse'],
+                 user_list_status: Sequence['outputs.KeySetUserStatusResponse']):
+        """
+        :param str azure_group_id: The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        :param str detailed_status: The more detailed status of the key set.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str expiration: The date and time after which the users in this key set will be removed from the baseboard management controllers.
+        :param str last_validation: The last time this key set was validated.
+        :param str privilege_level: The access level allowed for the users in this key set.
+        :param str provisioning_state: The provisioning state of the baseboard management controller key set.
+        :param Sequence['KeySetUserResponse'] user_list: The unique list of permitted users.
+        :param Sequence['KeySetUserStatusResponse'] user_list_status: The status evaluation of each user.
+        """
+        pulumi.set(__self__, "azure_group_id", azure_group_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "expiration", expiration)
+        pulumi.set(__self__, "last_validation", last_validation)
+        pulumi.set(__self__, "privilege_level", privilege_level)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "user_list", user_list)
+        pulumi.set(__self__, "user_list_status", user_list_status)
+
+    @property
+    @pulumi.getter(name="azureGroupId")
+    def azure_group_id(self) -> str:
+        """
+        The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
+        """
+        return pulumi.get(self, "azure_group_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the key set.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> str:
+        """
+        The date and time after which the users in this key set will be removed from the baseboard management controllers.
+        """
+        return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter(name="lastValidation")
+    def last_validation(self) -> str:
+        """
+        The last time this key set was validated.
+        """
+        return pulumi.get(self, "last_validation")
+
+    @property
+    @pulumi.getter(name="privilegeLevel")
+    def privilege_level(self) -> str:
+        """
+        The access level allowed for the users in this key set.
+        """
+        return pulumi.get(self, "privilege_level")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the baseboard management controller key set.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="userList")
+    def user_list(self) -> Sequence['outputs.KeySetUserResponse']:
+        """
+        The unique list of permitted users.
+        """
+        return pulumi.get(self, "user_list")
+
+    @property
+    @pulumi.getter(name="userListStatus")
+    def user_list_status(self) -> Sequence['outputs.KeySetUserStatusResponse']:
+        """
+        The status evaluation of each user.
+        """
+        return pulumi.get(self, "user_list_status")
 
 
 @pulumi.output_type
@@ -532,6 +1212,582 @@ class ClusterCapacityResponse(dict):
 
 
 @pulumi.output_type
+class ClusterManagerPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterVersions":
+            suggest = "cluster_versions"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "fabricControllerId":
+            suggest = "fabric_controller_id"
+        elif key == "managerExtendedLocation":
+            suggest = "manager_extended_location"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "analyticsWorkspaceId":
+            suggest = "analytics_workspace_id"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "managedResourceGroupConfiguration":
+            suggest = "managed_resource_group_configuration"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterManagerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterManagerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterManagerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_versions: Sequence['outputs.ClusterAvailableVersionResponse'],
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 fabric_controller_id: str,
+                 manager_extended_location: 'outputs.ExtendedLocationResponse',
+                 provisioning_state: str,
+                 analytics_workspace_id: Optional[str] = None,
+                 availability_zones: Optional[Sequence[str]] = None,
+                 managed_resource_group_configuration: Optional['outputs.ManagedResourceGroupConfigurationResponse'] = None,
+                 vm_size: Optional[str] = None):
+        """
+        :param Sequence['ClusterAvailableVersionResponse'] cluster_versions: The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
+        :param str detailed_status: The detailed status that provides additional information about the cluster manager.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str fabric_controller_id: The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+        :param 'ExtendedLocationResponse' manager_extended_location: The extended location (custom location) that represents the cluster manager's control plane location.
+                This extended location is used when creating cluster and rack manifest resources.
+        :param str provisioning_state: The provisioning state of the cluster manager.
+        :param str analytics_workspace_id: The resource ID of the Log Analytics workspace that is used for the logs collection.
+        :param Sequence[str] availability_zones: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
+        :param 'ManagedResourceGroupConfigurationResponse' managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        :param str vm_size: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
+        """
+        pulumi.set(__self__, "cluster_versions", cluster_versions)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "fabric_controller_id", fabric_controller_id)
+        pulumi.set(__self__, "manager_extended_location", manager_extended_location)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if analytics_workspace_id is not None:
+            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if managed_resource_group_configuration is not None:
+            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="clusterVersions")
+    def cluster_versions(self) -> Sequence['outputs.ClusterAvailableVersionResponse']:
+        """
+        The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
+        """
+        return pulumi.get(self, "cluster_versions")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The detailed status that provides additional information about the cluster manager.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="fabricControllerId")
+    def fabric_controller_id(self) -> str:
+        """
+        The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+        """
+        return pulumi.get(self, "fabric_controller_id")
+
+    @property
+    @pulumi.getter(name="managerExtendedLocation")
+    def manager_extended_location(self) -> 'outputs.ExtendedLocationResponse':
+        """
+        The extended location (custom location) that represents the cluster manager's control plane location.
+         This extended location is used when creating cluster and rack manifest resources.
+        """
+        return pulumi.get(self, "manager_extended_location")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the cluster manager.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="analyticsWorkspaceId")
+    def analytics_workspace_id(self) -> Optional[str]:
+        """
+        The resource ID of the Log Analytics workspace that is used for the logs collection.
+        """
+        return pulumi.get(self, "analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupConfiguration")
+    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedResourceGroupConfigurationResponse']:
+        """
+        The configuration of the managed resource group associated with the resource.
+        """
+        return pulumi.get(self, "managed_resource_group_configuration")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
+        """
+        return pulumi.get(self, "vm_size")
+
+
+@pulumi.output_type
+class ClusterMetricsConfigurationPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionInterval":
+            suggest = "collection_interval"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "disabledMetrics":
+            suggest = "disabled_metrics"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "enabledMetrics":
+            suggest = "enabled_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMetricsConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMetricsConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMetricsConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_interval: float,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 disabled_metrics: Sequence[str],
+                 provisioning_state: str,
+                 enabled_metrics: Optional[Sequence[str]] = None):
+        """
+        :param float collection_interval: The interval in minutes by which metrics will be collected.
+        :param str detailed_status: The more detailed status of the metrics configuration.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param Sequence[str] disabled_metrics: The list of metrics that are available for the cluster but disabled at the moment.
+        :param str provisioning_state: The provisioning state of the metrics configuration.
+        :param Sequence[str] enabled_metrics: The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
+        """
+        pulumi.set(__self__, "collection_interval", collection_interval)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "disabled_metrics", disabled_metrics)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if enabled_metrics is not None:
+            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
+
+    @property
+    @pulumi.getter(name="collectionInterval")
+    def collection_interval(self) -> float:
+        """
+        The interval in minutes by which metrics will be collected.
+        """
+        return pulumi.get(self, "collection_interval")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the metrics configuration.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="disabledMetrics")
+    def disabled_metrics(self) -> Sequence[str]:
+        """
+        The list of metrics that are available for the cluster but disabled at the moment.
+        """
+        return pulumi.get(self, "disabled_metrics")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the metrics configuration.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="enabledMetrics")
+    def enabled_metrics(self) -> Optional[Sequence[str]]:
+        """
+        The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
+        """
+        return pulumi.get(self, "enabled_metrics")
+
+
+@pulumi.output_type
+class ClusterPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregatorOrSingleRackDefinition":
+            suggest = "aggregator_or_single_rack_definition"
+        elif key == "analyticsWorkspaceId":
+            suggest = "analytics_workspace_id"
+        elif key == "availableUpgradeVersions":
+            suggest = "available_upgrade_versions"
+        elif key == "clusterConnectionStatus":
+            suggest = "cluster_connection_status"
+        elif key == "clusterExtendedLocation":
+            suggest = "cluster_extended_location"
+        elif key == "clusterManagerConnectionStatus":
+            suggest = "cluster_manager_connection_status"
+        elif key == "clusterManagerId":
+            suggest = "cluster_manager_id"
+        elif key == "clusterType":
+            suggest = "cluster_type"
+        elif key == "clusterVersion":
+            suggest = "cluster_version"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "hybridAksExtendedLocation":
+            suggest = "hybrid_aks_extended_location"
+        elif key == "manualActionCount":
+            suggest = "manual_action_count"
+        elif key == "networkFabricId":
+            suggest = "network_fabric_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "supportExpiryDate":
+            suggest = "support_expiry_date"
+        elif key == "workloadResourceIds":
+            suggest = "workload_resource_ids"
+        elif key == "clusterCapacity":
+            suggest = "cluster_capacity"
+        elif key == "clusterLocation":
+            suggest = "cluster_location"
+        elif key == "clusterServicePrincipal":
+            suggest = "cluster_service_principal"
+        elif key == "computeDeploymentThreshold":
+            suggest = "compute_deployment_threshold"
+        elif key == "computeRackDefinitions":
+            suggest = "compute_rack_definitions"
+        elif key == "managedResourceGroupConfiguration":
+            suggest = "managed_resource_group_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregator_or_single_rack_definition: 'outputs.RackDefinitionResponse',
+                 analytics_workspace_id: str,
+                 available_upgrade_versions: Sequence['outputs.ClusterAvailableUpgradeVersionResponse'],
+                 cluster_connection_status: str,
+                 cluster_extended_location: 'outputs.ExtendedLocationResponse',
+                 cluster_manager_connection_status: str,
+                 cluster_manager_id: str,
+                 cluster_type: str,
+                 cluster_version: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 hybrid_aks_extended_location: 'outputs.ExtendedLocationResponse',
+                 manual_action_count: float,
+                 network_fabric_id: str,
+                 provisioning_state: str,
+                 support_expiry_date: str,
+                 workload_resource_ids: Sequence[str],
+                 cluster_capacity: Optional['outputs.ClusterCapacityResponse'] = None,
+                 cluster_location: Optional[str] = None,
+                 cluster_service_principal: Optional['outputs.ServicePrincipalInformationResponse'] = None,
+                 compute_deployment_threshold: Optional['outputs.ValidationThresholdResponse'] = None,
+                 compute_rack_definitions: Optional[Sequence['outputs.RackDefinitionResponse']] = None,
+                 managed_resource_group_configuration: Optional['outputs.ManagedResourceGroupConfigurationResponse'] = None):
+        """
+        :param str analytics_workspace_id: The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        :param Sequence['ClusterAvailableUpgradeVersionResponse'] available_upgrade_versions: The list of cluster runtime version upgrades available for this cluster.
+        :param str cluster_connection_status: The latest heartbeat status between the cluster manager and the cluster.
+        :param 'ExtendedLocationResponse' cluster_extended_location: The extended location (custom location) that represents the cluster's control plane location.
+               This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
+        :param str cluster_manager_connection_status: The latest connectivity status between cluster manager and the cluster.
+        :param str cluster_manager_id: The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
+        :param str cluster_type: The type of rack configuration for the cluster.
+        :param str cluster_version: The current runtime version of the cluster.
+        :param str detailed_status: The current detailed status of the cluster.
+        :param str detailed_status_message: The descriptive message about the detailed status.
+        :param 'ExtendedLocationResponse' hybrid_aks_extended_location: The extended location (custom location) that represents the Hybrid AKS control plane location.
+               This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        :param float manual_action_count: The count of Manual Action Taken (MAT) events that have not been validated.
+        :param str network_fabric_id: The resource ID of the Network Fabric associated with the cluster.
+        :param str provisioning_state: The provisioning state of the cluster.
+        :param str support_expiry_date: The support end date of the runtime version of the cluster.
+        :param Sequence[str] workload_resource_ids: The list of workload resource IDs that are hosted within this cluster.
+        :param str cluster_location: The customer-provided location information to identify where the cluster resides.
+        :param Sequence['RackDefinitionResponse'] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
+               cluster, or an empty list in a single-rack cluster.
+        :param 'ManagedResourceGroupConfigurationResponse' managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        """
+        pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
+        pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+        pulumi.set(__self__, "available_upgrade_versions", available_upgrade_versions)
+        pulumi.set(__self__, "cluster_connection_status", cluster_connection_status)
+        pulumi.set(__self__, "cluster_extended_location", cluster_extended_location)
+        pulumi.set(__self__, "cluster_manager_connection_status", cluster_manager_connection_status)
+        pulumi.set(__self__, "cluster_manager_id", cluster_manager_id)
+        pulumi.set(__self__, "cluster_type", cluster_type)
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "hybrid_aks_extended_location", hybrid_aks_extended_location)
+        pulumi.set(__self__, "manual_action_count", manual_action_count)
+        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "support_expiry_date", support_expiry_date)
+        pulumi.set(__self__, "workload_resource_ids", workload_resource_ids)
+        if cluster_capacity is not None:
+            pulumi.set(__self__, "cluster_capacity", cluster_capacity)
+        if cluster_location is not None:
+            pulumi.set(__self__, "cluster_location", cluster_location)
+        if cluster_service_principal is not None:
+            pulumi.set(__self__, "cluster_service_principal", cluster_service_principal)
+        if compute_deployment_threshold is not None:
+            pulumi.set(__self__, "compute_deployment_threshold", compute_deployment_threshold)
+        if compute_rack_definitions is not None:
+            pulumi.set(__self__, "compute_rack_definitions", compute_rack_definitions)
+        if managed_resource_group_configuration is not None:
+            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+
+    @property
+    @pulumi.getter(name="aggregatorOrSingleRackDefinition")
+    def aggregator_or_single_rack_definition(self) -> 'outputs.RackDefinitionResponse':
+        return pulumi.get(self, "aggregator_or_single_rack_definition")
+
+    @property
+    @pulumi.getter(name="analyticsWorkspaceId")
+    def analytics_workspace_id(self) -> str:
+        """
+        The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        """
+        return pulumi.get(self, "analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="availableUpgradeVersions")
+    def available_upgrade_versions(self) -> Sequence['outputs.ClusterAvailableUpgradeVersionResponse']:
+        """
+        The list of cluster runtime version upgrades available for this cluster.
+        """
+        return pulumi.get(self, "available_upgrade_versions")
+
+    @property
+    @pulumi.getter(name="clusterConnectionStatus")
+    def cluster_connection_status(self) -> str:
+        """
+        The latest heartbeat status between the cluster manager and the cluster.
+        """
+        return pulumi.get(self, "cluster_connection_status")
+
+    @property
+    @pulumi.getter(name="clusterExtendedLocation")
+    def cluster_extended_location(self) -> 'outputs.ExtendedLocationResponse':
+        """
+        The extended location (custom location) that represents the cluster's control plane location.
+        This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
+        """
+        return pulumi.get(self, "cluster_extended_location")
+
+    @property
+    @pulumi.getter(name="clusterManagerConnectionStatus")
+    def cluster_manager_connection_status(self) -> str:
+        """
+        The latest connectivity status between cluster manager and the cluster.
+        """
+        return pulumi.get(self, "cluster_manager_connection_status")
+
+    @property
+    @pulumi.getter(name="clusterManagerId")
+    def cluster_manager_id(self) -> str:
+        """
+        The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
+        """
+        return pulumi.get(self, "cluster_manager_id")
+
+    @property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> str:
+        """
+        The type of rack configuration for the cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> str:
+        """
+        The current runtime version of the cluster.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The current detailed status of the cluster.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="hybridAksExtendedLocation")
+    def hybrid_aks_extended_location(self) -> 'outputs.ExtendedLocationResponse':
+        """
+        The extended location (custom location) that represents the Hybrid AKS control plane location.
+        This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        """
+        return pulumi.get(self, "hybrid_aks_extended_location")
+
+    @property
+    @pulumi.getter(name="manualActionCount")
+    def manual_action_count(self) -> float:
+        """
+        The count of Manual Action Taken (MAT) events that have not been validated.
+        """
+        return pulumi.get(self, "manual_action_count")
+
+    @property
+    @pulumi.getter(name="networkFabricId")
+    def network_fabric_id(self) -> str:
+        """
+        The resource ID of the Network Fabric associated with the cluster.
+        """
+        return pulumi.get(self, "network_fabric_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the cluster.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="supportExpiryDate")
+    def support_expiry_date(self) -> str:
+        """
+        The support end date of the runtime version of the cluster.
+        """
+        return pulumi.get(self, "support_expiry_date")
+
+    @property
+    @pulumi.getter(name="workloadResourceIds")
+    def workload_resource_ids(self) -> Sequence[str]:
+        """
+        The list of workload resource IDs that are hosted within this cluster.
+        """
+        return pulumi.get(self, "workload_resource_ids")
+
+    @property
+    @pulumi.getter(name="clusterCapacity")
+    def cluster_capacity(self) -> Optional['outputs.ClusterCapacityResponse']:
+        return pulumi.get(self, "cluster_capacity")
+
+    @property
+    @pulumi.getter(name="clusterLocation")
+    def cluster_location(self) -> Optional[str]:
+        """
+        The customer-provided location information to identify where the cluster resides.
+        """
+        return pulumi.get(self, "cluster_location")
+
+    @property
+    @pulumi.getter(name="clusterServicePrincipal")
+    def cluster_service_principal(self) -> Optional['outputs.ServicePrincipalInformationResponse']:
+        return pulumi.get(self, "cluster_service_principal")
+
+    @property
+    @pulumi.getter(name="computeDeploymentThreshold")
+    def compute_deployment_threshold(self) -> Optional['outputs.ValidationThresholdResponse']:
+        return pulumi.get(self, "compute_deployment_threshold")
+
+    @property
+    @pulumi.getter(name="computeRackDefinitions")
+    def compute_rack_definitions(self) -> Optional[Sequence['outputs.RackDefinitionResponse']]:
+        """
+        The list of rack definitions for the compute racks in a multi-rack
+        cluster, or an empty list in a single-rack cluster.
+        """
+        return pulumi.get(self, "compute_rack_definitions")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupConfiguration")
+    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedResourceGroupConfigurationResponse']:
+        """
+        The configuration of the managed resource group associated with the resource.
+        """
+        return pulumi.get(self, "managed_resource_group_configuration")
+
+
+@pulumi.output_type
 class CniBgpConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -657,6 +1913,333 @@ class CommunityAdvertisementResponse(dict):
         The subnet in CIDR format for which properties should be advertised.
         """
         return pulumi.get(self, "subnet_prefix")
+
+
+@pulumi.output_type
+class ConsolePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "privateLinkServiceId":
+            suggest = "private_link_service_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sshPublicKey":
+            suggest = "ssh_public_key"
+        elif key == "virtualMachineAccessId":
+            suggest = "virtual_machine_access_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConsolePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConsolePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConsolePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 enabled: str,
+                 private_link_service_id: str,
+                 provisioning_state: str,
+                 ssh_public_key: 'outputs.SshPublicKeyResponse',
+                 virtual_machine_access_id: str,
+                 expiration: Optional[str] = None):
+        """
+        :param str detailed_status: The more detailed status of the console.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str enabled: The indicator of whether the console access is enabled.
+        :param str private_link_service_id: The resource ID of the private link service that is used to provide virtual machine console access.
+        :param str provisioning_state: The provisioning state of the virtual machine console.
+        :param str virtual_machine_access_id: The unique identifier for the virtual machine that is used to access the console.
+        :param str expiration: The date and time after which the key will be disallowed access.
+        """
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "private_link_service_id", private_link_service_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+        pulumi.set(__self__, "virtual_machine_access_id", virtual_machine_access_id)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the console.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> str:
+        """
+        The indicator of whether the console access is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceId")
+    def private_link_service_id(self) -> str:
+        """
+        The resource ID of the private link service that is used to provide virtual machine console access.
+        """
+        return pulumi.get(self, "private_link_service_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the virtual machine console.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> 'outputs.SshPublicKeyResponse':
+        return pulumi.get(self, "ssh_public_key")
+
+    @property
+    @pulumi.getter(name="virtualMachineAccessId")
+    def virtual_machine_access_id(self) -> str:
+        """
+        The unique identifier for the virtual machine that is used to access the console.
+        """
+        return pulumi.get(self, "virtual_machine_access_id")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[str]:
+        """
+        The date and time after which the key will be disallowed access.
+        """
+        return pulumi.get(self, "expiration")
+
+
+@pulumi.output_type
+class DefaultCniNetworkPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "cniAsNumber":
+            suggest = "cni_as_number"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "fabricBgpPeers":
+            suggest = "fabric_bgp_peers"
+        elif key == "hybridAksClustersAssociatedIds":
+            suggest = "hybrid_aks_clusters_associated_ids"
+        elif key == "interfaceName":
+            suggest = "interface_name"
+        elif key == "l3IsolationDomainId":
+            suggest = "l3_isolation_domain_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "cniBgpConfiguration":
+            suggest = "cni_bgp_configuration"
+        elif key == "ipAllocationType":
+            suggest = "ip_allocation_type"
+        elif key == "ipv4ConnectedPrefix":
+            suggest = "ipv4_connected_prefix"
+        elif key == "ipv6ConnectedPrefix":
+            suggest = "ipv6_connected_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultCniNetworkPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultCniNetworkPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultCniNetworkPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_id: str,
+                 cni_as_number: float,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 fabric_bgp_peers: Sequence['outputs.BgpPeerResponse'],
+                 hybrid_aks_clusters_associated_ids: Sequence[str],
+                 interface_name: str,
+                 l3_isolation_domain_id: str,
+                 provisioning_state: str,
+                 vlan: float,
+                 cni_bgp_configuration: Optional['outputs.CniBgpConfigurationResponse'] = None,
+                 ip_allocation_type: Optional[str] = None,
+                 ipv4_connected_prefix: Optional[str] = None,
+                 ipv6_connected_prefix: Optional[str] = None):
+        """
+        :param str cluster_id: The resource ID of the Network Cloud cluster this default CNI network is associated with.
+        :param float cni_as_number: The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
+        :param str detailed_status: The more detailed status of the default CNI network.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param Sequence['BgpPeerResponse'] fabric_bgp_peers: The L3 isolation fabric BGP peering connectivity information necessary for BGP peering the Hybrid AKS Cluster with the switch fabric.
+        :param Sequence[str] hybrid_aks_clusters_associated_ids: The list of Hybrid AKS cluster resource ID(s) that are associated with this default CNI network.
+        :param str interface_name: The name of the interface that will be present in the virtual machine to represent this network.
+        :param str l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
+        :param str provisioning_state: The provisioning state of the default CNI network.
+        :param float vlan: The VLAN from the l3IsolationDomain that is used for this network.
+        :param str ip_allocation_type: The type of the IP address allocation.
+        :param str ipv4_connected_prefix: The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+               is IPV4 or DualStack.
+        :param str ipv6_connected_prefix: The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+               is IPV6 or DualStack.
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "cni_as_number", cni_as_number)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "fabric_bgp_peers", fabric_bgp_peers)
+        pulumi.set(__self__, "hybrid_aks_clusters_associated_ids", hybrid_aks_clusters_associated_ids)
+        pulumi.set(__self__, "interface_name", interface_name)
+        pulumi.set(__self__, "l3_isolation_domain_id", l3_isolation_domain_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "vlan", vlan)
+        if cni_bgp_configuration is not None:
+            pulumi.set(__self__, "cni_bgp_configuration", cni_bgp_configuration)
+        if ip_allocation_type is None:
+            ip_allocation_type = 'DualStack'
+        if ip_allocation_type is not None:
+            pulumi.set(__self__, "ip_allocation_type", ip_allocation_type)
+        if ipv4_connected_prefix is not None:
+            pulumi.set(__self__, "ipv4_connected_prefix", ipv4_connected_prefix)
+        if ipv6_connected_prefix is not None:
+            pulumi.set(__self__, "ipv6_connected_prefix", ipv6_connected_prefix)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the Network Cloud cluster this default CNI network is associated with.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="cniAsNumber")
+    def cni_as_number(self) -> float:
+        """
+        The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
+        """
+        return pulumi.get(self, "cni_as_number")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the default CNI network.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="fabricBgpPeers")
+    def fabric_bgp_peers(self) -> Sequence['outputs.BgpPeerResponse']:
+        """
+        The L3 isolation fabric BGP peering connectivity information necessary for BGP peering the Hybrid AKS Cluster with the switch fabric.
+        """
+        return pulumi.get(self, "fabric_bgp_peers")
+
+    @property
+    @pulumi.getter(name="hybridAksClustersAssociatedIds")
+    def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
+        """
+        The list of Hybrid AKS cluster resource ID(s) that are associated with this default CNI network.
+        """
+        return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> str:
+        """
+        The name of the interface that will be present in the virtual machine to represent this network.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @property
+    @pulumi.getter(name="l3IsolationDomainId")
+    def l3_isolation_domain_id(self) -> str:
+        """
+        The resource ID of the Network Fabric l3IsolationDomain.
+        """
+        return pulumi.get(self, "l3_isolation_domain_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the default CNI network.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> float:
+        """
+        The VLAN from the l3IsolationDomain that is used for this network.
+        """
+        return pulumi.get(self, "vlan")
+
+    @property
+    @pulumi.getter(name="cniBgpConfiguration")
+    def cni_bgp_configuration(self) -> Optional['outputs.CniBgpConfigurationResponse']:
+        return pulumi.get(self, "cni_bgp_configuration")
+
+    @property
+    @pulumi.getter(name="ipAllocationType")
+    def ip_allocation_type(self) -> Optional[str]:
+        """
+        The type of the IP address allocation.
+        """
+        return pulumi.get(self, "ip_allocation_type")
+
+    @property
+    @pulumi.getter(name="ipv4ConnectedPrefix")
+    def ipv4_connected_prefix(self) -> Optional[str]:
+        """
+        The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+        is IPV4 or DualStack.
+        """
+        return pulumi.get(self, "ipv4_connected_prefix")
+
+    @property
+    @pulumi.getter(name="ipv6ConnectedPrefix")
+    def ipv6_connected_prefix(self) -> Optional[str]:
+        """
+        The IPV6 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
+        is IPV6 or DualStack.
+        """
+        return pulumi.get(self, "ipv6_connected_prefix")
 
 
 @pulumi.output_type
@@ -940,6 +2523,195 @@ class HardwareValidationStatusResponse(dict):
 
 
 @pulumi.output_type
+class HybridAksClusterPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedNetworkIds":
+            suggest = "associated_network_ids"
+        elif key == "cloudServicesNetworkId":
+            suggest = "cloud_services_network_id"
+        elif key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "controlPlaneCount":
+            suggest = "control_plane_count"
+        elif key == "controlPlaneNodes":
+            suggest = "control_plane_nodes"
+        elif key == "defaultCniNetworkId":
+            suggest = "default_cni_network_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "hybridAksProvisionedClusterId":
+            suggest = "hybrid_aks_provisioned_cluster_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "workerCount":
+            suggest = "worker_count"
+        elif key == "workerNodes":
+            suggest = "worker_nodes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridAksClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridAksClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridAksClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associated_network_ids: Sequence[str],
+                 cloud_services_network_id: str,
+                 cluster_id: str,
+                 control_plane_count: float,
+                 control_plane_nodes: Sequence['outputs.NodeConfigurationResponse'],
+                 default_cni_network_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 hybrid_aks_provisioned_cluster_id: str,
+                 provisioning_state: str,
+                 volumes: Sequence[str],
+                 worker_count: float,
+                 worker_nodes: Sequence['outputs.NodeConfigurationResponse']):
+        """
+        :param Sequence[str] associated_network_ids: The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
+        :param str cloud_services_network_id: The resource ID of the associated cloud services network.
+        :param str cluster_id: The resource ID of the Network Cloud cluster hosting the Hybrid AKS cluster.
+        :param float control_plane_count: The number of control plane node VMs.
+        :param Sequence['NodeConfigurationResponse'] control_plane_nodes: The list of node configurations detailing associated VMs that are part of the control plane nodes of this Hybrid AKS cluster.
+        :param str default_cni_network_id: The resource ID of the associated default CNI network.
+        :param str detailed_status: The more detailed status of this Hybrid AKS cluster.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str hybrid_aks_provisioned_cluster_id: The resource ID of the Hybrid AKS cluster that this additional information is for.
+        :param str provisioning_state: The provisioning state of the Hybrid AKS cluster resource.
+        :param Sequence[str] volumes: The resource IDs of volumes that are attached to the Hybrid AKS cluster.
+        :param float worker_count: The number of worker node VMs.
+        :param Sequence['NodeConfigurationResponse'] worker_nodes: The list of node configurations detailing associated VMs that are part of the worker nodes of this Hybrid AKS cluster.
+        """
+        pulumi.set(__self__, "associated_network_ids", associated_network_ids)
+        pulumi.set(__self__, "cloud_services_network_id", cloud_services_network_id)
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "control_plane_count", control_plane_count)
+        pulumi.set(__self__, "control_plane_nodes", control_plane_nodes)
+        pulumi.set(__self__, "default_cni_network_id", default_cni_network_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "hybrid_aks_provisioned_cluster_id", hybrid_aks_provisioned_cluster_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "volumes", volumes)
+        pulumi.set(__self__, "worker_count", worker_count)
+        pulumi.set(__self__, "worker_nodes", worker_nodes)
+
+    @property
+    @pulumi.getter(name="associatedNetworkIds")
+    def associated_network_ids(self) -> Sequence[str]:
+        """
+        The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
+        """
+        return pulumi.get(self, "associated_network_ids")
+
+    @property
+    @pulumi.getter(name="cloudServicesNetworkId")
+    def cloud_services_network_id(self) -> str:
+        """
+        The resource ID of the associated cloud services network.
+        """
+        return pulumi.get(self, "cloud_services_network_id")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the Network Cloud cluster hosting the Hybrid AKS cluster.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="controlPlaneCount")
+    def control_plane_count(self) -> float:
+        """
+        The number of control plane node VMs.
+        """
+        return pulumi.get(self, "control_plane_count")
+
+    @property
+    @pulumi.getter(name="controlPlaneNodes")
+    def control_plane_nodes(self) -> Sequence['outputs.NodeConfigurationResponse']:
+        """
+        The list of node configurations detailing associated VMs that are part of the control plane nodes of this Hybrid AKS cluster.
+        """
+        return pulumi.get(self, "control_plane_nodes")
+
+    @property
+    @pulumi.getter(name="defaultCniNetworkId")
+    def default_cni_network_id(self) -> str:
+        """
+        The resource ID of the associated default CNI network.
+        """
+        return pulumi.get(self, "default_cni_network_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of this Hybrid AKS cluster.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="hybridAksProvisionedClusterId")
+    def hybrid_aks_provisioned_cluster_id(self) -> str:
+        """
+        The resource ID of the Hybrid AKS cluster that this additional information is for.
+        """
+        return pulumi.get(self, "hybrid_aks_provisioned_cluster_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the Hybrid AKS cluster resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Sequence[str]:
+        """
+        The resource IDs of volumes that are attached to the Hybrid AKS cluster.
+        """
+        return pulumi.get(self, "volumes")
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> float:
+        """
+        The number of worker node VMs.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @property
+    @pulumi.getter(name="workerNodes")
+    def worker_nodes(self) -> Sequence['outputs.NodeConfigurationResponse']:
+        """
+        The list of node configurations detailing associated VMs that are part of the worker nodes of this Hybrid AKS cluster.
+        """
+        return pulumi.get(self, "worker_nodes")
+
+
+@pulumi.output_type
 class ImageRepositoryCredentialsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1109,6 +2881,367 @@ class KeySetUserStatusResponse(dict):
         The additional information describing the current status of this user, if any available.
         """
         return pulumi.get(self, "status_message")
+
+
+@pulumi.output_type
+class L2NetworkPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "hybridAksClustersAssociatedIds":
+            suggest = "hybrid_aks_clusters_associated_ids"
+        elif key == "l2IsolationDomainId":
+            suggest = "l2_isolation_domain_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "virtualMachinesAssociatedIds":
+            suggest = "virtual_machines_associated_ids"
+        elif key == "hybridAksPluginType":
+            suggest = "hybrid_aks_plugin_type"
+        elif key == "interfaceName":
+            suggest = "interface_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in L2NetworkPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        L2NetworkPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        L2NetworkPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 hybrid_aks_clusters_associated_ids: Sequence[str],
+                 l2_isolation_domain_id: str,
+                 provisioning_state: str,
+                 virtual_machines_associated_ids: Sequence[str],
+                 hybrid_aks_plugin_type: Optional[str] = None,
+                 interface_name: Optional[str] = None):
+        """
+        :param str cluster_id: The resource ID of the Network Cloud cluster this L2 network is associated with.
+        :param str detailed_status: The more detailed status of the L2 network.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param Sequence[str] hybrid_aks_clusters_associated_ids: The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
+        :param str l2_isolation_domain_id: The resource ID of the Network Fabric l2IsolationDomain.
+        :param str provisioning_state: The provisioning state of the L2 network.
+        :param Sequence[str] virtual_machines_associated_ids: The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
+        :param str hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param str interface_name: The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "hybrid_aks_clusters_associated_ids", hybrid_aks_clusters_associated_ids)
+        pulumi.set(__self__, "l2_isolation_domain_id", l2_isolation_domain_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "virtual_machines_associated_ids", virtual_machines_associated_ids)
+        if hybrid_aks_plugin_type is None:
+            hybrid_aks_plugin_type = 'SRIOV'
+        if hybrid_aks_plugin_type is not None:
+            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the Network Cloud cluster this L2 network is associated with.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the L2 network.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="hybridAksClustersAssociatedIds")
+    def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
+        """
+        The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
+        """
+        return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
+
+    @property
+    @pulumi.getter(name="l2IsolationDomainId")
+    def l2_isolation_domain_id(self) -> str:
+        """
+        The resource ID of the Network Fabric l2IsolationDomain.
+        """
+        return pulumi.get(self, "l2_isolation_domain_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the L2 network.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="virtualMachinesAssociatedIds")
+    def virtual_machines_associated_ids(self) -> Sequence[str]:
+        """
+        The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
+        """
+        return pulumi.get(self, "virtual_machines_associated_ids")
+
+    @property
+    @pulumi.getter(name="hybridAksPluginType")
+    def hybrid_aks_plugin_type(self) -> Optional[str]:
+        """
+        The network plugin type for Hybrid AKS.
+        """
+        return pulumi.get(self, "hybrid_aks_plugin_type")
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[str]:
+        """
+        The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        return pulumi.get(self, "interface_name")
+
+
+@pulumi.output_type
+class L3NetworkPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "hybridAksClustersAssociatedIds":
+            suggest = "hybrid_aks_clusters_associated_ids"
+        elif key == "l3IsolationDomainId":
+            suggest = "l3_isolation_domain_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "virtualMachinesAssociatedIds":
+            suggest = "virtual_machines_associated_ids"
+        elif key == "hybridAksIpamEnabled":
+            suggest = "hybrid_aks_ipam_enabled"
+        elif key == "hybridAksPluginType":
+            suggest = "hybrid_aks_plugin_type"
+        elif key == "interfaceName":
+            suggest = "interface_name"
+        elif key == "ipAllocationType":
+            suggest = "ip_allocation_type"
+        elif key == "ipv4ConnectedPrefix":
+            suggest = "ipv4_connected_prefix"
+        elif key == "ipv6ConnectedPrefix":
+            suggest = "ipv6_connected_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in L3NetworkPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        L3NetworkPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        L3NetworkPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 hybrid_aks_clusters_associated_ids: Sequence[str],
+                 l3_isolation_domain_id: str,
+                 provisioning_state: str,
+                 virtual_machines_associated_ids: Sequence[str],
+                 vlan: float,
+                 hybrid_aks_ipam_enabled: Optional[str] = None,
+                 hybrid_aks_plugin_type: Optional[str] = None,
+                 interface_name: Optional[str] = None,
+                 ip_allocation_type: Optional[str] = None,
+                 ipv4_connected_prefix: Optional[str] = None,
+                 ipv6_connected_prefix: Optional[str] = None):
+        """
+        :param str cluster_id: The resource ID of the Network Cloud cluster this L3 network is associated with.
+        :param str detailed_status: The more detailed status of the L3 network.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param Sequence[str] hybrid_aks_clusters_associated_ids: The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
+        :param str l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
+        :param str provisioning_state: The provisioning state of the L3 network.
+        :param Sequence[str] virtual_machines_associated_ids: The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
+        :param float vlan: The VLAN from the l3IsolationDomain that is used for this network.
+        :param str hybrid_aks_ipam_enabled: The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        :param str hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param str interface_name: The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        :param str ip_allocation_type: The type of the IP address allocation, defaulted to "DualStack".
+        :param str ipv4_connected_prefix: The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+               is IPV4 or DualStack.
+        :param str ipv6_connected_prefix: The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+               is IPV6 or DualStack.
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "hybrid_aks_clusters_associated_ids", hybrid_aks_clusters_associated_ids)
+        pulumi.set(__self__, "l3_isolation_domain_id", l3_isolation_domain_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "virtual_machines_associated_ids", virtual_machines_associated_ids)
+        pulumi.set(__self__, "vlan", vlan)
+        if hybrid_aks_ipam_enabled is None:
+            hybrid_aks_ipam_enabled = 'True'
+        if hybrid_aks_ipam_enabled is not None:
+            pulumi.set(__self__, "hybrid_aks_ipam_enabled", hybrid_aks_ipam_enabled)
+        if hybrid_aks_plugin_type is None:
+            hybrid_aks_plugin_type = 'SRIOV'
+        if hybrid_aks_plugin_type is not None:
+            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+        if ip_allocation_type is None:
+            ip_allocation_type = 'DualStack'
+        if ip_allocation_type is not None:
+            pulumi.set(__self__, "ip_allocation_type", ip_allocation_type)
+        if ipv4_connected_prefix is not None:
+            pulumi.set(__self__, "ipv4_connected_prefix", ipv4_connected_prefix)
+        if ipv6_connected_prefix is not None:
+            pulumi.set(__self__, "ipv6_connected_prefix", ipv6_connected_prefix)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the Network Cloud cluster this L3 network is associated with.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the L3 network.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="hybridAksClustersAssociatedIds")
+    def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
+        """
+        The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
+        """
+        return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
+
+    @property
+    @pulumi.getter(name="l3IsolationDomainId")
+    def l3_isolation_domain_id(self) -> str:
+        """
+        The resource ID of the Network Fabric l3IsolationDomain.
+        """
+        return pulumi.get(self, "l3_isolation_domain_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the L3 network.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="virtualMachinesAssociatedIds")
+    def virtual_machines_associated_ids(self) -> Sequence[str]:
+        """
+        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
+        """
+        return pulumi.get(self, "virtual_machines_associated_ids")
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> float:
+        """
+        The VLAN from the l3IsolationDomain that is used for this network.
+        """
+        return pulumi.get(self, "vlan")
+
+    @property
+    @pulumi.getter(name="hybridAksIpamEnabled")
+    def hybrid_aks_ipam_enabled(self) -> Optional[str]:
+        """
+        The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        """
+        return pulumi.get(self, "hybrid_aks_ipam_enabled")
+
+    @property
+    @pulumi.getter(name="hybridAksPluginType")
+    def hybrid_aks_plugin_type(self) -> Optional[str]:
+        """
+        The network plugin type for Hybrid AKS.
+        """
+        return pulumi.get(self, "hybrid_aks_plugin_type")
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[str]:
+        """
+        The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @property
+    @pulumi.getter(name="ipAllocationType")
+    def ip_allocation_type(self) -> Optional[str]:
+        """
+        The type of the IP address allocation, defaulted to "DualStack".
+        """
+        return pulumi.get(self, "ip_allocation_type")
+
+    @property
+    @pulumi.getter(name="ipv4ConnectedPrefix")
+    def ipv4_connected_prefix(self) -> Optional[str]:
+        """
+        The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+        is IPV4 or DualStack.
+        """
+        return pulumi.get(self, "ipv4_connected_prefix")
+
+    @property
+    @pulumi.getter(name="ipv6ConnectedPrefix")
+    def ipv6_connected_prefix(self) -> Optional[str]:
+        """
+        The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
+        is IPV6 or DualStack.
+        """
+        return pulumi.get(self, "ipv6_connected_prefix")
 
 
 @pulumi.output_type
@@ -1840,6 +3973,132 @@ class RackDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class RackPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "rackLocation":
+            suggest = "rack_location"
+        elif key == "rackSerialNumber":
+            suggest = "rack_serial_number"
+        elif key == "rackSkuId":
+            suggest = "rack_sku_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RackPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RackPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RackPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: str,
+                 cluster_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 provisioning_state: str,
+                 rack_location: str,
+                 rack_serial_number: str,
+                 rack_sku_id: str):
+        """
+        :param str availability_zone: The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
+        :param str cluster_id: The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
+        :param str detailed_status: The more detailed status of the rack.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str provisioning_state: The provisioning state of the rack resource.
+        :param str rack_location: The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
+        :param str rack_serial_number: The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
+        :param str rack_sku_id: The SKU for the rack.
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "rack_location", rack_location)
+        pulumi.set(__self__, "rack_serial_number", rack_serial_number)
+        pulumi.set(__self__, "rack_sku_id", rack_sku_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> str:
+        """
+        The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the rack.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the rack resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rackLocation")
+    def rack_location(self) -> str:
+        """
+        The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
+        """
+        return pulumi.get(self, "rack_location")
+
+    @property
+    @pulumi.getter(name="rackSerialNumber")
+    def rack_serial_number(self) -> str:
+        """
+        The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
+        """
+        return pulumi.get(self, "rack_serial_number")
+
+    @property
+    @pulumi.getter(name="rackSkuId")
+    def rack_sku_id(self) -> str:
+        """
+        The SKU for the rack.
+        """
+        return pulumi.get(self, "rack_sku_id")
+
+
+@pulumi.output_type
 class ServicePrincipalInformationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2018,6 +4277,204 @@ class StorageApplianceConfigurationDataResponse(dict):
 
 
 @pulumi.output_type
+class StorageAppliancePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorCredentials":
+            suggest = "administrator_credentials"
+        elif key == "capacityUsed":
+            suggest = "capacity_used"
+        elif key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "managementIpv4Address":
+            suggest = "management_ipv4_address"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "rackId":
+            suggest = "rack_id"
+        elif key == "rackSlot":
+            suggest = "rack_slot"
+        elif key == "remoteVendorManagementFeature":
+            suggest = "remote_vendor_management_feature"
+        elif key == "remoteVendorManagementStatus":
+            suggest = "remote_vendor_management_status"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+        elif key == "storageApplianceSkuId":
+            suggest = "storage_appliance_sku_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAppliancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAppliancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAppliancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 administrator_credentials: 'outputs.AdministrativeCredentialsResponse',
+                 capacity: float,
+                 capacity_used: float,
+                 cluster_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 management_ipv4_address: str,
+                 provisioning_state: str,
+                 rack_id: str,
+                 rack_slot: float,
+                 remote_vendor_management_feature: str,
+                 remote_vendor_management_status: str,
+                 serial_number: str,
+                 storage_appliance_sku_id: str):
+        """
+        :param float capacity: The total capacity of the storage appliance.
+        :param float capacity_used: The amount of storage consumed.
+        :param str cluster_id: The resource ID of the cluster this storage appliance is associated with.
+        :param str detailed_status: The detailed status of the storage appliance.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str management_ipv4_address: The endpoint for the management interface of the storage appliance.
+        :param str provisioning_state: The provisioning state of the storage appliance.
+        :param str rack_id: The resource ID of the rack where this storage appliance resides.
+        :param float rack_slot: The slot the storage appliance is in the rack based on the BOM configuration.
+        :param str remote_vendor_management_feature: The indicator of whether the storage appliance supports remote vendor management.
+        :param str remote_vendor_management_status: The indicator of whether the remote vendor management feature is enabled or disabled, or unsupported if it is an unsupported feature.
+        :param str serial_number: The serial number for the storage appliance.
+        :param str storage_appliance_sku_id: The SKU for the storage appliance.
+        """
+        pulumi.set(__self__, "administrator_credentials", administrator_credentials)
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "capacity_used", capacity_used)
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "management_ipv4_address", management_ipv4_address)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "rack_id", rack_id)
+        pulumi.set(__self__, "rack_slot", rack_slot)
+        pulumi.set(__self__, "remote_vendor_management_feature", remote_vendor_management_feature)
+        pulumi.set(__self__, "remote_vendor_management_status", remote_vendor_management_status)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "storage_appliance_sku_id", storage_appliance_sku_id)
+
+    @property
+    @pulumi.getter(name="administratorCredentials")
+    def administrator_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
+        return pulumi.get(self, "administrator_credentials")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> float:
+        """
+        The total capacity of the storage appliance.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="capacityUsed")
+    def capacity_used(self) -> float:
+        """
+        The amount of storage consumed.
+        """
+        return pulumi.get(self, "capacity_used")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the cluster this storage appliance is associated with.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The detailed status of the storage appliance.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="managementIpv4Address")
+    def management_ipv4_address(self) -> str:
+        """
+        The endpoint for the management interface of the storage appliance.
+        """
+        return pulumi.get(self, "management_ipv4_address")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the storage appliance.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rackId")
+    def rack_id(self) -> str:
+        """
+        The resource ID of the rack where this storage appliance resides.
+        """
+        return pulumi.get(self, "rack_id")
+
+    @property
+    @pulumi.getter(name="rackSlot")
+    def rack_slot(self) -> float:
+        """
+        The slot the storage appliance is in the rack based on the BOM configuration.
+        """
+        return pulumi.get(self, "rack_slot")
+
+    @property
+    @pulumi.getter(name="remoteVendorManagementFeature")
+    def remote_vendor_management_feature(self) -> str:
+        """
+        The indicator of whether the storage appliance supports remote vendor management.
+        """
+        return pulumi.get(self, "remote_vendor_management_feature")
+
+    @property
+    @pulumi.getter(name="remoteVendorManagementStatus")
+    def remote_vendor_management_status(self) -> str:
+        """
+        The indicator of whether the remote vendor management feature is enabled or disabled, or unsupported if it is an unsupported feature.
+        """
+        return pulumi.get(self, "remote_vendor_management_status")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        The serial number for the storage appliance.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter(name="storageApplianceSkuId")
+    def storage_appliance_sku_id(self) -> str:
+        """
+        The SKU for the storage appliance.
+        """
+        return pulumi.get(self, "storage_appliance_sku_id")
+
+
+@pulumi.output_type
 class StorageProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2173,6 +4630,160 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class TrunkedNetworkPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "hybridAksClustersAssociatedIds":
+            suggest = "hybrid_aks_clusters_associated_ids"
+        elif key == "isolationDomainIds":
+            suggest = "isolation_domain_ids"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "virtualMachinesAssociatedIds":
+            suggest = "virtual_machines_associated_ids"
+        elif key == "hybridAksPluginType":
+            suggest = "hybrid_aks_plugin_type"
+        elif key == "interfaceName":
+            suggest = "interface_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrunkedNetworkPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrunkedNetworkPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrunkedNetworkPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_id: str,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 hybrid_aks_clusters_associated_ids: Sequence[str],
+                 isolation_domain_ids: Sequence[str],
+                 provisioning_state: str,
+                 virtual_machines_associated_ids: Sequence[str],
+                 vlans: Sequence[float],
+                 hybrid_aks_plugin_type: Optional[str] = None,
+                 interface_name: Optional[str] = None):
+        """
+        :param str cluster_id: The resource ID of the Network Cloud cluster this trunked network is associated with.
+        :param str detailed_status: The more detailed status of the trunked network.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param Sequence[str] hybrid_aks_clusters_associated_ids: The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
+        :param Sequence[str] isolation_domain_ids: The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
+        :param str provisioning_state: The provisioning state of the trunked network.
+        :param Sequence[str] virtual_machines_associated_ids: The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
+        :param Sequence[float] vlans: The list of vlans that are selected from the isolation domains for trunking.
+        :param str hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param str interface_name: The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "hybrid_aks_clusters_associated_ids", hybrid_aks_clusters_associated_ids)
+        pulumi.set(__self__, "isolation_domain_ids", isolation_domain_ids)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "virtual_machines_associated_ids", virtual_machines_associated_ids)
+        pulumi.set(__self__, "vlans", vlans)
+        if hybrid_aks_plugin_type is None:
+            hybrid_aks_plugin_type = 'SRIOV'
+        if hybrid_aks_plugin_type is not None:
+            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the Network Cloud cluster this trunked network is associated with.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the trunked network.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="hybridAksClustersAssociatedIds")
+    def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
+        """
+        The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
+        """
+        return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
+
+    @property
+    @pulumi.getter(name="isolationDomainIds")
+    def isolation_domain_ids(self) -> Sequence[str]:
+        """
+        The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
+        """
+        return pulumi.get(self, "isolation_domain_ids")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the trunked network.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="virtualMachinesAssociatedIds")
+    def virtual_machines_associated_ids(self) -> Sequence[str]:
+        """
+        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
+        """
+        return pulumi.get(self, "virtual_machines_associated_ids")
+
+    @property
+    @pulumi.getter
+    def vlans(self) -> Sequence[float]:
+        """
+        The list of vlans that are selected from the isolation domains for trunking.
+        """
+        return pulumi.get(self, "vlans")
+
+    @property
+    @pulumi.getter(name="hybridAksPluginType")
+    def hybrid_aks_plugin_type(self) -> Optional[str]:
+        """
+        The network plugin type for Hybrid AKS.
+        """
+        return pulumi.get(self, "hybrid_aks_plugin_type")
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[str]:
+        """
+        The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
+        """
+        return pulumi.get(self, "interface_name")
+
+
+@pulumi.output_type
 class ValidationThresholdResponse(dict):
     def __init__(__self__, *,
                  grouping: str,
@@ -2282,5 +4893,430 @@ class VirtualMachinePlacementHintResponse(dict):
         The scope for the virtual machine affinity or anti-affinity placement hint. It should always be "Machine" in the case of node affinity.
         """
         return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class VirtualMachinePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "bareMetalMachineId":
+            suggest = "bare_metal_machine_id"
+        elif key == "cloudServicesNetworkAttachment":
+            suggest = "cloud_services_network_attachment"
+        elif key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "cpuCores":
+            suggest = "cpu_cores"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "memorySizeGB":
+            suggest = "memory_size_gb"
+        elif key == "powerState":
+            suggest = "power_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
+        elif key == "vmImage":
+            suggest = "vm_image"
+        elif key == "bootMethod":
+            suggest = "boot_method"
+        elif key == "isolateEmulatorThread":
+            suggest = "isolate_emulator_thread"
+        elif key == "networkAttachments":
+            suggest = "network_attachments"
+        elif key == "networkData":
+            suggest = "network_data"
+        elif key == "placementHints":
+            suggest = "placement_hints"
+        elif key == "sshPublicKeys":
+            suggest = "ssh_public_keys"
+        elif key == "userData":
+            suggest = "user_data"
+        elif key == "virtioInterface":
+            suggest = "virtio_interface"
+        elif key == "vmDeviceModel":
+            suggest = "vm_device_model"
+        elif key == "vmImageRepositoryCredentials":
+            suggest = "vm_image_repository_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachinePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachinePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachinePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_username: str,
+                 bare_metal_machine_id: str,
+                 cloud_services_network_attachment: 'outputs.NetworkAttachmentResponse',
+                 cluster_id: str,
+                 cpu_cores: float,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 memory_size_gb: float,
+                 power_state: str,
+                 provisioning_state: str,
+                 storage_profile: 'outputs.StorageProfileResponse',
+                 vm_image: str,
+                 volumes: Sequence[str],
+                 boot_method: Optional[str] = None,
+                 isolate_emulator_thread: Optional[str] = None,
+                 network_attachments: Optional[Sequence['outputs.NetworkAttachmentResponse']] = None,
+                 network_data: Optional[str] = None,
+                 placement_hints: Optional[Sequence['outputs.VirtualMachinePlacementHintResponse']] = None,
+                 ssh_public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None,
+                 user_data: Optional[str] = None,
+                 virtio_interface: Optional[str] = None,
+                 vm_device_model: Optional[str] = None,
+                 vm_image_repository_credentials: Optional['outputs.ImageRepositoryCredentialsResponse'] = None):
+        """
+        :param str admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
+        :param str bare_metal_machine_id: The resource ID of the bare metal machine the virtual machine has landed to.
+        :param str cluster_id: The resource ID of the cluster the virtual machine is created for.
+        :param float cpu_cores: The number of CPU cores in the virtual machine.
+        :param str detailed_status: The more detailed status of the virtual machine.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param float memory_size_gb: The memory size of the virtual machine in GB.
+        :param str power_state: The power state of the virtual machine.
+        :param str provisioning_state: The provisioning state of the virtual machine.
+        :param str vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
+        :param Sequence[str] volumes: The resource IDs of volumes that are attached to the virtual machine.
+        :param str boot_method: Selects the boot method for the virtual machine.
+        :param str isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
+        :param Sequence['NetworkAttachmentResponse'] network_attachments: The list of network attachments to the virtual machine.
+        :param str network_data: The Base64 encoded cloud-init network data.
+        :param Sequence['VirtualMachinePlacementHintResponse'] placement_hints: The scheduling hints for the virtual machine.
+        :param Sequence['SshPublicKeyResponse'] ssh_public_keys: The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
+        :param str user_data: The Base64 encoded cloud-init user data.
+        :param str virtio_interface: Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
+        :param str vm_device_model: The type of the device model to use.
+        """
+        pulumi.set(__self__, "admin_username", admin_username)
+        pulumi.set(__self__, "bare_metal_machine_id", bare_metal_machine_id)
+        pulumi.set(__self__, "cloud_services_network_attachment", cloud_services_network_attachment)
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "cpu_cores", cpu_cores)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
+        pulumi.set(__self__, "power_state", power_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "storage_profile", storage_profile)
+        pulumi.set(__self__, "vm_image", vm_image)
+        pulumi.set(__self__, "volumes", volumes)
+        if boot_method is None:
+            boot_method = 'UEFI'
+        if boot_method is not None:
+            pulumi.set(__self__, "boot_method", boot_method)
+        if isolate_emulator_thread is None:
+            isolate_emulator_thread = 'True'
+        if isolate_emulator_thread is not None:
+            pulumi.set(__self__, "isolate_emulator_thread", isolate_emulator_thread)
+        if network_attachments is not None:
+            pulumi.set(__self__, "network_attachments", network_attachments)
+        if network_data is not None:
+            pulumi.set(__self__, "network_data", network_data)
+        if placement_hints is not None:
+            pulumi.set(__self__, "placement_hints", placement_hints)
+        if ssh_public_keys is not None:
+            pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+        if virtio_interface is None:
+            virtio_interface = 'Modern'
+        if virtio_interface is not None:
+            pulumi.set(__self__, "virtio_interface", virtio_interface)
+        if vm_device_model is None:
+            vm_device_model = 'T2'
+        if vm_device_model is not None:
+            pulumi.set(__self__, "vm_device_model", vm_device_model)
+        if vm_image_repository_credentials is not None:
+            pulumi.set(__self__, "vm_image_repository_credentials", vm_image_repository_credentials)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> str:
+        """
+        The name of the administrator to which the ssh public keys will be added into the authorized keys.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="bareMetalMachineId")
+    def bare_metal_machine_id(self) -> str:
+        """
+        The resource ID of the bare metal machine the virtual machine has landed to.
+        """
+        return pulumi.get(self, "bare_metal_machine_id")
+
+    @property
+    @pulumi.getter(name="cloudServicesNetworkAttachment")
+    def cloud_services_network_attachment(self) -> 'outputs.NetworkAttachmentResponse':
+        return pulumi.get(self, "cloud_services_network_attachment")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The resource ID of the cluster the virtual machine is created for.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="cpuCores")
+    def cpu_cores(self) -> float:
+        """
+        The number of CPU cores in the virtual machine.
+        """
+        return pulumi.get(self, "cpu_cores")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the virtual machine.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="memorySizeGB")
+    def memory_size_gb(self) -> float:
+        """
+        The memory size of the virtual machine in GB.
+        """
+        return pulumi.get(self, "memory_size_gb")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        The power state of the virtual machine.
+        """
+        return pulumi.get(self, "power_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the virtual machine.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> 'outputs.StorageProfileResponse':
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter(name="vmImage")
+    def vm_image(self) -> str:
+        """
+        The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
+        """
+        return pulumi.get(self, "vm_image")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Sequence[str]:
+        """
+        The resource IDs of volumes that are attached to the virtual machine.
+        """
+        return pulumi.get(self, "volumes")
+
+    @property
+    @pulumi.getter(name="bootMethod")
+    def boot_method(self) -> Optional[str]:
+        """
+        Selects the boot method for the virtual machine.
+        """
+        return pulumi.get(self, "boot_method")
+
+    @property
+    @pulumi.getter(name="isolateEmulatorThread")
+    def isolate_emulator_thread(self) -> Optional[str]:
+        """
+        Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
+        """
+        return pulumi.get(self, "isolate_emulator_thread")
+
+    @property
+    @pulumi.getter(name="networkAttachments")
+    def network_attachments(self) -> Optional[Sequence['outputs.NetworkAttachmentResponse']]:
+        """
+        The list of network attachments to the virtual machine.
+        """
+        return pulumi.get(self, "network_attachments")
+
+    @property
+    @pulumi.getter(name="networkData")
+    def network_data(self) -> Optional[str]:
+        """
+        The Base64 encoded cloud-init network data.
+        """
+        return pulumi.get(self, "network_data")
+
+    @property
+    @pulumi.getter(name="placementHints")
+    def placement_hints(self) -> Optional[Sequence['outputs.VirtualMachinePlacementHintResponse']]:
+        """
+        The scheduling hints for the virtual machine.
+        """
+        return pulumi.get(self, "placement_hints")
+
+    @property
+    @pulumi.getter(name="sshPublicKeys")
+    def ssh_public_keys(self) -> Optional[Sequence['outputs.SshPublicKeyResponse']]:
+        """
+        The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
+        """
+        return pulumi.get(self, "ssh_public_keys")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[str]:
+        """
+        The Base64 encoded cloud-init user data.
+        """
+        return pulumi.get(self, "user_data")
+
+    @property
+    @pulumi.getter(name="virtioInterface")
+    def virtio_interface(self) -> Optional[str]:
+        """
+        Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
+        """
+        return pulumi.get(self, "virtio_interface")
+
+    @property
+    @pulumi.getter(name="vmDeviceModel")
+    def vm_device_model(self) -> Optional[str]:
+        """
+        The type of the device model to use.
+        """
+        return pulumi.get(self, "vm_device_model")
+
+    @property
+    @pulumi.getter(name="vmImageRepositoryCredentials")
+    def vm_image_repository_credentials(self) -> Optional['outputs.ImageRepositoryCredentialsResponse']:
+        return pulumi.get(self, "vm_image_repository_credentials")
+
+
+@pulumi.output_type
+class VolumePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachedTo":
+            suggest = "attached_to"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+        elif key == "sizeMiB":
+            suggest = "size_mi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attached_to: Sequence[str],
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 provisioning_state: str,
+                 serial_number: str,
+                 size_mi_b: float):
+        """
+        :param Sequence[str] attached_to: The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
+        :param str detailed_status: The more detailed status of the volume.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str provisioning_state: The provisioning state of the volume.
+        :param str serial_number: The unique identifier of the volume.
+        :param float size_mi_b: The size of the allocation for this volume in Mebibytes.
+        """
+        pulumi.set(__self__, "attached_to", attached_to)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "size_mi_b", size_mi_b)
+
+    @property
+    @pulumi.getter(name="attachedTo")
+    def attached_to(self) -> Sequence[str]:
+        """
+        The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
+        """
+        return pulumi.get(self, "attached_to")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The more detailed status of the volume.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the volume.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        The unique identifier of the volume.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter(name="sizeMiB")
+    def size_mi_b(self) -> float:
+        """
+        The size of the allocation for this volume in Mebibytes.
+        """
+        return pulumi.get(self, "size_mi_b")
 
 

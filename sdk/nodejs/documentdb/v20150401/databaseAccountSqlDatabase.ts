@@ -93,19 +93,15 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'options'");
-            }
-            if ((!args || args.resource === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resource'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["colls"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -147,13 +143,9 @@ export interface DatabaseAccountSqlDatabaseArgs {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+     * Properties to create and update Azure Cosmos DB SQL database.
      */
-    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The standard JSON format of a SQL database
-     */
-    resource: pulumi.Input<inputs.documentdb.v20150401.SqlDatabaseResourceArgs>;
+    properties: pulumi.Input<inputs.documentdb.v20150401.SqlDatabaseCreateUpdatePropertiesArgs>;
     /**
      * Name of an Azure resource group.
      */

@@ -45,22 +45,6 @@ export interface GetBlobDataSetMappingArgs {
  */
 export interface GetBlobDataSetMappingResult {
     /**
-     * Container that has the file path.
-     */
-    readonly containerName: string;
-    /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
-     * File path within the source data set
-     */
-    readonly filePath: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -74,25 +58,9 @@ export interface GetBlobDataSetMappingResult {
      */
     readonly name: string;
     /**
-     * File output type
+     * Blob data set mapping properties.
      */
-    readonly outputType?: string;
-    /**
-     * Provisioning state of the data set mapping.
-     */
-    readonly provisioningState: string;
-    /**
-     * Resource group of storage account.
-     */
-    readonly resourceGroup: string;
-    /**
-     * Storage account name of the source data set.
-     */
-    readonly storageAccountName: string;
-    /**
-     * Subscription id of storage account.
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.v20200901.BlobMappingPropertiesResponse;
     /**
      * System Data of the Azure resource.
      */

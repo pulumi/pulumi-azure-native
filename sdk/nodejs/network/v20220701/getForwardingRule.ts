@@ -40,41 +40,25 @@ export interface GetForwardingRuleArgs {
  */
 export interface GetForwardingRuleResult {
     /**
-     * The domain name for the forwarding rule.
-     */
-    readonly domainName: string;
-    /**
      * ETag of the forwarding rule.
      */
     readonly etag: string;
-    /**
-     * The state of forwarding rule.
-     */
-    readonly forwardingRuleState?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Metadata attached to the forwarding rule.
-     */
-    readonly metadata?: {[key: string]: string};
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the forwarding rule.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.network.v20220701.ForwardingRulePropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.network.v20220701.SystemDataResponse;
-    /**
-     * DNS servers to forward the DNS query to.
-     */
-    readonly targetDnsServers: outputs.network.v20220701.TargetDnsServerResponse[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

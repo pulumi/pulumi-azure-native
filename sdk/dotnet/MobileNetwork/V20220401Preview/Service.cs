@@ -64,28 +64,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The set of data flow policy rules that make up this service.
+        /// Service Properties.
         /// </summary>
-        [Output("pccRules")]
-        public Output<ImmutableArray<Outputs.PccRuleConfigurationResponse>> PccRules { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the service resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
-        /// </summary>
-        [Output("servicePrecedence")]
-        public Output<int> ServicePrecedence { get; private set; } = null!;
-
-        /// <summary>
-        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
-        /// </summary>
-        [Output("serviceQosPolicy")]
-        public Output<Outputs.QosPolicyResponse?> ServiceQosPolicy { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ServicePropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -204,17 +186,11 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         [Input("mobileNetworkName", required: true)]
         public Input<string> MobileNetworkName { get; set; } = null!;
 
-        [Input("pccRules", required: true)]
-        private InputList<Inputs.PccRuleConfigurationArgs>? _pccRules;
-
         /// <summary>
-        /// The set of data flow policy rules that make up this service.
+        /// Service Properties.
         /// </summary>
-        public InputList<Inputs.PccRuleConfigurationArgs> PccRules
-        {
-            get => _pccRules ?? (_pccRules = new InputList<Inputs.PccRuleConfigurationArgs>());
-            set => _pccRules = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.ServicePropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -227,18 +203,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
-
-        /// <summary>
-        /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
-        /// </summary>
-        [Input("servicePrecedence", required: true)]
-        public Input<int> ServicePrecedence { get; set; } = null!;
-
-        /// <summary>
-        /// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
-        /// </summary>
-        [Input("serviceQosPolicy")]
-        public Input<Inputs.QosPolicyArgs>? ServiceQosPolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

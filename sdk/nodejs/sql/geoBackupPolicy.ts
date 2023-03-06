@@ -51,13 +51,9 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The state of the geo backup policy.
+     * The properties of the geo backup policy.
      */
-    public readonly state!: pulumi.Output<string>;
-    /**
-     * The storage type of the geo backup policy.
-     */
-    public /*out*/ readonly storageType!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.sql.GeoBackupPolicyPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -77,31 +73,29 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'state'");
-            }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["geoBackupPolicyName"] = args ? args.geoBackupPolicyName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,6 +118,10 @@ export interface GeoBackupPolicyArgs {
      */
     geoBackupPolicyName?: pulumi.Input<string>;
     /**
+     * The properties of the geo backup policy.
+     */
+    properties: pulumi.Input<inputs.sql.GeoBackupPolicyPropertiesArgs>;
+    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -131,8 +129,4 @@ export interface GeoBackupPolicyArgs {
      * The name of the server.
      */
     serverName: pulumi.Input<string>;
-    /**
-     * The state of the geo backup policy.
-     */
-    state: pulumi.Input<enums.sql.GeoBackupPolicyState>;
 }

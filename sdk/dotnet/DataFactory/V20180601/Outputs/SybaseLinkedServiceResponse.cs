@@ -21,89 +21,47 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// AuthenticationType to be used for connection.
-        /// </summary>
-        public readonly string? AuthenticationType;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
-        /// <summary>
-        /// Database name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Database;
         /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// Password for authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
-        /// <summary>
-        /// Schema name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? Schema;
-        /// <summary>
-        /// Server name for connection. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object Server;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Sybase'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Username for authentication. Type: string (or Expression with resultType string).
+        /// Sybase linked service properties.
         /// </summary>
-        public readonly object? Username;
+        public readonly Outputs.SybaseLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private SybaseLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            string? authenticationType,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
-
-            object database,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
-
-            object? schema,
-
-            object server,
 
             string type,
 
-            object? username)
+            Outputs.SybaseLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            AuthenticationType = authenticationType;
             ConnectVia = connectVia;
-            Database = database;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Password = password;
-            Schema = schema;
-            Server = server;
             Type = type;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -8,43 +8,42 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
 
 @pulumi.input_type
 class FirewallRuleArgs:
     def __init__(__self__, *,
-                 end_ip_address: pulumi.Input[str],
+                 properties: pulumi.Input['FirewallRulePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
-                 start_ip_address: pulumi.Input[str],
                  firewall_rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
-        :param pulumi.Input[str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
+        :param pulumi.Input['FirewallRulePropertiesArgs'] properties: The properties of a firewall rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
         :param pulumi.Input[str] firewall_rule_name: The name of the server firewall rule.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
         if firewall_rule_name is not None:
             pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
 
     @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['FirewallRulePropertiesArgs']:
         """
-        The end IP address of the server firewall rule. Must be IPv4 format.
+        The properties of a firewall rule.
         """
-        return pulumi.get(self, "end_ip_address")
+        return pulumi.get(self, "properties")
 
-    @end_ip_address.setter
-    def end_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_ip_address", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['FirewallRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +70,6 @@ class FirewallRuleArgs:
         pulumi.set(self, "server_name", value)
 
     @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Input[str]:
-        """
-        The start IP address of the server firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "start_ip_address")
-
-    @start_ip_address.setter
-    def start_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_ip_address", value)
-
-    @property
     @pulumi.getter(name="firewallRuleName")
     def firewall_rule_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -100,22 +87,20 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['FirewallRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Represents a server firewall rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
         :param pulumi.Input[str] firewall_rule_name: The name of the server firewall rule.
+        :param pulumi.Input[pulumi.InputType['FirewallRulePropertiesArgs']] properties: The properties of a firewall rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
         """
         ...
     @overload
@@ -141,11 +126,10 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['FirewallRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -155,19 +139,16 @@ class FirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallRuleArgs.__new__(FirewallRuleArgs)
 
-            if end_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'end_ip_address'")
-            __props__.__dict__["end_ip_address"] = end_ip_address
             __props__.__dict__["firewall_rule_name"] = firewall_rule_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
-            if start_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'start_ip_address'")
-            __props__.__dict__["start_ip_address"] = start_ip_address
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:FirewallRule")])
@@ -194,19 +175,10 @@ class FirewallRule(pulumi.CustomResource):
 
         __props__ = FirewallRuleArgs.__new__(FirewallRuleArgs)
 
-        __props__.__dict__["end_ip_address"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["start_ip_address"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Output[str]:
-        """
-        The end IP address of the server firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "end_ip_address")
 
     @property
     @pulumi.getter
@@ -217,12 +189,12 @@ class FirewallRule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.FirewallRulePropertiesResponse']:
         """
-        The start IP address of the server firewall rule. Must be IPv4 format.
+        The properties of a firewall rule.
         """
-        return pulumi.get(self, "start_ip_address")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

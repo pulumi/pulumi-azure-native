@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class MetricsConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The interval in minutes by which metrics will be collected.
-        /// </summary>
-        [Output("collectionInterval")]
-        public Output<double> CollectionInterval { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the metrics configuration.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of metrics that are available for the cluster but disabled at the moment.
-        /// </summary>
-        [Output("disabledMetrics")]
-        public Output<ImmutableArray<string>> DisabledMetrics { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-        /// </summary>
-        [Output("enabledMetrics")]
-        public Output<ImmutableArray<string>> EnabledMetrics { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
@@ -61,10 +31,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the metrics configuration.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ClusterMetricsConfigurationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -140,24 +110,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The interval in minutes by which metrics will be collected.
-        /// </summary>
-        [Input("collectionInterval", required: true)]
-        public Input<double> CollectionInterval { get; set; } = null!;
-
-        [Input("enabledMetrics")]
-        private InputList<string>? _enabledMetrics;
-
-        /// <summary>
-        /// The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-        /// </summary>
-        public InputList<string> EnabledMetrics
-        {
-            get => _enabledMetrics ?? (_enabledMetrics = new InputList<string>());
-            set => _enabledMetrics = value;
-        }
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Input("extendedLocation", required: true)]
@@ -174,6 +126,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Input("metricsConfigurationName")]
         public Input<string>? MetricsConfigurationName { get; set; }
+
+        /// <summary>
+        /// The list of the resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ClusterMetricsConfigurationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

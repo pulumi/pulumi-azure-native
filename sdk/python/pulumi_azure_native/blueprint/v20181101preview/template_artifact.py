@@ -18,43 +18,24 @@ class TemplateArtifactArgs:
     def __init__(__self__, *,
                  blueprint_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 parameters: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]],
+                 properties: pulumi.Input['TemplateArtifactPropertiesArgs'],
                  resource_scope: pulumi.Input[str],
-                 template: Any,
-                 artifact_name: Optional[pulumi.Input[str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None):
+                 artifact_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TemplateArtifact resource.
         :param pulumi.Input[str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[str] kind: Specifies the kind of blueprint artifact.
                Expected value is 'template'.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]] parameters: Resource Manager template blueprint artifact parameter values.
+        :param pulumi.Input['TemplateArtifactPropertiesArgs'] properties: Properties for a Resource Manager template blueprint artifact.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-        :param Any template: The Resource Manager template blueprint artifact body.
         :param pulumi.Input[str] artifact_name: Name of the blueprint artifact.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before the specified artifact.
-        :param pulumi.Input[str] description: Multi-line explain this resource.
-        :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param pulumi.Input[str] resource_group: If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
         """
         pulumi.set(__self__, "blueprint_name", blueprint_name)
         pulumi.set(__self__, "kind", 'template')
-        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_scope", resource_scope)
-        pulumi.set(__self__, "template", template)
         if artifact_name is not None:
             pulumi.set(__self__, "artifact_name", artifact_name)
-        if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
 
     @property
     @pulumi.getter(name="blueprintName")
@@ -83,15 +64,15 @@ class TemplateArtifactArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]]:
+    def properties(self) -> pulumi.Input['TemplateArtifactPropertiesArgs']:
         """
-        Resource Manager template blueprint artifact parameter values.
+        Properties for a Resource Manager template blueprint artifact.
         """
-        return pulumi.get(self, "parameters")
+        return pulumi.get(self, "properties")
 
-    @parameters.setter
-    def parameters(self, value: pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]]):
-        pulumi.set(self, "parameters", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['TemplateArtifactPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceScope")
@@ -106,18 +87,6 @@ class TemplateArtifactArgs:
         pulumi.set(self, "resource_scope", value)
 
     @property
-    @pulumi.getter
-    def template(self) -> Any:
-        """
-        The Resource Manager template blueprint artifact body.
-        """
-        return pulumi.get(self, "template")
-
-    @template.setter
-    def template(self, value: Any):
-        pulumi.set(self, "template", value)
-
-    @property
     @pulumi.getter(name="artifactName")
     def artifact_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -129,54 +98,6 @@ class TemplateArtifactArgs:
     def artifact_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "artifact_name", value)
 
-    @property
-    @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Artifacts which need to be deployed before the specified artifact.
-        """
-        return pulumi.get(self, "depends_on")
-
-    @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "depends_on", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Multi-line explain this resource.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        One-liner string explain this resource.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group", value)
-
 
 class TemplateArtifact(pulumi.CustomResource):
     @overload
@@ -185,14 +106,9 @@ class TemplateArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: Optional[pulumi.Input[str]] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['TemplateArtifactPropertiesArgs']]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
-                 template: Optional[Any] = None,
                  __props__=None):
         """
         Blueprint artifact that deploys a Resource Manager template.
@@ -201,15 +117,10 @@ class TemplateArtifact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: Name of the blueprint artifact.
         :param pulumi.Input[str] blueprint_name: Name of the blueprint definition.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on: Artifacts which need to be deployed before the specified artifact.
-        :param pulumi.Input[str] description: Multi-line explain this resource.
-        :param pulumi.Input[str] display_name: One-liner string explain this resource.
         :param pulumi.Input[str] kind: Specifies the kind of blueprint artifact.
                Expected value is 'template'.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]] parameters: Resource Manager template blueprint artifact parameter values.
-        :param pulumi.Input[str] resource_group: If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
+        :param pulumi.Input[pulumi.InputType['TemplateArtifactPropertiesArgs']] properties: Properties for a Resource Manager template blueprint artifact.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-        :param Any template: The Resource Manager template blueprint artifact body.
         """
         ...
     @overload
@@ -237,14 +148,9 @@ class TemplateArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: Optional[pulumi.Input[str]] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['TemplateArtifactPropertiesArgs']]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
-                 template: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -258,22 +164,15 @@ class TemplateArtifact(pulumi.CustomResource):
             if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")
             __props__.__dict__["blueprint_name"] = blueprint_name
-            __props__.__dict__["depends_on"] = depends_on
-            __props__.__dict__["description"] = description
-            __props__.__dict__["display_name"] = display_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'template'
-            if parameters is None and not opts.urn:
-                raise TypeError("Missing required property 'parameters'")
-            __props__.__dict__["parameters"] = parameters
-            __props__.__dict__["resource_group"] = resource_group
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_scope'")
             __props__.__dict__["resource_scope"] = resource_scope
-            if template is None and not opts.urn:
-                raise TypeError("Missing required property 'template'")
-            __props__.__dict__["template"] = template
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint:TemplateArtifact")])
@@ -300,40 +199,11 @@ class TemplateArtifact(pulumi.CustomResource):
 
         __props__ = TemplateArtifactArgs.__new__(TemplateArtifactArgs)
 
-        __props__.__dict__["depends_on"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["parameters"] = None
-        __props__.__dict__["resource_group"] = None
-        __props__.__dict__["template"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return TemplateArtifact(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Artifacts which need to be deployed before the specified artifact.
-        """
-        return pulumi.get(self, "depends_on")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Multi-line explain this resource.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        One-liner string explain this resource.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -354,27 +224,11 @@ class TemplateArtifact(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Mapping[str, 'outputs.ParameterValueResponse']]:
+    def properties(self) -> pulumi.Output['outputs.TemplateArtifactPropertiesResponse']:
         """
-        Resource Manager template blueprint artifact parameter values.
+        Properties for a Resource Manager template blueprint artifact.
         """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> pulumi.Output[Optional[str]]:
-        """
-        If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter
-    def template(self) -> pulumi.Output[Any]:
-        """
-        The Resource Manager template blueprint artifact body.
-        """
-        return pulumi.get(self, "template")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

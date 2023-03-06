@@ -38,45 +38,17 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * The amount of usage quota time the user gets in addition to the lab usage quota.
-     */
-    public readonly additionalUsageQuota!: pulumi.Output<string | undefined>;
-    /**
-     * Display name of the user, for example user's full name.
-     */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
-    /**
-     * Email address of the user.
-     */
-    public readonly email!: pulumi.Output<string>;
-    /**
-     * Date and time when the invitation message was sent to the user.
-     */
-    public /*out*/ readonly invitationSent!: pulumi.Output<string>;
-    /**
-     * State of the invitation message for the user.
-     */
-    public /*out*/ readonly invitationState!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Current provisioning state of the user resource.
+     * User resource properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * State of the user's registration within the lab.
-     */
-    public /*out*/ readonly registrationState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.labservices.v20211115preview.UserPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the user resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.labservices.v20211115preview.SystemDataResponse>;
-    /**
-     * How long the user has used their virtual machines in this lab.
-     */
-    public /*out*/ readonly totalUsage!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -93,40 +65,26 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.email === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'email'");
-            }
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalUsageQuota"] = args ? args.additionalUsageQuota : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["invitationSent"] = undefined /*out*/;
-            resourceInputs["invitationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["registrationState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["additionalUsageQuota"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["email"] = undefined /*out*/;
-            resourceInputs["invitationSent"] = undefined /*out*/;
-            resourceInputs["invitationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,17 +99,13 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserArgs {
     /**
-     * The amount of usage quota time the user gets in addition to the lab usage quota.
-     */
-    additionalUsageQuota?: pulumi.Input<string>;
-    /**
-     * Email address of the user.
-     */
-    email: pulumi.Input<string>;
-    /**
      * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
      */
     labName: pulumi.Input<string>;
+    /**
+     * User resource properties
+     */
+    properties: pulumi.Input<inputs.labservices.v20211115preview.UserPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

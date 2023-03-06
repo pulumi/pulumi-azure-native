@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class AzureTableStorageLinkedServiceResponse
     {
         /// <summary>
-        /// The Azure key vault secret reference of accountKey in connection string.
-        /// </summary>
-        public readonly Outputs.AzureKeyVaultSecretReferenceResponse? AccountKey;
-        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -29,67 +25,43 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object? ConnectionString;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly string? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// The Azure key vault secret reference of sasToken in sas uri.
-        /// </summary>
-        public readonly Outputs.AzureKeyVaultSecretReferenceResponse? SasToken;
-        /// <summary>
-        /// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        public readonly object? SasUri;
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureTableStorage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Table Storage linked service properties.
+        /// </summary>
+        public readonly Outputs.AzureStorageLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureTableStorageLinkedServiceResponse(
-            Outputs.AzureKeyVaultSecretReferenceResponse? accountKey,
-
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? connectionString,
-
             string? description,
-
-            string? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Outputs.AzureKeyVaultSecretReferenceResponse? sasToken,
+            string type,
 
-            object? sasUri,
-
-            string type)
+            Outputs.AzureStorageLinkedServiceTypePropertiesResponse typeProperties)
         {
-            AccountKey = accountKey;
             Annotations = annotations;
             ConnectVia = connectVia;
-            ConnectionString = connectionString;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            SasToken = sasToken;
-            SasUri = sasUri;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetAccessControlRecordResult',
@@ -23,16 +24,16 @@ class GetAccessControlRecordResult:
     """
     The access control record
     """
-    def __init__(__self__, id=None, initiator_name=None, name=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if initiator_name and not isinstance(initiator_name, str):
-            raise TypeError("Expected argument 'initiator_name' to be a str")
-        pulumi.set(__self__, "initiator_name", initiator_name)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -46,20 +47,20 @@ class GetAccessControlRecordResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="initiatorName")
-    def initiator_name(self) -> str:
-        """
-        The Iscsi initiator name (IQN)
-        """
-        return pulumi.get(self, "initiator_name")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.AccessControlRecordPropertiesResponse':
+        """
+        Properties of AccessControlRecord
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -77,8 +78,8 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
             yield self
         return GetAccessControlRecordResult(
             id=self.id,
-            initiator_name=self.initiator_name,
             name=self.name,
+            properties=self.properties,
             type=self.type)
 
 
@@ -104,8 +105,8 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
 
     return AwaitableGetAccessControlRecordResult(
         id=__ret__.id,
-        initiator_name=__ret__.initiator_name,
         name=__ret__.name,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

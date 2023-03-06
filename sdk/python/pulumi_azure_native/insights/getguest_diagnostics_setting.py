@@ -22,10 +22,7 @@ class GetguestDiagnosticsSettingResult:
     """
     Virtual machine guest diagnostics settings resource.
     """
-    def __init__(__self__, data_sources=None, id=None, location=None, name=None, os_type=None, proxy_setting=None, tags=None, type=None):
-        if data_sources and not isinstance(data_sources, list):
-            raise TypeError("Expected argument 'data_sources' to be a list")
-        pulumi.set(__self__, "data_sources", data_sources)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,26 +32,15 @@ class GetguestDiagnosticsSettingResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if os_type and not isinstance(os_type, str):
-            raise TypeError("Expected argument 'os_type' to be a str")
-        pulumi.set(__self__, "os_type", os_type)
-        if proxy_setting and not isinstance(proxy_setting, str):
-            raise TypeError("Expected argument 'proxy_setting' to be a str")
-        pulumi.set(__self__, "proxy_setting", proxy_setting)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[Sequence['outputs.DataSourceResponse']]:
-        """
-        the array of data source object which are configured to collect and send data
-        """
-        return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter
@@ -81,17 +67,12 @@ class GetguestDiagnosticsSettingResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.GuestDiagnosticSettingsResponse':
         """
-        Operating system type for the configuration
+        The diagnostic settings to be applied to azure resources.
         """
-        return pulumi.get(self, "os_type")
-
-    @property
-    @pulumi.getter(name="proxySetting")
-    def proxy_setting(self) -> Optional[str]:
-        return pulumi.get(self, "proxy_setting")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -116,12 +97,10 @@ class AwaitableGetguestDiagnosticsSettingResult(GetguestDiagnosticsSettingResult
         if False:
             yield self
         return GetguestDiagnosticsSettingResult(
-            data_sources=self.data_sources,
             id=self.id,
             location=self.location,
             name=self.name,
-            os_type=self.os_type,
-            proxy_setting=self.proxy_setting,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -144,12 +123,10 @@ def getguest_diagnostics_setting(diagnostic_settings_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getguestDiagnosticsSetting', __args__, opts=opts, typ=GetguestDiagnosticsSettingResult).value
 
     return AwaitableGetguestDiagnosticsSettingResult(
-        data_sources=__ret__.data_sources,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        os_type=__ret__.os_type,
-        proxy_setting=__ret__.proxy_setting,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
 

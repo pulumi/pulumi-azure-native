@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,10 +38,6 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The guest diagnostic settings name.
-     */
-    public readonly guestDiagnosticSettingsName!: pulumi.Output<string>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -46,6 +45,10 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
      * Azure resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The diagnostics settings associations of the resource.
+     */
+    public readonly properties!: pulumi.Output<outputs.insights.v20180601preview.GuestDiagnosticSettingsAssociationResponse>;
     /**
      * Resource tags
      */
@@ -66,23 +69,23 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.guestDiagnosticSettingsName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'guestDiagnosticSettingsName'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
             resourceInputs["associationName"] = args ? args.associationName : undefined;
-            resourceInputs["guestDiagnosticSettingsName"] = args ? args.guestDiagnosticSettingsName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["guestDiagnosticSettingsName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -102,13 +105,13 @@ export interface GuestDiagnosticsSettingsAssociationArgs {
      */
     associationName?: pulumi.Input<string>;
     /**
-     * The guest diagnostic settings name.
-     */
-    guestDiagnosticSettingsName: pulumi.Input<string>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
+    /**
+     * The diagnostics settings associations of the resource.
+     */
+    properties: pulumi.Input<inputs.insights.v20180601preview.GuestDiagnosticSettingsAssociationArgs>;
     /**
      * The fully qualified ID of the resource, including the resource name and resource type.
      */

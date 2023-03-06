@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class ExecuteWranglingDataflowActivityResponse
     {
         /// <summary>
-        /// Compute properties for data flow activity.
-        /// </summary>
-        public readonly Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? Compute;
-        /// <summary>
-        /// Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
-        /// </summary>
-        public readonly object? ContinueOnError;
-        /// <summary>
-        /// Data flow reference.
-        /// </summary>
-        public readonly Outputs.DataFlowReferenceResponse DataFlow;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -36,10 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The integration runtime reference.
-        /// </summary>
-        public readonly Outputs.IntegrationRuntimeReferenceResponse? IntegrationRuntime;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -49,34 +33,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// List of mapping for Power Query mashup query to sink dataset(s).
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PowerQuerySinkMappingResponse> Queries;
-        /// <summary>
-        /// Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
-        /// </summary>
-        public readonly object? RunConcurrently;
-        /// <summary>
-        /// (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.PowerQuerySinkResponse>? Sinks;
-        /// <summary>
-        /// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
-        /// </summary>
-        public readonly object? SourceStagingConcurrency;
-        /// <summary>
-        /// Staging info for execute data flow activity.
-        /// </summary>
-        public readonly Outputs.DataFlowStagingInfoResponse? Staging;
-        /// <summary>
-        /// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
-        /// </summary>
-        public readonly object? TraceLevel;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'ExecuteWranglingDataflow'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Execute power query activity properties.
+        /// </summary>
+        public readonly Outputs.ExecutePowerQueryActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -84,53 +48,26 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private ExecuteWranglingDataflowActivityResponse(
-            Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? compute,
-
-            object? continueOnError,
-
-            Outputs.DataFlowReferenceResponse dataFlow,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            Outputs.IntegrationRuntimeReferenceResponse? integrationRuntime,
 
             string name,
 
             Outputs.ActivityPolicyResponse? policy,
 
-            ImmutableArray<Outputs.PowerQuerySinkMappingResponse> queries,
-
-            object? runConcurrently,
-
-            ImmutableDictionary<string, Outputs.PowerQuerySinkResponse>? sinks,
-
-            object? sourceStagingConcurrency,
-
-            Outputs.DataFlowStagingInfoResponse? staging,
-
-            object? traceLevel,
-
             string type,
+
+            Outputs.ExecutePowerQueryActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Compute = compute;
-            ContinueOnError = continueOnError;
-            DataFlow = dataFlow;
             DependsOn = dependsOn;
             Description = description;
-            IntegrationRuntime = integrationRuntime;
             Name = name;
             Policy = policy;
-            Queries = queries;
-            RunConcurrently = runConcurrently;
-            Sinks = sinks;
-            SourceStagingConcurrency = sourceStagingConcurrency;
-            Staging = staging;
-            TraceLevel = traceLevel;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

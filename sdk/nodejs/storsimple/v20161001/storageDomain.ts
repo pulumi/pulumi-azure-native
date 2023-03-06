@@ -41,21 +41,13 @@ export class StorageDomain extends pulumi.CustomResource {
     }
 
     /**
-     * The encryption key used to encrypt the data. This is a user secret.
-     */
-    public readonly encryptionKey!: pulumi.Output<outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse | undefined>;
-    /**
-     * The encryption status "Enabled | Disabled".
-     */
-    public readonly encryptionStatus!: pulumi.Output<string>;
-    /**
      * The name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The storage account credentials.
+     * The properties.
      */
-    public readonly storageAccountCredentialIds!: pulumi.Output<string[]>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.StorageDomainPropertiesResponse>;
     /**
      * The type.
      */
@@ -74,31 +66,24 @@ export class StorageDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.encryptionStatus === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'encryptionStatus'");
-            }
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountCredentialIds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountCredentialIds'");
-            }
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["encryptionStatus"] = args ? args.encryptionStatus : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountCredentialIds"] = args ? args.storageAccountCredentialIds : undefined;
             resourceInputs["storageDomainName"] = args ? args.storageDomainName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["encryptionKey"] = undefined /*out*/;
-            resourceInputs["encryptionStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["storageAccountCredentialIds"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -111,25 +96,17 @@ export class StorageDomain extends pulumi.CustomResource {
  */
 export interface StorageDomainArgs {
     /**
-     * The encryption key used to encrypt the data. This is a user secret.
-     */
-    encryptionKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
-    /**
-     * The encryption status "Enabled | Disabled".
-     */
-    encryptionStatus: pulumi.Input<enums.storsimple.v20161001.EncryptionStatus>;
-    /**
      * The manager name
      */
     managerName: pulumi.Input<string>;
     /**
+     * The properties.
+     */
+    properties: pulumi.Input<inputs.storsimple.v20161001.StorageDomainPropertiesArgs>;
+    /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The storage account credentials.
-     */
-    storageAccountCredentialIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The storage domain name.
      */

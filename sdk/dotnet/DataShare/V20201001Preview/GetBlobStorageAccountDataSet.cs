@@ -94,10 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public sealed class GetBlobStorageAccountDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -107,21 +103,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Location of the storage account.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of storage account paths.
+        /// Storage account data set properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BlobStorageAccountPathResponse> Paths;
-        /// <summary>
-        /// Resource id of the storage account.
-        /// </summary>
-        public readonly string StorageAccountResourceId;
+        public readonly Outputs.BlobStorageAccountDataSetPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -133,31 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 
         [OutputConstructor]
         private GetBlobStorageAccountDataSetResult(
-            string dataSetId,
-
             string id,
 
             string kind,
 
-            string location,
-
             string name,
 
-            ImmutableArray<Outputs.BlobStorageAccountPathResponse> paths,
-
-            string storageAccountResourceId,
+            Outputs.BlobStorageAccountDataSetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
-            Location = location;
             Name = name;
-            Paths = paths;
-            StorageAccountResourceId = storageAccountResourceId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

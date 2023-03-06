@@ -35,14 +35,6 @@ export interface GetPacketCoreControlPlaneArgs {
  */
 export interface GetPacketCoreControlPlaneResult {
     /**
-     * The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
-     */
-    readonly controlPlaneAccessInterface: outputs.mobilenetwork.v20221101.InterfacePropertiesResponse;
-    /**
-     * The core network technology generation (5G core or EPC / 4G core).
-     */
-    readonly coreNetworkTechnology?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -50,18 +42,6 @@ export interface GetPacketCoreControlPlaneResult {
      * The identity used to retrieve the ingress certificate from Azure key vault.
      */
     readonly identity?: outputs.mobilenetwork.v20221101.ManagedServiceIdentityResponse;
-    /**
-     * The installation state of the packet core control plane resource.
-     */
-    readonly installation: outputs.mobilenetwork.v20221101.InstallationResponse;
-    /**
-     * Settings to allow interoperability with third party components e.g. RANs and UEs.
-     */
-    readonly interopSettings?: any;
-    /**
-     * The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-     */
-    readonly localDiagnosticsAccess: outputs.mobilenetwork.v20221101.LocalDiagnosticsAccessConfigurationResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -71,25 +51,9 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly name: string;
     /**
-     * The platform where the packet core is deployed.
+     * Packet core control plane Properties.
      */
-    readonly platform: outputs.mobilenetwork.v20221101.PlatformConfigurationResponse;
-    /**
-     * The provisioning state of the packet core control plane resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * The previous version of the packet core software that was deployed. Used when performing the rollback action.
-     */
-    readonly rollbackVersion: string;
-    /**
-     * Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
-     */
-    readonly sites: outputs.mobilenetwork.v20221101.SiteResourceIdResponse[];
-    /**
-     * The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
-     */
-    readonly sku: string;
+    readonly properties: outputs.mobilenetwork.v20221101.PacketCoreControlPlanePropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -102,14 +66,6 @@ export interface GetPacketCoreControlPlaneResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
-     */
-    readonly ueMtu?: number;
-    /**
-     * The version of the packet core software that is deployed.
-     */
-    readonly version?: string;
 }
 /**
  * Gets information about the specified packet core control plane.

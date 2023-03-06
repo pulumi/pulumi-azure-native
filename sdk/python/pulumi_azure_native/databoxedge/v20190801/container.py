@@ -10,43 +10,32 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ContainerArgs', 'Container']
 
 @pulumi.input_type
 class ContainerArgs:
     def __init__(__self__, *,
-                 data_format: pulumi.Input[Union[str, 'AzureContainerDataFormat']],
                  device_name: pulumi.Input[str],
+                 properties: pulumi.Input['ContainerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  storage_account_name: pulumi.Input[str],
                  container_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Container resource.
-        :param pulumi.Input[Union[str, 'AzureContainerDataFormat']] data_format: DataFormat for Container
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input['ContainerPropertiesArgs'] properties: The container properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] storage_account_name: The Storage Account Name
         :param pulumi.Input[str] container_name: The container name.
         """
-        pulumi.set(__self__, "data_format", data_format)
         pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
-
-    @property
-    @pulumi.getter(name="dataFormat")
-    def data_format(self) -> pulumi.Input[Union[str, 'AzureContainerDataFormat']]:
-        """
-        DataFormat for Container
-        """
-        return pulumi.get(self, "data_format")
-
-    @data_format.setter
-    def data_format(self, value: pulumi.Input[Union[str, 'AzureContainerDataFormat']]):
-        pulumi.set(self, "data_format", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -59,6 +48,18 @@ class ContainerArgs:
     @device_name.setter
     def device_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ContainerPropertiesArgs']:
+        """
+        The container properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ContainerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -108,8 +109,8 @@ class Container(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 data_format: Optional[pulumi.Input[Union[str, 'AzureContainerDataFormat']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ContainerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -119,8 +120,8 @@ class Container(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: The container name.
-        :param pulumi.Input[Union[str, 'AzureContainerDataFormat']] data_format: DataFormat for Container
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[pulumi.InputType['ContainerPropertiesArgs']] properties: The container properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] storage_account_name: The Storage Account Name
         """
@@ -149,8 +150,8 @@ class Container(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 data_format: Optional[pulumi.Input[Union[str, 'AzureContainerDataFormat']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ContainerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -164,22 +165,19 @@ class Container(pulumi.CustomResource):
             __props__ = ContainerArgs.__new__(ContainerArgs)
 
             __props__.__dict__["container_name"] = container_name
-            if data_format is None and not opts.urn:
-                raise TypeError("Missing required property 'data_format'")
-            __props__.__dict__["data_format"] = data_format
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
-            __props__.__dict__["container_status"] = None
-            __props__.__dict__["created_date_time"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["refresh_details"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Container")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -205,37 +203,10 @@ class Container(pulumi.CustomResource):
 
         __props__ = ContainerArgs.__new__(ContainerArgs)
 
-        __props__.__dict__["container_status"] = None
-        __props__.__dict__["created_date_time"] = None
-        __props__.__dict__["data_format"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["refresh_details"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return Container(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="containerStatus")
-    def container_status(self) -> pulumi.Output[str]:
-        """
-        Current status of the container.
-        """
-        return pulumi.get(self, "container_status")
-
-    @property
-    @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> pulumi.Output[str]:
-        """
-        The UTC time when container got created.
-        """
-        return pulumi.get(self, "created_date_time")
-
-    @property
-    @pulumi.getter(name="dataFormat")
-    def data_format(self) -> pulumi.Output[str]:
-        """
-        DataFormat for Container
-        """
-        return pulumi.get(self, "data_format")
 
     @property
     @pulumi.getter
@@ -246,12 +217,12 @@ class Container(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> pulumi.Output['outputs.RefreshDetailsResponse']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ContainerPropertiesResponse']:
         """
-        Details of the refresh job on this container.
+        The container properties.
         """
-        return pulumi.get(self, "refresh_details")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

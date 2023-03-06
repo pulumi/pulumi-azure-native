@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     public partial class SAPVirtualInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-        /// </summary>
-        [Output("configuration")]
-        public Output<object> Configuration { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the environment type - Production/Non Production.
-        /// </summary>
-        [Output("environment")]
-        public Output<string> Environment { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates any errors on the Virtual Instance for SAP solutions resource.
-        /// </summary>
-        [Output("errors")]
-        public Output<Outputs.SAPVirtualInstanceErrorResponse> Errors { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the health of SAP Instances.
-        /// </summary>
-        [Output("health")]
-        public Output<string> Health { get; private set; } = null!;
-
-        /// <summary>
         /// Managed service identity (user assigned identities)
         /// </summary>
         [Output("identity")]
@@ -52,40 +28,16 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Managed resource group configuration
-        /// </summary>
-        [Output("managedResourceGroupConfiguration")]
-        public Output<Outputs.ManagedRGConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the provisioning states.
+        /// Defines the Virtual Instance for SAP solutions resource properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the SAP Product type.
-        /// </summary>
-        [Output("sapProduct")]
-        public Output<string> SapProduct { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the Virtual Instance for SAP state.
-        /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the SAP Instance status.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SAPVirtualInstancePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -156,18 +108,6 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     public sealed class SAPVirtualInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
-        /// </summary>
-        [Input("configuration", required: true)]
-        public object Configuration { get; set; } = null!;
-
-        /// <summary>
-        /// Defines the environment type - Production/Non Production.
-        /// </summary>
-        [Input("environment", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Workloads.V20221101Preview.SAPEnvironmentType> Environment { get; set; } = null!;
-
-        /// <summary>
         /// Managed service identity (user assigned identities)
         /// </summary>
         [Input("identity")]
@@ -180,22 +120,16 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Managed resource group configuration
+        /// Defines the Virtual Instance for SAP solutions resource properties.
         /// </summary>
-        [Input("managedResourceGroupConfiguration")]
-        public Input<Inputs.ManagedRGConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.SAPVirtualInstancePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Defines the SAP Product type.
-        /// </summary>
-        [Input("sapProduct", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Workloads.V20221101Preview.SAPProductType> SapProduct { get; set; } = null!;
 
         /// <summary>
         /// The name of the Virtual Instances for SAP solutions resource

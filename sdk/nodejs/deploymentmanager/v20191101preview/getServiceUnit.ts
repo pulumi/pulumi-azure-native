@@ -45,14 +45,6 @@ export interface GetServiceUnitArgs {
  */
 export interface GetServiceUnitResult {
     /**
-     * The artifacts for the service unit.
-     */
-    readonly artifacts?: outputs.deploymentmanager.v20191101preview.ServiceUnitArtifactsResponse;
-    /**
-     * Describes the type of ARM deployment to be performed on the resource.
-     */
-    readonly deploymentMode: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -65,13 +57,13 @@ export interface GetServiceUnitResult {
      */
     readonly name: string;
     /**
+     * The properties that define the service unit.
+     */
+    readonly properties: outputs.deploymentmanager.v20191101preview.ServiceUnitResourceResponseProperties;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-     */
-    readonly targetResourceGroup: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     public partial class PolicyAssignmentArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Artifacts which need to be deployed before the specified artifact.
-        /// </summary>
-        [Output("dependsOn")]
-        public Output<ImmutableArray<string>> DependsOn { get; private set; } = null!;
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the kind of blueprint artifact.
         /// Expected value is 'policyAssignment'.
         /// </summary>
@@ -47,22 +29,10 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameter values for the policy definition.
+        /// properties for policyAssignment Artifact
         /// </summary>
-        [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterValueResponse>> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure resource ID of the policy definition.
-        /// </summary>
-        [Output("policyDefinitionId")]
-        public Output<string> PolicyDefinitionId { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of the resource group placeholder to which the policy will be assigned.
-        /// </summary>
-        [Output("resourceGroup")]
-        public Output<string?> ResourceGroup { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PolicyAssignmentArtifactPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
@@ -138,30 +108,6 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         [Input("blueprintName", required: true)]
         public Input<string> BlueprintName { get; set; } = null!;
 
-        [Input("dependsOn")]
-        private InputList<string>? _dependsOn;
-
-        /// <summary>
-        /// Artifacts which need to be deployed before the specified artifact.
-        /// </summary>
-        public InputList<string> DependsOn
-        {
-            get => _dependsOn ?? (_dependsOn = new InputList<string>());
-            set => _dependsOn = value;
-        }
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
         /// <summary>
         /// Specifies the kind of blueprint artifact.
         /// Expected value is 'policyAssignment'.
@@ -169,29 +115,11 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
 
-        [Input("parameters", required: true)]
-        private InputMap<Inputs.ParameterValueArgs>? _parameters;
-
         /// <summary>
-        /// Parameter values for the policy definition.
+        /// properties for policyAssignment Artifact
         /// </summary>
-        public InputMap<Inputs.ParameterValueArgs> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterValueArgs>());
-            set => _parameters = value;
-        }
-
-        /// <summary>
-        /// Azure resource ID of the policy definition.
-        /// </summary>
-        [Input("policyDefinitionId", required: true)]
-        public Input<string> PolicyDefinitionId { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the resource group placeholder to which the policy will be assigned.
-        /// </summary>
-        [Input("resourceGroup")]
-        public Input<string>? ResourceGroup { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.PolicyAssignmentArtifactPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').

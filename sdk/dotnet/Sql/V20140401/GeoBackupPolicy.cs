@@ -34,16 +34,10 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the geo backup policy.
+        /// The properties of the geo backup policy.
         /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage type of the geo backup policy.
-        /// </summary>
-        [Output("storageType")]
-        public Output<string> StorageType { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.GeoBackupPolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -117,6 +111,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public Input<string>? GeoBackupPolicyName { get; set; }
 
         /// <summary>
+        /// The properties of the geo backup policy.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.GeoBackupPolicyPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -127,12 +127,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
-
-        /// <summary>
-        /// The state of the geo backup policy.
-        /// </summary>
-        [Input("state", required: true)]
-        public Input<Pulumi.AzureNative.Sql.V20140401.GeoBackupPolicyState> State { get; set; } = null!;
 
         public GeoBackupPolicyArgs()
         {

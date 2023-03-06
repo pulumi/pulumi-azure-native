@@ -38,45 +38,17 @@ export class IscsiTarget extends pulumi.CustomResource {
     }
 
     /**
-     * Mode for Target connectivity.
-     */
-    public readonly aclMode!: pulumi.Output<string>;
-    /**
-     * List of private IPv4 addresses to connect to the iSCSI Target.
-     */
-    public /*out*/ readonly endpoints!: pulumi.Output<string[] | undefined>;
-    /**
-     * List of LUNs to be exposed through iSCSI Target.
-     */
-    public readonly luns!: pulumi.Output<outputs.storagepool.v20210401preview.IscsiLunResponse[] | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The port used by iSCSI Target portal group.
+     * Properties for iSCSI Target operations.
      */
-    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
-    /**
-     * State of the operation on the resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-     */
-    public readonly staticAcls!: pulumi.Output<outputs.storagepool.v20210401preview.AclResponse[] | undefined>;
-    /**
-     * Operational status of the iSCSI Target.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.storagepool.v20210401preview.IscsiTargetPropertiesResponse>;
     /**
      * Resource metadata required by ARM RPC
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.storagepool.v20210401preview.SystemMetadataResponse>;
-    /**
-     * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-     */
-    public readonly targetIqn!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -93,40 +65,26 @@ export class IscsiTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aclMode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'aclMode'");
-            }
             if ((!args || args.diskPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskPoolName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aclMode"] = args ? args.aclMode : undefined;
             resourceInputs["diskPoolName"] = args ? args.diskPoolName : undefined;
             resourceInputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
-            resourceInputs["luns"] = args ? args.luns : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staticAcls"] = args ? args.staticAcls : undefined;
-            resourceInputs["targetIqn"] = args ? args.targetIqn : undefined;
-            resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["port"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["aclMode"] = undefined /*out*/;
-            resourceInputs["endpoints"] = undefined /*out*/;
-            resourceInputs["luns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["port"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["staticAcls"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["targetIqn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,10 +99,6 @@ export class IscsiTarget extends pulumi.CustomResource {
  */
 export interface IscsiTargetArgs {
     /**
-     * Mode for Target connectivity.
-     */
-    aclMode: pulumi.Input<string | enums.storagepool.v20210401preview.IscsiTargetAclMode>;
-    /**
      * The name of the Disk Pool.
      */
     diskPoolName: pulumi.Input<string>;
@@ -153,19 +107,11 @@ export interface IscsiTargetArgs {
      */
     iscsiTargetName?: pulumi.Input<string>;
     /**
-     * List of LUNs to be exposed through iSCSI Target.
+     * Properties for iSCSI Target create request.
      */
-    luns?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.IscsiLunArgs>[]>;
+    properties: pulumi.Input<inputs.storagepool.v20210401preview.IscsiTargetCreatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-     */
-    staticAcls?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.AclArgs>[]>;
-    /**
-     * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-     */
-    targetIqn?: pulumi.Input<string>;
 }

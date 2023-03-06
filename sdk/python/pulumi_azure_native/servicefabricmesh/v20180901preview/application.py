@@ -17,40 +17,39 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['ApplicationResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  application_resource_name: Optional[pulumi.Input[str]] = None,
-                 debug_params: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 diagnostics: Optional[pulumi.Input['DiagnosticsDescriptionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input['ApplicationResourcePropertiesArgs'] properties: This type describes properties of an application resource.
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[str] application_resource_name: The identity of the application.
-        :param pulumi.Input[str] debug_params: Internal - used by Visual Studio to setup the debugging session on the local development environment.
-        :param pulumi.Input[str] description: User readable description of the application.
-        :param pulumi.Input['DiagnosticsDescriptionArgs'] diagnostics: Describes the diagnostics definition and usage for an application resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_resource_name is not None:
             pulumi.set(__self__, "application_resource_name", application_resource_name)
-        if debug_params is not None:
-            pulumi.set(__self__, "debug_params", debug_params)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if diagnostics is not None:
-            pulumi.set(__self__, "diagnostics", diagnostics)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if services is not None:
-            pulumi.set(__self__, "services", services)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ApplicationResourcePropertiesArgs']:
+        """
+        This type describes properties of an application resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ApplicationResourcePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -77,42 +76,6 @@ class ApplicationArgs:
         pulumi.set(self, "application_resource_name", value)
 
     @property
-    @pulumi.getter(name="debugParams")
-    def debug_params(self) -> Optional[pulumi.Input[str]]:
-        """
-        Internal - used by Visual Studio to setup the debugging session on the local development environment.
-        """
-        return pulumi.get(self, "debug_params")
-
-    @debug_params.setter
-    def debug_params(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "debug_params", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        User readable description of the application.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def diagnostics(self) -> Optional[pulumi.Input['DiagnosticsDescriptionArgs']]:
-        """
-        Describes the diagnostics definition and usage for an application resource.
-        """
-        return pulumi.get(self, "diagnostics")
-
-    @diagnostics.setter
-    def diagnostics(self, value: Optional[pulumi.Input['DiagnosticsDescriptionArgs']]):
-        pulumi.set(self, "diagnostics", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -123,18 +86,6 @@ class ApplicationArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]:
-        """
-        Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-        """
-        return pulumi.get(self, "services")
-
-    @services.setter
-    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]):
-        pulumi.set(self, "services", value)
 
     @property
     @pulumi.getter
@@ -155,12 +106,9 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_resource_name: Optional[pulumi.Input[str]] = None,
-                 debug_params: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 diagnostics: Optional[pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -169,12 +117,9 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_resource_name: The identity of the application.
-        :param pulumi.Input[str] debug_params: Internal - used by Visual Studio to setup the debugging session on the local development environment.
-        :param pulumi.Input[str] description: User readable description of the application.
-        :param pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']] diagnostics: Describes the diagnostics definition and usage for an application resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['ApplicationResourcePropertiesArgs']] properties: This type describes properties of an application resource.
         :param pulumi.Input[str] resource_group_name: Azure resource group name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -202,12 +147,9 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_resource_name: Optional[pulumi.Input[str]] = None,
-                 debug_params: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 diagnostics: Optional[pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -219,23 +161,16 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["application_resource_name"] = application_resource_name
-            __props__.__dict__["debug_params"] = debug_params
-            __props__.__dict__["description"] = description
-            __props__.__dict__["diagnostics"] = diagnostics
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["services"] = services
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["health_state"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["service_names"] = None
-            __props__.__dict__["status"] = None
-            __props__.__dict__["status_details"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["unhealthy_evaluation"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabricmesh:Application"), pulumi.Alias(type_="azure-native:servicefabricmesh/v20180701preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
@@ -260,53 +195,12 @@ class Application(pulumi.CustomResource):
 
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-        __props__.__dict__["debug_params"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["diagnostics"] = None
-        __props__.__dict__["health_state"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["service_names"] = None
-        __props__.__dict__["services"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["status_details"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["unhealthy_evaluation"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="debugParams")
-    def debug_params(self) -> pulumi.Output[Optional[str]]:
-        """
-        Internal - used by Visual Studio to setup the debugging session on the local development environment.
-        """
-        return pulumi.get(self, "debug_params")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        User readable description of the application.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def diagnostics(self) -> pulumi.Output[Optional['outputs.DiagnosticsDescriptionResponse']]:
-        """
-        Describes the diagnostics definition and usage for an application resource.
-        """
-        return pulumi.get(self, "diagnostics")
-
-    @property
-    @pulumi.getter(name="healthState")
-    def health_state(self) -> pulumi.Output[str]:
-        """
-        Describes the health state of an application resource.
-        """
-        return pulumi.get(self, "health_state")
 
     @property
     @pulumi.getter
@@ -325,44 +219,12 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        State of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serviceNames")
-    def service_names(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Names of the services in the application.
-        """
-        return pulumi.get(self, "service_names")
-
-    @property
     @pulumi.getter
-    def services(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceResourceDescriptionResponse']]]:
+    def properties(self) -> pulumi.Output['outputs.ApplicationResourcePropertiesResponse']:
         """
-        Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
+        This type describes properties of an application resource.
         """
-        return pulumi.get(self, "services")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        """
-        Status of the application.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="statusDetails")
-    def status_details(self) -> pulumi.Output[str]:
-        """
-        Gives additional information about the current status of the application.
-        """
-        return pulumi.get(self, "status_details")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -379,12 +241,4 @@ class Application(pulumi.CustomResource):
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="unhealthyEvaluation")
-    def unhealthy_evaluation(self) -> pulumi.Output[str]:
-        """
-        When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-        """
-        return pulumi.get(self, "unhealthy_evaluation")
 

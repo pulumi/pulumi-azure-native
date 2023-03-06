@@ -96,18 +96,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetContainerResult
     {
         /// <summary>
-        /// Current status of the container.
-        /// </summary>
-        public readonly string ContainerStatus;
-        /// <summary>
-        /// The UTC time when container got created.
-        /// </summary>
-        public readonly string CreatedDateTime;
-        /// <summary>
-        /// DataFormat for Container
-        /// </summary>
-        public readonly string DataFormat;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -116,9 +104,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Details of the refresh job on this container.
+        /// The container properties.
         /// </summary>
-        public readonly Outputs.RefreshDetailsResponse RefreshDetails;
+        public readonly Outputs.ContainerPropertiesResponse Properties;
         /// <summary>
         /// Container in DataBoxEdge Resource
         /// </summary>
@@ -130,28 +118,19 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetContainerResult(
-            string containerStatus,
-
-            string createdDateTime,
-
-            string dataFormat,
-
             string id,
 
             string name,
 
-            Outputs.RefreshDetailsResponse refreshDetails,
+            Outputs.ContainerPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ContainerStatus = containerStatus;
-            CreatedDateTime = createdDateTime;
-            DataFormat = dataFormat;
             Id = id;
             Name = name;
-            RefreshDetails = refreshDetails;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

@@ -38,25 +38,13 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
     }
 
     /**
-     * Identity for the resource.
-     */
-    public /*out*/ readonly identity!: pulumi.Output<outputs.azurestackhci.v20210901preview.IdentityResponse>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state.
+     * Resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The Public Key.
-     */
-    public readonly publicKey!: pulumi.Output<string | undefined>;
-    /**
-     * The unique identifier for the resource.
-     */
-    public readonly resourceUid!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.azurestackhci.v20210901preview.HybridIdentityMetadataPropertiesResponse>;
     /**
      * The system data.
      */
@@ -77,6 +65,9 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -84,21 +75,15 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
             resourceInputs["metadataName"] = args ? args.metadataName : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicKey"] = undefined /*out*/;
-            resourceInputs["resourceUid"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -116,17 +101,13 @@ export interface HybridIdentityMetadatumArgs {
      */
     metadataName?: pulumi.Input<string>;
     /**
-     * The Public Key.
+     * Resource properties.
      */
-    publicKey?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.azurestackhci.v20210901preview.HybridIdentityMetadataPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The unique identifier for the resource.
-     */
-    resourceUid?: pulumi.Input<string>;
     /**
      * Name of the vm.
      */

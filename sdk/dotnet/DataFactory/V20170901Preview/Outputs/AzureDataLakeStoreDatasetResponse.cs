@@ -21,25 +21,9 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The data compression method used for the item(s) in the Azure Data Lake Store.
-        /// </summary>
-        public readonly object? Compression;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? FileName;
-        /// <summary>
-        /// Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object FolderPath;
-        /// <summary>
-        /// The format of the Data Lake Store.
-        /// </summary>
-        public readonly object? Format;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -57,20 +41,16 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// Expected value is 'AzureDataLakeStoreFile'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Data Lake Store dataset properties.
+        /// </summary>
+        public readonly Outputs.AzureDataLakeStoreDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureDataLakeStoreDatasetResponse(
             ImmutableArray<object> annotations,
 
-            object? compression,
-
             string? description,
-
-            object? fileName,
-
-            object folderPath,
-
-            object? format,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
@@ -78,18 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             object? structure,
 
-            string type)
+            string type,
+
+            Outputs.AzureDataLakeStoreDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            Compression = compression;
             Description = description;
-            FileName = fileName;
-            FolderPath = folderPath;
-            Format = format;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

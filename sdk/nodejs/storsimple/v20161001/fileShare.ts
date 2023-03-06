@@ -41,45 +41,17 @@ export class FileShare extends pulumi.CustomResource {
     }
 
     /**
-     * The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-     */
-    public readonly adminUser!: pulumi.Output<string>;
-    /**
-     * The data policy
-     */
-    public readonly dataPolicy!: pulumi.Output<string>;
-    /**
-     * Description for file share
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The local used capacity in Bytes.
-     */
-    public /*out*/ readonly localUsedCapacityInBytes!: pulumi.Output<number>;
-    /**
-     * The monitoring status
-     */
-    public readonly monitoringStatus!: pulumi.Output<string>;
-    /**
      * The name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The total provisioned capacity in Bytes
+     * The properties.
      */
-    public readonly provisionedCapacityInBytes!: pulumi.Output<number>;
-    /**
-     * The Share Status
-     */
-    public readonly shareStatus!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.FileSharePropertiesResponse>;
     /**
      * The type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The used capacity in Bytes.
-     */
-    public /*out*/ readonly usedCapacityInBytes!: pulumi.Output<number>;
 
     /**
      * Create a FileShare resource with the given unique name, arguments, and options.
@@ -94,12 +66,6 @@ export class FileShare extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminUser === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'adminUser'");
-            }
-            if ((!args || args.dataPolicy === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataPolicy'");
-            }
             if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -109,44 +75,24 @@ export class FileShare extends pulumi.CustomResource {
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.monitoringStatus === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'monitoringStatus'");
-            }
-            if ((!args || args.provisionedCapacityInBytes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'provisionedCapacityInBytes'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareStatus === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'shareStatus'");
-            }
-            resourceInputs["adminUser"] = args ? args.adminUser : undefined;
-            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["fileServerName"] = args ? args.fileServerName : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            resourceInputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["shareStatus"] = args ? args.shareStatus : undefined;
-            resourceInputs["localUsedCapacityInBytes"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["usedCapacityInBytes"] = undefined /*out*/;
         } else {
-            resourceInputs["adminUser"] = undefined /*out*/;
-            resourceInputs["dataPolicy"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["localUsedCapacityInBytes"] = undefined /*out*/;
-            resourceInputs["monitoringStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisionedCapacityInBytes"] = undefined /*out*/;
-            resourceInputs["shareStatus"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["usedCapacityInBytes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FileShare.__pulumiType, name, resourceInputs, opts);
@@ -157,18 +103,6 @@ export class FileShare extends pulumi.CustomResource {
  * The set of arguments for constructing a FileShare resource.
  */
 export interface FileShareArgs {
-    /**
-     * The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-     */
-    adminUser: pulumi.Input<string>;
-    /**
-     * The data policy
-     */
-    dataPolicy: pulumi.Input<enums.storsimple.v20161001.DataPolicy>;
-    /**
-     * Description for file share
-     */
-    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
@@ -182,13 +116,9 @@ export interface FileShareArgs {
      */
     managerName: pulumi.Input<string>;
     /**
-     * The monitoring status
+     * The properties.
      */
-    monitoringStatus: pulumi.Input<enums.storsimple.v20161001.MonitoringStatus>;
-    /**
-     * The total provisioned capacity in Bytes
-     */
-    provisionedCapacityInBytes: pulumi.Input<number>;
+    properties: pulumi.Input<inputs.storsimple.v20161001.FileSharePropertiesArgs>;
     /**
      * The resource group name
      */
@@ -197,8 +127,4 @@ export interface FileShareArgs {
      * The file share name.
      */
     shareName?: pulumi.Input<string>;
-    /**
-     * The Share Status
-     */
-    shareStatus: pulumi.Input<enums.storsimple.v20161001.ShareStatus>;
 }

@@ -96,10 +96,6 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetKustoClusterDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -109,21 +105,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Resource id of the kusto cluster.
-        /// </summary>
-        public readonly string KustoClusterResourceId;
-        /// <summary>
-        /// Location of the kusto cluster.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the kusto cluster data set.
+        /// Kusto cluster data set properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.KustoClusterDataSetPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -135,31 +123,22 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetKustoClusterDataSetResult(
-            string dataSetId,
-
             string id,
 
             string kind,
 
-            string kustoClusterResourceId,
-
-            string location,
-
             string name,
 
-            string provisioningState,
+            Outputs.KustoClusterDataSetPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
             Id = id;
             Kind = kind;
-            KustoClusterResourceId = kustoClusterResourceId;
-            Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

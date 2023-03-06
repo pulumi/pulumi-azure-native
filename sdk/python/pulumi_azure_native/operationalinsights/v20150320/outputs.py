@@ -8,12 +8,99 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
+    'SavedSearchPropertiesResponse',
     'StorageAccountResponse',
     'StorageInsightStatusResponse',
     'TagResponse',
 ]
+
+@pulumi.output_type
+class SavedSearchPropertiesResponse(dict):
+    """
+    Value object for saved search results.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SavedSearchPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SavedSearchPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SavedSearchPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: str,
+                 display_name: str,
+                 query: str,
+                 tags: Optional[Sequence['outputs.TagResponse']] = None,
+                 version: Optional[float] = None):
+        """
+        Value object for saved search results.
+        :param str category: The category of the saved search. This helps the user to find a saved search faster. 
+        :param str display_name: Saved search display name.
+        :param str query: The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        :param Sequence['TagResponse'] tags: The tags attached to the saved search.
+        :param float version: The version number of the query language. The current version is 2 and is the default.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "query", query)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        The category of the saved search. This helps the user to find a saved search faster. 
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Saved search display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.TagResponse']]:
+        """
+        The tags attached to the saved search.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
+        """
+        The version number of the query language. The current version is 2 and is the default.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class StorageAccountResponse(dict):

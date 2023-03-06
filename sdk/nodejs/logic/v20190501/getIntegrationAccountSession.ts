@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,18 +40,6 @@ export interface GetIntegrationAccountSessionArgs {
  */
 export interface GetIntegrationAccountSessionResult {
     /**
-     * The changed time.
-     */
-    readonly changedTime: string;
-    /**
-     * The session content.
-     */
-    readonly content?: any;
-    /**
-     * The created time.
-     */
-    readonly createdTime: string;
-    /**
      * The resource id.
      */
     readonly id: string;
@@ -60,6 +51,10 @@ export interface GetIntegrationAccountSessionResult {
      * Gets the resource name.
      */
     readonly name: string;
+    /**
+     * The integration account session properties.
+     */
+    readonly properties: outputs.logic.v20190501.IntegrationAccountSessionPropertiesResponse;
     /**
      * The resource tags.
      */

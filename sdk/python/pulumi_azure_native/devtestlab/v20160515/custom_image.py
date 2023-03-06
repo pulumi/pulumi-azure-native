@@ -18,54 +18,29 @@ __all__ = ['CustomImageArgs', 'CustomImage']
 class CustomImageArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[str],
+                 properties: pulumi.Input['CustomImagePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 author: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
-                 vhd: Optional[pulumi.Input['CustomImagePropertiesCustomArgs']] = None,
-                 vm: Optional[pulumi.Input['CustomImagePropertiesFromVmArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomImage resource.
         :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input['CustomImagePropertiesArgs'] properties: The properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] author: The author of the custom image.
-        :param pulumi.Input[str] description: The description of the custom image.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] managed_image_id: The Managed Image Id backing the custom image.
         :param pulumi.Input[str] name: The name of the custom image.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param pulumi.Input['CustomImagePropertiesCustomArgs'] vhd: The VHD from which the image is to be created.
-        :param pulumi.Input['CustomImagePropertiesFromVmArgs'] vm: The virtual machine from which the image is to be created.
         """
         pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if author is not None:
-            pulumi.set(__self__, "author", author)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_image_id is not None:
-            pulumi.set(__self__, "managed_image_id", managed_image_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
-        if vhd is not None:
-            pulumi.set(__self__, "vhd", vhd)
-        if vm is not None:
-            pulumi.set(__self__, "vm", vm)
 
     @property
     @pulumi.getter(name="labName")
@@ -78,6 +53,18 @@ class CustomImageArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CustomImagePropertiesArgs']:
+        """
+        The properties of the resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CustomImagePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -93,30 +80,6 @@ class CustomImageArgs:
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[pulumi.Input[str]]:
-        """
-        The author of the custom image.
-        """
-        return pulumi.get(self, "author")
-
-    @author.setter
-    def author(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "author", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the custom image.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The location of the resource.
@@ -126,18 +89,6 @@ class CustomImageArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Managed Image Id backing the custom image.
-        """
-        return pulumi.get(self, "managed_image_id")
-
-    @managed_image_id.setter
-    def managed_image_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "managed_image_id", value)
 
     @property
     @pulumi.getter
@@ -152,18 +103,6 @@ class CustomImageArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning status of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -174,42 +113,6 @@ class CustomImageArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @unique_identifier.setter
-    def unique_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unique_identifier", value)
-
-    @property
-    @pulumi.getter
-    def vhd(self) -> Optional[pulumi.Input['CustomImagePropertiesCustomArgs']]:
-        """
-        The VHD from which the image is to be created.
-        """
-        return pulumi.get(self, "vhd")
-
-    @vhd.setter
-    def vhd(self, value: Optional[pulumi.Input['CustomImagePropertiesCustomArgs']]):
-        pulumi.set(self, "vhd", value)
-
-    @property
-    @pulumi.getter
-    def vm(self) -> Optional[pulumi.Input['CustomImagePropertiesFromVmArgs']]:
-        """
-        The virtual machine from which the image is to be created.
-        """
-        return pulumi.get(self, "vm")
-
-    @vm.setter
-    def vm(self, value: Optional[pulumi.Input['CustomImagePropertiesFromVmArgs']]):
-        pulumi.set(self, "vm", value)
 
 
 warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
@@ -222,36 +125,24 @@ class CustomImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
-                 vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
-                 vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
                  __props__=None):
         """
         A custom image.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] author: The author of the custom image.
-        :param pulumi.Input[str] description: The description of the custom image.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] managed_image_id: The Managed Image Id backing the custom image.
         :param pulumi.Input[str] name: The name of the custom image.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
+        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesArgs']] properties: The properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']] vhd: The VHD from which the image is to be created.
-        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']] vm: The virtual machine from which the image is to be created.
         """
         ...
     @overload
@@ -277,18 +168,12 @@ class CustomImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
-                 vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
-                 vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""CustomImage is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -299,23 +184,18 @@ class CustomImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomImageArgs.__new__(CustomImageArgs)
 
-            __props__.__dict__["author"] = author
-            __props__.__dict__["description"] = description
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
-            __props__.__dict__["managed_image_id"] = managed_image_id
             __props__.__dict__["name"] = name
-            __props__.__dict__["provisioning_state"] = provisioning_state
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["unique_identifier"] = unique_identifier
-            __props__.__dict__["vhd"] = vhd
-            __props__.__dict__["vm"] = vm
-            __props__.__dict__["creation_date"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:CustomImage"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:CustomImage"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:CustomImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -341,43 +221,12 @@ class CustomImage(pulumi.CustomResource):
 
         __props__ = CustomImageArgs.__new__(CustomImageArgs)
 
-        __props__.__dict__["author"] = None
-        __props__.__dict__["creation_date"] = None
-        __props__.__dict__["description"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["managed_image_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["unique_identifier"] = None
-        __props__.__dict__["vhd"] = None
-        __props__.__dict__["vm"] = None
         return CustomImage(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def author(self) -> pulumi.Output[Optional[str]]:
-        """
-        The author of the custom image.
-        """
-        return pulumi.get(self, "author")
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
-        """
-        The creation date of the custom image.
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the custom image.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -388,14 +237,6 @@ class CustomImage(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Managed Image Id backing the custom image.
-        """
-        return pulumi.get(self, "managed_image_id")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -404,12 +245,12 @@ class CustomImage(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.CustomImagePropertiesResponse']:
         """
-        The provisioning status of the resource.
+        The properties of the resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -426,28 +267,4 @@ class CustomImage(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @property
-    @pulumi.getter
-    def vhd(self) -> pulumi.Output[Optional['outputs.CustomImagePropertiesCustomResponse']]:
-        """
-        The VHD from which the image is to be created.
-        """
-        return pulumi.get(self, "vhd")
-
-    @property
-    @pulumi.getter
-    def vm(self) -> pulumi.Output[Optional['outputs.CustomImagePropertiesFromVmResponse']]:
-        """
-        The virtual machine from which the image is to be created.
-        """
-        return pulumi.get(self, "vm")
 

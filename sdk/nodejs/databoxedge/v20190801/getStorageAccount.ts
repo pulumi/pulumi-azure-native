@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,22 +42,6 @@ export interface GetStorageAccountArgs {
  */
 export interface GetStorageAccountResult {
     /**
-     * BlobEndpoint of Storage Account
-     */
-    readonly blobEndpoint: string;
-    /**
-     * The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-     */
-    readonly containerCount: number;
-    /**
-     * Data policy of the storage Account.
-     */
-    readonly dataPolicy?: string;
-    /**
-     * Description for the storage Account.
-     */
-    readonly description?: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -63,13 +50,9 @@ export interface GetStorageAccountResult {
      */
     readonly name: string;
     /**
-     * Storage Account Credential Id
+     * The Storage Account properties.
      */
-    readonly storageAccountCredentialId?: string;
-    /**
-     * Current status of the storage account
-     */
-    readonly storageAccountStatus?: string;
+    readonly properties: outputs.databoxedge.v20190801.StorageAccountPropertiesResponse;
     /**
      * The hierarchical type of the object.
      */

@@ -16,55 +16,39 @@ __all__ = ['ClusterManagerArgs', 'ClusterManager']
 @pulumi.input_type
 class ClusterManagerArgs:
     def __init__(__self__, *,
-                 fabric_controller_id: pulumi.Input[str],
+                 properties: pulumi.Input['ClusterManagerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_manager_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_size: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterManager resource.
-        :param pulumi.Input[str] fabric_controller_id: The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+        :param pulumi.Input['ClusterManagerPropertiesArgs'] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics workspace that is used for the logs collection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
         :param pulumi.Input[str] cluster_manager_name: The name of the cluster manager.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vm_size: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
         """
-        pulumi.set(__self__, "fabric_controller_id", fabric_controller_id)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if analytics_workspace_id is not None:
-            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
         if cluster_manager_name is not None:
             pulumi.set(__self__, "cluster_manager_name", cluster_manager_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
 
     @property
-    @pulumi.getter(name="fabricControllerId")
-    def fabric_controller_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ClusterManagerPropertiesArgs']:
         """
-        The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "fabric_controller_id")
+        return pulumi.get(self, "properties")
 
-    @fabric_controller_id.setter
-    def fabric_controller_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "fabric_controller_id", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ClusterManagerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -77,30 +61,6 @@ class ClusterManagerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="analyticsWorkspaceId")
-    def analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource ID of the Log Analytics workspace that is used for the logs collection.
-        """
-        return pulumi.get(self, "analytics_workspace_id")
-
-    @analytics_workspace_id.setter
-    def analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "analytics_workspace_id", value)
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "availability_zones", value)
 
     @property
     @pulumi.getter(name="clusterManagerName")
@@ -127,18 +87,6 @@ class ClusterManagerArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
-        """
-        The configuration of the managed resource group associated with the resource.
-        """
-        return pulumi.get(self, "managed_resource_group_configuration")
-
-    @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
-        pulumi.set(self, "managed_resource_group_configuration", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -150,48 +98,28 @@ class ClusterManagerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[str]]:
-        """
-        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_size", value)
-
 
 class ClusterManager(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_manager_name: Optional[pulumi.Input[str]] = None,
-                 fabric_controller_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ClusterManagerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         API Version: 2022-12-12-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics workspace that is used for the logs collection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
         :param pulumi.Input[str] cluster_manager_name: The name of the cluster manager.
-        :param pulumi.Input[str] fabric_controller_id: The resource ID of the fabric controller that has one to one mapping with the cluster manager.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        :param pulumi.Input[pulumi.InputType['ClusterManagerPropertiesArgs']] properties: The list of the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vm_size: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
         """
         ...
     @overload
@@ -217,15 +145,11 @@ class ClusterManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_manager_name: Optional[pulumi.Input[str]] = None,
-                 fabric_controller_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ClusterManagerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,25 +159,16 @@ class ClusterManager(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterManagerArgs.__new__(ClusterManagerArgs)
 
-            __props__.__dict__["analytics_workspace_id"] = analytics_workspace_id
-            __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["cluster_manager_name"] = cluster_manager_name
-            if fabric_controller_id is None and not opts.urn:
-                raise TypeError("Missing required property 'fabric_controller_id'")
-            __props__.__dict__["fabric_controller_id"] = fabric_controller_id
             __props__.__dict__["location"] = location
-            __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["vm_size"] = vm_size
-            __props__.__dict__["cluster_versions"] = None
-            __props__.__dict__["detailed_status"] = None
-            __props__.__dict__["detailed_status_message"] = None
-            __props__.__dict__["manager_extended_location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:ClusterManager")])
@@ -280,70 +195,13 @@ class ClusterManager(pulumi.CustomResource):
 
         __props__ = ClusterManagerArgs.__new__(ClusterManagerArgs)
 
-        __props__.__dict__["analytics_workspace_id"] = None
-        __props__.__dict__["availability_zones"] = None
-        __props__.__dict__["cluster_versions"] = None
-        __props__.__dict__["detailed_status"] = None
-        __props__.__dict__["detailed_status_message"] = None
-        __props__.__dict__["fabric_controller_id"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["managed_resource_group_configuration"] = None
-        __props__.__dict__["manager_extended_location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["vm_size"] = None
         return ClusterManager(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="analyticsWorkspaceId")
-    def analytics_workspace_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource ID of the Log Analytics workspace that is used for the logs collection.
-        """
-        return pulumi.get(self, "analytics_workspace_id")
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @property
-    @pulumi.getter(name="clusterVersions")
-    def cluster_versions(self) -> pulumi.Output[Sequence['outputs.ClusterAvailableVersionResponse']]:
-        """
-        The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
-        """
-        return pulumi.get(self, "cluster_versions")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> pulumi.Output[str]:
-        """
-        The detailed status that provides additional information about the cluster manager.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> pulumi.Output[str]:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
-
-    @property
-    @pulumi.getter(name="fabricControllerId")
-    def fabric_controller_id(self) -> pulumi.Output[str]:
-        """
-        The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-        """
-        return pulumi.get(self, "fabric_controller_id")
 
     @property
     @pulumi.getter
@@ -354,23 +212,6 @@ class ClusterManager(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> pulumi.Output[Optional['outputs.ManagedResourceGroupConfigurationResponse']]:
-        """
-        The configuration of the managed resource group associated with the resource.
-        """
-        return pulumi.get(self, "managed_resource_group_configuration")
-
-    @property
-    @pulumi.getter(name="managerExtendedLocation")
-    def manager_extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
-        """
-        The extended location (custom location) that represents the cluster manager's control plane location.
-         This extended location is used when creating cluster and rack manifest resources.
-        """
-        return pulumi.get(self, "manager_extended_location")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -379,12 +220,12 @@ class ClusterManager(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ClusterManagerPropertiesResponse']:
         """
-        The provisioning state of the cluster manager.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -409,12 +250,4 @@ class ClusterManager(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Output[Optional[str]]:
-        """
-        Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
-        """
-        return pulumi.get(self, "vm_size")
 

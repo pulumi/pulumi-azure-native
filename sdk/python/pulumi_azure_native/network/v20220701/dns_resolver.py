@@ -16,27 +16,39 @@ __all__ = ['DnsResolverArgs', 'DnsResolver']
 @pulumi.input_type
 class DnsResolverArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['DnsResolverPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 virtual_network: pulumi.Input['SubResourceArgs'],
                  dns_resolver_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DnsResolver resource.
+        :param pulumi.Input['DnsResolverPropertiesArgs'] properties: Properties of the DNS resolver.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SubResourceArgs'] virtual_network: The reference to the virtual network. This cannot be changed after creation.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network", virtual_network)
         if dns_resolver_name is not None:
             pulumi.set(__self__, "dns_resolver_name", dns_resolver_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['DnsResolverPropertiesArgs']:
+        """
+        Properties of the DNS resolver.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['DnsResolverPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -49,18 +61,6 @@ class DnsResolverArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> pulumi.Input['SubResourceArgs']:
-        """
-        The reference to the virtual network. This cannot be changed after creation.
-        """
-        return pulumi.get(self, "virtual_network")
-
-    @virtual_network.setter
-    def virtual_network(self, value: pulumi.Input['SubResourceArgs']):
-        pulumi.set(self, "virtual_network", value)
 
     @property
     @pulumi.getter(name="dnsResolverName")
@@ -106,9 +106,9 @@ class DnsResolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_resolver_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DnsResolverPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
         """
         Describes a DNS resolver.
@@ -117,9 +117,9 @@ class DnsResolver(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['DnsResolverPropertiesArgs']] properties: Properties of the DNS resolver.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: The reference to the virtual network. This cannot be changed after creation.
         """
         ...
     @overload
@@ -147,9 +147,9 @@ class DnsResolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_resolver_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DnsResolverPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,18 +161,15 @@ class DnsResolver(pulumi.CustomResource):
 
             __props__.__dict__["dns_resolver_name"] = dns_resolver_name
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if virtual_network is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network'")
-            __props__.__dict__["virtual_network"] = virtual_network
-            __props__.__dict__["dns_resolver_state"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:DnsResolver"), pulumi.Alias(type_="azure-native:network/v20200401preview:DnsResolver")])
@@ -199,25 +196,14 @@ class DnsResolver(pulumi.CustomResource):
 
         __props__ = DnsResolverArgs.__new__(DnsResolverArgs)
 
-        __props__.__dict__["dns_resolver_state"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_network"] = None
         return DnsResolver(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dnsResolverState")
-    def dns_resolver_state(self) -> pulumi.Output[str]:
-        """
-        The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
-        """
-        return pulumi.get(self, "dns_resolver_state")
 
     @property
     @pulumi.getter
@@ -244,20 +230,12 @@ class DnsResolver(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.DnsResolverPropertiesResponse']:
         """
-        The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+        Properties of the DNS resolver.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> pulumi.Output[str]:
-        """
-        The resourceGuid property of the DNS resolver resource.
-        """
-        return pulumi.get(self, "resource_guid")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -282,12 +260,4 @@ class DnsResolver(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> pulumi.Output['outputs.SubResourceResponse']:
-        """
-        The reference to the virtual network. This cannot be changed after creation.
-        """
-        return pulumi.get(self, "virtual_network")
 

@@ -43,21 +43,9 @@ export class IscsiTarget extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * State of the operation on the resource.
+     * Properties for iSCSI target operations.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Operational status of the iSCSI target.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-     */
-    public readonly targetIqn!: pulumi.Output<string>;
-    /**
-     * List of iSCSI target portal groups. Can have 1 portal group at most.
-     */
-    public readonly tpgs!: pulumi.Output<outputs.storagepool.TargetPortalGroupResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.storagepool.IscsiTargetPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -77,27 +65,21 @@ export class IscsiTarget extends pulumi.CustomResource {
             if ((!args || args.diskPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskPoolName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tpgs === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'tpgs'");
-            }
             resourceInputs["diskPoolName"] = args ? args.diskPoolName : undefined;
             resourceInputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetIqn"] = args ? args.targetIqn : undefined;
-            resourceInputs["tpgs"] = args ? args.tpgs : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["targetIqn"] = undefined /*out*/;
-            resourceInputs["tpgs"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,15 +102,11 @@ export interface IscsiTargetArgs {
      */
     iscsiTargetName?: pulumi.Input<string>;
     /**
+     * Properties for iSCSI target create request.
+     */
+    properties: pulumi.Input<inputs.storagepool.IscsiTargetCreatePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-     */
-    targetIqn?: pulumi.Input<string>;
-    /**
-     * List of iSCSI target portal groups. Can have 1 portal group at most.
-     */
-    tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.TargetPortalGroupCreateArgs>[]>;
 }

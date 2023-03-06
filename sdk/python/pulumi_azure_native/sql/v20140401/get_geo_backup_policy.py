@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetGeoBackupPolicyResult',
@@ -21,7 +22,7 @@ class GetGeoBackupPolicyResult:
     """
     A database geo backup policy.
     """
-    def __init__(__self__, id=None, kind=None, location=None, name=None, state=None, storage_type=None, type=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,12 +35,9 @@ class GetGeoBackupPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
-        if storage_type and not isinstance(storage_type, str):
-            raise TypeError("Expected argument 'storage_type' to be a str")
-        pulumi.set(__self__, "storage_type", storage_type)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -78,19 +76,11 @@ class GetGeoBackupPolicyResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def properties(self) -> 'outputs.GeoBackupPolicyPropertiesResponse':
         """
-        The state of the geo backup policy.
+        The properties of the geo backup policy.
         """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
-        """
-        The storage type of the geo backup policy.
-        """
-        return pulumi.get(self, "storage_type")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -111,8 +101,7 @@ class AwaitableGetGeoBackupPolicyResult(GetGeoBackupPolicyResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            state=self.state,
-            storage_type=self.storage_type,
+            properties=self.properties,
             type=self.type)
 
 
@@ -143,8 +132,7 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        state=__ret__.state,
-        storage_type=__ret__.storage_type,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

@@ -71,22 +71,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// Internal use.
-        /// </summary>
-        public readonly string? DebugParams;
-        /// <summary>
-        /// User readable description of the application.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// Describes the diagnostics definition and usage for an application resource.
-        /// </summary>
-        public readonly Outputs.DiagnosticsDescriptionResponse? Diagnostics;
-        /// <summary>
-        /// Describes the health state of an application resource.
-        /// </summary>
-        public readonly string HealthState;
-        /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -99,25 +83,9 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the resource.
+        /// This type describes properties of an application resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Names of the services in the application.
-        /// </summary>
-        public readonly ImmutableArray<string> ServiceNames;
-        /// <summary>
-        /// describes the services in the application.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceResourceDescriptionResponse> Services;
-        /// <summary>
-        /// Status of the application resource.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// Gives additional information about the current status of the application deployment.
-        /// </summary>
-        public readonly string StatusDetails;
+        public readonly Outputs.ApplicationResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -126,58 +94,27 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-        /// </summary>
-        public readonly string UnhealthyEvaluation;
 
         [OutputConstructor]
         private GetApplicationResult(
-            string? debugParams,
-
-            string? description,
-
-            Outputs.DiagnosticsDescriptionResponse? diagnostics,
-
-            string healthState,
-
             string id,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<string> serviceNames,
-
-            ImmutableArray<Outputs.ServiceResourceDescriptionResponse> services,
-
-            string status,
-
-            string statusDetails,
+            Outputs.ApplicationResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string unhealthyEvaluation)
+            string type)
         {
-            DebugParams = debugParams;
-            Description = description;
-            Diagnostics = diagnostics;
-            HealthState = healthState;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            ServiceNames = serviceNames;
-            Services = services;
-            Status = status;
-            StatusDetails = statusDetails;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            UnhealthyEvaluation = unhealthyEvaluation;
         }
     }
 }

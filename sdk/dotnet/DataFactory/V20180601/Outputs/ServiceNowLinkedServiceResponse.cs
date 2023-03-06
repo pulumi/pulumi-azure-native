@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The authentication type to use.
-        /// </summary>
-        public readonly string AuthenticationType;
-        /// <summary>
-        /// The client id for OAuth2 authentication.
-        /// </summary>
-        public readonly object? ClientId;
-        /// <summary>
-        /// The client secret for OAuth2 authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ClientSecret;
-        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -41,90 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
-        /// The endpoint of the ServiceNow server. (i.e. &lt;instance&gt;.service-now.com)
-        /// </summary>
-        public readonly object Endpoint;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The password corresponding to the user name for Basic and OAuth2 authentication.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'ServiceNow'.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        /// ServiceNow server linked service properties.
         /// </summary>
-        public readonly object? UseEncryptedEndpoints;
-        /// <summary>
-        /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UseHostVerification;
-        /// <summary>
-        /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        /// </summary>
-        public readonly object? UsePeerVerification;
-        /// <summary>
-        /// The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
-        /// </summary>
-        public readonly object? Username;
+        public readonly Outputs.ServiceNowLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private ServiceNowLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            string authenticationType,
-
-            object? clientId,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
-
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
-            object endpoint,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
-
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             string type,
 
-            object? useEncryptedEndpoints,
-
-            object? useHostVerification,
-
-            object? usePeerVerification,
-
-            object? username)
+            Outputs.ServiceNowLinkedServiceTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            AuthenticationType = authenticationType;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
-            Endpoint = endpoint;
             Parameters = parameters;
-            Password = password;
             Type = type;
-            UseEncryptedEndpoints = useEncryptedEndpoints;
-            UseHostVerification = useHostVerification;
-            UsePeerVerification = usePeerVerification;
-            Username = username;
+            TypeProperties = typeProperties;
         }
     }
 }

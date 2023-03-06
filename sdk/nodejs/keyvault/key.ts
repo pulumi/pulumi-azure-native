@@ -39,31 +39,6 @@ export class Key extends pulumi.CustomResource {
     }
 
     /**
-     * The attributes of the key.
-     */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.keyvault.KeyAttributesResponse | undefined>;
-    /**
-     * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-     */
-    public /*out*/ readonly curveName!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly keyOps!: pulumi.Output<string[] | undefined>;
-    /**
-     * The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-     */
-    public /*out*/ readonly keySize!: pulumi.Output<number | undefined>;
-    /**
-     * The URI to retrieve the current version of the key.
-     */
-    public /*out*/ readonly keyUri!: pulumi.Output<string>;
-    /**
-     * The URI to retrieve the specific version of the key.
-     */
-    public /*out*/ readonly keyUriWithVersion!: pulumi.Output<string>;
-    /**
-     * The type of the key. For valid values, see JsonWebKeyType.
-     */
-    public /*out*/ readonly kty!: pulumi.Output<string | undefined>;
-    /**
      * Azure location of the key vault resource.
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
@@ -71,6 +46,10 @@ export class Key extends pulumi.CustomResource {
      * Name of the key vault resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The properties of the key.
+     */
+    public readonly properties!: pulumi.Output<outputs.keyvault.KeyPropertiesResponse>;
     /**
      * Tags assigned to the key vault resource.
      */
@@ -105,26 +84,13 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
-            resourceInputs["attributes"] = undefined /*out*/;
-            resourceInputs["curveName"] = undefined /*out*/;
-            resourceInputs["keyOps"] = undefined /*out*/;
-            resourceInputs["keySize"] = undefined /*out*/;
-            resourceInputs["keyUri"] = undefined /*out*/;
-            resourceInputs["keyUriWithVersion"] = undefined /*out*/;
-            resourceInputs["kty"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["attributes"] = undefined /*out*/;
-            resourceInputs["curveName"] = undefined /*out*/;
-            resourceInputs["keyOps"] = undefined /*out*/;
-            resourceInputs["keySize"] = undefined /*out*/;
-            resourceInputs["keyUri"] = undefined /*out*/;
-            resourceInputs["keyUriWithVersion"] = undefined /*out*/;
-            resourceInputs["kty"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

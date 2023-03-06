@@ -50,17 +50,9 @@ export class OutboundEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+     * Properties of the outbound endpoint.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resourceGuid property of the outbound endpoint resource.
-     */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
-    /**
-     * The reference to the subnet used for the outbound endpoint.
-     */
-    public readonly subnet!: pulumi.Output<outputs.network.v20220701.SubResourceResponse>;
+    public readonly properties!: pulumi.Output<outputs.network.v20220701.OutboundEndpointPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -88,31 +80,27 @@ export class OutboundEndpoint extends pulumi.CustomResource {
             if ((!args || args.dnsResolverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.subnet === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnet'");
             }
             resourceInputs["dnsResolverName"] = args ? args.dnsResolverName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["outboundEndpointName"] = args ? args.outboundEndpointName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGuid"] = undefined /*out*/;
-            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -141,13 +129,13 @@ export interface OutboundEndpointArgs {
      */
     outboundEndpointName?: pulumi.Input<string>;
     /**
+     * Properties of the outbound endpoint.
+     */
+    properties: pulumi.Input<inputs.network.v20220701.OutboundEndpointPropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The reference to the subnet used for the outbound endpoint.
-     */
-    subnet: pulumi.Input<inputs.network.v20220701.SubResourceArgs>;
     /**
      * Resource tags.
      */

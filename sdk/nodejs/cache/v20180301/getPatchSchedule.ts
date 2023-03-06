@@ -52,7 +52,7 @@ export interface GetPatchScheduleResult {
     /**
      * List of patch schedules for a Redis cache.
      */
-    readonly scheduleEntries: outputs.cache.v20180301.ScheduleEntryResponse[];
+    readonly properties: outputs.cache.v20180301.ScheduleEntriesResponse;
     /**
      * Resource type.
      */

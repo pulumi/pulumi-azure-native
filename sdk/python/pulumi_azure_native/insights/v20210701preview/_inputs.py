@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AccessModeSettingsExclusionArgs',
     'AccessModeSettingsArgs',
+    'AzureMonitorPrivateLinkScopePropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
 ]
 
@@ -124,6 +125,29 @@ class AccessModeSettingsArgs:
     @exclusions.setter
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
+
+
+@pulumi.input_type
+class AzureMonitorPrivateLinkScopePropertiesArgs:
+    def __init__(__self__, *,
+                 access_mode_settings: pulumi.Input['AccessModeSettingsArgs']):
+        """
+        Properties that define a Azure Monitor PrivateLinkScope resource.
+        :param pulumi.Input['AccessModeSettingsArgs'] access_mode_settings: Access mode settings
+        """
+        pulumi.set(__self__, "access_mode_settings", access_mode_settings)
+
+    @property
+    @pulumi.getter(name="accessModeSettings")
+    def access_mode_settings(self) -> pulumi.Input['AccessModeSettingsArgs']:
+        """
+        Access mode settings
+        """
+        return pulumi.get(self, "access_mode_settings")
+
+    @access_mode_settings.setter
+    def access_mode_settings(self, value: pulumi.Input['AccessModeSettingsArgs']):
+        pulumi.set(self, "access_mode_settings", value)
 
 
 @pulumi.input_type

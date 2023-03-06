@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CustomCertificatePropertiesResponse',
+    'CustomDomainPropertiesResponse',
     'LiveTraceCategoryResponse',
     'LiveTraceConfigurationResponse',
     'ManagedIdentityResponse',
@@ -36,6 +38,150 @@ __all__ = [
     'UpstreamTemplateResponse',
     'UserAssignedIdentityPropertyResponse',
 ]
+
+@pulumi.output_type
+class CustomCertificatePropertiesResponse(dict):
+    """
+    Custom certificate properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultBaseUri":
+            suggest = "key_vault_base_uri"
+        elif key == "keyVaultSecretName":
+            suggest = "key_vault_secret_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "keyVaultSecretVersion":
+            suggest = "key_vault_secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomCertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomCertificatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomCertificatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_base_uri: str,
+                 key_vault_secret_name: str,
+                 provisioning_state: str,
+                 key_vault_secret_version: Optional[str] = None):
+        """
+        Custom certificate properties.
+        :param str key_vault_base_uri: Base uri of the KeyVault that stores certificate.
+        :param str key_vault_secret_name: Certificate secret name.
+        :param str provisioning_state: Provisioning state of the resource.
+        :param str key_vault_secret_version: Certificate secret version.
+        """
+        pulumi.set(__self__, "key_vault_base_uri", key_vault_base_uri)
+        pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if key_vault_secret_version is not None:
+            pulumi.set(__self__, "key_vault_secret_version", key_vault_secret_version)
+
+    @property
+    @pulumi.getter(name="keyVaultBaseUri")
+    def key_vault_base_uri(self) -> str:
+        """
+        Base uri of the KeyVault that stores certificate.
+        """
+        return pulumi.get(self, "key_vault_base_uri")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretName")
+    def key_vault_secret_name(self) -> str:
+        """
+        Certificate secret name.
+        """
+        return pulumi.get(self, "key_vault_secret_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretVersion")
+    def key_vault_secret_version(self) -> Optional[str]:
+        """
+        Certificate secret version.
+        """
+        return pulumi.get(self, "key_vault_secret_version")
+
+
+@pulumi.output_type
+class CustomDomainPropertiesResponse(dict):
+    """
+    Properties of a custom domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customCertificate":
+            suggest = "custom_certificate"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDomainPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDomainPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDomainPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_certificate: 'outputs.ResourceReferenceResponse',
+                 domain_name: str,
+                 provisioning_state: str):
+        """
+        Properties of a custom domain.
+        :param 'ResourceReferenceResponse' custom_certificate: Reference to a resource.
+        :param str domain_name: The custom domain name.
+        :param str provisioning_state: Provisioning state of the resource.
+        """
+        pulumi.set(__self__, "custom_certificate", custom_certificate)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="customCertificate")
+    def custom_certificate(self) -> 'outputs.ResourceReferenceResponse':
+        """
+        Reference to a resource.
+        """
+        return pulumi.get(self, "custom_certificate")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The custom domain name.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
 
 @pulumi.output_type
 class LiveTraceCategoryResponse(dict):

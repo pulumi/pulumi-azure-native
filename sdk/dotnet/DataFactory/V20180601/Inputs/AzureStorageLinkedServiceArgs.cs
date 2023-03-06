@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class AzureStorageLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Azure key vault secret reference of accountKey in connection string.
-        /// </summary>
-        [Input("accountKey")]
-        public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? AccountKey { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,22 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("connectionString")]
-        public Input<object>? ConnectionString { get; set; }
-
-        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<string>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -70,23 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The Azure key vault secret reference of sasToken in sas uri.
-        /// </summary>
-        [Input("sasToken")]
-        public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? SasToken { get; set; }
-
-        /// <summary>
-        /// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        /// </summary>
-        [Input("sasUri")]
-        public Input<object>? SasUri { get; set; }
-
-        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureStorage'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Storage linked service properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureStorageLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureStorageLinkedServiceArgs()
         {

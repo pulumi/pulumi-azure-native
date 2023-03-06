@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Insights.V20221001
     public sealed class GetAutoscaleSettingResult
     {
         /// <summary>
-        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -86,17 +82,9 @@ namespace Pulumi.AzureNative.Insights.V20221001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// the collection of notifications.
+        /// The autoscale setting of the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutoscaleNotificationResponse> Notifications;
-        /// <summary>
-        /// the predictive autoscale policy mode.
-        /// </summary>
-        public readonly Outputs.PredictiveAutoscalePolicyResponse? PredictiveAutoscalePolicy;
-        /// <summary>
-        /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AutoscaleProfileResponse> Profiles;
+        public readonly Outputs.AutoscaleSettingResponse Properties;
         /// <summary>
         /// The system metadata related to the response.
         /// </summary>
@@ -106,55 +94,32 @@ namespace Pulumi.AzureNative.Insights.V20221001
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// the location of the resource that the autoscale setting should be added to.
-        /// </summary>
-        public readonly string? TargetResourceLocation;
-        /// <summary>
-        /// the resource identifier of the resource that the autoscale setting should be added to.
-        /// </summary>
-        public readonly string? TargetResourceUri;
-        /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAutoscaleSettingResult(
-            bool? enabled,
-
             string id,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.AutoscaleNotificationResponse> notifications,
-
-            Outputs.PredictiveAutoscalePolicyResponse? predictiveAutoscalePolicy,
-
-            ImmutableArray<Outputs.AutoscaleProfileResponse> profiles,
+            Outputs.AutoscaleSettingResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? targetResourceLocation,
-
-            string? targetResourceUri,
-
             string type)
         {
-            Enabled = enabled;
             Id = id;
             Location = location;
             Name = name;
-            Notifications = notifications;
-            PredictiveAutoscalePolicy = predictiveAutoscalePolicy;
-            Profiles = profiles;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
-            TargetResourceLocation = targetResourceLocation;
-            TargetResourceUri = targetResourceUri;
             Type = type;
         }
     }

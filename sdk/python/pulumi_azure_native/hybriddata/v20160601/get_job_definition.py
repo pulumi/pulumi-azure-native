@@ -24,75 +24,19 @@ class GetJobDefinitionResult:
     """
     Job Definition.
     """
-    def __init__(__self__, customer_secrets=None, data_service_input=None, data_sink_id=None, data_source_id=None, id=None, last_modified_time=None, name=None, run_location=None, schedules=None, state=None, type=None, user_confirmation=None):
-        if customer_secrets and not isinstance(customer_secrets, list):
-            raise TypeError("Expected argument 'customer_secrets' to be a list")
-        pulumi.set(__self__, "customer_secrets", customer_secrets)
-        if data_service_input and not isinstance(data_service_input, dict):
-            raise TypeError("Expected argument 'data_service_input' to be a dict")
-        pulumi.set(__self__, "data_service_input", data_service_input)
-        if data_sink_id and not isinstance(data_sink_id, str):
-            raise TypeError("Expected argument 'data_sink_id' to be a str")
-        pulumi.set(__self__, "data_sink_id", data_sink_id)
-        if data_source_id and not isinstance(data_source_id, str):
-            raise TypeError("Expected argument 'data_source_id' to be a str")
-        pulumi.set(__self__, "data_source_id", data_source_id)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if run_location and not isinstance(run_location, str):
-            raise TypeError("Expected argument 'run_location' to be a str")
-        pulumi.set(__self__, "run_location", run_location)
-        if schedules and not isinstance(schedules, list):
-            raise TypeError("Expected argument 'schedules' to be a list")
-        pulumi.set(__self__, "schedules", schedules)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_confirmation and not isinstance(user_confirmation, str):
-            raise TypeError("Expected argument 'user_confirmation' to be a str")
-        pulumi.set(__self__, "user_confirmation", user_confirmation)
-
-    @property
-    @pulumi.getter(name="customerSecrets")
-    def customer_secrets(self) -> Optional[Sequence['outputs.CustomerSecretResponse']]:
-        """
-        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-        """
-        return pulumi.get(self, "customer_secrets")
-
-    @property
-    @pulumi.getter(name="dataServiceInput")
-    def data_service_input(self) -> Optional[Any]:
-        """
-        A generic json used differently by each data service type.
-        """
-        return pulumi.get(self, "data_service_input")
-
-    @property
-    @pulumi.getter(name="dataSinkId")
-    def data_sink_id(self) -> str:
-        """
-        Data Sink Id associated to the job definition.
-        """
-        return pulumi.get(self, "data_sink_id")
-
-    @property
-    @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> str:
-        """
-        Data Source Id associated to the job definition.
-        """
-        return pulumi.get(self, "data_source_id")
 
     @property
     @pulumi.getter
@@ -103,14 +47,6 @@ class GetJobDefinitionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
-        """
-        Last modified time of the job definition.
-        """
-        return pulumi.get(self, "last_modified_time")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -119,28 +55,12 @@ class GetJobDefinitionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="runLocation")
-    def run_location(self) -> Optional[str]:
-        """
-        This is the preferred geo location for the job to run.
-        """
-        return pulumi.get(self, "run_location")
-
-    @property
     @pulumi.getter
-    def schedules(self) -> Optional[Sequence['outputs.ScheduleResponse']]:
+    def properties(self) -> 'outputs.JobDefinitionPropertiesResponse':
         """
-        Schedule for running the job definition
+        JobDefinition properties.
         """
-        return pulumi.get(self, "schedules")
-
-    @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        State of the job definition.
-        """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -150,14 +70,6 @@ class GetJobDefinitionResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="userConfirmation")
-    def user_confirmation(self) -> Optional[str]:
-        """
-        Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-        """
-        return pulumi.get(self, "user_confirmation")
-
 
 class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
     # pylint: disable=using-constant-test
@@ -165,18 +77,10 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
         if False:
             yield self
         return GetJobDefinitionResult(
-            customer_secrets=self.customer_secrets,
-            data_service_input=self.data_service_input,
-            data_sink_id=self.data_sink_id,
-            data_source_id=self.data_source_id,
             id=self.id,
-            last_modified_time=self.last_modified_time,
             name=self.name,
-            run_location=self.run_location,
-            schedules=self.schedules,
-            state=self.state,
-            type=self.type,
-            user_confirmation=self.user_confirmation)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_job_definition(data_manager_name: Optional[str] = None,
@@ -203,18 +107,10 @@ def get_job_definition(data_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybriddata/v20160601:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
     return AwaitableGetJobDefinitionResult(
-        customer_secrets=__ret__.customer_secrets,
-        data_service_input=__ret__.data_service_input,
-        data_sink_id=__ret__.data_sink_id,
-        data_source_id=__ret__.data_source_id,
         id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
-        run_location=__ret__.run_location,
-        schedules=__ret__.schedules,
-        state=__ret__.state,
-        type=__ret__.type,
-        user_confirmation=__ret__.user_confirmation)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_job_definition)

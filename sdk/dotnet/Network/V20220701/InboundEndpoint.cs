@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// IP configurations for the inbound endpoint.
-        /// </summary>
-        [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.InboundEndpointIPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -40,16 +34,10 @@ namespace Pulumi.AzureNative.Network.V20220701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the inbound endpoint.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resourceGuid property of the inbound endpoint resource.
-        /// </summary>
-        [Output("resourceGuid")]
-        public Output<string> ResourceGuid { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.InboundEndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -131,23 +119,17 @@ namespace Pulumi.AzureNative.Network.V20220701
         [Input("inboundEndpointName")]
         public Input<string>? InboundEndpointName { get; set; }
 
-        [Input("ipConfigurations", required: true)]
-        private InputList<Inputs.InboundEndpointIPConfigurationArgs>? _ipConfigurations;
-
-        /// <summary>
-        /// IP configurations for the inbound endpoint.
-        /// </summary>
-        public InputList<Inputs.InboundEndpointIPConfigurationArgs> IpConfigurations
-        {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.InboundEndpointIPConfigurationArgs>());
-            set => _ipConfigurations = value;
-        }
-
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Properties of the inbound endpoint.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.InboundEndpointPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

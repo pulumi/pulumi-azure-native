@@ -19,19 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRackResult:
-    def __init__(__self__, availability_zone=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, rack_location=None, rack_serial_number=None, rack_sku_id=None, system_data=None, tags=None, type=None):
-        if availability_zone and not isinstance(availability_zone, str):
-            raise TypeError("Expected argument 'availability_zone' to be a str")
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        if cluster_id and not isinstance(cluster_id, str):
-            raise TypeError("Expected argument 'cluster_id' to be a str")
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        if detailed_status and not isinstance(detailed_status, str):
-            raise TypeError("Expected argument 'detailed_status' to be a str")
-        pulumi.set(__self__, "detailed_status", detailed_status)
-        if detailed_status_message and not isinstance(detailed_status_message, str):
-            raise TypeError("Expected argument 'detailed_status_message' to be a str")
-        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -44,18 +32,9 @@ class GetRackResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if rack_location and not isinstance(rack_location, str):
-            raise TypeError("Expected argument 'rack_location' to be a str")
-        pulumi.set(__self__, "rack_location", rack_location)
-        if rack_serial_number and not isinstance(rack_serial_number, str):
-            raise TypeError("Expected argument 'rack_serial_number' to be a str")
-        pulumi.set(__self__, "rack_serial_number", rack_serial_number)
-        if rack_sku_id and not isinstance(rack_sku_id, str):
-            raise TypeError("Expected argument 'rack_sku_id' to be a str")
-        pulumi.set(__self__, "rack_sku_id", rack_sku_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -65,38 +44,6 @@ class GetRackResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
-        """
-        The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
-        """
-        The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @property
-    @pulumi.getter(name="detailedStatus")
-    def detailed_status(self) -> str:
-        """
-        The more detailed status of the rack.
-        """
-        return pulumi.get(self, "detailed_status")
-
-    @property
-    @pulumi.getter(name="detailedStatusMessage")
-    def detailed_status_message(self) -> str:
-        """
-        The descriptive message about the current detailed status.
-        """
-        return pulumi.get(self, "detailed_status_message")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -131,36 +78,12 @@ class GetRackResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.RackPropertiesResponse':
         """
-        The provisioning state of the rack resource.
+        The list of the resource properties.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="rackLocation")
-    def rack_location(self) -> str:
-        """
-        The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
-        """
-        return pulumi.get(self, "rack_location")
-
-    @property
-    @pulumi.getter(name="rackSerialNumber")
-    def rack_serial_number(self) -> str:
-        """
-        The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
-        """
-        return pulumi.get(self, "rack_serial_number")
-
-    @property
-    @pulumi.getter(name="rackSkuId")
-    def rack_sku_id(self) -> str:
-        """
-        The SKU for the rack.
-        """
-        return pulumi.get(self, "rack_sku_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -193,18 +116,11 @@ class AwaitableGetRackResult(GetRackResult):
         if False:
             yield self
         return GetRackResult(
-            availability_zone=self.availability_zone,
-            cluster_id=self.cluster_id,
-            detailed_status=self.detailed_status,
-            detailed_status_message=self.detailed_status_message,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            rack_location=self.rack_location,
-            rack_serial_number=self.rack_serial_number,
-            rack_sku_id=self.rack_sku_id,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -228,18 +144,11 @@ def get_rack(rack_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getRack', __args__, opts=opts, typ=GetRackResult).value
 
     return AwaitableGetRackResult(
-        availability_zone=__ret__.availability_zone,
-        cluster_id=__ret__.cluster_id,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
         extended_location=__ret__.extended_location,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        rack_location=__ret__.rack_location,
-        rack_serial_number=__ret__.rack_serial_number,
-        rack_sku_id=__ret__.rack_sku_id,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

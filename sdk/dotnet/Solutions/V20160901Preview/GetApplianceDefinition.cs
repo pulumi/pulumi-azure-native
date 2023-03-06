@@ -71,22 +71,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
     public sealed class GetApplianceDefinitionResult
     {
         /// <summary>
-        /// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplianceArtifactResponse> Artifacts;
-        /// <summary>
-        /// The appliance provider authorizations.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse> Authorizations;
-        /// <summary>
-        /// The appliance definition description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The appliance definition display name.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// Resource ID
         /// </summary>
         public readonly string Id;
@@ -99,10 +83,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The appliance lock level.
-        /// </summary>
-        public readonly string LockLevel;
-        /// <summary>
         /// ID of the resource that manages this resource.
         /// </summary>
         public readonly string? ManagedBy;
@@ -111,9 +91,9 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The appliance definition package file Uri.
+        /// The appliance definition properties.
         /// </summary>
-        public readonly string PackageFileUri;
+        public readonly Outputs.ApplianceDefinitionPropertiesResponse Properties;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
@@ -129,27 +109,17 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
 
         [OutputConstructor]
         private GetApplianceDefinitionResult(
-            ImmutableArray<Outputs.ApplianceArtifactResponse> artifacts,
-
-            ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse> authorizations,
-
-            string? description,
-
-            string? displayName,
-
             string id,
 
             Outputs.IdentityResponse? identity,
 
             string? location,
 
-            string lockLevel,
-
             string? managedBy,
 
             string name,
 
-            string packageFileUri,
+            Outputs.ApplianceDefinitionPropertiesResponse properties,
 
             Outputs.SkuResponse? sku,
 
@@ -157,17 +127,12 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
 
             string type)
         {
-            Artifacts = artifacts;
-            Authorizations = authorizations;
-            Description = description;
-            DisplayName = displayName;
             Id = id;
             Identity = identity;
             Location = location;
-            LockLevel = lockLevel;
             ManagedBy = managedBy;
             Name = name;
-            PackageFileUri = packageFileUri;
+            Properties = properties;
             Sku = sku;
             Tags = tags;
             Type = type;

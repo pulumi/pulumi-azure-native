@@ -38,10 +38,6 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     }
 
     /**
-     * Access mode settings
-     */
-    public readonly accessModeSettings!: pulumi.Output<outputs.insights.v20210701preview.AccessModeSettingsResponse>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -50,13 +46,9 @@ export class PrivateLinkScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of private endpoint connections.
+     * Properties that define a Azure Monitor PrivateLinkScope resource.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.insights.v20210701preview.PrivateEndpointConnectionResponse[]>;
-    /**
-     * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.insights.v20210701preview.AzureMonitorPrivateLinkScopePropertiesResponse>;
     /**
      * System data
      */
@@ -81,28 +73,24 @@ export class PrivateLinkScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessModeSettings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accessModeSettings'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessModeSettings"] = args ? args.accessModeSettings : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["accessModeSettings"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -119,13 +107,13 @@ export class PrivateLinkScope extends pulumi.CustomResource {
  */
 export interface PrivateLinkScopeArgs {
     /**
-     * Access mode settings
-     */
-    accessModeSettings: pulumi.Input<inputs.insights.v20210701preview.AccessModeSettingsArgs>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Properties that define a Azure Monitor PrivateLinkScope resource.
+     */
+    properties: pulumi.Input<inputs.insights.v20210701preview.AzureMonitorPrivateLinkScopePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

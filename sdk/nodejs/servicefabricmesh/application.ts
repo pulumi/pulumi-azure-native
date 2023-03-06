@@ -39,22 +39,6 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * Internal - used by Visual Studio to setup the debugging session on the local development environment.
-     */
-    public readonly debugParams!: pulumi.Output<string | undefined>;
-    /**
-     * User readable description of the application.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Describes the diagnostics definition and usage for an application resource.
-     */
-    public readonly diagnostics!: pulumi.Output<outputs.servicefabricmesh.DiagnosticsDescriptionResponse | undefined>;
-    /**
-     * Describes the health state of an application resource.
-     */
-    public /*out*/ readonly healthState!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -63,25 +47,9 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * State of the resource.
+     * This type describes properties of an application resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Names of the services in the application.
-     */
-    public /*out*/ readonly serviceNames!: pulumi.Output<string[]>;
-    /**
-     * Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-     */
-    public readonly services!: pulumi.Output<outputs.servicefabricmesh.ServiceResourceDescriptionResponse[] | undefined>;
-    /**
-     * Status of the application.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Gives additional information about the current status of the application.
-     */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.servicefabricmesh.ApplicationResourcePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -90,10 +58,6 @@ export class Application extends pulumi.CustomResource {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-     */
-    public /*out*/ readonly unhealthyEvaluation!: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -106,40 +70,25 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["applicationResourceName"] = args ? args.applicationResourceName : undefined;
-            resourceInputs["debugParams"] = args ? args.debugParams : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["healthState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serviceNames"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["unhealthyEvaluation"] = undefined /*out*/;
         } else {
-            resourceInputs["debugParams"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["diagnostics"] = undefined /*out*/;
-            resourceInputs["healthState"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serviceNames"] = undefined /*out*/;
-            resourceInputs["services"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["unhealthyEvaluation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180701preview:Application" }, { type: "azure-native:servicefabricmesh/v20180901preview:Application" }] };
@@ -157,29 +106,17 @@ export interface ApplicationArgs {
      */
     applicationResourceName?: pulumi.Input<string>;
     /**
-     * Internal - used by Visual Studio to setup the debugging session on the local development environment.
-     */
-    debugParams?: pulumi.Input<string>;
-    /**
-     * User readable description of the application.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Describes the diagnostics definition and usage for an application resource.
-     */
-    diagnostics?: pulumi.Input<inputs.servicefabricmesh.DiagnosticsDescriptionArgs>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
+     * This type describes properties of an application resource.
+     */
+    properties: pulumi.Input<inputs.servicefabricmesh.ApplicationResourcePropertiesArgs>;
+    /**
      * Azure resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-     */
-    services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.ServiceResourceDescriptionArgs>[]>;
     /**
      * Resource tags.
      */

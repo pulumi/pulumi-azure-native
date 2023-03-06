@@ -82,18 +82,6 @@ namespace Pulumi.AzureNative.HybridData.V20190601
     public sealed class GetDataStoreResult
     {
         /// <summary>
-        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.CustomerSecretResponse> CustomerSecrets;
-        /// <summary>
-        /// The arm id of the data store type.
-        /// </summary>
-        public readonly string DataStoreTypeId;
-        /// <summary>
-        /// A generic json used differently by each data source type.
-        /// </summary>
-        public readonly object? ExtendedProperties;
-        /// <summary>
         /// Id of the object.
         /// </summary>
         public readonly string Id;
@@ -102,13 +90,9 @@ namespace Pulumi.AzureNative.HybridData.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Arm Id for the manager resource to which the data source is associated. This is optional.
+        /// DataStore properties.
         /// </summary>
-        public readonly string? RepositoryId;
-        /// <summary>
-        /// State of the data source.
-        /// </summary>
-        public readonly string State;
+        public readonly Outputs.DataStorePropertiesResponse Properties;
         /// <summary>
         /// Type of the object.
         /// </summary>
@@ -116,29 +100,17 @@ namespace Pulumi.AzureNative.HybridData.V20190601
 
         [OutputConstructor]
         private GetDataStoreResult(
-            ImmutableArray<Outputs.CustomerSecretResponse> customerSecrets,
-
-            string dataStoreTypeId,
-
-            object? extendedProperties,
-
             string id,
 
             string name,
 
-            string? repositoryId,
-
-            string state,
+            Outputs.DataStorePropertiesResponse properties,
 
             string type)
         {
-            CustomerSecrets = customerSecrets;
-            DataStoreTypeId = dataStoreTypeId;
-            ExtendedProperties = extendedProperties;
             Id = id;
             Name = name;
-            RepositoryId = repositoryId;
-            State = state;
+            Properties = properties;
             Type = type;
         }
     }

@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class OracleCloudStorageLinkedServiceResponse
     {
         /// <summary>
-        /// The access key identifier of the Oracle Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? AccessKeyId;
-        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -33,56 +29,39 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? EncryptedCredential;
-        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
-        /// <summary>
-        /// The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.
-        /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SecretAccessKey;
-        /// <summary>
-        /// This value specifies the endpoint to access with the Oracle Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ServiceUrl;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'OracleCloudStorage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Oracle Cloud Storage linked service properties.
+        /// </summary>
+        public readonly Outputs.OracleCloudStorageLinkedServiceTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private OracleCloudStorageLinkedServiceResponse(
-            object? accessKeyId,
-
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            object? encryptedCredential,
-
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? secretAccessKey,
+            string type,
 
-            object? serviceUrl,
-
-            string type)
+            Outputs.OracleCloudStorageLinkedServiceTypePropertiesResponse typeProperties)
         {
-            AccessKeyId = accessKeyId;
             Annotations = annotations;
             ConnectVia = connectVia;
             Description = description;
-            EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            SecretAccessKey = secretAccessKey;
-            ServiceUrl = serviceUrl;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

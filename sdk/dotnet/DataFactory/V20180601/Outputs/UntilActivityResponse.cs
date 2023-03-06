@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class UntilActivityResponse
     {
         /// <summary>
-        /// List of activities to execute.
-        /// </summary>
-        public readonly ImmutableArray<object> Activities;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -29,22 +25,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
-        /// </summary>
-        public readonly Outputs.ExpressionResponse Expression;
-        /// <summary>
         /// Activity name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        /// </summary>
-        public readonly object? Timeout;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'Until'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Until activity properties.
+        /// </summary>
+        public readonly Outputs.UntilActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -52,29 +44,23 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private UntilActivityResponse(
-            ImmutableArray<object> activities,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
-            Outputs.ExpressionResponse expression,
-
             string name,
-
-            object? timeout,
 
             string type,
 
+            Outputs.UntilActivityTypePropertiesResponse typeProperties,
+
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Activities = activities;
             DependsOn = dependsOn;
             Description = description;
-            Expression = expression;
             Name = name;
-            Timeout = timeout;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

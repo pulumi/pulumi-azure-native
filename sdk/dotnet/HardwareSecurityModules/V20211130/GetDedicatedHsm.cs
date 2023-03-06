@@ -78,33 +78,17 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Specifies the management network interfaces of the dedicated hsm.
-        /// </summary>
-        public readonly Outputs.NetworkProfileResponse? ManagementNetworkProfile;
-        /// <summary>
         /// The name of the dedicated HSM.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the network interfaces of the dedicated hsm.
+        /// Properties of the dedicated HSM
         /// </summary>
-        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
-        /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.DedicatedHsmPropertiesResponse Properties;
         /// <summary>
         /// SKU details
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
-        /// <summary>
-        /// This field will be used when RP does not support Availability zones.
-        /// </summary>
-        public readonly string? StampId;
-        /// <summary>
-        /// Resource Status Message.
-        /// </summary>
-        public readonly string StatusMessage;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
         /// </summary>
@@ -128,19 +112,11 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130
 
             string location,
 
-            Outputs.NetworkProfileResponse? managementNetworkProfile,
-
             string name,
 
-            Outputs.NetworkProfileResponse? networkProfile,
-
-            string provisioningState,
+            Outputs.DedicatedHsmPropertiesResponse properties,
 
             Outputs.SkuResponse sku,
-
-            string? stampId,
-
-            string statusMessage,
 
             Outputs.SystemDataResponse systemData,
 
@@ -152,13 +128,9 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20211130
         {
             Id = id;
             Location = location;
-            ManagementNetworkProfile = managementNetworkProfile;
             Name = name;
-            NetworkProfile = networkProfile;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Sku = sku;
-            StampId = stampId;
-            StatusMessage = statusMessage;
             SystemData = systemData;
             Tags = tags;
             Type = type;

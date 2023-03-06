@@ -90,10 +90,6 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// IP configurations for the inbound endpoint.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.InboundEndpointIPConfigurationResponse> IpConfigurations;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -102,13 +98,9 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+        /// Properties of the inbound endpoint.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The resourceGuid property of the inbound endpoint resource.
-        /// </summary>
-        public readonly string ResourceGuid;
+        public readonly Outputs.InboundEndpointPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -128,15 +120,11 @@ namespace Pulumi.AzureNative.Network.V20220701
 
             string id,
 
-            ImmutableArray<Outputs.InboundEndpointIPConfigurationResponse> ipConfigurations,
-
             string location,
 
             string name,
 
-            string provisioningState,
-
-            string resourceGuid,
+            Outputs.InboundEndpointPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -146,11 +134,9 @@ namespace Pulumi.AzureNative.Network.V20220701
         {
             Etag = etag;
             Id = id;
-            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -14,8 +14,10 @@ __all__ = [
     'DiagnosticStoragePropertiesArgs',
     'EncryptionArgs',
     'GroupConnectivityInformationArgs',
+    'InstancePropertiesArgs',
     'IotHubSettingsArgs',
     'ManagedServiceIdentityArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionArgs',
@@ -174,6 +176,62 @@ class GroupConnectivityInformationArgs:
 
 
 @pulumi.input_type
+class InstancePropertiesArgs:
+    def __init__(__self__, *,
+                 diagnostic_storage_properties: Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']] = None,
+                 enable_diagnostics: Optional[pulumi.Input[bool]] = None,
+                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]] = None):
+        """
+        Device Update instance properties.
+        :param pulumi.Input['DiagnosticStoragePropertiesArgs'] diagnostic_storage_properties: Customer-initiated diagnostic log collection storage properties
+        :param pulumi.Input[bool] enable_diagnostics: Enables or Disables the diagnostic logs collection
+        :param pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]] iot_hubs: List of IoT Hubs associated with the account.
+        """
+        if diagnostic_storage_properties is not None:
+            pulumi.set(__self__, "diagnostic_storage_properties", diagnostic_storage_properties)
+        if enable_diagnostics is not None:
+            pulumi.set(__self__, "enable_diagnostics", enable_diagnostics)
+        if iot_hubs is not None:
+            pulumi.set(__self__, "iot_hubs", iot_hubs)
+
+    @property
+    @pulumi.getter(name="diagnosticStorageProperties")
+    def diagnostic_storage_properties(self) -> Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']]:
+        """
+        Customer-initiated diagnostic log collection storage properties
+        """
+        return pulumi.get(self, "diagnostic_storage_properties")
+
+    @diagnostic_storage_properties.setter
+    def diagnostic_storage_properties(self, value: Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']]):
+        pulumi.set(self, "diagnostic_storage_properties", value)
+
+    @property
+    @pulumi.getter(name="enableDiagnostics")
+    def enable_diagnostics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or Disables the diagnostic logs collection
+        """
+        return pulumi.get(self, "enable_diagnostics")
+
+    @enable_diagnostics.setter
+    def enable_diagnostics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="iotHubs")
+    def iot_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]]:
+        """
+        List of IoT Hubs associated with the account.
+        """
+        return pulumi.get(self, "iot_hubs")
+
+    @iot_hubs.setter
+    def iot_hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]]):
+        pulumi.set(self, "iot_hubs", value)
+
+
+@pulumi.input_type
 class IotHubSettingsArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str]):
@@ -236,12 +294,12 @@ class ManagedServiceIdentityArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointConnectionArgs:
+class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The Private Endpoint Connection resource.
+        Properties of the PrivateEndpointConnectProperties.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: Array of group IDs.
         """
@@ -272,6 +330,29 @@ class PrivateEndpointConnectionArgs:
     @group_ids.setter
     def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "group_ids", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        """
+        The Private Endpoint Connection resource.
+        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Resource properties.
+        """
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
+        """
+        Resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

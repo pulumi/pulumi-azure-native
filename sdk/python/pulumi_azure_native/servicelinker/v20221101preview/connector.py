@@ -18,54 +18,25 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
+                 properties: pulumi.Input['LinkerPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
-                 client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
-                 configuration_info: Optional[pulumi.Input['ConfigurationInfoArgs']] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 public_network_solution: Optional[pulumi.Input['PublicNetworkSolutionArgs']] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
-                 target_service: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]] = None,
-                 v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None):
+                 subscription_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[str] location: The name of Azure region.
+        :param pulumi.Input['LinkerPropertiesArgs'] properties: The properties of the Linker.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
-        :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
-        :param pulumi.Input['ConfigurationInfoArgs'] configuration_info: The connection information consumed by applications, including secrets, connection strings.
         :param pulumi.Input[str] connector_name: The name of resource.
-        :param pulumi.Input['PublicNetworkSolutionArgs'] public_network_solution: The network solution.
-        :param pulumi.Input[str] scope: connection scope in source service.
-        :param pulumi.Input['SecretStoreArgs'] secret_store: An option to store secret value in secure place
         :param pulumi.Input[str] subscription_id: The ID of the target subscription.
-        :param pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']] target_service: The target service properties
-        :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
         pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if auth_info is not None:
-            pulumi.set(__self__, "auth_info", auth_info)
-        if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
-        if configuration_info is not None:
-            pulumi.set(__self__, "configuration_info", configuration_info)
         if connector_name is not None:
             pulumi.set(__self__, "connector_name", connector_name)
-        if public_network_solution is not None:
-            pulumi.set(__self__, "public_network_solution", public_network_solution)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-        if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
-        if target_service is not None:
-            pulumi.set(__self__, "target_service", target_service)
-        if v_net_solution is not None:
-            pulumi.set(__self__, "v_net_solution", v_net_solution)
 
     @property
     @pulumi.getter
@@ -80,6 +51,18 @@ class ConnectorArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LinkerPropertiesArgs']:
+        """
+        The properties of the Linker.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LinkerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -90,42 +73,6 @@ class ConnectorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="authInfo")
-    def auth_info(self) -> Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]:
-        """
-        The authentication type.
-        """
-        return pulumi.get(self, "auth_info")
-
-    @auth_info.setter
-    def auth_info(self, value: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]):
-        pulumi.set(self, "auth_info", value)
-
-    @property
-    @pulumi.getter(name="clientType")
-    def client_type(self) -> Optional[pulumi.Input[Union[str, 'ClientType']]]:
-        """
-        The application client type
-        """
-        return pulumi.get(self, "client_type")
-
-    @client_type.setter
-    def client_type(self, value: Optional[pulumi.Input[Union[str, 'ClientType']]]):
-        pulumi.set(self, "client_type", value)
-
-    @property
-    @pulumi.getter(name="configurationInfo")
-    def configuration_info(self) -> Optional[pulumi.Input['ConfigurationInfoArgs']]:
-        """
-        The connection information consumed by applications, including secrets, connection strings.
-        """
-        return pulumi.get(self, "configuration_info")
-
-    @configuration_info.setter
-    def configuration_info(self, value: Optional[pulumi.Input['ConfigurationInfoArgs']]):
-        pulumi.set(self, "configuration_info", value)
 
     @property
     @pulumi.getter(name="connectorName")
@@ -140,42 +87,6 @@ class ConnectorArgs:
         pulumi.set(self, "connector_name", value)
 
     @property
-    @pulumi.getter(name="publicNetworkSolution")
-    def public_network_solution(self) -> Optional[pulumi.Input['PublicNetworkSolutionArgs']]:
-        """
-        The network solution.
-        """
-        return pulumi.get(self, "public_network_solution")
-
-    @public_network_solution.setter
-    def public_network_solution(self, value: Optional[pulumi.Input['PublicNetworkSolutionArgs']]):
-        pulumi.set(self, "public_network_solution", value)
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        connection scope in source service.
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scope", value)
-
-    @property
-    @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['SecretStoreArgs']]:
-        """
-        An option to store secret value in secure place
-        """
-        return pulumi.get(self, "secret_store")
-
-    @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['SecretStoreArgs']]):
-        pulumi.set(self, "secret_store", value)
-
-    @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -187,66 +98,28 @@ class ConnectorArgs:
     def subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_id", value)
 
-    @property
-    @pulumi.getter(name="targetService")
-    def target_service(self) -> Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]]:
-        """
-        The target service properties
-        """
-        return pulumi.get(self, "target_service")
-
-    @target_service.setter
-    def target_service(self, value: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]]):
-        pulumi.set(self, "target_service", value)
-
-    @property
-    @pulumi.getter(name="vNetSolution")
-    def v_net_solution(self) -> Optional[pulumi.Input['VNetSolutionArgs']]:
-        """
-        The VNet solution.
-        """
-        return pulumi.get(self, "v_net_solution")
-
-    @v_net_solution.setter
-    def v_net_solution(self, value: Optional[pulumi.Input['VNetSolutionArgs']]):
-        pulumi.set(self, "v_net_solution", value)
-
 
 class Connector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
-                 client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
-                 configuration_info: Optional[pulumi.Input[pulumi.InputType['ConfigurationInfoArgs']]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_solution: Optional[pulumi.Input[pulumi.InputType['PublicNetworkSolutionArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
         """
         Linker of source and target resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]] auth_info: The authentication type.
-        :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
-        :param pulumi.Input[pulumi.InputType['ConfigurationInfoArgs']] configuration_info: The connection information consumed by applications, including secrets, connection strings.
         :param pulumi.Input[str] connector_name: The name of resource.
         :param pulumi.Input[str] location: The name of Azure region.
-        :param pulumi.Input[pulumi.InputType['PublicNetworkSolutionArgs']] public_network_solution: The network solution.
+        :param pulumi.Input[pulumi.InputType['LinkerPropertiesArgs']] properties: The properties of the Linker.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] scope: connection scope in source service.
-        :param pulumi.Input[pulumi.InputType['SecretStoreArgs']] secret_store: An option to store secret value in secure place
         :param pulumi.Input[str] subscription_id: The ID of the target subscription.
-        :param pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]] target_service: The target service properties
-        :param pulumi.Input[pulumi.InputType['VNetSolutionArgs']] v_net_solution: The VNet solution.
         """
         ...
     @overload
@@ -272,18 +145,11 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
-                 client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
-                 configuration_info: Optional[pulumi.Input[pulumi.InputType['ConfigurationInfoArgs']]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_solution: Optional[pulumi.Input[pulumi.InputType['PublicNetworkSolutionArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['LinkerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,24 +159,18 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
-            __props__.__dict__["auth_info"] = auth_info
-            __props__.__dict__["client_type"] = client_type
-            __props__.__dict__["configuration_info"] = configuration_info
             __props__.__dict__["connector_name"] = connector_name
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
-            __props__.__dict__["public_network_solution"] = public_network_solution
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["scope"] = scope
-            __props__.__dict__["secret_store"] = secret_store
             __props__.__dict__["subscription_id"] = subscription_id
-            __props__.__dict__["target_service"] = target_service
-            __props__.__dict__["v_net_solution"] = v_net_solution
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         super(Connector, __self__).__init__(
@@ -335,43 +195,11 @@ class Connector(pulumi.CustomResource):
 
         __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
-        __props__.__dict__["auth_info"] = None
-        __props__.__dict__["client_type"] = None
-        __props__.__dict__["configuration_info"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["public_network_solution"] = None
-        __props__.__dict__["scope"] = None
-        __props__.__dict__["secret_store"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["target_service"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["v_net_solution"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="authInfo")
-    def auth_info(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The authentication type.
-        """
-        return pulumi.get(self, "auth_info")
-
-    @property
-    @pulumi.getter(name="clientType")
-    def client_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The application client type
-        """
-        return pulumi.get(self, "client_type")
-
-    @property
-    @pulumi.getter(name="configurationInfo")
-    def configuration_info(self) -> pulumi.Output[Optional['outputs.ConfigurationInfoResponse']]:
-        """
-        The connection information consumed by applications, including secrets, connection strings.
-        """
-        return pulumi.get(self, "configuration_info")
 
     @property
     @pulumi.getter
@@ -382,36 +210,12 @@ class Connector(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state. 
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicNetworkSolution")
-    def public_network_solution(self) -> pulumi.Output[Optional['outputs.PublicNetworkSolutionResponse']]:
-        """
-        The network solution.
-        """
-        return pulumi.get(self, "public_network_solution")
-
-    @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional[str]]:
+    def properties(self) -> pulumi.Output['outputs.LinkerPropertiesResponse']:
         """
-        connection scope in source service.
+        The properties of the Linker.
         """
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter(name="secretStore")
-    def secret_store(self) -> pulumi.Output[Optional['outputs.SecretStoreResponse']]:
-        """
-        An option to store secret value in secure place
-        """
-        return pulumi.get(self, "secret_store")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -422,26 +226,10 @@ class Connector(pulumi.CustomResource):
         return pulumi.get(self, "system_data")
 
     @property
-    @pulumi.getter(name="targetService")
-    def target_service(self) -> pulumi.Output[Optional[Any]]:
-        """
-        The target service properties
-        """
-        return pulumi.get(self, "target_service")
-
-    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vNetSolution")
-    def v_net_solution(self) -> pulumi.Output[Optional['outputs.VNetSolutionResponse']]:
-        """
-        The VNet solution.
-        """
-        return pulumi.get(self, "v_net_solution")
 

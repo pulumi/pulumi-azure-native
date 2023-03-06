@@ -22,13 +22,7 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential.
     """
-    def __init__(__self__, access_key=None, end_point=None, id=None, kind=None, name=None, ssl_status=None, type=None, volumes_count=None):
-        if access_key and not isinstance(access_key, dict):
-            raise TypeError("Expected argument 'access_key' to be a dict")
-        pulumi.set(__self__, "access_key", access_key)
-        if end_point and not isinstance(end_point, str):
-            raise TypeError("Expected argument 'end_point' to be a str")
-        pulumi.set(__self__, "end_point", end_point)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,31 +32,12 @@ class GetStorageAccountCredentialResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if ssl_status and not isinstance(ssl_status, str):
-            raise TypeError("Expected argument 'ssl_status' to be a str")
-        pulumi.set(__self__, "ssl_status", ssl_status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volumes_count and not isinstance(volumes_count, int):
-            raise TypeError("Expected argument 'volumes_count' to be a int")
-        pulumi.set(__self__, "volumes_count", volumes_count)
-
-    @property
-    @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
-        """
-        The details of the storage account password.
-        """
-        return pulumi.get(self, "access_key")
-
-    @property
-    @pulumi.getter(name="endPoint")
-    def end_point(self) -> str:
-        """
-        The storage endpoint
-        """
-        return pulumi.get(self, "end_point")
 
     @property
     @pulumi.getter
@@ -89,12 +64,12 @@ class GetStorageAccountCredentialResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="sslStatus")
-    def ssl_status(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.StorageAccountCredentialPropertiesResponse':
         """
-        Signifies whether SSL needs to be enabled or not.
+        The storage account credential properties.
         """
-        return pulumi.get(self, "ssl_status")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -104,14 +79,6 @@ class GetStorageAccountCredentialResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="volumesCount")
-    def volumes_count(self) -> int:
-        """
-        The count of volumes using this storage account credential.
-        """
-        return pulumi.get(self, "volumes_count")
-
 
 class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResult):
     # pylint: disable=using-constant-test
@@ -119,14 +86,11 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
         if False:
             yield self
         return GetStorageAccountCredentialResult(
-            access_key=self.access_key,
-            end_point=self.end_point,
             id=self.id,
             kind=self.kind,
             name=self.name,
-            ssl_status=self.ssl_status,
-            type=self.type,
-            volumes_count=self.volumes_count)
+            properties=self.properties,
+            type=self.type)
 
 
 def get_storage_account_credential(manager_name: Optional[str] = None,
@@ -150,14 +114,11 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult).value
 
     return AwaitableGetStorageAccountCredentialResult(
-        access_key=__ret__.access_key,
-        end_point=__ret__.end_point,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        ssl_status=__ret__.ssl_status,
-        type=__ret__.type,
-        volumes_count=__ret__.volumes_count)
+        properties=__ret__.properties,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_storage_account_credential)

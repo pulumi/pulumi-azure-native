@@ -118,9 +118,9 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the packet core data plane resource.
+        /// Packet core data plane Properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PacketCoreDataPlanePropertiesFormatResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -133,10 +133,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
-        /// </summary>
-        public readonly Outputs.InterfacePropertiesResponse UserPlaneAccessInterface;
 
         [OutputConstructor]
         private GetPacketCoreDataPlaneResult(
@@ -158,15 +154,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 
             string name,
 
-            string provisioningState,
+            Outputs.PacketCoreDataPlanePropertiesFormatResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            Outputs.InterfacePropertiesResponse userPlaneAccessInterface)
+            string type)
         {
             CreatedAt = createdAt;
             CreatedBy = createdBy;
@@ -177,11 +171,10 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
             LastModifiedByType = lastModifiedByType;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            UserPlaneAccessInterface = userPlaneAccessInterface;
         }
     }
 }

@@ -40,11 +40,11 @@ export class LinkedServer extends pulumi.CustomResource {
     /**
      * Fully qualified resourceId of the linked redis cache.
      */
-    public readonly linkedRedisCacheId!: pulumi.Output<string>;
+    public /*out*/ readonly linkedRedisCacheId!: pulumi.Output<string>;
     /**
      * Location of the linked redis cache.
      */
-    public readonly linkedRedisCacheLocation!: pulumi.Output<string>;
+    public /*out*/ readonly linkedRedisCacheLocation!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -56,7 +56,7 @@ export class LinkedServer extends pulumi.CustomResource {
     /**
      * Role of the linked server.
      */
-    public readonly serverRole!: pulumi.Output<string>;
+    public /*out*/ readonly serverRole!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -73,28 +73,23 @@ export class LinkedServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.linkedRedisCacheId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'linkedRedisCacheId'");
-            }
-            if ((!args || args.linkedRedisCacheLocation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'linkedRedisCacheLocation'");
-            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverRole === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serverRole'");
-            }
-            resourceInputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
-            resourceInputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
             resourceInputs["linkedServerName"] = args ? args.linkedServerName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
+            resourceInputs["linkedRedisCacheId"] = undefined /*out*/;
+            resourceInputs["linkedRedisCacheLocation"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serverRole"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["linkedRedisCacheId"] = undefined /*out*/;
@@ -116,14 +111,6 @@ export class LinkedServer extends pulumi.CustomResource {
  */
 export interface LinkedServerArgs {
     /**
-     * Fully qualified resourceId of the linked redis cache.
-     */
-    linkedRedisCacheId: pulumi.Input<string>;
-    /**
-     * Location of the linked redis cache.
-     */
-    linkedRedisCacheLocation: pulumi.Input<string>;
-    /**
      * The name of the linked server that is being added to the Redis cache.
      */
     linkedServerName?: pulumi.Input<string>;
@@ -132,11 +119,11 @@ export interface LinkedServerArgs {
      */
     name: pulumi.Input<string>;
     /**
+     * Properties required to create a linked server.
+     */
+    properties: pulumi.Input<inputs.cache.v20201201.RedisLinkedServerCreatePropertiesArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Role of the linked server.
-     */
-    serverRole: pulumi.Input<enums.cache.v20201201.ReplicationRole>;
 }

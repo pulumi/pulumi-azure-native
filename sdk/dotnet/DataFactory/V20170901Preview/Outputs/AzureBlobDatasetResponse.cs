@@ -21,25 +21,9 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The data compression method used for the blob storage.
-        /// </summary>
-        public readonly object? Compression;
-        /// <summary>
         /// Dataset description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The name of the Azure Blob. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? FileName;
-        /// <summary>
-        /// The path of the Azure Blob storage. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? FolderPath;
-        /// <summary>
-        /// The format of the Azure Blob storage.
-        /// </summary>
-        public readonly object? Format;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -53,28 +37,20 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly object? Structure;
         /// <summary>
-        /// The root of blob path. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? TableRootLocation;
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureBlob'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure Blob dataset properties.
+        /// </summary>
+        public readonly Outputs.AzureBlobDatasetTypePropertiesResponse TypeProperties;
 
         [OutputConstructor]
         private AzureBlobDatasetResponse(
             ImmutableArray<object> annotations,
 
-            object? compression,
-
             string? description,
-
-            object? fileName,
-
-            object? folderPath,
-
-            object? format,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
@@ -82,21 +58,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 
             object? structure,
 
-            object? tableRootLocation,
+            string type,
 
-            string type)
+            Outputs.AzureBlobDatasetTypePropertiesResponse typeProperties)
         {
             Annotations = annotations;
-            Compression = compression;
             Description = description;
-            FileName = fileName;
-            FolderPath = folderPath;
-            Format = format;
             LinkedServiceName = linkedServiceName;
             Parameters = parameters;
             Structure = structure;
-            TableRootLocation = tableRootLocation;
             Type = type;
+            TypeProperties = typeProperties;
         }
     }
 }

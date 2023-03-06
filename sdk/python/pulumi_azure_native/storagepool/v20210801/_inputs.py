@@ -12,8 +12,10 @@ from ._enums import *
 
 __all__ = [
     'AclArgs',
+    'DiskPoolCreatePropertiesArgs',
     'DiskArgs',
     'IscsiLunArgs',
+    'IscsiTargetCreatePropertiesArgs',
     'SkuArgs',
 ]
 
@@ -53,6 +55,77 @@ class AclArgs:
     @mapped_luns.setter
     def mapped_luns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "mapped_luns", value)
+
+
+@pulumi.input_type
+class DiskPoolCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str],
+                 additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None):
+        """
+        Properties for Disk Pool create or update request.
+        :param pulumi.Input[str] subnet_id: Azure Resource ID of a Subnet for the Disk Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Disk Pool resource; example: ["1"].
+        :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: List of Azure Managed Disks to attach to a Disk Pool.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if disks is not None:
+            pulumi.set(__self__, "disks", disks)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        Azure Resource ID of a Subnet for the Disk Pool.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of additional capabilities for a Disk Pool.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @additional_capabilities.setter
+    def additional_capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_capabilities", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Logical zone for Disk Pool resource; example: ["1"].
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter
+    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
+        """
+        List of Azure Managed Disks to attach to a Disk Pool.
+        """
+        return pulumi.get(self, "disks")
+
+    @disks.setter
+    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]):
+        pulumi.set(self, "disks", value)
 
 
 @pulumi.input_type
@@ -114,6 +187,77 @@ class IscsiLunArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class IscsiTargetCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 acl_mode: pulumi.Input[Union[str, 'IscsiTargetAclMode']],
+                 luns: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]] = None,
+                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]] = None,
+                 target_iqn: Optional[pulumi.Input[str]] = None):
+        """
+        Properties for iSCSI Target create or update request.
+        :param pulumi.Input[Union[str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
+        :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: List of LUNs to be exposed through iSCSI Target.
+        :param pulumi.Input[Sequence[pulumi.Input['AclArgs']]] static_acls: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        :param pulumi.Input[str] target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        pulumi.set(__self__, "acl_mode", acl_mode)
+        if luns is not None:
+            pulumi.set(__self__, "luns", luns)
+        if static_acls is not None:
+            pulumi.set(__self__, "static_acls", static_acls)
+        if target_iqn is not None:
+            pulumi.set(__self__, "target_iqn", target_iqn)
+
+    @property
+    @pulumi.getter(name="aclMode")
+    def acl_mode(self) -> pulumi.Input[Union[str, 'IscsiTargetAclMode']]:
+        """
+        Mode for Target connectivity.
+        """
+        return pulumi.get(self, "acl_mode")
+
+    @acl_mode.setter
+    def acl_mode(self, value: pulumi.Input[Union[str, 'IscsiTargetAclMode']]):
+        pulumi.set(self, "acl_mode", value)
+
+    @property
+    @pulumi.getter
+    def luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]]:
+        """
+        List of LUNs to be exposed through iSCSI Target.
+        """
+        return pulumi.get(self, "luns")
+
+    @luns.setter
+    def luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]]):
+        pulumi.set(self, "luns", value)
+
+    @property
+    @pulumi.getter(name="staticAcls")
+    def static_acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]]:
+        """
+        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        """
+        return pulumi.get(self, "static_acls")
+
+    @static_acls.setter
+    def static_acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]]):
+        pulumi.set(self, "static_acls", value)
+
+    @property
+    @pulumi.getter(name="targetIqn")
+    def target_iqn(self) -> Optional[pulumi.Input[str]]:
+        """
+        iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        """
+        return pulumi.get(self, "target_iqn")
+
+    @target_iqn.setter
+    def target_iqn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_iqn", value)
 
 
 @pulumi.input_type

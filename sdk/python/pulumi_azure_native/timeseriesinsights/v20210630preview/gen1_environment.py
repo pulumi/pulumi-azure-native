@@ -17,54 +17,34 @@ __all__ = ['Gen1EnvironmentArgs', 'Gen1Environment']
 @pulumi.input_type
 class Gen1EnvironmentArgs:
     def __init__(__self__, *,
-                 data_retention_time: pulumi.Input[str],
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['Gen1EnvironmentCreationPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]] = None,
-                 storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Gen1Environment resource.
-        :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         :param pulumi.Input[str] kind: The kind of the environment.
                Expected value is 'Gen1'.
+        :param pulumi.Input['Gen1EnvironmentCreationPropertiesArgs'] properties: Properties used to create a Gen1 environment.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['SkuArgs'] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         :param pulumi.Input[str] environment_name: Name of the environment
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]] partition_key_properties: The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
-        :param pulumi.Input[Union[str, 'StorageLimitExceededBehavior']] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
-        pulumi.set(__self__, "data_retention_time", data_retention_time)
         pulumi.set(__self__, "kind", 'Gen1')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if environment_name is not None:
             pulumi.set(__self__, "environment_name", environment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if partition_key_properties is not None:
-            pulumi.set(__self__, "partition_key_properties", partition_key_properties)
-        if storage_limit_exceeded_behavior is not None:
-            pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="dataRetentionTime")
-    def data_retention_time(self) -> pulumi.Input[str]:
-        """
-        ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-        """
-        return pulumi.get(self, "data_retention_time")
-
-    @data_retention_time.setter
-    def data_retention_time(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_retention_time", value)
 
     @property
     @pulumi.getter
@@ -78,6 +58,18 @@ class Gen1EnvironmentArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['Gen1EnvironmentCreationPropertiesArgs']:
+        """
+        Properties used to create a Gen1 environment.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['Gen1EnvironmentCreationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -128,30 +120,6 @@ class Gen1EnvironmentArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]]:
-        """
-        The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
-        """
-        return pulumi.get(self, "partition_key_properties")
-
-    @partition_key_properties.setter
-    def partition_key_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]]):
-        pulumi.set(self, "partition_key_properties", value)
-
-    @property
-    @pulumi.getter(name="storageLimitExceededBehavior")
-    def storage_limit_exceeded_behavior(self) -> Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]]:
-        """
-        The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-        """
-        return pulumi.get(self, "storage_limit_exceeded_behavior")
-
-    @storage_limit_exceeded_behavior.setter
-    def storage_limit_exceeded_behavior(self, value: Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]]):
-        pulumi.set(self, "storage_limit_exceeded_behavior", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -169,14 +137,12 @@ class Gen1Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention_time: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['Gen1EnvironmentCreationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -184,15 +150,13 @@ class Gen1Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         :param pulumi.Input[str] environment_name: Name of the environment
         :param pulumi.Input[str] kind: The kind of the environment.
                Expected value is 'Gen1'.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]] partition_key_properties: The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        :param pulumi.Input[pulumi.InputType['Gen1EnvironmentCreationPropertiesArgs']] properties: Properties used to create a Gen1 environment.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-        :param pulumi.Input[Union[str, 'StorageLimitExceededBehavior']] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
         ...
@@ -219,14 +183,12 @@ class Gen1Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention_time: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['Gen1EnvironmentCreationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -237,30 +199,22 @@ class Gen1Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = Gen1EnvironmentArgs.__new__(Gen1EnvironmentArgs)
 
-            if data_retention_time is None and not opts.urn:
-                raise TypeError("Missing required property 'data_retention_time'")
-            __props__.__dict__["data_retention_time"] = data_retention_time
             __props__.__dict__["environment_name"] = environment_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Gen1'
             __props__.__dict__["location"] = location
-            __props__.__dict__["partition_key_properties"] = partition_key_properties
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["storage_limit_exceeded_behavior"] = storage_limit_exceeded_behavior
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["creation_time"] = None
-            __props__.__dict__["data_access_fqdn"] = None
-            __props__.__dict__["data_access_id"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["status"] = None
-            __props__.__dict__["supports_customer_managed_key"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:Gen1Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:Gen1Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -286,54 +240,14 @@ class Gen1Environment(pulumi.CustomResource):
 
         __props__ = Gen1EnvironmentArgs.__new__(Gen1EnvironmentArgs)
 
-        __props__.__dict__["creation_time"] = None
-        __props__.__dict__["data_access_fqdn"] = None
-        __props__.__dict__["data_access_id"] = None
-        __props__.__dict__["data_retention_time"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["partition_key_properties"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["storage_limit_exceeded_behavior"] = None
-        __props__.__dict__["supports_customer_managed_key"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Gen1Environment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
-        """
-        The time the resource was created.
-        """
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="dataAccessFqdn")
-    def data_access_fqdn(self) -> pulumi.Output[str]:
-        """
-        The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_fqdn")
-
-    @property
-    @pulumi.getter(name="dataAccessId")
-    def data_access_id(self) -> pulumi.Output[str]:
-        """
-        An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        """
-        return pulumi.get(self, "data_access_id")
-
-    @property
-    @pulumi.getter(name="dataRetentionTime")
-    def data_retention_time(self) -> pulumi.Output[str]:
-        """
-        ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-        """
-        return pulumi.get(self, "data_retention_time")
 
     @property
     @pulumi.getter
@@ -361,20 +275,12 @@ class Gen1Environment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> pulumi.Output[Optional[Sequence['outputs.TimeSeriesIdPropertyResponse']]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.Gen1EnvironmentResourcePropertiesResponse']:
         """
-        The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        Properties of the Gen1 environment.
         """
-        return pulumi.get(self, "partition_key_properties")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -383,30 +289,6 @@ class Gen1Environment(pulumi.CustomResource):
         The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output['outputs.EnvironmentStatusResponse']:
-        """
-        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageLimitExceededBehavior")
-    def storage_limit_exceeded_behavior(self) -> pulumi.Output[Optional[str]]:
-        """
-        The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-        """
-        return pulumi.get(self, "storage_limit_exceeded_behavior")
-
-    @property
-    @pulumi.getter(name="supportsCustomerManagedKey")
-    def supports_customer_managed_key(self) -> pulumi.Output[bool]:
-        """
-        Indicates whether an environment supports Encryption at Rest with Customer Managed Key.
-        """
-        return pulumi.get(self, "supports_customer_managed_key")
 
     @property
     @pulumi.getter

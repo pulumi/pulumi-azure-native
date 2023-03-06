@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -48,18 +51,6 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * The IDs of the access control records, associated with the volume.
-     */
-    readonly accessControlRecordIds: string[];
-    /**
-     * The IDs of the backup policies, in which this volume is part of.
-     */
-    readonly backupPolicyIds: string[];
-    /**
-     * The backup status of the volume.
-     */
-    readonly backupStatus: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -68,37 +59,17 @@ export interface GetVolumeResult {
      */
     readonly kind?: string;
     /**
-     * The monitoring status of the volume.
-     */
-    readonly monitoringStatus: string;
-    /**
      * The name of the object.
      */
     readonly name: string;
     /**
-     * The operation status on the volume.
+     * The properties of the volume.
      */
-    readonly operationStatus: string;
-    /**
-     * The size of the volume in bytes.
-     */
-    readonly sizeInBytes: number;
+    readonly properties: outputs.storsimple.VolumePropertiesResponse;
     /**
      * The hierarchical type of the object.
      */
     readonly type: string;
-    /**
-     * The ID of the volume container, in which this volume is created.
-     */
-    readonly volumeContainerId: string;
-    /**
-     * The volume status.
-     */
-    readonly volumeStatus: string;
-    /**
-     * The type of the volume.
-     */
-    readonly volumeType: string;
 }
 /**
  * Returns the properties of the specified volume name.

@@ -170,16 +170,16 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the module content link.
-        /// </summary>
-        [Input("contentLink", required: true)]
-        public Input<Inputs.ContentLinkArgs> ContentLink { get; set; } = null!;
-
-        /// <summary>
         /// The name of python package.
         /// </summary>
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the module create properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.PythonPackageCreatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

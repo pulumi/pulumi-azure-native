@@ -103,17 +103,13 @@ namespace Pulumi.AzureNative.Storage.V20190401
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The immutability period for the blobs in the container since the policy creation, in days.
-        /// </summary>
-        public readonly int ImmutabilityPeriodSinceCreationInDays;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        /// The properties of an ImmutabilityPolicy of a blob container.
         /// </summary>
-        public readonly string State;
+        public readonly Outputs.ImmutabilityPolicyPropertyResponse Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -125,19 +121,16 @@ namespace Pulumi.AzureNative.Storage.V20190401
 
             string id,
 
-            int immutabilityPeriodSinceCreationInDays,
-
             string name,
 
-            string state,
+            Outputs.ImmutabilityPolicyPropertyResponse properties,
 
             string type)
         {
             Etag = etag;
             Id = id;
-            ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;
             Name = name;
-            State = state;
+            Properties = properties;
             Type = type;
         }
     }

@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
     public sealed class ManagedIntegrationRuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The compute resource for managed integration runtime.
-        /// </summary>
-        [Input("computeProperties")]
-        public Input<Inputs.IntegrationRuntimeComputePropertiesArgs>? ComputeProperties { get; set; }
-
-        /// <summary>
         /// Integration runtime description.
         /// </summary>
         [Input("description")]
@@ -34,17 +28,17 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
         public Input<Inputs.ManagedVirtualNetworkReferenceArgs>? ManagedVirtualNetwork { get; set; }
 
         /// <summary>
-        /// SSIS properties for managed integration runtime.
-        /// </summary>
-        [Input("ssisProperties")]
-        public Input<Inputs.IntegrationRuntimeSsisPropertiesArgs>? SsisProperties { get; set; }
-
-        /// <summary>
         /// The type of integration runtime.
         /// Expected value is 'Managed'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Managed integration runtime properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.ManagedIntegrationRuntimeTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ManagedIntegrationRuntimeArgs()
         {

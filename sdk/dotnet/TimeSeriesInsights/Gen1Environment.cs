@@ -17,30 +17,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public partial class Gen1Environment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The time the resource was created.
-        /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        [Output("dataAccessFqdn")]
-        public Output<string> DataAccessFqdn { get; private set; } = null!;
-
-        /// <summary>
-        /// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-        /// </summary>
-        [Output("dataAccessId")]
-        public Output<string> DataAccessId { get; private set; } = null!;
-
-        /// <summary>
-        /// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-        /// </summary>
-        [Output("dataRetentionTime")]
-        public Output<string> DataRetentionTime { get; private set; } = null!;
-
-        /// <summary>
         /// The kind of the environment.
         /// Expected value is 'Gen1'.
         /// </summary>
@@ -60,34 +36,16 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        /// Properties of the Gen1 environment.
         /// </summary>
-        [Output("partitionKeyProperties")]
-        public Output<ImmutableArray<Outputs.TimeSeriesIdPropertyResponse>> PartitionKeyProperties { get; private set; } = null!;
-
-        /// <summary>
-        /// Provisioning state of the resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.Gen1EnvironmentResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.EnvironmentStatusResponse> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-        /// </summary>
-        [Output("storageLimitExceededBehavior")]
-        public Output<string?> StorageLimitExceededBehavior { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -163,12 +121,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public sealed class Gen1EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-        /// </summary>
-        [Input("dataRetentionTime", required: true)]
-        public Input<string> DataRetentionTime { get; set; } = null!;
-
-        /// <summary>
         /// Name of the environment
         /// </summary>
         [Input("environmentName")]
@@ -187,17 +139,11 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("partitionKeyProperties")]
-        private InputList<Inputs.TimeSeriesIdPropertyArgs>? _partitionKeyProperties;
-
         /// <summary>
-        /// The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        /// Properties used to create a Gen1 environment.
         /// </summary>
-        public InputList<Inputs.TimeSeriesIdPropertyArgs> PartitionKeyProperties
-        {
-            get => _partitionKeyProperties ?? (_partitionKeyProperties = new InputList<Inputs.TimeSeriesIdPropertyArgs>());
-            set => _partitionKeyProperties = value;
-        }
+        [Input("properties", required: true)]
+        public Input<Inputs.Gen1EnvironmentCreationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -210,12 +156,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-        /// </summary>
-        [Input("storageLimitExceededBehavior")]
-        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.StorageLimitExceededBehavior>? StorageLimitExceededBehavior { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

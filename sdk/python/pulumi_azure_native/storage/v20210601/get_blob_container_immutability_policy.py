@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetBlobContainerImmutabilityPolicyResult',
@@ -21,47 +22,22 @@ class GetBlobContainerImmutabilityPolicyResult:
     """
     The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, allow_protected_append_writes=None, allow_protected_append_writes_all=None, etag=None, id=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
-        if allow_protected_append_writes and not isinstance(allow_protected_append_writes, bool):
-            raise TypeError("Expected argument 'allow_protected_append_writes' to be a bool")
-        pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
-        if allow_protected_append_writes_all and not isinstance(allow_protected_append_writes_all, bool):
-            raise TypeError("Expected argument 'allow_protected_append_writes_all' to be a bool")
-        pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, int):
-            raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a int")
-        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="allowProtectedAppendWrites")
-    def allow_protected_append_writes(self) -> Optional[bool]:
-        """
-        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
-        """
-        return pulumi.get(self, "allow_protected_append_writes")
-
-    @property
-    @pulumi.getter(name="allowProtectedAppendWritesAll")
-    def allow_protected_append_writes_all(self) -> Optional[bool]:
-        """
-        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
-        """
-        return pulumi.get(self, "allow_protected_append_writes_all")
 
     @property
     @pulumi.getter
@@ -80,14 +56,6 @@ class GetBlobContainerImmutabilityPolicyResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> Optional[int]:
-        """
-        The immutability period for the blobs in the container since the policy creation, in days.
-        """
-        return pulumi.get(self, "immutability_period_since_creation_in_days")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -97,11 +65,11 @@ class GetBlobContainerImmutabilityPolicyResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def properties(self) -> 'outputs.ImmutabilityPolicyPropertyResponse':
         """
-        The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        The properties of an ImmutabilityPolicy of a blob container.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -118,13 +86,10 @@ class AwaitableGetBlobContainerImmutabilityPolicyResult(GetBlobContainerImmutabi
         if False:
             yield self
         return GetBlobContainerImmutabilityPolicyResult(
-            allow_protected_append_writes=self.allow_protected_append_writes,
-            allow_protected_append_writes_all=self.allow_protected_append_writes_all,
             etag=self.etag,
             id=self.id,
-            immutability_period_since_creation_in_days=self.immutability_period_since_creation_in_days,
             name=self.name,
-            state=self.state,
+            properties=self.properties,
             type=self.type)
 
 
@@ -151,13 +116,10 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20210601:getBlobContainerImmutabilityPolicy', __args__, opts=opts, typ=GetBlobContainerImmutabilityPolicyResult).value
 
     return AwaitableGetBlobContainerImmutabilityPolicyResult(
-        allow_protected_append_writes=__ret__.allow_protected_append_writes,
-        allow_protected_append_writes_all=__ret__.allow_protected_append_writes_all,
         etag=__ret__.etag,
         id=__ret__.id,
-        immutability_period_since_creation_in_days=__ret__.immutability_period_since_creation_in_days,
         name=__ret__.name,
-        state=__ret__.state,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

@@ -17,58 +17,16 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public partial class PublishedBlueprint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Blueprint definition.
-        /// </summary>
-        [Output("blueprintName")]
-        public Output<string?> BlueprintName { get; private set; } = null!;
-
-        /// <summary>
-        /// Version-specific change notes
-        /// </summary>
-        [Output("changeNotes")]
-        public Output<string?> ChangeNotes { get; private set; } = null!;
-
-        /// <summary>
-        /// Multi-line explain this resource.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// One-liner string explain this resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters required by this Blueprint definition.
+        /// Detailed properties for published Blueprint
         /// </summary>
-        [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource group placeholders defined by this Blueprint definition.
-        /// </summary>
-        [Output("resourceGroups")]
-        public Output<ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>?> ResourceGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of the Blueprint. This field is readonly.
-        /// </summary>
-        [Output("status")]
-        public Output<Outputs.BlueprintStatusResponse> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The scope where this Blueprint can be applied.
-        /// </summary>
-        [Output("targetScope")]
-        public Output<string?> TargetScope { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PublishedBlueprintPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.

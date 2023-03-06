@@ -13,7 +13,9 @@ from ._enums import *
 __all__ = [
     'ActiveDirectoryArgs',
     'ExportPolicyRuleArgs',
+    'PoolPropertiesArgs',
     'VolumePropertiesExportPolicyArgs',
+    'VolumePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -273,6 +275,46 @@ class ExportPolicyRuleArgs:
 
 
 @pulumi.input_type
+class PoolPropertiesArgs:
+    def __init__(__self__, *,
+                 service_level: pulumi.Input[Union[str, 'ServiceLevel']],
+                 size: pulumi.Input[float]):
+        """
+        Pool properties
+        :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
+        :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        if service_level is None:
+            service_level = 'Premium'
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> pulumi.Input[Union[str, 'ServiceLevel']]:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @service_level.setter
+    def service_level(self, value: pulumi.Input[Union[str, 'ServiceLevel']]):
+        pulumi.set(self, "service_level", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[float]:
+        """
+        Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[float]):
+        pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
     def __init__(__self__, *,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
@@ -294,5 +336,126 @@ class VolumePropertiesExportPolicyArgs:
     @rules.setter
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class VolumePropertiesArgs:
+    def __init__(__self__, *,
+                 creation_token: pulumi.Input[str],
+                 subnet_id: pulumi.Input[str],
+                 usage_threshold: pulumi.Input[float],
+                 export_policy: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']] = None,
+                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None):
+        """
+        Volume properties
+        :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
+        :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input['VolumePropertiesExportPolicyArgs'] export_policy: Set of export policy rules
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS fro SMB protocol
+        :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
+        :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        pulumi.set(__self__, "creation_token", creation_token)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if usage_threshold is None:
+            usage_threshold = 107374182400
+        pulumi.set(__self__, "usage_threshold", usage_threshold)
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
+        if protocol_types is not None:
+            pulumi.set(__self__, "protocol_types", protocol_types)
+        if service_level is None:
+            service_level = 'Premium'
+        if service_level is not None:
+            pulumi.set(__self__, "service_level", service_level)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+
+    @property
+    @pulumi.getter(name="creationToken")
+    def creation_token(self) -> pulumi.Input[str]:
+        """
+        A unique file path for the volume. Used when creating mount targets
+        """
+        return pulumi.get(self, "creation_token")
+
+    @creation_token.setter
+    def creation_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "creation_token", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="usageThreshold")
+    def usage_threshold(self) -> pulumi.Input[float]:
+        """
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        """
+        return pulumi.get(self, "usage_threshold")
+
+    @usage_threshold.setter
+    def usage_threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "usage_threshold", value)
+
+    @property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]:
+        """
+        Set of export policy rules
+        """
+        return pulumi.get(self, "export_policy")
+
+    @export_policy.setter
+    def export_policy(self, value: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]):
+        pulumi.set(self, "export_policy", value)
+
+    @property
+    @pulumi.getter(name="protocolTypes")
+    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of protocol types, default NFSv3, CIFS fro SMB protocol
+        """
+        return pulumi.get(self, "protocol_types")
+
+    @protocol_types.setter
+    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocol_types", value)
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> Optional[pulumi.Input[Union[str, 'ServiceLevel']]]:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @service_level.setter
+    def service_level(self, value: Optional[pulumi.Input[Union[str, 'ServiceLevel']]]):
+        pulumi.set(self, "service_level", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
 
 

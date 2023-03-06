@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Properties for the variable value.
+        /// </summary>
+        public readonly Outputs.PolicyVariableValuePropertiesResponse Properties;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -97,10 +101,6 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
         /// The type of the resource (Microsoft.Authorization/variables/values).
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Variable value column value array.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PolicyVariableValueColumnValueResponse> Values;
 
         [OutputConstructor]
         private GetVariableValueAtManagementGroupResult(
@@ -108,17 +108,17 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
 
             string name,
 
+            Outputs.PolicyVariableValuePropertiesResponse properties,
+
             Outputs.SystemDataResponse systemData,
 
-            string type,
-
-            ImmutableArray<Outputs.PolicyVariableValueColumnValueResponse> values)
+            string type)
         {
             Id = id;
             Name = name;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
-            Values = values;
         }
     }
 }

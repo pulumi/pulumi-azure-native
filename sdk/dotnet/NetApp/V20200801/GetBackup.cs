@@ -107,25 +107,9 @@ namespace Pulumi.AzureNative.NetApp.V20200801
     public sealed class GetBackupResult
     {
         /// <summary>
-        /// UUID v4 used to identify the Backup
-        /// </summary>
-        public readonly string BackupId;
-        /// <summary>
-        /// Type of backup Manual or Scheduled
-        /// </summary>
-        public readonly string BackupType;
-        /// <summary>
-        /// The creation date of the backup
-        /// </summary>
-        public readonly string CreationDate;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Label for backup
-        /// </summary>
-        public readonly string? Label;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -135,13 +119,9 @@ namespace Pulumi.AzureNative.NetApp.V20200801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup Properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Size of backup
-        /// </summary>
-        public readonly double Size;
+        public readonly Outputs.BackupPropertiesResponse Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -149,35 +129,20 @@ namespace Pulumi.AzureNative.NetApp.V20200801
 
         [OutputConstructor]
         private GetBackupResult(
-            string backupId,
-
-            string backupType,
-
-            string creationDate,
-
             string id,
-
-            string? label,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            double size,
+            Outputs.BackupPropertiesResponse properties,
 
             string type)
         {
-            BackupId = backupId;
-            BackupType = backupType;
-            CreationDate = creationDate;
             Id = id;
-            Label = label;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            Size = size;
+            Properties = properties;
             Type = type;
         }
     }

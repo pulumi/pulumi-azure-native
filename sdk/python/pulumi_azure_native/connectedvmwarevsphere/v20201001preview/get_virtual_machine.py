@@ -22,108 +22,37 @@ class GetVirtualMachineResult:
     """
     Define the virtualMachine.
     """
-    def __init__(__self__, custom_resource_name=None, extended_location=None, firmware_type=None, folder_path=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, instance_uuid=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_profile=None, os_profile=None, placement_profile=None, power_state=None, provisioning_state=None, resource_pool_id=None, smbios_uuid=None, statuses=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, v_center_id=None, vm_id=None):
-        if custom_resource_name and not isinstance(custom_resource_name, str):
-            raise TypeError("Expected argument 'custom_resource_name' to be a str")
-        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+    def __init__(__self__, extended_location=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
-        if firmware_type and not isinstance(firmware_type, str):
-            raise TypeError("Expected argument 'firmware_type' to be a str")
-        pulumi.set(__self__, "firmware_type", firmware_type)
-        if folder_path and not isinstance(folder_path, str):
-            raise TypeError("Expected argument 'folder_path' to be a str")
-        pulumi.set(__self__, "folder_path", folder_path)
-        if guest_agent_profile and not isinstance(guest_agent_profile, dict):
-            raise TypeError("Expected argument 'guest_agent_profile' to be a dict")
-        pulumi.set(__self__, "guest_agent_profile", guest_agent_profile)
-        if hardware_profile and not isinstance(hardware_profile, dict):
-            raise TypeError("Expected argument 'hardware_profile' to be a dict")
-        pulumi.set(__self__, "hardware_profile", hardware_profile)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
-        if instance_uuid and not isinstance(instance_uuid, str):
-            raise TypeError("Expected argument 'instance_uuid' to be a str")
-        pulumi.set(__self__, "instance_uuid", instance_uuid)
-        if inventory_item_id and not isinstance(inventory_item_id, str):
-            raise TypeError("Expected argument 'inventory_item_id' to be a str")
-        pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if mo_name and not isinstance(mo_name, str):
-            raise TypeError("Expected argument 'mo_name' to be a str")
-        pulumi.set(__self__, "mo_name", mo_name)
-        if mo_ref_id and not isinstance(mo_ref_id, str):
-            raise TypeError("Expected argument 'mo_ref_id' to be a str")
-        pulumi.set(__self__, "mo_ref_id", mo_ref_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if network_profile and not isinstance(network_profile, dict):
-            raise TypeError("Expected argument 'network_profile' to be a dict")
-        pulumi.set(__self__, "network_profile", network_profile)
-        if os_profile and not isinstance(os_profile, dict):
-            raise TypeError("Expected argument 'os_profile' to be a dict")
-        pulumi.set(__self__, "os_profile", os_profile)
-        if placement_profile and not isinstance(placement_profile, dict):
-            raise TypeError("Expected argument 'placement_profile' to be a dict")
-        pulumi.set(__self__, "placement_profile", placement_profile)
-        if power_state and not isinstance(power_state, str):
-            raise TypeError("Expected argument 'power_state' to be a str")
-        pulumi.set(__self__, "power_state", power_state)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_pool_id and not isinstance(resource_pool_id, str):
-            raise TypeError("Expected argument 'resource_pool_id' to be a str")
-        pulumi.set(__self__, "resource_pool_id", resource_pool_id)
-        if smbios_uuid and not isinstance(smbios_uuid, str):
-            raise TypeError("Expected argument 'smbios_uuid' to be a str")
-        pulumi.set(__self__, "smbios_uuid", smbios_uuid)
-        if statuses and not isinstance(statuses, list):
-            raise TypeError("Expected argument 'statuses' to be a list")
-        pulumi.set(__self__, "statuses", statuses)
-        if storage_profile and not isinstance(storage_profile, dict):
-            raise TypeError("Expected argument 'storage_profile' to be a dict")
-        pulumi.set(__self__, "storage_profile", storage_profile)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if template_id and not isinstance(template_id, str):
-            raise TypeError("Expected argument 'template_id' to be a str")
-        pulumi.set(__self__, "template_id", template_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if uuid and not isinstance(uuid, str):
-            raise TypeError("Expected argument 'uuid' to be a str")
-        pulumi.set(__self__, "uuid", uuid)
-        if v_center_id and not isinstance(v_center_id, str):
-            raise TypeError("Expected argument 'v_center_id' to be a str")
-        pulumi.set(__self__, "v_center_id", v_center_id)
-        if vm_id and not isinstance(vm_id, str):
-            raise TypeError("Expected argument 'vm_id' to be a str")
-        pulumi.set(__self__, "vm_id", vm_id)
-
-    @property
-    @pulumi.getter(name="customResourceName")
-    def custom_resource_name(self) -> str:
-        """
-        Gets the name of the corresponding resource in Kubernetes.
-        """
-        return pulumi.get(self, "custom_resource_name")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -132,38 +61,6 @@ class GetVirtualMachineResult:
         Gets or sets the extended location.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="firmwareType")
-    def firmware_type(self) -> Optional[str]:
-        """
-        Firmware type
-        """
-        return pulumi.get(self, "firmware_type")
-
-    @property
-    @pulumi.getter(name="folderPath")
-    def folder_path(self) -> str:
-        """
-        Gets or sets the folder path of the vm.
-        """
-        return pulumi.get(self, "folder_path")
-
-    @property
-    @pulumi.getter(name="guestAgentProfile")
-    def guest_agent_profile(self) -> Optional['outputs.GuestAgentProfileResponse']:
-        """
-        Guest agent status properties.
-        """
-        return pulumi.get(self, "guest_agent_profile")
-
-    @property
-    @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional['outputs.HardwareProfileResponse']:
-        """
-        Hardware properties.
-        """
-        return pulumi.get(self, "hardware_profile")
 
     @property
     @pulumi.getter
@@ -182,22 +79,6 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "identity")
 
     @property
-    @pulumi.getter(name="instanceUuid")
-    def instance_uuid(self) -> str:
-        """
-        Gets or sets the instance uuid of the vm.
-        """
-        return pulumi.get(self, "instance_uuid")
-
-    @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> Optional[str]:
-        """
-        Gets or sets the inventory Item ID for the virtual machine.
-        """
-        return pulumi.get(self, "inventory_item_id")
-
-    @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
@@ -214,22 +95,6 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="moName")
-    def mo_name(self) -> str:
-        """
-        Gets or sets the vCenter Managed Object name for the virtual machine.
-        """
-        return pulumi.get(self, "mo_name")
-
-    @property
-    @pulumi.getter(name="moRefId")
-    def mo_ref_id(self) -> Optional[str]:
-        """
-        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
-        """
-        return pulumi.get(self, "mo_ref_id")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -238,77 +103,12 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
-        """
-        Network properties.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @property
-    @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.OsProfileResponse']:
-        """
-        OS properties.
-        """
-        return pulumi.get(self, "os_profile")
-
-    @property
-    @pulumi.getter(name="placementProfile")
-    def placement_profile(self) -> Optional['outputs.PlacementProfileResponse']:
-        """
-        Placement properties.
-        """
-        return pulumi.get(self, "placement_profile")
-
-    @property
-    @pulumi.getter(name="powerState")
-    def power_state(self) -> str:
-        """
-        Gets the power state of the virtual machine.
-        """
-        return pulumi.get(self, "power_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Gets or sets the provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourcePoolId")
-    def resource_pool_id(self) -> Optional[str]:
-        """
-        Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
-        deploy.
-        """
-        return pulumi.get(self, "resource_pool_id")
-
-    @property
-    @pulumi.getter(name="smbiosUuid")
-    def smbios_uuid(self) -> Optional[str]:
-        """
-        Gets or sets the SMBIOS UUID of the vm.
-        """
-        return pulumi.get(self, "smbios_uuid")
-
-    @property
     @pulumi.getter
-    def statuses(self) -> Sequence['outputs.ResourceStatusResponse']:
+    def properties(self) -> 'outputs.VirtualMachinePropertiesResponse':
         """
-        The resource status information.
+        Resource properties.
         """
-        return pulumi.get(self, "statuses")
-
-    @property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
-        """
-        Storage properties.
-        """
-        return pulumi.get(self, "storage_profile")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -327,44 +127,12 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="templateId")
-    def template_id(self) -> Optional[str]:
-        """
-        Gets or sets the ARM Id of the template resource to deploy the virtual machine.
-        """
-        return pulumi.get(self, "template_id")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
         Gets or sets the type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uuid(self) -> str:
-        """
-        Gets or sets a unique identifier for this resource.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter(name="vCenterId")
-    def v_center_id(self) -> Optional[str]:
-        """
-        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        """
-        return pulumi.get(self, "v_center_id")
-
-    @property
-    @pulumi.getter(name="vmId")
-    def vm_id(self) -> str:
-        """
-        Gets or sets a unique identifier for the vm resource.
-        """
-        return pulumi.get(self, "vm_id")
 
 
 class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
@@ -373,37 +141,16 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
         if False:
             yield self
         return GetVirtualMachineResult(
-            custom_resource_name=self.custom_resource_name,
             extended_location=self.extended_location,
-            firmware_type=self.firmware_type,
-            folder_path=self.folder_path,
-            guest_agent_profile=self.guest_agent_profile,
-            hardware_profile=self.hardware_profile,
             id=self.id,
             identity=self.identity,
-            instance_uuid=self.instance_uuid,
-            inventory_item_id=self.inventory_item_id,
             kind=self.kind,
             location=self.location,
-            mo_name=self.mo_name,
-            mo_ref_id=self.mo_ref_id,
             name=self.name,
-            network_profile=self.network_profile,
-            os_profile=self.os_profile,
-            placement_profile=self.placement_profile,
-            power_state=self.power_state,
-            provisioning_state=self.provisioning_state,
-            resource_pool_id=self.resource_pool_id,
-            smbios_uuid=self.smbios_uuid,
-            statuses=self.statuses,
-            storage_profile=self.storage_profile,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            template_id=self.template_id,
-            type=self.type,
-            uuid=self.uuid,
-            v_center_id=self.v_center_id,
-            vm_id=self.vm_id)
+            type=self.type)
 
 
 def get_virtual_machine(resource_group_name: Optional[str] = None,
@@ -423,37 +170,16 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere/v20201001preview:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult).value
 
     return AwaitableGetVirtualMachineResult(
-        custom_resource_name=__ret__.custom_resource_name,
         extended_location=__ret__.extended_location,
-        firmware_type=__ret__.firmware_type,
-        folder_path=__ret__.folder_path,
-        guest_agent_profile=__ret__.guest_agent_profile,
-        hardware_profile=__ret__.hardware_profile,
         id=__ret__.id,
         identity=__ret__.identity,
-        instance_uuid=__ret__.instance_uuid,
-        inventory_item_id=__ret__.inventory_item_id,
         kind=__ret__.kind,
         location=__ret__.location,
-        mo_name=__ret__.mo_name,
-        mo_ref_id=__ret__.mo_ref_id,
         name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        os_profile=__ret__.os_profile,
-        placement_profile=__ret__.placement_profile,
-        power_state=__ret__.power_state,
-        provisioning_state=__ret__.provisioning_state,
-        resource_pool_id=__ret__.resource_pool_id,
-        smbios_uuid=__ret__.smbios_uuid,
-        statuses=__ret__.statuses,
-        storage_profile=__ret__.storage_profile,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        template_id=__ret__.template_id,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        v_center_id=__ret__.v_center_id,
-        vm_id=__ret__.vm_id)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_virtual_machine)

@@ -133,14 +133,8 @@ class PublishedBlueprint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'management_group_name'")
             __props__.__dict__["management_group_name"] = management_group_name
             __props__.__dict__["version_id"] = version_id
-            __props__.__dict__["change_notes"] = None
-            __props__.__dict__["description"] = None
-            __props__.__dict__["display_name"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["parameters"] = None
-            __props__.__dict__["resource_groups"] = None
-            __props__.__dict__["status"] = None
-            __props__.__dict__["target_scope"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         super(PublishedBlueprint, __self__).__init__(
             'azure-native:blueprint/v20171111preview:PublishedBlueprint',
@@ -164,49 +158,10 @@ class PublishedBlueprint(pulumi.CustomResource):
 
         __props__ = PublishedBlueprintArgs.__new__(PublishedBlueprintArgs)
 
-        __props__.__dict__["blueprint_name"] = None
-        __props__.__dict__["change_notes"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["parameters"] = None
-        __props__.__dict__["resource_groups"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["target_scope"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return PublishedBlueprint(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="blueprintName")
-    def blueprint_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Name of the Blueprint definition.
-        """
-        return pulumi.get(self, "blueprint_name")
-
-    @property
-    @pulumi.getter(name="changeNotes")
-    def change_notes(self) -> pulumi.Output[Optional[str]]:
-        """
-        Version-specific change notes
-        """
-        return pulumi.get(self, "change_notes")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Multi-line explain this resource.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        One-liner string explain this resource.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -218,35 +173,11 @@ class PublishedBlueprint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ParameterDefinitionResponse']]]:
+    def properties(self) -> pulumi.Output['outputs.PublishedBlueprintPropertiesResponse']:
         """
-        Parameters required by this Blueprint definition.
+        Detailed properties for published Blueprint
         """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ResourceGroupDefinitionResponse']]]:
-        """
-        Resource group placeholders defined by this Blueprint definition.
-        """
-        return pulumi.get(self, "resource_groups")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output['outputs.BlueprintStatusResponse']:
-        """
-        Status of the Blueprint. This field is readonly.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="targetScope")
-    def target_scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        The scope where this Blueprint can be applied.
-        """
-        return pulumi.get(self, "target_scope")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

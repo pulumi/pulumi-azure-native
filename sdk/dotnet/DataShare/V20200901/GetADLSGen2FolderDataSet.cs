@@ -94,18 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     public sealed class GetADLSGen2FolderDataSetResult
     {
         /// <summary>
-        /// Unique id for identifying a data set resource
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// File system to which the folder belongs.
-        /// </summary>
-        public readonly string FileSystem;
-        /// <summary>
-        /// Folder path within the file system.
-        /// </summary>
-        public readonly string FolderPath;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -119,17 +107,9 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource group of storage account
+        /// ADLS Gen 2 folder data set properties.
         /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Storage account name of the source data set
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// Subscription id of storage account
-        /// </summary>
-        public readonly string SubscriptionId;
+        public readonly Outputs.ADLSGen2FolderPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -141,37 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20200901
 
         [OutputConstructor]
         private GetADLSGen2FolderDataSetResult(
-            string dataSetId,
-
-            string fileSystem,
-
-            string folderPath,
-
             string id,
 
             string kind,
 
             string name,
 
-            string resourceGroup,
-
-            string storageAccountName,
-
-            string subscriptionId,
+            Outputs.ADLSGen2FolderPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DataSetId = dataSetId;
-            FileSystem = fileSystem;
-            FolderPath = folderPath;
             Id = id;
             Kind = kind;
             Name = name;
-            ResourceGroup = resourceGroup;
-            StorageAccountName = storageAccountName;
-            SubscriptionId = subscriptionId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

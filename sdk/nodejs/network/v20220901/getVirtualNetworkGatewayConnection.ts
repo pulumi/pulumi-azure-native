@@ -35,77 +35,13 @@ export interface GetVirtualNetworkGatewayConnectionArgs {
  */
 export interface GetVirtualNetworkGatewayConnectionResult {
     /**
-     * The authorizationKey.
-     */
-    readonly authorizationKey?: string;
-    /**
-     * The connection mode for this connection.
-     */
-    readonly connectionMode?: string;
-    /**
-     * Connection protocol used for this connection.
-     */
-    readonly connectionProtocol?: string;
-    /**
-     * Virtual Network Gateway connection status.
-     */
-    readonly connectionStatus: string;
-    /**
-     * Gateway connection type.
-     */
-    readonly connectionType: string;
-    /**
-     * The dead peer detection timeout of this connection in seconds.
-     */
-    readonly dpdTimeoutSeconds?: number;
-    /**
-     * The egress bytes transferred in this connection.
-     */
-    readonly egressBytesTransferred: number;
-    /**
-     * List of egress NatRules.
-     */
-    readonly egressNatRules?: outputs.network.v20220901.SubResourceResponse[];
-    /**
-     * EnableBgp flag.
-     */
-    readonly enableBgp?: boolean;
-    /**
-     * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
-     */
-    readonly enablePrivateLinkFastPath?: boolean;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
     /**
-     * Bypass ExpressRoute Gateway for data forwarding.
-     */
-    readonly expressRouteGatewayBypass?: boolean;
-    /**
-     * GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
-     */
-    readonly gatewayCustomBgpIpAddresses?: outputs.network.v20220901.GatewayCustomBgpIpAddressIpConfigurationResponse[];
-    /**
      * Resource ID.
      */
     readonly id?: string;
-    /**
-     * The ingress bytes transferred in this connection.
-     */
-    readonly ingressBytesTransferred: number;
-    /**
-     * List of ingress NatRules.
-     */
-    readonly ingressNatRules?: outputs.network.v20220901.SubResourceResponse[];
-    /**
-     * The IPSec Policies to be considered by this connection.
-     */
-    readonly ipsecPolicies?: outputs.network.v20220901.IpsecPolicyResponse[];
-    /**
-     * The reference to local network gateway resource.
-     */
-    readonly localNetworkGateway2?: outputs.network.v20220901.LocalNetworkGatewayResponse;
     /**
      * Resource location.
      */
@@ -115,57 +51,17 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly name: string;
     /**
-     * The reference to peerings resource.
+     * Properties of the virtual network gateway connection.
      */
-    readonly peer?: outputs.network.v20220901.SubResourceResponse;
-    /**
-     * The provisioning state of the virtual network gateway connection resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * The resource GUID property of the virtual network gateway connection resource.
-     */
-    readonly resourceGuid: string;
-    /**
-     * The routing weight.
-     */
-    readonly routingWeight?: number;
-    /**
-     * The IPSec shared key.
-     */
-    readonly sharedKey?: string;
+    readonly properties: outputs.network.v20220901.VirtualNetworkGatewayConnectionPropertiesFormatResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The Traffic Selector Policies to be considered by this connection.
-     */
-    readonly trafficSelectorPolicies?: outputs.network.v20220901.TrafficSelectorPolicyResponse[];
-    /**
-     * Collection of all tunnels' connection health status.
-     */
-    readonly tunnelConnectionStatus: outputs.network.v20220901.TunnelConnectionHealthResponse[];
-    /**
      * Resource type.
      */
     readonly type: string;
-    /**
-     * Use private local Azure IP for the connection.
-     */
-    readonly useLocalAzureIpAddress?: boolean;
-    /**
-     * Enable policy-based traffic selectors.
-     */
-    readonly usePolicyBasedTrafficSelectors?: boolean;
-    /**
-     * The reference to virtual network gateway resource.
-     */
-    readonly virtualNetworkGateway1: outputs.network.v20220901.VirtualNetworkGatewayResponse;
-    /**
-     * The reference to virtual network gateway resource.
-     */
-    readonly virtualNetworkGateway2?: outputs.network.v20220901.VirtualNetworkGatewayResponse;
 }
 /**
  * Gets the specified virtual network gateway connection by resource group.

@@ -38,14 +38,6 @@ export class SynapseWorkspaceSqlPoolTableDataSetMapping extends pulumi.CustomRes
     }
 
     /**
-     * The id of the source data set.
-     */
-    public readonly dataSetId!: pulumi.Output<string>;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    public /*out*/ readonly dataSetMappingStatus!: pulumi.Output<string>;
-    /**
      * Kind of data set mapping.
      * Expected value is 'SynapseWorkspaceSqlPoolTable'.
      */
@@ -55,13 +47,9 @@ export class SynapseWorkspaceSqlPoolTableDataSetMapping extends pulumi.CustomRes
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the data set mapping.
+     * A Synapse Workspace Sql Pool Table data set mapping properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Resource id of the Synapse Workspace SQL Pool Table
-     */
-    public readonly synapseWorkspaceSqlPoolTableResourceId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20200901.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
@@ -85,11 +73,11 @@ export class SynapseWorkspaceSqlPoolTableDataSetMapping extends pulumi.CustomRes
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataSetId'");
-            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -97,28 +85,19 @@ export class SynapseWorkspaceSqlPoolTableDataSetMapping extends pulumi.CustomRes
             if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            if ((!args || args.synapseWorkspaceSqlPoolTableResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'synapseWorkspaceSqlPoolTableResourceId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
             resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
             resourceInputs["kind"] = "SynapseWorkspaceSqlPoolTable";
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            resourceInputs["synapseWorkspaceSqlPoolTableResourceId"] = args ? args.synapseWorkspaceSqlPoolTableResourceId : undefined;
-            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["synapseWorkspaceSqlPoolTableResourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -138,10 +117,6 @@ export interface SynapseWorkspaceSqlPoolTableDataSetMappingArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The id of the source data set.
-     */
-    dataSetId: pulumi.Input<string>;
-    /**
      * The name of the data set mapping to be created.
      */
     dataSetMappingName?: pulumi.Input<string>;
@@ -151,6 +126,10 @@ export interface SynapseWorkspaceSqlPoolTableDataSetMappingArgs {
      */
     kind: pulumi.Input<"SynapseWorkspaceSqlPoolTable">;
     /**
+     * A Synapse Workspace Sql Pool Table data set mapping properties.
+     */
+    properties: pulumi.Input<inputs.datashare.v20200901.SynapseWorkspaceSqlPoolTableDataSetMappingPropertiesArgs>;
+    /**
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -158,8 +137,4 @@ export interface SynapseWorkspaceSqlPoolTableDataSetMappingArgs {
      * The name of the share subscription which will hold the data set sink.
      */
     shareSubscriptionName: pulumi.Input<string>;
-    /**
-     * Resource id of the Synapse Workspace SQL Pool Table
-     */
-    synapseWorkspaceSqlPoolTableResourceId: pulumi.Input<string>;
 }

@@ -11,6 +11,7 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'JitNetworkAccessPolicyPropertiesArgs',
     'JitNetworkAccessPolicyVirtualMachineArgs',
     'JitNetworkAccessPortRuleArgs',
     'JitNetworkAccessRequestPortArgs',
@@ -22,6 +23,40 @@ __all__ = [
     'UserRecommendationArgs',
     'VmRecommendationArgs',
 ]
+
+@pulumi.input_type
+class JitNetworkAccessPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]],
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
+        """
+        pulumi.set(__self__, "virtual_machines", virtual_machines)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]:
+        """
+        Configurations for Microsoft.Compute/virtualMachines resource type.
+        """
+        return pulumi.get(self, "virtual_machines")
+
+    @virtual_machines.setter
+    def virtual_machines(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]):
+        pulumi.set(self, "virtual_machines", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]]):
+        pulumi.set(self, "requests", value)
+
 
 @pulumi.input_type
 class JitNetworkAccessPolicyVirtualMachineArgs:

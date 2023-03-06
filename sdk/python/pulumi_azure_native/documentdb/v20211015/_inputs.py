@@ -17,9 +17,11 @@ __all__ = [
     'BackupPolicyMigrationStateArgs',
     'CapabilityArgs',
     'CapacityArgs',
+    'CassandraKeyspaceCreateUpdatePropertiesArgs',
     'CassandraKeyspaceResourceArgs',
     'CassandraPartitionKeyArgs',
     'CassandraSchemaArgs',
+    'CassandraTableCreateUpdatePropertiesArgs',
     'CassandraTableResourceArgs',
     'CertificateArgs',
     'ClusterKeyArgs',
@@ -33,9 +35,12 @@ __all__ = [
     'CorsPolicyArgs',
     'CreateUpdateOptionsArgs',
     'DataCenterResourcePropertiesArgs',
+    'DatabaseAccountCreateUpdatePropertiesArgs',
     'DatabaseRestoreResourceArgs',
     'ExcludedPathArgs',
+    'GremlinDatabaseCreateUpdatePropertiesArgs',
     'GremlinDatabaseResourceArgs',
+    'GremlinGraphCreateUpdatePropertiesArgs',
     'GremlinGraphResourceArgs',
     'IncludedPathArgs',
     'IndexesArgs',
@@ -44,7 +49,9 @@ __all__ = [
     'LocationArgs',
     'ManagedCassandraManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgs',
+    'MongoDBCollectionCreateUpdatePropertiesArgs',
     'MongoDBCollectionResourceArgs',
+    'MongoDBDatabaseCreateUpdatePropertiesArgs',
     'MongoDBDatabaseResourceArgs',
     'MongoIndexKeysArgs',
     'MongoIndexOptionsArgs',
@@ -57,11 +64,17 @@ __all__ = [
     'RestoreParametersArgs',
     'SeedNodeArgs',
     'SpatialSpecArgs',
+    'SqlContainerCreateUpdatePropertiesArgs',
     'SqlContainerResourceArgs',
+    'SqlDatabaseCreateUpdatePropertiesArgs',
     'SqlDatabaseResourceArgs',
+    'SqlStoredProcedureCreateUpdatePropertiesArgs',
     'SqlStoredProcedureResourceArgs',
+    'SqlTriggerCreateUpdatePropertiesArgs',
     'SqlTriggerResourceArgs',
+    'SqlUserDefinedFunctionCreateUpdatePropertiesArgs',
     'SqlUserDefinedFunctionResourceArgs',
+    'TableCreateUpdatePropertiesArgs',
     'TableResourceArgs',
     'UniqueKeyPolicyArgs',
     'UniqueKeyArgs',
@@ -243,6 +256,45 @@ class CapacityArgs:
 
 
 @pulumi.input_type
+class CassandraKeyspaceCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['CassandraKeyspaceResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Cassandra keyspace.
+        :param pulumi.Input['CassandraKeyspaceResourceArgs'] resource: The standard JSON format of a Cassandra keyspace
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['CassandraKeyspaceResourceArgs']:
+        """
+        The standard JSON format of a Cassandra keyspace
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['CassandraKeyspaceResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class CassandraKeyspaceResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -343,6 +395,45 @@ class CassandraSchemaArgs:
     @partition_keys.setter
     def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgs']]]]):
         pulumi.set(self, "partition_keys", value)
+
+
+@pulumi.input_type
+class CassandraTableCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['CassandraTableResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Cassandra table.
+        :param pulumi.Input['CassandraTableResourceArgs'] resource: The standard JSON format of a Cassandra table
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['CassandraTableResourceArgs']:
+        """
+        The standard JSON format of a Cassandra table
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['CassandraTableResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -1330,6 +1421,446 @@ class DataCenterResourcePropertiesArgs:
 
 
 @pulumi.input_type
+class DatabaseAccountCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
+                 locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
+                 analytical_storage_configuration: Optional[pulumi.Input['AnalyticalStorageConfigurationArgs']] = None,
+                 api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+                 backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+                 capacity: Optional[pulumi.Input['CapacityArgs']] = None,
+                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
+                 consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 default_identity: Optional[pulumi.Input[str]] = None,
+                 disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
+                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+                 network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
+                 network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 restore_parameters: Optional[pulumi.Input['RestoreParametersArgs']] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+        """
+        Properties to create and update Azure Cosmos DB database accounts.
+        :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
+        :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input['AnalyticalStorageConfigurationArgs'] analytical_storage_configuration: Analytical storage specific properties.
+        :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
+        :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
+        :param pulumi.Input['CapacityArgs'] capacity: The object that represents all properties related to capacity enforcement on an account.
+        :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
+        :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of account creation.
+        :param pulumi.Input[str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
+        :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
+        :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
+        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
+        :param pulumi.Input['NetworkAclBypass'] network_acl_bypass: Indicates what services are allowed to bypass firewall checks.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_resource_ids: An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
+        :param pulumi.Input['RestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+        pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
+        pulumi.set(__self__, "locations", locations)
+        if analytical_storage_configuration is not None:
+            pulumi.set(__self__, "analytical_storage_configuration", analytical_storage_configuration)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
+        if backup_policy is not None:
+            pulumi.set(__self__, "backup_policy", backup_policy)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if connector_offer is not None:
+            pulumi.set(__self__, "connector_offer", connector_offer)
+        if consistency_policy is not None:
+            pulumi.set(__self__, "consistency_policy", consistency_policy)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if create_mode is None:
+            create_mode = 'Default'
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if default_identity is not None:
+            pulumi.set(__self__, "default_identity", default_identity)
+        if disable_key_based_metadata_write_access is not None:
+            pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if enable_analytical_storage is not None:
+            pulumi.set(__self__, "enable_analytical_storage", enable_analytical_storage)
+        if enable_automatic_failover is not None:
+            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_cassandra_connector is not None:
+            pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
+        if enable_free_tier is not None:
+            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_multiple_write_locations is not None:
+            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if is_virtual_network_filter_enabled is not None:
+            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+        if key_vault_key_uri is not None:
+            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+        if network_acl_bypass is not None:
+            pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
+        if network_acl_bypass_resource_ids is not None:
+            pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="databaseAccountOfferType")
+    def database_account_offer_type(self) -> pulumi.Input['DatabaseAccountOfferType']:
+        """
+        The offer type for the database
+        """
+        return pulumi.get(self, "database_account_offer_type")
+
+    @database_account_offer_type.setter
+    def database_account_offer_type(self, value: pulumi.Input['DatabaseAccountOfferType']):
+        pulumi.set(self, "database_account_offer_type", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]:
+        """
+        An array that contains the georeplication locations enabled for the Cosmos DB account.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageConfiguration")
+    def analytical_storage_configuration(self) -> Optional[pulumi.Input['AnalyticalStorageConfigurationArgs']]:
+        """
+        Analytical storage specific properties.
+        """
+        return pulumi.get(self, "analytical_storage_configuration")
+
+    @analytical_storage_configuration.setter
+    def analytical_storage_configuration(self, value: Optional[pulumi.Input['AnalyticalStorageConfigurationArgs']]):
+        pulumi.set(self, "analytical_storage_configuration", value)
+
+    @property
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional[pulumi.Input['ApiPropertiesArgs']]:
+        """
+        API specific properties. Currently, supported only for MongoDB API.
+        """
+        return pulumi.get(self, "api_properties")
+
+    @api_properties.setter
+    def api_properties(self, value: Optional[pulumi.Input['ApiPropertiesArgs']]):
+        pulumi.set(self, "api_properties", value)
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]:
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @backup_policy.setter
+    def backup_policy(self, value: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]):
+        pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
+        """
+        List of Cosmos DB capabilities for the account
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input['CapacityArgs']]:
+        """
+        The object that represents all properties related to capacity enforcement on an account.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input['CapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="connectorOffer")
+    def connector_offer(self) -> Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]:
+        """
+        The cassandra connector offer type for the Cosmos DB database C* account.
+        """
+        return pulumi.get(self, "connector_offer")
+
+    @connector_offer.setter
+    def connector_offer(self, value: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]):
+        pulumi.set(self, "connector_offer", value)
+
+    @property
+    @pulumi.getter(name="consistencyPolicy")
+    def consistency_policy(self) -> Optional[pulumi.Input['ConsistencyPolicyArgs']]:
+        """
+        The consistency policy for the Cosmos DB account.
+        """
+        return pulumi.get(self, "consistency_policy")
+
+    @consistency_policy.setter
+    def consistency_policy(self, value: Optional[pulumi.Input['ConsistencyPolicyArgs']]):
+        pulumi.set(self, "consistency_policy", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]:
+        """
+        The CORS policy for the Cosmos DB database account.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of account creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="defaultIdentity")
+    def default_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        """
+        return pulumi.get(self, "default_identity")
+
+    @default_identity.setter
+    def default_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_identity", value)
+
+    @property
+    @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
+    def disable_key_based_metadata_write_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        """
+        return pulumi.get(self, "disable_key_based_metadata_write_access")
+
+    @disable_key_based_metadata_write_access.setter
+    def disable_key_based_metadata_write_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_key_based_metadata_write_access", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter(name="enableAnalyticalStorage")
+    def enable_analytical_storage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to enable storage analytics.
+        """
+        return pulumi.get(self, "enable_analytical_storage")
+
+    @enable_analytical_storage.setter
+    def enable_analytical_storage(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_analytical_storage", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticFailover")
+    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        """
+        return pulumi.get(self, "enable_automatic_failover")
+
+    @enable_automatic_failover.setter
+    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_failover", value)
+
+    @property
+    @pulumi.getter(name="enableCassandraConnector")
+    def enable_cassandra_connector(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the cassandra connector on the Cosmos DB C* account
+        """
+        return pulumi.get(self, "enable_cassandra_connector")
+
+    @enable_cassandra_connector.setter
+    def enable_cassandra_connector(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_cassandra_connector", value)
+
+    @property
+    @pulumi.getter(name="enableFreeTier")
+    def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether Free Tier is enabled.
+        """
+        return pulumi.get(self, "enable_free_tier")
+
+    @enable_free_tier.setter
+    def enable_free_tier(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_free_tier", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleWriteLocations")
+    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the account to write in multiple locations
+        """
+        return pulumi.get(self, "enable_multiple_write_locations")
+
+    @enable_multiple_write_locations.setter
+    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_write_locations", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]:
+        """
+        List of IpRules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="isVirtualNetworkFilterEnabled")
+    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        """
+        return pulumi.get(self, "is_virtual_network_filter_enabled")
+
+    @is_virtual_network_filter_enabled.setter
+    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_virtual_network_filter_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUri")
+    def key_vault_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the key vault
+        """
+        return pulumi.get(self, "key_vault_key_uri")
+
+    @key_vault_key_uri.setter
+    def key_vault_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_uri", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypass")
+    def network_acl_bypass(self) -> Optional[pulumi.Input['NetworkAclBypass']]:
+        """
+        Indicates what services are allowed to bypass firewall checks.
+        """
+        return pulumi.get(self, "network_acl_bypass")
+
+    @network_acl_bypass.setter
+    def network_acl_bypass(self, value: Optional[pulumi.Input['NetworkAclBypass']]):
+        pulumi.set(self, "network_acl_bypass", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypassResourceIds")
+    def network_acl_bypass_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        """
+        return pulumi.get(self, "network_acl_bypass_resource_ids")
+
+    @network_acl_bypass_resource_ids.setter
+    def network_acl_bypass_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_acl_bypass_resource_ids", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether requests from Public Network are allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['RestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore.
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['RestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+        """
+        List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    @virtual_network_rules.setter
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+        pulumi.set(self, "virtual_network_rules", value)
+
+
+@pulumi.input_type
 class DatabaseRestoreResourceArgs:
     def __init__(__self__, *,
                  collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1393,6 +1924,45 @@ class ExcludedPathArgs:
 
 
 @pulumi.input_type
+class GremlinDatabaseCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['GremlinDatabaseResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Gremlin database.
+        :param pulumi.Input['GremlinDatabaseResourceArgs'] resource: The standard JSON format of a Gremlin database
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['GremlinDatabaseResourceArgs']:
+        """
+        The standard JSON format of a Gremlin database
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['GremlinDatabaseResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class GremlinDatabaseResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1413,6 +1983,45 @@ class GremlinDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GremlinGraphCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['GremlinGraphResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Gremlin graph.
+        :param pulumi.Input['GremlinGraphResourceArgs'] resource: The standard JSON format of a Gremlin graph
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['GremlinGraphResourceArgs']:
+        """
+        The standard JSON format of a Gremlin graph
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['GremlinGraphResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -1869,6 +2478,45 @@ class ManagedServiceIdentityArgs:
 
 
 @pulumi.input_type
+class MongoDBCollectionCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['MongoDBCollectionResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB MongoDB collection.
+        :param pulumi.Input['MongoDBCollectionResourceArgs'] resource: The standard JSON format of a MongoDB collection
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['MongoDBCollectionResourceArgs']:
+        """
+        The standard JSON format of a MongoDB collection
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['MongoDBCollectionResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class MongoDBCollectionResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -1937,6 +2585,45 @@ class MongoDBCollectionResourceArgs:
     @shard_key.setter
     def shard_key(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "shard_key", value)
+
+
+@pulumi.input_type
+class MongoDBDatabaseCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['MongoDBDatabaseResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB MongoDB database.
+        :param pulumi.Input['MongoDBDatabaseResourceArgs'] resource: The standard JSON format of a MongoDB database
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['MongoDBDatabaseResourceArgs']:
+        """
+        The standard JSON format of a MongoDB database
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['MongoDBDatabaseResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -2418,6 +3105,45 @@ class SpatialSpecArgs:
 
 
 @pulumi.input_type
+class SqlContainerCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlContainerResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB container.
+        :param pulumi.Input['SqlContainerResourceArgs'] resource: The standard JSON format of a container
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlContainerResourceArgs']:
+        """
+        The standard JSON format of a container
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlContainerResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class SqlContainerResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -2537,6 +3263,45 @@ class SqlContainerResourceArgs:
 
 
 @pulumi.input_type
+class SqlDatabaseCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlDatabaseResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB SQL database.
+        :param pulumi.Input['SqlDatabaseResourceArgs'] resource: The standard JSON format of a SQL database
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlDatabaseResourceArgs']:
+        """
+        The standard JSON format of a SQL database
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlDatabaseResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class SqlDatabaseResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -2557,6 +3322,45 @@ class SqlDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SqlStoredProcedureCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlStoredProcedureResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB storedProcedure.
+        :param pulumi.Input['SqlStoredProcedureResourceArgs'] resource: The standard JSON format of a storedProcedure
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlStoredProcedureResourceArgs']:
+        """
+        The standard JSON format of a storedProcedure
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlStoredProcedureResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -2596,6 +3400,45 @@ class SqlStoredProcedureResourceArgs:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+
+@pulumi.input_type
+class SqlTriggerCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlTriggerResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB trigger.
+        :param pulumi.Input['SqlTriggerResourceArgs'] resource: The standard JSON format of a trigger
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlTriggerResourceArgs']:
+        """
+        The standard JSON format of a trigger
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlTriggerResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -2670,6 +3513,45 @@ class SqlTriggerResourceArgs:
 
 
 @pulumi.input_type
+class SqlUserDefinedFunctionCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['SqlUserDefinedFunctionResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB userDefinedFunction.
+        :param pulumi.Input['SqlUserDefinedFunctionResourceArgs'] resource: The standard JSON format of a userDefinedFunction
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['SqlUserDefinedFunctionResourceArgs']:
+        """
+        The standard JSON format of a userDefinedFunction
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['SqlUserDefinedFunctionResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+
+@pulumi.input_type
 class SqlUserDefinedFunctionResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -2706,6 +3588,45 @@ class SqlUserDefinedFunctionResourceArgs:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+
+@pulumi.input_type
+class TableCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input['TableResourceArgs'],
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None):
+        """
+        Properties to create and update Azure Cosmos DB Table.
+        :param pulumi.Input['TableResourceArgs'] resource: The standard JSON format of a Table
+        :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        pulumi.set(__self__, "resource", resource)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input['TableResourceArgs']:
+        """
+        The standard JSON format of a Table
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input['TableResourceArgs']):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
+        """
+        A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type

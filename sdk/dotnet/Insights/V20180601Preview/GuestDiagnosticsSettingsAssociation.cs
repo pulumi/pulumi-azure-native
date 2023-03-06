@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
     public partial class GuestDiagnosticsSettingsAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The guest diagnostic settings name.
-        /// </summary>
-        [Output("guestDiagnosticSettingsName")]
-        public Output<string> GuestDiagnosticSettingsName { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -32,6 +26,12 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The diagnostics settings associations of the resource.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.GuestDiagnosticSettingsAssociationResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -101,16 +101,16 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         public Input<string>? AssociationName { get; set; }
 
         /// <summary>
-        /// The guest diagnostic settings name.
-        /// </summary>
-        [Input("guestDiagnosticSettingsName", required: true)]
-        public Input<string> GuestDiagnosticSettingsName { get; set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The diagnostics settings associations of the resource.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.GuestDiagnosticSettingsAssociationArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified ID of the resource, including the resource name and resource type.

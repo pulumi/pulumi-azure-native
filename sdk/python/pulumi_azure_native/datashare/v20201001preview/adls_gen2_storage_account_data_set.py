@@ -18,28 +18,25 @@ class ADLSGen2StorageAccountDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
-                 paths: pulumi.Input[Sequence[pulumi.Input['ADLSGen2StorageAccountPathArgs']]],
+                 properties: pulumi.Input['ADLSGen2StorageAccountDataSetPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
-                 storage_account_resource_id: pulumi.Input[str],
                  data_set_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ADLSGen2StorageAccountDataSet resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'AdlsGen2StorageAccount'.
-        :param pulumi.Input[Sequence[pulumi.Input['ADLSGen2StorageAccountPathArgs']]] paths: A list of ADLSGen2 storage account paths.
+        :param pulumi.Input['ADLSGen2StorageAccountDataSetPropertiesArgs'] properties: ADLSGen2 storage account data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] storage_account_resource_id: Resource id of the ADLSGen2 storage account.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", 'AdlsGen2StorageAccount')
-        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
         if data_set_name is not None:
             pulumi.set(__self__, "data_set_name", data_set_name)
 
@@ -70,15 +67,15 @@ class ADLSGen2StorageAccountDataSetArgs:
 
     @property
     @pulumi.getter
-    def paths(self) -> pulumi.Input[Sequence[pulumi.Input['ADLSGen2StorageAccountPathArgs']]]:
+    def properties(self) -> pulumi.Input['ADLSGen2StorageAccountDataSetPropertiesArgs']:
         """
-        A list of ADLSGen2 storage account paths.
+        ADLSGen2 storage account data set properties.
         """
-        return pulumi.get(self, "paths")
+        return pulumi.get(self, "properties")
 
-    @paths.setter
-    def paths(self, value: pulumi.Input[Sequence[pulumi.Input['ADLSGen2StorageAccountPathArgs']]]):
-        pulumi.set(self, "paths", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ADLSGen2StorageAccountDataSetPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -105,18 +102,6 @@ class ADLSGen2StorageAccountDataSetArgs:
         pulumi.set(self, "share_name", value)
 
     @property
-    @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource id of the ADLSGen2 storage account.
-        """
-        return pulumi.get(self, "storage_account_resource_id")
-
-    @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_resource_id", value)
-
-    @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -137,10 +122,9 @@ class ADLSGen2StorageAccountDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ADLSGen2StorageAccountPathArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ADLSGen2StorageAccountDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An ADLSGen2 storage account data set.
@@ -151,10 +135,9 @@ class ADLSGen2StorageAccountDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'AdlsGen2StorageAccount'.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ADLSGen2StorageAccountPathArgs']]]] paths: A list of ADLSGen2 storage account paths.
+        :param pulumi.Input[pulumi.InputType['ADLSGen2StorageAccountDataSetPropertiesArgs']] properties: ADLSGen2 storage account data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] storage_account_resource_id: Resource id of the ADLSGen2 storage account.
         """
         ...
     @overload
@@ -183,10 +166,9 @@ class ADLSGen2StorageAccountDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ADLSGen2StorageAccountPathArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ADLSGen2StorageAccountDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,20 +185,15 @@ class ADLSGen2StorageAccountDataSet(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'AdlsGen2StorageAccount'
-            if paths is None and not opts.urn:
-                raise TypeError("Missing required property 'paths'")
-            __props__.__dict__["paths"] = paths
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            if storage_account_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_resource_id'")
-            __props__.__dict__["storage_account_resource_id"] = storage_account_resource_id
-            __props__.__dict__["data_set_id"] = None
-            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -244,23 +221,12 @@ class ADLSGen2StorageAccountDataSet(pulumi.CustomResource):
 
         __props__ = ADLSGen2StorageAccountDataSetArgs.__new__(ADLSGen2StorageAccountDataSetArgs)
 
-        __props__.__dict__["data_set_id"] = None
         __props__.__dict__["kind"] = None
-        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["paths"] = None
-        __props__.__dict__["storage_account_resource_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ADLSGen2StorageAccountDataSet(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -273,14 +239,6 @@ class ADLSGen2StorageAccountDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Location of the ADLSGen2 storage account.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Name of the azure resource
@@ -289,19 +247,11 @@ class ADLSGen2StorageAccountDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def paths(self) -> pulumi.Output[Sequence['outputs.ADLSGen2StorageAccountPathResponse']]:
+    def properties(self) -> pulumi.Output['outputs.ADLSGen2StorageAccountDataSetPropertiesResponse']:
         """
-        A list of ADLSGen2 storage account paths.
+        ADLSGen2 storage account data set properties.
         """
-        return pulumi.get(self, "paths")
-
-    @property
-    @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource id of the ADLSGen2 storage account.
-        """
-        return pulumi.get(self, "storage_account_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

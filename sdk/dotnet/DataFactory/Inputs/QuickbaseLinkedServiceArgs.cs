@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -65,16 +59,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The url to connect Quickbase source. Type: string (or Expression with resultType string).
+        /// Quickbase linked service properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
-
-        /// <summary>
-        /// The user token for the Quickbase source.
-        /// </summary>
-        [Input("userToken", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> UserToken { get; set; } = null!;
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.QuickbaseLinkedServiceTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public QuickbaseLinkedServiceArgs()
         {

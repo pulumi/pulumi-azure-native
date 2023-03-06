@@ -22,7 +22,7 @@ class GetAttachedDataNetworkResult:
     """
     Attached data network resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, napt_configuration=None, provisioning_state=None, system_data=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -50,12 +50,9 @@ class GetAttachedDataNetworkResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if napt_configuration and not isinstance(napt_configuration, dict):
-            raise TypeError("Expected argument 'napt_configuration' to be a dict")
-        pulumi.set(__self__, "napt_configuration", napt_configuration)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -65,15 +62,6 @@ class GetAttachedDataNetworkResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_equipment_address_pool_prefix and not isinstance(user_equipment_address_pool_prefix, list):
-            raise TypeError("Expected argument 'user_equipment_address_pool_prefix' to be a list")
-        pulumi.set(__self__, "user_equipment_address_pool_prefix", user_equipment_address_pool_prefix)
-        if user_equipment_static_address_pool_prefix and not isinstance(user_equipment_static_address_pool_prefix, list):
-            raise TypeError("Expected argument 'user_equipment_static_address_pool_prefix' to be a list")
-        pulumi.set(__self__, "user_equipment_static_address_pool_prefix", user_equipment_static_address_pool_prefix)
-        if user_plane_data_interface and not isinstance(user_plane_data_interface, dict):
-            raise TypeError("Expected argument 'user_plane_data_interface' to be a dict")
-        pulumi.set(__self__, "user_plane_data_interface", user_plane_data_interface)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -148,21 +136,12 @@ class GetAttachedDataNetworkResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="naptConfiguration")
-    def napt_configuration(self) -> Optional['outputs.NaptConfigurationResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.AttachedDataNetworkPropertiesFormatResponse':
         """
-        The Network Address and Port Translation configuration.
-        If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+        Data network properties.
         """
-        return pulumi.get(self, "napt_configuration")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the attached data network resource.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -188,33 +167,6 @@ class GetAttachedDataNetworkResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="userEquipmentAddressPoolPrefix")
-    def user_equipment_address_pool_prefix(self) -> Optional[Sequence[str]]:
-        """
-        The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        """
-        return pulumi.get(self, "user_equipment_address_pool_prefix")
-
-    @property
-    @pulumi.getter(name="userEquipmentStaticAddressPoolPrefix")
-    def user_equipment_static_address_pool_prefix(self) -> Optional[Sequence[str]]:
-        """
-        The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
-        The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
-        At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
-        """
-        return pulumi.get(self, "user_equipment_static_address_pool_prefix")
-
-    @property
-    @pulumi.getter(name="userPlaneDataInterface")
-    def user_plane_data_interface(self) -> 'outputs.InterfacePropertiesResponse':
-        """
-        The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
-        """
-        return pulumi.get(self, "user_plane_data_interface")
-
 
 class AwaitableGetAttachedDataNetworkResult(GetAttachedDataNetworkResult):
     # pylint: disable=using-constant-test
@@ -231,14 +183,10 @@ class AwaitableGetAttachedDataNetworkResult(GetAttachedDataNetworkResult):
             last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
-            napt_configuration=self.napt_configuration,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            user_equipment_address_pool_prefix=self.user_equipment_address_pool_prefix,
-            user_equipment_static_address_pool_prefix=self.user_equipment_static_address_pool_prefix,
-            user_plane_data_interface=self.user_plane_data_interface)
+            type=self.type)
 
 
 def get_attached_data_network(attached_data_network_name: Optional[str] = None,
@@ -273,14 +221,10 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
         last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
-        napt_configuration=__ret__.napt_configuration,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type,
-        user_equipment_address_pool_prefix=__ret__.user_equipment_address_pool_prefix,
-        user_equipment_static_address_pool_prefix=__ret__.user_equipment_static_address_pool_prefix,
-        user_plane_data_interface=__ret__.user_plane_data_interface)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_attached_data_network)

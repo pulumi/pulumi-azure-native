@@ -38,18 +38,6 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
-     * The display name of the Azure Resource Manager template that produced the environment.
-     */
-    public readonly armTemplateDisplayName!: pulumi.Output<string | undefined>;
-    /**
-     * The creator of the environment.
-     */
-    public /*out*/ readonly createdByUser!: pulumi.Output<string>;
-    /**
-     * The deployment properties of the environment.
-     */
-    public readonly deploymentProperties!: pulumi.Output<outputs.devtestlab.v20180915.EnvironmentDeploymentPropertiesResponse | undefined>;
-    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -58,13 +46,9 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The identifier of the resource group containing the environment's resources.
-     */
-    public /*out*/ readonly resourceGroupId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.EnvironmentPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -73,10 +57,6 @@ export class Environment extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -92,36 +72,29 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["armTemplateDisplayName"] = args ? args.armTemplateDisplayName : undefined;
-            resourceInputs["deploymentProperties"] = args ? args.deploymentProperties : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["createdByUser"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGroupId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            resourceInputs["armTemplateDisplayName"] = undefined /*out*/;
-            resourceInputs["createdByUser"] = undefined /*out*/;
-            resourceInputs["deploymentProperties"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceGroupId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Environment" }, { type: "azure-native:devtestlab/v20160515:Environment" }] };
@@ -135,14 +108,6 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
-     * The display name of the Azure Resource Manager template that produced the environment.
-     */
-    armTemplateDisplayName?: pulumi.Input<string>;
-    /**
-     * The deployment properties of the environment.
-     */
-    deploymentProperties?: pulumi.Input<inputs.devtestlab.v20180915.EnvironmentDeploymentPropertiesArgs>;
-    /**
      * The name of the lab.
      */
     labName: pulumi.Input<string>;
@@ -154,6 +119,10 @@ export interface EnvironmentArgs {
      * The name of the environment.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The properties of the resource.
+     */
+    properties: pulumi.Input<inputs.devtestlab.v20180915.EnvironmentPropertiesArgs>;
     /**
      * The name of the resource group.
      */

@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class HDInsightMapReduceActivityResponse
     {
         /// <summary>
-        /// User specified arguments to HDInsightActivity.
-        /// </summary>
-        public readonly ImmutableArray<object> Arguments;
-        /// <summary>
-        /// Class name. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object ClassName;
-        /// <summary>
-        /// Allows user to specify defines for the MapReduce job request.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Defines;
-        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -36,22 +24,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Activity description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Debug info option.
-        /// </summary>
-        public readonly string? GetDebugInfo;
-        /// <summary>
-        /// Jar path. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object JarFilePath;
-        /// <summary>
-        /// Jar libs.
-        /// </summary>
-        public readonly ImmutableArray<object> JarLibs;
-        /// <summary>
-        /// Jar linked service reference.
-        /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse? JarLinkedService;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -65,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
-        /// Storage linked service references.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LinkedServiceReferenceResponse> StorageLinkedServices;
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'HDInsightMapReduce'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// HDInsight MapReduce activity properties.
+        /// </summary>
+        public readonly Outputs.HDInsightMapReduceActivityTypePropertiesResponse TypeProperties;
         /// <summary>
         /// Activity user properties.
         /// </summary>
@@ -80,23 +52,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private HDInsightMapReduceActivityResponse(
-            ImmutableArray<object> arguments,
-
-            object className,
-
-            ImmutableDictionary<string, object>? defines,
-
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
-
-            string? getDebugInfo,
-
-            object jarFilePath,
-
-            ImmutableArray<object> jarLibs,
-
-            Outputs.LinkedServiceReferenceResponse? jarLinkedService,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -104,26 +62,19 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            ImmutableArray<Outputs.LinkedServiceReferenceResponse> storageLinkedServices,
-
             string type,
+
+            Outputs.HDInsightMapReduceActivityTypePropertiesResponse typeProperties,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
-            Arguments = arguments;
-            ClassName = className;
-            Defines = defines;
             DependsOn = dependsOn;
             Description = description;
-            GetDebugInfo = getDebugInfo;
-            JarFilePath = jarFilePath;
-            JarLibs = jarLibs;
-            JarLinkedService = jarLinkedService;
             LinkedServiceName = linkedServiceName;
             Name = name;
             Policy = policy;
-            StorageLinkedServices = storageLinkedServices;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
         }
     }

@@ -37,22 +37,6 @@ export interface GetBareMetalMachineKeySetArgs {
 
 export interface GetBareMetalMachineKeySetResult {
     /**
-     * The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-     */
-    readonly azureGroupId: string;
-    /**
-     * The more detailed status of the key set.
-     */
-    readonly detailedStatus: string;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    readonly detailedStatusMessage: string;
-    /**
-     * The date and time after which the users in this key set will be removed from the bare metal machines.
-     */
-    readonly expiration: string;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
@@ -60,14 +44,6 @@ export interface GetBareMetalMachineKeySetResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
-     */
-    readonly jumpHostsAllowed: string[];
-    /**
-     * The last time this key set was validated.
-     */
-    readonly lastValidation: string;
     /**
      * The geo-location where the resource lives
      */
@@ -77,17 +53,9 @@ export interface GetBareMetalMachineKeySetResult {
      */
     readonly name: string;
     /**
-     * The name of the group that users will be assigned to on the operating system of the machines.
+     * The list of the resource properties.
      */
-    readonly osGroupName?: string;
-    /**
-     * The access level allowed for the users in this key set.
-     */
-    readonly privilegeLevel: string;
-    /**
-     * The provisioning state of the bare metal machine key set.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.networkcloud.v20221212preview.BareMetalMachineKeySetPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -100,14 +68,6 @@ export interface GetBareMetalMachineKeySetResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The unique list of permitted users.
-     */
-    readonly userList: outputs.networkcloud.v20221212preview.KeySetUserResponse[];
-    /**
-     * The status evaluation of each user.
-     */
-    readonly userListStatus: outputs.networkcloud.v20221212preview.KeySetUserStatusResponse[];
 }
 /**
  * Get bare metal machine key set of the provided cluster.

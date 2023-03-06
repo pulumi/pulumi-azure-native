@@ -164,46 +164,22 @@ namespace Pulumi.AzureNative.Automation.V20220808
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets or sets the AdvancedSchedule.
-        /// </summary>
-        [Input("advancedSchedule")]
-        public Input<Inputs.AdvancedScheduleArgs>? AdvancedSchedule { get; set; }
-
-        /// <summary>
         /// The name of the automation account.
         /// </summary>
         [Input("automationAccountName", required: true)]
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the description of the schedule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the end time of the schedule.
-        /// </summary>
-        [Input("expiryTime")]
-        public Input<string>? ExpiryTime { get; set; }
-
-        /// <summary>
-        /// Gets or sets the frequency of the schedule.
-        /// </summary>
-        [Input("frequency", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Automation.V20220808.ScheduleFrequency> Frequency { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the interval of the schedule.
-        /// </summary>
-        [Input("interval")]
-        public Input<object>? Interval { get; set; }
-
-        /// <summary>
         /// Gets or sets the name of the Schedule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the list of schedule properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ScheduleCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.
@@ -216,18 +192,6 @@ namespace Pulumi.AzureNative.Automation.V20220808
         /// </summary>
         [Input("scheduleName")]
         public Input<string>? ScheduleName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the start time of the schedule.
-        /// </summary>
-        [Input("startTime", required: true)]
-        public Input<string> StartTime { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the time zone of the schedule.
-        /// </summary>
-        [Input("timeZone")]
-        public Input<string>? TimeZone { get; set; }
 
         public ScheduleArgs()
         {

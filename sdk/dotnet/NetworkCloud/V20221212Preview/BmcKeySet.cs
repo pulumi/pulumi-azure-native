@@ -13,40 +13,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public partial class BmcKeySet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-        /// </summary>
-        [Output("azureGroupId")]
-        public Output<string> AzureGroupId { get; private set; } = null!;
-
-        /// <summary>
-        /// The more detailed status of the key set.
-        /// </summary>
-        [Output("detailedStatus")]
-        public Output<string> DetailedStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The descriptive message about the current detailed status.
-        /// </summary>
-        [Output("detailedStatusMessage")]
-        public Output<string> DetailedStatusMessage { get; private set; } = null!;
-
-        /// <summary>
-        /// The date and time after which the users in this key set will be removed from the baseboard management controllers.
-        /// </summary>
-        [Output("expiration")]
-        public Output<string> Expiration { get; private set; } = null!;
-
-        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The last time this key set was validated.
-        /// </summary>
-        [Output("lastValidation")]
-        public Output<string> LastValidation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -61,16 +31,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The access level allowed for the users in this key set.
+        /// The list of the resource properties.
         /// </summary>
-        [Output("privilegeLevel")]
-        public Output<string> PrivilegeLevel { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the baseboard management controller key set.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BmcKeySetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -89,18 +53,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique list of permitted users.
-        /// </summary>
-        [Output("userList")]
-        public Output<ImmutableArray<Outputs.KeySetUserResponse>> UserList { get; private set; } = null!;
-
-        /// <summary>
-        /// The status evaluation of each user.
-        /// </summary>
-        [Output("userListStatus")]
-        public Output<ImmutableArray<Outputs.KeySetUserStatusResponse>> UserListStatus { get; private set; } = null!;
 
 
         /// <summary>
@@ -152,12 +104,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public sealed class BmcKeySetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-        /// </summary>
-        [Input("azureGroupId", required: true)]
-        public Input<string> AzureGroupId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the baseboard management controller key set.
         /// </summary>
         [Input("bmcKeySetName")]
@@ -168,12 +114,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The date and time after which the users in this key set will be removed from the baseboard management controllers.
-        /// </summary>
-        [Input("expiration", required: true)]
-        public Input<string> Expiration { get; set; } = null!;
 
         /// <summary>
         /// The extended location of the cluster associated with the resource.
@@ -188,10 +128,10 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The access level allowed for the users in this key set.
+        /// The list of the resource properties.
         /// </summary>
-        [Input("privilegeLevel", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.NetworkCloud.V20221212Preview.BmcKeySetPrivilegeLevel> PrivilegeLevel { get; set; } = null!;
+        [Input("properties", required: true)]
+        public Input<Inputs.BmcKeySetPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -209,18 +149,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("userList", required: true)]
-        private InputList<Inputs.KeySetUserArgs>? _userList;
-
-        /// <summary>
-        /// The unique list of permitted users.
-        /// </summary>
-        public InputList<Inputs.KeySetUserArgs> UserList
-        {
-            get => _userList ?? (_userList = new InputList<Inputs.KeySetUserArgs>());
-            set => _userList = value;
         }
 
         public BmcKeySetArgs()

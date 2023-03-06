@@ -22,6 +22,7 @@ __all__ = [
     'EncryptionArgs',
     'IPRuleArgs',
     'IdentityArgs',
+    'ImmutabilityPolicyPropertyArgs',
     'KeyVaultPropertiesArgs',
     'ManagementPolicyActionArgs',
     'ManagementPolicyBaseBlobArgs',
@@ -451,6 +452,29 @@ class IdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input['IdentityType']):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ImmutabilityPolicyPropertyArgs:
+    def __init__(__self__, *,
+                 immutability_period_since_creation_in_days: pulumi.Input[int]):
+        """
+        The properties of an ImmutabilityPolicy of a blob container.
+        :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+
+    @property
+    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
+    def immutability_period_since_creation_in_days(self) -> pulumi.Input[int]:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+    @immutability_period_since_creation_in_days.setter
+    def immutability_period_since_creation_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "immutability_period_since_creation_in_days", value)
 
 
 @pulumi.input_type

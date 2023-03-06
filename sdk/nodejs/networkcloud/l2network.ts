@@ -38,37 +38,9 @@ export class L2Network extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID of the Network Cloud cluster this L2 network is associated with.
-     */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
-    /**
-     * The more detailed status of the L2 network.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
-    /**
-     * The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
-     */
-    public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
-    /**
-     * The network plugin type for Hybrid AKS.
-     */
-    public readonly hybridAksPluginType!: pulumi.Output<string | undefined>;
-    /**
-     * The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-     */
-    public readonly interfaceName!: pulumi.Output<string | undefined>;
-    /**
-     * The resource ID of the Network Fabric l2IsolationDomain.
-     */
-    public readonly l2IsolationDomainId!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -78,9 +50,9 @@ export class L2Network extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the L2 network.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.L2NetworkPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -93,10 +65,6 @@ export class L2Network extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
-     */
-    public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
 
     /**
      * Create a L2Network resource with the given unique name, arguments, and options.
@@ -112,45 +80,29 @@ export class L2Network extends pulumi.CustomResource {
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.l2IsolationDomainId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'l2IsolationDomainId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hybridAksPluginType"] = (args ? args.hybridAksPluginType : undefined) ?? "SRIOV";
-            resourceInputs["interfaceName"] = args ? args.interfaceName : undefined;
-            resourceInputs["l2IsolationDomainId"] = args ? args.l2IsolationDomainId : undefined;
             resourceInputs["l2NetworkName"] = args ? args.l2NetworkName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.networkcloud.l2networkPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
-            resourceInputs["hybridAksPluginType"] = undefined /*out*/;
-            resourceInputs["interfaceName"] = undefined /*out*/;
-            resourceInputs["l2IsolationDomainId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:L2Network" }] };
@@ -168,18 +120,6 @@ export interface L2NetworkArgs {
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
     /**
-     * The network plugin type for Hybrid AKS.
-     */
-    hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType>;
-    /**
-     * The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
-     */
-    interfaceName?: pulumi.Input<string>;
-    /**
-     * The resource ID of the Network Fabric l2IsolationDomain.
-     */
-    l2IsolationDomainId: pulumi.Input<string>;
-    /**
      * The name of the L2 network.
      */
     l2NetworkName?: pulumi.Input<string>;
@@ -187,6 +127,10 @@ export interface L2NetworkArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The list of the resource properties.
+     */
+    properties: pulumi.Input<inputs.networkcloud.L2NetworkPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,18 +45,6 @@ export interface GetBlobContainerDataSetMappingArgs {
  */
 export interface GetBlobContainerDataSetMappingResult {
     /**
-     * BLOB Container name.
-     */
-    readonly containerName: string;
-    /**
-     * The id of the source data set.
-     */
-    readonly dataSetId: string;
-    /**
-     * Gets the status of the data set mapping.
-     */
-    readonly dataSetMappingStatus: string;
-    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -67,21 +58,9 @@ export interface GetBlobContainerDataSetMappingResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the data set mapping.
+     * Blob container data set mapping properties.
      */
-    readonly provisioningState: string;
-    /**
-     * Resource group of storage account.
-     */
-    readonly resourceGroup: string;
-    /**
-     * Storage account name of the source data set.
-     */
-    readonly storageAccountName: string;
-    /**
-     * Subscription id of storage account.
-     */
-    readonly subscriptionId: string;
+    readonly properties: outputs.datashare.v20181101preview.BlobContainerMappingPropertiesResponse;
     /**
      * Type of the azure resource
      */

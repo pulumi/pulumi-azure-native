@@ -16,26 +16,19 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview.Inputs
     public sealed class AddStorageAccountWithAccountParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access key associated with this Azure Storage account that will be used to connect to it.
-        /// </summary>
-        [Input("accessKey", required: true)]
-        public Input<string> AccessKey { get; set; } = null!;
-
-        /// <summary>
         /// The unique name of the Azure Storage account to add.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The optional suffix for the storage account.
+        /// The Azure Storage account properties to use when adding a new Azure Storage account.
         /// </summary>
-        [Input("suffix")]
-        public Input<string>? Suffix { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.AddStorageAccountPropertiesArgs> Properties { get; set; } = null!;
 
         public AddStorageAccountWithAccountParametersArgs()
         {
-            Suffix = "azuredatalakestore.net";
         }
         public static new AddStorageAccountWithAccountParametersArgs Empty => new AddStorageAccountWithAccountParametersArgs();
     }

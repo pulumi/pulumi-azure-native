@@ -16,6 +16,7 @@ __all__ = [
     'BaiduCredentialArgs',
     'GcmCredentialArgs',
     'MpnsCredentialArgs',
+    'NotificationHubPropertiesArgs',
     'SharedAccessAuthorizationRulePropertiesArgs',
     'SkuArgs',
     'WnsCredentialArgs',
@@ -299,6 +300,158 @@ class MpnsCredentialArgs:
     @thumbprint.setter
     def thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
+class NotificationHubPropertiesArgs:
+    def __init__(__self__, *,
+                 adm_credential: Optional[pulumi.Input['AdmCredentialArgs']] = None,
+                 apns_credential: Optional[pulumi.Input['ApnsCredentialArgs']] = None,
+                 authorization_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]] = None,
+                 baidu_credential: Optional[pulumi.Input['BaiduCredentialArgs']] = None,
+                 gcm_credential: Optional[pulumi.Input['GcmCredentialArgs']] = None,
+                 mpns_credential: Optional[pulumi.Input['MpnsCredentialArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_ttl: Optional[pulumi.Input[str]] = None,
+                 wns_credential: Optional[pulumi.Input['WnsCredentialArgs']] = None):
+        """
+        NotificationHub properties.
+        :param pulumi.Input['AdmCredentialArgs'] adm_credential: The AdmCredential of the created NotificationHub
+        :param pulumi.Input['ApnsCredentialArgs'] apns_credential: The ApnsCredential of the created NotificationHub
+        :param pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]] authorization_rules: The AuthorizationRules of the created NotificationHub
+        :param pulumi.Input['BaiduCredentialArgs'] baidu_credential: The BaiduCredential of the created NotificationHub
+        :param pulumi.Input['GcmCredentialArgs'] gcm_credential: The GcmCredential of the created NotificationHub
+        :param pulumi.Input['MpnsCredentialArgs'] mpns_credential: The MpnsCredential of the created NotificationHub
+        :param pulumi.Input[str] name: The NotificationHub name.
+        :param pulumi.Input[str] registration_ttl: The RegistrationTtl of the created NotificationHub
+        :param pulumi.Input['WnsCredentialArgs'] wns_credential: The WnsCredential of the created NotificationHub
+        """
+        if adm_credential is not None:
+            pulumi.set(__self__, "adm_credential", adm_credential)
+        if apns_credential is not None:
+            pulumi.set(__self__, "apns_credential", apns_credential)
+        if authorization_rules is not None:
+            pulumi.set(__self__, "authorization_rules", authorization_rules)
+        if baidu_credential is not None:
+            pulumi.set(__self__, "baidu_credential", baidu_credential)
+        if gcm_credential is not None:
+            pulumi.set(__self__, "gcm_credential", gcm_credential)
+        if mpns_credential is not None:
+            pulumi.set(__self__, "mpns_credential", mpns_credential)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if registration_ttl is not None:
+            pulumi.set(__self__, "registration_ttl", registration_ttl)
+        if wns_credential is not None:
+            pulumi.set(__self__, "wns_credential", wns_credential)
+
+    @property
+    @pulumi.getter(name="admCredential")
+    def adm_credential(self) -> Optional[pulumi.Input['AdmCredentialArgs']]:
+        """
+        The AdmCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "adm_credential")
+
+    @adm_credential.setter
+    def adm_credential(self, value: Optional[pulumi.Input['AdmCredentialArgs']]):
+        pulumi.set(self, "adm_credential", value)
+
+    @property
+    @pulumi.getter(name="apnsCredential")
+    def apns_credential(self) -> Optional[pulumi.Input['ApnsCredentialArgs']]:
+        """
+        The ApnsCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "apns_credential")
+
+    @apns_credential.setter
+    def apns_credential(self, value: Optional[pulumi.Input['ApnsCredentialArgs']]):
+        pulumi.set(self, "apns_credential", value)
+
+    @property
+    @pulumi.getter(name="authorizationRules")
+    def authorization_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]]:
+        """
+        The AuthorizationRules of the created NotificationHub
+        """
+        return pulumi.get(self, "authorization_rules")
+
+    @authorization_rules.setter
+    def authorization_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]]):
+        pulumi.set(self, "authorization_rules", value)
+
+    @property
+    @pulumi.getter(name="baiduCredential")
+    def baidu_credential(self) -> Optional[pulumi.Input['BaiduCredentialArgs']]:
+        """
+        The BaiduCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "baidu_credential")
+
+    @baidu_credential.setter
+    def baidu_credential(self, value: Optional[pulumi.Input['BaiduCredentialArgs']]):
+        pulumi.set(self, "baidu_credential", value)
+
+    @property
+    @pulumi.getter(name="gcmCredential")
+    def gcm_credential(self) -> Optional[pulumi.Input['GcmCredentialArgs']]:
+        """
+        The GcmCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "gcm_credential")
+
+    @gcm_credential.setter
+    def gcm_credential(self, value: Optional[pulumi.Input['GcmCredentialArgs']]):
+        pulumi.set(self, "gcm_credential", value)
+
+    @property
+    @pulumi.getter(name="mpnsCredential")
+    def mpns_credential(self) -> Optional[pulumi.Input['MpnsCredentialArgs']]:
+        """
+        The MpnsCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "mpns_credential")
+
+    @mpns_credential.setter
+    def mpns_credential(self, value: Optional[pulumi.Input['MpnsCredentialArgs']]):
+        pulumi.set(self, "mpns_credential", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The NotificationHub name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="registrationTtl")
+    def registration_ttl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RegistrationTtl of the created NotificationHub
+        """
+        return pulumi.get(self, "registration_ttl")
+
+    @registration_ttl.setter
+    def registration_ttl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registration_ttl", value)
+
+    @property
+    @pulumi.getter(name="wnsCredential")
+    def wns_credential(self) -> Optional[pulumi.Input['WnsCredentialArgs']]:
+        """
+        The WnsCredential of the created NotificationHub
+        """
+        return pulumi.get(self, "wns_credential")
+
+    @wns_credential.setter
+    def wns_credential(self, value: Optional[pulumi.Input['WnsCredentialArgs']]):
+        pulumi.set(self, "wns_credential", value)
 
 
 @pulumi.input_type

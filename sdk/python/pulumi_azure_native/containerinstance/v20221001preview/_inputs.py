@@ -16,10 +16,12 @@ __all__ = [
     'ContainerExecArgs',
     'ContainerGroupDiagnosticsArgs',
     'ContainerGroupIdentityArgs',
+    'ContainerGroupPropertiesPropertiesArgs',
     'ContainerGroupSubnetIdArgs',
     'ContainerHttpGetArgs',
     'ContainerPortArgs',
     'ContainerProbeArgs',
+    'ContainerPropertiesArgs',
     'ContainerArgs',
     'DeploymentExtensionSpecArgs',
     'DnsConfigurationArgs',
@@ -30,6 +32,7 @@ __all__ = [
     'HttpHeaderArgs',
     'ImageRegistryCredentialArgs',
     'InitContainerDefinitionArgs',
+    'InitContainerPropertiesDefinitionArgs',
     'IpAddressArgs',
     'LogAnalyticsArgs',
     'PortArgs',
@@ -220,6 +223,258 @@ class ContainerGroupIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ContainerGroupPropertiesPropertiesArgs:
+    def __init__(__self__, *,
+                 containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
+                 os_type: pulumi.Input[Union[str, 'OperatingSystemTypes']],
+                 confidential_compute_properties: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']] = None,
+                 diagnostics: Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']] = None,
+                 dns_config: Optional[pulumi.Input['DnsConfigurationArgs']] = None,
+                 encryption_properties: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]] = None,
+                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
+                 ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
+                 priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
+                 restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
+                 sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]] = None):
+        """
+        The container group properties
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
+        :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
+        :param pulumi.Input['ConfidentialComputePropertiesArgs'] confidential_compute_properties: The properties for confidential container group
+        :param pulumi.Input['ContainerGroupDiagnosticsArgs'] diagnostics: The diagnostic information for a container group.
+        :param pulumi.Input['DnsConfigurationArgs'] dns_config: The DNS config information for a container group.
+        :param pulumi.Input['EncryptionPropertiesArgs'] encryption_properties: The encryption properties for a container group.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]] extensions: extensions used by virtual kubelet
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]] image_registry_credentials: The image registry credentials by which the container group is created from.
+        :param pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]] init_containers: The init containers for a container group.
+        :param pulumi.Input['IpAddressArgs'] ip_address: The IP address type of the container group.
+        :param pulumi.Input[Union[str, 'ContainerGroupPriority']] priority: The priority of the container group.
+        :param pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
+               - `Always` Always restart
+               - `OnFailure` Restart on failure
+               - `Never` Never restart
+        :param pulumi.Input[Union[str, 'ContainerGroupSku']] sku: The SKU for a container group.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]] subnet_ids: The subnet resource IDs for a container group.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: The list of volumes that can be mounted by containers in this container group.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "os_type", os_type)
+        if confidential_compute_properties is not None:
+            pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if dns_config is not None:
+            pulumi.set(__self__, "dns_config", dns_config)
+        if encryption_properties is not None:
+            pulumi.set(__self__, "encryption_properties", encryption_properties)
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if image_registry_credentials is not None:
+            pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if restart_policy is not None:
+            pulumi.set(__self__, "restart_policy", restart_policy)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]:
+        """
+        The containers within the container group.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> pulumi.Input[Union[str, 'OperatingSystemTypes']]:
+        """
+        The operating system type required by the containers in the container group.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: pulumi.Input[Union[str, 'OperatingSystemTypes']]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="confidentialComputeProperties")
+    def confidential_compute_properties(self) -> Optional[pulumi.Input['ConfidentialComputePropertiesArgs']]:
+        """
+        The properties for confidential container group
+        """
+        return pulumi.get(self, "confidential_compute_properties")
+
+    @confidential_compute_properties.setter
+    def confidential_compute_properties(self, value: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']]):
+        pulumi.set(self, "confidential_compute_properties", value)
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']]:
+        """
+        The diagnostic information for a container group.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @diagnostics.setter
+    def diagnostics(self, value: Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']]):
+        pulumi.set(self, "diagnostics", value)
+
+    @property
+    @pulumi.getter(name="dnsConfig")
+    def dns_config(self) -> Optional[pulumi.Input['DnsConfigurationArgs']]:
+        """
+        The DNS config information for a container group.
+        """
+        return pulumi.get(self, "dns_config")
+
+    @dns_config.setter
+    def dns_config(self, value: Optional[pulumi.Input['DnsConfigurationArgs']]):
+        pulumi.set(self, "dns_config", value)
+
+    @property
+    @pulumi.getter(name="encryptionProperties")
+    def encryption_properties(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+        """
+        The encryption properties for a container group.
+        """
+        return pulumi.get(self, "encryption_properties")
+
+    @encryption_properties.setter
+    def encryption_properties(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+        pulumi.set(self, "encryption_properties", value)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]]:
+        """
+        extensions used by virtual kubelet
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
+    @pulumi.getter(name="imageRegistryCredentials")
+    def image_registry_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]:
+        """
+        The image registry credentials by which the container group is created from.
+        """
+        return pulumi.get(self, "image_registry_credentials")
+
+    @image_registry_credentials.setter
+    def image_registry_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]):
+        pulumi.set(self, "image_registry_credentials", value)
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]]:
+        """
+        The init containers for a container group.
+        """
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]]):
+        pulumi.set(self, "init_containers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input['IpAddressArgs']]:
+        """
+        The IP address type of the container group.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input['IpAddressArgs']]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]]:
+        """
+        The priority of the container group.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]]:
+        """
+        Restart policy for all containers within the container group. 
+        - `Always` Always restart
+        - `OnFailure` Restart on failure
+        - `Never` Never restart
+        """
+        return pulumi.get(self, "restart_policy")
+
+    @restart_policy.setter
+    def restart_policy(self, value: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]]):
+        pulumi.set(self, "restart_policy", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]]:
+        """
+        The SKU for a container group.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
+        """
+        The subnet resource IDs for a container group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]:
+        """
+        The list of volumes that can be mounted by containers in this container group.
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
 
 
 @pulumi.input_type
@@ -492,10 +747,9 @@ class ContainerProbeArgs:
 
 
 @pulumi.input_type
-class ContainerArgs:
+class ContainerPropertiesArgs:
     def __init__(__self__, *,
                  image: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  resources: pulumi.Input['ResourceRequirementsArgs'],
                  command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
@@ -504,9 +758,8 @@ class ContainerArgs:
                  readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
-        A container instance.
+        The container instance properties.
         :param pulumi.Input[str] image: The name of the image used to create the container instance.
-        :param pulumi.Input[str] name: The user-provided name of the container instance.
         :param pulumi.Input['ResourceRequirementsArgs'] resources: The resource requirements of the container instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
@@ -516,7 +769,6 @@ class ContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
         """
         pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
         if command is not None:
             pulumi.set(__self__, "command", command)
@@ -542,18 +794,6 @@ class ContainerArgs:
     @image.setter
     def image(self, value: pulumi.Input[str]):
         pulumi.set(self, "image", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The user-provided name of the container instance.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -638,6 +878,44 @@ class ContainerArgs:
     @volume_mounts.setter
     def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
+
+
+@pulumi.input_type
+class ContainerArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 properties: pulumi.Input['ContainerPropertiesArgs']):
+        """
+        A container instance.
+        :param pulumi.Input[str] name: The user-provided name of the container instance.
+        :param pulumi.Input['ContainerPropertiesArgs'] properties: The properties of the container instance.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The user-provided name of the container instance.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ContainerPropertiesArgs']:
+        """
+        The properties of the container instance.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ContainerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -1128,27 +1406,14 @@ class ImageRegistryCredentialArgs:
 class InitContainerDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 image: Optional[pulumi.Input[str]] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+                 properties: pulumi.Input['InitContainerPropertiesDefinitionArgs']):
         """
         The init container definition.
         :param pulumi.Input[str] name: The name for the init container.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The command to execute within the init container in exec form.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the init container.
-        :param pulumi.Input[str] image: The image of the init container.
-        :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the init container.
+        :param pulumi.Input['InitContainerPropertiesDefinitionArgs'] properties: The properties for the init container.
         """
         pulumi.set(__self__, "name", name)
-        if command is not None:
-            pulumi.set(__self__, "command", command)
-        if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
-        if image is not None:
-            pulumi.set(__self__, "image", image)
-        if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
+        pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
@@ -1161,6 +1426,42 @@ class InitContainerDefinitionArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['InitContainerPropertiesDefinitionArgs']:
+        """
+        The properties for the init container.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['InitContainerPropertiesDefinitionArgs']):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class InitContainerPropertiesDefinitionArgs:
+    def __init__(__self__, *,
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+        """
+        The init container definition properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The command to execute within the init container in exec form.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the init container.
+        :param pulumi.Input[str] image: The image of the init container.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the init container.
+        """
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter

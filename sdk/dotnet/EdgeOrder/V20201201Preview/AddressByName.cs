@@ -17,12 +17,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     public partial class AddressByName : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Contact details for the address
-        /// </summary>
-        [Output("contactDetails")]
-        public Output<Outputs.ContactDetailsResponse> ContactDetails { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -35,10 +29,10 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Shipping details for the address
+        /// Properties of an address.
         /// </summary>
-        [Output("shippingAddress")]
-        public Output<Outputs.ShippingAddressResponse?> ShippingAddress { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.AddressPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Represents resource creation and update time
@@ -116,28 +110,22 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public Input<string>? AddressName { get; set; }
 
         /// <summary>
-        /// Contact details for the address
-        /// </summary>
-        [Input("contactDetails", required: true)]
-        public Input<Inputs.ContactDetailsArgs> ContactDetails { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Properties of an address.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.AddressPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Shipping details for the address
-        /// </summary>
-        [Input("shippingAddress")]
-        public Input<Inputs.ShippingAddressArgs>? ShippingAddress { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

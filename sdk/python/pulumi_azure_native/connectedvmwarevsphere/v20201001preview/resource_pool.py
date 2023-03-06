@@ -16,44 +16,47 @@ __all__ = ['ResourcePoolArgs', 'ResourcePool']
 @pulumi.input_type
 class ResourcePoolArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['ResourcePoolPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[str]] = None,
                  resource_pool_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v_center_id: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResourcePool resource.
+        :param pulumi.Input['ResourcePoolPropertiesArgs'] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
-        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource pool.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
         :param pulumi.Input[str] resource_pool_name: Name of the resourcePool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
-        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
-        if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if mo_ref_id is not None:
-            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
         if resource_pool_name is not None:
             pulumi.set(__self__, "resource_pool_name", resource_pool_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if v_center_id is not None:
-            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ResourcePoolPropertiesArgs']:
+        """
+        Resource properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ResourcePoolPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -80,18 +83,6 @@ class ResourcePoolArgs:
         pulumi.set(self, "extended_location", value)
 
     @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the inventory Item ID for the resource pool.
-        """
-        return pulumi.get(self, "inventory_item_id")
-
-    @inventory_item_id.setter
-    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "inventory_item_id", value)
-
-    @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
@@ -114,18 +105,6 @@ class ResourcePoolArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="moRefId")
-    def mo_ref_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
-        """
-        return pulumi.get(self, "mo_ref_id")
-
-    @mo_ref_id.setter
-    def mo_ref_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "mo_ref_id", value)
 
     @property
     @pulumi.getter(name="resourcePoolName")
@@ -151,18 +130,6 @@ class ResourcePoolArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="vCenterId")
-    def v_center_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        """
-        return pulumi.get(self, "v_center_id")
-
-    @v_center_id.setter
-    def v_center_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "v_center_id", value)
-
 
 class ResourcePool(pulumi.CustomResource):
     @overload
@@ -170,14 +137,12 @@ class ResourcePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ResourcePoolPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_pool_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v_center_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Define the resourcePool.
@@ -185,14 +150,12 @@ class ResourcePool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
-        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource pool.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+        :param pulumi.Input[pulumi.InputType['ResourcePoolPropertiesArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[str] resource_pool_name: Name of the resourcePool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
-        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
         """
         ...
     @overload
@@ -219,14 +182,12 @@ class ResourcePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mo_ref_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ResourcePoolPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_pool_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 v_center_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -237,30 +198,19 @@ class ResourcePool(pulumi.CustomResource):
             __props__ = ResourcePoolArgs.__new__(ResourcePoolArgs)
 
             __props__.__dict__["extended_location"] = extended_location
-            __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            __props__.__dict__["mo_ref_id"] = mo_ref_id
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_pool_name"] = resource_pool_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["v_center_id"] = v_center_id
-            __props__.__dict__["cpu_limit_m_hz"] = None
-            __props__.__dict__["cpu_reservation_m_hz"] = None
-            __props__.__dict__["cpu_shares_level"] = None
-            __props__.__dict__["custom_resource_name"] = None
-            __props__.__dict__["mem_limit_mb"] = None
-            __props__.__dict__["mem_reservation_mb"] = None
-            __props__.__dict__["mem_shares_level"] = None
-            __props__.__dict__["mo_name"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["uuid"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourcePool, __self__).__init__(
@@ -285,63 +235,15 @@ class ResourcePool(pulumi.CustomResource):
 
         __props__ = ResourcePoolArgs.__new__(ResourcePoolArgs)
 
-        __props__.__dict__["cpu_limit_m_hz"] = None
-        __props__.__dict__["cpu_reservation_m_hz"] = None
-        __props__.__dict__["cpu_shares_level"] = None
-        __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["extended_location"] = None
-        __props__.__dict__["inventory_item_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["mem_limit_mb"] = None
-        __props__.__dict__["mem_reservation_mb"] = None
-        __props__.__dict__["mem_shares_level"] = None
-        __props__.__dict__["mo_name"] = None
-        __props__.__dict__["mo_ref_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["statuses"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["uuid"] = None
-        __props__.__dict__["v_center_id"] = None
         return ResourcePool(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="cpuLimitMHz")
-    def cpu_limit_m_hz(self) -> pulumi.Output[float]:
-        """
-        Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
-        Utilization will not exceed this limit even if there are available resources.
-        """
-        return pulumi.get(self, "cpu_limit_m_hz")
-
-    @property
-    @pulumi.getter(name="cpuReservationMHz")
-    def cpu_reservation_m_hz(self) -> pulumi.Output[float]:
-        """
-        Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
-        to be available.
-        """
-        return pulumi.get(self, "cpu_reservation_m_hz")
-
-    @property
-    @pulumi.getter(name="cpuSharesLevel")
-    def cpu_shares_level(self) -> pulumi.Output[str]:
-        """
-        Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
-        This property is used in relative allocation between resource consumers.
-        """
-        return pulumi.get(self, "cpu_shares_level")
-
-    @property
-    @pulumi.getter(name="customResourceName")
-    def custom_resource_name(self) -> pulumi.Output[str]:
-        """
-        Gets the name of the corresponding resource in Kubernetes.
-        """
-        return pulumi.get(self, "custom_resource_name")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -350,14 +252,6 @@ class ResourcePool(pulumi.CustomResource):
         Gets or sets the extended location.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Gets or sets the inventory Item ID for the resource pool.
-        """
-        return pulumi.get(self, "inventory_item_id")
 
     @property
     @pulumi.getter
@@ -376,49 +270,6 @@ class ResourcePool(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="memLimitMB")
-    def mem_limit_mb(self) -> pulumi.Output[float]:
-        """
-        Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
-        Utilization will not exceed the specified limit even if there are available resources.
-        """
-        return pulumi.get(self, "mem_limit_mb")
-
-    @property
-    @pulumi.getter(name="memReservationMB")
-    def mem_reservation_mb(self) -> pulumi.Output[float]:
-        """
-        Gets or sets MemReservationMB which specifies the guaranteed available memory in
-        megabytes.
-        """
-        return pulumi.get(self, "mem_reservation_mb")
-
-    @property
-    @pulumi.getter(name="memSharesLevel")
-    def mem_shares_level(self) -> pulumi.Output[str]:
-        """
-        Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
-        This property is used in relative allocation between resource consumers.
-        """
-        return pulumi.get(self, "mem_shares_level")
-
-    @property
-    @pulumi.getter(name="moName")
-    def mo_name(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the vCenter Managed Object name for the resource pool.
-        """
-        return pulumi.get(self, "mo_name")
-
-    @property
-    @pulumi.getter(name="moRefId")
-    def mo_ref_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
-        """
-        return pulumi.get(self, "mo_ref_id")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -427,20 +278,12 @@ class ResourcePool(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Gets or sets the provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def statuses(self) -> pulumi.Output[Sequence['outputs.ResourceStatusResponse']]:
+    def properties(self) -> pulumi.Output['outputs.ResourcePoolPropertiesResponse']:
         """
-        The resource status information.
+        Resource properties.
         """
-        return pulumi.get(self, "statuses")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -465,20 +308,4 @@ class ResourcePool(pulumi.CustomResource):
         Gets or sets the type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uuid(self) -> pulumi.Output[str]:
-        """
-        Gets or sets a unique identifier for this resource.
-        """
-        return pulumi.get(self, "uuid")
-
-    @property
-    @pulumi.getter(name="vCenterId")
-    def v_center_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
-        """
-        return pulumi.get(self, "v_center_id")
 

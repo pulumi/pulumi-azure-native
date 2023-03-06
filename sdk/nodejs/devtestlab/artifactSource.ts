@@ -39,26 +39,6 @@ export class ArtifactSource extends pulumi.CustomResource {
     }
 
     /**
-     * The folder containing Azure Resource Manager templates.
-     */
-    public readonly armTemplateFolderPath!: pulumi.Output<string | undefined>;
-    /**
-     * The artifact source's branch reference.
-     */
-    public readonly branchRef!: pulumi.Output<string | undefined>;
-    /**
-     * The artifact source's creation date.
-     */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
-    /**
-     * The artifact source's display name.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * The folder containing artifacts.
-     */
-    public readonly folderPath!: pulumi.Output<string | undefined>;
-    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -67,21 +47,9 @@ export class ArtifactSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The security token to authenticate to the artifact source.
-     */
-    public readonly securityToken!: pulumi.Output<string | undefined>;
-    /**
-     * The artifact source's type.
-     */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates if the artifact source is enabled (values: Enabled, Disabled).
-     */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.devtestlab.ArtifactSourcePropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -90,14 +58,6 @@ export class ArtifactSource extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
-    /**
-     * The artifact source's URI.
-     */
-    public readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ArtifactSource resource with the given unique name, arguments, and options.
@@ -113,42 +73,25 @@ export class ArtifactSource extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["armTemplateFolderPath"] = args ? args.armTemplateFolderPath : undefined;
-            resourceInputs["branchRef"] = args ? args.branchRef : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            resourceInputs["armTemplateFolderPath"] = undefined /*out*/;
-            resourceInputs["branchRef"] = undefined /*out*/;
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["folderPath"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["securityToken"] = undefined /*out*/;
-            resourceInputs["sourceType"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
-            resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20150521preview:ArtifactSource" }, { type: "azure-native:devtestlab/v20160515:ArtifactSource" }, { type: "azure-native:devtestlab/v20180915:ArtifactSource" }] };
@@ -162,22 +105,6 @@ export class ArtifactSource extends pulumi.CustomResource {
  */
 export interface ArtifactSourceArgs {
     /**
-     * The folder containing Azure Resource Manager templates.
-     */
-    armTemplateFolderPath?: pulumi.Input<string>;
-    /**
-     * The artifact source's branch reference.
-     */
-    branchRef?: pulumi.Input<string>;
-    /**
-     * The artifact source's display name.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * The folder containing artifacts.
-     */
-    folderPath?: pulumi.Input<string>;
-    /**
      * The name of the lab.
      */
     labName: pulumi.Input<string>;
@@ -190,27 +117,15 @@ export interface ArtifactSourceArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The properties of the resource.
+     */
+    properties: pulumi.Input<inputs.devtestlab.ArtifactSourcePropertiesArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The security token to authenticate to the artifact source.
-     */
-    securityToken?: pulumi.Input<string>;
-    /**
-     * The artifact source's type.
-     */
-    sourceType?: pulumi.Input<string | enums.devtestlab.SourceControlType>;
-    /**
-     * Indicates if the artifact source is enabled (values: Enabled, Disabled).
-     */
-    status?: pulumi.Input<string | enums.devtestlab.EnableStatus>;
-    /**
      * The tags of the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The artifact source's URI.
-     */
-    uri?: pulumi.Input<string>;
 }

@@ -70,30 +70,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview
     public sealed class GetContainerGroupResult
     {
         /// <summary>
-        /// The properties for confidential container group
-        /// </summary>
-        public readonly Outputs.ConfidentialComputePropertiesResponse? ConfidentialComputeProperties;
-        /// <summary>
-        /// The containers within the container group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
-        /// <summary>
-        /// The diagnostic information for a container group.
-        /// </summary>
-        public readonly Outputs.ContainerGroupDiagnosticsResponse? Diagnostics;
-        /// <summary>
-        /// The DNS config information for a container group.
-        /// </summary>
-        public readonly Outputs.DnsConfigurationResponse? DnsConfig;
-        /// <summary>
-        /// The encryption properties for a container group.
-        /// </summary>
-        public readonly Outputs.EncryptionPropertiesResponse? EncryptionProperties;
-        /// <summary>
-        /// extensions used by virtual kubelet
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DeploymentExtensionSpecResponse> Extensions;
-        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -101,22 +77,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview
         /// The identity of the container group, if configured.
         /// </summary>
         public readonly Outputs.ContainerGroupIdentityResponse? Identity;
-        /// <summary>
-        /// The image registry credentials by which the container group is created from.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
-        /// <summary>
-        /// The init containers for a container group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.InitContainerDefinitionResponse> InitContainers;
-        /// <summary>
-        /// The instance view of the container group. Only valid in response.
-        /// </summary>
-        public readonly Outputs.ContainerGroupPropertiesResponseInstanceView InstanceView;
-        /// <summary>
-        /// The IP address type of the container group.
-        /// </summary>
-        public readonly Outputs.IpAddressResponse? IpAddress;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -126,32 +86,9 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The operating system type required by the containers in the container group.
+        /// The container group properties
         /// </summary>
-        public readonly string OsType;
-        /// <summary>
-        /// The priority of the container group.
-        /// </summary>
-        public readonly string? Priority;
-        /// <summary>
-        /// The provisioning state of the container group. This only appears in the response.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Restart policy for all containers within the container group. 
-        /// - `Always` Always restart
-        /// - `OnFailure` Restart on failure
-        /// - `Never` Never restart
-        /// </summary>
-        public readonly string? RestartPolicy;
-        /// <summary>
-        /// The SKU for a container group.
-        /// </summary>
-        public readonly string? Sku;
-        /// <summary>
-        /// The subnet resource IDs for a container group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> SubnetIds;
+        public readonly Outputs.ContainerGroupPropertiesResponseProperties Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -161,87 +98,35 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of volumes that can be mounted by containers in this container group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
-        /// <summary>
         /// The zones for the container group.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetContainerGroupResult(
-            Outputs.ConfidentialComputePropertiesResponse? confidentialComputeProperties,
-
-            ImmutableArray<Outputs.ContainerResponse> containers,
-
-            Outputs.ContainerGroupDiagnosticsResponse? diagnostics,
-
-            Outputs.DnsConfigurationResponse? dnsConfig,
-
-            Outputs.EncryptionPropertiesResponse? encryptionProperties,
-
-            ImmutableArray<Outputs.DeploymentExtensionSpecResponse> extensions,
-
             string id,
 
             Outputs.ContainerGroupIdentityResponse? identity,
-
-            ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
-
-            ImmutableArray<Outputs.InitContainerDefinitionResponse> initContainers,
-
-            Outputs.ContainerGroupPropertiesResponseInstanceView instanceView,
-
-            Outputs.IpAddressResponse? ipAddress,
 
             string? location,
 
             string name,
 
-            string osType,
-
-            string? priority,
-
-            string provisioningState,
-
-            string? restartPolicy,
-
-            string? sku,
-
-            ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> subnetIds,
+            Outputs.ContainerGroupPropertiesResponseProperties properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponse> volumes,
-
             ImmutableArray<string> zones)
         {
-            ConfidentialComputeProperties = confidentialComputeProperties;
-            Containers = containers;
-            Diagnostics = diagnostics;
-            DnsConfig = dnsConfig;
-            EncryptionProperties = encryptionProperties;
-            Extensions = extensions;
             Id = id;
             Identity = identity;
-            ImageRegistryCredentials = imageRegistryCredentials;
-            InitContainers = initContainers;
-            InstanceView = instanceView;
-            IpAddress = ipAddress;
             Location = location;
             Name = name;
-            OsType = osType;
-            Priority = priority;
-            ProvisioningState = provisioningState;
-            RestartPolicy = restartPolicy;
-            Sku = sku;
-            SubnetIds = subnetIds;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            Volumes = volumes;
             Zones = zones;
         }
     }

@@ -18,70 +18,32 @@ __all__ = ['VolumeArgs', 'Volume']
 class VolumeArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 creation_token: pulumi.Input[str],
                  pool_name: pulumi.Input[str],
+                 properties: pulumi.Input['VolumePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 subnet_id: pulumi.Input[str],
-                 usage_threshold: pulumi.Input[float],
-                 data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
-                 export_policy: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']] = None,
-                 is_restoring: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
-                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 volume_name: Optional[pulumi.Input[str]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None):
+                 volume_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[str] pool_name: The name of the capacity pool
+        :param pulumi.Input['VolumePropertiesArgs'] properties: Volume properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        :param pulumi.Input['VolumePropertiesDataProtectionArgs'] data_protection: DataProtection type volumes include an object containing details of the replication
-        :param pulumi.Input['VolumePropertiesExportPolicyArgs'] export_policy: Set of export policy rules
-        :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
-        :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
-        :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] volume_name: The name of the volume
-        :param pulumi.Input[str] volume_type: What type of volume is this
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "creation_token", creation_token)
         pulumi.set(__self__, "pool_name", pool_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        if usage_threshold is None:
-            usage_threshold = 107374182400
-        pulumi.set(__self__, "usage_threshold", usage_threshold)
-        if data_protection is not None:
-            pulumi.set(__self__, "data_protection", data_protection)
-        if export_policy is not None:
-            pulumi.set(__self__, "export_policy", export_policy)
-        if is_restoring is not None:
-            pulumi.set(__self__, "is_restoring", is_restoring)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if protocol_types is not None:
-            pulumi.set(__self__, "protocol_types", protocol_types)
-        if service_level is None:
-            service_level = 'Premium'
-        if service_level is not None:
-            pulumi.set(__self__, "service_level", service_level)
-        if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if volume_name is not None:
             pulumi.set(__self__, "volume_name", volume_name)
-        if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -96,18 +58,6 @@ class VolumeArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="creationToken")
-    def creation_token(self) -> pulumi.Input[str]:
-        """
-        A unique file path for the volume. Used when creating mount targets
-        """
-        return pulumi.get(self, "creation_token")
-
-    @creation_token.setter
-    def creation_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "creation_token", value)
-
-    @property
     @pulumi.getter(name="poolName")
     def pool_name(self) -> pulumi.Input[str]:
         """
@@ -118,6 +68,18 @@ class VolumeArgs:
     @pool_name.setter
     def pool_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "pool_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['VolumePropertiesArgs']:
+        """
+        Volume properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['VolumePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -132,66 +94,6 @@ class VolumeArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Input[str]:
-        """
-        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
-    @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> pulumi.Input[float]:
-        """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        """
-        return pulumi.get(self, "usage_threshold")
-
-    @usage_threshold.setter
-    def usage_threshold(self, value: pulumi.Input[float]):
-        pulumi.set(self, "usage_threshold", value)
-
-    @property
-    @pulumi.getter(name="dataProtection")
-    def data_protection(self) -> Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']]:
-        """
-        DataProtection type volumes include an object containing details of the replication
-        """
-        return pulumi.get(self, "data_protection")
-
-    @data_protection.setter
-    def data_protection(self, value: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']]):
-        pulumi.set(self, "data_protection", value)
-
-    @property
-    @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]:
-        """
-        Set of export policy rules
-        """
-        return pulumi.get(self, "export_policy")
-
-    @export_policy.setter
-    def export_policy(self, value: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]):
-        pulumi.set(self, "export_policy", value)
-
-    @property
-    @pulumi.getter(name="isRestoring")
-    def is_restoring(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Restoring
-        """
-        return pulumi.get(self, "is_restoring")
-
-    @is_restoring.setter
-    def is_restoring(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_restoring", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -202,42 +104,6 @@ class VolumeArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of protocol types, default NFSv3, CIFS for SMB protocol
-        """
-        return pulumi.get(self, "protocol_types")
-
-    @protocol_types.setter
-    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "protocol_types", value)
-
-    @property
-    @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> Optional[pulumi.Input[Union[str, 'ServiceLevel']]]:
-        """
-        The service level of the file system
-        """
-        return pulumi.get(self, "service_level")
-
-    @service_level.setter
-    def service_level(self, value: Optional[pulumi.Input[Union[str, 'ServiceLevel']]]):
-        pulumi.set(self, "service_level", value)
-
-    @property
-    @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        UUID v4 or resource identifier used to identify the Snapshot.
-        """
-        return pulumi.get(self, "snapshot_id")
-
-    @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "snapshot_id", value)
 
     @property
     @pulumi.getter
@@ -263,18 +129,6 @@ class VolumeArgs:
     def volume_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "volume_name", value)
 
-    @property
-    @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        What type of volume is this
-        """
-        return pulumi.get(self, "volume_type")
-
-    @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "volume_type", value)
-
 
 warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
@@ -287,21 +141,12 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 creation_token: Optional[pulumi.Input[str]] = None,
-                 data_protection: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']]] = None,
-                 export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
-                 is_restoring: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
-                 snapshot_id: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Volume resource
@@ -309,21 +154,12 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
-        :param pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']] data_protection: DataProtection type volumes include an object containing details of the replication
-        :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
-        :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
+        :param pulumi.Input[pulumi.InputType['VolumePropertiesArgs']] properties: Volume properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
-        :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
-        :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param pulumi.Input[str] volume_name: The name of the volume
-        :param pulumi.Input[str] volume_type: What type of volume is this
         """
         ...
     @overload
@@ -350,21 +186,12 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 creation_token: Optional[pulumi.Input[str]] = None,
-                 data_protection: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']]] = None,
-                 export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
-                 is_restoring: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
-                 snapshot_id: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Volume is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -378,42 +205,20 @@ class Volume(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if creation_token is None and not opts.urn:
-                raise TypeError("Missing required property 'creation_token'")
-            __props__.__dict__["creation_token"] = creation_token
-            __props__.__dict__["data_protection"] = data_protection
-            __props__.__dict__["export_policy"] = export_policy
-            __props__.__dict__["is_restoring"] = is_restoring
             __props__.__dict__["location"] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
-            __props__.__dict__["protocol_types"] = protocol_types
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if service_level is None:
-                service_level = 'Premium'
-            __props__.__dict__["service_level"] = service_level
-            __props__.__dict__["snapshot_id"] = snapshot_id
-            if subnet_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subnet_id'")
-            __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            if usage_threshold is None:
-                usage_threshold = 107374182400
-            if usage_threshold is None and not opts.urn:
-                raise TypeError("Missing required property 'usage_threshold'")
-            __props__.__dict__["usage_threshold"] = usage_threshold
             __props__.__dict__["volume_name"] = volume_name
-            __props__.__dict__["volume_type"] = volume_type
-            __props__.__dict__["baremetal_tenant_id"] = None
-            __props__.__dict__["file_system_id"] = None
-            __props__.__dict__["mount_targets"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["used_bytes"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Volume"), pulumi.Alias(type_="azure-native:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
@@ -438,74 +243,12 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
-        __props__.__dict__["baremetal_tenant_id"] = None
-        __props__.__dict__["creation_token"] = None
-        __props__.__dict__["data_protection"] = None
-        __props__.__dict__["export_policy"] = None
-        __props__.__dict__["file_system_id"] = None
-        __props__.__dict__["is_restoring"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["mount_targets"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["protocol_types"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["service_level"] = None
-        __props__.__dict__["snapshot_id"] = None
-        __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["usage_threshold"] = None
-        __props__.__dict__["used_bytes"] = None
-        __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="baremetalTenantId")
-    def baremetal_tenant_id(self) -> pulumi.Output[str]:
-        """
-        Unique Baremetal Tenant Identifier.
-        """
-        return pulumi.get(self, "baremetal_tenant_id")
-
-    @property
-    @pulumi.getter(name="creationToken")
-    def creation_token(self) -> pulumi.Output[str]:
-        """
-        A unique file path for the volume. Used when creating mount targets
-        """
-        return pulumi.get(self, "creation_token")
-
-    @property
-    @pulumi.getter(name="dataProtection")
-    def data_protection(self) -> pulumi.Output[Optional['outputs.VolumePropertiesResponseDataProtection']]:
-        """
-        DataProtection type volumes include an object containing details of the replication
-        """
-        return pulumi.get(self, "data_protection")
-
-    @property
-    @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> pulumi.Output[Optional['outputs.VolumePropertiesResponseExportPolicy']]:
-        """
-        Set of export policy rules
-        """
-        return pulumi.get(self, "export_policy")
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Output[str]:
-        """
-        Unique FileSystem Identifier.
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @property
-    @pulumi.getter(name="isRestoring")
-    def is_restoring(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Restoring
-        """
-        return pulumi.get(self, "is_restoring")
 
     @property
     @pulumi.getter
@@ -516,14 +259,6 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> pulumi.Output[Sequence['outputs.MountTargetPropertiesResponse']]:
-        """
-        List of mount targets
-        """
-        return pulumi.get(self, "mount_targets")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -532,44 +267,12 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.VolumePropertiesResponse']:
         """
-        Set of protocol types, default NFSv3, CIFS for SMB protocol
+        Volume properties
         """
-        return pulumi.get(self, "protocol_types")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Azure lifecycle management
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> pulumi.Output[Optional[str]]:
-        """
-        The service level of the file system
-        """
-        return pulumi.get(self, "service_level")
-
-    @property
-    @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        UUID v4 or resource identifier used to identify the Snapshot.
-        """
-        return pulumi.get(self, "snapshot_id")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Output[str]:
-        """
-        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -586,28 +289,4 @@ class Volume(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> pulumi.Output[float]:
-        """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-        """
-        return pulumi.get(self, "usage_threshold")
-
-    @property
-    @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> pulumi.Output[float]:
-        """
-        Resource size in bytes, current storage usage for the volume in bytes
-        """
-        return pulumi.get(self, "used_bytes")
-
-    @property
-    @pulumi.getter(name="volumeType")
-    def volume_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        What type of volume is this
-        """
-        return pulumi.get(self, "volume_type")
 

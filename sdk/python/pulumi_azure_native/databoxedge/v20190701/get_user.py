@@ -24,30 +24,19 @@ class GetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, encrypted_password=None, id=None, name=None, share_access_rights=None, type=None):
-        if encrypted_password and not isinstance(encrypted_password, dict):
-            raise TypeError("Expected argument 'encrypted_password' to be a dict")
-        pulumi.set(__self__, "encrypted_password", encrypted_password)
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if share_access_rights and not isinstance(share_access_rights, list):
-            raise TypeError("Expected argument 'share_access_rights' to be a list")
-        pulumi.set(__self__, "share_access_rights", share_access_rights)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
-        """
-        The password details.
-        """
-        return pulumi.get(self, "encrypted_password")
 
     @property
     @pulumi.getter
@@ -66,12 +55,12 @@ class GetUserResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> Optional[Sequence['outputs.ShareAccessRightResponse']]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.UserPropertiesResponse':
         """
-        List of shares that the user has rights on. This field should not be specified during user creation.
+        The storage account credential properties.
         """
-        return pulumi.get(self, "share_access_rights")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -88,10 +77,9 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
-            encrypted_password=self.encrypted_password,
             id=self.id,
             name=self.name,
-            share_access_rights=self.share_access_rights,
+            properties=self.properties,
             type=self.type)
 
 
@@ -116,10 +104,9 @@ def get_user(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20190701:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        encrypted_password=__ret__.encrypted_password,
         id=__ret__.id,
         name=__ret__.name,
-        share_access_rights=__ret__.share_access_rights,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

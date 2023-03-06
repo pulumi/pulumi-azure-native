@@ -47,18 +47,6 @@ export interface GetCustomImageArgs {
  */
 export interface GetCustomImageResult {
     /**
-     * The author of the custom image.
-     */
-    readonly author?: string;
-    /**
-     * The creation date of the custom image.
-     */
-    readonly creationDate: string;
-    /**
-     * The description of the custom image.
-     */
-    readonly description?: string;
-    /**
      * The identifier of the resource.
      */
     readonly id: string;
@@ -67,17 +55,13 @@ export interface GetCustomImageResult {
      */
     readonly location?: string;
     /**
-     * The Managed Image Id backing the custom image.
-     */
-    readonly managedImageId?: string;
-    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * The properties of the resource.
      */
-    readonly provisioningState?: string;
+    readonly properties: outputs.devtestlab.v20160515.CustomImagePropertiesResponse;
     /**
      * The tags of the resource.
      */
@@ -86,18 +70,6 @@ export interface GetCustomImageResult {
      * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier?: string;
-    /**
-     * The VHD from which the image is to be created.
-     */
-    readonly vhd?: outputs.devtestlab.v20160515.CustomImagePropertiesCustomResponse;
-    /**
-     * The virtual machine from which the image is to be created.
-     */
-    readonly vm?: outputs.devtestlab.v20160515.CustomImagePropertiesFromVmResponse;
 }
 /**
  * Get custom image.

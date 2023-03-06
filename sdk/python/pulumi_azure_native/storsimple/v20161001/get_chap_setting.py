@@ -24,16 +24,16 @@ class GetChapSettingResult:
     """
     Challenge-Handshake Authentication Protocol (CHAP) setting
     """
-    def __init__(__self__, id=None, name=None, password=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if password and not isinstance(password, dict):
-            raise TypeError("Expected argument 'password' to be a dict")
-        pulumi.set(__self__, "password", password)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -56,11 +56,11 @@ class GetChapSettingResult:
 
     @property
     @pulumi.getter
-    def password(self) -> 'outputs.AsymmetricEncryptedSecretResponse':
+    def properties(self) -> 'outputs.ChapPropertiesResponse':
         """
-        The chap password.
+        Chap properties
         """
-        return pulumi.get(self, "password")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -79,7 +79,7 @@ class AwaitableGetChapSettingResult(GetChapSettingResult):
         return GetChapSettingResult(
             id=self.id,
             name=self.name,
-            password=self.password,
+            properties=self.properties,
             type=self.type)
 
 
@@ -109,7 +109,7 @@ def get_chap_setting(chap_user_name: Optional[str] = None,
     return AwaitableGetChapSettingResult(
         id=__ret__.id,
         name=__ret__.name,
-        password=__ret__.password,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

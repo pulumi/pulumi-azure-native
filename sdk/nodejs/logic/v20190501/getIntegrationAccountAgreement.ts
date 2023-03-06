@@ -40,38 +40,6 @@ export interface GetIntegrationAccountAgreementArgs {
  */
 export interface GetIntegrationAccountAgreementResult {
     /**
-     * The agreement type.
-     */
-    readonly agreementType: string;
-    /**
-     * The changed time.
-     */
-    readonly changedTime: string;
-    /**
-     * The agreement content.
-     */
-    readonly content: outputs.logic.v20190501.AgreementContentResponse;
-    /**
-     * The created time.
-     */
-    readonly createdTime: string;
-    /**
-     * The business identity of the guest partner.
-     */
-    readonly guestIdentity: outputs.logic.v20190501.BusinessIdentityResponse;
-    /**
-     * The integration account partner that is set as guest partner for this agreement.
-     */
-    readonly guestPartner: string;
-    /**
-     * The business identity of the host partner.
-     */
-    readonly hostIdentity: outputs.logic.v20190501.BusinessIdentityResponse;
-    /**
-     * The integration account partner that is set as host partner for this agreement.
-     */
-    readonly hostPartner: string;
-    /**
      * The resource id.
      */
     readonly id: string;
@@ -80,13 +48,13 @@ export interface GetIntegrationAccountAgreementResult {
      */
     readonly location?: string;
     /**
-     * The metadata.
-     */
-    readonly metadata?: any;
-    /**
      * Gets the resource name.
      */
     readonly name: string;
+    /**
+     * The integration account agreement properties.
+     */
+    readonly properties: outputs.logic.v20190501.IntegrationAccountAgreementPropertiesResponse;
     /**
      * The resource tags.
      */

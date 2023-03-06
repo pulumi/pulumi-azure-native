@@ -22,10 +22,7 @@ class GetDnsForwardingRulesetResult:
     """
     Describes a DNS forwarding ruleset.
     """
-    def __init__(__self__, dns_resolver_outbound_endpoints=None, etag=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, tags=None, type=None):
-        if dns_resolver_outbound_endpoints and not isinstance(dns_resolver_outbound_endpoints, list):
-            raise TypeError("Expected argument 'dns_resolver_outbound_endpoints' to be a list")
-        pulumi.set(__self__, "dns_resolver_outbound_endpoints", dns_resolver_outbound_endpoints)
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -38,12 +35,9 @@ class GetDnsForwardingRulesetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        pulumi.set(__self__, "resource_guid", resource_guid)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -53,14 +47,6 @@ class GetDnsForwardingRulesetResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="dnsResolverOutboundEndpoints")
-    def dns_resolver_outbound_endpoints(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-        """
-        return pulumi.get(self, "dns_resolver_outbound_endpoints")
 
     @property
     @pulumi.getter
@@ -95,20 +81,12 @@ class GetDnsForwardingRulesetResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.DnsForwardingRulesetPropertiesResponse':
         """
-        The current provisioning state of the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.
+        Properties of the DNS forwarding ruleset.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
-        """
-        The resourceGuid for the DNS forwarding ruleset.
-        """
-        return pulumi.get(self, "resource_guid")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -141,13 +119,11 @@ class AwaitableGetDnsForwardingRulesetResult(GetDnsForwardingRulesetResult):
         if False:
             yield self
         return GetDnsForwardingRulesetResult(
-            dns_resolver_outbound_endpoints=self.dns_resolver_outbound_endpoints,
             etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            resource_guid=self.resource_guid,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -170,13 +146,11 @@ def get_dns_forwarding_ruleset(dns_forwarding_ruleset_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220701:getDnsForwardingRuleset', __args__, opts=opts, typ=GetDnsForwardingRulesetResult).value
 
     return AwaitableGetDnsForwardingRulesetResult(
-        dns_resolver_outbound_endpoints=__ret__.dns_resolver_outbound_endpoints,
         etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

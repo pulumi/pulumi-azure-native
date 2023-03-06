@@ -34,13 +34,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Wait activity properties.
+        /// </summary>
+        public readonly Outputs.WaitActivityTypePropertiesResponse TypeProperties;
+        /// <summary>
         /// Activity user properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
-        /// <summary>
-        /// Duration in seconds.
-        /// </summary>
-        public readonly object WaitTimeInSeconds;
 
         [OutputConstructor]
         private WaitActivityResponse(
@@ -52,16 +52,16 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            ImmutableArray<Outputs.UserPropertyResponse> userProperties,
+            Outputs.WaitActivityTypePropertiesResponse typeProperties,
 
-            object waitTimeInSeconds)
+            ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             DependsOn = dependsOn;
             Description = description;
             Name = name;
             Type = type;
+            TypeProperties = typeProperties;
             UserProperties = userProperties;
-            WaitTimeInSeconds = waitTimeInSeconds;
         }
     }
 }

@@ -18,9 +18,8 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  mobile_network_name: pulumi.Input[str],
-                 pcc_rules: pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]],
+                 properties: pulumi.Input['ServicePropertiesFormatArgs'],
                  resource_group_name: pulumi.Input[str],
-                 service_precedence: pulumi.Input[int],
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -29,14 +28,12 @@ class ServiceArgs:
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_qos_policy: Optional[pulumi.Input['QosPolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]] pcc_rules: The set of data flow policy rules that make up this service.
+        :param pulumi.Input['ServicePropertiesFormatArgs'] properties: Service Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
@@ -45,13 +42,11 @@ class ServiceArgs:
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] service_name: The name of the service. You must not use any of the following reserved strings - `default`, `requested` or `service`
-        :param pulumi.Input['QosPolicyArgs'] service_qos_policy: The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "mobile_network_name", mobile_network_name)
-        pulumi.set(__self__, "pcc_rules", pcc_rules)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_precedence", service_precedence)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if created_by is not None:
@@ -68,8 +63,6 @@ class ServiceArgs:
             pulumi.set(__self__, "location", location)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
-        if service_qos_policy is not None:
-            pulumi.set(__self__, "service_qos_policy", service_qos_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -86,16 +79,16 @@ class ServiceArgs:
         pulumi.set(self, "mobile_network_name", value)
 
     @property
-    @pulumi.getter(name="pccRules")
-    def pcc_rules(self) -> pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ServicePropertiesFormatArgs']:
         """
-        The set of data flow policy rules that make up this service.
+        Service Properties.
         """
-        return pulumi.get(self, "pcc_rules")
+        return pulumi.get(self, "properties")
 
-    @pcc_rules.setter
-    def pcc_rules(self, value: pulumi.Input[Sequence[pulumi.Input['PccRuleConfigurationArgs']]]):
-        pulumi.set(self, "pcc_rules", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ServicePropertiesFormatArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -108,18 +101,6 @@ class ServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="servicePrecedence")
-    def service_precedence(self) -> pulumi.Input[int]:
-        """
-        A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
-        """
-        return pulumi.get(self, "service_precedence")
-
-    @service_precedence.setter
-    def service_precedence(self, value: pulumi.Input[int]):
-        pulumi.set(self, "service_precedence", value)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -218,18 +199,6 @@ class ServiceArgs:
         pulumi.set(self, "service_name", value)
 
     @property
-    @pulumi.getter(name="serviceQosPolicy")
-    def service_qos_policy(self) -> Optional[pulumi.Input['QosPolicyArgs']]:
-        """
-        The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
-        """
-        return pulumi.get(self, "service_qos_policy")
-
-    @service_qos_policy.setter
-    def service_qos_policy(self, value: Optional[pulumi.Input['QosPolicyArgs']]):
-        pulumi.set(self, "service_qos_policy", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -255,11 +224,9 @@ class Service(pulumi.CustomResource):
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PccRuleConfigurationArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ServicePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['QosPolicyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -276,11 +243,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PccRuleConfigurationArgs']]]] pcc_rules: The set of data flow policy rules that make up this service.
+        :param pulumi.Input[pulumi.InputType['ServicePropertiesFormatArgs']] properties: Service Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the service. You must not use any of the following reserved strings - `default`, `requested` or `service`
-        :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
-        :param pulumi.Input[pulumi.InputType['QosPolicyArgs']] service_qos_policy: The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -316,11 +281,9 @@ class Service(pulumi.CustomResource):
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PccRuleConfigurationArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ServicePropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['QosPolicyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -341,20 +304,15 @@ class Service(pulumi.CustomResource):
             if mobile_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'mobile_network_name'")
             __props__.__dict__["mobile_network_name"] = mobile_network_name
-            if pcc_rules is None and not opts.urn:
-                raise TypeError("Missing required property 'pcc_rules'")
-            __props__.__dict__["pcc_rules"] = pcc_rules
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_name"] = service_name
-            if service_precedence is None and not opts.urn:
-                raise TypeError("Missing required property 'service_precedence'")
-            __props__.__dict__["service_precedence"] = service_precedence
-            __props__.__dict__["service_qos_policy"] = service_qos_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Service"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Service"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:Service")])
@@ -389,10 +347,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["pcc_rules"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["service_precedence"] = None
-        __props__.__dict__["service_qos_policy"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -463,36 +418,12 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="pccRules")
-    def pcc_rules(self) -> pulumi.Output[Sequence['outputs.PccRuleConfigurationResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ServicePropertiesFormatResponse']:
         """
-        The set of data flow policy rules that make up this service.
+        Service Properties.
         """
-        return pulumi.get(self, "pcc_rules")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state of the service resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="servicePrecedence")
-    def service_precedence(self) -> pulumi.Output[int]:
-        """
-        A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
-        """
-        return pulumi.get(self, "service_precedence")
-
-    @property
-    @pulumi.getter(name="serviceQosPolicy")
-    def service_qos_policy(self) -> pulumi.Output[Optional['outputs.QosPolicyResponse']]:
-        """
-        The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
-        """
-        return pulumi.get(self, "service_qos_policy")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

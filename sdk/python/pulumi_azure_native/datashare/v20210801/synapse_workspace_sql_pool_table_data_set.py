@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['SynapseWorkspaceSqlPoolTableDataSetArgs', 'SynapseWorkspaceSqlPoolTableDataSet']
 
@@ -17,25 +18,25 @@ class SynapseWorkspaceSqlPoolTableDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
+                 properties: pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  share_name: pulumi.Input[str],
-                 synapse_workspace_sql_pool_table_resource_id: pulumi.Input[str],
                  data_set_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SynapseWorkspaceSqlPoolTableDataSet resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'SynapseWorkspaceSqlPoolTable'.
+        :param pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs'] properties: Synapse Workspace Sql Pool Table data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", 'SynapseWorkspaceSqlPoolTable')
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
         if data_set_name is not None:
             pulumi.set(__self__, "data_set_name", data_set_name)
 
@@ -65,6 +66,18 @@ class SynapseWorkspaceSqlPoolTableDataSetArgs:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs']:
+        """
+        Synapse Workspace Sql Pool Table data set properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -89,18 +102,6 @@ class SynapseWorkspaceSqlPoolTableDataSetArgs:
         pulumi.set(self, "share_name", value)
 
     @property
-    @pulumi.getter(name="synapseWorkspaceSqlPoolTableResourceId")
-    def synapse_workspace_sql_pool_table_resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource id of the Synapse Workspace SQL Pool Table
-        """
-        return pulumi.get(self, "synapse_workspace_sql_pool_table_resource_id")
-
-    @synapse_workspace_sql_pool_table_resource_id.setter
-    def synapse_workspace_sql_pool_table_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "synapse_workspace_sql_pool_table_resource_id", value)
-
-    @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -121,9 +122,9 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 synapse_workspace_sql_pool_table_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A Synapse Workspace Sql Pool Table data set.
@@ -134,9 +135,9 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'SynapseWorkspaceSqlPoolTable'.
+        :param pulumi.Input[pulumi.InputType['SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs']] properties: Synapse Workspace Sql Pool Table data set properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
         """
         ...
     @overload
@@ -165,9 +166,9 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SynapseWorkspaceSqlPoolTableDataSetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 synapse_workspace_sql_pool_table_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -184,16 +185,15 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'SynapseWorkspaceSqlPoolTable'
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            if synapse_workspace_sql_pool_table_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'synapse_workspace_sql_pool_table_resource_id'")
-            __props__.__dict__["synapse_workspace_sql_pool_table_resource_id"] = synapse_workspace_sql_pool_table_resource_id
-            __props__.__dict__["data_set_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -221,21 +221,12 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
 
         __props__ = SynapseWorkspaceSqlPoolTableDataSetArgs.__new__(SynapseWorkspaceSqlPoolTableDataSetArgs)
 
-        __props__.__dict__["data_set_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["synapse_workspace_sql_pool_table_resource_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SynapseWorkspaceSqlPoolTableDataSet(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> pulumi.Output[str]:
-        """
-        Unique id for identifying a data set resource
-        """
-        return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
@@ -255,12 +246,12 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="synapseWorkspaceSqlPoolTableResourceId")
-    def synapse_workspace_sql_pool_table_resource_id(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SynapseWorkspaceSqlPoolTableDataSetPropertiesResponse']:
         """
-        Resource id of the Synapse Workspace SQL Pool Table
+        Synapse Workspace Sql Pool Table data set properties.
         """
-        return pulumi.get(self, "synapse_workspace_sql_pool_table_resource_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

@@ -40,18 +40,6 @@ export interface GetGen2EnvironmentArgs {
  */
 export interface GetGen2EnvironmentResult {
     /**
-     * The time the resource was created.
-     */
-    readonly creationTime: string;
-    /**
-     * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    readonly dataAccessFqdn: string;
-    /**
-     * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-     */
-    readonly dataAccessId: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -69,45 +57,21 @@ export interface GetGen2EnvironmentResult {
      */
     readonly name: string;
     /**
-     * The list of private endpoint connections to the environment.
+     * Properties of the Gen2 environment.
      */
-    readonly privateEndpointConnections: outputs.timeseriesinsights.v20210331preview.PrivateEndpointConnectionResponse[];
-    /**
-     * Provisioning state of the resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-     */
-    readonly publicNetworkAccess?: string;
+    readonly properties: outputs.timeseriesinsights.v20210331preview.Gen2EnvironmentResourcePropertiesResponse;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     readonly sku: outputs.timeseriesinsights.v20210331preview.SkuResponse;
     /**
-     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-     */
-    readonly status: outputs.timeseriesinsights.v20210331preview.EnvironmentStatusResponse;
-    /**
-     * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-     */
-    readonly storageConfiguration: outputs.timeseriesinsights.v20210331preview.Gen2StorageConfigurationOutputResponse;
-    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The list of event properties which will be used to define the environment's time series id.
-     */
-    readonly timeSeriesIdProperties: outputs.timeseriesinsights.v20210331preview.TimeSeriesIdPropertyResponse[];
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
-     */
-    readonly warmStoreConfiguration?: outputs.timeseriesinsights.v20210331preview.WarmStoreConfigurationPropertiesResponse;
 }
 /**
  * Gets the environment with the specified name in the specified subscription and resource group.

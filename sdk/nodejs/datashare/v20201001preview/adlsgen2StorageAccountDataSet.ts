@@ -38,30 +38,18 @@ export class ADLSGen2StorageAccountDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Unique id for identifying a data set resource
-     */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
-    /**
      * Kind of data set.
      * Expected value is 'AdlsGen2StorageAccount'.
      */
     public readonly kind!: pulumi.Output<"AdlsGen2StorageAccount">;
     /**
-     * Location of the ADLSGen2 storage account.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * Name of the azure resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * A list of ADLSGen2 storage account paths.
+     * ADLSGen2 storage account data set properties.
      */
-    public readonly paths!: pulumi.Output<outputs.datashare.v20201001preview.ADLSGen2StorageAccountPathResponse[]>;
-    /**
-     * Resource id of the ADLSGen2 storage account.
-     */
-    public readonly storageAccountResourceId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.datashare.v20201001preview.ADLSGen2StorageAccountDataSetPropertiesResponse>;
     /**
      * System Data of the Azure resource.
      */
@@ -88,8 +76,8 @@ export class ADLSGen2StorageAccountDataSet extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.paths === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'paths'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -97,28 +85,19 @@ export class ADLSGen2StorageAccountDataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.storageAccountResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountResourceId'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
             resourceInputs["kind"] = "AdlsGen2StorageAccount";
-            resourceInputs["paths"] = args ? args.paths : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
-            resourceInputs["dataSetId"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["paths"] = undefined /*out*/;
-            resourceInputs["storageAccountResourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -147,9 +126,9 @@ export interface ADLSGen2StorageAccountDataSetArgs {
      */
     kind: pulumi.Input<"AdlsGen2StorageAccount">;
     /**
-     * A list of ADLSGen2 storage account paths.
+     * ADLSGen2 storage account data set properties.
      */
-    paths: pulumi.Input<pulumi.Input<inputs.datashare.v20201001preview.ADLSGen2StorageAccountPathArgs>[]>;
+    properties: pulumi.Input<inputs.datashare.v20201001preview.ADLSGen2StorageAccountDataSetPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -158,8 +137,4 @@ export interface ADLSGen2StorageAccountDataSetArgs {
      * The name of the share to add the data set to.
      */
     shareName: pulumi.Input<string>;
-    /**
-     * Resource id of the ADLSGen2 storage account.
-     */
-    storageAccountResourceId: pulumi.Input<string>;
 }

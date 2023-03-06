@@ -70,17 +70,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("tableName", required: true)]
-        public Input<object> TableName { get; set; } = null!;
-
-        /// <summary>
         /// Type of dataset.
         /// Expected value is 'AzureTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Table dataset properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.AzureTableDatasetTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public AzureTableDatasetArgs()
         {

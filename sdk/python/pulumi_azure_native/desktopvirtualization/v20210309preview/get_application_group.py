@@ -22,25 +22,10 @@ class GetApplicationGroupResult:
     """
     Represents a ApplicationGroup definition.
     """
-    def __init__(__self__, application_group_type=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, host_pool_arm_path=None, id=None, identity=None, kind=None, location=None, managed_by=None, migration_request=None, name=None, object_id=None, plan=None, sku=None, tags=None, type=None, workspace_arm_path=None):
-        if application_group_type and not isinstance(application_group_type, str):
-            raise TypeError("Expected argument 'application_group_type' to be a str")
-        pulumi.set(__self__, "application_group_type", application_group_type)
-        if cloud_pc_resource and not isinstance(cloud_pc_resource, bool):
-            raise TypeError("Expected argument 'cloud_pc_resource' to be a bool")
-        pulumi.set(__self__, "cloud_pc_resource", cloud_pc_resource)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, etag=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if friendly_name and not isinstance(friendly_name, str):
-            raise TypeError("Expected argument 'friendly_name' to be a str")
-        pulumi.set(__self__, "friendly_name", friendly_name)
-        if host_pool_arm_path and not isinstance(host_pool_arm_path, str):
-            raise TypeError("Expected argument 'host_pool_arm_path' to be a str")
-        pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,18 +41,15 @@ class GetApplicationGroupResult:
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
         pulumi.set(__self__, "managed_by", managed_by)
-        if migration_request and not isinstance(migration_request, dict):
-            raise TypeError("Expected argument 'migration_request' to be a dict")
-        pulumi.set(__self__, "migration_request", migration_request)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if object_id and not isinstance(object_id, str):
-            raise TypeError("Expected argument 'object_id' to be a str")
-        pulumi.set(__self__, "object_id", object_id)
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -77,33 +59,6 @@ class GetApplicationGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if workspace_arm_path and not isinstance(workspace_arm_path, str):
-            raise TypeError("Expected argument 'workspace_arm_path' to be a str")
-        pulumi.set(__self__, "workspace_arm_path", workspace_arm_path)
-
-    @property
-    @pulumi.getter(name="applicationGroupType")
-    def application_group_type(self) -> str:
-        """
-        Resource Type of ApplicationGroup.
-        """
-        return pulumi.get(self, "application_group_type")
-
-    @property
-    @pulumi.getter(name="cloudPcResource")
-    def cloud_pc_resource(self) -> bool:
-        """
-        Is cloud pc resource.
-        """
-        return pulumi.get(self, "cloud_pc_resource")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Description of ApplicationGroup.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -112,22 +67,6 @@ class GetApplicationGroupResult:
         The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
-        """
-        Friendly name of ApplicationGroup.
-        """
-        return pulumi.get(self, "friendly_name")
-
-    @property
-    @pulumi.getter(name="hostPoolArmPath")
-    def host_pool_arm_path(self) -> str:
-        """
-        HostPool arm path of ApplicationGroup.
-        """
-        return pulumi.get(self, "host_pool_arm_path")
 
     @property
     @pulumi.getter
@@ -167,14 +106,6 @@ class GetApplicationGroupResult:
         return pulumi.get(self, "managed_by")
 
     @property
-    @pulumi.getter(name="migrationRequest")
-    def migration_request(self) -> Optional['outputs.MigrationRequestPropertiesResponse']:
-        """
-        The registration info of HostPool.
-        """
-        return pulumi.get(self, "migration_request")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -183,17 +114,17 @@ class GetApplicationGroupResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
-        """
-        ObjectId of ApplicationGroup. (internal use)
-        """
-        return pulumi.get(self, "object_id")
-
-    @property
     @pulumi.getter
     def plan(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']:
         return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ApplicationGroupPropertiesResponse':
+        """
+        Detailed properties for ApplicationGroup
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -216,14 +147,6 @@ class GetApplicationGroupResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="workspaceArmPath")
-    def workspace_arm_path(self) -> str:
-        """
-        Workspace arm path of ApplicationGroup.
-        """
-        return pulumi.get(self, "workspace_arm_path")
-
 
 class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
     # pylint: disable=using-constant-test
@@ -231,25 +154,18 @@ class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
         if False:
             yield self
         return GetApplicationGroupResult(
-            application_group_type=self.application_group_type,
-            cloud_pc_resource=self.cloud_pc_resource,
-            description=self.description,
             etag=self.etag,
-            friendly_name=self.friendly_name,
-            host_pool_arm_path=self.host_pool_arm_path,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
             managed_by=self.managed_by,
-            migration_request=self.migration_request,
             name=self.name,
-            object_id=self.object_id,
             plan=self.plan,
+            properties=self.properties,
             sku=self.sku,
             tags=self.tags,
-            type=self.type,
-            workspace_arm_path=self.workspace_arm_path)
+            type=self.type)
 
 
 def get_application_group(application_group_name: Optional[str] = None,
@@ -269,25 +185,18 @@ def get_application_group(application_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization/v20210309preview:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult).value
 
     return AwaitableGetApplicationGroupResult(
-        application_group_type=__ret__.application_group_type,
-        cloud_pc_resource=__ret__.cloud_pc_resource,
-        description=__ret__.description,
         etag=__ret__.etag,
-        friendly_name=__ret__.friendly_name,
-        host_pool_arm_path=__ret__.host_pool_arm_path,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         managed_by=__ret__.managed_by,
-        migration_request=__ret__.migration_request,
         name=__ret__.name,
-        object_id=__ret__.object_id,
         plan=__ret__.plan,
+        properties=__ret__.properties,
         sku=__ret__.sku,
         tags=__ret__.tags,
-        type=__ret__.type,
-        workspace_arm_path=__ret__.workspace_arm_path)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_application_group)

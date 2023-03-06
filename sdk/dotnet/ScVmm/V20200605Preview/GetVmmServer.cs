@@ -70,25 +70,9 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     public sealed class GetVmmServerResult
     {
         /// <summary>
-        /// Gets or sets the connection status to the vmmServer.
-        /// </summary>
-        public readonly string ConnectionStatus;
-        /// <summary>
-        /// Credentials to connect to VMMServer.
-        /// </summary>
-        public readonly Outputs.VMMServerPropertiesResponseCredentials? Credentials;
-        /// <summary>
-        /// Gets or sets any error message if connection to vmmServer is having any issue.
-        /// </summary>
-        public readonly string ErrorMessage;
-        /// <summary>
         /// The extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
-        /// <summary>
-        /// Fqdn is the hostname/ip of the vmmServer.
-        /// </summary>
-        public readonly string Fqdn;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -102,13 +86,9 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Port is the port on which the vmmServer is listening.
+        /// Resource properties.
         /// </summary>
-        public readonly int? Port;
-        /// <summary>
-        /// Gets or sets the provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.VMMServerPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -121,26 +101,10 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
         /// Resource Type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Unique ID of vmmServer.
-        /// </summary>
-        public readonly string Uuid;
-        /// <summary>
-        /// Version is the version of the vmmSever.
-        /// </summary>
-        public readonly string Version;
 
         [OutputConstructor]
         private GetVmmServerResult(
-            string connectionStatus,
-
-            Outputs.VMMServerPropertiesResponseCredentials? credentials,
-
-            string errorMessage,
-
             Outputs.ExtendedLocationResponse extendedLocation,
-
-            string fqdn,
 
             string id,
 
@@ -148,35 +112,22 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
 
             string name,
 
-            int? port,
-
-            string provisioningState,
+            Outputs.VMMServerPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string uuid,
-
-            string version)
+            string type)
         {
-            ConnectionStatus = connectionStatus;
-            Credentials = credentials;
-            ErrorMessage = errorMessage;
             ExtendedLocation = extendedLocation;
-            Fqdn = fqdn;
             Id = id;
             Location = location;
             Name = name;
-            Port = port;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            Version = version;
         }
     }
 }

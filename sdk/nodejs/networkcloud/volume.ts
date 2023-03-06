@@ -38,18 +38,6 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * The list of resource IDs that attach the volume. It may include virtual machines and Hybrid AKS clusters.
-     */
-    public /*out*/ readonly attachedTo!: pulumi.Output<string[]>;
-    /**
-     * The more detailed status of the volume.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
@@ -62,17 +50,9 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the volume.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The unique identifier of the volume.
-     */
-    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
-    /**
-     * The size of the allocation for this volume in Mebibytes.
-     */
-    public readonly sizeMiB!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.VolumePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -100,36 +80,26 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sizeMiB === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sizeMiB'");
-            }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sizeMiB"] = args ? args.sizeMiB : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["attachedTo"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["attachedTo"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serialNumber"] = undefined /*out*/;
-            resourceInputs["sizeMiB"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -154,13 +124,13 @@ export interface VolumeArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The list of the resource properties.
+     */
+    properties: pulumi.Input<inputs.networkcloud.VolumePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The size of the allocation for this volume in Mebibytes.
-     */
-    sizeMiB: pulumi.Input<number>;
     /**
      * Resource tags.
      */

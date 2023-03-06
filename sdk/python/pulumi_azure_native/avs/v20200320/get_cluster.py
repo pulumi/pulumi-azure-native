@@ -22,55 +22,22 @@ class GetClusterResult:
     """
     A cluster resource
     """
-    def __init__(__self__, cluster_id=None, cluster_size=None, hosts=None, id=None, name=None, provisioning_state=None, sku=None, type=None):
-        if cluster_id and not isinstance(cluster_id, int):
-            raise TypeError("Expected argument 'cluster_id' to be a int")
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        if cluster_size and not isinstance(cluster_size, int):
-            raise TypeError("Expected argument 'cluster_size' to be a int")
-        pulumi.set(__self__, "cluster_size", cluster_size)
-        if hosts and not isinstance(hosts, list):
-            raise TypeError("Expected argument 'hosts' to be a list")
-        pulumi.set(__self__, "hosts", hosts)
+    def __init__(__self__, id=None, name=None, properties=None, sku=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> int:
-        """
-        The identity
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @property
-    @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> int:
-        """
-        The cluster size
-        """
-        return pulumi.get(self, "cluster_size")
-
-    @property
-    @pulumi.getter
-    def hosts(self) -> Sequence[str]:
-        """
-        The hosts
-        """
-        return pulumi.get(self, "hosts")
 
     @property
     @pulumi.getter
@@ -89,12 +56,12 @@ class GetClusterResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ClusterPropertiesResponse':
         """
-        The state of the cluster provisioning
+        The properties of a cluster resource
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -119,12 +86,9 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
-            cluster_id=self.cluster_id,
-            cluster_size=self.cluster_size,
-            hosts=self.hosts,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             sku=self.sku,
             type=self.type)
 
@@ -149,12 +113,9 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20200320:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_id=__ret__.cluster_id,
-        cluster_size=__ret__.cluster_size,
-        hosts=__ret__.hosts,
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
         sku=__ret__.sku,
         type=__ret__.type)
 

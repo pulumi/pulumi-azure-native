@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetNamespaceAuthorizationRuleResult',
@@ -23,16 +24,16 @@ class GetNamespaceAuthorizationRuleResult:
     """
     Description of a Namespace AuthorizationRules.
     """
-    def __init__(__self__, id=None, name=None, rights=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if rights and not isinstance(rights, list):
-            raise TypeError("Expected argument 'rights' to be a list")
-        pulumi.set(__self__, "rights", rights)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -55,11 +56,11 @@ class GetNamespaceAuthorizationRuleResult:
 
     @property
     @pulumi.getter
-    def rights(self) -> Sequence[str]:
+    def properties(self) -> 'outputs.AuthorizationRulePropertiesResponse':
         """
-        The rights associated with the rule.
+        Authorization Rule properties
         """
-        return pulumi.get(self, "rights")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -78,7 +79,7 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
         return GetNamespaceAuthorizationRuleResult(
             id=self.id,
             name=self.name,
-            rights=self.rights,
+            properties=self.properties,
             type=self.type)
 
 
@@ -105,7 +106,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     return AwaitableGetNamespaceAuthorizationRuleResult(
         id=__ret__.id,
         name=__ret__.name,
-        rights=__ret__.rights,
+        properties=__ret__.properties,
         type=__ret__.type)
 
 

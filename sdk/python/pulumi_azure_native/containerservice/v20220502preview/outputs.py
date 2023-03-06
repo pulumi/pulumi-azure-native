@@ -73,6 +73,7 @@ __all__ = [
     'SystemDataResponse',
     'TimeInWeekResponse',
     'TimeSpanResponse',
+    'TrustedAccessRoleBindingPropertiesResponse',
     'UserAssignedIdentityResponse',
     'WindowsGmsaProfileResponse',
 ]
@@ -4877,6 +4878,69 @@ class TimeSpanResponse(dict):
         The start of a time span
         """
         return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class TrustedAccessRoleBindingPropertiesResponse(dict):
+    """
+    Properties for trusted access role binding
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustedAccessRoleBindingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustedAccessRoleBindingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustedAccessRoleBindingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 roles: Sequence[str],
+                 source_resource_id: str):
+        """
+        Properties for trusted access role binding
+        :param str provisioning_state: The current provisioning state of trusted access role binding.
+        :param Sequence[str] roles: A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
+        :param str source_resource_id: The ARM resource ID of source resource that trusted access is configured for.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current provisioning state of trusted access role binding.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Sequence[str]:
+        """
+        A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> str:
+        """
+        The ARM resource ID of source resource that trusted access is configured for.
+        """
+        return pulumi.get(self, "source_resource_id")
 
 
 @pulumi.output_type

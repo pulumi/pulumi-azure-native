@@ -16,23 +16,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class ComponentSetupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the 3rd party component.
-        /// </summary>
-        [Input("componentName", required: true)]
-        public Input<string> ComponentName { get; set; } = null!;
-
-        /// <summary>
-        /// The license key to activate the component.
-        /// </summary>
-        [Input("licenseKey")]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? LicenseKey { get; set; }
-
-        /// <summary>
         /// The type of custom setup.
         /// Expected value is 'ComponentSetup'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Install 3rd party component type properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.LicensedComponentSetupTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public ComponentSetupArgs()
         {

@@ -17,12 +17,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     public partial class OrderItemByName : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Represents shipping and return address for order item
-        /// </summary>
-        [Output("addressDetails")]
-        public Output<Outputs.AddressDetailsResponse> AddressDetails { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -35,22 +29,10 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the order to which order item belongs to
+        /// Order item properties
         /// </summary>
-        [Output("orderId")]
-        public Output<string> OrderId { get; private set; } = null!;
-
-        /// <summary>
-        /// Represents order item details.
-        /// </summary>
-        [Output("orderItemDetails")]
-        public Output<Outputs.OrderItemDetailsResponse> OrderItemDetails { get; private set; } = null!;
-
-        /// <summary>
-        /// Start time of order item
-        /// </summary>
-        [Output("startTime")]
-        public Output<string> StartTime { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.OrderItemPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Represents resource creation and update time
@@ -122,34 +104,22 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     public sealed class OrderItemByNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents shipping and return address for order item
-        /// </summary>
-        [Input("addressDetails", required: true)]
-        public Input<Inputs.AddressDetailsArgs> AddressDetails { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Id of the order to which order item belongs to
-        /// </summary>
-        [Input("orderId", required: true)]
-        public Input<string> OrderId { get; set; } = null!;
-
-        /// <summary>
-        /// Represents order item details.
-        /// </summary>
-        [Input("orderItemDetails", required: true)]
-        public Input<Inputs.OrderItemDetailsArgs> OrderItemDetails { get; set; } = null!;
-
-        /// <summary>
         /// The name of the order item
         /// </summary>
         [Input("orderItemName")]
         public Input<string>? OrderItemName { get; set; }
+
+        /// <summary>
+        /// Order item properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.OrderItemPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -94,22 +94,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public sealed class GetBlobStorageAccountDataSetMappingResult
     {
         /// <summary>
-        /// Gets or sets the container name.
-        /// </summary>
-        public readonly string ContainerName;
-        /// <summary>
-        /// The id of the source data set.
-        /// </summary>
-        public readonly string DataSetId;
-        /// <summary>
-        /// Gets the status of the data set mapping.
-        /// </summary>
-        public readonly string DataSetMappingStatus;
-        /// <summary>
-        /// Gets or sets the path to folder within the container.
-        /// </summary>
-        public readonly string Folder;
-        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -119,25 +103,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Location of the sink storage account.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Gets or sets the mount path on the consumer side where the dataset is to be mapped.
-        /// </summary>
-        public readonly string? MountPath;
-        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the data set mapping.
+        /// Blob Storage account data set mapping properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource id of the sink storage account
-        /// </summary>
-        public readonly string StorageAccountResourceId;
+        public readonly Outputs.BlobStorageAccountDataSetMappingPropertiesResponse Properties;
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
@@ -149,43 +121,22 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 
         [OutputConstructor]
         private GetBlobStorageAccountDataSetMappingResult(
-            string containerName,
-
-            string dataSetId,
-
-            string dataSetMappingStatus,
-
-            string folder,
-
             string id,
 
             string kind,
 
-            string location,
-
-            string? mountPath,
-
             string name,
 
-            string provisioningState,
-
-            string storageAccountResourceId,
+            Outputs.BlobStorageAccountDataSetMappingPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ContainerName = containerName;
-            DataSetId = dataSetId;
-            DataSetMappingStatus = dataSetMappingStatus;
-            Folder = folder;
             Id = id;
             Kind = kind;
-            Location = location;
-            MountPath = mountPath;
             Name = name;
-            ProvisioningState = provisioningState;
-            StorageAccountResourceId = storageAccountResourceId;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

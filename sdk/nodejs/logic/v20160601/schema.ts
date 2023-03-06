@@ -38,57 +38,21 @@ export class Schema extends pulumi.CustomResource {
     }
 
     /**
-     * The changed time.
-     */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
-    /**
-     * The content.
-     */
-    public readonly content!: pulumi.Output<string | undefined>;
-    /**
-     * The content link.
-     */
-    public /*out*/ readonly contentLink!: pulumi.Output<outputs.logic.v20160601.ContentLinkResponse>;
-    /**
-     * The content type.
-     */
-    public readonly contentType!: pulumi.Output<string | undefined>;
-    /**
-     * The created time.
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * The document name.
-     */
-    public readonly documentName!: pulumi.Output<string | undefined>;
-    /**
-     * The file name.
-     */
-    public readonly fileName!: pulumi.Output<string | undefined>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The metadata.
-     */
-    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * Gets the resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The schema type.
+     * The integration account schema properties.
      */
-    public readonly schemaType!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountSchemaPropertiesResponse>;
     /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The target namespace of the schema.
-     */
-    public readonly targetNamespace!: pulumi.Output<string | undefined>;
     /**
      * Gets the resource type.
      */
@@ -108,43 +72,25 @@ export class Schema extends pulumi.CustomResource {
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schemaType'");
-            }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["documentName"] = args ? args.documentName : undefined;
-            resourceInputs["fileName"] = args ? args.fileName : undefined;
             resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["contentLink"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["changedTime"] = undefined /*out*/;
-            resourceInputs["content"] = undefined /*out*/;
-            resourceInputs["contentLink"] = undefined /*out*/;
-            resourceInputs["contentType"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
-            resourceInputs["documentName"] = undefined /*out*/;
-            resourceInputs["fileName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["schemaType"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["targetNamespace"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -159,22 +105,6 @@ export class Schema extends pulumi.CustomResource {
  */
 export interface SchemaArgs {
     /**
-     * The content.
-     */
-    content?: pulumi.Input<string>;
-    /**
-     * The content type.
-     */
-    contentType?: pulumi.Input<string>;
-    /**
-     * The document name.
-     */
-    documentName?: pulumi.Input<string>;
-    /**
-     * The file name.
-     */
-    fileName?: pulumi.Input<string>;
-    /**
      * The integration account name.
      */
     integrationAccountName: pulumi.Input<string>;
@@ -183,9 +113,9 @@ export interface SchemaArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The metadata.
+     * The integration account schema properties.
      */
-    metadata?: any;
+    properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountSchemaPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -195,15 +125,7 @@ export interface SchemaArgs {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * The schema type.
-     */
-    schemaType: pulumi.Input<enums.logic.v20160601.SchemaType>;
-    /**
      * The resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The target namespace of the schema.
-     */
-    targetNamespace?: pulumi.Input<string>;
 }

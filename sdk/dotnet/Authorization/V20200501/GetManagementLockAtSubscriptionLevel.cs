@@ -62,21 +62,13 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-        /// </summary>
-        public readonly string Level;
-        /// <summary>
         /// The name of the lock.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Notes about the lock. Maximum of 512 characters.
+        /// The properties of the lock.
         /// </summary>
-        public readonly string? Notes;
-        /// <summary>
-        /// The owners of the lock.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementLockOwnerResponse> Owners;
+        public readonly Outputs.ManagementLockPropertiesResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -90,23 +82,17 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         private GetManagementLockAtSubscriptionLevelResult(
             string id,
 
-            string level,
-
             string name,
 
-            string? notes,
-
-            ImmutableArray<Outputs.ManagementLockOwnerResponse> owners,
+            Outputs.ManagementLockPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
-            Level = level;
             Name = name;
-            Notes = notes;
-            Owners = owners;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

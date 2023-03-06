@@ -38,22 +38,6 @@ export class Rack extends pulumi.CustomResource {
     }
 
     /**
-     * The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
-     */
-    public readonly availabilityZone!: pulumi.Output<string>;
-    /**
-     * The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
-     */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
-    /**
-     * The more detailed status of the rack.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
@@ -66,21 +50,9 @@ export class Rack extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the rack resource.
+     * The list of the resource properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
-     */
-    public readonly rackLocation!: pulumi.Output<string>;
-    /**
-     * The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
-     */
-    public readonly rackSerialNumber!: pulumi.Output<string>;
-    /**
-     * The SKU for the rack.
-     */
-    public readonly rackSkuId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.RackPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -105,52 +77,29 @@ export class Rack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'availabilityZone'");
-            }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.rackLocation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rackLocation'");
-            }
-            if ((!args || args.rackSerialNumber === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rackSerialNumber'");
-            }
-            if ((!args || args.rackSkuId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rackSkuId'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["rackLocation"] = args ? args.rackLocation : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["rackName"] = args ? args.rackName : undefined;
-            resourceInputs["rackSerialNumber"] = args ? args.rackSerialNumber : undefined;
-            resourceInputs["rackSkuId"] = args ? args.rackSkuId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["availabilityZone"] = undefined /*out*/;
-            resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["rackLocation"] = undefined /*out*/;
-            resourceInputs["rackSerialNumber"] = undefined /*out*/;
-            resourceInputs["rackSkuId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -167,10 +116,6 @@ export class Rack extends pulumi.CustomResource {
  */
 export interface RackArgs {
     /**
-     * The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
-     */
-    availabilityZone: pulumi.Input<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
@@ -179,21 +124,13 @@ export interface RackArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
+     * The list of the resource properties.
      */
-    rackLocation: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.networkcloud.RackPropertiesArgs>;
     /**
      * The name of the rack.
      */
     rackName?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
-     */
-    rackSerialNumber: pulumi.Input<string>;
-    /**
-     * The SKU for the rack.
-     */
-    rackSkuId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

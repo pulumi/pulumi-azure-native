@@ -21,14 +21,6 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-        /// </summary>
-        public readonly Outputs.ScheduleResponse? LabVmsShutdown;
-        /// <summary>
-        /// The auto-startup schedule, if one has been set at the lab or lab resource level.
-        /// </summary>
-        public readonly Outputs.ScheduleResponse? LabVmsStartup;
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -36,6 +28,10 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The properties of the resource.
+        /// </summary>
+        public readonly Outputs.ApplicableSchedulePropertiesResponse Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -49,23 +45,20 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
         private ApplicableScheduleResponse(
             string id,
 
-            Outputs.ScheduleResponse? labVmsShutdown,
-
-            Outputs.ScheduleResponse? labVmsStartup,
-
             string? location,
 
             string name,
+
+            Outputs.ApplicableSchedulePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Id = id;
-            LabVmsShutdown = labVmsShutdown;
-            LabVmsStartup = labVmsStartup;
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['BackupPolicyArgs', 'BackupPolicy']
 
@@ -17,23 +19,23 @@ class BackupPolicyArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  manager_name: pulumi.Input[str],
+                 properties: pulumi.Input['BackupPolicyPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 volume_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input['BackupPolicyPropertiesArgs'] properties: The properties of the backup policy.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
         :param pulumi.Input[str] backup_policy_name: The name of the backup policy to be created/updated.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "manager_name", manager_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_ids", volume_ids)
         if backup_policy_name is not None:
             pulumi.set(__self__, "backup_policy_name", backup_policy_name)
         if kind is not None:
@@ -64,6 +66,18 @@ class BackupPolicyArgs:
         pulumi.set(self, "manager_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BackupPolicyPropertiesArgs']:
+        """
+        The properties of the backup policy.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['BackupPolicyPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -74,18 +88,6 @@ class BackupPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="volumeIds")
-    def volume_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The path IDs of the volumes which are part of the backup policy.
-        """
-        return pulumi.get(self, "volume_ids")
-
-    @volume_ids.setter
-    def volume_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "volume_ids", value)
 
     @property
     @pulumi.getter(name="backupPolicyName")
@@ -121,8 +123,8 @@ class BackupPolicy(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volume_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The backup policy.
@@ -133,8 +135,8 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[pulumi.InputType['BackupPolicyPropertiesArgs']] properties: The properties of the backup policy.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
         """
         ...
     @overload
@@ -164,8 +166,8 @@ class BackupPolicy(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volume_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,19 +185,13 @@ class BackupPolicy(pulumi.CustomResource):
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__.__dict__["manager_name"] = manager_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if volume_ids is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_ids'")
-            __props__.__dict__["volume_ids"] = volume_ids
-            __props__.__dict__["backup_policy_creation_type"] = None
-            __props__.__dict__["last_backup_time"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["next_backup_time"] = None
-            __props__.__dict__["scheduled_backup_status"] = None
-            __props__.__dict__["schedules_count"] = None
-            __props__.__dict__["ssm_host_name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -221,25 +217,11 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-        __props__.__dict__["backup_policy_creation_type"] = None
         __props__.__dict__["kind"] = None
-        __props__.__dict__["last_backup_time"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["next_backup_time"] = None
-        __props__.__dict__["scheduled_backup_status"] = None
-        __props__.__dict__["schedules_count"] = None
-        __props__.__dict__["ssm_host_name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["volume_ids"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="backupPolicyCreationType")
-    def backup_policy_creation_type(self) -> pulumi.Output[str]:
-        """
-        The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-        """
-        return pulumi.get(self, "backup_policy_creation_type")
 
     @property
     @pulumi.getter
@@ -250,14 +232,6 @@ class BackupPolicy(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="lastBackupTime")
-    def last_backup_time(self) -> pulumi.Output[str]:
-        """
-        The time of the last backup for the backup policy.
-        """
-        return pulumi.get(self, "last_backup_time")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -266,36 +240,12 @@ class BackupPolicy(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="nextBackupTime")
-    def next_backup_time(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BackupPolicyPropertiesResponse']:
         """
-        The time of the next backup for the backup policy.
+        The properties of the backup policy.
         """
-        return pulumi.get(self, "next_backup_time")
-
-    @property
-    @pulumi.getter(name="scheduledBackupStatus")
-    def scheduled_backup_status(self) -> pulumi.Output[str]:
-        """
-        Indicates whether at least one of the schedules in the backup policy is active or not.
-        """
-        return pulumi.get(self, "scheduled_backup_status")
-
-    @property
-    @pulumi.getter(name="schedulesCount")
-    def schedules_count(self) -> pulumi.Output[float]:
-        """
-        The count of schedules the backup policy contains.
-        """
-        return pulumi.get(self, "schedules_count")
-
-    @property
-    @pulumi.getter(name="ssmHostName")
-    def ssm_host_name(self) -> pulumi.Output[str]:
-        """
-        If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-        """
-        return pulumi.get(self, "ssm_host_name")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -304,12 +254,4 @@ class BackupPolicy(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeIds")
-    def volume_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The path IDs of the volumes which are part of the backup policy.
-        """
-        return pulumi.get(self, "volume_ids")
 

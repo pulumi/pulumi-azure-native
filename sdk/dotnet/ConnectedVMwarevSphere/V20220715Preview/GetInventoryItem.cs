@@ -86,33 +86,17 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// They inventory type.
-        /// </summary>
-        public readonly string InventoryType;
-        /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         public readonly string? Kind;
-        /// <summary>
-        /// Gets or sets the tracked resource id corresponding to the inventory resource.
-        /// </summary>
-        public readonly string? ManagedResourceId;
-        /// <summary>
-        /// Gets or sets the vCenter Managed Object name for the inventory item.
-        /// </summary>
-        public readonly string? MoName;
-        /// <summary>
-        /// Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
-        /// </summary>
-        public readonly string? MoRefId;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly object Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -126,32 +110,20 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
         private GetInventoryItemResult(
             string id,
 
-            string inventoryType,
-
             string? kind,
-
-            string? managedResourceId,
-
-            string? moName,
-
-            string? moRefId,
 
             string name,
 
-            string provisioningState,
+            object properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
-            InventoryType = inventoryType;
             Kind = kind;
-            ManagedResourceId = managedResourceId;
-            MoName = moName;
-            MoRefId = moRefId;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

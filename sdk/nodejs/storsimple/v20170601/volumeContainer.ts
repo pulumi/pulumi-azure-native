@@ -38,22 +38,6 @@ export class VolumeContainer extends pulumi.CustomResource {
     }
 
     /**
-     * The bandwidth-rate set on the volume container.
-     */
-    public readonly bandWidthRateInMbps!: pulumi.Output<number | undefined>;
-    /**
-     * The ID of the bandwidth setting associated with the volume container.
-     */
-    public readonly bandwidthSettingId!: pulumi.Output<string | undefined>;
-    /**
-     * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-     */
-    public readonly encryptionKey!: pulumi.Output<outputs.storsimple.v20170601.AsymmetricEncryptedSecretResponse | undefined>;
-    /**
-     * The flag to denote whether encryption is enabled or not.
-     */
-    public /*out*/ readonly encryptionStatus!: pulumi.Output<string>;
-    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -62,25 +46,13 @@ export class VolumeContainer extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+     * The volume container properties.
      */
-    public /*out*/ readonly ownerShipStatus!: pulumi.Output<string>;
-    /**
-     * The path ID of storage account associated with the volume container.
-     */
-    public readonly storageAccountCredentialId!: pulumi.Output<string>;
-    /**
-     * The total cloud storage for the volume container.
-     */
-    public /*out*/ readonly totalCloudStorageUsageInBytes!: pulumi.Output<number>;
+    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.VolumeContainerPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The number of volumes in the volume Container.
-     */
-    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
 
     /**
      * Create a VolumeContainer resource with the given unique name, arguments, and options.
@@ -99,39 +71,25 @@ export class VolumeContainer extends pulumi.CustomResource {
             if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountCredentialId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountCredentialId'");
-            }
-            resourceInputs["bandWidthRateInMbps"] = args ? args.bandWidthRateInMbps : undefined;
-            resourceInputs["bandwidthSettingId"] = args ? args.bandwidthSettingId : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
             resourceInputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
-            resourceInputs["encryptionStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["ownerShipStatus"] = undefined /*out*/;
-            resourceInputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeCount"] = undefined /*out*/;
         } else {
-            resourceInputs["bandWidthRateInMbps"] = undefined /*out*/;
-            resourceInputs["bandwidthSettingId"] = undefined /*out*/;
-            resourceInputs["encryptionKey"] = undefined /*out*/;
-            resourceInputs["encryptionStatus"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["ownerShipStatus"] = undefined /*out*/;
-            resourceInputs["storageAccountCredentialId"] = undefined /*out*/;
-            resourceInputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:VolumeContainer" }] };
@@ -145,21 +103,9 @@ export class VolumeContainer extends pulumi.CustomResource {
  */
 export interface VolumeContainerArgs {
     /**
-     * The bandwidth-rate set on the volume container.
-     */
-    bandWidthRateInMbps?: pulumi.Input<number>;
-    /**
-     * The ID of the bandwidth setting associated with the volume container.
-     */
-    bandwidthSettingId?: pulumi.Input<string>;
-    /**
      * The device name
      */
     deviceName: pulumi.Input<string>;
-    /**
-     * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-     */
-    encryptionKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecretArgs>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
@@ -169,13 +115,13 @@ export interface VolumeContainerArgs {
      */
     managerName: pulumi.Input<string>;
     /**
+     * The volume container properties.
+     */
+    properties: pulumi.Input<inputs.storsimple.v20170601.VolumeContainerPropertiesArgs>;
+    /**
      * The resource group name
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The path ID of storage account associated with the volume container.
-     */
-    storageAccountCredentialId: pulumi.Input<string>;
     /**
      * The name of the volume container.
      */

@@ -26,6 +26,7 @@ __all__ = [
     'FirewallRulesResponse',
     'KeyVaultSecretReferenceSecretInfoResponse',
     'KeyVaultSecretUriSecretInfoResponse',
+    'LinkerPropertiesResponse',
     'PermissionsMissingDryrunPrerequisiteResultResponse',
     'PublicNetworkSolutionResponse',
     'SecretAuthInfoResponse',
@@ -1017,6 +1018,155 @@ class KeyVaultSecretUriSecretInfoResponse(dict):
         URI to the keyvault secret
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LinkerPropertiesResponse(dict):
+    """
+    The properties of the Linker.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authInfo":
+            suggest = "auth_info"
+        elif key == "clientType":
+            suggest = "client_type"
+        elif key == "configurationInfo":
+            suggest = "configuration_info"
+        elif key == "publicNetworkSolution":
+            suggest = "public_network_solution"
+        elif key == "secretStore":
+            suggest = "secret_store"
+        elif key == "targetService":
+            suggest = "target_service"
+        elif key == "vNetSolution":
+            suggest = "v_net_solution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 auth_info: Optional[Any] = None,
+                 client_type: Optional[str] = None,
+                 configuration_info: Optional['outputs.ConfigurationInfoResponse'] = None,
+                 public_network_solution: Optional['outputs.PublicNetworkSolutionResponse'] = None,
+                 scope: Optional[str] = None,
+                 secret_store: Optional['outputs.SecretStoreResponse'] = None,
+                 target_service: Optional[Any] = None,
+                 v_net_solution: Optional['outputs.VNetSolutionResponse'] = None):
+        """
+        The properties of the Linker.
+        :param str provisioning_state: The provisioning state. 
+        :param Union['AccessKeyInfoBaseResponse', 'SecretAuthInfoResponse', 'ServicePrincipalCertificateAuthInfoResponse', 'ServicePrincipalSecretAuthInfoResponse', 'SystemAssignedIdentityAuthInfoResponse', 'UserAccountAuthInfoResponse', 'UserAssignedIdentityAuthInfoResponse'] auth_info: The authentication type.
+        :param str client_type: The application client type
+        :param 'ConfigurationInfoResponse' configuration_info: The connection information consumed by applications, including secrets, connection strings.
+        :param 'PublicNetworkSolutionResponse' public_network_solution: The network solution.
+        :param str scope: connection scope in source service.
+        :param 'SecretStoreResponse' secret_store: An option to store secret value in secure place
+        :param Union['AzureResourceResponse', 'ConfluentBootstrapServerResponse', 'ConfluentSchemaRegistryResponse', 'SelfHostedServerResponse'] target_service: The target service properties
+        :param 'VNetSolutionResponse' v_net_solution: The VNet solution.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if auth_info is not None:
+            pulumi.set(__self__, "auth_info", auth_info)
+        if client_type is not None:
+            pulumi.set(__self__, "client_type", client_type)
+        if configuration_info is not None:
+            pulumi.set(__self__, "configuration_info", configuration_info)
+        if public_network_solution is not None:
+            pulumi.set(__self__, "public_network_solution", public_network_solution)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if secret_store is not None:
+            pulumi.set(__self__, "secret_store", secret_store)
+        if target_service is not None:
+            pulumi.set(__self__, "target_service", target_service)
+        if v_net_solution is not None:
+            pulumi.set(__self__, "v_net_solution", v_net_solution)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state. 
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="authInfo")
+    def auth_info(self) -> Optional[Any]:
+        """
+        The authentication type.
+        """
+        return pulumi.get(self, "auth_info")
+
+    @property
+    @pulumi.getter(name="clientType")
+    def client_type(self) -> Optional[str]:
+        """
+        The application client type
+        """
+        return pulumi.get(self, "client_type")
+
+    @property
+    @pulumi.getter(name="configurationInfo")
+    def configuration_info(self) -> Optional['outputs.ConfigurationInfoResponse']:
+        """
+        The connection information consumed by applications, including secrets, connection strings.
+        """
+        return pulumi.get(self, "configuration_info")
+
+    @property
+    @pulumi.getter(name="publicNetworkSolution")
+    def public_network_solution(self) -> Optional['outputs.PublicNetworkSolutionResponse']:
+        """
+        The network solution.
+        """
+        return pulumi.get(self, "public_network_solution")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        connection scope in source service.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="secretStore")
+    def secret_store(self) -> Optional['outputs.SecretStoreResponse']:
+        """
+        An option to store secret value in secure place
+        """
+        return pulumi.get(self, "secret_store")
+
+    @property
+    @pulumi.getter(name="targetService")
+    def target_service(self) -> Optional[Any]:
+        """
+        The target service properties
+        """
+        return pulumi.get(self, "target_service")
+
+    @property
+    @pulumi.getter(name="vNetSolution")
+    def v_net_solution(self) -> Optional['outputs.VNetSolutionResponse']:
+        """
+        The VNet solution.
+        """
+        return pulumi.get(self, "v_net_solution")
 
 
 @pulumi.output_type

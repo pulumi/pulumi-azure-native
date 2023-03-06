@@ -35,29 +35,9 @@ export class BmcKeySet extends pulumi.CustomResource {
     }
 
     /**
-     * The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-     */
-    public readonly azureGroupId!: pulumi.Output<string>;
-    /**
-     * The more detailed status of the key set.
-     */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
-    /**
-     * The descriptive message about the current detailed status.
-     */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
-    /**
-     * The date and time after which the users in this key set will be removed from the baseboard management controllers.
-     */
-    public readonly expiration!: pulumi.Output<string>;
-    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.v20221212preview.ExtendedLocationResponse>;
-    /**
-     * The last time this key set was validated.
-     */
-    public /*out*/ readonly lastValidation!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -67,13 +47,9 @@ export class BmcKeySet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The access level allowed for the users in this key set.
+     * The list of the resource properties.
      */
-    public readonly privilegeLevel!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the baseboard management controller key set.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.networkcloud.v20221212preview.BmcKeySetPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -86,14 +62,6 @@ export class BmcKeySet extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique list of permitted users.
-     */
-    public readonly userList!: pulumi.Output<outputs.networkcloud.v20221212preview.KeySetUserResponse[]>;
-    /**
-     * The status evaluation of each user.
-     */
-    public /*out*/ readonly userListStatus!: pulumi.Output<outputs.networkcloud.v20221212preview.KeySetUserStatusResponse[]>;
 
     /**
      * Create a BmcKeySet resource with the given unique name, arguments, and options.
@@ -106,61 +74,36 @@ export class BmcKeySet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureGroupId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azureGroupId'");
-            }
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
-            }
-            if ((!args || args.expiration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'expiration'");
             }
             if ((!args || args.extendedLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.privilegeLevel === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'privilegeLevel'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userList === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userList'");
-            }
-            resourceInputs["azureGroupId"] = args ? args.azureGroupId : undefined;
             resourceInputs["bmcKeySetName"] = args ? args.bmcKeySetName : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["expiration"] = args ? args.expiration : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privilegeLevel"] = args ? args.privilegeLevel : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userList"] = args ? args.userList : undefined;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["lastValidation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userListStatus"] = undefined /*out*/;
         } else {
-            resourceInputs["azureGroupId"] = undefined /*out*/;
-            resourceInputs["detailedStatus"] = undefined /*out*/;
-            resourceInputs["detailedStatusMessage"] = undefined /*out*/;
-            resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
-            resourceInputs["lastValidation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privilegeLevel"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userList"] = undefined /*out*/;
-            resourceInputs["userListStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:BmcKeySet" }] };
@@ -174,10 +117,6 @@ export class BmcKeySet extends pulumi.CustomResource {
  */
 export interface BmcKeySetArgs {
     /**
-     * The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-     */
-    azureGroupId: pulumi.Input<string>;
-    /**
      * The name of the baseboard management controller key set.
      */
     bmcKeySetName?: pulumi.Input<string>;
@@ -185,10 +124,6 @@ export interface BmcKeySetArgs {
      * The name of the cluster.
      */
     clusterName: pulumi.Input<string>;
-    /**
-     * The date and time after which the users in this key set will be removed from the baseboard management controllers.
-     */
-    expiration: pulumi.Input<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -198,9 +133,9 @@ export interface BmcKeySetArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The access level allowed for the users in this key set.
+     * The list of the resource properties.
      */
-    privilegeLevel: pulumi.Input<string | enums.networkcloud.v20221212preview.BmcKeySetPrivilegeLevel>;
+    properties: pulumi.Input<inputs.networkcloud.v20221212preview.BmcKeySetPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -209,8 +144,4 @@ export interface BmcKeySetArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The unique list of permitted users.
-     */
-    userList: pulumi.Input<pulumi.Input<inputs.networkcloud.v20221212preview.KeySetUserArgs>[]>;
 }

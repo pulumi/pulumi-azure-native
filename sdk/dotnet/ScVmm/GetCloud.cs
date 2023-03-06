@@ -72,14 +72,6 @@ namespace Pulumi.AzureNative.ScVmm
     public sealed class GetCloudResult
     {
         /// <summary>
-        /// Capacity of the cloud.
-        /// </summary>
-        public readonly Outputs.CloudCapacityResponse CloudCapacity;
-        /// <summary>
-        /// Name of the cloud in VMMServer.
-        /// </summary>
-        public readonly string CloudName;
-        /// <summary>
         /// The extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -87,10 +79,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Gets or sets the inventory Item ID for the resource.
-        /// </summary>
-        public readonly string? InventoryItemId;
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
@@ -100,13 +88,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Resource properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// List of QoS policies available for the cloud.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.StorageQoSPolicyResponse> StorageQoSPolicies;
+        public readonly Outputs.CloudPropertiesResponse Properties;
         /// <summary>
         /// The system data.
         /// </summary>
@@ -119,59 +103,33 @@ namespace Pulumi.AzureNative.ScVmm
         /// Resource Type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Unique ID of the cloud.
-        /// </summary>
-        public readonly string? Uuid;
-        /// <summary>
-        /// ARM Id of the vmmServer resource in which this resource resides.
-        /// </summary>
-        public readonly string? VmmServerId;
 
         [OutputConstructor]
         private GetCloudResult(
-            Outputs.CloudCapacityResponse cloudCapacity,
-
-            string cloudName,
-
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
-
-            string? inventoryItemId,
 
             string location,
 
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<Outputs.StorageQoSPolicyResponse> storageQoSPolicies,
+            Outputs.CloudPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? uuid,
-
-            string? vmmServerId)
+            string type)
         {
-            CloudCapacity = cloudCapacity;
-            CloudName = cloudName;
             ExtendedLocation = extendedLocation;
             Id = id;
-            InventoryItemId = inventoryItemId;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            StorageQoSPolicies = storageQoSPolicies;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Uuid = uuid;
-            VmmServerId = vmmServerId;
         }
     }
 }

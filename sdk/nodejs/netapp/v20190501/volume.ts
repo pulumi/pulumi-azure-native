@@ -41,53 +41,17 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * Unique Baremetal Tenant Identifier.
-     */
-    public /*out*/ readonly baremetalTenantId!: pulumi.Output<string>;
-    /**
-     * A unique file path for the volume. Used when creating mount targets
-     */
-    public readonly creationToken!: pulumi.Output<string>;
-    /**
-     * Set of export policy rules
-     */
-    public readonly exportPolicy!: pulumi.Output<outputs.netapp.v20190501.VolumePropertiesResponseExportPolicy | undefined>;
-    /**
-     * Unique FileSystem Identifier.
-     */
-    public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * List of mount targets
-     */
-    public readonly mountTargets!: pulumi.Output<outputs.netapp.v20190501.MountTargetPropertiesResponse[] | undefined>;
     /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Set of protocol types
+     * Volume properties
      */
-    public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
-    /**
-     * Azure lifecycle management
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The service level of the file system
-     */
-    public readonly serviceLevel!: pulumi.Output<string | undefined>;
-    /**
-     * UUID v4 used to identify the Snapshot
-     */
-    public readonly snapshotId!: pulumi.Output<string | undefined>;
-    /**
-     * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-     */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.netapp.v20190501.VolumePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -96,10 +60,6 @@ export class Volume extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-     */
-    public readonly usageThreshold!: pulumi.Output<number>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -117,56 +77,30 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.creationToken === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'creationToken'");
-            }
             if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
+            }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnetId'");
-            }
-            if ((!args || args.usageThreshold === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'usageThreshold'");
-            }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["creationToken"] = args ? args.creationToken : undefined;
-            resourceInputs["exportPolicy"] = args ? args.exportPolicy : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mountTargets"] = args ? args.mountTargets : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["protocolTypes"] = args ? args.protocolTypes : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.netapp.v20190501.volumePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = (args ? args.serviceLevel : undefined) ?? "Premium";
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["baremetalTenantId"] = undefined /*out*/;
-            resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["baremetalTenantId"] = undefined /*out*/;
-            resourceInputs["creationToken"] = undefined /*out*/;
-            resourceInputs["exportPolicy"] = undefined /*out*/;
-            resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mountTargets"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["protocolTypes"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serviceLevel"] = undefined /*out*/;
-            resourceInputs["snapshotId"] = undefined /*out*/;
-            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["usageThreshold"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }, { type: "azure-native:netapp/v20211001:Volume" }, { type: "azure-native:netapp/v20220101:Volume" }, { type: "azure-native:netapp/v20220301:Volume" }, { type: "azure-native:netapp/v20220501:Volume" }, { type: "azure-native:netapp/v20220901:Volume" }] };
@@ -184,53 +118,25 @@ export interface VolumeArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * A unique file path for the volume. Used when creating mount targets
-     */
-    creationToken: pulumi.Input<string>;
-    /**
-     * Set of export policy rules
-     */
-    exportPolicy?: pulumi.Input<inputs.netapp.v20190501.VolumePropertiesExportPolicyArgs>;
-    /**
      * Resource location
      */
     location?: pulumi.Input<string>;
-    /**
-     * List of mount targets
-     */
-    mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20190501.MountTargetPropertiesArgs>[]>;
     /**
      * The name of the capacity pool
      */
     poolName: pulumi.Input<string>;
     /**
-     * Set of protocol types
+     * Volume properties
      */
-    protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    properties: pulumi.Input<inputs.netapp.v20190501.VolumePropertiesArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The service level of the file system
-     */
-    serviceLevel?: pulumi.Input<string | enums.netapp.v20190501.ServiceLevel>;
-    /**
-     * UUID v4 used to identify the Snapshot
-     */
-    snapshotId?: pulumi.Input<string>;
-    /**
-     * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-     */
-    subnetId: pulumi.Input<string>;
-    /**
      * Resource tags
      */
     tags?: any;
-    /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-     */
-    usageThreshold: pulumi.Input<number>;
     /**
      * The name of the volume
      */

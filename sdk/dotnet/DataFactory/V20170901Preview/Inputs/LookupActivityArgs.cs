@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class LookupActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Lookup activity dataset reference.
-        /// </summary>
-        [Input("dataset", required: true)]
-        public Input<Inputs.DatasetReferenceArgs> Dataset { get; set; } = null!;
-
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -38,12 +32,6 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        [Input("firstRowOnly")]
-        public Input<object>? FirstRowOnly { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -64,17 +52,17 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// Dataset-specific source properties, same as copy activity source.
-        /// </summary>
-        [Input("source", required: true)]
-        public object Source { get; set; } = null!;
-
-        /// <summary>
         /// Type of activity.
         /// Expected value is 'Lookup'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Lookup activity properties.
+        /// </summary>
+        [Input("typeProperties", required: true)]
+        public Input<Inputs.LookupActivityTypePropertiesArgs> TypeProperties { get; set; } = null!;
 
         public LookupActivityArgs()
         {

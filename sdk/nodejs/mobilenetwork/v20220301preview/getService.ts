@@ -76,21 +76,9 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * The set of PCC Rules that make up this service.
+     * Service Properties.
      */
-    readonly pccRules: outputs.mobilenetwork.v20220301preview.PccRuleConfigurationResponse[];
-    /**
-     * The provisioning state of the service resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
-     */
-    readonly servicePrecedence: number;
-    /**
-     * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
-     */
-    readonly serviceQosPolicy?: outputs.mobilenetwork.v20220301preview.QosPolicyResponse;
+    readonly properties: outputs.mobilenetwork.v20220301preview.ServicePropertiesFormatResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

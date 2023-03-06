@@ -47,11 +47,11 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     /**
      * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
      */
-    public readonly dataStringComparisonBehavior!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dataStringComparisonBehavior!: pulumi.Output<string | undefined>;
     /**
      * The list of key properties for the reference data set.
      */
-    public readonly keyProperties!: pulumi.Output<outputs.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyResponse[]>;
+    public /*out*/ readonly keyProperties!: pulumi.Output<outputs.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyResponse[]>;
     /**
      * Resource location
      */
@@ -89,20 +89,21 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.keyProperties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyProperties'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataStringComparisonBehavior"] = args ? args.dataStringComparisonBehavior : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["keyProperties"] = args ? args.keyProperties : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["referenceDataSetName"] = args ? args.referenceDataSetName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["dataStringComparisonBehavior"] = undefined /*out*/;
+            resourceInputs["keyProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -128,21 +129,17 @@ export class ReferenceDataSet extends pulumi.CustomResource {
  */
 export interface ReferenceDataSetArgs {
     /**
-     * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-     */
-    dataStringComparisonBehavior?: pulumi.Input<enums.timeseriesinsights.v20171115.DataStringComparisonBehavior>;
-    /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
     environmentName: pulumi.Input<string>;
     /**
-     * The list of key properties for the reference data set.
-     */
-    keyProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyArgs>[]>;
-    /**
      * The location of the resource.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Properties used to create a reference data set.
+     */
+    properties: pulumi.Input<inputs.timeseriesinsights.v20171115.ReferenceDataSetCreationPropertiesArgs>;
     /**
      * Name of the reference data set.
      */

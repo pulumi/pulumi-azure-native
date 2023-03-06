@@ -8,44 +8,34 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['GroupArgs', 'Group']
 
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
-                 machines: pulumi.Input[Sequence[pulumi.Input[str]]],
                  project_name: pulumi.Input[str],
+                 properties: pulumi.Input['GroupPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] machines: List of machine names that are part of this group.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input['GroupPropertiesArgs'] properties: Properties of the group.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
         """
-        pulumi.set(__self__, "machines", machines)
         pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
-
-    @property
-    @pulumi.getter
-    def machines(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of machine names that are part of this group.
-        """
-        return pulumi.get(self, "machines")
-
-    @machines.setter
-    def machines(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "machines", value)
 
     @property
     @pulumi.getter(name="projectName")
@@ -58,6 +48,18 @@ class GroupArgs:
     @project_name.setter
     def project_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['GroupPropertiesArgs']:
+        """
+        Properties of the group.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['GroupPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,8 +105,8 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GroupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -114,8 +116,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] machines: List of machine names that are part of this group.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
+        :param pulumi.Input[pulumi.InputType['GroupPropertiesArgs']] properties: Properties of the group.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
         ...
@@ -144,8 +146,8 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['GroupPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -158,20 +160,17 @@ class Group(pulumi.CustomResource):
 
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["group_name"] = group_name
-            if machines is None and not opts.urn:
-                raise TypeError("Missing required property 'machines'")
-            __props__.__dict__["machines"] = machines
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["assessments"] = None
-            __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["updated_timestamp"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20171111preview:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
@@ -196,30 +195,11 @@ class Group(pulumi.CustomResource):
 
         __props__ = GroupArgs.__new__(GroupArgs)
 
-        __props__.__dict__["assessments"] = None
-        __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["e_tag"] = None
-        __props__.__dict__["machines"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["updated_timestamp"] = None
         return Group(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def assessments(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of References to Assessments created on this group.
-        """
-        return pulumi.get(self, "assessments")
-
-    @property
-    @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> pulumi.Output[str]:
-        """
-        Time when this project was created. Date-Time represented in ISO-8601 format.
-        """
-        return pulumi.get(self, "created_timestamp")
 
     @property
     @pulumi.getter(name="eTag")
@@ -231,14 +211,6 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def machines(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of machine names that are part of this group.
-        """
-        return pulumi.get(self, "machines")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Name of the group.
@@ -247,17 +219,17 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.GroupPropertiesResponse']:
+        """
+        Properties of the group.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         Type of the object = [Microsoft.Migrate/projects/groups].
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="updatedTimestamp")
-    def updated_timestamp(self) -> pulumi.Output[str]:
-        """
-        Time when this project was last updated. Date-Time represented in ISO-8601 format.
-        """
-        return pulumi.get(self, "updated_timestamp")
 

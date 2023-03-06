@@ -48,8 +48,8 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
      * The name of the ARM resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly options!: pulumi.Output<outputs.documentdb.v20200301.CassandraKeyspaceGetPropertiesResponseOptions | undefined>;
-    public readonly resource!: pulumi.Output<outputs.documentdb.v20200301.CassandraKeyspaceGetPropertiesResponseResource | undefined>;
+    public /*out*/ readonly options!: pulumi.Output<outputs.documentdb.v20200301.CassandraKeyspaceGetPropertiesResponseOptions | undefined>;
+    public /*out*/ readonly resource!: pulumi.Output<outputs.documentdb.v20200301.CassandraKeyspaceGetPropertiesResponseResource | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -75,11 +75,8 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'options'");
-            }
-            if ((!args || args.resource === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resource'");
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -87,11 +84,12 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["resource"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
@@ -125,13 +123,9 @@ export interface CassandraResourceCassandraKeyspaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+     * Properties to create and update Azure Cosmos DB Cassandra keyspace.
      */
-    options: pulumi.Input<inputs.documentdb.v20200301.CreateUpdateOptionsArgs>;
-    /**
-     * The standard JSON format of a Cassandra keyspace
-     */
-    resource: pulumi.Input<inputs.documentdb.v20200301.CassandraKeyspaceResourceArgs>;
+    properties: pulumi.Input<inputs.documentdb.v20200301.CassandraKeyspaceCreateUpdatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -17,43 +17,39 @@ __all__ = ['AddressArgs', 'Address']
 @pulumi.input_type
 class AddressArgs:
     def __init__(__self__, *,
-                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 properties: pulumi.Input['AddressPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  address_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Address resource.
-        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for the address.
+        :param pulumi.Input['AddressPropertiesArgs'] properties: Properties of an address.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if address_name is not None:
             pulumi.set(__self__, "address_name", address_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['AddressPropertiesArgs']:
         """
-        Contact details for the address.
+        Properties of an address.
         """
-        return pulumi.get(self, "contact_details")
+        return pulumi.get(self, "properties")
 
-    @contact_details.setter
-    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
-        pulumi.set(self, "contact_details", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['AddressPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -92,18 +88,6 @@ class AddressArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
-        """
-        Shipping details for the address.
-        """
-        return pulumi.get(self, "shipping_address")
-
-    @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
-        pulumi.set(self, "shipping_address", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -122,10 +106,9 @@ class Address(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_name: Optional[pulumi.Input[str]] = None,
-                 contact_details: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AddressPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipping_address: Optional[pulumi.Input[pulumi.InputType['ShippingAddressArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -134,10 +117,9 @@ class Address(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
-        :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_details: Contact details for the address.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['AddressPropertiesArgs']] properties: Properties of an address.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['ShippingAddressArgs']] shipping_address: Shipping details for the address.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -165,10 +147,9 @@ class Address(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_name: Optional[pulumi.Input[str]] = None,
-                 contact_details: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AddressPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipping_address: Optional[pulumi.Input[pulumi.InputType['ShippingAddressArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -180,16 +161,14 @@ class Address(pulumi.CustomResource):
             __props__ = AddressArgs.__new__(AddressArgs)
 
             __props__.__dict__["address_name"] = address_name
-            if contact_details is None and not opts.urn:
-                raise TypeError("Missing required property 'contact_details'")
-            __props__.__dict__["contact_details"] = contact_details
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["shipping_address"] = shipping_address
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["address_validation_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -217,31 +196,13 @@ class Address(pulumi.CustomResource):
 
         __props__ = AddressArgs.__new__(AddressArgs)
 
-        __props__.__dict__["address_validation_status"] = None
-        __props__.__dict__["contact_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["shipping_address"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Address(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="addressValidationStatus")
-    def address_validation_status(self) -> pulumi.Output[str]:
-        """
-        Status of address validation.
-        """
-        return pulumi.get(self, "address_validation_status")
-
-    @property
-    @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> pulumi.Output['outputs.ContactDetailsResponse']:
-        """
-        Contact details for the address.
-        """
-        return pulumi.get(self, "contact_details")
 
     @property
     @pulumi.getter
@@ -260,12 +221,12 @@ class Address(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> pulumi.Output[Optional['outputs.ShippingAddressResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.AddressPropertiesResponse']:
         """
-        Shipping details for the address.
+        Properties of an address.
         """
-        return pulumi.get(self, "shipping_address")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

@@ -44,13 +44,13 @@ export interface GetMonitoringConfigResult {
      */
     readonly id: string;
     /**
-     * The metrics configuration details
-     */
-    readonly metricConfigurations: outputs.databoxedge.v20210601preview.MetricConfigurationResponse[];
-    /**
      * The object name.
      */
     readonly name: string;
+    /**
+     * The metric setting properties.
+     */
+    readonly properties: outputs.databoxedge.v20210601preview.MonitoringMetricConfigurationPropertiesResponse;
     /**
      * MonitoringConfiguration on ASE device
      */
