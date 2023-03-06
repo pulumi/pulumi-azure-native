@@ -877,7 +877,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	switch {
 	case isCustom && customRes.Create != nil:
 		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
-		_, exists, err := customRes.Read(ctx, inputs)
+		_, exists, err := customRes.Read(ctx, id, inputs)
 		if err != nil {
 			return nil, err
 		}
@@ -997,7 +997,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	switch {
 	case isCustom && customRes.Read != nil:
 		var exists bool
-		response, exists, err = customRes.Read(ctx, oldState)
+		response, exists, err = customRes.Read(ctx, id, oldState)
 		if err != nil {
 			return nil, err
 		}

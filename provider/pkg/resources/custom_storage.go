@@ -5,6 +5,7 @@ package resources
 import (
 	"context"
 	"net/http"
+	"regexp"
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
@@ -152,7 +153,7 @@ func (r *staticWebsite) createOrUpdate(ctx context.Context, properties resource.
 	return outputs, nil
 }
 
-func (r *staticWebsite) read(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
+func (r *staticWebsite) read(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, false, err
@@ -467,7 +468,7 @@ func (r *blob) create(ctx context.Context, properties resource.PropertyMap) (map
 		}
 	}
 
-	state, found, err := r.read(ctx, properties)
+	state, found, err := r.read(ctx, "", properties)
 	if !found {
 		return nil, errors.New("newly created blob is not found")
 	}
@@ -517,7 +518,7 @@ func (r *blob) update(ctx context.Context, properties resource.PropertyMap) (map
 		}
 	}
 
-	state, found, err := r.read(ctx, properties)
+	state, found, err := r.read(ctx, "", properties)
 	if !found {
 		return nil, errors.New("newly created blob is not found")
 	}
@@ -548,7 +549,13 @@ func (r *blob) delete(ctx context.Context, properties resource.PropertyMap) erro
 	return nil
 }
 
-func (r *blob) read(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
+func (r *blob) read(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
+	if len(properties) == 0 && id != "" {
+		if idProps, ok := parseBlobIdProperties(id); ok {
+			properties = idProps
+		}
+	}
+
 	blobsClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, false, err
@@ -585,6 +592,27 @@ func (r *blob) read(ctx context.Context, properties resource.PropertyMap) (map[s
 		typeProp:          strings.TrimSuffix(string(props.BlobType), "Blob"),
 		url:               blobsClient.GetResourceID(acc, container, name),
 	}, true, nil
+}
+
+var blobIDPattern = regexp.MustCompile(`(?i)^/subscriptions/(.+)/resourceGroups/(.+)/providers/Microsoft.Storage/storageAccounts/(.+)/blobServices/default/containers/(.+)/blobs/(.+)$`)
+
+// parseBlobIdProperties parses an ID of a Blob resource to its identified properties.
+// For instance, it will convert
+// /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/mysa/blobServices/default/containers/myc/blobs/log.txt
+// to a map of
+// resourceGroupName=myrg,accountName=mysa,containerName=myc,blobName=log.txt.
+func parseBlobIdProperties(id string) (resource.PropertyMap, bool) {
+	match := blobIDPattern.FindStringSubmatch(id)
+	if len(match) != 6 {
+		return nil, false
+	}
+
+	clientProperties := resource.PropertyMap{}
+	clientProperties[resourceGroupName] = resource.NewStringProperty(match[2])
+	clientProperties[accountName] = resource.NewStringProperty(match[3])
+	clientProperties[containerName] = resource.NewStringProperty(match[4])
+	clientProperties[blobName] = resource.NewStringProperty(match[5])
+	return clientProperties, true
 }
 
 func newAccountAuthorizer(ctx context.Context, accountsClient *storage.AccountsClient, properties resource.PropertyMap) (*autorest.SharedKeyAuthorizer, bool, error) {

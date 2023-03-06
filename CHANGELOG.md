@@ -7,6 +7,11 @@
 - Treat location as case- and spacing-insensitive while calculating resource diffs
   [#2281](https://github.com/pulumi/pulumi-azure-native/pull/2281)
 
+### Bug fixes
+
+- Support importing storage blobs
+  [#2280](https://github.com/pulumi/pulumi-azure-native/pull/2280)
+
 ## 1.96.0 (2023-02-24)
 
 - New resource providers `networkcloud` (API version _2022-12-12-preview_) and `resourcehealth` (API version _2022-10-01-preview_).
