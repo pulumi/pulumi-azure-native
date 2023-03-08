@@ -50,7 +50,7 @@ jobs:
 
       - name: Cleanup SDK Folder
         # Remove the per-language folders but preserve the checked-in go.mod
-        run: rm -rf "$(find sdk -mindepth 1 -maxdepth 1 -type d)"
+        run: rm -rf $(find sdk -mindepth 1 -maxdepth 1 -type d)
 
       - name: Preparing Git Branch
         run: |
