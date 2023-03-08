@@ -445,6 +445,8 @@ FluidRelay:
   tracking: 2021-03-12-preview
   additions:
     listFluidRelayServerKeys: "2022-04-21"
+GraphServices:
+  tracking: 2022-09-22-preview
 GuestConfiguration:
   tracking: "2020-06-25"
 HDInsight:
@@ -616,6 +618,8 @@ ManagedIdentity:
     listUserAssignedIdentityAssociatedResources: 2022-01-31-preview
 ManagedNetwork:
   tracking: 2019-06-01-preview
+ManagedNetworkFabric:
+  tracking: 2023-02-01-preview
 ManagedServices:
   tracking: "2019-09-01"
 Management:
@@ -863,6 +867,8 @@ PowerBIDedicated:
   tracking: "2021-01-01"
 PowerPlatform:
   tracking: 2020-10-30-preview
+ProfessionalService:
+  tracking: 2023-07-01-preview
 ProviderHub:
   tracking: "2020-11-20"
 Purview:
