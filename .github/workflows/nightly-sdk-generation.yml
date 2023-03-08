@@ -27,6 +27,7 @@ env:
   ARM_SUBSCRIPTION_ID: 0282681f-7a9e-424b-80b2-96babd57a8a1
   ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
   PULUMI_API: https://api.pulumi-staging.io
+  PROVIDER_VERSION: 1.0.0-alpha.0+dev
 jobs:
   generate-sdk:
     runs-on: ubuntu-latest
