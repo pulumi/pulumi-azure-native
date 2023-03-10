@@ -855,8 +855,12 @@
     "getFluidRelayServerKeys": "2021-03-12-preview",
     "listFluidRelayServerKeys": "2022-04-21"
   },
+  "GraphServices": {
+    "Account": "2022-09-22-preview"
+  },
   "GuestConfiguration": {
     "GuestConfigurationAssignment": "2020-06-25",
+    "GuestConfigurationConnectedVMwarevSphereAssignment": "2020-06-25",
     "GuestConfigurationHCRPAssignment": "2020-06-25"
   },
   "HDInsight": {
@@ -1158,6 +1162,27 @@
     "ManagedNetworkGroup": "2019-06-01-preview",
     "ManagedNetworkPeeringPolicy": "2019-06-01-preview",
     "ScopeAssignment": "2019-06-01-preview"
+  },
+  "ManagedNetworkFabric": {
+    "AccessControlList": "2023-02-01-preview",
+    "ExternalNetwork": "2023-02-01-preview",
+    "InternalNetwork": "2023-02-01-preview",
+    "IpCommunityList": "2023-02-01-preview",
+    "IpPrefixList": "2023-02-01-preview",
+    "L2IsolationDomain": "2023-02-01-preview",
+    "L3IsolationDomain": "2023-02-01-preview",
+    "NetworkDevice": "2023-02-01-preview",
+    "NetworkFabric": "2023-02-01-preview",
+    "NetworkFabricController": "2023-02-01-preview",
+    "NetworkInterface": "2023-02-01-preview",
+    "NetworkRack": "2023-02-01-preview",
+    "NetworkToNetworkInterconnect": "2023-02-01-preview",
+    "RoutePolicy": "2023-02-01-preview",
+    "getL2IsolationDomainArpEntries": "2023-02-01-preview",
+    "getNetworkDeviceDynamicInterfaceMaps": "2023-02-01-preview",
+    "getNetworkDeviceStaticInterfaceMaps": "2023-02-01-preview",
+    "getNetworkDeviceStatus": "2023-02-01-preview",
+    "getNetworkInterfaceStatus": "2023-02-01-preview"
   },
   "ManagedServices": {
     "RegistrationAssignment": "2019-09-01",
@@ -1524,6 +1549,9 @@
     "Account": "2020-10-30-preview",
     "EnterprisePolicy": "2020-10-30-preview",
     "PrivateEndpointConnection": "2020-10-30-preview"
+  },
+  "ProfessionalService": {
+    "ProfessionalServiceSubscriptionLevel": "2023-07-01-preview"
   },
   "ProviderHub": {
     "DefaultRollout": "2020-11-20",

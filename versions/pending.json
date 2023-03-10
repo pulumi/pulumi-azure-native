@@ -136,7 +136,8 @@
     "2021-08-01",
     "2021-11-01",
     "2022-03-01-preview",
-    "2022-06-15-preview"
+    "2022-06-15-preview",
+    "2023-01-15-preview"
   ],
   "AzureData": [],
   "AzureStack": [
@@ -201,7 +202,8 @@
     "2021-01-15",
     "2021-02-01",
     "2021-03-01",
-    "2022-03-01"
+    "2022-03-01",
+    "2022-09-01"
   ],
   "ChangeAnalysis": [],
   "Chaos": [
@@ -393,6 +395,8 @@
     "2022-01-20-preview",
     "2022-03-08-preview",
     "2022-03-08-privatepreview",
+    "2022-05-01-preview",
+    "2022-11-08",
     "2022-12-01"
   ],
   "Dashboard": [
@@ -528,7 +532,8 @@
     "2022-05-15-preview",
     "2022-08-15",
     "2022-08-15-preview",
-    "2022-11-15"
+    "2022-11-15",
+    "2022-11-15-preview"
   ],
   "DomainRegistration": [
     "2020-12-01",
@@ -536,7 +541,8 @@
     "2021-01-15",
     "2021-02-01",
     "2021-03-01",
-    "2022-03-01"
+    "2022-03-01",
+    "2022-09-01"
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
@@ -552,7 +558,8 @@
     "2021-10-01-preview",
     "2022-05-05-preview",
     "2022-07-01-preview",
-    "2022-09-01-preview"
+    "2022-09-01-preview",
+    "2023-02-01-preview"
   ],
   "ElasticSan": [],
   "EngagementFabric": [],
@@ -588,6 +595,7 @@
     "2022-05-26",
     "2022-06-01"
   ],
+  "GraphServices": [],
   "GuestConfiguration": [
     "2021-01-25",
     "2022-01-25"
@@ -628,7 +636,9 @@
     "2022-12-27-preview"
   ],
   "HybridConnectivity": [],
-  "HybridContainerService": [],
+  "HybridContainerService": [
+    "2022-09-01-preview"
+  ],
   "HybridData": [],
   "HybridNetwork": [
     "2021-05-01",
@@ -776,7 +786,8 @@
     "2022-06-01-preview",
     "2022-10-01",
     "2022-10-01-preview",
-    "2022-12-01-preview"
+    "2022-12-01-preview",
+    "2023-02-01-preview"
   ],
   "Maintenance": [
     "2020-07-01-preview",
@@ -792,6 +803,7 @@
     "2023-01-31"
   ],
   "ManagedNetwork": [],
+  "ManagedNetworkFabric": [],
   "ManagedServices": [
     "2020-02-01-preview",
     "2022-01-01-preview",
@@ -928,7 +940,8 @@
   ],
   "OperationsManagement": [],
   "Orbital": [
-    "2022-03-01"
+    "2022-03-01",
+    "2022-11-01"
   ],
   "Peering": [
     "2021-06-01",
@@ -952,6 +965,7 @@
   ],
   "PowerBIDedicated": [],
   "PowerPlatform": [],
+  "ProfessionalService": [],
   "ProviderHub": [
     "2021-05-01-preview",
     "2021-06-01-preview",
@@ -1000,7 +1014,8 @@
     "2022-09-10",
     "2022-09-30-preview",
     "2022-10-01",
-    "2023-01-01"
+    "2023-01-01",
+    "2023-02-01"
   ],
   "RedHatOpenShift": [
     "2021-09-01-preview",
@@ -1060,7 +1075,8 @@
     "2022-05-01-preview",
     "2022-07-01-preview",
     "2022-08-01-preview",
-    "2022-11-20-preview"
+    "2022-11-20-preview",
+    "2023-02-01-preview"
   ],
   "SecurityAndCompliance": [],
   "SecurityDevOps": [],
@@ -1124,7 +1140,8 @@
     "2021-09-01-preview",
     "2021-10-01",
     "2022-02-01",
-    "2022-08-01-preview"
+    "2022-08-01-preview",
+    "2023-02-01"
   ],
   "SoftwarePlan": [
     "2019-12-01"
@@ -1246,18 +1263,21 @@
     "2021-01-15",
     "2021-02-01",
     "2021-03-01",
-    "2022-03-01"
+    "2022-03-01",
+    "2022-09-01"
   ],
   "WebPubSub": [
     "2021-06-01-preview",
     "2021-09-01-preview",
     "2021-10-01",
-    "2022-08-01-preview"
+    "2022-08-01-preview",
+    "2023-02-01"
   ],
   "WindowsESU": [],
   "WindowsIoT": [],
   "WorkloadMonitor": [],
   "Workloads": [
-    "2022-11-01-preview"
+    "2022-11-01-preview",
+    "2023-04-01"
   ]
 }
