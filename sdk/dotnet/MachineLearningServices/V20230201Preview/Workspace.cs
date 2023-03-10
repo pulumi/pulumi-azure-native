@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
         public Output<Outputs.EncryptionPropertyResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
+        /// Settings for feature store type workspace.
+        /// </summary>
+        [Output("featureStoreSettings")]
+        public Output<Outputs.FeatureStoreSettingsResponse?> FeatureStoreSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The friendly name for this workspace. This name in mutable
         /// </summary>
         [Output("friendlyName")]
@@ -80,6 +86,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
         /// </summary>
         [Output("keyVault")]
         public Output<string?> KeyVault { get; private set; } = null!;
+
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -164,6 +173,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Retention time in days after workspace get soft deleted.
+        /// </summary>
+        [Output("softDeleteRetentionInDays")]
+        public Output<int?> SoftDeleteRetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the workspace was soft deleted
@@ -336,6 +351,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
         public Input<Inputs.EncryptionPropertyArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// Settings for feature store type workspace.
+        /// </summary>
+        [Input("featureStoreSettings")]
+        public Input<Inputs.FeatureStoreSettingsArgs>? FeatureStoreSettings { get; set; }
+
+        /// <summary>
         /// The friendly name for this workspace. This name in mutable
         /// </summary>
         [Input("friendlyName")]
@@ -364,6 +385,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
         /// </summary>
         [Input("keyVault")]
         public Input<string>? KeyVault { get; set; }
+
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -412,6 +436,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Retention time in days after workspace get soft deleted.
+        /// </summary>
+        [Input("softDeleteRetentionInDays")]
+        public Input<int>? SoftDeleteRetentionInDays { get; set; }
 
         /// <summary>
         /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created

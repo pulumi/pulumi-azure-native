@@ -59,6 +59,10 @@ export interface GetWorkspaceResult {
      */
     readonly encryption?: outputs.machinelearningservices.v20230201preview.EncryptionPropertyResponse;
     /**
+     * Settings for feature store type workspace.
+     */
+    readonly featureStoreSettings?: outputs.machinelearningservices.v20230201preview.FeatureStoreSettingsResponse;
+    /**
      * The friendly name for this workspace. This name in mutable
      */
     readonly friendlyName?: string;
@@ -82,6 +86,7 @@ export interface GetWorkspaceResult {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     readonly keyVault?: string;
+    readonly kind?: string;
     /**
      * Specifies the location of the resource.
      */
@@ -138,6 +143,10 @@ export interface GetWorkspaceResult {
      * The sku of the workspace.
      */
     readonly sku?: outputs.machinelearningservices.v20230201preview.SkuResponse;
+    /**
+     * Retention time in days after workspace get soft deleted.
+     */
+    readonly softDeleteRetentionInDays?: number;
     /**
      * The timestamp when the workspace was soft deleted
      */

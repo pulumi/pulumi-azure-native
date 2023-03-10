@@ -285,6 +285,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220601Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:NodeType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:NodeType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:NodeType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:NodeType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

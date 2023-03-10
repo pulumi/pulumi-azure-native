@@ -3149,6 +3149,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurearcdata/v20230315preview",
+  "fqn": "pulumi_azure_native.azurearcdata.v20230315preview",
+  "classes": {
+   "azure-native:azurearcdata/v20230315preview:ActiveDirectoryConnector": "ActiveDirectoryConnector",
+   "azure-native:azurearcdata/v20230315preview:DataController": "DataController",
+   "azure-native:azurearcdata/v20230315preview:FailoverGroup": "FailoverGroup",
+   "azure-native:azurearcdata/v20230315preview:PostgresInstance": "PostgresInstance",
+   "azure-native:azurearcdata/v20230315preview:SqlAvailabilityGroup": "SqlAvailabilityGroup",
+   "azure-native:azurearcdata/v20230315preview:SqlAvailabilityGroupDatabase": "SqlAvailabilityGroupDatabase",
+   "azure-native:azurearcdata/v20230315preview:SqlAvailabilityGroupReplica": "SqlAvailabilityGroupReplica",
+   "azure-native:azurearcdata/v20230315preview:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata/v20230315preview:SqlServerAvailabilityGroup": "SqlServerAvailabilityGroup",
+   "azure-native:azurearcdata/v20230315preview:SqlServerDatabase": "SqlServerDatabase",
+   "azure-native:azurearcdata/v20230315preview:SqlServerInstance": "SqlServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azuredata",
   "fqn": "pulumi_azure_native.azuredata",
   "classes": {
@@ -8116,7 +8134,13 @@ _utilities.register(
   "mod": "dbformysql/v20180601privatepreview",
   "fqn": "pulumi_azure_native.dbformysql.v20180601privatepreview",
   "classes": {
-   "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:dbformysql/v20180601privatepreview:Configuration": "Configuration",
+   "azure-native:dbformysql/v20180601privatepreview:Database": "Database",
+   "azure-native:dbformysql/v20180601privatepreview:FirewallRule": "FirewallRule",
+   "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:dbformysql/v20180601privatepreview:Server": "Server",
+   "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator": "ServerAdministrator",
+   "azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule": "VirtualNetworkRule"
   }
  },
  {
@@ -21895,6 +21919,19 @@ _utilities.register(
    "azure-native:servicefabric/v20221001preview:ManagedCluster": "ManagedCluster",
    "azure-native:servicefabric/v20221001preview:NodeType": "NodeType",
    "azure-native:servicefabric/v20221001preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20230201preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20230201preview",
+  "classes": {
+   "azure-native:servicefabric/v20230201preview:Application": "Application",
+   "azure-native:servicefabric/v20230201preview:ApplicationType": "ApplicationType",
+   "azure-native:servicefabric/v20230201preview:ApplicationTypeVersion": "ApplicationTypeVersion",
+   "azure-native:servicefabric/v20230201preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20230201preview:NodeType": "NodeType",
+   "azure-native:servicefabric/v20230201preview:Service": "Service"
   }
  },
  {

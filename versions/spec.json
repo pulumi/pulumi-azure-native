@@ -1809,6 +1809,19 @@
       "SqlManagedInstance",
       "SqlServerDatabase",
       "SqlServerInstance"
+    ],
+    "2023-03-15-preview": [
+      "ActiveDirectoryConnector",
+      "DataController",
+      "FailoverGroup",
+      "PostgresInstance",
+      "SqlAvailabilityGroup",
+      "SqlAvailabilityGroupDatabase",
+      "SqlAvailabilityGroupReplica",
+      "SqlManagedInstance",
+      "SqlServerAvailabilityGroup",
+      "SqlServerDatabase",
+      "SqlServerInstance"
     ]
   },
   "AzureData": {
@@ -4067,7 +4080,13 @@
       "PrivateEndpointConnection"
     ],
     "2018-06-01-privatepreview": [
-      "PrivateEndpointConnection"
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "PrivateEndpointConnection",
+      "Server",
+      "ServerAdministrator",
+      "VirtualNetworkRule"
     ],
     "2020-01-01": [
       "ServerKey"
@@ -14014,6 +14033,15 @@
       "getmanagedAzResiliencyStatus"
     ],
     "2022-10-01-preview": [
+      "Application",
+      "ApplicationType",
+      "ApplicationTypeVersion",
+      "ManagedCluster",
+      "NodeType",
+      "Service",
+      "getmanagedAzResiliencyStatus"
+    ],
+    "2023-02-01-preview": [
       "Application",
       "ApplicationType",
       "ApplicationTypeVersion",

@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20230115Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlServerDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230315preview:SqlServerDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

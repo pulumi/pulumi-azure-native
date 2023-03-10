@@ -106,7 +106,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:Configuration" }, { type: "azure-native:dbformysql/v20171201preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:Configuration" }, { type: "azure-native:dbformysql/v20171201preview:Configuration" }, { type: "azure-native:dbformysql/v20180601privatepreview:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }

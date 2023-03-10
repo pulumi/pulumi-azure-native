@@ -1943,7 +1943,8 @@
     "ActiveDirectoryConnector": [
       "2022-03-01-preview",
       "2022-06-15-preview",
-      "2023-01-15-preview"
+      "2023-01-15-preview",
+      "2023-03-15-preview"
     ],
     "DataController": [
       "2021-06-01-preview",
@@ -1952,17 +1953,29 @@
       "2021-11-01",
       "2022-03-01-preview",
       "2022-06-15-preview",
-      "2023-01-15-preview"
+      "2023-01-15-preview",
+      "2023-03-15-preview"
     ],
     "FailoverGroup": [
-      "2023-01-15-preview"
+      "2023-01-15-preview",
+      "2023-03-15-preview"
     ],
     "PostgresInstance": [
       "2021-06-01-preview",
       "2021-07-01-preview",
       "2022-03-01-preview",
       "2022-06-15-preview",
-      "2023-01-15-preview"
+      "2023-01-15-preview",
+      "2023-03-15-preview"
+    ],
+    "SqlAvailabilityGroup": [
+      "2023-03-15-preview"
+    ],
+    "SqlAvailabilityGroupDatabase": [
+      "2023-03-15-preview"
+    ],
+    "SqlAvailabilityGroupReplica": [
+      "2023-03-15-preview"
     ],
     "SqlManagedInstance": [
       "2021-06-01-preview",
@@ -1971,11 +1984,16 @@
       "2021-11-01",
       "2022-03-01-preview",
       "2022-06-15-preview",
-      "2023-01-15-preview"
+      "2023-01-15-preview",
+      "2023-03-15-preview"
+    ],
+    "SqlServerAvailabilityGroup": [
+      "2023-03-15-preview"
     ],
     "SqlServerDatabase": [
       "2022-06-15-preview",
-      "2023-01-15-preview"
+      "2023-01-15-preview",
+      "2023-03-15-preview"
     ],
     "SqlServerInstance": [
       "2021-06-01-preview",
@@ -1984,7 +2002,8 @@
       "2021-11-01",
       "2022-03-01-preview",
       "2022-06-15-preview",
-      "2023-01-15-preview"
+      "2023-01-15-preview",
+      "2023-03-15-preview"
     ]
   },
   "AzureData": {
@@ -4114,6 +4133,7 @@
     "Configuration": [
       "2017-12-01",
       "2017-12-01-preview",
+      "2018-06-01-privatepreview",
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
       "2021-05-01",
@@ -4123,6 +4143,7 @@
     "Database": [
       "2017-12-01",
       "2017-12-01-preview",
+      "2018-06-01-privatepreview",
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
       "2021-05-01",
@@ -4132,6 +4153,7 @@
     "FirewallRule": [
       "2017-12-01",
       "2017-12-01-preview",
+      "2018-06-01-privatepreview",
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
       "2021-05-01",
@@ -4145,6 +4167,7 @@
     "Server": [
       "2017-12-01",
       "2017-12-01-preview",
+      "2018-06-01-privatepreview",
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
       "2021-05-01",
@@ -4153,7 +4176,8 @@
     ],
     "ServerAdministrator": [
       "2017-12-01",
-      "2017-12-01-preview"
+      "2017-12-01-preview",
+      "2018-06-01-privatepreview"
     ],
     "ServerKey": [
       "2020-01-01",
@@ -4163,7 +4187,8 @@
     ],
     "VirtualNetworkRule": [
       "2017-12-01",
-      "2017-12-01-preview"
+      "2017-12-01-preview",
+      "2018-06-01-privatepreview"
     ],
     "getGetPrivateDnsZoneSuffixExecute": [
       "2021-05-01",
@@ -14472,7 +14497,8 @@
       "2022-02-01-preview",
       "2022-06-01-preview",
       "2022-08-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-02-01-preview"
     ],
     "ApplicationType": [
       "2017-07-01-preview",
@@ -14492,7 +14518,8 @@
       "2022-02-01-preview",
       "2022-06-01-preview",
       "2022-08-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-02-01-preview"
     ],
     "ApplicationTypeVersion": [
       "2017-07-01-preview",
@@ -14512,7 +14539,8 @@
       "2022-02-01-preview",
       "2022-06-01-preview",
       "2022-08-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-02-01-preview"
     ],
     "Cluster": [
       "2016-09-01",
@@ -14537,7 +14565,8 @@
       "2022-02-01-preview",
       "2022-06-01-preview",
       "2022-08-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-02-01-preview"
     ],
     "NodeType": [
       "2020-01-01-preview",
@@ -14550,7 +14579,8 @@
       "2022-02-01-preview",
       "2022-06-01-preview",
       "2022-08-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-02-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -14570,13 +14600,15 @@
       "2022-02-01-preview",
       "2022-06-01-preview",
       "2022-08-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-02-01-preview"
     ],
     "getmanagedAzResiliencyStatus": [
       "2022-02-01-preview",
       "2022-06-01-preview",
       "2022-08-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-02-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"

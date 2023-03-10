@@ -62,6 +62,7 @@ __all__ = [
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
     'ComputeInstanceArgs',
+    'ComputeRuntimeDtoArgs',
     'ComputeSchedulesArgs',
     'ComputeStartStopScheduleArgs',
     'ContainerResourceRequirementsArgs',
@@ -94,6 +95,7 @@ __all__ = [
     'EnvironmentContainerArgs',
     'EnvironmentVariableArgs',
     'EnvironmentVersionArgs',
+    'FeatureStoreSettingsArgs',
     'FeaturesetContainerArgs',
     'FeaturesetSpecificationArgs',
     'FeaturesetVersionArgs',
@@ -5159,6 +5161,23 @@ class ComputeInstanceArgs:
 
 
 @pulumi.input_type
+class ComputeRuntimeDtoArgs:
+    def __init__(__self__, *,
+                 spark_runtime_version: Optional[pulumi.Input[str]] = None):
+        if spark_runtime_version is not None:
+            pulumi.set(__self__, "spark_runtime_version", spark_runtime_version)
+
+    @property
+    @pulumi.getter(name="sparkRuntimeVersion")
+    def spark_runtime_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "spark_runtime_version")
+
+    @spark_runtime_version.setter
+    def spark_runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spark_runtime_version", value)
+
+
+@pulumi.input_type
 class ComputeSchedulesArgs:
     def __init__(__self__, *,
                  compute_start_stop: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]]] = None):
@@ -7196,6 +7215,47 @@ class EnvironmentVersionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class FeatureStoreSettingsArgs:
+    def __init__(__self__, *,
+                 compute_runtime: Optional[pulumi.Input['ComputeRuntimeDtoArgs']] = None,
+                 offline_store_connection_name: Optional[pulumi.Input[str]] = None,
+                 online_store_connection_name: Optional[pulumi.Input[str]] = None):
+        if compute_runtime is not None:
+            pulumi.set(__self__, "compute_runtime", compute_runtime)
+        if offline_store_connection_name is not None:
+            pulumi.set(__self__, "offline_store_connection_name", offline_store_connection_name)
+        if online_store_connection_name is not None:
+            pulumi.set(__self__, "online_store_connection_name", online_store_connection_name)
+
+    @property
+    @pulumi.getter(name="computeRuntime")
+    def compute_runtime(self) -> Optional[pulumi.Input['ComputeRuntimeDtoArgs']]:
+        return pulumi.get(self, "compute_runtime")
+
+    @compute_runtime.setter
+    def compute_runtime(self, value: Optional[pulumi.Input['ComputeRuntimeDtoArgs']]):
+        pulumi.set(self, "compute_runtime", value)
+
+    @property
+    @pulumi.getter(name="offlineStoreConnectionName")
+    def offline_store_connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "offline_store_connection_name")
+
+    @offline_store_connection_name.setter
+    def offline_store_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offline_store_connection_name", value)
+
+    @property
+    @pulumi.getter(name="onlineStoreConnectionName")
+    def online_store_connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "online_store_connection_name")
+
+    @online_store_connection_name.setter
+    def online_store_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "online_store_connection_name", value)
 
 
 @pulumi.input_type

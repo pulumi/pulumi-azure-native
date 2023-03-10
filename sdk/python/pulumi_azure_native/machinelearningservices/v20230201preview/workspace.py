@@ -24,17 +24,20 @@ class WorkspaceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
+                 feature_store_settings: Optional[pulumi.Input['FeatureStoreSettingsArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  service_managed_resources_settings: Optional[pulumi.Input['ServiceManagedResourcesSettingsArgs']] = None,
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  system_datastores_auth_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -49,6 +52,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] description: The description of this workspace.
         :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
         :param pulumi.Input['EncryptionPropertyArgs'] encryption: The encryption settings of Azure ML workspace.
+        :param pulumi.Input['FeatureStoreSettingsArgs'] feature_store_settings: Settings for feature store type workspace.
         :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
@@ -60,6 +64,7 @@ class WorkspaceArgs:
         :param pulumi.Input['ServiceManagedResourcesSettingsArgs'] service_managed_resources_settings: The service managed resource settings.
         :param pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]] shared_private_link_resources: The list of shared private link resources in this workspace.
         :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
+        :param pulumi.Input[int] soft_delete_retention_in_days: Retention time in days after workspace get soft deleted.
         :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] system_datastores_auth_mode: The auth mode used for accessing the system datastores of the workspace
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
@@ -81,6 +86,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "discovery_url", discovery_url)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if feature_store_settings is not None:
+            pulumi.set(__self__, "feature_store_settings", feature_store_settings)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if hbi_workspace is None:
@@ -93,6 +100,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "image_build_compute", image_build_compute)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if primary_user_assigned_identity is not None:
@@ -105,6 +114,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "shared_private_link_resources", shared_private_link_resources)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if soft_delete_retention_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if storage_account is not None:
             pulumi.set(__self__, "storage_account", storage_account)
         if system_datastores_auth_mode is not None:
@@ -203,6 +214,18 @@ class WorkspaceArgs:
         pulumi.set(self, "encryption", value)
 
     @property
+    @pulumi.getter(name="featureStoreSettings")
+    def feature_store_settings(self) -> Optional[pulumi.Input['FeatureStoreSettingsArgs']]:
+        """
+        Settings for feature store type workspace.
+        """
+        return pulumi.get(self, "feature_store_settings")
+
+    @feature_store_settings.setter
+    def feature_store_settings(self, value: Optional[pulumi.Input['FeatureStoreSettingsArgs']]):
+        pulumi.set(self, "feature_store_settings", value)
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -261,6 +284,15 @@ class WorkspaceArgs:
     @key_vault.setter
     def key_vault(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -335,6 +367,18 @@ class WorkspaceArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="softDeleteRetentionInDays")
+    def soft_delete_retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Retention time in days after workspace get soft deleted.
+        """
+        return pulumi.get(self, "soft_delete_retention_in_days")
+
+    @soft_delete_retention_in_days.setter
+    def soft_delete_retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_in_days", value)
+
+    @property
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> Optional[pulumi.Input[str]]:
         """
@@ -406,11 +450,13 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 feature_store_settings: Optional[pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
@@ -418,6 +464,7 @@ class Workspace(pulumi.CustomResource):
                  service_managed_resources_settings: Optional[pulumi.Input[pulumi.InputType['ServiceManagedResourcesSettingsArgs']]] = None,
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  system_datastores_auth_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -435,6 +482,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this workspace.
         :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
         :param pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']] encryption: The encryption settings of Azure ML workspace.
+        :param pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']] feature_store_settings: Settings for feature store type workspace.
         :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the resource.
@@ -447,6 +495,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceManagedResourcesSettingsArgs']] service_managed_resources_settings: The service managed resource settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
+        :param pulumi.Input[int] soft_delete_retention_in_days: Retention time in days after workspace get soft deleted.
         :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] system_datastores_auth_mode: The auth mode used for accessing the system datastores of the workspace
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
@@ -483,11 +532,13 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 feature_store_settings: Optional[pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
@@ -495,6 +546,7 @@ class Workspace(pulumi.CustomResource):
                  service_managed_resources_settings: Optional[pulumi.Input[pulumi.InputType['ServiceManagedResourcesSettingsArgs']]] = None,
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  system_datastores_auth_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -517,6 +569,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["discovery_url"] = discovery_url
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["feature_store_settings"] = feature_store_settings
             __props__.__dict__["friendly_name"] = friendly_name
             if hbi_workspace is None:
                 hbi_workspace = False
@@ -524,6 +577,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_build_compute"] = image_build_compute
             __props__.__dict__["key_vault"] = key_vault
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
             __props__.__dict__["public_network_access"] = public_network_access
@@ -533,6 +587,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["service_managed_resources_settings"] = service_managed_resources_settings
             __props__.__dict__["shared_private_link_resources"] = shared_private_link_resources
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["soft_delete_retention_in_days"] = soft_delete_retention_in_days
             __props__.__dict__["storage_account"] = storage_account
             __props__.__dict__["system_datastores_auth_mode"] = system_datastores_auth_mode
             __props__.__dict__["tags"] = tags
@@ -584,11 +639,13 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["discovery_url"] = None
         __props__.__dict__["encryption"] = None
+        __props__.__dict__["feature_store_settings"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["hbi_workspace"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["image_build_compute"] = None
         __props__.__dict__["key_vault"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["ml_flow_tracking_uri"] = None
         __props__.__dict__["name"] = None
@@ -603,6 +660,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["service_provisioned_resource_group"] = None
         __props__.__dict__["shared_private_link_resources"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["soft_delete_retention_in_days"] = None
         __props__.__dict__["soft_deleted_at"] = None
         __props__.__dict__["storage_account"] = None
         __props__.__dict__["storage_hns_enabled"] = None
@@ -664,6 +722,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="featureStoreSettings")
+    def feature_store_settings(self) -> pulumi.Output[Optional['outputs.FeatureStoreSettingsResponse']]:
+        """
+        Settings for feature store type workspace.
+        """
+        return pulumi.get(self, "feature_store_settings")
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -702,6 +768,11 @@ class Workspace(pulumi.CustomResource):
         ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -814,6 +885,14 @@ class Workspace(pulumi.CustomResource):
         The sku of the workspace.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionInDays")
+    def soft_delete_retention_in_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Retention time in days after workspace get soft deleted.
+        """
+        return pulumi.get(self, "soft_delete_retention_in_days")
 
     @property
     @pulumi.getter(name="softDeletedAt")

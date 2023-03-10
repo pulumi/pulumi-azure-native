@@ -21,6 +21,7 @@ import * as v20220201preview from "./v20220201preview";
 import * as v20220601preview from "./v20220601preview";
 import * as v20220801preview from "./v20220801preview";
 import * as v20221001preview from "./v20221001preview";
+import * as v20230201preview from "./v20230201preview";
 
 export {
     v20170701preview,
@@ -42,6 +43,7 @@ export {
     v20220601preview,
     v20220801preview,
     v20221001preview,
+    v20230201preview,
 };
 
 export const ArmServicePackageActivationMode = {

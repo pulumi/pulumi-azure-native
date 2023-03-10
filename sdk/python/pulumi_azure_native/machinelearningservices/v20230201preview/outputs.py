@@ -71,6 +71,7 @@ __all__ = [
     'ComputeInstanceResponse',
     'ComputeInstanceSshSettingsResponse',
     'ComputeInstanceVersionResponse',
+    'ComputeRuntimeDtoResponse',
     'ComputeSchedulesResponse',
     'ComputeStartStopScheduleResponse',
     'ContainerResourceRequirementsResponse',
@@ -106,6 +107,7 @@ __all__ = [
     'ErrorDetailResponse',
     'ErrorResponseResponse',
     'FeatureResponse',
+    'FeatureStoreSettingsResponse',
     'FeatureWindowResponse',
     'FeaturesetContainerResponse',
     'FeaturesetJobResponse',
@@ -6502,6 +6504,36 @@ class ComputeInstanceVersionResponse(dict):
 
 
 @pulumi.output_type
+class ComputeRuntimeDtoResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkRuntimeVersion":
+            suggest = "spark_runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeRuntimeDtoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeRuntimeDtoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeRuntimeDtoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_runtime_version: Optional[str] = None):
+        if spark_runtime_version is not None:
+            pulumi.set(__self__, "spark_runtime_version", spark_runtime_version)
+
+    @property
+    @pulumi.getter(name="sparkRuntimeVersion")
+    def spark_runtime_version(self) -> Optional[str]:
+        return pulumi.get(self, "spark_runtime_version")
+
+
+@pulumi.output_type
 class ComputeSchedulesResponse(dict):
     """
     The list of schedules to be applied on the computes
@@ -9066,6 +9098,56 @@ class FeatureResponse(dict):
         Specifies tags
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FeatureStoreSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeRuntime":
+            suggest = "compute_runtime"
+        elif key == "offlineStoreConnectionName":
+            suggest = "offline_store_connection_name"
+        elif key == "onlineStoreConnectionName":
+            suggest = "online_store_connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureStoreSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureStoreSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureStoreSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_runtime: Optional['outputs.ComputeRuntimeDtoResponse'] = None,
+                 offline_store_connection_name: Optional[str] = None,
+                 online_store_connection_name: Optional[str] = None):
+        if compute_runtime is not None:
+            pulumi.set(__self__, "compute_runtime", compute_runtime)
+        if offline_store_connection_name is not None:
+            pulumi.set(__self__, "offline_store_connection_name", offline_store_connection_name)
+        if online_store_connection_name is not None:
+            pulumi.set(__self__, "online_store_connection_name", online_store_connection_name)
+
+    @property
+    @pulumi.getter(name="computeRuntime")
+    def compute_runtime(self) -> Optional['outputs.ComputeRuntimeDtoResponse']:
+        return pulumi.get(self, "compute_runtime")
+
+    @property
+    @pulumi.getter(name="offlineStoreConnectionName")
+    def offline_store_connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "offline_store_connection_name")
+
+    @property
+    @pulumi.getter(name="onlineStoreConnectionName")
+    def online_store_connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "online_store_connection_name")
 
 
 @pulumi.output_type

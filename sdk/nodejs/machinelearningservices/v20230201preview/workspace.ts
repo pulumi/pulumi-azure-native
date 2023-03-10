@@ -62,6 +62,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.machinelearningservices.v20230201preview.EncryptionPropertyResponse | undefined>;
     /**
+     * Settings for feature store type workspace.
+     */
+    public readonly featureStoreSettings!: pulumi.Output<outputs.machinelearningservices.v20230201preview.FeatureStoreSettingsResponse | undefined>;
+    /**
      * The friendly name for this workspace. This name in mutable
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
@@ -81,6 +85,7 @@ export class Workspace extends pulumi.CustomResource {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     public readonly keyVault!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the location of the resource.
      */
@@ -137,6 +142,10 @@ export class Workspace extends pulumi.CustomResource {
      * The sku of the workspace.
      */
     public readonly sku!: pulumi.Output<outputs.machinelearningservices.v20230201preview.SkuResponse | undefined>;
+    /**
+     * Retention time in days after workspace get soft deleted.
+     */
+    public readonly softDeleteRetentionInDays!: pulumi.Output<number | undefined>;
     /**
      * The timestamp when the workspace was soft deleted
      */
@@ -198,11 +207,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["discoveryUrl"] = args ? args.discoveryUrl : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["featureStoreSettings"] = args ? args.featureStoreSettings : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) ?? false;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageBuildCompute"] = args ? args.imageBuildCompute : undefined;
             resourceInputs["keyVault"] = args ? args.keyVault : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
@@ -210,6 +221,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["serviceManagedResourcesSettings"] = args ? args.serviceManagedResourcesSettings : undefined;
             resourceInputs["sharedPrivateLinkResources"] = args ? args.sharedPrivateLinkResources : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["softDeleteRetentionInDays"] = args ? args.softDeleteRetentionInDays : undefined;
             resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
             resourceInputs["systemDatastoresAuthMode"] = args ? args.systemDatastoresAuthMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -236,11 +248,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["discoveryUrl"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["featureStoreSettings"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["hbiWorkspace"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["imageBuildCompute"] = undefined /*out*/;
             resourceInputs["keyVault"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mlFlowTrackingUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -255,6 +269,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
             resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["softDeleteRetentionInDays"] = undefined /*out*/;
             resourceInputs["softDeletedAt"] = undefined /*out*/;
             resourceInputs["storageAccount"] = undefined /*out*/;
             resourceInputs["storageHnsEnabled"] = undefined /*out*/;
@@ -302,6 +317,10 @@ export interface WorkspaceArgs {
      */
     encryption?: pulumi.Input<inputs.machinelearningservices.v20230201preview.EncryptionPropertyArgs>;
     /**
+     * Settings for feature store type workspace.
+     */
+    featureStoreSettings?: pulumi.Input<inputs.machinelearningservices.v20230201preview.FeatureStoreSettingsArgs>;
+    /**
      * The friendly name for this workspace. This name in mutable
      */
     friendlyName?: pulumi.Input<string>;
@@ -321,6 +340,7 @@ export interface WorkspaceArgs {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     keyVault?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the location of the resource.
      */
@@ -349,6 +369,10 @@ export interface WorkspaceArgs {
      * The sku of the workspace.
      */
     sku?: pulumi.Input<inputs.machinelearningservices.v20230201preview.SkuArgs>;
+    /**
+     * Retention time in days after workspace get soft deleted.
+     */
+    softDeleteRetentionInDays?: pulumi.Input<number>;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */
