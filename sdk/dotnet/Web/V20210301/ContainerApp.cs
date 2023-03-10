@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Web.V20210301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:ContainerApp"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:ContainerApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

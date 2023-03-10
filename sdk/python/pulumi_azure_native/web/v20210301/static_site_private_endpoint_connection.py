@@ -172,7 +172,7 @@ class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSitePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSitePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSitePrivateEndpointConnection, __self__).__init__(
             'azure-native:web/v20210301:StaticSitePrivateEndpointConnection',

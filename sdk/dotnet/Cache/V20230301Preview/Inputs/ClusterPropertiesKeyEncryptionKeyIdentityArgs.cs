@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview.Inputs
         /// Only userAssignedIdentity is supported in this API version; other types may be supported in the future
         /// </summary>
         [Input("identityType")]
-        public InputUnion<string, Pulumi.AzureNative.Cache.V20230301Preview.ManagedServiceIdentityType>? IdentityType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.V20230301Preview.CmkIdentityType>? IdentityType { get; set; }
 
         /// <summary>
         /// User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/&lt;sub uuid&gt;/resourceGroups/&lt;resource group&gt;/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.

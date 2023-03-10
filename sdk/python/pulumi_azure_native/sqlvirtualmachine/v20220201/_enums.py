@@ -70,8 +70,8 @@ class Commit(str, Enum):
     """
     Replica commit mode in availability group.
     """
-    SYNCHRONOU_S_COMMIT = "SYNCHRONOUS_COMMIT"
-    ASYNCHRONOU_S_COMMIT = "ASYNCHRONOUS_COMMIT"
+    SYNCHRONOUS_COMMIT = "Synchronous_Commit"
+    ASYNCHRONOUS_COMMIT = "Asynchronous_Commit"
 
 
 class ConnectivityType(str, Enum):
@@ -110,8 +110,8 @@ class Failover(str, Enum):
     """
     Replica failover mode in availability group.
     """
-    AUTOMATIC = "AUTOMATIC"
-    MANUAL = "MANUAL"
+    AUTOMATIC = "Automatic"
+    MANUAL = "Manual"
 
 
 class FullBackupFrequencyType(str, Enum):
@@ -134,17 +134,17 @@ class ReadableSecondary(str, Enum):
     """
     Replica readable secondary mode in availability group.
     """
-    NO = "NO"
-    ALL = "ALL"
-    REA_D_ONLY = "READ_ONLY"
+    NO = "No"
+    ALL = "All"
+    READ_ONLY = "Read_Only"
 
 
 class Role(str, Enum):
     """
     Replica Role in availability group.
     """
-    PRIMARY = "PRIMARY"
-    SECONDARY = "SECONDARY"
+    PRIMARY = "Primary"
+    SECONDARY = "Secondary"
 
 
 class SqlImageSku(str, Enum):

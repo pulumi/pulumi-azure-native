@@ -299,7 +299,7 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__.__dict__["deployment_errors"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220301:KubeEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220901:KubeEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubeEnvironment, __self__).__init__(
             'azure-native:web/v20210201:KubeEnvironment',

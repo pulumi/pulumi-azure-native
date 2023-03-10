@@ -176,6 +176,7 @@ namespace Pulumi.AzureNative.Web.V20210201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSite"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSite"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

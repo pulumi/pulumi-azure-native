@@ -631,8 +631,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
 
         public static LanguageExtensionImageName R { get; } = new LanguageExtensionImageName("R");
         public static LanguageExtensionImageName Python3_6_5 { get; } = new LanguageExtensionImageName("Python3_6_5");
-        public static LanguageExtensionImageName Python3_9_12 { get; } = new LanguageExtensionImageName("Python3_9_12");
-        public static LanguageExtensionImageName Python3_9_12IncludeDeepLearning { get; } = new LanguageExtensionImageName("Python3_9_12IncludeDeepLearning");
         public static LanguageExtensionImageName Python3_10_8 { get; } = new LanguageExtensionImageName("Python3_10_8");
 
         public static bool operator ==(LanguageExtensionImageName left, LanguageExtensionImageName right) => left.Equals(right);

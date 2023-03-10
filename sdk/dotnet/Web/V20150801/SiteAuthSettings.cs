@@ -241,6 +241,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteAuthSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteAuthSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:SiteAuthSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

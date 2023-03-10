@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:SqlManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

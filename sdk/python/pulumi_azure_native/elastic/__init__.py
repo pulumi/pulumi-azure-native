@@ -33,6 +33,8 @@ if typing.TYPE_CHECKING:
     v20220701preview = __v20220701preview
     import pulumi_azure_native.elastic.v20220901preview as __v20220901preview
     v20220901preview = __v20220901preview
+    import pulumi_azure_native.elastic.v20230201preview as __v20230201preview
+    v20230201preview = __v20230201preview
 else:
     v20200701 = _utilities.lazy_import('pulumi_azure_native.elastic.v20200701')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20200701preview')
@@ -41,4 +43,5 @@ else:
     v20220505preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20220505preview')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20220701preview')
     v20220901preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20220901preview')
+    v20230201preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230201preview')
 

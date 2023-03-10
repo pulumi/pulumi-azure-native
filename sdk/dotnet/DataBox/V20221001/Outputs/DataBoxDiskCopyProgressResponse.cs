@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.DataBox.V20221001.Outputs
     public sealed class DataBoxDiskCopyProgressResponse
     {
         /// <summary>
+        /// Available actions on the job.
+        /// </summary>
+        public readonly ImmutableArray<string> Actions;
+        /// <summary>
         /// Bytes copied during the copy of disk.
         /// </summary>
         public readonly double BytesCopied;
+        /// <summary>
+        /// Error, if any, in the stage
+        /// </summary>
+        public readonly Outputs.CloudErrorResponse Error;
         /// <summary>
         /// Indicates the percentage completed for the copy of the disk.
         /// </summary>
@@ -35,7 +43,11 @@ namespace Pulumi.AzureNative.DataBox.V20221001.Outputs
 
         [OutputConstructor]
         private DataBoxDiskCopyProgressResponse(
+            ImmutableArray<string> actions,
+
             double bytesCopied,
+
+            Outputs.CloudErrorResponse error,
 
             int percentComplete,
 
@@ -43,7 +55,9 @@ namespace Pulumi.AzureNative.DataBox.V20221001.Outputs
 
             string status)
         {
+            Actions = actions;
             BytesCopied = bytesCopied;
+            Error = error;
             PercentComplete = percentComplete;
             SerialNumber = serialNumber;
             Status = status;

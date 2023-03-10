@@ -22,6 +22,16 @@ export const ClusteringPolicy = {
  */
 export type ClusteringPolicy = (typeof ClusteringPolicy)[keyof typeof ClusteringPolicy];
 
+export const CmkIdentityType = {
+    SystemAssignedIdentity: "systemAssignedIdentity",
+    UserAssignedIdentity: "userAssignedIdentity",
+} as const;
+
+/**
+ * Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+ */
+export type CmkIdentityType = (typeof CmkIdentityType)[keyof typeof CmkIdentityType];
+
 export const EvictionPolicy = {
     AllKeysLFU: "AllKeysLFU",
     AllKeysLRU: "AllKeysLRU",
@@ -39,12 +49,14 @@ export const EvictionPolicy = {
 export type EvictionPolicy = (typeof EvictionPolicy)[keyof typeof EvictionPolicy];
 
 export const ManagedServiceIdentityType = {
-    SystemAssignedIdentity: "systemAssignedIdentity",
-    UserAssignedIdentity: "userAssignedIdentity",
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
 /**
- * Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 

@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAzureStorageAccountsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAzureStorageAccountsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppAzureStorageAccountsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:BatchDeployment"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:BatchDeployment"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:BatchDeployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:BatchDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

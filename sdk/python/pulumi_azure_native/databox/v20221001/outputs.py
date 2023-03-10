@@ -1783,21 +1783,35 @@ class DataBoxDiskCopyProgressResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 actions: Sequence[str],
                  bytes_copied: float,
+                 error: 'outputs.CloudErrorResponse',
                  percent_complete: int,
                  serial_number: str,
                  status: str):
         """
         DataBox Disk Copy Progress
+        :param Sequence[str] actions: Available actions on the job.
         :param float bytes_copied: Bytes copied during the copy of disk.
+        :param 'CloudErrorResponse' error: Error, if any, in the stage
         :param int percent_complete: Indicates the percentage completed for the copy of the disk.
         :param str serial_number: The serial number of the disk
         :param str status: The Status of the copy
         """
+        pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "bytes_copied", bytes_copied)
+        pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "percent_complete", percent_complete)
         pulumi.set(__self__, "serial_number", serial_number)
         pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        """
+        Available actions on the job.
+        """
+        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="bytesCopied")
@@ -1806,6 +1820,14 @@ class DataBoxDiskCopyProgressResponse(dict):
         Bytes copied during the copy of disk.
         """
         return pulumi.get(self, "bytes_copied")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.CloudErrorResponse':
+        """
+        Error, if any, in the stage
+        """
+        return pulumi.get(self, "error")
 
     @property
     @pulumi.getter(name="percentComplete")
@@ -1981,10 +2003,12 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
 
     def __init__(__self__, *,
                  account_id: str,
+                 actions: Sequence[str],
                  bytes_processed: float,
                  copy_status: str,
                  data_account_type: str,
                  directories_errored_out: float,
+                 error: 'outputs.CloudErrorResponse',
                  files_errored_out: float,
                  files_processed: float,
                  invalid_directories_processed: float,
@@ -2000,10 +2024,12 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
         """
         DataBox Disk Granular Copy Progress
         :param str account_id: Id of the account where the data needs to be uploaded.
+        :param Sequence[str] actions: Available actions on the job.
         :param float bytes_processed: To indicate bytes transferred.
         :param str copy_status: The Status of the copy
         :param str data_account_type: Data Account Type.
         :param float directories_errored_out: To indicate directories errored out in the job.
+        :param 'CloudErrorResponse' error: Error, if any, in the stage
         :param float files_errored_out: Number of files which could not be copied
         :param float files_processed: Number of files processed
         :param float invalid_directories_processed: To indicate directories renamed
@@ -2019,10 +2045,12 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
         :param str transfer_type: Transfer type of data
         """
         pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "bytes_processed", bytes_processed)
         pulumi.set(__self__, "copy_status", copy_status)
         pulumi.set(__self__, "data_account_type", data_account_type)
         pulumi.set(__self__, "directories_errored_out", directories_errored_out)
+        pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "files_errored_out", files_errored_out)
         pulumi.set(__self__, "files_processed", files_processed)
         pulumi.set(__self__, "invalid_directories_processed", invalid_directories_processed)
@@ -2043,6 +2071,14 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
         Id of the account where the data needs to be uploaded.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        """
+        Available actions on the job.
+        """
+        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="bytesProcessed")
@@ -2075,6 +2111,14 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
         To indicate directories errored out in the job.
         """
         return pulumi.get(self, "directories_errored_out")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.CloudErrorResponse':
+        """
+        Error, if any, in the stage
+        """
+        return pulumi.get(self, "error")
 
     @property
     @pulumi.getter(name="filesErroredOut")

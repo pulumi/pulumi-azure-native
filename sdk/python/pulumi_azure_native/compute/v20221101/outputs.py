@@ -8211,7 +8211,6 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
                  name: str,
                  application_gateway_backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  application_security_groups: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 id: Optional[str] = None,
                  load_balancer_backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  load_balancer_inbound_nat_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  primary: Optional[bool] = None,
@@ -8223,7 +8222,6 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
         :param str name: The IP configuration name.
         :param Sequence['SubResourceResponse'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
         :param Sequence['SubResourceResponse'] application_security_groups: Specifies an array of references to application security group.
-        :param str id: Resource Id
         :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         :param Sequence['SubResourceResponse'] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         :param bool primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
@@ -8236,8 +8234,6 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
             pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
         if application_security_groups is not None:
             pulumi.set(__self__, "application_security_groups", application_security_groups)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if load_balancer_backend_address_pools is not None:
             pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
         if load_balancer_inbound_nat_pools is not None:
@@ -8274,14 +8270,6 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
         Specifies an array of references to application security group.
         """
         return pulumi.get(self, "application_security_groups")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
@@ -8615,7 +8603,6 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
                  enable_accelerated_networking: Optional[bool] = None,
                  enable_fpga: Optional[bool] = None,
                  enable_ip_forwarding: Optional[bool] = None,
-                 id: Optional[str] = None,
                  network_security_group: Optional['outputs.SubResourceResponse'] = None,
                  primary: Optional[bool] = None):
         """
@@ -8628,7 +8615,6 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
         :param bool enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param bool enable_fpga: Specifies whether the network interface is FPGA networking-enabled.
         :param bool enable_ip_forwarding: Whether IP forwarding enabled on this NIC.
-        :param str id: Resource Id
         :param 'SubResourceResponse' network_security_group: The network security group.
         :param bool primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         """
@@ -8646,8 +8632,6 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
             pulumi.set(__self__, "enable_fpga", enable_fpga)
         if enable_ip_forwarding is not None:
             pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
         if primary is not None:
@@ -8716,14 +8700,6 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
         Whether IP forwarding enabled on this NIC.
         """
         return pulumi.get(self, "enable_ip_forwarding")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="networkSecurityGroup")

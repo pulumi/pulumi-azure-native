@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20210404preview from "./v20210404preview";
 import * as v20220301 from "./v20220301";
+import * as v20221101 from "./v20221101";
 
 export {
     v20210404preview,
     v20220301,
+    v20221101,
 };
 
 export const AutoTrackingConfiguration = {

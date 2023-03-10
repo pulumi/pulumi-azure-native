@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteSourceControlSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:SiteSourceControlSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

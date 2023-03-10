@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteVNETConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteVNETConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteVNETConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:SiteVNETConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

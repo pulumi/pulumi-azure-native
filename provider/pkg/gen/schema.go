@@ -1877,8 +1877,9 @@ var typeNameOverrides = map[string]string{
 	// In particular, the IP Filter Rule has more properties in the DPS version.
 	"Devices.IotDpsResource.IpFilterRule": "TargetIpFilterRule",
 	// Workbook vs. MyWorkbook types are slightly different. Probably, a bug in the spec, but we have to disambiguate.
-	"Insights.MyWorkbook.ManagedIdentity":        "MyManagedIdentity",
-	"Insights.MyWorkbook.UserAssignedIdentities": "MyUserAssignedIdentities",
+	"Insights.MyWorkbook.ManagedIdentity":                  "MyManagedIdentity",
+	"Insights.MyWorkbook.UserAssignedIdentities":           "MyUserAssignedIdentities",
+	"ManagedNetworkFabric.NetworkFabric.OptionBProperties": "FabricOptionBProperties",
 	// Experiment's endpoint is a much narrower type compared to endpoints in other network resources.
 	"Network.Experiment.Endpoint": "ExperimentEndpoint",
 	// These are all FrontDoor types. FrontDoor shares a bunch of type names with generate Network provider,

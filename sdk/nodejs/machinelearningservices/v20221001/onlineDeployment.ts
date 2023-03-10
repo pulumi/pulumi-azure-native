@@ -119,7 +119,7 @@ export class OnlineDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20210301preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220501:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220601preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221001preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221201preview:OnlineDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20210301preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220501:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220601preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221001preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230201preview:OnlineDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnlineDeployment.__pulumiType, name, resourceInputs, opts);
     }

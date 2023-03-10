@@ -41,10 +41,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
         /// </summary>
         public readonly bool? EnableIPForwarding;
         /// <summary>
-        /// Resource Id
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
         /// Specifies the IP configurations of the network interface.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponse> IpConfigurations;
@@ -75,8 +71,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
 
             bool? enableIPForwarding,
 
-            string? id,
-
             ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponse> ipConfigurations,
 
             string name,
@@ -91,7 +85,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableFpga = enableFpga;
             EnableIPForwarding = enableIPForwarding;
-            Id = id;
             IpConfigurations = ipConfigurations;
             Name = name;
             NetworkSecurityGroup = networkSecurityGroup;

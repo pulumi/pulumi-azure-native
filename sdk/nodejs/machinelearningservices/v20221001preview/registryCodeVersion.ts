@@ -92,7 +92,7 @@ export class RegistryCodeVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryCodeVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryCodeVersion.__pulumiType, name, resourceInputs, opts);
     }

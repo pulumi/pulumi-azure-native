@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201.Inputs
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
         /// <summary>
-        /// Data encryption type to depict if it is System assigned vs Azure Key vault.
+        /// Data encryption type to depict if it is System Managed vs Azure Key vault.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20221201.ArmServerKeyType>? Type { get; set; }

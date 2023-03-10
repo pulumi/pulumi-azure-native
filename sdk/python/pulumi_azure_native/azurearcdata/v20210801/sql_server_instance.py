@@ -171,7 +171,7 @@ class SqlServerInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlServerInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerInstance, __self__).__init__(
             'azure-native:azurearcdata/v20210801:SqlServerInstance',

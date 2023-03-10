@@ -13,12 +13,12 @@ export const ActiveDirectoryAuthEnum = {
 export type ActiveDirectoryAuthEnum = (typeof ActiveDirectoryAuthEnum)[keyof typeof ActiveDirectoryAuthEnum];
 
 export const ArmServerKeyType = {
-    SystemAssigned: "SystemAssigned",
+    SystemManaged: "SystemManaged",
     AzureKeyVault: "AzureKeyVault",
 } as const;
 
 /**
- * Data encryption type to depict if it is System assigned vs Azure Key vault.
+ * Data encryption type to depict if it is System Managed vs Azure Key vault.
  */
 export type ArmServerKeyType = (typeof ArmServerKeyType)[keyof typeof ArmServerKeyType];
 

@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview.Outputs
         /// </summary>
         public readonly Outputs.ClusterPropertiesResponseKeyEncryptionKeyIdentity? KeyEncryptionKeyIdentity;
         /// <summary>
-        /// Key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        /// Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
         /// </summary>
         public readonly string? KeyEncryptionKeyUrl;
 
