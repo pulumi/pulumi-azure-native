@@ -153,7 +153,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-native:machinelearningservices/v20220201preview:Job',

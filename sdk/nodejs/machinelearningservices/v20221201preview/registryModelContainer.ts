@@ -88,7 +88,7 @@ export class RegistryModelContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryModelContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryModelContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryModelContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryModelContainer.__pulumiType, name, resourceInputs, opts);
     }

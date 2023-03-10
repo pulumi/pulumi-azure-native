@@ -172,7 +172,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["description"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20171201:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:Configuration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20171201:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbformysql/v20171201preview:Configuration',

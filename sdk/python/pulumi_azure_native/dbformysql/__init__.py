@@ -34,8 +34,6 @@ if typing.TYPE_CHECKING:
     v20171201preview = __v20171201preview
     import pulumi_azure_native.dbformysql.v20180601 as __v20180601
     v20180601 = __v20180601
-    import pulumi_azure_native.dbformysql.v20180601privatepreview as __v20180601privatepreview
-    v20180601privatepreview = __v20180601privatepreview
     import pulumi_azure_native.dbformysql.v20200101 as __v20200101
     v20200101 = __v20200101
     import pulumi_azure_native.dbformysql.v20200101privatepreview as __v20200101privatepreview
@@ -54,7 +52,6 @@ else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201')
     v20171201preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201preview')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20180601')
-    v20180601privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20180601privatepreview')
     v20200101 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200101')
     v20200101privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200101privatepreview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200701preview')

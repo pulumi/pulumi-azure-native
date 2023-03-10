@@ -8,8 +8,6 @@ import * as v20210801 from "./v20210801";
 import * as v20211101 from "./v20211101";
 import * as v20220301preview from "./v20220301preview";
 import * as v20220615preview from "./v20220615preview";
-import * as v20230115preview from "./v20230115preview";
-import * as v20230315preview from "./v20230315preview";
 
 export {
     v20210601preview,
@@ -18,8 +16,6 @@ export {
     v20211101,
     v20220301preview,
     v20220615preview,
-    v20230115preview,
-    v20230315preview,
 };
 
 export const AccountProvisioningMode = {

@@ -111,7 +111,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }, { type: "azure-native:machinelearningservices/v20230201preview:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }
