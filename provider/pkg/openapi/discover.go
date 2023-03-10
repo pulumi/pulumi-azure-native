@@ -99,6 +99,23 @@ func ReadVersions(namespace string) AzureProviders {
 		panic(err)
 	}
 
+	removed, err := ReadRemoved()
+	if err != nil {
+		panic(err)
+	}
+
+	for providerName, versionMap := range providers {
+		// Remove all versions that are not in the curated list.
+		if removed[providerName] != nil {
+			versionsToRemove := codegen.NewStringSet(removed[providerName]...)
+			for version := range versionMap {
+				if versionsToRemove.Has(version) {
+					delete(versionMap, version)
+				}
+			}
+		}
+	}
+
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := providerDefaults[providerName]
