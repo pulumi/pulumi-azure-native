@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> ApplicationSecurityGroups;
         /// <summary>
-        /// Resource Id
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
         /// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> LoadBalancerBackendAddressPools;
@@ -63,8 +59,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
 
             ImmutableArray<Outputs.SubResourceResponse> applicationSecurityGroups,
 
-            string? id,
-
             ImmutableArray<Outputs.SubResourceResponse> loadBalancerBackendAddressPools,
 
             ImmutableArray<Outputs.SubResourceResponse> loadBalancerInboundNatPools,
@@ -81,7 +75,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
         {
             ApplicationGatewayBackendAddressPools = applicationGatewayBackendAddressPools;
             ApplicationSecurityGroups = applicationSecurityGroups;
-            Id = id;
             LoadBalancerBackendAddressPools = loadBalancerBackendAddressPools;
             LoadBalancerInboundNatPools = loadBalancerInboundNatPools;
             Name = name;

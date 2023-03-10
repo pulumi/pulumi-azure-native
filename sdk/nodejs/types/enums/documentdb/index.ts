@@ -30,6 +30,7 @@ import * as v20220515preview from "./v20220515preview";
 import * as v20220815 from "./v20220815";
 import * as v20220815preview from "./v20220815preview";
 import * as v20221115 from "./v20221115";
+import * as v20221115preview from "./v20221115preview";
 
 export {
     v20150401,
@@ -60,6 +61,7 @@ export {
     v20220815,
     v20220815preview,
     v20221115,
+    v20221115preview,
 };
 
 export const AuthenticationMethod = {

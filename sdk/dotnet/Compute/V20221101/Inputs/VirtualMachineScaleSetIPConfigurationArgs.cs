@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Inputs
             set => _applicationSecurityGroups = value;
         }
 
-        /// <summary>
-        /// Resource Id
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
         [Input("loadBalancerBackendAddressPools")]
         private InputList<Inputs.SubResourceArgs>? _loadBalancerBackendAddressPools;
 

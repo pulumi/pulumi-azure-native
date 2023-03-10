@@ -58,7 +58,7 @@ class ClusterPropertiesResponseCustomerManagedKeyEncryption(dict):
         """
         All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
         :param 'ClusterPropertiesResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        :param str key_encryption_key_url: Key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        :param str key_encryption_key_url: Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
         """
         if key_encryption_key_identity is not None:
             pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
@@ -77,7 +77,7 @@ class ClusterPropertiesResponseCustomerManagedKeyEncryption(dict):
     @pulumi.getter(name="keyEncryptionKeyUrl")
     def key_encryption_key_url(self) -> Optional[str]:
         """
-        Key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
         """
         return pulumi.get(self, "key_encryption_key_url")
 

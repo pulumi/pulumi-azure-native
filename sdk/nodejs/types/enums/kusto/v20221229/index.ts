@@ -278,8 +278,6 @@ export type Kind = (typeof Kind)[keyof typeof Kind];
 export const LanguageExtensionImageName = {
     R: "R",
     Python3_6_5: "Python3_6_5",
-    Python3_9_12: "Python3_9_12",
-    Python3_9_12IncludeDeepLearning: "Python3_9_12IncludeDeepLearning",
     Python3_10_8: "Python3_10_8",
 } as const;
 

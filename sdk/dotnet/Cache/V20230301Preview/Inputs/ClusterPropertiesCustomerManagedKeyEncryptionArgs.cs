@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview.Inputs
         public Input<Inputs.ClusterPropertiesKeyEncryptionKeyIdentityArgs>? KeyEncryptionKeyIdentity { get; set; }
 
         /// <summary>
-        /// Key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
+        /// Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
         /// </summary>
         [Input("keyEncryptionKeyUrl")]
         public Input<string>? KeyEncryptionKeyUrl { get; set; }

@@ -10,6 +10,11 @@ export const getGuestConfigurationAssignment: typeof import("./getGuestConfigura
 export const getGuestConfigurationAssignmentOutput: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getGuestConfigurationAssignment","getGuestConfigurationAssignmentOutput"], () => require("./getGuestConfigurationAssignment"));
 
+export { GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs, GetGuestConfigurationConnectedVMwarevSphereAssignmentResult, GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs } from "./getGuestConfigurationConnectedVMwarevSphereAssignment";
+export const getGuestConfigurationConnectedVMwarevSphereAssignment: typeof import("./getGuestConfigurationConnectedVMwarevSphereAssignment").getGuestConfigurationConnectedVMwarevSphereAssignment = null as any;
+export const getGuestConfigurationConnectedVMwarevSphereAssignmentOutput: typeof import("./getGuestConfigurationConnectedVMwarevSphereAssignment").getGuestConfigurationConnectedVMwarevSphereAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestConfigurationConnectedVMwarevSphereAssignment","getGuestConfigurationConnectedVMwarevSphereAssignmentOutput"], () => require("./getGuestConfigurationConnectedVMwarevSphereAssignment"));
+
 export { GetGuestConfigurationHCRPAssignmentArgs, GetGuestConfigurationHCRPAssignmentResult, GetGuestConfigurationHCRPAssignmentOutputArgs } from "./getGuestConfigurationHCRPAssignment";
 export const getGuestConfigurationHCRPAssignment: typeof import("./getGuestConfigurationHCRPAssignment").getGuestConfigurationHCRPAssignment = null as any;
 export const getGuestConfigurationHCRPAssignmentOutput: typeof import("./getGuestConfigurationHCRPAssignment").getGuestConfigurationHCRPAssignmentOutput = null as any;
@@ -19,6 +24,11 @@ export { GuestConfigurationAssignmentArgs } from "./guestConfigurationAssignment
 export type GuestConfigurationAssignment = import("./guestConfigurationAssignment").GuestConfigurationAssignment;
 export const GuestConfigurationAssignment: typeof import("./guestConfigurationAssignment").GuestConfigurationAssignment = null as any;
 utilities.lazyLoad(exports, ["GuestConfigurationAssignment"], () => require("./guestConfigurationAssignment"));
+
+export { GuestConfigurationConnectedVMwarevSphereAssignmentArgs } from "./guestConfigurationConnectedVMwarevSphereAssignment";
+export type GuestConfigurationConnectedVMwarevSphereAssignment = import("./guestConfigurationConnectedVMwarevSphereAssignment").GuestConfigurationConnectedVMwarevSphereAssignment;
+export const GuestConfigurationConnectedVMwarevSphereAssignment: typeof import("./guestConfigurationConnectedVMwarevSphereAssignment").GuestConfigurationConnectedVMwarevSphereAssignment = null as any;
+utilities.lazyLoad(exports, ["GuestConfigurationConnectedVMwarevSphereAssignment"], () => require("./guestConfigurationConnectedVMwarevSphereAssignment"));
 
 export { GuestConfigurationHCRPAssignmentArgs } from "./guestConfigurationHCRPAssignment";
 export type GuestConfigurationHCRPAssignment = import("./guestConfigurationHCRPAssignment").GuestConfigurationHCRPAssignment;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment":
                 return new GuestConfigurationAssignment(name, <any>undefined, { urn })
+            case "azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment":
+                return new GuestConfigurationConnectedVMwarevSphereAssignment(name, <any>undefined, { urn })
             case "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment":
                 return new GuestConfigurationHCRPAssignment(name, <any>undefined, { urn })
             default:

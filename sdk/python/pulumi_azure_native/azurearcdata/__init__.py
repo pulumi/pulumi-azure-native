@@ -33,6 +33,8 @@ if typing.TYPE_CHECKING:
     v20220301preview = __v20220301preview
     import pulumi_azure_native.azurearcdata.v20220615preview as __v20220615preview
     v20220615preview = __v20220615preview
+    import pulumi_azure_native.azurearcdata.v20230115preview as __v20230115preview
+    v20230115preview = __v20230115preview
 else:
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210601preview')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210701preview')
@@ -40,4 +42,5 @@ else:
     v20211101 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20211101')
     v20220301preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220301preview')
     v20220615preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220615preview')
+    v20230115preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20230115preview')
 

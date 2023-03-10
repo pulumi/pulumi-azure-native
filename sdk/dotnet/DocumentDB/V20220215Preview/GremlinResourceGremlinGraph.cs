@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:GremlinResourceGremlinGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:GremlinResourceGremlinGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:GremlinResourceGremlinGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:GremlinResourceGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

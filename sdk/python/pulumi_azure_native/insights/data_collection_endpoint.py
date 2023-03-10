@@ -237,7 +237,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20210401:DataCollectionEndpoint"), pulumi.Alias(type_="azure-native:insights/v20210901preview:DataCollectionEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20210401:DataCollectionEndpoint"), pulumi.Alias(type_="azure-native:insights/v20210901preview:DataCollectionEndpoint"), pulumi.Alias(type_="azure-native:insights/v20220601:DataCollectionEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataCollectionEndpoint, __self__).__init__(
             'azure-native:insights:DataCollectionEndpoint',

@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_guest_configuration_assignment import *
+from .get_guest_configuration_connected_v_mwarev_sphere_assignment import *
 from .get_guest_configuration_hcrpassignment import *
 from .guest_configuration_assignment import *
+from .guest_configuration_connected_v_mwarev_sphere_assignment import *
 from .guest_configuration_hcrpassignment import *
 from ._inputs import *
 from . import outputs

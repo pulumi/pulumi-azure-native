@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:SiteHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:SiteHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:SiteHostNameBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:SiteHostNameBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -137,7 +137,7 @@ class DataEncryptionArgs:
         Data encryption properties of a server
         :param pulumi.Input[str] primary_key_uri: URI for the key for data encryption for primary server.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption for primary server.
-        :param pulumi.Input[Union[str, 'ArmServerKeyType']] type: Data encryption type to depict if it is System assigned vs Azure Key vault.
+        :param pulumi.Input[Union[str, 'ArmServerKeyType']] type: Data encryption type to depict if it is System Managed vs Azure Key vault.
         """
         if primary_key_uri is not None:
             pulumi.set(__self__, "primary_key_uri", primary_key_uri)
@@ -174,7 +174,7 @@ class DataEncryptionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'ArmServerKeyType']]]:
         """
-        Data encryption type to depict if it is System assigned vs Azure Key vault.
+        Data encryption type to depict if it is System Managed vs Azure Key vault.
         """
         return pulumi.get(self, "type")
 

@@ -93,7 +93,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerInstance.__pulumiType, name, resourceInputs, opts);
     }

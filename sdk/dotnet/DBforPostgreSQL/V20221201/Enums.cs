@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     }
 
     /// <summary>
-    /// Data encryption type to depict if it is System assigned vs Azure Key vault.
+    /// Data encryption type to depict if it is System Managed vs Azure Key vault.
     /// </summary>
     [EnumType]
     public readonly struct ArmServerKeyType : IEquatable<ArmServerKeyType>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ArmServerKeyType SystemAssigned { get; } = new ArmServerKeyType("SystemAssigned");
+        public static ArmServerKeyType SystemManaged { get; } = new ArmServerKeyType("SystemManaged");
         public static ArmServerKeyType AzureKeyVault { get; } = new ArmServerKeyType("AzureKeyVault");
 
         public static bool operator ==(ArmServerKeyType left, ArmServerKeyType right) => left.Equals(right);

@@ -29,9 +29,9 @@ class ActiveDirectoryAuthEnum(str, Enum):
 
 class ArmServerKeyType(str, Enum):
     """
-    Data encryption type to depict if it is System assigned vs Azure Key vault.
+    Data encryption type to depict if it is System Managed vs Azure Key vault.
     """
-    SYSTEM_ASSIGNED = "SystemAssigned"
+    SYSTEM_MANAGED = "SystemManaged"
     AZURE_KEY_VAULT = "AzureKeyVault"
 
 

@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Web.V20210201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSlotConfigurationNames"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSlotConfigurationNames"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSlotConfigurationNames"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppSlotConfigurationNames"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

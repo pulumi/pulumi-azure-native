@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Commit SYNCHRONOUS_COMMIT { get; } = new Commit("SYNCHRONOUS_COMMIT");
-        public static Commit ASYNCHRONOUS_COMMIT { get; } = new Commit("ASYNCHRONOUS_COMMIT");
+        public static Commit Synchronous_Commit { get; } = new Commit("Synchronous_Commit");
+        public static Commit Asynchronous_Commit { get; } = new Commit("Asynchronous_Commit");
 
         public static bool operator ==(Commit left, Commit right) => left.Equals(right);
         public static bool operator !=(Commit left, Commit right) => !left.Equals(right);
@@ -283,8 +283,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Failover AUTOMATIC { get; } = new Failover("AUTOMATIC");
-        public static Failover MANUAL { get; } = new Failover("MANUAL");
+        public static Failover Automatic { get; } = new Failover("Automatic");
+        public static Failover Manual { get; } = new Failover("Manual");
 
         public static bool operator ==(Failover left, Failover right) => left.Equals(right);
         public static bool operator !=(Failover left, Failover right) => !left.Equals(right);
@@ -376,9 +376,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ReadableSecondary NO { get; } = new ReadableSecondary("NO");
-        public static ReadableSecondary ALL { get; } = new ReadableSecondary("ALL");
-        public static ReadableSecondary READ_ONLY { get; } = new ReadableSecondary("READ_ONLY");
+        public static ReadableSecondary No { get; } = new ReadableSecondary("No");
+        public static ReadableSecondary All { get; } = new ReadableSecondary("All");
+        public static ReadableSecondary Read_Only { get; } = new ReadableSecondary("Read_Only");
 
         public static bool operator ==(ReadableSecondary left, ReadableSecondary right) => left.Equals(right);
         public static bool operator !=(ReadableSecondary left, ReadableSecondary right) => !left.Equals(right);
@@ -408,8 +408,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Role PRIMARY { get; } = new Role("PRIMARY");
-        public static Role SECONDARY { get; } = new Role("SECONDARY");
+        public static Role Primary { get; } = new Role("Primary");
+        public static Role Secondary { get; } = new Role("Secondary");
 
         public static bool operator ==(Role left, Role right) => left.Equals(right);
         public static bool operator !=(Role left, Role right) => !left.Equals(right);

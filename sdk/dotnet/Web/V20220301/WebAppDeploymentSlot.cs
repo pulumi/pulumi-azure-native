@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.Web.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDeploymentSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppDeploymentSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

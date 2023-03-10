@@ -204,6 +204,7 @@ namespace Pulumi.AzureNative.Web.V20210201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

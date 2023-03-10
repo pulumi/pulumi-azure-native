@@ -107,6 +107,7 @@ import * as machinelearningcompute from "./machinelearningcompute";
 import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managednetwork from "./managednetwork";
+import * as managednetworkfabric from "./managednetworkfabric";
 import * as managedservices from "./managedservices";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
@@ -282,6 +283,7 @@ export {
     machinelearningservices,
     maintenance,
     managednetwork,
+    managednetworkfabric,
     managedservices,
     maps,
     marketplace,

@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20220801Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubCustomDomain"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

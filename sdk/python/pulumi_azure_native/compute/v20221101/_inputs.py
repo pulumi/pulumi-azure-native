@@ -4731,7 +4731,6 @@ class VirtualMachineScaleSetIPConfigurationArgs:
                  name: pulumi.Input[str],
                  application_gateway_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  load_balancer_inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
@@ -4743,7 +4742,6 @@ class VirtualMachineScaleSetIPConfigurationArgs:
         :param pulumi.Input[str] name: The IP configuration name.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_security_groups: Specifies an array of references to application security group.
-        :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         :param pulumi.Input[bool] primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
@@ -4756,8 +4754,6 @@ class VirtualMachineScaleSetIPConfigurationArgs:
             pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
         if application_security_groups is not None:
             pulumi.set(__self__, "application_security_groups", application_security_groups)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if load_balancer_backend_address_pools is not None:
             pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
         if load_balancer_inbound_nat_pools is not None:
@@ -4806,18 +4802,6 @@ class VirtualMachineScaleSetIPConfigurationArgs:
     @application_security_groups.setter
     def application_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "application_security_groups", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
@@ -5063,7 +5047,6 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_fpga: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input['SubResourceArgs']] = None,
                  primary: Optional[pulumi.Input[bool]] = None):
         """
@@ -5076,7 +5059,6 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
         :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param pulumi.Input[bool] enable_fpga: Specifies whether the network interface is FPGA networking-enabled.
         :param pulumi.Input[bool] enable_ip_forwarding: Whether IP forwarding enabled on this NIC.
-        :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input['SubResourceArgs'] network_security_group: The network security group.
         :param pulumi.Input[bool] primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         """
@@ -5094,8 +5076,6 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
             pulumi.set(__self__, "enable_fpga", enable_fpga)
         if enable_ip_forwarding is not None:
             pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
         if primary is not None:
@@ -5196,18 +5176,6 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
     @enable_ip_forwarding.setter
     def enable_ip_forwarding(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_ip_forwarding", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="networkSecurityGroup")

@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.Workloads
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPDatabaseInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPDatabaseInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPDatabaseInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

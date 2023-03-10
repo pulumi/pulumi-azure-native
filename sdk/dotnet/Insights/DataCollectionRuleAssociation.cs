@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.Insights
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRuleAssociation"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRuleAssociation"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRuleAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:DataCollectionRuleAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

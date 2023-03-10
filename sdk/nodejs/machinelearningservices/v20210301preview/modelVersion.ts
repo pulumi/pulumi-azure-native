@@ -91,7 +91,7 @@ export class ModelVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220501:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:ModelVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220501:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:ModelVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ModelVersion.__pulumiType, name, resourceInputs, opts);
     }

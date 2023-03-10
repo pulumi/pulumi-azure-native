@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201.Outputs
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
         /// <summary>
-        /// Data encryption type to depict if it is System assigned vs Azure Key vault.
+        /// Data encryption type to depict if it is System Managed vs Azure Key vault.
         /// </summary>
         public readonly string? Type;
 

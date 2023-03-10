@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Web.V20210201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHybridConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHybridConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -274,8 +274,6 @@ class LanguageExtensionImageName(str, Enum):
     """
     R = "R"
     PYTHON3_6_5 = "Python3_6_5"
-    PYTHON3_9_12 = "Python3_9_12"
-    PYTHON3_9_12_INCLUDE_DEEP_LEARNING = "Python3_9_12IncludeDeepLearning"
     PYTHON3_10_8 = "Python3_10_8"
 
 

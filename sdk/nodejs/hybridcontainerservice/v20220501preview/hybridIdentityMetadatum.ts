@@ -103,7 +103,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:HybridIdentityMetadatum" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20220901preview:HybridIdentityMetadatum" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridIdentityMetadatum.__pulumiType, name, resourceInputs, opts);
     }

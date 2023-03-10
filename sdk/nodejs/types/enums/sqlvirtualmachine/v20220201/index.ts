@@ -50,8 +50,8 @@ export const ClusterSubnetType = {
 export type ClusterSubnetType = (typeof ClusterSubnetType)[keyof typeof ClusterSubnetType];
 
 export const Commit = {
-    SYNCHRONOUS_COMMIT: "SYNCHRONOUS_COMMIT",
-    ASYNCHRONOUS_COMMIT: "ASYNCHRONOUS_COMMIT",
+    Synchronous_Commit: "Synchronous_Commit",
+    Asynchronous_Commit: "Asynchronous_Commit",
 } as const;
 
 /**
@@ -98,8 +98,8 @@ export const DiskConfigurationType = {
 export type DiskConfigurationType = (typeof DiskConfigurationType)[keyof typeof DiskConfigurationType];
 
 export const Failover = {
-    AUTOMATIC: "AUTOMATIC",
-    MANUAL: "MANUAL",
+    Automatic: "Automatic",
+    Manual: "Manual",
 } as const;
 
 /**
@@ -128,9 +128,9 @@ export const IdentityType = {
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const ReadableSecondary = {
-    NO: "NO",
-    ALL: "ALL",
-    READ_ONLY: "READ_ONLY",
+    No: "No",
+    All: "All",
+    Read_Only: "Read_Only",
 } as const;
 
 /**
@@ -139,8 +139,8 @@ export const ReadableSecondary = {
 export type ReadableSecondary = (typeof ReadableSecondary)[keyof typeof ReadableSecondary];
 
 export const Role = {
-    PRIMARY: "PRIMARY",
-    SECONDARY: "SECONDARY",
+    Primary: "Primary",
+    Secondary: "Secondary",
 } as const;
 
 /**

@@ -51,12 +51,6 @@ namespace Pulumi.AzureNative.Compute.V20221101.Inputs
         [Input("enableIPForwarding")]
         public Input<bool>? EnableIPForwarding { get; set; }
 
-        /// <summary>
-        /// Resource Id
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
         [Input("ipConfigurations", required: true)]
         private InputList<Inputs.VirtualMachineScaleSetIPConfigurationArgs>? _ipConfigurations;
 
