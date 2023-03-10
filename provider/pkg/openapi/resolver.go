@@ -4,12 +4,13 @@ package openapi
 
 import (
 	"fmt"
+	"net/url"
+
 	"github.com/go-openapi/jsonreference"
 	"github.com/go-openapi/spec"
 	"github.com/go-openapi/swag"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	"net/url"
 )
 
 // ReferenceContext contains a pointer to a swagger schema and can navigate references from that schema.
@@ -117,7 +118,7 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 	// of overrides with sibling attributes, so we should take those into account.
 
 	// This group contains the attributes that we know are commonly overridden:
-	// Default, ReadOnly, Required, and Extensions.
+	// Default, ReadOnly, Required, and Extensions; and in one case, AllOf.
 	// If the source spec has a value, we merge that value in the resulting specs.
 	if s.Default != nil {
 		resolvedSchema.Default = s.Default
@@ -134,6 +135,10 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 				resolvedSchema.Extensions[k] = v
 			}
 		}
+	}
+
+	if len(s.AllOf) > 0 {
+		resolvedSchema.AllOf = s.AllOf
 	}
 
 	// All the other properties aren't currently overridden. We add an assertion, so that
@@ -161,9 +166,6 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 	}
 	if s.Items != nil {
 		return nil, errors.New("'Items' defined as a sibling to a $ref")
-	}
-	if len(s.AllOf) > 0 {
-		return nil, errors.New("'AllOf' defined as a sibling to a $ref")
 	}
 	if s.Properties != nil {
 		return nil, errors.New("'Properties' defined as a sibling to a $ref")
