@@ -31,6 +31,16 @@ func ReadDeprecated() (ProviderVersionList, error) {
 	return readProviderVersionList(deprecatedPath)
 }
 
+func ReadRemoved() (ProviderVersionList, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+
+	deprecatedPath := filepath.Join(dir, "versions", "removed.json")
+	return readProviderVersionList(deprecatedPath)
+}
+
 func readProviderVersionList(path string) (ProviderVersionList, error) {
 	jsonFile, err := os.Open(path)
 	if err != nil {
