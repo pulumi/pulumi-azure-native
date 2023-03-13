@@ -37,8 +37,8 @@ func ReadRemoved() (ProviderVersionList, error) {
 		return nil, err
 	}
 
-	deprecatedPath := filepath.Join(dir, "versions", "removed.json")
-	return readProviderVersionList(deprecatedPath)
+	removedPath := filepath.Join(dir, "versions", "removed.json")
+	return readProviderVersionList(removedPath)
 }
 
 func readProviderVersionList(path string) (ProviderVersionList, error) {

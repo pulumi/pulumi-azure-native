@@ -106,8 +106,8 @@ func ReadVersions(namespace string) AzureProviders {
 
 	for providerName, versionMap := range providers {
 		// Remove all versions that are not in the curated list.
-		if removed[providerName] != nil {
-			for _, versionToRemove := range removed[providerName] {
+		if removedVersion, ok := removed[providerName]; ok {
+			for _, versionToRemove := range removedVersion {
 				sdkVersionToRemove := ApiToSdkVersion(versionToRemove)
 				delete(versionMap, sdkVersionToRemove)
 			}
