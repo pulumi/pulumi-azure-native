@@ -67,7 +67,6 @@ namespace Pulumi.AzureNative.DBforMySQL
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

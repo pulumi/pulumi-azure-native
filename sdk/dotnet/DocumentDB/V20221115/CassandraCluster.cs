@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

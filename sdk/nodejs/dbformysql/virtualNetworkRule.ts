@@ -92,7 +92,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201preview:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201preview:VirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }

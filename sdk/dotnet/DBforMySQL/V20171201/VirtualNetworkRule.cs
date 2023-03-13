@@ -72,7 +72,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql:VirtualNetworkRule"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:VirtualNetworkRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
