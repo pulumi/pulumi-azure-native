@@ -23,7 +23,6 @@ env:
 jobs:
   comment-notification:
     runs-on: ubuntu-latest
-    name: comment-notification
     steps:
       - name: Create URL to the run output
         id: vars
@@ -54,7 +53,6 @@ jobs:
 
   lint_workflows:
     runs-on: ubuntu-latest
-    name: Test Provider
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
