@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.Network.V20220901
         /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
         [Output("priority")]
-        public Output<int?> Priority { get; private set; } = null!;
+        public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.
@@ -308,8 +308,8 @@ namespace Pulumi.AzureNative.Network.V20220901
         /// <summary>
         /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.

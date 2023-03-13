@@ -48,7 +48,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * Application gateway IP configurations of virtual network resource.
      */
-    public readonly applicationGatewayIpConfigurations!: pulumi.Output<outputs.network.v20220901.ApplicationGatewayIPConfigurationResponse[] | undefined>;
+    public readonly applicationGatewayIPConfigurations!: pulumi.Output<outputs.network.v20220901.ApplicationGatewayIPConfigurationResponse[] | undefined>;
     /**
      * An array of references to the delegations on the subnet.
      */
@@ -145,7 +145,7 @@ export class Subnet extends pulumi.CustomResource {
             }
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            resourceInputs["applicationGatewayIpConfigurations"] = args ? args.applicationGatewayIpConfigurations : undefined;
+            resourceInputs["applicationGatewayIPConfigurations"] = args ? args.applicationGatewayIPConfigurations : undefined;
             resourceInputs["delegations"] = args ? args.delegations : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
@@ -172,7 +172,7 @@ export class Subnet extends pulumi.CustomResource {
         } else {
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["addressPrefixes"] = undefined /*out*/;
-            resourceInputs["applicationGatewayIpConfigurations"] = undefined /*out*/;
+            resourceInputs["applicationGatewayIPConfigurations"] = undefined /*out*/;
             resourceInputs["delegations"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipAllocations"] = undefined /*out*/;
@@ -215,7 +215,7 @@ export interface SubnetArgs {
     /**
      * Application gateway IP configurations of virtual network resource.
      */
-    applicationGatewayIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20220901.ApplicationGatewayIPConfigurationArgs>[]>;
+    applicationGatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20220901.ApplicationGatewayIPConfigurationArgs>[]>;
     /**
      * An array of references to the delegations on the subnet.
      */

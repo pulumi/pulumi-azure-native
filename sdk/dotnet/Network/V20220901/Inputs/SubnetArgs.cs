@@ -33,16 +33,16 @@ namespace Pulumi.AzureNative.Network.V20220901.Inputs
             set => _addressPrefixes = value;
         }
 
-        [Input("applicationGatewayIpConfigurations")]
-        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIpConfigurations;
+        [Input("applicationGatewayIPConfigurations")]
+        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIPConfigurations;
 
         /// <summary>
         /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIpConfigurations
+        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIPConfigurations
         {
-            get => _applicationGatewayIpConfigurations ?? (_applicationGatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
-            set => _applicationGatewayIpConfigurations = value;
+            get => _applicationGatewayIPConfigurations ?? (_applicationGatewayIPConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
+            set => _applicationGatewayIPConfigurations = value;
         }
 
         [Input("delegations")]

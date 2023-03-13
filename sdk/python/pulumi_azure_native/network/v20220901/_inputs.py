@@ -15275,6 +15275,7 @@ class SecurityRuleArgs:
     def __init__(__self__, *,
                  access: pulumi.Input[Union[str, 'SecurityRuleAccess']],
                  direction: pulumi.Input[Union[str, 'SecurityRuleDirection']],
+                 priority: pulumi.Input[int],
                  protocol: pulumi.Input[Union[str, 'SecurityRuleProtocol']],
                  description: Optional[pulumi.Input[str]] = None,
                  destination_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -15284,7 +15285,6 @@ class SecurityRuleArgs:
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
                  source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]] = None,
@@ -15295,6 +15295,7 @@ class SecurityRuleArgs:
         Network security rule.
         :param pulumi.Input[Union[str, 'SecurityRuleAccess']] access: The network traffic is allowed or denied.
         :param pulumi.Input[Union[str, 'SecurityRuleDirection']] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[Union[str, 'SecurityRuleProtocol']] protocol: Network protocol this rule applies to.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[str] destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
@@ -15304,7 +15305,6 @@ class SecurityRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_address_prefixes: The CIDR or source IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]] source_application_security_groups: The application security group specified as source.
@@ -15314,6 +15314,7 @@ class SecurityRuleArgs:
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -15331,8 +15332,6 @@ class SecurityRuleArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
         if source_address_prefix is not None:
             pulumi.set(__self__, "source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
@@ -15369,6 +15368,18 @@ class SecurityRuleArgs:
     @direction.setter
     def direction(self, value: pulumi.Input[Union[str, 'SecurityRuleDirection']]):
         pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter
@@ -15477,18 +15488,6 @@ class SecurityRuleArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
-        """
-        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="sourceAddressPrefix")
@@ -16061,7 +16060,7 @@ class SubnetArgs:
         pulumi.set(self, "address_prefixes", value)
 
     @property
-    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    @pulumi.getter(name="applicationGatewayIPConfigurations")
     def application_gateway_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]]:
         """
         Application gateway IP configurations of virtual network resource.

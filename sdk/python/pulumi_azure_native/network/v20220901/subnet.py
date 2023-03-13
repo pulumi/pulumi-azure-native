@@ -144,7 +144,7 @@ class SubnetInitArgs:
         pulumi.set(self, "address_prefixes", value)
 
     @property
-    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    @pulumi.getter(name="applicationGatewayIPConfigurations")
     def application_gateway_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]]:
         """
         Application gateway IP configurations of virtual network resource.
@@ -510,7 +510,7 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "address_prefixes")
 
     @property
-    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    @pulumi.getter(name="applicationGatewayIPConfigurations")
     def application_gateway_ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]]:
         """
         Application gateway IP configurations of virtual network resource.

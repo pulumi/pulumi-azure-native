@@ -55,7 +55,7 @@ export interface GetSubnetResult {
     /**
      * Application gateway IP configurations of virtual network resource.
      */
-    readonly applicationGatewayIpConfigurations?: outputs.network.v20220901.ApplicationGatewayIPConfigurationResponse[];
+    readonly applicationGatewayIPConfigurations?: outputs.network.v20220901.ApplicationGatewayIPConfigurationResponse[];
     /**
      * An array of references to the delegations on the subnet.
      */

@@ -94,7 +94,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Secret" }, { type: "azure-native:keyvault/v20161001:Secret" }, { type: "azure-native:keyvault/v20180214:Secret" }, { type: "azure-native:keyvault/v20180214preview:Secret" }, { type: "azure-native:keyvault/v20200401preview:Secret" }, { type: "azure-native:keyvault/v20210401preview:Secret" }, { type: "azure-native:keyvault/v20210601preview:Secret" }, { type: "azure-native:keyvault/v20211001:Secret" }, { type: "azure-native:keyvault/v20211101preview:Secret" }, { type: "azure-native:keyvault/v20220201preview:Secret" }, { type: "azure-native:keyvault/v20220701:Secret" }, { type: "azure-native:keyvault/v20221101:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Secret" }, { type: "azure-native:keyvault/v20161001:Secret" }, { type: "azure-native:keyvault/v20180214:Secret" }, { type: "azure-native:keyvault/v20180214preview:Secret" }, { type: "azure-native:keyvault/v20200401preview:Secret" }, { type: "azure-native:keyvault/v20210401preview:Secret" }, { type: "azure-native:keyvault/v20210601preview:Secret" }, { type: "azure-native:keyvault/v20211001:Secret" }, { type: "azure-native:keyvault/v20211101preview:Secret" }, { type: "azure-native:keyvault/v20220201preview:Secret" }, { type: "azure-native:keyvault/v20220701:Secret" }, { type: "azure-native:keyvault/v20221101:Secret" }, { type: "azure-native:keyvault/v20230201:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }

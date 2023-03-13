@@ -12463,6 +12463,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "keyvault/v20230201",
+  "fqn": "pulumi_azure_native.keyvault.v20230201",
+  "classes": {
+   "azure-native:keyvault/v20230201:Key": "Key",
+   "azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20230201:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20230201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20230201:Secret": "Secret",
+   "azure-native:keyvault/v20230201:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "kubernetes",
   "fqn": "pulumi_azure_native.kubernetes",
   "classes": {
@@ -19525,6 +19538,16 @@ _utilities.register(
    "azure-native:recoveryservices/v20230201:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20230201:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20230201:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20230201:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20230201:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20230201:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20230201:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20230201:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20230201:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20230201:ResourceGuardProxy": "ResourceGuardProxy"
   }
  },

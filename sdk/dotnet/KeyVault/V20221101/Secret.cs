@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.KeyVault.V20221101
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:Secret"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220201preview:Secret"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

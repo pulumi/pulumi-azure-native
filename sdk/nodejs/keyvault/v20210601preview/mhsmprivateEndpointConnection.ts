@@ -120,7 +120,7 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MHSMPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

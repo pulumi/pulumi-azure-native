@@ -23384,6 +23384,7 @@ class SecurityRuleResponse(dict):
                  access: str,
                  direction: str,
                  etag: str,
+                 priority: int,
                  protocol: str,
                  provisioning_state: str,
                  description: Optional[str] = None,
@@ -23394,7 +23395,6 @@ class SecurityRuleResponse(dict):
                  destination_port_ranges: Optional[Sequence[str]] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 priority: Optional[int] = None,
                  source_address_prefix: Optional[str] = None,
                  source_address_prefixes: Optional[Sequence[str]] = None,
                  source_application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
@@ -23406,6 +23406,7 @@ class SecurityRuleResponse(dict):
         :param str access: The network traffic is allowed or denied.
         :param str direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param int priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to.
         :param str provisioning_state: The provisioning state of the security rule resource.
         :param str description: A description for this rule. Restricted to 140 chars.
@@ -23416,7 +23417,6 @@ class SecurityRuleResponse(dict):
         :param Sequence[str] destination_port_ranges: The destination port ranges.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param int priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param Sequence[str] source_address_prefixes: The CIDR or source IP ranges.
         :param Sequence['ApplicationSecurityGroupResponse'] source_application_security_groups: The application security group specified as source.
@@ -23427,6 +23427,7 @@ class SecurityRuleResponse(dict):
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if description is not None:
@@ -23445,8 +23446,6 @@ class SecurityRuleResponse(dict):
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
         if source_address_prefix is not None:
             pulumi.set(__self__, "source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
@@ -23483,6 +23482,14 @@ class SecurityRuleResponse(dict):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
@@ -23563,14 +23570,6 @@ class SecurityRuleResponse(dict):
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[int]:
-        """
-        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        """
-        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="sourceAddressPrefix")
@@ -24460,7 +24459,7 @@ class SubnetResponse(dict):
             suggest = "address_prefix"
         elif key == "addressPrefixes":
             suggest = "address_prefixes"
-        elif key == "applicationGatewayIpConfigurations":
+        elif key == "applicationGatewayIPConfigurations":
             suggest = "application_gateway_ip_configurations"
         elif key == "ipAllocations":
             suggest = "ip_allocations"
@@ -24664,7 +24663,7 @@ class SubnetResponse(dict):
         return pulumi.get(self, "address_prefixes")
 
     @property
-    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    @pulumi.getter(name="applicationGatewayIPConfigurations")
     def application_gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]:
         """
         Application gateway IP configurations of virtual network resource.

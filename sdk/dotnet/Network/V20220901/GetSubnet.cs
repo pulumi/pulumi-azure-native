@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Network.V20220901
         /// <summary>
         /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIpConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIPConfigurations;
         /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.Network.V20220901
 
             ImmutableArray<string> addressPrefixes,
 
-            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIpConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIPConfigurations,
 
             ImmutableArray<Outputs.DelegationResponse> delegations,
 
@@ -236,7 +236,7 @@ namespace Pulumi.AzureNative.Network.V20220901
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
-            ApplicationGatewayIpConfigurations = applicationGatewayIpConfigurations;
+            ApplicationGatewayIPConfigurations = applicationGatewayIPConfigurations;
             Delegations = delegations;
             Etag = etag;
             Id = id;
