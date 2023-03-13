@@ -7450,6 +7450,14 @@
       "PrivateEndpointConnection",
       "Secret",
       "Vault"
+    ],
+    "2023-02-01": [
+      "Key",
+      "MHSMPrivateEndpointConnection",
+      "ManagedHsm",
+      "PrivateEndpointConnection",
+      "Secret",
+      "Vault"
     ]
   },
   "Kubernetes": {
@@ -12856,6 +12864,16 @@
       "ProtectionContainer",
       "ProtectionIntent",
       "ProtectionPolicy",
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "ResourceGuardProxy"
     ]
   },
