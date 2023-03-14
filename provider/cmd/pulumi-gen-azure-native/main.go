@@ -5,12 +5,13 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"os"
 	"path"
 	"path/filepath"
 	"strings"
 	"text/template"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 
 	"github.com/segmentio/encoding/json"
 
@@ -250,6 +251,7 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 			return errors.Wrapf(err, "emitting file %v", f)
 		}
 
+		// Special case for identifying where we need modules in subdirectories.
 		matched, err := filepath.Match("pulumi-azure-native-sdk/*/init.go", f)
 		if err != nil {
 			return err
@@ -264,6 +266,12 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 			})
 
 			if err := emitFile(outDir, modPath, []byte(modContent)); err != nil {
+				return errors.Wrapf(err, "emitting file %v", modPath)
+			}
+
+			pluginPath := filepath.Join(dir, "pulumi-plugin.json")
+			pluginContent := files["pulumi-azure-native-sdk/pulumi-plugin.json"]
+			if err := emitFile(outDir, pluginPath, pluginContent); err != nil {
 				return errors.Wrapf(err, "emitting file %v", modPath)
 			}
 		}
