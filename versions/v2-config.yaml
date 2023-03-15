@@ -102,9 +102,13 @@ Commerce: {}
 Communication:
     tracking: 2022-07-01-preview
 Compute:
-    tracking: "2022-11-01"
     additions:
+        AvailabilitySet: "2022-11-01"
+        CapacityReservation: "2022-11-01"
+        CapacityReservationGroup: "2022-11-01"
         CloudService: "2022-09-04"
+        DedicatedHost: "2022-11-01"
+        DedicatedHostGroup: "2022-11-01"
         Disk: "2022-07-02"
         DiskAccess: "2022-07-02"
         DiskAccessAPrivateEndpointConnection: "2022-07-02"
@@ -114,7 +118,22 @@ Compute:
         GalleryApplicationVersion: "2022-03-03"
         GalleryImage: "2022-03-03"
         GalleryImageVersion: "2022-03-03"
+        Image: "2022-11-01"
+        ProximityPlacementGroup: "2022-11-01"
+        RestorePoint: "2022-11-01"
+        RestorePointCollection: "2022-11-01"
         Snapshot: "2022-07-02"
+        SshPublicKey: "2022-11-01"
+        VirtualMachine: "2022-11-01"
+        VirtualMachineExtension: "2022-11-01"
+        VirtualMachineRunCommandByVirtualMachine: "2022-11-01"
+        VirtualMachineScaleSet: "2022-11-01"
+        VirtualMachineScaleSetExtension: "2022-11-01"
+        VirtualMachineScaleSetVM: "2022-11-01"
+        VirtualMachineScaleSetVMExtension: "2022-11-01"
+        VirtualMachineScaleSetVMRunCommand: "2022-11-01"
+        getLogAnalyticExportRequestRateByInterval: "2022-11-01"
+        getLogAnalyticExportThrottledRequests: "2022-11-01"
 ConfidentialLedger:
     tracking: "2022-05-13"
 Confluent:

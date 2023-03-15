@@ -74,4 +74,6 @@ Chaos:
 CognitiveServices:
 Commerce:
 Communication:
+Compute:
+  explicit: true
 ---

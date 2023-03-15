@@ -20,7 +20,6 @@ type providerCuration struct {
 	// Exclude these resources from the provider. Used when generating the final vN.json from vN-config.yaml.
 	Exclusions []string
 	// Don't use a tracking version, list all resources with their API version instead. Used when generating vN-config.yaml.
-	// NOT IMPLEMENTED YET.
 	Explicit bool
 	// Either "exclude" or "prefer"
 	Preview string

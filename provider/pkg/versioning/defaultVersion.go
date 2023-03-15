@@ -96,10 +96,10 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 
 func buildSpec(versions VersionResources, curations providerCuration) ProviderSpec {
 	latestVersions := findLatestVersions(versions, curations)
-	switch len(latestVersions) {
-	case 0:
+	if len(latestVersions) == 0 {
 		return ProviderSpec{}
-	case 1:
+	}
+	if len(latestVersions) == 1 && !curations.Explicit {
 		// If single apiVersion includes all resources, track it.
 		for apiVersion := range latestVersions {
 			return ProviderSpec{
@@ -107,6 +107,7 @@ func buildSpec(versions VersionResources, curations providerCuration) ProviderSp
 			}
 		}
 	}
+
 	// If multiple versions required, track the latest and include additional resources from previous versions
 	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	maxVersion := ""
@@ -117,7 +118,7 @@ func buildSpec(versions VersionResources, curations providerCuration) ProviderSp
 		}
 	}
 	for apiVersion, resources := range latestVersions {
-		if apiVersion == maxVersion {
+		if !curations.Explicit && apiVersion == maxVersion {
 			continue
 		}
 		for _, resourceName := range resources {
@@ -126,15 +127,18 @@ func buildSpec(versions VersionResources, curations providerCuration) ProviderSp
 			}
 		}
 	}
+	additionsPtr := &additions
 	if len(additions) == 0 {
-		return ProviderSpec{
-			Tracking: &maxVersion,
-		}
+		additionsPtr = nil
+	}
+	trackingPtr := &maxVersion
+	if curations.Explicit {
+		trackingPtr = nil
 	}
 
 	return ProviderSpec{
-		Tracking:  &maxVersion,
-		Additions: &additions,
+		Tracking:  trackingPtr,
+		Additions: additionsPtr,
 	}
 }
 
