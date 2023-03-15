@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os/exec"
+	"reflect"
 	"strings"
 
 	"github.com/Azure/go-autorest/autorest"
@@ -38,18 +39,6 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
 	clientSecret := k.getConfig("clientSecret", "ARM_CLIENT_SECRET")
 	clientCertPath := k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH")
-	// Without either of those, we need the `az` CLI to authenticate. Check that we have a good
-	// version (#1565). The check needs to happen before builder.Build(), or we return the less
-	// fitting error message from go-azure-helpers.
-	if !useMsi && clientSecret == "" && clientCertPath == "" {
-		v, err := getAzVersion()
-		if err != nil {
-			return nil, err
-		}
-		if err = assertAzVersion(v); err != nil {
-			return nil, err
-		}
-	}
 
 	useOIDC := k.getConfig("useOidc", "ARM_USE_OIDC") == "true"
 	var oidcRequestToken, oidcRequestUrl string
@@ -62,6 +51,19 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		oidcRequestUrl = k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL")
 		if oidcRequestUrl == "" {
 			oidcRequestUrl = k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
+		}
+	}
+
+	// Without either of the methods above, we need the `az` CLI to authenticate. Check that we
+	// have a good version (#1565). The check needs to happen before builder.Build(), or we return
+	// the less fitting error message from go-azure-helpers.
+	if !useMsi && !useOIDC && clientSecret == "" && clientCertPath == "" {
+		v, err := getAzVersion()
+		if err != nil {
+			return nil, err
+		}
+		if err = assertAzVersion(v); err != nil {
+			return nil, err
 		}
 	}
 
@@ -97,7 +99,14 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 
 	c, err := builder.Build()
 	q.Q("AUTH", c)
+
 	return c, err
+}
+
+func usesAzureCli(config *authentication.Config) bool {
+	r := reflect.ValueOf(config).Elem()
+	authMethod := r.FieldByName("authMethod")
+	return strings.HasPrefix(authMethod.Elem().Type().Name(), "azureCli")
 }
 
 func getAzVersion() (*goversion.Version, error) {
