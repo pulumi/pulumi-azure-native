@@ -19,7 +19,7 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		})
+		}, nil)
 		v2021 := "2021-02-02"
 		expected := DefaultConfig{
 			"Provider": {
@@ -39,7 +39,7 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		})
+		}, nil)
 		v2021 := "2021-02-02-preview"
 		expected := DefaultConfig{
 			"Provider": {
@@ -90,7 +90,7 @@ func TestFindMinimalVersionSet(t *testing.T) {
 
 func TestFilterCandidateVersions(t *testing.T) {
 	t.Run("empty spec", func(t *testing.T) {
-		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{})
+		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{}, "")
 		expected := []string{}
 		assert.Equal(t, expected, actual)
 	})
@@ -98,7 +98,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
 			"2020-01-01":         {},
 			"2020-01-02-preview": {},
-		})
+		}, "")
 		expected := []string{"2020-01-01"}
 		assert.Equal(t, expected, actual)
 	})
@@ -107,7 +107,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2020-01-01":         {},
 			"2020-01-01-preview": {},
 			"2022-02-02":         {},
-		})
+		}, "")
 		expected := []string{"2020-01-01", "2022-02-02"}
 		assert.Equal(t, expected, actual)
 	})
@@ -117,7 +117,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2020-01-01-preview": {},
 			"2020-06-01-preview": {},
 			"2022-02-02":         {},
-		})
+		}, "")
 		expected := []string{"2020-01-01", "2022-02-02"}
 		assert.Equal(t, expected, actual)
 	})
@@ -126,14 +126,14 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2020-01-01":         {},
 			"2020-12-01-preview": {}, // ignored because it's within 1 year of last stable
 			"2022-01-01-preview": {},
-		})
+		}, "")
 		expected := []string{"2020-01-01", "2022-01-01-preview"}
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("single preview", func(t *testing.T) {
 		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
 			"2020-01-01-preview": {},
-		})
+		}, "")
 		expected := []string{"2020-01-01-preview"}
 		assert.Equal(t, expected, actual)
 	})
@@ -141,7 +141,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
 			"2020-01-01-preview": {},
 			"2021-01-01-preview": {},
-		})
+		}, "")
 		expected := []string{"2020-01-01-preview", "2021-01-01-preview"}
 		assert.Equal(t, expected, actual)
 	})
@@ -149,7 +149,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
 			"2015-01-14-preview":        {},
 			"2015-01-14-privatepreview": {},
-		})
+		}, "")
 		expected := []string{"2015-01-14-preview"}
 		assert.Equal(t, expected, actual)
 	})

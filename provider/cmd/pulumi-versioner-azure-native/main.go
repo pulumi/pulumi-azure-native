@@ -70,12 +70,10 @@ func handleCommand(args []string, outputDir, versionFile string) error {
 	case "v2":
 		return v2(outputDir)
 	default:
-		matched, err := regexp.MatchString("^v\\d+-config$", target)
-		if err != nil {
-			return err
-		}
-		if matched {
-			return vnextConfig(outputDir, target)
+		re := regexp.MustCompile(`^(v\d+)-config$`)
+		matches := re.FindStringSubmatch(target)
+		if len(matches) == 2 {
+			return vnextConfig(outputDir, matches[1])
 		}
 		return fmt.Errorf("unknown target: %q", target)
 	}
@@ -252,7 +250,7 @@ func v2(outputDir string) error {
 	})
 }
 
-func vnextConfig(outputDir, target string) error {
+func vnextConfig(outputDir, version string) error {
 	specVersions, err := versioning.ReadSpecVersions(path.Join(outputDir, "spec.json"))
 	if err != nil {
 		return err
@@ -263,16 +261,22 @@ func vnextConfig(outputDir, target string) error {
 		return err
 	}
 
-	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
-	v2Config := versioning.BuildDefaultConfig(specAfterRemovals)
+	curations, err := versioning.ReadManualCurations(path.Join(outputDir, version+"-curation.yaml"))
 	if err != nil {
 		return err
 	}
 
-	filename := target + ".yaml"
+	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
+
+	vConfig := versioning.BuildDefaultConfig(specAfterRemovals, curations)
+	if err != nil {
+		return err
+	}
+
+	filename := version + "-config.yaml"
 
 	return emitFiles(outputDir, map[Filename]Data{
-		filename: v2Config,
+		filename: vConfig,
 	})
 }
 

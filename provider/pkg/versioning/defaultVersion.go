@@ -25,10 +25,11 @@ type ProviderSpec struct {
 type DefaultConfig map[openapi.ProviderName]ProviderSpec
 
 // BuildDefaultConfig calculates a config from available API versions
-func BuildDefaultConfig(spec SpecVersions) DefaultConfig {
+func BuildDefaultConfig(spec SpecVersions, curations Curations) DefaultConfig {
 	specs := DefaultConfig{}
 	for providerName, versionResources := range spec {
-		specs[providerName] = buildSpec(versionResources)
+		curations := curations[providerName]
+		specs[providerName] = buildSpec(versionResources, curations)
 	}
 	return specs
 }
@@ -93,8 +94,8 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 	return curatedVersion, multierror.Flatten(err)
 }
 
-func buildSpec(versions VersionResources) ProviderSpec {
-	latestVersions := findLatestVersions(versions)
+func buildSpec(versions VersionResources, curations providerCuration) ProviderSpec {
+	latestVersions := findLatestVersions(versions, curations)
 	switch len(latestVersions) {
 	case 0:
 		return ProviderSpec{}
@@ -109,6 +110,7 @@ func buildSpec(versions VersionResources) ProviderSpec {
 	// If multiple versions required, track the latest and include additional resources from previous versions
 	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	maxVersion := ""
+	exclusions := codegen.NewStringSet(curations.Exclusions...)
 	for apiVersion := range latestVersions {
 		if apiVersion > maxVersion {
 			maxVersion = apiVersion
@@ -119,7 +121,14 @@ func buildSpec(versions VersionResources) ProviderSpec {
 			continue
 		}
 		for _, resourceName := range resources {
-			additions[resourceName] = apiVersion
+			if !exclusions.Has(resourceName) {
+				additions[resourceName] = apiVersion
+			}
+		}
+	}
+	if len(additions) == 0 {
+		return ProviderSpec{
+			Tracking: &maxVersion,
 		}
 	}
 
@@ -129,8 +138,8 @@ func buildSpec(versions VersionResources) ProviderSpec {
 	}
 }
 
-func findLatestVersions(versions VersionResources) map[openapi.ApiVersion][]openapi.ResourceName {
-	latestResourceVersions := findLatestResourceVersions(versions)
+func findLatestVersions(versions VersionResources, curations providerCuration) map[openapi.ApiVersion][]openapi.ResourceName {
+	latestResourceVersions := findLatestResourceVersions(versions, curations)
 	latestVersions := map[openapi.ApiVersion][]openapi.ResourceName{}
 	for resourceName, version := range latestResourceVersions {
 		latestVersions[version] = append(latestVersions[version], resourceName)
@@ -141,8 +150,8 @@ func findLatestVersions(versions VersionResources) map[openapi.ApiVersion][]open
 	return latestVersions
 }
 
-func findLatestResourceVersions(versions VersionResources) map[openapi.ResourceName]openapi.ApiVersion {
-	candidateVersions := filterCandidateVersions(versions)
+func findLatestResourceVersions(versions VersionResources, curations providerCuration) map[openapi.ResourceName]openapi.ApiVersion {
+	candidateVersions := filterCandidateVersions(versions, curations.Preview)
 	candidates := filterVersionResources(versions, candidateVersions)
 	minimalVersionSet := findMinimalVersionSet(candidates)
 	minimalVersions := filterVersionResources(candidates, minimalVersionSet)
@@ -180,7 +189,7 @@ func filterVersionResources(versions VersionResources, filter []openapi.ApiVersi
 	return filtered
 }
 
-func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
+func filterCandidateVersions(versions VersionResources, previewPolicy string) []openapi.ApiVersion {
 	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
 	for version := range versions {
 		if version != "" {
@@ -197,7 +206,10 @@ func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
 		if openapi.IsPrivate(version) {
 			continue
 		}
-		if !openapi.IsPreview(version) {
+		if previewPolicy == PreviewExclude && openapi.IsPreview(version) {
+			continue
+		}
+		if !openapi.IsPreview(version) || previewPolicy == PreviewPrefer {
 			candidateVersions.Add(version)
 			hasFutureStableVersion = true
 			continue
@@ -205,6 +217,7 @@ func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
 		if hasFutureStableVersion {
 			continue
 		}
+
 		// If no more to iterate through, just add
 		if i == 0 || !containsRecentStable(orderedVersions[:i], version) {
 			candidateVersions.Add(version)

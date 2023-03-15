@@ -8,6 +8,13 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+const (
+	// PreviewExclude means that the preview versions are excluded from consideration for the default version
+	PreviewExclude = "exclude"
+	// PreviewPrefer means that the preview versions are preferred over stable versions if newer
+	PreviewPrefer = "prefer"
+)
+
 // providerCuration contains manual  edits to the automatically determined API versions for a resource provider
 type providerCuration struct {
 	// Exclude these resources from the provider. Used when generating the final vN.json from vN-config.yaml.
@@ -15,9 +22,8 @@ type providerCuration struct {
 	// Don't use a tracking version, list all resources with their API version instead. Used when generating vN-config.yaml.
 	// NOT IMPLEMENTED YET.
 	Explicit bool
-	// Prefer the latest preview version over stable.
-	// NOT IMPLEMENTED YET.
-	PreferPreview bool
+	// Either "exclude" or "prefer"
+	Preview string
 }
 
 // Curations contains manual edits to the automatically determined API versions
