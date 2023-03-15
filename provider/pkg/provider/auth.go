@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os/exec"
-	"reflect"
 	"strings"
 
 	"github.com/Azure/go-autorest/autorest"
@@ -16,12 +15,18 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
+	"github.com/ryboe/q"
 
 	goversion "github.com/hashicorp/go-version"
 	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
 )
 
-func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
+type authConfig struct {
+	*authentication.Config
+	useCli bool
+}
+
+func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
 	if auxTenantsString != "" {
@@ -51,12 +56,19 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		if oidcRequestUrl == "" {
 			oidcRequestUrl = k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
 		}
+
+		if oidcRequestToken == "" || oidcRequestUrl == "" {
+			return nil, fmt.Errorf(`OIDC authentication is requested via useMsi/ARM_USE_MSI but no token and/or
+request URL were configured. See
+https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials for more information.`)
+		}
 	}
 
 	// Without either of the methods above, we need the `az` CLI to authenticate. Check that we
 	// have a good version (#1565). The check needs to happen before builder.Build(), or we return
 	// the less fitting error message from go-azure-helpers.
-	if !useMsi && !useOIDC && clientSecret == "" && clientCertPath == "" {
+	useCli := !useMsi && !useOIDC && clientSecret == "" && clientCertPath == ""
+	if useCli {
 		v, err := getAzVersion()
 		if err != nil {
 			return nil, err
@@ -92,17 +104,16 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		SupportsOIDCAuth:               useOIDC,
 		UseMicrosoftGraph:              useOIDC,
 		SupportsManagedServiceIdentity: useMsi,
-		SupportsAzureCliToken:          true,
+		SupportsAzureCliToken:          !useOIDC,
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
 	}
 
-	return builder.Build()
-}
+	c, err := builder.Build()
+	if err != nil {
+		return nil, err
+	}
 
-func usesAzureCli(config *authentication.Config) bool {
-	r := reflect.ValueOf(config).Elem()
-	authMethod := r.FieldByName("authMethod")
-	return strings.HasPrefix(authMethod.Elem().Type().Name(), "azureCli")
+	return &authConfig{c, useCli}, nil
 }
 
 func getAzVersion() (*goversion.Version, error) {
@@ -172,38 +183,70 @@ func runAzCmd(target interface{}, arg ...string) error {
 type AuthorizerFactory func(api environments.Api) (autorest.Authorizer, error)
 
 func (k *azureNativeProvider) makeAuthorizerFactories(ctx context.Context,
-	authConfig *authentication.Config) (AuthorizerFactory, AuthorizerFactory, error) {
+	authConfig *authConfig) (AuthorizerFactory, AuthorizerFactory, error) {
 
 	buildSender := sender.BuildSender("AzureNative")
 
-	oauthConfig, err := k.buildOAuthConfig(authConfig)
+	oauthConfig, err := k.buildOAuthConfig(authConfig.Config)
 	if err != nil {
 		return nil, nil, err
 	}
 
 	endpoint := k.environment.TokenAudience
 
+	if authConfig.useCli {
+		return k.makeADALAuthorizerFactories(ctx, authConfig.Config, oauthConfig, endpoint, buildSender)
+	}
+	return k.makeMSALAuthorizerFactories(ctx, authConfig.Config, oauthConfig, endpoint, buildSender)
+}
+
+func (k *azureNativeProvider) makeADALAuthorizerFactories(ctx context.Context,
+	authConfig *authentication.Config, oauthConfig *authentication.OAuthConfig, endpoint string, autorestSender autorest.Sender) (AuthorizerFactory, AuthorizerFactory, error) {
+
 	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		return authConfig.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
+		q.Q("Getting ADAL token", api.Endpoint, endpoint)
+		return authConfig.GetADALToken(ctx, autorestSender, oauthConfig, endpoint)
 	}
 
 	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		return authConfig.MSALBearerAuthorizerCallback(ctx, api, buildSender, oauthConfig, endpoint), nil
+		q.Q("Getting ADAL bearer auth callback", api.Endpoint, endpoint)
+		return authConfig.ADALBearerAuthorizerCallback(ctx, autorestSender, oauthConfig), nil
 	}
 
 	return tokenFactory, bearerAuthFactory, nil
 }
 
-func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
+func (k *azureNativeProvider) makeMSALAuthorizerFactories(ctx context.Context, authConfig *authentication.Config,
+	oauthConfig *authentication.OAuthConfig, endpoint string, autorestSender autorest.Sender) (AuthorizerFactory, AuthorizerFactory, error) {
+
+	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
+		q.Q("Getting MSAL token", api.Endpoint, endpoint)
+		return authConfig.GetMSALToken(ctx, api, autorestSender, oauthConfig, endpoint)
+	}
+
+	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
+		q.Q("Getting MSAL bearer auth callback", api.Endpoint, endpoint)
+		return authConfig.MSALBearerAuthorizerCallback(ctx, api, autorestSender, oauthConfig, endpoint), nil
+	}
+
+	return tokenFactory, bearerAuthFactory, nil
+}
+
+func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authConfig, endpoint string) (string, error) {
 	buildSender := sender.BuildSender("AzureNative")
-	oauthConfig, err := k.buildOAuthConfig(auth)
+	oauthConfig, err := k.buildOAuthConfig(auth.Config)
 	if err != nil {
 		return "", err
 	}
 
 	api := k.autorestEnvToHamiltonEnv().ResourceManager
 
-	authorizer, err := auth.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
+	var authorizer autorest.Authorizer
+	if auth.useCli {
+		authorizer, err = auth.GetADALToken(ctx, buildSender, oauthConfig, endpoint)
+	} else {
+		authorizer, err = auth.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
+	}
 	if err != nil {
 		return "", fmt.Errorf("getting authorization token: %w", err)
 	}
