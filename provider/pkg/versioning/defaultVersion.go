@@ -28,8 +28,8 @@ type DefaultConfig map[openapi.ProviderName]ProviderSpec
 func BuildDefaultConfig(spec SpecVersions, curations Curations) DefaultConfig {
 	specs := DefaultConfig{}
 	for providerName, versionResources := range spec {
-		curations := curations[providerName]
-		specs[providerName] = buildSpec(versionResources, curations)
+		providerCurations := curations[providerName]
+		specs[providerName] = buildSpec(providerName, versionResources, providerCurations)
 	}
 	return specs
 }
@@ -94,7 +94,7 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 	return curatedVersion, multierror.Flatten(err)
 }
 
-func buildSpec(versions VersionResources, curations providerCuration) ProviderSpec {
+func buildSpec(providerName string, versions VersionResources, curations providerCuration) ProviderSpec {
 	latestVersions := findLatestVersions(versions, curations)
 	if len(latestVersions) == 0 {
 		return ProviderSpec{}
@@ -111,7 +111,6 @@ func buildSpec(versions VersionResources, curations providerCuration) ProviderSp
 	// If multiple versions required, track the latest and include additional resources from previous versions
 	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	maxVersion := ""
-	exclusions := codegen.NewStringSet(curations.Exclusions...)
 	for apiVersion := range latestVersions {
 		if apiVersion > maxVersion {
 			maxVersion = apiVersion
@@ -122,9 +121,14 @@ func buildSpec(versions VersionResources, curations providerCuration) ProviderSp
 			continue
 		}
 		for _, resourceName := range resources {
-			if !exclusions.Has(resourceName) {
-				additions[resourceName] = apiVersion
+			excludedMaxVersion, hasExclusion := curations.Exclusions[resourceName]
+			if hasExclusion {
+				if excludedMaxVersion == "*" || excludedMaxVersion >= apiVersion {
+					continue
+				}
+				fmt.Printf("Exclusion %s/%s not applied, version %s is greater than %s", providerName, resourceName, apiVersion, excludedMaxVersion)
 			}
+			additions[resourceName] = apiVersion
 		}
 	}
 	additionsPtr := &additions

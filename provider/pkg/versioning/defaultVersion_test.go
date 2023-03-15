@@ -181,26 +181,26 @@ func TestCuratedExclusions(t *testing.T) {
 	}
 
 	// no exlusions, no change
-	assertContainsResourcesAfterCuration(t, spec, config, []string{}, map[string]string{
+	assertContainsResourcesAfterCuration(t, spec, config, map[string]string{}, map[string]string{
 		"TenantPolicy": "2020-01-01",
 		"Tenant":       tracking,
 		"TenantCert":   tracking,
 	})
 
 	// excluded addition
-	assertContainsResourcesAfterCuration(t, spec, config, []string{"TenantPolicy"}, map[string]string{
+	assertContainsResourcesAfterCuration(t, spec, config, map[string]string{"TenantPolicy": "*"}, map[string]string{
 		"Tenant":     tracking,
 		"TenantCert": tracking,
 	})
 
 	// excluded tracking
-	assertContainsResourcesAfterCuration(t, spec, config, []string{"Tenant"}, map[string]string{
+	assertContainsResourcesAfterCuration(t, spec, config, map[string]string{"Tenant": "*"}, map[string]string{
 		"TenantPolicy": "2020-01-01",
 		"TenantCert":   tracking,
 	})
 }
 
-func assertContainsResourcesAfterCuration(t *testing.T, spec SpecVersions, config DefaultConfig, exclusions []string, shouldContain map[string]string) {
+func assertContainsResourcesAfterCuration(t *testing.T, spec SpecVersions, config DefaultConfig, exclusions map[string]string, shouldContain map[string]string) {
 	curations := Curations{
 		"Provider": providerCuration{
 			Exclusions: exclusions,

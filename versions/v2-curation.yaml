@@ -26,18 +26,18 @@ AlertsManagement:
 AnalysisServices:
 ApiManagement:
   exclusions:
-    - ApiDiagnosticLogger # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
-    - ApiOperationsPolicy # renamed to ApiOperationPolicy
-    - DiagnosticLogger # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
-    - Property # replaced by NamedValue
-    - TagDescription # renamed to ApiTagDescription
-    - TenantPolicy # obsolete
-    - listTenantAccessGitSecrets # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
+    ApiDiagnosticLogger: "2018-01-01" # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
+    ApiOperationsPolicy: "2016-10-10" # renamed to ApiOperationPolicy
+    DiagnosticLogger: "2018-01-01" # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
+    Property: "2019-01-01" # replaced by NamedValue
+    TagDescription: "2018-06-01-preview" # renamed to ApiTagDescription
+    TenantPolicy: "2016-10-10" # obsolete
+    listTenantAccessGitSecrets: "2019-12-01-preview" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
 App:
 AppComplianceAutomation:
 AppConfiguration:
   exclusions:
-    - listConfigurationStoreKeyValue # was renamed to KeyValues_ListByConfigurationStore, endpoint from listKeyValue to keyValues
+    listConfigurationStoreKeyValue: "2020-06-01" # was renamed to KeyValues_ListByConfigurationStore, endpoint from listKeyValue to keyValues
 AppPlatform:
 Attestation:
 Authorization:
@@ -56,14 +56,14 @@ AzureStackHCI:
 BareMetalInfrastructure:
 Batch:
   exclusions:
-    - Certificate # deprecated
+    Certificate: "2022-06-01" # deprecated
 Billing:
 BillingBenefits:
 Blockchain:
 Blueprint:
 BotService:
   exclusions:
-    - EnterpriseChannel # Deprecated https://learn.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.channels.enterprisechannel?view=botbuilder-dotnet-stable
+    EnterpriseChannel: "2018-07-12" # Deprecated https://learn.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.channels.enterprisechannel?view=botbuilder-dotnet-stable
 Cache:
   folders: ["redisenterprise", "redis", "eventgrid"]
 Capacity:
@@ -76,4 +76,9 @@ Commerce:
 Communication:
 Compute:
   explicit: true
+ContainerRegistry:
+  notes: API versions only include updated resources
+ContainerService:
+  notes: |
+    This is actually know as AKS.
 ---
