@@ -14,7 +14,7 @@ func TestIsExcluded(t *testing.T) {
 	curations["Compute"] = providerCuration{}
 	assert.False(t, curations.IsExcluded("Compute", "someResource"))
 
-	curations["Compute"] = providerCuration{Exclusions: map[string]string{"someResource": ""}}
+	curations["Compute"] = providerCuration{Exclusions: map[string]string{"anotherResource": ""}}
 	assert.False(t, curations.IsExcluded("Compute", "someResource"))
 
 	curations["Compute"] = providerCuration{Exclusions: map[string]string{"anotherResource": "", "someResource": ""}}

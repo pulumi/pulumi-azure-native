@@ -32,10 +32,8 @@ func (c *providerCuration) IsExcluded(resource string) bool {
 	if c == nil || c.Exclusions == nil {
 		return false
 	}
-	if _, ok := c.Exclusions[resource]; ok {
-		return true
-	}
-	return false
+	_, ok := c.Exclusions[resource]
+	return ok
 }
 
 func (c Curations) IsExcluded(provider openapi.ProviderName, resource string) bool {
