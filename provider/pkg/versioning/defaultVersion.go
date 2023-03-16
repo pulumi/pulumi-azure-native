@@ -25,11 +25,12 @@ type ProviderSpec struct {
 type DefaultConfig map[openapi.ProviderName]ProviderSpec
 
 // BuildDefaultConfig calculates a config from available API versions
-func BuildDefaultConfig(spec SpecVersions, curations Curations) DefaultConfig {
+func BuildDefaultConfig(spec SpecVersions, curations Curations, existingConfig DefaultConfig) DefaultConfig {
 	specs := DefaultConfig{}
 	for providerName, versionResources := range spec {
 		providerCurations := curations[providerName]
-		specs[providerName] = buildSpec(providerName, versionResources, providerCurations)
+		existing := existingConfig[providerName]
+		specs[providerName] = buildSpec(providerName, versionResources, providerCurations, existing)
 	}
 	return specs
 }
@@ -94,18 +95,14 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 	return curatedVersion, multierror.Flatten(err)
 }
 
-func buildSpec(providerName string, versions VersionResources, curations providerCuration) ProviderSpec {
+func buildSpec(providerName string, versions VersionResources, curations providerCuration, existing ProviderSpec) ProviderSpec {
+	var additionsPtr *map[string]string
+	var trackingPtr *string
+
 	latestVersions := findLatestVersions(versions, curations)
+
 	if len(latestVersions) == 0 {
 		return ProviderSpec{}
-	}
-	if len(latestVersions) == 1 && !curations.Explicit {
-		// If single apiVersion includes all resources, track it.
-		for apiVersion := range latestVersions {
-			return ProviderSpec{
-				Tracking: &apiVersion,
-			}
-		}
 	}
 
 	// If multiple versions required, track the latest and include additional resources from previous versions
@@ -131,13 +128,17 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 			additions[resourceName] = apiVersion
 		}
 	}
-	additionsPtr := &additions
-	if len(additions) == 0 {
-		additionsPtr = nil
+
+	if len(additions) > 0 {
+		additionsPtr = &additions
 	}
-	trackingPtr := &maxVersion
-	if curations.Explicit {
-		trackingPtr = nil
+
+	if !curations.Explicit {
+		if existing.Tracking != nil {
+			trackingPtr = existing.Tracking
+		} else {
+			trackingPtr = &maxVersion
+		}
 	}
 
 	return ProviderSpec{

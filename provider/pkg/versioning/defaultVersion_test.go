@@ -19,7 +19,7 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		}, nil)
+		}, nil, DefaultConfig{})
 		v2021 := "2021-02-02"
 		expected := DefaultConfig{
 			"Provider": {
@@ -39,11 +39,38 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		}, nil)
+		}, nil, DefaultConfig{})
 		v2021 := "2021-02-02-preview"
 		expected := DefaultConfig{
 			"Provider": {
 				Tracking: &v2021,
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("prefer existing tracking version", func(t *testing.T) {
+		v2021 := "2021-02-02"
+		v2020 := "2020-01-01"
+
+		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+			"Provider": {
+				v2020: []openapi.ResourceName{
+					"Resource A",
+				},
+				v2021: []openapi.ResourceName{
+					"Resource A",
+					"Resource B",
+				},
+			},
+		}, nil, DefaultConfig{
+			"Provider": {
+				Tracking: &v2020,
+			},
+		})
+		expected := DefaultConfig{
+			"Provider": {
+				Tracking: &v2020,
 			},
 		}
 		assert.Equal(t, expected, actual)

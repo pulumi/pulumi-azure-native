@@ -268,7 +268,7 @@ func vnextConfig(outputDir, version string) error {
 
 	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
 
-	vConfig := versioning.BuildDefaultConfig(specAfterRemovals, curations)
+	vConfig := versioning.BuildDefaultConfig(specAfterRemovals, curations, versioning.DefaultConfig{})
 	if err != nil {
 		return err
 	}
