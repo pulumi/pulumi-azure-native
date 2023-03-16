@@ -153,11 +153,33 @@ jobs:
         env:
           ARM_USE_OIDC: true
           ARM_CLIENT_SECRET: ""
-          # tkappler oidc-test - temporary unless our main app is OIDC-enabled
-          ARM_CLIENT_ID: 89380e12-5be6-486a-89ef-eea107af2f47 # tkappler oidc-test
+          # AD app 'oidc-test', owned by tkappler - temporary until our main app is OIDC-enabled
+          ARM_CLIENT_ID: 89380e12-5be6-486a-89ef-eea107af2f47
+          TMPDIR: ${{ runner.temp }}
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -count=1 -cover -timeout 15m -tags=${{ matrix.language }},oidc -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples
+          go test -v -json -count=1 -cover -timeout 15m -tags=${{ matrix.language }},oidc -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+
+      ### tkappler: OIDC via the 'az' cli is generally possible, but the current implementation in
+      ### our dependecies doesn't support it.
+      # - name: Log in via az CLI for OIDC tests
+      #   if: ${{ matrix.language == 'nodejs' }}
+      #   uses: azure/login@v1
+      #   with:
+      #     # AD app 'oidc-test', owned by tkappler - temporary until our main app is OIDC-enabled
+      #     client-id: 89380e12-5be6-486a-89ef-eea107af2f47
+      #     tenant-id: ${{ env.ARM_TENANT_ID }}
+      #     subscription-id: ${{ env.ARM_SUBSCRIPTION_ID }}
+      # - name: Run OIDC tests via az cli
+      #   if: ${{ matrix.language == 'nodejs' }}
+      #   env:
+      #     ARM_CLIENT_SECRET: ""
+      #     TMPDIR: ${{ runner.temp }}
+      #   run: |
+      #     set -euo pipefail
+      #     cd examples
+      #     go test -v -json -count=1 -cover -timeout 15m -tags=${{ matrix.language }},oidc -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
 
       - name: Tar SDK folder
         if: ${{ matrix.language != 'go' }}

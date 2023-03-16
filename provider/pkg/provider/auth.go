@@ -15,7 +15,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
-	"github.com/ryboe/q"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 
 	goversion "github.com/hashicorp/go-version"
 	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
@@ -64,20 +64,6 @@ https://www.pulumi.com/registry/packages/azure-native/installation-configuration
 		}
 	}
 
-	// Without either of the methods above, we need the `az` CLI to authenticate. Check that we
-	// have a good version (#1565). The check needs to happen before builder.Build(), or we return
-	// the less fitting error message from go-azure-helpers.
-	useCli := !useMsi && !useOIDC && clientSecret == "" && clientCertPath == ""
-	if useCli {
-		v, err := getAzVersion()
-		if err != nil {
-			return nil, err
-		}
-		if err = assertAzVersion(v); err != nil {
-			return nil, err
-		}
-	}
-
 	builder := &authentication.Builder{
 		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
@@ -108,12 +94,33 @@ https://www.pulumi.com/registry/packages/azure-native/installation-configuration
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
 	}
 
+	needCli := needAzCli(builder)
+	if needCli {
+		// Check that we have a good version of the cli (#1565). The check needs to happen before
+		// builder.Build(), or we return the less fitting error message from go-azure-helpers.
+		v, err := getAzVersion()
+		if err != nil {
+			return nil, err
+		}
+		if err = assertAzVersion(v); err != nil {
+			return nil, err
+		}
+	}
+
 	c, err := builder.Build()
 	if err != nil {
 		return nil, err
 	}
 
-	return &authConfig{c, useCli}, nil
+	return &authConfig{c, needCli}, nil
+}
+
+// Without any of the other methods above, we fall back to the `az` CLI to authenticate.
+func needAzCli(builder *authentication.Builder) bool {
+	return !builder.SupportsManagedServiceIdentity &&
+		!builder.SupportsOIDCAuth &&
+		builder.ClientSecret == "" &&
+		builder.ClientCertPath == ""
 }
 
 func getAzVersion() (*goversion.Version, error) {
@@ -204,12 +211,12 @@ func (k *azureNativeProvider) makeADALAuthorizerFactories(ctx context.Context,
 	authConfig *authentication.Config, oauthConfig *authentication.OAuthConfig, endpoint string, autorestSender autorest.Sender) (AuthorizerFactory, AuthorizerFactory, error) {
 
 	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		q.Q("Getting ADAL token", api.Endpoint, endpoint)
+		logging.V(9).Infof("Getting ADAL token for %s", endpoint)
 		return authConfig.GetADALToken(ctx, autorestSender, oauthConfig, endpoint)
 	}
 
 	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		q.Q("Getting ADAL bearer auth callback", api.Endpoint, endpoint)
+		logging.V(9).Infof("Getting ADAL bearer auth callback for %s", endpoint)
 		return authConfig.ADALBearerAuthorizerCallback(ctx, autorestSender, oauthConfig), nil
 	}
 
@@ -220,12 +227,12 @@ func (k *azureNativeProvider) makeMSALAuthorizerFactories(ctx context.Context, a
 	oauthConfig *authentication.OAuthConfig, endpoint string, autorestSender autorest.Sender) (AuthorizerFactory, AuthorizerFactory, error) {
 
 	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		q.Q("Getting MSAL token", api.Endpoint, endpoint)
+		logging.V(9).Infof("Getting MSAL token for %s", endpoint)
 		return authConfig.GetMSALToken(ctx, api, autorestSender, oauthConfig, endpoint)
 	}
 
 	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
-		q.Q("Getting MSAL bearer auth callback", api.Endpoint, endpoint)
+		logging.V(9).Infof("Getting MSAL bearer auth callback for %s", endpoint)
 		return authConfig.MSALBearerAuthorizerCallback(ctx, api, autorestSender, oauthConfig, endpoint), nil
 	}
 
