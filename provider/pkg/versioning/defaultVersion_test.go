@@ -71,6 +71,49 @@ func TestDefaultVersion(t *testing.T) {
 		expected := DefaultConfig{
 			"Provider": {
 				Tracking: &v2020,
+				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
+					"Resource B": v2021,
+				},
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("prefer existing addition version", func(t *testing.T) {
+		v2020 := "2020-01-01"
+		v2021 := "2021-02-02"
+		v2022 := "2022-03-03"
+
+		existingConfig := DefaultConfig{
+			"Provider": {
+				Tracking: &v2021,
+				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
+					"Resource B": v2020,
+				},
+			},
+		}
+
+		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+			"Provider": {
+				v2020: []openapi.ResourceName{
+					"Resource B",
+				},
+				v2021: []openapi.ResourceName{
+					"Resource A",
+				},
+				v2022: []openapi.ResourceName{
+					"Resource B",
+					"Resource C",
+				},
+			},
+		}, nil, existingConfig)
+		expected := DefaultConfig{
+			"Provider": {
+				Tracking: &v2021,
+				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
+					"Resource B": v2020,
+					"Resource C": v2022,
+				},
 			},
 		}
 		assert.Equal(t, expected, actual)

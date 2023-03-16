@@ -106,15 +106,26 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 	}
 
 	// If multiple versions required, track the latest and include additional resources from previous versions
-	additions := map[openapi.ResourceName]openapi.ApiVersion{}
-	maxVersion := ""
-	for apiVersion := range latestVersions {
-		if apiVersion > maxVersion {
-			maxVersion = apiVersion
+	var trackingResources codegen.StringSet
+	if existing.Tracking != nil {
+		trackingPtr = existing.Tracking
+		trackingResources = codegen.NewStringSet(versions[*trackingPtr]...)
+	} else {
+		for apiVersion, resources := range latestVersions {
+			if trackingPtr == nil || apiVersion > *trackingPtr {
+				trackingPtr = &apiVersion
+				trackingResources = codegen.NewStringSet(resources...)
+			}
 		}
 	}
+
+	existingAdditions := map[openapi.ResourceName]openapi.ApiVersion{}
+	if existing.Additions != nil {
+		existingAdditions = *existing.Additions
+	}
+	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for apiVersion, resources := range latestVersions {
-		if !curations.Explicit && apiVersion == maxVersion {
+		if !curations.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
 			continue
 		}
 		for _, resourceName := range resources {
@@ -125,7 +136,11 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 				}
 				fmt.Printf("Exclusion %s/%s not applied, version %s is greater than %s", providerName, resourceName, apiVersion, excludedMaxVersion)
 			}
-			additions[resourceName] = apiVersion
+			if version, ok := existingAdditions[resourceName]; ok {
+				additions[resourceName] = version
+			} else if !trackingResources.Has(resourceName) {
+				additions[resourceName] = apiVersion
+			}
 		}
 	}
 
@@ -133,12 +148,8 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 		additionsPtr = &additions
 	}
 
-	if !curations.Explicit {
-		if existing.Tracking != nil {
-			trackingPtr = existing.Tracking
-		} else {
-			trackingPtr = &maxVersion
-		}
+	if curations.Explicit {
+		trackingPtr = nil
 	}
 
 	return ProviderSpec{
