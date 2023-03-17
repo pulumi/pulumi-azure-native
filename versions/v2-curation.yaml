@@ -7,9 +7,16 @@ META: # not great to be in same namespace than the RPs
 # Properties:
 #   - "exclusions": ignore these resources
 #   - "explicit": (boolean) if true, don't use a tracking version, only explicit versions for each resource
-#   - "preferPreview": use the latest -preview version rather than latest stable
+#   - "preview": (prefer|exclude) use the latest -preview version rather than latest stable
 #   - "folders": folder(s) of the Azure spec GH repo containing this RP, purely informational
 #   - "notes": misc. information for future readers
+
+# Auditing notes:
+# - Compare v1-config with v2-config and look for significant changes
+# - If no version listed, why?
+# - Has it gone from stable to preview?
+# - Does it have old additions? Could they be excluded if moved elsewhere?
+# - If it was previously explicit, does it still need to be?
 
 Aad:
   folders:
@@ -79,6 +86,285 @@ Compute:
 ContainerRegistry:
   notes: API versions only include updated resources
 ContainerService:
+  notes: This is actually known as AKS
+CostManagement:
   notes: |
-    This is actually know as AKS.
+    Used to have overlapping resources between 2020-06-01 and 2019-11-01, seemingly resolved in 2022-10-01
+    `Setting` might be obsolete
+CustomProviders:
+  notes: Only one preview version so far
+CustomerInsights:
+CustomerLockbox:
+  notes: POST-based
+DBforMariaDB:
+DBforMySQL:
+DBforPostgreSQL:
+Dashboard: 
+DataBox:
+DataBoxEdge:
+DataCatalog:
+DataFactory:
+DataLakeAnalytics:
+  notes: Last stable was 2016, latest preview is 2019
+DataLakeStore:
+DataMigration:
+DataProtection:
+DataShare:
+Databricks:
+Datadog:
+DelegatedNetwork:
+DeploymentManager:
+DesktopVirtualization:
+DevCenter:
+DevHub:
+  notes: Depreated and no longer listed on https://learn.microsoft.com/en-us/rest/api/azure/
+DevSpaces:
+DevTestLab:
+DeviceUpdate:
+Devices:
+  notes: Previously had overlapping resources between 2020-08-31 and 2020-03-01
+DigitalTwins:
+DocumentDB:
+DomainRegistration:
+Dynamics365Fraudprotection:
+  notes: Only got a single preview version
+DynamicsTelemetry:
+  notes: Only contains GETs
+Easm:
+EdgeOrder:
+EdgeOrderPartner:
+  notes: POST based APIs
+Education:
+Elastic:
+  notes: Only previews since original launch stable version in 2020
+ElasticSan:
+  notes: Only single preview version
+EngagementFabric:
+  notes: Only single preview version
+EnterpriseKnowledgeGraph:
+EventGrid:
+EventHub:
+ExtendedLocation:
+Features:
+FluidRelay:
+  exclusions:
+    getFluidRelayServerKeys: "2022-05-26"
+  notes: getFluidRelayServerKeys seems to be replaced with listFluidRelayServerKeys
+GraphServices:
+GuestConfiguration:
+HDInsight:
+HanaOnAzure:
+  exclusions:
+    HanaInstance: 2017-11-03-preview
+  notes: In 2017 HanaInstance was the top level resource, in 2020 a monitor is created first then a provider instance is created within it
+HardwareSecurityModules:
+HealthBot:
+HealthcareApis:
+HybridCompute:
+HybridConnectivity:
+  notes: Only preview versions
+HybridContainerService:
+  notes: Only preview versions
+HybridData:
+HybridNetwork:
+ImportExport:
+Insights:
+  explicit: true
+  notes: |
+    Each API version only includes changed resources so no benefit in tracking a version
+    Path: /azure-rest-api-specs/specification/applicationinsights/resource-manager/Microsoft.Insights
+    Docs: https://learn.microsoft.com/en-us/rest/api/application-insights/
+    - Components and Web Tests pinned on 2015-05-01
+    - Workbooks pinned on 2021-08-01
+Intune:
+  notes: Only preview versions
+IoTCentral:
+IoTSecurity:
+  notes: Only single preview version
+KeyVault:
+KubernetesConfiguration:
+Kusto:
+LabServices:
+  notes: get methods only available in older version
+LoadTestService:
+Logic:
+  exclusions:
+    Agreement: "2016-06-01"
+    Certificate: "2016-06-01"
+    Map: "2016-06-01"
+    Partner: "2016-06-01"
+    Schema: "2016-06-01"
+    Session: "2016-06-01"
+    listAgreementContentCallbackUrl: "2016-06-01"
+    listMapContentCallbackUrl: "2016-06-01"
+    listPartnerContentCallbackUrl: "2016-06-01"
+    listSchemaContentCallbackUrl: "2016-06-01"
+  notes: |
+    Renames between versions:
+      Agreement -> IntegrationAccountAgreement
+      Certificate -> IntegrationAccountCertificate
+      Map -> IntegrationAccountMap
+      Partner -> IntegrationAccountPartner
+      Schema -> IntegrationAccountSchema
+      Session -> IntegrationAccountSession
+      listAgreementContentCallbackUrl -> listIntegrationAccountAgreementContentCallbackUrl
+      listMapContentCallbackUrl -> listIntegrationAccountMapContentCallbackUrl
+      listPartnerContentCallbackUrl -> listIntegrationAccountPartnerContentCallbackUrl
+      listSchemaContentCallbackUrl -> listIntegrationAccountSchemaContentCallbackUrl
+Logz:
+  notes: No stable version since 2020
+M365SecurityAndCompliance:
+  notes: Only single preview version
+MachineLearning:
+  notes: Somewhat inconsistent which resources are in each version
+MachineLearningCompute:
+  notes: Only preview versions
+MachineLearningExperimentation:
+  notes: Only single preview version
+MachineLearningServices:
+  exclusions:
+    LinkedWorkspace: "2020-03-01"
+    MachineLearningCompute: "2021-04-01"
+    MachineLearningService: "2021-04-01"
+    listMachineLearningComputeKeys: "2021-04-01"
+    listMachineLearningComputeNodes: "2021-04-01"
+    listNotebookKeys: "2021-04-01"
+    listStorageAccountKeys: "2021-04-01"
+  notes: |
+    The REST API docs only lists 2022-10-01 and 2022-12-01-preview
+    so can assume older additions aren't generally needed
+    https://learn.microsoft.com/en-us/rest/api/azureml/
+Maintenance:
+  notes: No stable version since 2021
+ManagedIdentity:
+ManagedNetwork:
+  notes: Only single preview version
+ManagedNetworkFabric:
+  notes: Only single preview version
+ManagedServices:
+Management:
+ManagementPartner:
+Maps:
+Marketplace:
+  exclusions:
+    PrivateStoreOffer: "2020-01-01"
+  notes: PrivateStoreOffer not included since very first issue
+MarketplaceNotifications:
+  notes: Only contains GETs
+MarketplaceOrdering:
+  notes: Might be able to support MarketplaceAgreements if we set a default
+Media:
+  explicit: true
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/media/
+    Each version contain just small bits of the API - better to be explicit
+Migrate:
+  explicit: true
+  notes: |
+    Each version contain just small bits of the API - better to be explicit
+    https://learn.microsoft.com/en-us/rest/api/migrate/
+MixedReality:
+MobileNetwork:
+Monitor:
+  notes: Only single preview version
+NetApp:
+Network:
+  explicit: true
+  notes: Large surface area that's likely to conflict as versions evolve
+NetworkCloud:
+  notes: Only single preview version
+NetworkFunction:
+NotificationHubs:
+OffAzure:
+  notes: Part of migrate https://learn.microsoft.com/en-us/rest/api/migrate/
+OpenEnergyPlatform:
+  notes: Only preview versions
+OperationalInsights:
+  explicit: true
+  notes: |
+    Each version contain just small bits of the API - better to be explicit
+OperationsManagement:
+  notes: Only single preview version
+Orbital:
+Peering:
+PolicyInsights:
+  explicit: true
+  notes: Each version appears to be partial
+Portal:
+  preview: prefer
+  notes: All versions are previews
+PortalServices:
+  notes: Only single POST operation
+PowerBI:
+  explicit: true
+  notes: |
+    Both versions are actively used
+    https://learn.microsoft.com/en-us/rest/api/power-bi-workspace-collections/
+PowerBIDedicated:
+PowerPlatform:
+  notes: Only single preview version
+ProfessionalService:
+  notes: Only single preview version
+ProviderHub:
+Purview:
+Quantum:
+  notes: All versions are previews
+Quota:
+  notes: quotaLimit has no delete - needs a default defined
+RecommendationsService:
+RecoveryServices:
+  notes: odd that Vault is missing in latest - addition is sensible, might conflict if they add Vault later
+RedHatOpenShift:
+Relay:
+ResourceConnector:
+ResourceGraph:
+  notes: All versions are previews
+ResourceHealth:
+  notes: Only single preview version
+Resources:
+  explicit: true
+  notes: Not all resources in each release
+SaaS:
+  notes: Only single *beta* version
+ScVmm:
+  notes: Only single preview version
+Scheduler:
+Search:
+Security:
+  explicit: true
+  notes: Not all resources in each release
+SecurityAndCompliance:
+SecurityDevOps:
+  notes: Only single preview version
+SecurityInsights:
+SerialConsole:
+ServiceBus:
+ServiceFabric:
+  exclusions:
+    Cluster: "2021-06-01"
+    listClusterUpgradableVersions: "2021-06-01"
+  notes: Cluster replaced with ManagedCluster after 2021-06-01
+ServiceFabricMesh:
+  notes: All versions are previews
+ServiceLinker:
+ServiceNetworking:
+  notes: Only single preview version
+SignalRService:
+SoftwarePlan:
+Solutions:
+Sql:
+  exclusions:
+    DatabaseThreatDetectionPolicy: "2014-04-01"
+    DisasterRecoveryConfiguration: "2014-04-01"
+    ServerCommunicationLink: "2014-04-01"
+  preview: exclude
+  notes: Regular stable versions containing all resources
+SqlVirtualMachine:
+StorSimple:
+Storage:
+StorageCache:
+StorageMover:
+StoragePool:
+StorageSync:
+
 ---
