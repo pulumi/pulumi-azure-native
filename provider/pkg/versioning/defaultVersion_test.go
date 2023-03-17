@@ -191,6 +191,41 @@ func TestDefaultVersion(t *testing.T) {
 	})
 }
 
+func TestExplicitPreference(t *testing.T) {
+	v2020 := "2020-01-01"
+	v2021 := "2021-02-02"
+
+	spec := map[openapi.ProviderName]VersionResources{
+		"Provider": {
+			v2020: []openapi.ResourceName{
+				"Resource B",
+			},
+			v2021: []openapi.ResourceName{
+				"Resource A",
+			},
+		},
+	}
+
+	curations := Curations{
+		"Provider": {
+			Explicit: true,
+		},
+	}
+
+	existingConfig := DefaultConfig{}
+
+	actual := BuildDefaultConfig(spec, curations, existingConfig)
+	expected := DefaultConfig{
+		"Provider": {
+			Additions: &map[openapi.ResourceName]openapi.ApiVersion{
+				"Resource A": v2021,
+				"Resource B": v2020,
+			},
+		},
+	}
+	assert.Equal(t, expected, actual)
+}
+
 func TestFindMinimalVersionSet(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
 		actual := findMinimalVersionSet(map[openapi.ApiVersion][]openapi.ResourceName{})

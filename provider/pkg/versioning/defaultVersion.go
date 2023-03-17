@@ -110,7 +110,7 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 	if existing.Tracking != nil {
 		trackingPtr = existing.Tracking
 		trackingResources = codegen.NewStringSet(versions[*trackingPtr]...)
-	} else {
+	} else if !curations.Explicit {
 		for apiVersion, resources := range latestVersions {
 			if trackingPtr == nil || apiVersion > *trackingPtr {
 				version := apiVersion
@@ -147,10 +147,6 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 
 	if len(additions) > 0 {
 		additionsPtr = &additions
-	}
-
-	if curations.Explicit {
-		trackingPtr = nil
 	}
 
 	return ProviderSpec{
