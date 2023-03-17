@@ -113,7 +113,8 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 	} else {
 		for apiVersion, resources := range latestVersions {
 			if trackingPtr == nil || apiVersion > *trackingPtr {
-				trackingPtr = &apiVersion
+				version := apiVersion
+				trackingPtr = &version
 				trackingResources = codegen.NewStringSet(resources...)
 			}
 		}

@@ -79,6 +79,36 @@ func TestDefaultVersion(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
+	t.Run("include new services", func(t *testing.T) {
+		v2020 := "2020-01-01"
+
+		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+			"Provider A": {
+				v2020: []openapi.ResourceName{
+					"Resource A",
+				},
+			},
+			"Provider B": {
+				v2020: []openapi.ResourceName{
+					"Resource B",
+				},
+			},
+		}, nil, DefaultConfig{
+			"Provider A": {
+				Tracking: &v2020,
+			},
+		})
+		expected := DefaultConfig{
+			"Provider A": {
+				Tracking: &v2020,
+			},
+			"Provider B": {
+				Tracking: &v2020,
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
 	t.Run("prefer existing addition version", func(t *testing.T) {
 		v2020 := "2020-01-01"
 		v2021 := "2021-02-02"
