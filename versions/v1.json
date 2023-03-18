@@ -860,8 +860,12 @@
     "getFluidRelayServerKeys": "2021-03-12-preview",
     "listFluidRelayServerKeys": "2022-04-21"
   },
+  "GraphServices": {
+    "Account": "2022-09-22-preview"
+  },
   "GuestConfiguration": {
     "GuestConfigurationAssignment": "2020-06-25",
+    "GuestConfigurationConnectedVMwarevSphereAssignment": "2020-06-25",
     "GuestConfigurationHCRPAssignment": "2020-06-25"
   },
   "HDInsight": {
@@ -1164,6 +1168,27 @@
     "ManagedNetworkPeeringPolicy": "2019-06-01-preview",
     "ScopeAssignment": "2019-06-01-preview"
   },
+  "ManagedNetworkFabric": {
+    "AccessControlList": "2023-02-01-preview",
+    "ExternalNetwork": "2023-02-01-preview",
+    "InternalNetwork": "2023-02-01-preview",
+    "IpCommunityList": "2023-02-01-preview",
+    "IpPrefixList": "2023-02-01-preview",
+    "L2IsolationDomain": "2023-02-01-preview",
+    "L3IsolationDomain": "2023-02-01-preview",
+    "NetworkDevice": "2023-02-01-preview",
+    "NetworkFabric": "2023-02-01-preview",
+    "NetworkFabricController": "2023-02-01-preview",
+    "NetworkInterface": "2023-02-01-preview",
+    "NetworkRack": "2023-02-01-preview",
+    "NetworkToNetworkInterconnect": "2023-02-01-preview",
+    "RoutePolicy": "2023-02-01-preview",
+    "getL2IsolationDomainArpEntries": "2023-02-01-preview",
+    "getNetworkDeviceDynamicInterfaceMaps": "2023-02-01-preview",
+    "getNetworkDeviceStaticInterfaceMaps": "2023-02-01-preview",
+    "getNetworkDeviceStatus": "2023-02-01-preview",
+    "getNetworkInterfaceStatus": "2023-02-01-preview"
+  },
   "ManagedServices": {
     "RegistrationAssignment": "2019-09-01",
     "RegistrationDefinition": "2019-09-01"
@@ -1415,6 +1440,25 @@
     "listNetworkManagerDeploymentStatus": "2021-02-01-preview",
     "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview"
   },
+  "NetworkCloud": {
+    "BareMetalMachine": "2022-12-12-preview",
+    "BareMetalMachineKeySet": "2022-12-12-preview",
+    "BmcKeySet": "2022-12-12-preview",
+    "CloudServicesNetwork": "2022-12-12-preview",
+    "Cluster": "2022-12-12-preview",
+    "ClusterManager": "2022-12-12-preview",
+    "Console": "2022-12-12-preview",
+    "DefaultCniNetwork": "2022-12-12-preview",
+    "HybridAksCluster": "2022-12-12-preview",
+    "L2Network": "2022-12-12-preview",
+    "L3Network": "2022-12-12-preview",
+    "MetricsConfiguration": "2022-12-12-preview",
+    "Rack": "2022-12-12-preview",
+    "StorageAppliance": "2022-12-12-preview",
+    "TrunkedNetwork": "2022-12-12-preview",
+    "VirtualMachine": "2022-12-12-preview",
+    "Volume": "2022-12-12-preview"
+  },
   "NetworkFunction": {
     "AzureTrafficCollector": "2022-05-01",
     "CollectorPolicy": "2022-05-01"
@@ -1511,6 +1555,9 @@
     "EnterprisePolicy": "2020-10-30-preview",
     "PrivateEndpointConnection": "2020-10-30-preview"
   },
+  "ProfessionalService": {
+    "ProfessionalServiceSubscriptionLevel": "2023-07-01-preview"
+  },
   "ProviderHub": {
     "DefaultRollout": "2020-11-20",
     "NotificationRegistration": "2020-11-20",
@@ -1580,7 +1627,10 @@
   "ResourceGraph": {
     "GraphQuery": "2018-09-01-preview"
   },
-  "ResourceHealth": {},
+  "ResourceHealth": {
+    "listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId": "2022-10-01-preview",
+    "listSecurityAdvisoryImpactedResourceByTenantIdAndEventId": "2022-10-01-preview"
+  },
   "Resources": {
     "Deployment": "2021-01-01",
     "DeploymentAtManagementGroupScope": "2021-01-01",

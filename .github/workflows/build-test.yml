@@ -163,7 +163,7 @@ jobs:
           go test -v -json -count=1 -cover -timeout 15m -tags=${{ matrix.language }},oidc -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
 
       ### tkappler: OIDC via the 'az' cli is generally possible, but the current implementation in
-      ### our dependecies doesn't support it.
+      ### our dependencies doesn't support it.
       # - name: Log in via az CLI for OIDC tests
       #   if: ${{ matrix.language == 'nodejs' }}
       #   uses: azure/login@v1
