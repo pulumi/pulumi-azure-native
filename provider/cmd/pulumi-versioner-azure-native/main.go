@@ -75,7 +75,7 @@ func handleCommand(args []string, outputDir, versionFile string) error {
 }
 
 func writeAll(outputDir string) error {
-	files, err := versioning.GenerateVersionFiles("*")
+	files, err := versioning.GenerateVersionFiles("*", false)
 	if err != nil {
 		return err
 	}

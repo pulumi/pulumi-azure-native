@@ -1,6 +1,7 @@
 package versioning
 
 import (
+	"fmt"
 	"path"
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
@@ -8,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 )
 
-func GenerateVersionFiles(namespace string) (gen.FileMap, error) {
+func GenerateVersionFiles(namespace string, refreshConfig bool) (gen.FileMap, error) {
 	providers, err := openapi.SpecVersions("*")
 	if err != nil {
 		return nil, err
@@ -34,7 +35,24 @@ func GenerateVersionFiles(namespace string) (gen.FileMap, error) {
 
 	deprecated := FindDeprecations(specVersions, v1)
 	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
+
 	v2Config, err := ReadDefaultConfig(path.Join("versions", "v2-config.yaml"))
+
+	if refreshConfig {
+		curations, err := ReadManualCurations(path.Join("versions", "curations.yaml"))
+		if err != nil {
+			return nil, err
+		}
+		v2Config = BuildDefaultConfig(specAfterRemovals, curations, v2Config)
+
+		violations := ValidateDefaultConfig(v2Config, curations)
+		if len(violations) > 0 {
+			fmt.Printf("Warning: %d curation violations found:\n", len(violations))
+			for _, v := range violations {
+				fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
+			}
+		}
+	}
 	if err != nil {
 		return nil, err
 	}
@@ -50,6 +68,7 @@ func GenerateVersionFiles(namespace string) (gen.FileMap, error) {
 		"deprecated.json":     deprecated,
 		"active.json":         activePathVersionsJson,
 		"pending.json":        FindNewerVersions(specVersions, v1),
+		"v2-config.yaml":      v2Config,
 		"v2.json":             v2,
 	}, nil
 }
