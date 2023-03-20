@@ -15,14 +15,23 @@ const (
 	PreviewPrefer = "prefer"
 )
 
+const (
+	ExpectTrackingStable  = "stable"
+	ExpectTrackingPreview = "preview"
+)
+
 // providerCuration contains manual  edits to the automatically determined API versions for a resource provider
 type providerCuration struct {
 	// Exclude these resources from the provider. Used when generating the final vN.json from vN-config.yaml.
-	Exclusions map[openapi.ResourceName]openapi.ApiVersion
+	Exclusions map[openapi.ResourceName]openapi.ApiVersion `yaml:"exclusions,omitempty"`
 	// Don't use a tracking version, list all resources with their API version instead. Used when generating vN-config.yaml.
-	Explicit bool
+	Explicit bool `yaml:"explicit"`
 	// Either "exclude" or "prefer"
-	Preview string
+	Preview string `yaml:"preview"`
+	// Either "stable" or "preview" - defaults to expecting stable tracking version
+	ExpectTracking string `yaml:"expectTracking"`
+	// Whether to expect additions to the provider. Defaults to false.
+	ExpectAdditions bool `yaml:"expectAdditions"`
 }
 
 // Curations contains manual edits to the automatically determined API versions

@@ -273,6 +273,14 @@ func vnextConfig(outputDir, version string) error {
 		return err
 	}
 
+	violations := versioning.ValidateDefaultConfig(vConfig, curations)
+	if len(violations) > 0 {
+		fmt.Printf("Warning: %d curation violations found:\n", len(violations))
+		for _, v := range violations {
+			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
+		}
+	}
+
 	filename := version + "-config.yaml"
 
 	return emitFiles(outputDir, map[Filename]Data{

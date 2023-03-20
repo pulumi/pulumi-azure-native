@@ -35,6 +35,52 @@ func BuildDefaultConfig(spec SpecVersions, curations Curations, existingConfig D
 	return specs
 }
 
+type CurationViolation struct {
+	Provider openapi.ProviderName
+	Detail   string
+}
+
+func ValidateDefaultConfig(config DefaultConfig, curations Curations) []CurationViolation {
+	var violations []CurationViolation
+	for provider, providerSpec := range config {
+		providerCuration := curations[provider]
+		expectedTracking := providerCuration.ExpectTracking
+		if expectedTracking == "" {
+			expectedTracking = "stable"
+		}
+		var actualTracking string
+		if providerSpec.Tracking != nil && openapi.IsPreview(*providerSpec.Tracking) {
+			actualTracking = "preview"
+		} else {
+			actualTracking = "stable"
+		}
+		if expectedTracking != actualTracking {
+			violations = append(violations, CurationViolation{
+				Provider: provider,
+				Detail:   fmt.Sprintf("expected tracking %s but found %s", expectedTracking, actualTracking),
+			})
+		}
+		hasAdditions := providerSpec.Additions != nil && len(*providerSpec.Additions) > 0
+		if providerCuration.ExpectAdditions != hasAdditions && !providerCuration.Explicit {
+			var detail string
+			if providerCuration.ExpectAdditions {
+				detail = "expected additions but found none"
+			} else {
+				detail = "expected no additions but found some"
+			}
+			violations = append(violations, CurationViolation{
+				Provider: provider,
+				Detail:   detail,
+			})
+		}
+	}
+	// sort violations by provider name
+	sort.Slice(violations, func(i, j int) bool {
+		return strings.Compare(violations[i].Provider, violations[j].Provider) < 0
+	})
+	return violations
+}
+
 // ReadDefaultConfig parses a default config from a YAML file
 func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	jsonFile, err := os.Open(path)
