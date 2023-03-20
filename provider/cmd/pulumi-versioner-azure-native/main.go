@@ -1,21 +1,16 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
 	"path"
 	"regexp"
-	"strings"
 
-	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"gopkg.in/yaml.v3"
 )
 
 func main() {
@@ -114,7 +109,7 @@ func writeAll(outputDir string) error {
 		return err
 	}
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		"spec.json":           specVersions,
 		"spec-resources.json": specResourceVersions,
 		"v1.json":             v1,
@@ -134,7 +129,7 @@ func spec(outputDir string) error {
 	specVersions := versioning.FindSpecVersions(providers)
 	specResourceVersions := versioning.FormatResourceVersions(specVersions)
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		"spec.json":           specVersions,
 		"spec-resources.json": specResourceVersions,
 	})
@@ -148,7 +143,7 @@ func active(outputDir string) error {
 
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		"active.json": activePathVersionsJson,
 	})
 }
@@ -166,7 +161,7 @@ func deprecated(outputDir, versionFile string) error {
 
 	deprecated := versioning.FindDeprecations(specVersions, v1)
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		"deprecated.json": deprecated,
 	})
 }
@@ -184,7 +179,7 @@ func pending(outputDir, versionFile string) error {
 
 	pending := versioning.FindNewerVersions(specVersions, v1)
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		"pending.json": pending,
 	})
 }
@@ -205,7 +200,7 @@ func v1(outputDir string) error {
 		return err
 	}
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		"v1.json": v1,
 	})
 }
@@ -232,7 +227,7 @@ func v2(outputDir string) error {
 		return err
 	}
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		"v2.json": v2,
 	})
 }
@@ -270,52 +265,7 @@ func vnextConfig(outputDir, version string) error {
 
 	filename := version + "-config.yaml"
 
-	return emitFiles(outputDir, map[Filename]Data{
+	return gen.EmitFiles(outputDir, gen.FileMap{
 		filename: vConfig,
 	})
-}
-
-type Filename = string
-type Data = interface{}
-
-// emitFiles writes serializes and writes multiple files. If if the filename ends in `.yaml` then it will be marshalled
-// as YAML instead of JSON.
-func emitFiles(outDir string, files map[Filename]Data) error {
-	for filename, data := range files {
-		outPath := path.Join(outDir, filename)
-		err := emitFile(outPath, data)
-		if err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-func emitFile(outputPath string, data Data) error {
-	var formatted []byte
-	var err error
-	if strings.HasSuffix(outputPath, ".yaml") {
-		formatted, err = yaml.Marshal(data)
-		if err != nil {
-			return errors.Wrap(err, "marshaling YAML")
-		}
-	} else {
-		formatted, err = json.MarshalIndent(data, "", "  ")
-		if err != nil {
-			return errors.Wrap(err, "marshaling JSON")
-		}
-	}
-
-	if err := tools.EnsureDir(path.Dir(outputPath)); err != nil {
-		return errors.Wrap(err, "creating directory")
-	}
-
-	f, err := os.Create(outputPath)
-	if err != nil {
-		return errors.Wrap(err, "creating file")
-	}
-	defer contract.IgnoreClose(f)
-
-	_, err = f.Write(formatted)
-	return err
 }

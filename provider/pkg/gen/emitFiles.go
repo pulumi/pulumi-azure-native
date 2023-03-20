@@ -1,0 +1,63 @@
+package gen
+
+import (
+	"encoding/json"
+	"os"
+	"path"
+	"strings"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"gopkg.in/yaml.v2"
+)
+
+type FilePath = string
+type FileData = interface{}
+
+type FileMap = map[FilePath]FileData
+
+func EmitFiles(outDir string, files FileMap) error {
+	for filename, data := range files {
+		outPath := path.Join(outDir, filename)
+		err := EmitFile(outPath, data)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func EmitFile(outputPath string, data FileData) error {
+	var formatted []byte
+	var err error
+	if bytes, ok := data.([]byte); ok {
+		formatted = bytes
+	} else if strings.HasSuffix(outputPath, ".yaml") {
+		formatted, err = yaml.Marshal(data)
+		if err != nil {
+			return errors.Wrapf(err, "marshaling YAML for %v", outputPath)
+		}
+	} else {
+		formatted, err = json.MarshalIndent(data, "", "  ")
+		if err != nil {
+			return errors.Wrapf(err, "marshaling JSON for %v", outputPath)
+		}
+	}
+
+	if err := tools.EnsureDir(path.Dir(outputPath)); err != nil {
+		return errors.Wrapf(err, "creating directory %v", path.Dir(outputPath))
+	}
+
+	f, err := os.Create(outputPath)
+	if err != nil {
+		return errors.Wrapf(err, "creating file %v", outputPath)
+	}
+	defer contract.IgnoreClose(f)
+
+	_, err = f.Write(formatted)
+	if err != nil {
+		return errors.Wrapf(err, "writing file %v", outputPath)
+	}
+	return err
+}

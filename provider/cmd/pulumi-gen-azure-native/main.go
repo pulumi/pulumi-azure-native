@@ -26,8 +26,6 @@ import (
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pythongen "github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 func main() {
@@ -159,11 +157,7 @@ func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageNam
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
 
-	if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
-		return err
-	}
-
-	return nil
+	return gen.EmitFile(path.Join(outDir, "schema-full.json"), schemaJSON)
 }
 
 // emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
@@ -173,7 +167,7 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
 
-	return emitFile(outDir, "schema.json", schemaJSON)
+	return gen.EmitFile(path.Join(outDir, "schema.json"), schemaJSON)
 }
 
 func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackageName string) error {
@@ -183,12 +177,7 @@ func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackage
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	err = emitFile(outDir, "metadata-compact.json", meta.Bytes())
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return gen.EmitFile(path.Join(outDir, "metadata-compact.json"), meta.Bytes())
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
@@ -221,8 +210,8 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 	}
 
 	for f, contents := range files {
-		if err := emitFile(outDir, f, contents); err != nil {
-			return errors.Wrapf(err, "emitting file %v", f)
+		if err := gen.EmitFile(path.Join(outDir, f), contents); err != nil {
+			return err
 		}
 	}
 
@@ -247,8 +236,8 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 	files["pulumi-azure-native-sdk/go.mod"] = []byte(goModTemplate(GoMod{}))
 
 	for f, contents := range files {
-		if err := emitFile(outDir, f, contents); err != nil {
-			return errors.Wrapf(err, "emitting file %v", f)
+		if err := gen.EmitFile(path.Join(outDir, f), contents); err != nil {
+			return err
 		}
 
 		// Special case for identifying where we need modules in subdirectories.
@@ -265,14 +254,14 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 				SubmoduleName: module,
 			})
 
-			if err := emitFile(outDir, modPath, []byte(modContent)); err != nil {
-				return errors.Wrapf(err, "emitting file %v", modPath)
+			if err := gen.EmitFile(path.Join(outDir, modPath), []byte(modContent)); err != nil {
+				return err
 			}
 
 			pluginPath := filepath.Join(dir, "pulumi-plugin.json")
 			pluginContent := files["pulumi-azure-native-sdk/pulumi-plugin.json"]
-			if err := emitFile(outDir, pluginPath, pluginContent); err != nil {
-				return errors.Wrapf(err, "emitting file %v", modPath)
+			if err := gen.EmitFile(path.Join(outDir, pluginPath), pluginContent); err != nil {
+				return err
 			}
 		}
 	}
@@ -323,21 +312,4 @@ replace github.com/pulumi/pulumi-azure-native-sdk {{ .Version }} => ../
 		panic(err)
 	}
 	return result.String()
-}
-
-// emitFile creates a file in a given directory and writes the byte contents to it.
-func emitFile(outDir, relPath string, contents []byte) error {
-	p := path.Join(outDir, relPath)
-	if err := tools.EnsureDir(path.Dir(p)); err != nil {
-		return errors.Wrap(err, "creating directory")
-	}
-
-	f, err := os.Create(p)
-	if err != nil {
-		return errors.Wrap(err, "creating file")
-	}
-	defer contract.IgnoreClose(f)
-
-	_, err = f.Write(contents)
-	return err
 }
