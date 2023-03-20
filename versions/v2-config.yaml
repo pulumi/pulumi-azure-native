@@ -735,11 +735,7 @@ StoragePool:
 StorageSync:
     tracking: "2022-06-01"
 StreamAnalytics:
-    tracking: 2021-10-01-preview
-    additions:
-        Cluster: "2020-03-01"
-        PrivateEndpoint: "2020-03-01"
-        listClusterStreamingJobs: "2020-03-01"
+    tracking: "2020-03-01"
 Subscription:
     tracking: "2021-10-01"
 Support: {}
@@ -750,13 +746,11 @@ Syntex:
 TestBase:
     tracking: 2022-04-01-preview
 TimeSeriesInsights:
-    tracking: 2021-06-30-preview
+    tracking: "2020-05-15"
 VMwareCloudSimple:
     tracking: "2019-04-01"
 VideoAnalyzer:
     tracking: 2021-11-01-preview
-    additions:
-        listVideoStreamingToken: 2021-05-01-preview
 VideoIndexer:
     tracking: "2022-08-01"
 VirtualMachineImages:

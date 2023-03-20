@@ -478,5 +478,53 @@ StorageCache:
 StorageMover:
 StoragePool:
 StorageSync:
+StreamAnalytics:
+  preview: exclude
+  notes: Last stable version looks pretty complete, just not many updates since
+SubscriptionNetworkManagerConnection:
+Support:
+Synapse:
+Syntex:
+  expectTracking: preview
+  notes: Only single preview version
+TestBase:
+  expectTracking: preview
+  notes: Only preview versions
+TimeSeriesInsights:
+  preview: exclude
+  notes: |
+    Docs only reference last stable version:
+    https://learn.microsoft.com/en-us/rest/api/time-series-insights/
+VMwareCloudSimple:
+VideoAnalyzer:
+  expectTracking: preview
+  exclusions:
+    listVideoStreamingToken: 2021-05-01-preview
+  notes: |
+    Only preview versions
+    listVideoStreamingToken replaced with listVideoContentToken
+    Documented as "Azure Video Analyzer"
+    https://learn.microsoft.com/en-us/rest/api/videoanalyzer/video-analyzers
+VideoIndexer:
+VirtualMachineImages:
+VisualStudio:
+  expectTracking: preview
+  notes: Only preview versions
+VoiceServices:
+Web:
+  preview: exclude
+  expectAdditions: true
+  notes: |
+    Documented within "App Service"
+    https://learn.microsoft.com/en-us/rest/api/appservice/
+    Templates still list Connection, ConnectionGateway and CustomApis:
+    https://learn.microsoft.com/en-us/azure/templates/microsoft.web/connections?pivots=deployment-language-bicep
+WebPubSub:
+WindowsESU:
+  expectTracking: preview
+  notes: Only single preview version
+WindowsIoT:
+WorkloadMonitor:
+Workloads:
 
 ---
