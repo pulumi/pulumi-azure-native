@@ -75,49 +75,11 @@ func handleCommand(args []string, outputDir, versionFile string) error {
 }
 
 func writeAll(outputDir string) error {
-	providers, err := openapi.SpecVersions("*")
+	files, err := versioning.GenerateVersionFiles("*")
 	if err != nil {
 		return err
 	}
-
-	activePathVersions, err := providerlist.ReadProviderList()
-	if err != nil {
-		return err
-	}
-
-	specVersions := versioning.FindSpecVersions(providers)
-	specResourceVersions := versioning.FormatResourceVersions(specVersions)
-	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
-
-	v1Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v1-config.yaml"))
-	if err != nil {
-		return err
-	}
-	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
-	if err != nil {
-		return err
-	}
-
-	deprecated := versioning.FindDeprecations(specVersions, v1)
-	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
-	v2Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v2-config.yaml"))
-	if err != nil {
-		return err
-	}
-	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
-	if err != nil {
-		return err
-	}
-
-	return gen.EmitFiles(outputDir, gen.FileMap{
-		"spec.json":           specVersions,
-		"spec-resources.json": specResourceVersions,
-		"v1.json":             v1,
-		"deprecated.json":     deprecated,
-		"active.json":         activePathVersionsJson,
-		"pending.json":        versioning.FindNewerVersions(specVersions, v1),
-		"v2.json":             v2,
-	})
+	return gen.EmitFiles(outputDir, files)
 }
 
 func spec(outputDir string) error {
