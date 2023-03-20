@@ -89,7 +89,7 @@ Cache:
         listDatabaseKeys: "2022-01-01"
 Capacity: {}
 Cdn:
-    tracking: 2022-11-01-preview
+    tracking: "2021-06-01"
 CertificateRegistration:
     tracking: "2022-09-01"
 ChangeAnalysis:

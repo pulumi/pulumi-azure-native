@@ -10,6 +10,7 @@ META: # not great to be in same namespace than the RPs
 #   - "preview": (prefer|exclude) use the latest -preview version rather than latest stable
 #   - "folders": folder(s) of the Azure spec GH repo containing this RP, purely informational
 #   - "notes": misc. information for future readers
+#  - "expectTracking": Either "stable" or "preview" - defaults to "stable"
 
 # Auditing notes:
 # - Compare v1-config with v2-config and look for significant changes
@@ -22,6 +23,8 @@ Aad:
   folders:
     - domainservices
 AadIam:
+  expectAdditions: true
+  notes: DiagnosticSetting only in first version
   folders:
     - azureactivedirectory
 ADHybridHealthService:
@@ -29,9 +32,16 @@ ADHybridHealthService:
 Addons:
 Advisor:
 AgFoodPlatform:
+  expectTracking: preview
+  notes: Only preview versions
+  # TODO: Why are we missing PrometheusRuleGroup?
 AlertsManagement:
+  expectAdditions: true
+  notes: Versions are partial
 AnalysisServices:
 ApiManagement:
+  expectAdditions: true
+  notes: Only listDelegationSettingSecrets seems to have no new name
   exclusions:
     ApiDiagnosticLogger: "2018-01-01" # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
     ApiOperationsPolicy: "2016-10-10" # renamed to ApiOperationPolicy
@@ -42,22 +52,35 @@ ApiManagement:
     listTenantAccessGitSecrets: "2019-12-01-preview" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
 App:
 AppComplianceAutomation:
+  expectTracking: preview
+  notes: Only one preview version
 AppConfiguration:
   exclusions:
     listConfigurationStoreKeyValue: "2020-06-01" # was renamed to KeyValues_ListByConfigurationStore, endpoint from listKeyValue to keyValues
 AppPlatform:
 Attestation:
 Authorization:
+  expectAdditions: true
   folders: ["authorization", "resources"]
   notes: "For ManagementLocks, the docs say 2016-09-01 which is not the latest stable https://learn.microsoft.com/en-us/rest/api/resources/management-locks"
 Automanage:
 Automation:
+  expectAdditions: true
+  notes: |
+    Docs still list Webhook, Watcher and SoftwareUpdateConfigurationByName on old verisons only:
+    https://learn.microsoft.com/en-us/rest/api/automation/
 AutonomousDevelopmentPlatform:
+  expectTracking: preview
+  notes: Only preview versions
 AVS:
   folders: ["vmware"]
 AzureActiveDirectory:
 AzureArcData:
+  expectTracking: preview
+  notes: 4 previews since last stable in 2021
 AzureData:
+  expectTracking: preview
+  notes: Only preview versions
 AzureStack:
 AzureStackHCI:
 BareMetalInfrastructure:
@@ -67,44 +90,80 @@ Batch:
 Billing:
 BillingBenefits:
 Blockchain:
+  expectTracking: preview
+  notes: Only one preview version
 Blueprint:
+  expectTracking: preview
+  notes: Only preview versions
 BotService:
   exclusions:
     EnterpriseChannel: "2018-07-12" # Deprecated https://learn.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.channels.enterprisechannel?view=botbuilder-dotnet-stable
 Cache:
+  preview: exclude
+  expectAdditions: true
   folders: ["redisenterprise", "redis", "eventgrid"]
+  notes: Resources split between services. Regular stable versions
 Capacity:
 Cdn:
+  preview: exclude
+  notes: Regular stable versions, only 2 previews since last stable so let's wait for next stable
 CertificateRegistration:
 ChangeAnalysis:
+  expectTracking: preview
+  notes: Only one preview version
 Chaos:
+  expectTracking: preview
+  notes: Only preview versions
 CognitiveServices:
 Commerce:
 Communication:
+  expectTracking: preview
+  notes: Only previews after initial 2020 stable release
 Compute:
   explicit: true
+ConnectedVMwarevSphere:
+  expectTracking: preview
+  notes: Only preview versions
 ContainerRegistry:
+  expectAdditions: true
   notes: API versions only include updated resources
 ContainerService:
-  notes: This is actually known as AKS
+  expectAdditions: true
+  notes: |
+    This is actually known as AKS
+    OpenShiftManagedCluster might be able to be excluded, but no obvious new version
+    TODO: Is listManagedClusterAccessProfile replaced by listManagedClusterAdminCredentials and listManagedClusterUserCredentials?
 CostManagement:
+  expectAdditions: true
   notes: |
     Used to have overlapping resources between 2020-06-01 and 2019-11-01, seemingly resolved in 2022-10-01
-    `Setting` might be obsolete
+    API versions appear to be partial sometimes
 CustomProviders:
+  expectTracking: preview
   notes: Only one preview version so far
 CustomerInsights:
 CustomerLockbox:
   notes: POST-based
 DBforMariaDB:
 DBforMySQL:
+  expectAdditions: true
+  notes: |
+    Additions seem to come from "Single Server" vs "Flexible Server"
+    PrivateEndpointConnection: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/private-endpoint-connections
+    ServerAdministrator: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/server-administrators
+    ServerKey: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/server-keys
+    VirtualNetworkRule: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/virtual-network-rules
 DBforPostgreSQL:
+  expectAdditions: true
+  notes: |
+    Additions seem to come from "Single Server" vs "Flexible Server"
 Dashboard: 
 DataBox:
 DataBoxEdge:
 DataCatalog:
 DataFactory:
 DataLakeAnalytics:
+  expectTracking: preview
   notes: Last stable was 2016, latest preview is 2019
 DataLakeStore:
 DataMigration:
@@ -114,32 +173,48 @@ Databricks:
 Datadog:
 DelegatedNetwork:
 DeploymentManager:
+  expectTracking: preview
+  notes: Only preview versions
 DesktopVirtualization:
 DevCenter:
+  expectTracking: preview
+  notes: Only preview versions
 DevHub:
+  expectTracking: preview
   notes: Depreated and no longer listed on https://learn.microsoft.com/en-us/rest/api/azure/
 DevSpaces:
 DevTestLab:
 DeviceUpdate:
 Devices:
-  notes: Previously had overlapping resources between 2020-08-31 and 2020-03-01
+  expectAdditions: true
+  notes: |
+    Previously had overlapping resources between 2020-08-31 and 2020-03-01
+    Split between iothub, eventgrid and deviceprovisioningservices folders
 DigitalTwins:
 DocumentDB:
 DomainRegistration:
 Dynamics365Fraudprotection:
-  notes: Only got a single preview version
+  expectTracking: preview
+  notes: Only single preview version
 DynamicsTelemetry:
   notes: Only contains GETs
 Easm:
+  expectTracking: preview
+  notes: Only single preview version
 EdgeOrder:
 EdgeOrderPartner:
   notes: POST based APIs
 Education:
+  expectTracking: preview
+  notes: Only single preview version
 Elastic:
+  expectTracking: preview
   notes: Only previews since original launch stable version in 2020
 ElasticSan:
+  expectTracking: preview
   notes: Only single preview version
 EngagementFabric:
+  expectTracking: preview
   notes: Only single preview version
 EnterpriseKnowledgeGraph:
 EventGrid:
@@ -151,19 +226,26 @@ FluidRelay:
     getFluidRelayServerKeys: "2022-05-26"
   notes: getFluidRelayServerKeys seems to be replaced with listFluidRelayServerKeys
 GraphServices:
+  expectTracking: preview
+  notes: Only single preview version
 GuestConfiguration:
 HDInsight:
 HanaOnAzure:
+  expectTracking: preview
   exclusions:
     HanaInstance: 2017-11-03-preview
-  notes: In 2017 HanaInstance was the top level resource, in 2020 a monitor is created first then a provider instance is created within it
+  notes: |
+    In 2017 HanaInstance was the top level resource, in 2020 a monitor is created first then a provider instance is created within it
+    Only contains preview versions
 HardwareSecurityModules:
 HealthBot:
 HealthcareApis:
 HybridCompute:
 HybridConnectivity:
+  expectTracking: preview
   notes: Only preview versions
 HybridContainerService:
+  expectTracking: preview
   notes: Only preview versions
 HybridData:
 HybridNetwork:
@@ -177,17 +259,21 @@ Insights:
     - Components and Web Tests pinned on 2015-05-01
     - Workbooks pinned on 2021-08-01
 Intune:
+  expectTracking: preview
   notes: Only preview versions
 IoTCentral:
 IoTSecurity:
+  expectTracking: preview
   notes: Only single preview version
 KeyVault:
 KubernetesConfiguration:
 Kusto:
 LabServices:
+  expectAdditions: true
   notes: get methods only available in older version
 LoadTestService:
 Logic:
+  expectAdditions: true
   exclusions:
     Agreement: "2016-06-01"
     Certificate: "2016-06-01"
@@ -212,14 +298,19 @@ Logic:
       listPartnerContentCallbackUrl -> listIntegrationAccountPartnerContentCallbackUrl
       listSchemaContentCallbackUrl -> listIntegrationAccountSchemaContentCallbackUrl
 Logz:
+  expectTracking: preview
   notes: No stable version since 2020
 M365SecurityAndCompliance:
+  expectTracking: preview
   notes: Only single preview version
 MachineLearning:
+  expectAdditions: true
   notes: Somewhat inconsistent which resources are in each version
 MachineLearningCompute:
+  expectTracking: preview
   notes: Only preview versions
 MachineLearningExperimentation:
+  expectTracking: preview
   notes: Only single preview version
 MachineLearningServices:
   exclusions:
@@ -235,11 +326,14 @@ MachineLearningServices:
     so can assume older additions aren't generally needed
     https://learn.microsoft.com/en-us/rest/api/azureml/
 Maintenance:
+  expectTracking: preview
   notes: No stable version since 2021
 ManagedIdentity:
 ManagedNetwork:
+  expectTracking: preview
   notes: Only single preview version
 ManagedNetworkFabric:
+  expectTracking: preview
   notes: Only single preview version
 ManagedServices:
 Management:
@@ -266,24 +360,28 @@ Migrate:
 MixedReality:
 MobileNetwork:
 Monitor:
+  expectTracking: preview
   notes: Only single preview version
 NetApp:
 Network:
   explicit: true
   notes: Large surface area that's likely to conflict as versions evolve
 NetworkCloud:
+  expectTracking: preview
   notes: Only single preview version
 NetworkFunction:
 NotificationHubs:
 OffAzure:
   notes: Part of migrate https://learn.microsoft.com/en-us/rest/api/migrate/
 OpenEnergyPlatform:
+  expectTracking: preview
   notes: Only preview versions
 OperationalInsights:
   explicit: true
   notes: |
     Each version contain just small bits of the API - better to be explicit
 OperationsManagement:
+  expectTracking: preview
   notes: Only single preview version
 Orbital:
 Peering:
@@ -292,7 +390,9 @@ PolicyInsights:
   notes: Each version appears to be partial
 Portal:
   preview: prefer
-  notes: All versions are previews
+  expectTracking: preview
+  expectAdditions: true
+  notes: Stable and preview versions don't currently overlap
 PortalServices:
   notes: Only single POST operation
 PowerBI:
@@ -302,31 +402,39 @@ PowerBI:
     https://learn.microsoft.com/en-us/rest/api/power-bi-workspace-collections/
 PowerBIDedicated:
 PowerPlatform:
+  expectTracking: preview
   notes: Only single preview version
 ProfessionalService:
+  expectTracking: preview
   notes: Only single preview version
 ProviderHub:
 Purview:
 Quantum:
+  expectTracking: preview
   notes: All versions are previews
 Quota:
   notes: quotaLimit has no delete - needs a default defined
 RecommendationsService:
 RecoveryServices:
+  expectAdditions: true
   notes: odd that Vault is missing in latest - addition is sensible, might conflict if they add Vault later
 RedHatOpenShift:
 Relay:
 ResourceConnector:
 ResourceGraph:
+  expectTracking: preview
   notes: All versions are previews
 ResourceHealth:
+  expectTracking: preview
   notes: Only single preview version
 Resources:
   explicit: true
   notes: Not all resources in each release
 SaaS:
+  expectTracking: preview
   notes: Only single *beta* version
 ScVmm:
+  expectTracking: preview
   notes: Only single preview version
 Scheduler:
 Search:
@@ -335,19 +443,23 @@ Security:
   notes: Not all resources in each release
 SecurityAndCompliance:
 SecurityDevOps:
+  expectTracking: preview
   notes: Only single preview version
 SecurityInsights:
 SerialConsole:
 ServiceBus:
 ServiceFabric:
+  expectTracking: preview
   exclusions:
     Cluster: "2021-06-01"
     listClusterUpgradableVersions: "2021-06-01"
   notes: Cluster replaced with ManagedCluster after 2021-06-01
 ServiceFabricMesh:
+  expectTracking: preview
   notes: All versions are previews
 ServiceLinker:
 ServiceNetworking:
+  expectTracking: preview
   notes: Only single preview version
 SignalRService:
 SoftwarePlan:
