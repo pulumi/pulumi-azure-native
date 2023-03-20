@@ -99,7 +99,7 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	return curatedVersion, err
 }
 
-func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig, curation Curations) (openapi.CuratedVersion, error) {
+func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
 	var err error
 	curatedVersion := openapi.CuratedVersion{}
 	for providerName, versionResources := range spec {
@@ -122,16 +122,14 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 
 		if providerSpec.Tracking != nil {
 			for _, resourceName := range versionResources[*providerSpec.Tracking] {
-				if !curation.IsExcluded(providerName, resourceName) {
-					definitions[resourceName] = *providerSpec.Tracking
-				}
+				definitions[resourceName] = *providerSpec.Tracking
 			}
 		}
 		if providerSpec.Additions != nil {
 			for resourceName, apiVersion := range *providerSpec.Additions {
 				if existingVersion, ok := definitions[resourceName]; ok {
 					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", providerName, resourceName, apiVersion, existingVersion))
-				} else if !curation.IsExcluded(providerName, resourceName) {
+				} else {
 					definitions[resourceName] = apiVersion
 				}
 			}

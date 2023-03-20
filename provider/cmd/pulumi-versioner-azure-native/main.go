@@ -98,9 +98,7 @@ func writeAll(outputDir string) error {
 	if err != nil {
 		return err
 	}
-	// No separate V1 curation yet
-	v1Curation := make(versioning.Curations)
-	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config, v1Curation)
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
 	if err != nil {
 		return err
 	}
@@ -111,11 +109,7 @@ func writeAll(outputDir string) error {
 	if err != nil {
 		return err
 	}
-	v2Curation, err := versioning.ReadManualCurations(path.Join(outputDir, "v2-curation.yaml"))
-	if err != nil {
-		return err
-	}
-	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config, v2Curation)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
 	if err != nil {
 		return err
 	}
@@ -206,9 +200,7 @@ func v1(outputDir string) error {
 		return err
 	}
 
-	// No separate V1 curation yet
-	v1Curation := make(versioning.Curations)
-	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config, v1Curation)
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
 	if err != nil {
 		return err
 	}
@@ -234,13 +226,8 @@ func v2(outputDir string) error {
 		return err
 	}
 
-	curations, err := versioning.ReadManualCurations(path.Join(outputDir, "v2-curation.yaml"))
-	if err != nil {
-		return err
-	}
-
 	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
-	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config, curations)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
 	if err != nil {
 		return err
 	}
