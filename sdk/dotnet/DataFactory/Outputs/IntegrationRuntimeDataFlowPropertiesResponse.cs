@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly int? CoreCount;
         /// <summary>
+        /// Custom properties are used to tune the data flow runtime performance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IntegrationRuntimeDataFlowPropertiesResponseCustomProperties> CustomProperties;
+        /// <summary>
         /// Time to live (in minutes) setting of the cluster which will execute data flow job.
         /// </summary>
         public readonly int? TimeToLive;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             int? coreCount,
 
+            ImmutableArray<Outputs.IntegrationRuntimeDataFlowPropertiesResponseCustomProperties> customProperties,
+
             int? timeToLive)
         {
             Cleanup = cleanup;
             ComputeType = computeType;
             CoreCount = coreCount;
+            CustomProperties = customProperties;
             TimeToLive = timeToLive;
         }
     }

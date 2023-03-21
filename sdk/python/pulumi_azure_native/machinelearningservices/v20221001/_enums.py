@@ -15,6 +15,7 @@ __all__ = [
     'ClassificationPrimaryMetrics',
     'ClusterPurpose',
     'ComputeInstanceAuthorizationType',
+    'ComputePowerAction',
     'ComputeType',
     'ConnectionAuthType',
     'ConnectionCategory',
@@ -63,6 +64,8 @@ __all__ = [
     'SamplingAlgorithmType',
     'ScaleType',
     'ScheduleActionType',
+    'ScheduleProvisioningState',
+    'ScheduleStatus',
     'SeasonalityMode',
     'SecretsType',
     'ServiceDataAccessAuthIdentity',
@@ -312,6 +315,14 @@ class ComputeInstanceAuthorizationType(str, Enum):
     The Compute Instance Authorization type. Available values are personal (default).
     """
     PERSONAL = "personal"
+
+
+class ComputePowerAction(str, Enum):
+    """
+    [Required] The compute power action.
+    """
+    START = "Start"
+    STOP = "Stop"
 
 
 class ComputeType(str, Enum):
@@ -1003,6 +1014,23 @@ class ScheduleActionType(str, Enum):
     """
     CREATE_JOB = "CreateJob"
     INVOKE_BATCH_ENDPOINT = "InvokeBatchEndpoint"
+
+
+class ScheduleProvisioningState(str, Enum):
+    """
+    The current deployment state of schedule.
+    """
+    COMPLETED = "Completed"
+    PROVISIONING = "Provisioning"
+    FAILED = "Failed"
+
+
+class ScheduleStatus(str, Enum):
+    """
+    Is the schedule enabled or disabled?
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SeasonalityMode(str, Enum):

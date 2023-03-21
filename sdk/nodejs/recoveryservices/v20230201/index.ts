@@ -85,6 +85,11 @@ export const getResourceGuardProxy: typeof import("./getResourceGuardProxy").get
 export const getResourceGuardProxyOutput: typeof import("./getResourceGuardProxy").getResourceGuardProxyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceGuardProxy","getResourceGuardProxyOutput"], () => require("./getResourceGuardProxy"));
 
+export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
+export const getVault: typeof import("./getVault").getVault = null as any;
+export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -165,6 +170,11 @@ export type ResourceGuardProxy = import("./resourceGuardProxy").ResourceGuardPro
 export const ResourceGuardProxy: typeof import("./resourceGuardProxy").ResourceGuardProxy = null as any;
 utilities.lazyLoad(exports, ["ResourceGuardProxy"], () => require("./resourceGuardProxy"));
 
+export { VaultArgs } from "./vault";
+export type Vault = import("./vault").Vault;
+export const Vault: typeof import("./vault").Vault = null as any;
+utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20230201";
@@ -205,6 +215,8 @@ const _module = {
                 return new ReplicationvCenter(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20230201:ResourceGuardProxy":
                 return new ResourceGuardProxy(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20230201:Vault":
+                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

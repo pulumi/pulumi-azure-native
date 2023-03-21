@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.Marketplace.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:marketplace/v20210601:PrivateStoreCollectionOffer"},
                     new global::Pulumi.Alias { Type = "azure-native:marketplace/v20211201:PrivateStoreCollectionOffer"},
                     new global::Pulumi.Alias { Type = "azure-native:marketplace/v20220301:PrivateStoreCollectionOffer"},
+                    new global::Pulumi.Alias { Type = "azure-native:marketplace/v20230101:PrivateStoreCollectionOffer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

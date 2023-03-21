@@ -290,6 +290,7 @@ __all__ = [
     'IntegrationRuntimeComputePropertiesArgs',
     'IntegrationRuntimeCustomSetupScriptPropertiesArgs',
     'IntegrationRuntimeCustomerVirtualNetworkArgs',
+    'IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs',
     'IntegrationRuntimeDataFlowPropertiesArgs',
     'IntegrationRuntimeDataProxyPropertiesArgs',
     'IntegrationRuntimeReferenceArgs',
@@ -43139,17 +43140,58 @@ class IntegrationRuntimeCustomerVirtualNetworkArgs:
 
 
 @pulumi.input_type
+class IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of custom property.
+        :param pulumi.Input[str] value: Value of custom property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of custom property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of custom property.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
                  cleanup: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
+                 custom_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]]] = None,
                  time_to_live: Optional[pulumi.Input[int]] = None):
         """
         Data flow properties for managed integration runtime.
         :param pulumi.Input[bool] cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param pulumi.Input[Union[str, 'DataFlowComputeType']] compute_type: Compute type of the cluster which will execute data flow job.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]] custom_properties: Custom properties are used to tune the data flow runtime performance.
         :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if cleanup is not None:
@@ -43158,6 +43200,8 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
             pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
         if time_to_live is not None:
             pulumi.set(__self__, "time_to_live", time_to_live)
 
@@ -43196,6 +43240,18 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
     @core_count.setter
     def core_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "core_count", value)
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]]]:
+        """
+        Custom properties are used to tune the data flow runtime performance.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]]]):
+        pulumi.set(self, "custom_properties", value)
 
     @property
     @pulumi.getter(name="timeToLive")

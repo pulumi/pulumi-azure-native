@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public static BillingSku G2 { get; } = new BillingSku("G2");
         /// <summary>
-        /// 3 Gbps, 300 active SIMs plan
-        /// </summary>
-        public static BillingSku G3 { get; } = new BillingSku("G3");
-        /// <summary>
-        /// 4 Gbps, 400 active SIMs plan
-        /// </summary>
-        public static BillingSku G4 { get; } = new BillingSku("G4");
-        /// <summary>
         /// 5 Gbps, 500 active SIMs plan
         /// </summary>
         public static BillingSku G5 { get; } = new BillingSku("G5");

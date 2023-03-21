@@ -68,6 +68,7 @@ __all__ = [
     'ContainerResourceRequirementsResponse',
     'ContainerResourceSettingsResponse',
     'CosmosDbSettingsResponse',
+    'CronResponse',
     'CronTriggerResponse',
     'CustomForecastHorizonResponse',
     'CustomModelJobInputResponse',
@@ -157,6 +158,7 @@ __all__ = [
     'ProbeSettingsResponse',
     'PyTorchResponse',
     'RandomSamplingAlgorithmResponse',
+    'RecurrenceResponse',
     'RecurrenceScheduleResponse',
     'RecurrenceTriggerResponse',
     'RegistryListCredentialsResultResponse',
@@ -5126,13 +5128,13 @@ class ComputeInstancePropertiesResponse(dict):
                  data_mounts: Sequence['outputs.ComputeInstanceDataMountResponse'],
                  errors: Sequence['outputs.ErrorResponseResponse'],
                  last_operation: 'outputs.ComputeInstanceLastOperationResponse',
-                 schedules: 'outputs.ComputeSchedulesResponse',
                  state: str,
                  versions: 'outputs.ComputeInstanceVersionResponse',
                  application_sharing_policy: Optional[str] = None,
                  compute_instance_authorization_type: Optional[str] = None,
                  enable_node_public_ip: Optional[bool] = None,
                  personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
+                 schedules: Optional['outputs.ComputeSchedulesResponse'] = None,
                  setup_scripts: Optional['outputs.SetupScriptsResponse'] = None,
                  ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
@@ -5147,13 +5149,13 @@ class ComputeInstancePropertiesResponse(dict):
         :param Sequence['ComputeInstanceDataMountResponse'] data_mounts: Describes informations of dataMounts on this ComputeInstance.
         :param Sequence['ErrorResponseResponse'] errors: Collection of errors encountered on this ComputeInstance.
         :param 'ComputeInstanceLastOperationResponse' last_operation: The last operation on ComputeInstance.
-        :param 'ComputeSchedulesResponse' schedules: The list of schedules to be applied on the computes.
         :param str state: The current state of this ComputeInstance.
         :param 'ComputeInstanceVersionResponse' versions: ComputeInstance version.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
         :param bool enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param 'PersonalComputeInstanceSettingsResponse' personal_compute_instance_settings: Settings for a personal compute instance.
+        :param 'ComputeSchedulesResponse' schedules: The list of schedules to be applied on the computes.
         :param 'SetupScriptsResponse' setup_scripts: Details of customized scripts to execute for setting up the cluster.
         :param 'ComputeInstanceSshSettingsResponse' ssh_settings: Specifies policy and settings for SSH access.
         :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -5167,7 +5169,6 @@ class ComputeInstancePropertiesResponse(dict):
         pulumi.set(__self__, "data_mounts", data_mounts)
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "last_operation", last_operation)
-        pulumi.set(__self__, "schedules", schedules)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "versions", versions)
         if application_sharing_policy is None:
@@ -5182,6 +5183,8 @@ class ComputeInstancePropertiesResponse(dict):
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
         if setup_scripts is not None:
             pulumi.set(__self__, "setup_scripts", setup_scripts)
         if ssh_settings is not None:
@@ -5257,14 +5260,6 @@ class ComputeInstancePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def schedules(self) -> 'outputs.ComputeSchedulesResponse':
-        """
-        The list of schedules to be applied on the computes.
-        """
-        return pulumi.get(self, "schedules")
-
-    @property
-    @pulumi.getter
     def state(self) -> str:
         """
         The current state of this ComputeInstance.
@@ -5310,6 +5305,14 @@ class ComputeInstancePropertiesResponse(dict):
         Settings for a personal compute instance.
         """
         return pulumi.get(self, "personal_compute_instance_settings")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional['outputs.ComputeSchedulesResponse']:
+        """
+        The list of schedules to be applied on the computes.
+        """
+        return pulumi.get(self, "schedules")
 
     @property
     @pulumi.getter(name="setupScripts")
@@ -5689,8 +5692,8 @@ class ComputeStartStopScheduleResponse(dict):
                  id: str,
                  provisioning_status: str,
                  action: Optional[str] = None,
-                 cron: Optional['outputs.CronTriggerResponse'] = None,
-                 recurrence: Optional['outputs.RecurrenceTriggerResponse'] = None,
+                 cron: Optional['outputs.CronResponse'] = None,
+                 recurrence: Optional['outputs.RecurrenceResponse'] = None,
                  schedule: Optional['outputs.ScheduleBaseResponse'] = None,
                  status: Optional[str] = None,
                  trigger_type: Optional[str] = None):
@@ -5699,8 +5702,8 @@ class ComputeStartStopScheduleResponse(dict):
         :param str id: A system assigned id for the schedule.
         :param str provisioning_status: The current deployment state of schedule.
         :param str action: [Required] The compute power action.
-        :param 'CronTriggerResponse' cron: Required if triggerType is Cron.
-        :param 'RecurrenceTriggerResponse' recurrence: Required if triggerType is Recurrence.
+        :param 'CronResponse' cron: Required if triggerType is Cron.
+        :param 'RecurrenceResponse' recurrence: Required if triggerType is Recurrence.
         :param 'ScheduleBaseResponse' schedule: [Deprecated] Not used any more.
         :param str status: Is the schedule enabled or disabled?
         :param str trigger_type: [Required] The schedule trigger type.
@@ -5746,7 +5749,7 @@ class ComputeStartStopScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def cron(self) -> Optional['outputs.CronTriggerResponse']:
+    def cron(self) -> Optional['outputs.CronResponse']:
         """
         Required if triggerType is Cron.
         """
@@ -5754,7 +5757,7 @@ class ComputeStartStopScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional['outputs.RecurrenceTriggerResponse']:
+    def recurrence(self) -> Optional['outputs.RecurrenceResponse']:
         """
         Required if triggerType is Recurrence.
         """
@@ -5922,6 +5925,78 @@ class CosmosDbSettingsResponse(dict):
         The throughput of the collections in cosmosdb database
         """
         return pulumi.get(self, "collections_throughput")
+
+
+@pulumi.output_type
+class CronResponse(dict):
+    """
+    The workflow trigger cron for ComputeStartStop schedule type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CronResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CronResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CronResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: Optional[str] = None,
+                 start_time: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        """
+        The workflow trigger cron for ComputeStartStop schedule type.
+        :param str expression: [Required] Specifies cron expression of schedule.
+               The expression should follow NCronTab format.
+        :param str start_time: The start time in yyyy-MM-ddTHH:mm:ss format.
+        :param str time_zone: Specifies time zone in which the schedule runs.
+               TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is None:
+            time_zone = 'UTC'
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        [Required] Specifies cron expression of schedule.
+        The expression should follow NCronTab format.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The start time in yyyy-MM-ddTHH:mm:ss format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        Specifies time zone in which the schedule runs.
+        TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -16212,6 +16287,100 @@ class RandomSamplingAlgorithmResponse(dict):
         An optional integer to use as the seed for random number generation
         """
         return pulumi.get(self, "seed")
+
+
+@pulumi.output_type
+class RecurrenceResponse(dict):
+    """
+    The workflow trigger recurrence for ComputeStartStop schedule type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frequency: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 schedule: Optional['outputs.RecurrenceScheduleResponse'] = None,
+                 start_time: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        """
+        The workflow trigger recurrence for ComputeStartStop schedule type.
+        :param str frequency: [Required] The frequency to trigger schedule.
+        :param int interval: [Required] Specifies schedule interval in conjunction with frequency
+        :param 'RecurrenceScheduleResponse' schedule: [Required] The recurrence schedule.
+        :param str start_time: The start time in yyyy-MM-ddTHH:mm:ss format.
+        :param str time_zone: Specifies time zone in which the schedule runs.
+               TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is None:
+            time_zone = 'UTC'
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        [Required] The frequency to trigger schedule.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        [Required] Specifies schedule interval in conjunction with frequency
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.RecurrenceScheduleResponse']:
+        """
+        [Required] The recurrence schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The start time in yyyy-MM-ddTHH:mm:ss format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        Specifies time zone in which the schedule runs.
+        TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type

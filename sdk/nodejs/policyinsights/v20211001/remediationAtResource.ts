@@ -78,7 +78,7 @@ export class RemediationAtResource extends pulumi.CustomResource {
      */
     public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
     /**
-     * The status of the remediation.
+     * The status of the remediation. This refers to the entire remediation task, not individual deployments. Allowed values are Evaluating, Canceled, Cancelling, Failed, Complete, or Succeeded.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**

@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Inputs
         public Input<Inputs.PersonalComputeInstanceSettingsArgs>? PersonalComputeInstanceSettings { get; set; }
 
         /// <summary>
+        /// The list of schedules to be applied on the computes.
+        /// </summary>
+        [Input("schedules")]
+        public Input<Inputs.ComputeSchedulesArgs>? Schedules { get; set; }
+
+        /// <summary>
         /// Details of customized scripts to execute for setting up the cluster.
         /// </summary>
         [Input("setupScripts")]

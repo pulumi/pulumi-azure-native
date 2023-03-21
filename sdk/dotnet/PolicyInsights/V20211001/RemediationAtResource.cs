@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         public Output<string?> PolicyDefinitionReferenceId { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the remediation.
+        /// The status of the remediation. This refers to the entire remediation task, not individual deployments. Allowed values are Evaluating, Canceled, Cancelling, Failed, Complete, or Succeeded.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

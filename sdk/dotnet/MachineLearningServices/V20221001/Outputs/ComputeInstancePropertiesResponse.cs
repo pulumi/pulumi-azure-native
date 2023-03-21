@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
         /// <summary>
         /// The list of schedules to be applied on the computes.
         /// </summary>
-        public readonly Outputs.ComputeSchedulesResponse Schedules;
+        public readonly Outputs.ComputeSchedulesResponse? Schedules;
         /// <summary>
         /// Details of customized scripts to execute for setting up the cluster.
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
 
             Outputs.PersonalComputeInstanceSettingsResponse? personalComputeInstanceSettings,
 
-            Outputs.ComputeSchedulesResponse schedules,
+            Outputs.ComputeSchedulesResponse? schedules,
 
             Outputs.SetupScriptsResponse? setupScripts,
 

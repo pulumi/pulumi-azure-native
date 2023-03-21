@@ -129,6 +129,8 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20230301:PrometheusRuleGroup" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrometheusRuleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

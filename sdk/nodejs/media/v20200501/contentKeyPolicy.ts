@@ -112,7 +112,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:ContentKeyPolicy" }, { type: "azure-native:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180701:ContentKeyPolicy" }, { type: "azure-native:media/v20210601:ContentKeyPolicy" }, { type: "azure-native:media/v20211101:ContentKeyPolicy" }, { type: "azure-native:media/v20220801:ContentKeyPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:ContentKeyPolicy" }, { type: "azure-native:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180701:ContentKeyPolicy" }, { type: "azure-native:media/v20210601:ContentKeyPolicy" }, { type: "azure-native:media/v20211101:ContentKeyPolicy" }, { type: "azure-native:media/v20220801:ContentKeyPolicy" }, { type: "azure-native:media/v20230101:ContentKeyPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentKeyPolicy.__pulumiType, name, resourceInputs, opts);
     }

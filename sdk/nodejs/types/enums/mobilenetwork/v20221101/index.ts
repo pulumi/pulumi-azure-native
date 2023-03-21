@@ -32,14 +32,6 @@ export const BillingSku = {
      */
     G2: "G2",
     /**
-     * 3 Gbps, 300 active SIMs plan
-     */
-    G3: "G3",
-    /**
-     * 4 Gbps, 400 active SIMs plan
-     */
-    G4: "G4",
-    /**
      * 5 Gbps, 500 active SIMs plan
      */
     G5: "G5",

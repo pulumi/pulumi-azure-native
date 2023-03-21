@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:FileImport"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:FileImport"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:FileImport"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:FileImport"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

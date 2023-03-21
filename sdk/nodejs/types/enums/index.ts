@@ -39,6 +39,7 @@ import * as consumption from "./consumption";
 import * as containerinstance from "./containerinstance";
 import * as containerregistry from "./containerregistry";
 import * as containerservice from "./containerservice";
+import * as containerstorage from "./containerstorage";
 import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
@@ -214,6 +215,7 @@ export {
     containerinstance,
     containerregistry,
     containerservice,
+    containerstorage,
     costmanagement,
     customerinsights,
     customproviders,

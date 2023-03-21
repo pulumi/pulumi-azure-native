@@ -60,7 +60,7 @@ class ClusterArgs:
         :param pulumi.Input['ServerCertificateCommonNamesArgs'] certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateCommonNameArgs']]] client_certificate_common_names: The list of client certificates referenced by common name that are allowed to manage the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateThumbprintArgs']]] client_certificate_thumbprints: The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
-        :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input['DiagnosticsStorageAccountConfigArgs'] diagnostics_storage_account_config: The storage account information for storing Service Fabric diagnostic logs.
         :param pulumi.Input[bool] event_store_service_enabled: Indicates if the event store service is enabled.
@@ -272,7 +272,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterCodeVersion")
     def cluster_code_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**.
         """
         return pulumi.get(self, "cluster_code_version")
 
@@ -576,7 +576,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']] certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]] client_certificate_common_names: The list of client certificates referenced by common name that are allowed to manage the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
-        :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']] diagnostics_storage_account_config: The storage account information for storing Service Fabric diagnostic logs.
         :param pulumi.Input[bool] event_store_service_enabled: Indicates if the event store service is enabled.
@@ -849,7 +849,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterCodeVersion")
     def cluster_code_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**.
         """
         return pulumi.get(self, "cluster_code_version")
 

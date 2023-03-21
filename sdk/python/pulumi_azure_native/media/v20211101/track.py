@@ -173,7 +173,7 @@ class Track(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:Track"), pulumi.Alias(type_="azure-native:media/v20220801:Track")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:Track"), pulumi.Alias(type_="azure-native:media/v20220801:Track"), pulumi.Alias(type_="azure-native:media/v20230101:Track")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Track, __self__).__init__(
             'azure-native:media/v20211101:Track',

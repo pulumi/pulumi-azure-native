@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

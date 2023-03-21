@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         public Output<ImmutableArray<Outputs.ClientCertificateThumbprintResponse>> ClientCertificateThumbprints { get; private set; } = null!;
 
         /// <summary>
-        /// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        /// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**.
         /// </summary>
         [Output("clusterCodeVersion")]
         public Output<string?> ClusterCodeVersion { get; private set; } = null!;
@@ -379,7 +379,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         }
 
         /// <summary>
-        /// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        /// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**.
         /// </summary>
         [Input("clusterCodeVersion")]
         public Input<string>? ClusterCodeVersion { get; set; }

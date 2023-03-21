@@ -146,7 +146,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             resourceInputs["vmProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineImageTemplate.__pulumiType, name, resourceInputs, opts);
     }

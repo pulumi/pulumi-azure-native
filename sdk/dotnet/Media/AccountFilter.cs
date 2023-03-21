@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Media
                     new global::Pulumi.Alias { Type = "azure-native:media/v20210601:AccountFilter"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:AccountFilter"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20220801:AccountFilter"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20230101:AccountFilter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

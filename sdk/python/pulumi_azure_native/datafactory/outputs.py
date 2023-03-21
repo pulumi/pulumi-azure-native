@@ -293,6 +293,7 @@ __all__ = [
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
     'IntegrationRuntimeCustomerVirtualNetworkResponse',
     'IntegrationRuntimeDataFlowPropertiesResponse',
+    'IntegrationRuntimeDataFlowPropertiesResponseCustomProperties',
     'IntegrationRuntimeDataProxyPropertiesResponse',
     'IntegrationRuntimeReferenceResponse',
     'IntegrationRuntimeSsisCatalogInfoResponse',
@@ -40930,6 +40931,8 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
             suggest = "compute_type"
         elif key == "coreCount":
             suggest = "core_count"
+        elif key == "customProperties":
+            suggest = "custom_properties"
         elif key == "timeToLive":
             suggest = "time_to_live"
 
@@ -40948,12 +40951,14 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
                  cleanup: Optional[bool] = None,
                  compute_type: Optional[str] = None,
                  core_count: Optional[int] = None,
+                 custom_properties: Optional[Sequence['outputs.IntegrationRuntimeDataFlowPropertiesResponseCustomProperties']] = None,
                  time_to_live: Optional[int] = None):
         """
         Data flow properties for managed integration runtime.
         :param bool cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param str compute_type: Compute type of the cluster which will execute data flow job.
         :param int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param Sequence['IntegrationRuntimeDataFlowPropertiesResponseCustomProperties'] custom_properties: Custom properties are used to tune the data flow runtime performance.
         :param int time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if cleanup is not None:
@@ -40962,6 +40967,8 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
             pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
         if time_to_live is not None:
             pulumi.set(__self__, "time_to_live", time_to_live)
 
@@ -40990,12 +40997,51 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
         return pulumi.get(self, "core_count")
 
     @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[Sequence['outputs.IntegrationRuntimeDataFlowPropertiesResponseCustomProperties']]:
+        """
+        Custom properties are used to tune the data flow runtime performance.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @property
     @pulumi.getter(name="timeToLive")
     def time_to_live(self) -> Optional[int]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         return pulumi.get(self, "time_to_live")
+
+
+@pulumi.output_type
+class IntegrationRuntimeDataFlowPropertiesResponseCustomProperties(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Name of custom property.
+        :param str value: Value of custom property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of custom property.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of custom property.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
