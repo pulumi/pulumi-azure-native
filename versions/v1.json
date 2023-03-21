@@ -444,6 +444,11 @@
     "listManagedClusterMonitoringUserCredentials": "2021-03-01",
     "listManagedClusterUserCredentials": "2021-03-01"
   },
+  "ContainerStorage": {
+    "Pool": "2023-03-01-preview",
+    "Volume": "2023-03-01-preview",
+    "VolumeSnapshot": "2023-03-01-preview"
+  },
   "CostManagement": {
     "CloudConnector": "2019-03-01-preview",
     "CostAllocationRule": "2020-03-01-preview",

@@ -219,6 +219,9 @@
     ],
     "2021-08-08-preview": [
       "AlertProcessingRuleByName"
+    ],
+    "2023-03-01": [
+      "PrometheusRuleGroup"
     ]
   },
   "AnalysisServices": {
@@ -2594,6 +2597,14 @@
       "EmailService",
       "listCommunicationServiceKeys",
       "listEmailServiceVerifiedExchangeOnlineDomains"
+    ],
+    "2023-03-01-preview": [
+      "CommunicationService",
+      "Domain",
+      "EmailService",
+      "SenderUsername",
+      "listCommunicationServiceKeys",
+      "listEmailServiceVerifiedExchangeOnlineDomains"
     ]
   },
   "Compute": {
@@ -3903,6 +3914,13 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ]
+  },
+  "ContainerStorage": {
+    "2023-03-01-preview": [
+      "Pool",
+      "Volume",
+      "VolumeSnapshot"
     ]
   },
   "CostManagement": {
@@ -5472,6 +5490,14 @@
       "listIotHubResourceKeys",
       "listIotHubResourceKeysForKeyName"
     ],
+    "2022-11-15-preview": [
+      "Certificate",
+      "IotHubResource",
+      "IotHubResourceEventHubConsumerGroup",
+      "PrivateEndpointConnection",
+      "listIotHubResourceKeys",
+      "listIotHubResourceKeysForKeyName"
+    ],
     "2022-12-12": [
       "DpsCertificate",
       "IotDpsResource",
@@ -6166,6 +6192,38 @@
       "TableResourceTable",
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2023-03-01-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listMongoClusterConnectionStrings",
       "listNotebookWorkspaceConnectionInfo"
     ]
   },
@@ -7329,6 +7387,9 @@
     ],
     "2023-01-01": [
       "ActionGroup"
+    ],
+    "2023-01-01-preview": [
+      "ActivityLogAlert"
     ],
     "2023-03-01-preview": [
       "TenantActionGroup"
@@ -8632,6 +8693,14 @@
       "listPrivateStoreNewPlansNotifications",
       "listPrivateStoreStopSellOffersPlansNotifications",
       "listPrivateStoreSubscriptionsContext"
+    ],
+    "2023-01-01": [
+      "PrivateStore",
+      "PrivateStoreCollection",
+      "PrivateStoreCollectionOffer",
+      "listPrivateStoreNewPlansNotifications",
+      "listPrivateStoreStopSellOffersPlansNotifications",
+      "listPrivateStoreSubscriptionsContext"
     ]
   },
   "MarketplaceNotifications": {
@@ -8818,9 +8887,22 @@
       "getLiveEventTrackIngestHeartbeats"
     ],
     "2023-01-01": [
+      "AccountFilter",
+      "Asset",
+      "AssetFilter",
+      "ContentKeyPolicy",
       "MediaService",
       "PrivateEndpointConnection",
-      "listMediaServiceEdgePolicies"
+      "StreamingLocator",
+      "StreamingPolicy",
+      "Track",
+      "getAssetEncryptionKey",
+      "getContentKeyPolicyPropertiesWithSecrets",
+      "listAssetContainerSas",
+      "listAssetStreamingLocators",
+      "listMediaServiceEdgePolicies",
+      "listStreamingLocatorContentKeys",
+      "listStreamingLocatorPaths"
     ]
   },
   "Migrate": {
@@ -12874,7 +12956,8 @@
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
-      "ResourceGuardProxy"
+      "ResourceGuardProxy",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -13726,6 +13809,31 @@
       "WatchlistItem"
     ],
     "2023-02-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-03-01-preview": [
       "Action",
       "AlertRule",
       "AutomationRule",
@@ -15844,6 +15952,10 @@
       "VirtualMachineImageTemplate"
     ],
     "2022-02-14": [
+      "VirtualMachineImageTemplate"
+    ],
+    "2022-07-01": [
+      "Trigger",
       "VirtualMachineImageTemplate"
     ]
   },

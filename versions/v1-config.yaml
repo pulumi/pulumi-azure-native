@@ -259,6 +259,8 @@ ContainerService:
     Snapshot: "2021-08-01"
     TrustedAccessRoleBinding: 2022-04-02-preview
     listManagedClusterAccessProfile: "2020-03-01"
+ContainerStorage:
+  tracking: 2023-03-01-preview
 CostManagement: # Overlapping resources between 2020-06-01 and 2019-11-01
   additions:
     CloudConnector: 2019-03-01-preview
