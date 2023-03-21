@@ -64,7 +64,7 @@ jobs:
 
       - name: Mark prerequisites as up-to-date
         # Don't include provider as that's the bit we're going to rebuild
-        run: make --touch versioner versions codegen schema
+        run: make --touch codegen schema
 
       - name: Ensure provider build prerequisites
         run: make provider_prebuild

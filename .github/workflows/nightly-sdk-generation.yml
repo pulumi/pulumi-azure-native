@@ -71,7 +71,7 @@ jobs:
         run: make codegen
 
       - name: Build Schema + SDKs
-        run: make versions local_generate
+        run: make local_generate
 
       - name: Git submodule commit hash
         id: vars

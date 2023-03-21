@@ -1,5 +1,5 @@
 name: Prerequisites Artifact Restore
-description: Restore prerequisites artifacts (versions, schema and binaries)
+description: Restore prerequisites artifacts (schema and binaries)
 
 runs:
   using: "composite"
@@ -19,4 +19,3 @@ runs:
         run: |
           chmod +x bin/pulumi-resource-azure-native
           chmod +x bin/pulumi-gen-azure-native
-          chmod +x bin/pulumi-versioner-azure-native

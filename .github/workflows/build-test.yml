@@ -49,8 +49,8 @@ jobs:
         with:
           skip_dotnet_and_java: "true"
 
-      - name: Build versions, schema and binaries
-        run: make versioner versions codegen schema provider
+      - name: Build schema and binaries
+        run: make codegen schema provider
 
       - name: Artifact capture
         uses: ./.github/actions/prerequisites-artifact-capture
@@ -102,7 +102,7 @@ jobs:
         uses: ./.github/actions/prerequisites-artifact-restore
 
       - name: Mark prerequisites as up-to-date
-        run: make --touch versioner versions codegen schema provider
+        run: make --touch codegen schema provider
 
       - name: Generate SDK
         run: make generate_${{ matrix.language }}
@@ -197,7 +197,7 @@ jobs:
         uses: ./.github/actions/prerequisites-artifact-restore
 
       - name: Mark prerequisites as up-to-date
-        run: make --touch versioner versions codegen schema provider
+        run: make --touch codegen schema provider
 
       - name: Test Provider Library
         run: make test_provider
