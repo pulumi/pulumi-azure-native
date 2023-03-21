@@ -20,7 +20,7 @@ type VersionMetadata struct {
 	V2            openapi.CuratedVersion
 }
 
-func GenerateVersionMetadata(providers openapi.AzureProviders, refreshConfig bool) (VersionMetadata, error) {
+func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata, error) {
 	activePathVersions, err := providerlist.ReadProviderList()
 	if err != nil {
 		return VersionMetadata{}, err
@@ -43,20 +43,21 @@ func GenerateVersionMetadata(providers openapi.AzureProviders, refreshConfig boo
 	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
 
 	v2Config, err := ReadDefaultConfig(path.Join("versions", "v2-config.yaml"))
+	if err != nil {
+		return VersionMetadata{}, err
+	}
 
-	if refreshConfig {
-		curations, err := ReadManualCurations(path.Join("versions", "curations.yaml"))
-		if err != nil {
-			return VersionMetadata{}, err
-		}
-		v2Config = BuildDefaultConfig(specAfterRemovals, curations, v2Config)
+	v2curations, err := ReadManualCurations(path.Join("versions", "v2-curation.yaml"))
+	if err != nil {
+		return VersionMetadata{}, err
+	}
+	v2Config = BuildDefaultConfig(specAfterRemovals, v2curations, v2Config)
 
-		violations := ValidateDefaultConfig(v2Config, curations)
-		if len(violations) > 0 {
-			fmt.Printf("Warning: %d curation violations found:\n", len(violations))
-			for _, v := range violations {
-				fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
-			}
+	violations := ValidateDefaultConfig(v2Config, v2curations)
+	if len(violations) > 0 {
+		fmt.Printf("Warning: %d curation violations found:\n", len(violations))
+		for _, v := range violations {
+			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
 		}
 	}
 	if err != nil {

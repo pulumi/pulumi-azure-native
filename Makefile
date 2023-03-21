@@ -170,7 +170,7 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 LOCAL_ARM2PULUMI_PATH := bin/$(GOOS)-$(GOARCH)/$(LOCAL_ARM2PULUMI_FILENAME)
 
 bin/$(LOCAL_ARM2PULUMI_FILENAME): $(LOCAL_ARM2PULUMI_PATH)
-	rm $@
+	rm -f $@
 	cp $(LOCAL_ARM2PULUMI_PATH) bin
 
 bin/linux-amd64/arm2pulumi: TARGET := linux-amd64
