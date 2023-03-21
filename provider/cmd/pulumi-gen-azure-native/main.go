@@ -71,16 +71,20 @@ func main() {
 			panic(err)
 		}
 
-		files, err := versioning.GenerateVersionFiles(providers, false)
+		versionMetadata, err := versioning.GenerateVersionMetadata(providers, false)
 		if err != nil {
 			panic(err)
 		}
-		err = gen.EmitFiles("versions", files)
+		if err := versionMetadata.WriteTo("versions"); err != nil {
+			panic(err)
+		}
+
+		removed, err := openapi.ReadRemoved()
 		if err != nil {
 			panic(err)
 		}
 
-		versions := openapi.ReadVersions(namespaces)
+		versions := openapi.ApplySpecModifications(providers, versionMetadata.V1, versionMetadata.Deprecated, removed)
 		azureProviders = &versions
 		pkgSpec, meta, _, err = gen.PulumiSchema(*azureProviders)
 		if err != nil {
@@ -117,7 +121,10 @@ func main() {
 
 	if languageSet.Has("docs") {
 		if azureProviders == nil {
-			versions := openapi.ReadVersions(namespaces)
+			versions, err := openapi.ReadVersions(namespaces)
+			if err != nil {
+				panic(err)
+			}
 			azureProviders = &versions
 		}
 		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")

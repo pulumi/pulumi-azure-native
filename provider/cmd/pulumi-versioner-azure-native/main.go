@@ -79,11 +79,11 @@ func writeAll(outputDir string) error {
 	if err != nil {
 		return err
 	}
-	files, err := versioning.GenerateVersionFiles(providers, false)
+	versionMetadata, err := versioning.GenerateVersionMetadata(providers, false)
 	if err != nil {
 		return err
 	}
-	return gen.EmitFiles(outputDir, files)
+	return versionMetadata.WriteTo(outputDir)
 }
 
 func spec(outputDir string) error {

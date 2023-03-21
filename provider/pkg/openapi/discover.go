@@ -76,28 +76,33 @@ type ResourceSpec struct {
 // ReadVersions finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Provider and API Version - for all API versions.
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter e.g. "Compute"
-func ReadVersions(namespace string) AzureProviders {
+func ReadVersions(namespace string) (AzureProviders, error) {
 	// Collect all versions for each path in the API across all Swagger files.
 	providers, err := SpecVersions(namespace)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
-	providerDefaults, err := ReadV1Version()
+	defaultVersion, err := ReadV1Version()
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	deprecated, err := ReadDeprecated()
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	removed, err := ReadRemoved()
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
+	return ApplySpecModifications(providers, defaultVersion, deprecated, removed), nil
+}
+
+// ApplySpecModifications adds the default version for each provider and deprecates and removes specified API versions.
+func ApplySpecModifications(providers AzureProviders, defaultVersion CuratedVersion, deprecated, removed ProviderVersionList) AzureProviders {
 	for providerName, versionMap := range providers {
 		// Remove all versions that are not in the curated list.
 		if removedVersion, ok := removed[providerName]; ok {
@@ -110,7 +115,7 @@ func ReadVersions(namespace string) AzureProviders {
 
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
-		defaultResourceVersions := providerDefaults[providerName]
+		defaultResourceVersions := defaultVersion[providerName]
 		versionMap[""] = buildCuratedVersion(versionMap, defaultResourceVersions)
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.

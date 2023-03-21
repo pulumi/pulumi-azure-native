@@ -9,10 +9,21 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 )
 
-func GenerateVersionFiles(providers openapi.AzureProviders, refreshConfig bool) (gen.FileMap, error) {
+type VersionMetadata struct {
+	Spec          SpecVersions
+	SpecResources ProviderResourceVersions
+	V1            openapi.CuratedVersion
+	Deprecated    openapi.ProviderVersionList
+	Active        providerlist.ProviderPathVersionsJson
+	Pending       openapi.ProviderVersionList
+	V2Config      DefaultConfig
+	V2            openapi.CuratedVersion
+}
+
+func GenerateVersionMetadata(providers openapi.AzureProviders, refreshConfig bool) (VersionMetadata, error) {
 	activePathVersions, err := providerlist.ReadProviderList()
 	if err != nil {
-		return nil, err
+		return VersionMetadata{}, err
 	}
 
 	specVersions := FindSpecVersions(providers)
@@ -21,11 +32,11 @@ func GenerateVersionFiles(providers openapi.AzureProviders, refreshConfig bool) 
 
 	v1Config, err := ReadDefaultConfig(path.Join("versions", "v1-config.yaml"))
 	if err != nil {
-		return nil, err
+		return VersionMetadata{}, err
 	}
 	v1, err := DefaultConfigToCuratedVersion(specVersions, v1Config)
 	if err != nil {
-		return nil, err
+		return VersionMetadata{}, err
 	}
 
 	deprecated := FindDeprecations(specVersions, v1)
@@ -36,7 +47,7 @@ func GenerateVersionFiles(providers openapi.AzureProviders, refreshConfig bool) 
 	if refreshConfig {
 		curations, err := ReadManualCurations(path.Join("versions", "curations.yaml"))
 		if err != nil {
-			return nil, err
+			return VersionMetadata{}, err
 		}
 		v2Config = BuildDefaultConfig(specAfterRemovals, curations, v2Config)
 
@@ -49,21 +60,34 @@ func GenerateVersionFiles(providers openapi.AzureProviders, refreshConfig bool) 
 		}
 	}
 	if err != nil {
-		return nil, err
+		return VersionMetadata{}, err
 	}
 	v2, err := DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
 	if err != nil {
-		return nil, err
+		return VersionMetadata{}, err
 	}
 
-	return gen.FileMap{
-		"spec.json":           specVersions,
-		"spec-resources.json": specResourceVersions,
-		"v1.json":             v1,
-		"deprecated.json":     deprecated,
-		"active.json":         activePathVersionsJson,
-		"pending.json":        FindNewerVersions(specVersions, v1),
-		"v2-config.yaml":      v2Config,
-		"v2.json":             v2,
+	return VersionMetadata{
+		Spec:          specVersions,
+		SpecResources: specResourceVersions,
+		V1:            v1,
+		Deprecated:    deprecated,
+		Active:        activePathVersionsJson,
+		Pending:       FindNewerVersions(specVersions, v1),
+		V2Config:      v2Config,
+		V2:            v2,
 	}, nil
+}
+
+func (v VersionMetadata) WriteTo(outputDir string) error {
+	return gen.EmitFiles(outputDir, gen.FileMap{
+		"spec.json":           v.Spec,
+		"spec-resources.json": v.SpecResources,
+		"v1.json":             v.V1,
+		"deprecated.json":     v.Deprecated,
+		"active.json":         v.Active,
+		"pending.json":        v.Pending,
+		"v2-config.yaml":      v.V2Config,
+		"v2.json":             v.V2,
+	})
 }
