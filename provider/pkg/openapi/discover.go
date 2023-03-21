@@ -73,12 +73,6 @@ type ResourceSpec struct {
 	DeprecationMessage string
 }
 
-// AllVersions finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
-// collected per Azure Provider and API Version - for all API versions.
-func AllVersions() AzureProviders {
-	return ReadVersions("*")
-}
-
 // ReadVersions finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Provider and API Version - for all API versions.
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter e.g. "Compute"
