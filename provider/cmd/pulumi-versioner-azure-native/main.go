@@ -75,7 +75,11 @@ func handleCommand(args []string, outputDir, versionFile string) error {
 }
 
 func writeAll(outputDir string) error {
-	files, err := versioning.GenerateVersionFiles("*", false)
+	providers, err := openapi.SpecVersions("*")
+	if err != nil {
+		return err
+	}
+	files, err := versioning.GenerateVersionFiles(providers, false)
 	if err != nil {
 		return err
 	}

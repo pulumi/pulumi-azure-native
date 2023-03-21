@@ -21,6 +21,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
@@ -60,11 +61,25 @@ func main() {
 		supportedOutputs.Add(language)
 	}
 
-	if unsupported := supportedOutputs.Subtract(languageSet); len(unsupported) > 0 {
-		err = fmt.Errorf("unsupported outputs: %v", unsupported.SortedValues())
+	if unsupported := languageSet.Subtract(supportedOutputs); len(unsupported) > 0 {
+		panic(fmt.Errorf("unsupported outputs: %v", unsupported.SortedValues()))
 	}
 
 	if languageSet.Has("schema") {
+		providers, err := openapi.SpecVersions(namespaces)
+		if err != nil {
+			panic(err)
+		}
+
+		files, err := versioning.GenerateVersionFiles(providers, false)
+		if err != nil {
+			panic(err)
+		}
+		err = gen.EmitFiles("versions", files)
+		if err != nil {
+			panic(err)
+		}
+
 		versions := openapi.ReadVersions(namespaces)
 		azureProviders = &versions
 		pkgSpec, meta, _, err = gen.PulumiSchema(*azureProviders)
@@ -75,7 +90,7 @@ func main() {
 		if err = emitSchema(*pkgSpec, version, "bin", "main", true); err != nil {
 			panic(err)
 		}
-		if languages == "schema" {
+		if !languageSet.Has("docs") {
 			// We can't generate schema.json every time because it's slow and isn't reproducible.
 			// So we warn in case someone's expecting to see changes to schema.json after running this.
 			fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")

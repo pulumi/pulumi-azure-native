@@ -188,7 +188,7 @@ bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 
 # Writes schema-full.json and metadata-compact.json to bin/
-bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
+bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json
 	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # Docs schema

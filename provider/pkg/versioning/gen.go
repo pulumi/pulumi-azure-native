@@ -9,12 +9,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 )
 
-func GenerateVersionFiles(namespace string, refreshConfig bool) (gen.FileMap, error) {
-	providers, err := openapi.SpecVersions("*")
-	if err != nil {
-		return nil, err
-	}
-
+func GenerateVersionFiles(providers openapi.AzureProviders, refreshConfig bool) (gen.FileMap, error) {
 	activePathVersions, err := providerlist.ReadProviderList()
 	if err != nil {
 		return nil, err
