@@ -74,7 +74,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface ServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     minimalTlsVersion?: pulumi.Input<string>;
     /**

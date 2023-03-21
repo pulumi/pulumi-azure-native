@@ -54,10 +54,13 @@ __all__ = [
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
     'ComputeInstanceArgs',
+    'ComputeSchedulesArgs',
+    'ComputeStartStopScheduleArgs',
     'ContainerResourceRequirementsArgs',
     'ContainerResourceSettingsArgs',
     'CosmosDbSettingsArgs',
     'CronTriggerArgs',
+    'CronArgs',
     'CustomForecastHorizonArgs',
     'CustomModelJobInputArgs',
     'CustomModelJobOutputArgs',
@@ -139,6 +142,7 @@ __all__ = [
     'RandomSamplingAlgorithmArgs',
     'RecurrenceScheduleArgs',
     'RecurrenceTriggerArgs',
+    'RecurrenceArgs',
     'RegressionTrainingSettingsArgs',
     'RegressionArgs',
     'ResourceIdArgs',
@@ -147,6 +151,7 @@ __all__ = [
     'SasDatastoreCredentialsArgs',
     'SasDatastoreSecretsArgs',
     'ScaleSettingsArgs',
+    'ScheduleBaseArgs',
     'ScheduleArgs',
     'ScriptReferenceArgs',
     'ScriptsToExecuteArgs',
@@ -4087,6 +4092,7 @@ class ComputeInstancePropertiesArgs:
                  compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
+                 schedules: Optional[pulumi.Input['ComputeSchedulesArgs']] = None,
                  setup_scripts: Optional[pulumi.Input['SetupScriptsArgs']] = None,
                  ssh_settings: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
@@ -4097,6 +4103,7 @@ class ComputeInstancePropertiesArgs:
         :param pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
         :param pulumi.Input[bool] enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
+        :param pulumi.Input['ComputeSchedulesArgs'] schedules: The list of schedules to be applied on the computes.
         :param pulumi.Input['SetupScriptsArgs'] setup_scripts: Details of customized scripts to execute for setting up the cluster.
         :param pulumi.Input['ComputeInstanceSshSettingsArgs'] ssh_settings: Specifies policy and settings for SSH access.
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -4114,6 +4121,8 @@ class ComputeInstancePropertiesArgs:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
         if setup_scripts is not None:
             pulumi.set(__self__, "setup_scripts", setup_scripts)
         if ssh_settings is not None:
@@ -4170,6 +4179,18 @@ class ComputeInstancePropertiesArgs:
     @personal_compute_instance_settings.setter
     def personal_compute_instance_settings(self, value: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]):
         pulumi.set(self, "personal_compute_instance_settings", value)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[pulumi.Input['ComputeSchedulesArgs']]:
+        """
+        The list of schedules to be applied on the computes.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: Optional[pulumi.Input['ComputeSchedulesArgs']]):
+        pulumi.set(self, "schedules", value)
 
     @property
     @pulumi.getter(name="setupScripts")
@@ -4365,6 +4386,134 @@ class ComputeInstanceArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class ComputeSchedulesArgs:
+    def __init__(__self__, *,
+                 compute_start_stop: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]]] = None):
+        """
+        The list of schedules to be applied on the computes
+        :param pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]] compute_start_stop: The list of compute start stop schedules to be applied.
+        """
+        if compute_start_stop is not None:
+            pulumi.set(__self__, "compute_start_stop", compute_start_stop)
+
+    @property
+    @pulumi.getter(name="computeStartStop")
+    def compute_start_stop(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]]]:
+        """
+        The list of compute start stop schedules to be applied.
+        """
+        return pulumi.get(self, "compute_start_stop")
+
+    @compute_start_stop.setter
+    def compute_start_stop(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]]]):
+        pulumi.set(self, "compute_start_stop", value)
+
+
+@pulumi.input_type
+class ComputeStartStopScheduleArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[Union[str, 'ComputePowerAction']]] = None,
+                 cron: Optional[pulumi.Input['CronArgs']] = None,
+                 recurrence: Optional[pulumi.Input['RecurrenceArgs']] = None,
+                 schedule: Optional[pulumi.Input['ScheduleBaseArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'ScheduleStatus']]] = None,
+                 trigger_type: Optional[pulumi.Input[Union[str, 'TriggerType']]] = None):
+        """
+        Compute start stop schedule properties
+        :param pulumi.Input[Union[str, 'ComputePowerAction']] action: [Required] The compute power action.
+        :param pulumi.Input['CronArgs'] cron: Required if triggerType is Cron.
+        :param pulumi.Input['RecurrenceArgs'] recurrence: Required if triggerType is Recurrence.
+        :param pulumi.Input['ScheduleBaseArgs'] schedule: [Deprecated] Not used any more.
+        :param pulumi.Input[Union[str, 'ScheduleStatus']] status: Is the schedule enabled or disabled?
+        :param pulumi.Input[Union[str, 'TriggerType']] trigger_type: [Required] The schedule trigger type.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if trigger_type is not None:
+            pulumi.set(__self__, "trigger_type", trigger_type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'ComputePowerAction']]]:
+        """
+        [Required] The compute power action.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'ComputePowerAction']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional[pulumi.Input['CronArgs']]:
+        """
+        Required if triggerType is Cron.
+        """
+        return pulumi.get(self, "cron")
+
+    @cron.setter
+    def cron(self, value: Optional[pulumi.Input['CronArgs']]):
+        pulumi.set(self, "cron", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['RecurrenceArgs']]:
+        """
+        Required if triggerType is Recurrence.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['RecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['ScheduleBaseArgs']]:
+        """
+        [Deprecated] Not used any more.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['ScheduleBaseArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ScheduleStatus']]]:
+        """
+        Is the schedule enabled or disabled?
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ScheduleStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="triggerType")
+    def trigger_type(self) -> Optional[pulumi.Input[Union[str, 'TriggerType']]]:
+        """
+        [Required] The schedule trigger type.
+        """
+        return pulumi.get(self, "trigger_type")
+
+    @trigger_type.setter
+    def trigger_type(self, value: Optional[pulumi.Input[Union[str, 'TriggerType']]]):
+        pulumi.set(self, "trigger_type", value)
 
 
 @pulumi.input_type
@@ -4567,6 +4716,68 @@ class CronTriggerArgs:
     def start_time(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies start time of schedule in ISO 8601 format, but without a UTC offset.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies time zone in which the schedule runs.
+        TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class CronArgs:
+    def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The workflow trigger cron for ComputeStartStop schedule type.
+        :param pulumi.Input[str] expression: [Required] Specifies cron expression of schedule.
+               The expression should follow NCronTab format.
+        :param pulumi.Input[str] start_time: The start time in yyyy-MM-ddTHH:mm:ss format.
+        :param pulumi.Input[str] time_zone: Specifies time zone in which the schedule runs.
+               TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is None:
+            time_zone = 'UTC'
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Required] Specifies cron expression of schedule.
+        The expression should follow NCronTab format.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start time in yyyy-MM-ddTHH:mm:ss format.
         """
         return pulumi.get(self, "start_time")
 
@@ -13948,6 +14159,98 @@ class RecurrenceTriggerArgs:
 
 
 @pulumi.input_type
+class RecurrenceArgs:
+    def __init__(__self__, *,
+                 frequency: Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 schedule: Optional[pulumi.Input['RecurrenceScheduleArgs']] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The workflow trigger recurrence for ComputeStartStop schedule type.
+        :param pulumi.Input[Union[str, 'RecurrenceFrequency']] frequency: [Required] The frequency to trigger schedule.
+        :param pulumi.Input[int] interval: [Required] Specifies schedule interval in conjunction with frequency
+        :param pulumi.Input['RecurrenceScheduleArgs'] schedule: [Required] The recurrence schedule.
+        :param pulumi.Input[str] start_time: The start time in yyyy-MM-ddTHH:mm:ss format.
+        :param pulumi.Input[str] time_zone: Specifies time zone in which the schedule runs.
+               TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is None:
+            time_zone = 'UTC'
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]]:
+        """
+        [Required] The frequency to trigger schedule.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        [Required] Specifies schedule interval in conjunction with frequency
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['RecurrenceScheduleArgs']]:
+        """
+        [Required] The recurrence schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['RecurrenceScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start time in yyyy-MM-ddTHH:mm:ss format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies time zone in which the schedule runs.
+        TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
 class RegressionTrainingSettingsArgs:
     def __init__(__self__, *,
                  allowed_training_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'RegressionModels']]]]] = None,
@@ -14669,6 +14972,61 @@ class ScaleSettingsArgs:
     @node_idle_time_before_scale_down.setter
     def node_idle_time_before_scale_down(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_idle_time_before_scale_down", value)
+
+
+@pulumi.input_type
+class ScheduleBaseArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 provisioning_status: Optional[pulumi.Input[Union[str, 'ScheduleProvisioningState']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'ScheduleStatus']]] = None):
+        """
+        :param pulumi.Input[str] id: A system assigned id for the schedule.
+        :param pulumi.Input[Union[str, 'ScheduleProvisioningState']] provisioning_status: The current deployment state of schedule.
+        :param pulumi.Input[Union[str, 'ScheduleStatus']] status: Is the schedule enabled or disabled?
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A system assigned id for the schedule.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional[pulumi.Input[Union[str, 'ScheduleProvisioningState']]]:
+        """
+        The current deployment state of schedule.
+        """
+        return pulumi.get(self, "provisioning_status")
+
+    @provisioning_status.setter
+    def provisioning_status(self, value: Optional[pulumi.Input[Union[str, 'ScheduleProvisioningState']]]):
+        pulumi.set(self, "provisioning_status", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ScheduleStatus']]]:
+        """
+        Is the schedule enabled or disabled?
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ScheduleStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

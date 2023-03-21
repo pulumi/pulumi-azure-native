@@ -22,6 +22,13 @@ export const AgentAutoUpdateStatus = {
  */
 export type AgentAutoUpdateStatus = (typeof AgentAutoUpdateStatus)[keyof typeof AgentAutoUpdateStatus];
 
+export const AlertsState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
+
 export const AutomationAccountAuthenticationType = {
     RunAsAccount: "RunAsAccount",
     SystemAssignedIdentity: "SystemAssignedIdentity",
@@ -84,6 +91,14 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const CrossSubscriptionRestoreState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    PermanentlyDisabled: "PermanentlyDisabled",
+} as const;
+
+export type CrossSubscriptionRestoreState = (typeof CrossSubscriptionRestoreState)[keyof typeof CrossSubscriptionRestoreState];
+
 export const DayOfWeek = {
     Sunday: "Sunday",
     Monday: "Monday",
@@ -134,6 +149,24 @@ export const IAASVMPolicyType = {
 } as const;
 
 export type IAASVMPolicyType = (typeof IAASVMPolicyType)[keyof typeof IAASVMPolicyType];
+
+export const ImmutabilityState = {
+    Disabled: "Disabled",
+    Unlocked: "Unlocked",
+    Locked: "Locked",
+} as const;
+
+export type ImmutabilityState = (typeof ImmutabilityState)[keyof typeof ImmutabilityState];
+
+export const InfrastructureEncryptionState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabling/Disabling the Double Encryption state
+ */
+export type InfrastructureEncryptionState = (typeof InfrastructureEncryptionState)[keyof typeof InfrastructureEncryptionState];
 
 export const LastBackupStatus = {
     Invalid: "Invalid",
@@ -333,6 +366,16 @@ export const ProvisioningState = {
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * property to enable or disable resource provider inbound network traffic from public clients
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const RecoveryPlanActionLocation = {
     Primary: "Primary",
     Recovery: "Recovery",
@@ -386,6 +429,18 @@ export const ResourceHealthStatus = {
  * Resource Health Status
  */
 export type ResourceHealthStatus = (typeof ResourceHealthStatus)[keyof typeof ResourceHealthStatus];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RetentionDurationType = {
     Invalid: "Invalid",
@@ -444,6 +499,16 @@ export const SetMultiVmSyncStatus = {
  * A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
  */
 export type SetMultiVmSyncStatus = (typeof SetMultiVmSyncStatus)[keyof typeof SetMultiVmSyncStatus];
+
+export const SkuName = {
+    Standard: "Standard",
+    RS0: "RS0",
+} as const;
+
+/**
+ * Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SqlServerLicenseType = {
     NotSpecified: "NotSpecified",

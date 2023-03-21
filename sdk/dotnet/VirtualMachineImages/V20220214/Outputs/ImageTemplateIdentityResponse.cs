@@ -21,15 +21,15 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ImageTemplateIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ImageTemplateIdentityResponse(
             string? type,
 
-            ImmutableDictionary<string, Outputs.ImageTemplateIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;

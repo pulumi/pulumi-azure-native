@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:ProductSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:ProductSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:ProductSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:ProductSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

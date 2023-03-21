@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Media.V20220801
                 {
                     new global::Pulumi.Alias { Type = "azure-native:media:Track"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Track"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20230101:Track"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

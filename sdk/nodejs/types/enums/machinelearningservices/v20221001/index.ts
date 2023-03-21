@@ -251,6 +251,16 @@ export const ComputeInstanceAuthorizationType = {
  */
 export type ComputeInstanceAuthorizationType = (typeof ComputeInstanceAuthorizationType)[keyof typeof ComputeInstanceAuthorizationType];
 
+export const ComputePowerAction = {
+    Start: "Start",
+    Stop: "Stop",
+} as const;
+
+/**
+ * [Required] The compute power action.
+ */
+export type ComputePowerAction = (typeof ComputePowerAction)[keyof typeof ComputePowerAction];
+
 export const ComputeType = {
     AKS: "AKS",
     Kubernetes: "Kubernetes",
@@ -1037,6 +1047,27 @@ export const ScheduleActionType = {
  * [Required] Specifies the action type of the schedule
  */
 export type ScheduleActionType = (typeof ScheduleActionType)[keyof typeof ScheduleActionType];
+
+export const ScheduleProvisioningState = {
+    Completed: "Completed",
+    Provisioning: "Provisioning",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The current deployment state of schedule.
+ */
+export type ScheduleProvisioningState = (typeof ScheduleProvisioningState)[keyof typeof ScheduleProvisioningState];
+
+export const ScheduleStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Is the schedule enabled or disabled?
+ */
+export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
 
 export const SeasonalityMode = {
     /**

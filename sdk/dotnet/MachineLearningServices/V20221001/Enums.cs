@@ -467,6 +467,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001
     }
 
     /// <summary>
+    /// [Required] The compute power action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputePowerAction : IEquatable<ComputePowerAction>
+    {
+        private readonly string _value;
+
+        private ComputePowerAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputePowerAction Start { get; } = new ComputePowerAction("Start");
+        public static ComputePowerAction Stop { get; } = new ComputePowerAction("Stop");
+
+        public static bool operator ==(ComputePowerAction left, ComputePowerAction right) => left.Equals(right);
+        public static bool operator !=(ComputePowerAction left, ComputePowerAction right) => !left.Equals(right);
+
+        public static explicit operator string(ComputePowerAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputePowerAction other && Equals(other);
+        public bool Equals(ComputePowerAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of compute
     /// </summary>
     [EnumType]
@@ -2254,6 +2285,69 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScheduleActionType other && Equals(other);
         public bool Equals(ScheduleActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current deployment state of schedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduleProvisioningState : IEquatable<ScheduleProvisioningState>
+    {
+        private readonly string _value;
+
+        private ScheduleProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduleProvisioningState Completed { get; } = new ScheduleProvisioningState("Completed");
+        public static ScheduleProvisioningState Provisioning { get; } = new ScheduleProvisioningState("Provisioning");
+        public static ScheduleProvisioningState Failed { get; } = new ScheduleProvisioningState("Failed");
+
+        public static bool operator ==(ScheduleProvisioningState left, ScheduleProvisioningState right) => left.Equals(right);
+        public static bool operator !=(ScheduleProvisioningState left, ScheduleProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduleProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduleProvisioningState other && Equals(other);
+        public bool Equals(ScheduleProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Is the schedule enabled or disabled?
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduleStatus : IEquatable<ScheduleStatus>
+    {
+        private readonly string _value;
+
+        private ScheduleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduleStatus Enabled { get; } = new ScheduleStatus("Enabled");
+        public static ScheduleStatus Disabled { get; } = new ScheduleStatus("Disabled");
+
+        public static bool operator ==(ScheduleStatus left, ScheduleStatus right) => left.Equals(right);
+        public static bool operator !=(ScheduleStatus left, ScheduleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduleStatus other && Equals(other);
+        public bool Equals(ScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

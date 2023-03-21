@@ -49,14 +49,6 @@ class BillingSku(str, Enum):
     """
     2 Gbps, 200 active SIMs plan, 10 RANs
     """
-    G3 = "G3"
-    """
-    3 Gbps, 300 active SIMs plan
-    """
-    G4 = "G4"
-    """
-    4 Gbps, 400 active SIMs plan
-    """
     G5 = "G5"
     """
     5 Gbps, 500 active SIMs plan

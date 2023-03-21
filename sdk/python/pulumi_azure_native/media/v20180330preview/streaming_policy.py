@@ -232,7 +232,7 @@ class StreamingPolicy(pulumi.CustomResource):
             __props__.__dict__["created"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20180601preview:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20180701:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20200501:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20210601:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20211101:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20220801:StreamingPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20180601preview:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20180701:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20200501:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20210601:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20211101:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20220801:StreamingPolicy"), pulumi.Alias(type_="azure-native:media/v20230101:StreamingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingPolicy, __self__).__init__(
             'azure-native:media/v20180330preview:StreamingPolicy',

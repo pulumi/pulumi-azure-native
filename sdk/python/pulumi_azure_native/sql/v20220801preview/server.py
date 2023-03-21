@@ -42,7 +42,7 @@ class ServerArgs:
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -180,7 +180,7 @@ class ServerArgs:
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         """
         return pulumi.get(self, "minimal_tls_version")
 
@@ -294,7 +294,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -498,7 +498,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         """
         return pulumi.get(self, "minimal_tls_version")
 

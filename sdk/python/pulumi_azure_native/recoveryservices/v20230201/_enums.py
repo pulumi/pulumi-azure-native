@@ -7,15 +7,19 @@ from enum import Enum
 __all__ = [
     'AcquireStorageAccountLock',
     'AgentAutoUpdateStatus',
+    'AlertsState',
     'AutomationAccountAuthenticationType',
     'BackupItemType',
     'BackupManagementType',
     'CreateMode',
+    'CrossSubscriptionRestoreState',
     'DayOfWeek',
     'DiskAccountType',
     'ExtendedLocationType',
     'FailoverDeploymentModel',
     'IAASVMPolicyType',
+    'ImmutabilityState',
+    'InfrastructureEncryptionState',
     'LastBackupStatus',
     'LicenseType',
     'MonthOfYear',
@@ -30,15 +34,18 @@ __all__ = [
     'ProtectionState',
     'ProtectionStatus',
     'ProvisioningState',
+    'PublicNetworkAccess',
     'RecoveryPlanActionLocation',
     'RecoveryPlanGroupType',
     'ReplicationProtectedItemOperation',
     'ResourceHealthStatus',
+    'ResourceIdentityType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
     'SecurityType',
     'SetMultiVmSyncStatus',
+    'SkuName',
     'SqlServerLicenseType',
     'TieringMode',
     'WeekOfMonth',
@@ -61,6 +68,11 @@ class AgentAutoUpdateStatus(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class AlertsState(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class AutomationAccountAuthenticationType(str, Enum):
@@ -117,6 +129,12 @@ class CreateMode(str, Enum):
     RECOVER = "Recover"
 
 
+class CrossSubscriptionRestoreState(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    PERMANENTLY_DISABLED = "PermanentlyDisabled"
+
+
 class DayOfWeek(str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -156,6 +174,20 @@ class IAASVMPolicyType(str, Enum):
     INVALID = "Invalid"
     V1 = "V1"
     V2 = "V2"
+
+
+class ImmutabilityState(str, Enum):
+    DISABLED = "Disabled"
+    UNLOCKED = "Unlocked"
+    LOCKED = "Locked"
+
+
+class InfrastructureEncryptionState(str, Enum):
+    """
+    Enabling/Disabling the Double Encryption state
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class LastBackupStatus(str, Enum):
@@ -328,6 +360,14 @@ class ProvisioningState(str, Enum):
     PENDING = "Pending"
 
 
+class PublicNetworkAccess(str, Enum):
+    """
+    property to enable or disable resource provider inbound network traffic from public clients
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class RecoveryPlanActionLocation(str, Enum):
     """
     The fabric location.
@@ -372,6 +412,16 @@ class ResourceHealthStatus(str, Enum):
     TRANSIENT_UNHEALTHY = "TransientUnhealthy"
     PERSISTENT_UNHEALTHY = "PersistentUnhealthy"
     INVALID = "Invalid"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 class RetentionDurationType(str, Enum):
@@ -420,6 +470,14 @@ class SetMultiVmSyncStatus(str, Enum):
     """
     ENABLE = "Enable"
     DISABLE = "Disable"
+
+
+class SkuName(str, Enum):
+    """
+    Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
+    """
+    STANDARD = "Standard"
+    RS0 = "RS0"
 
 
 class SqlServerLicenseType(str, Enum):

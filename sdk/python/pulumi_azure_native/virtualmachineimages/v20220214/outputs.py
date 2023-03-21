@@ -14,7 +14,6 @@ from ._enums import *
 __all__ = [
     'ImageTemplateFileCustomizerResponse',
     'ImageTemplateIdentityResponse',
-    'ImageTemplateIdentityResponseUserAssignedIdentities',
     'ImageTemplateLastRunStatusResponse',
     'ImageTemplateManagedImageDistributorResponse',
     'ImageTemplateManagedImageSourceResponse',
@@ -33,6 +32,7 @@ __all__ = [
     'PlatformImagePurchasePlanResponse',
     'ProvisioningErrorResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
     'VirtualNetworkConfigResponse',
 ]
 
@@ -153,11 +153,11 @@ class ImageTemplateIdentityResponse(dict):
 
     def __init__(__self__, *,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.ImageTemplateIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the image template.
         :param str type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-        :param Mapping[str, 'ImageTemplateIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -174,59 +174,11 @@ class ImageTemplateIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ImageTemplateIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
-        The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class ImageTemplateIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ImageTemplateIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ImageTemplateIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -1850,6 +1802,58 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

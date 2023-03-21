@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
         /// <summary>
         /// Required if triggerType is Cron.
         /// </summary>
-        public readonly Outputs.CronTriggerResponse? Cron;
+        public readonly Outputs.CronResponse? Cron;
         /// <summary>
         /// A system assigned id for the schedule.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
         /// <summary>
         /// Required if triggerType is Recurrence.
         /// </summary>
-        public readonly Outputs.RecurrenceTriggerResponse? Recurrence;
+        public readonly Outputs.RecurrenceResponse? Recurrence;
         /// <summary>
         /// [Deprecated] Not used any more.
         /// </summary>
@@ -53,13 +53,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001.Outputs
         private ComputeStartStopScheduleResponse(
             string? action,
 
-            Outputs.CronTriggerResponse? cron,
+            Outputs.CronResponse? cron,
 
             string id,
 
             string provisioningStatus,
 
-            Outputs.RecurrenceTriggerResponse? recurrence,
+            Outputs.RecurrenceResponse? recurrence,
 
             Outputs.ScheduleBaseResponse? schedule,
 

@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
 
+        [Input("customProperties")]
+        private InputList<Inputs.IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs>? _customProperties;
+
+        /// <summary>
+        /// Custom properties are used to tune the data flow runtime performance.
+        /// </summary>
+        public InputList<Inputs.IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs> CustomProperties
+        {
+            get => _customProperties ?? (_customProperties = new InputList<Inputs.IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs>());
+            set => _customProperties = value;
+        }
+
         /// <summary>
         /// Time to live (in minutes) setting of the cluster which will execute data flow job.
         /// </summary>

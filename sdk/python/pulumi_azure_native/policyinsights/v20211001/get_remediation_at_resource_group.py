@@ -167,7 +167,7 @@ class GetRemediationAtResourceGroupResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The status of the remediation.
+        The status of the remediation. This refers to the entire remediation task, not individual deployments. Allowed values are Evaluating, Canceled, Cancelling, Failed, Complete, or Succeeded.
         """
         return pulumi.get(self, "provisioning_state")
 

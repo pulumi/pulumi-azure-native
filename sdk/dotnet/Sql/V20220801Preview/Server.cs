@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         /// </summary>
         [Output("minimalTlsVersion")]
         public Output<string?> MinimalTlsVersion { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         /// </summary>
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }

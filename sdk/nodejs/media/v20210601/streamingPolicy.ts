@@ -115,7 +115,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingPolicy" }, { type: "azure-native:media/v20180330preview:StreamingPolicy" }, { type: "azure-native:media/v20180601preview:StreamingPolicy" }, { type: "azure-native:media/v20180701:StreamingPolicy" }, { type: "azure-native:media/v20200501:StreamingPolicy" }, { type: "azure-native:media/v20211101:StreamingPolicy" }, { type: "azure-native:media/v20220801:StreamingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingPolicy" }, { type: "azure-native:media/v20180330preview:StreamingPolicy" }, { type: "azure-native:media/v20180601preview:StreamingPolicy" }, { type: "azure-native:media/v20180701:StreamingPolicy" }, { type: "azure-native:media/v20200501:StreamingPolicy" }, { type: "azure-native:media/v20211101:StreamingPolicy" }, { type: "azure-native:media/v20220801:StreamingPolicy" }, { type: "azure-native:media/v20230101:StreamingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingPolicy.__pulumiType, name, resourceInputs, opts);
     }
