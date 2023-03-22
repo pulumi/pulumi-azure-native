@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure-native/examples
 
-go 1.17
+go 1.19
 
 require (
 	github.com/pulumi/pulumi-azure-native-sdk/resources v1.83.1

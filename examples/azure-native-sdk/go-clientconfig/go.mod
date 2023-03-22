@@ -1,6 +1,6 @@
 module main
 
-go 1.18
+go 1.19
 
 require (
 	github.com/pulumi/pulumi-azure-native-sdk/authorization v1.83.1
