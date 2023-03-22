@@ -33,10 +33,6 @@ env:
   ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
   PULUMI_API: https://api.pulumi-staging.io
 
-# Required for OIDC auth
-permissions:
-  id-token: write
-
 jobs:
   prerequisites:
     runs-on: ubuntu-latest
@@ -90,6 +86,8 @@ jobs:
           - go
           - java
     name: Build & Test SDKs
+    permissions:
+      id-token: write  # required for OIDC auth
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
