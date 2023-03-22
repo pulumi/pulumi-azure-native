@@ -3186,6 +3186,9 @@
     ],
     "2021-10-01": [
       "Budget"
+    ],
+    "2022-09-01": [
+      "Budget"
     ]
   },
   "ContainerInstance": {
@@ -3904,6 +3907,28 @@
       "listManagedClusterUserCredentials"
     ],
     "2023-01-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-02-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-02-02-preview": [
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -7035,6 +7060,9 @@
       "Workspace",
       "WorkspacePrivateEndpointConnection"
     ]
+  },
+  "Help": {
+    "": []
   },
   "HybridCompute": {
     "2019-03-18-preview": [
