@@ -1,8 +1,10 @@
 {
   "AzureArcData": ["2023-01-15-preview", "2023-03-15-preview"],
+  "Communication": ["2023-03-01-preview"],
   "DBforMySQL": ["2018-06-01-privatepreview"],
   "DBforPostgreSQL": ["2022-05-01-preview"],
-  "DocumentDB": ["2022-11-15-preview"],
+  "Devices": ["2022-11-15-preview"],
+  "DocumentDB": ["2022-11-15-preview", "2023-03-01-preview"],
   "Elastic": ["2023-02-01-preview"],
   "GraphServices": ["2022-09-22-preview"],
   "HybridContainerService": ["2022-09-01-preview"],
@@ -10,5 +12,6 @@
   "ManagedNetworkFabric": ["2023-02-01-preview"],
   "ProfessionalService": ["2023-07-01-preview"],
   "Security": ["2023-02-01-preview"],
-  "SecurityFabric": ["2023-02-01-preview"]
+  "SecurityFabric": ["2023-02-01-preview"],
+  "SecurityInsights": ["2023-03-01-preview"]
 }

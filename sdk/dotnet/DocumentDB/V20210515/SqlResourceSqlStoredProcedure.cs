@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:SqlResourceSqlStoredProcedure"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:SqlResourceSqlStoredProcedure"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:SqlResourceSqlStoredProcedure"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
