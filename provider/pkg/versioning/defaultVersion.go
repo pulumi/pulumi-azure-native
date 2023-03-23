@@ -28,9 +28,8 @@ type DefaultConfig map[openapi.ProviderName]ProviderSpec
 func BuildDefaultConfig(spec SpecVersions, curations Curations, existingConfig DefaultConfig) DefaultConfig {
 	specs := DefaultConfig{}
 	for providerName, versionResources := range spec {
-		providerCurations := curations[providerName]
 		existing := existingConfig[providerName]
-		specs[providerName] = buildSpec(providerName, versionResources, providerCurations, existing)
+		specs[providerName] = buildSpec(providerName, versionResources, curations, existing)
 	}
 	return specs
 }
@@ -139,11 +138,12 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 	return curatedVersion, multierror.Flatten(err)
 }
 
-func buildSpec(providerName string, versions VersionResources, curations providerCuration, existing ProviderSpec) ProviderSpec {
+func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {
 	var additionsPtr *map[string]string
 	var trackingPtr *string
 
-	latestVersions := findLatestVersions(versions, curations)
+	providerCuration := curations[providerName]
+	latestVersions := findLatestVersions(versions, providerCuration)
 
 	if len(latestVersions) == 0 {
 		return ProviderSpec{}
@@ -154,7 +154,7 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 	if existing.Tracking != nil {
 		trackingPtr = existing.Tracking
 		trackingResources = codegen.NewStringSet(versions[*trackingPtr]...)
-	} else if !curations.Explicit {
+	} else if !providerCuration.Explicit {
 		for apiVersion, resources := range latestVersions {
 			if trackingPtr == nil || apiVersion > *trackingPtr {
 				version := apiVersion
@@ -170,18 +170,17 @@ func buildSpec(providerName string, versions VersionResources, curations provide
 	}
 	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for apiVersion, resources := range latestVersions {
-		if !curations.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
+		if !providerCuration.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
 			continue
 		}
 		for _, resourceName := range resources {
-			excludedMaxVersion, hasExclusion := curations.Exclusions[resourceName]
-			if hasExclusion {
-				if excludedMaxVersion == "*" || excludedMaxVersion >= apiVersion {
-					continue
-				}
-				fmt.Printf("Exclusion %s/%s not applied, version %s is greater than %s", providerName, resourceName, apiVersion, excludedMaxVersion)
+			isExcluded, exclusionErr := providerCuration.IsExcluded(resourceName, apiVersion)
+			if exclusionErr != nil {
+				fmt.Printf("Error checking exclusion for %s/%s: %s", providerName, resourceName, exclusionErr)
 			}
-			if version, ok := existingAdditions[resourceName]; ok {
+			if isExcluded {
+				continue
+			} else if version, ok := existingAdditions[resourceName]; ok {
 				additions[resourceName] = version
 			} else if !trackingResources.Has(resourceName) {
 				additions[resourceName] = apiVersion
