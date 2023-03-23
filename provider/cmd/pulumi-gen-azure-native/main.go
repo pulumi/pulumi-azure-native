@@ -84,7 +84,7 @@ func main() {
 			panic(err)
 		}
 
-		versions := openapi.ApplySpecModifications(providers, versionMetadata.V1, versionMetadata.Deprecated, removed)
+		versions := openapi.ApplyProvidersTransformations(providers, versionMetadata.V1, versionMetadata.Deprecated, removed)
 		azureProviders = &versions
 		pkgSpec, meta, _, err = gen.PulumiSchema(*azureProviders)
 		if err != nil {
@@ -125,7 +125,7 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
-			providers, err = openapi.ApplyProvidersTransformations(providers)
+			providers, err = openapi.ReadAndApplyProvidersTransformations(providers)
 			if err != nil {
 				panic(err)
 			}

@@ -73,7 +73,8 @@ type ResourceSpec struct {
 	DeprecationMessage string
 }
 
-func ApplyProvidersTransformations(providers AzureProviders) (AzureProviders, error) {
+// ReadAndApplyProvidersTransformations reads the curated versions, deprecated and removed versions and applies them to the providers.
+func ReadAndApplyProvidersTransformations(providers AzureProviders) (AzureProviders, error) {
 	defaultVersion, err := ReadV1Version()
 	if err != nil {
 		return nil, err
@@ -89,11 +90,11 @@ func ApplyProvidersTransformations(providers AzureProviders) (AzureProviders, er
 		return nil, err
 	}
 
-	return ApplySpecModifications(providers, defaultVersion, deprecated, removed), nil
+	return ApplyProvidersTransformations(providers, defaultVersion, deprecated, removed), nil
 }
 
-// ApplySpecModifications adds the default version for each provider and deprecates and removes specified API versions.
-func ApplySpecModifications(providers AzureProviders, defaultVersion CuratedVersion, deprecated, removed ProviderVersionList) AzureProviders {
+// ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
+func ApplyProvidersTransformations(providers AzureProviders, defaultVersion CuratedVersion, deprecated, removed ProviderVersionList) AzureProviders {
 	for providerName, versionMap := range providers {
 		// Remove all versions that are not in the curated list.
 		if removedVersion, ok := removed[providerName]; ok {
