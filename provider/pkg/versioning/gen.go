@@ -12,12 +12,12 @@ import (
 type VersionMetadata struct {
 	Spec          SpecVersions
 	SpecResources ProviderResourceVersions
-	V1            openapi.CuratedVersion
+	V1Lock        openapi.CuratedVersion
 	Deprecated    openapi.ProviderVersionList
 	Active        providerlist.ProviderPathVersionsJson
 	Pending       openapi.ProviderVersionList
-	V2Config      DefaultConfig
-	V2            openapi.CuratedVersion
+	V2Spec        DefaultConfig
+	V2Lock        openapi.CuratedVersion
 }
 
 func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata, error) {
@@ -71,12 +71,12 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	return VersionMetadata{
 		Spec:          specVersions,
 		SpecResources: specResourceVersions,
-		V1:            v1,
+		V1Lock:        v1,
 		Deprecated:    deprecated,
 		Active:        activePathVersionsJson,
 		Pending:       FindNewerVersions(specVersions, v1),
-		V2Config:      v2Config,
-		V2:            v2,
+		V2Spec:        v2Config,
+		V2Lock:        v2,
 	}, nil
 }
 
@@ -84,11 +84,11 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 	return gen.EmitFiles(outputDir, gen.FileMap{
 		"spec.json":           v.Spec,
 		"spec-resources.json": v.SpecResources,
-		"v1-lock.json":        v.V1,
+		"v1-lock.json":        v.V1Lock,
 		"deprecated.json":     v.Deprecated,
 		"active.json":         v.Active,
 		"pending.json":        v.Pending,
-		"v2-spec.yaml":        v.V2Config,
-		"v2-lock.json":        v.V2,
+		"v2-spec.yaml":        v.V2Spec,
+		"v2-lock.json":        v.V2Lock,
 	})
 }
