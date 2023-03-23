@@ -66,7 +66,7 @@ func main() {
 	}
 
 	if languageSet.Has("schema") {
-		providers, err := openapi.SpecVersions(namespaces)
+		providers, err := openapi.ReadAzureProviders(namespaces)
 		if err != nil {
 			panic(err)
 		}

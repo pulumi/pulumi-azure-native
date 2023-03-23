@@ -78,7 +78,7 @@ type ResourceSpec struct {
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter e.g. "Compute"
 func ReadVersions(namespace string) (AzureProviders, error) {
 	// Collect all versions for each path in the API across all Swagger files.
-	providers, err := SpecVersions(namespace)
+	providers, err := ReadAzureProviders(namespace)
 	if err != nil {
 		return nil, err
 	}
@@ -169,7 +169,7 @@ func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions ma
 	}
 }
 
-func SpecVersions(namespace string) (AzureProviders, error) {
+func ReadAzureProviders(namespace string) (AzureProviders, error) {
 	swaggerSpecLocations, err := swaggerLocations(namespace)
 	if err != nil {
 		return nil, err
