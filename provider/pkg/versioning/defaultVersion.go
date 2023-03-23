@@ -155,12 +155,10 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 		trackingPtr = existing.Tracking
 		trackingResources = codegen.NewStringSet(versions[*trackingPtr]...)
 	} else if !providerCuration.Explicit {
-		for apiVersion, resources := range latestVersions {
-			if trackingPtr == nil || apiVersion > *trackingPtr {
-				version := apiVersion
-				trackingPtr = &version
-				trackingResources = codegen.NewStringSet(resources...)
-			}
+		maxVersion := maxKey(latestVersions)
+		if maxVersion != nil {
+			trackingPtr = maxVersion
+			trackingResources = codegen.NewStringSet(latestVersions[*trackingPtr]...)
 		}
 	}
 
@@ -346,4 +344,21 @@ func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err e
 		return diff, err
 	}
 	return toTime.Sub(fromTime), err
+}
+
+func maxKey[K comparable, V any](m map[K]V) *K {
+	keys := keys(m)
+	if len(keys) == 0 {
+		return nil
+	}
+	last := keys[len(keys)-1]
+	return &last
+}
+
+func keys[K comparable, V any](m map[K]V) []K {
+	keys := make([]K, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	return keys
 }
