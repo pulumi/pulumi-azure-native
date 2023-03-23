@@ -73,16 +73,7 @@ type ResourceSpec struct {
 	DeprecationMessage string
 }
 
-// ReadVersions finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
-// collected per Azure Provider and API Version - for all API versions.
-// Use the namespace "*" to load all available namespaces, or a specific namespace to filter e.g. "Compute"
-func ReadVersions(namespace string) (AzureProviders, error) {
-	// Collect all versions for each path in the API across all Swagger files.
-	providers, err := ReadAzureProviders(namespace)
-	if err != nil {
-		return nil, err
-	}
-
+func ApplyProvidersTransformations(providers AzureProviders) (AzureProviders, error) {
 	defaultVersion, err := ReadV1Version()
 	if err != nil {
 		return nil, err
@@ -169,6 +160,9 @@ func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions ma
 	}
 }
 
+// ReadAzureProviders finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
+// collected per Azure Provider and API Version - for all API versions.
+// Use the namespace "*" to load all available namespaces, or a specific namespace to filter e.g. "Compute"
 func ReadAzureProviders(namespace string) (AzureProviders, error) {
 	swaggerSpecLocations, err := swaggerLocations(namespace)
 	if err != nil {

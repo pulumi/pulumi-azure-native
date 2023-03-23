@@ -121,11 +121,15 @@ func main() {
 
 	if languageSet.Has("docs") {
 		if azureProviders == nil {
-			versions, err := openapi.ReadVersions(namespaces)
+			providers, err := openapi.ReadAzureProviders(namespaces)
 			if err != nil {
 				panic(err)
 			}
-			azureProviders = &versions
+			providers, err = openapi.ApplyProvidersTransformations(providers)
+			if err != nil {
+				panic(err)
+			}
+			azureProviders = &providers
 		}
 		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
 		docsProviders := openapi.SingleVersion(*azureProviders)
