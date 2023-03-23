@@ -79,6 +79,66 @@ func TestDefaultVersion(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
+	t.Run("prefer preview versions - treat as stable", func(t *testing.T) {
+		v2021 := "2021-02-02-preview"
+		v2020 := "2020-01-01"
+
+		spec := map[openapi.ProviderName]VersionResources{
+			"Provider": {
+				v2020: []openapi.ResourceName{
+					"Resource A",
+				},
+				v2021: []openapi.ResourceName{
+					"Resource A",
+					"Resource B",
+				},
+			},
+		}
+		curations := Curations{
+			"Provider": {
+				Preview: PreviewPrefer,
+			},
+		}
+		existing := DefaultConfig{}
+		actual := BuildDefaultConfig(spec, curations, existing)
+		expected := DefaultConfig{
+			"Provider": {
+				Tracking: &v2021,
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("exclude preview versions", func(t *testing.T) {
+		v2021 := "2021-02-02-preview"
+		v2020 := "2020-01-01"
+
+		spec := map[openapi.ProviderName]VersionResources{
+			"Provider": {
+				v2020: []openapi.ResourceName{
+					"Resource A",
+				},
+				v2021: []openapi.ResourceName{
+					"Resource A",
+					"Resource B",
+				},
+			},
+		}
+		curations := Curations{
+			"Provider": {
+				Preview: PreviewExclude,
+			},
+		}
+		existing := DefaultConfig{}
+		actual := BuildDefaultConfig(spec, curations, existing)
+		expected := DefaultConfig{
+			"Provider": {
+				Tracking: &v2020,
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
 	t.Run("include new services", func(t *testing.T) {
 		v2020 := "2020-01-01"
 
