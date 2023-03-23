@@ -30,7 +30,7 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	specResourceVersions := FormatResourceVersions(specVersions)
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
-	v1Config, err := ReadDefaultConfig(path.Join("versions", "v1-config.yaml"))
+	v1Config, err := ReadDefaultConfig(path.Join("versions", "v1-spec.yaml"))
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -42,12 +42,12 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	deprecated := FindDeprecations(specVersions, v1)
 	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
 
-	v2Config, err := ReadDefaultConfig(path.Join("versions", "v2-config.yaml"))
+	v2Config, err := ReadDefaultConfig(path.Join("versions", "v2-spec.yaml"))
 	if err != nil {
 		return VersionMetadata{}, err
 	}
 
-	v2curations, err := ReadManualCurations(path.Join("versions", "v2-curation.yaml"))
+	v2curations, err := ReadManualCurations(path.Join("versions", "config.yaml"))
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -84,11 +84,11 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 	return gen.EmitFiles(outputDir, gen.FileMap{
 		"spec.json":           v.Spec,
 		"spec-resources.json": v.SpecResources,
-		"v1.json":             v.V1,
+		"v1-lock.json":        v.V1,
 		"deprecated.json":     v.Deprecated,
 		"active.json":         v.Active,
 		"pending.json":        v.Pending,
-		"v2-config.yaml":      v.V2Config,
-		"v2.json":             v.V2,
+		"v2-spec.yaml":        v.V2Config,
+		"v2-lock.json":        v.V2,
 	})
 }

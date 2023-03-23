@@ -17,7 +17,7 @@ func ReadV1Version() (CuratedVersion, error) {
 	if err != nil {
 		return nil, err
 	}
-	v1Path := filepath.Join(dir, "versions", "v1.json")
+	v1Path := filepath.Join(dir, "versions", "v1-lock.json")
 	return ReadCuratedVersion(v1Path)
 }
 
