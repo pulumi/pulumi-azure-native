@@ -1164,6 +1164,13 @@
       "KeyValue",
       "PrivateEndpointConnection",
       "listConfigurationStoreKeys"
+    ],
+    "2023-03-01": [
+      "ConfigurationStore",
+      "KeyValue",
+      "PrivateEndpointConnection",
+      "Replica",
+      "listConfigurationStoreKeys"
     ]
   },
   "AppPlatform": {
@@ -3186,6 +3193,9 @@
     ],
     "2021-10-01": [
       "Budget"
+    ],
+    "2022-09-01": [
+      "Budget"
     ]
   },
   "ContainerInstance": {
@@ -3904,6 +3914,28 @@
       "listManagedClusterUserCredentials"
     ],
     "2023-01-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-02-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-02-02-preview": [
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -7034,7 +7066,20 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2023-02-28": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
+  },
+  "Help": {
+    "": []
   },
   "HybridCompute": {
     "2019-03-18-preview": [
@@ -7144,6 +7189,13 @@
     "2022-05-01-preview": [
       "Endpoint",
       "listEndpointCredentials",
+      "listEndpointManagedProxyDetails"
+    ],
+    "2023-03-15": [
+      "Endpoint",
+      "ServiceConfiguration",
+      "listEndpointCredentials",
+      "listEndpointIngressGatewayCredentials",
       "listEndpointManagedProxyDetails"
     ]
   },

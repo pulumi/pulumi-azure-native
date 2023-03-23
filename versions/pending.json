@@ -63,7 +63,8 @@
     "2021-03-01-preview",
     "2021-10-01-preview",
     "2022-03-01-preview",
-    "2022-05-01"
+    "2022-05-01",
+    "2023-03-01"
   ],
   "AppPlatform": [
     "2020-11-01-preview",
@@ -265,7 +266,8 @@
   "Consumption": [
     "2019-11-01",
     "2021-05-01",
-    "2021-10-01"
+    "2021-10-01",
+    "2022-09-01"
   ],
   "ContainerInstance": [
     "2021-07-01",
@@ -339,7 +341,9 @@
     "2022-11-01",
     "2022-11-02-preview",
     "2023-01-01",
-    "2023-01-02-preview"
+    "2023-01-02-preview",
+    "2023-02-01",
+    "2023-02-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -624,8 +628,10 @@
   "HealthcareApis": [
     "2022-06-01",
     "2022-10-01-preview",
-    "2022-12-01"
+    "2022-12-01",
+    "2023-02-28"
   ],
+  "Help": [],
   "HybridCompute": [
     "2020-08-15-preview",
     "2021-01-28-preview",
@@ -641,7 +647,9 @@
     "2022-11-10",
     "2022-12-27-preview"
   ],
-  "HybridConnectivity": [],
+  "HybridConnectivity": [
+    "2023-03-15"
+  ],
   "HybridContainerService": [
     "2022-09-01-preview"
   ],
