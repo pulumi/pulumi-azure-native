@@ -46,6 +46,7 @@
   },
   "AlertsManagement": {
     "AlertProcessingRuleByName": "2021-08-08",
+    "PrometheusRuleGroup": "2023-03-01",
     "SmartDetectorAlertRule": "2021-04-01"
   },
   "AnalysisServices": {
@@ -357,11 +358,12 @@
   },
   "Commerce": {},
   "Communication": {
-    "CommunicationService": "2022-07-01-preview",
-    "Domain": "2022-07-01-preview",
-    "EmailService": "2022-07-01-preview",
-    "listCommunicationServiceKeys": "2022-07-01-preview",
-    "listEmailServiceVerifiedExchangeOnlineDomains": "2022-07-01-preview"
+    "CommunicationService": "2023-03-01-preview",
+    "Domain": "2023-03-01-preview",
+    "EmailService": "2023-03-01-preview",
+    "SenderUsername": "2023-03-01-preview",
+    "listCommunicationServiceKeys": "2023-03-01-preview",
+    "listEmailServiceVerifiedExchangeOnlineDomains": "2023-03-01-preview"
   },
   "Compute": {
     "AvailabilitySet": "2022-11-01",
@@ -448,6 +450,11 @@
     "listManagedClusterAdminCredentials": "2023-01-01",
     "listManagedClusterMonitoringUserCredentials": "2023-01-01",
     "listManagedClusterUserCredentials": "2023-01-01"
+  },
+  "ContainerStorage": {
+    "Pool": "2023-03-01-preview",
+    "Volume": "2023-03-01-preview",
+    "VolumeSnapshot": "2023-03-01-preview"
   },
   "CostManagement": {
     "Export": "2022-10-01",
@@ -1553,7 +1560,7 @@
     "ReplicationStorageClassificationMapping": "2023-02-01",
     "ReplicationvCenter": "2023-02-01",
     "ResourceGuardProxy": "2023-02-01",
-    "Vault": "2023-01-01",
+    "Vault": "2023-02-01",
     "getRecoveryPointAccessToken": "2021-11-15"
   },
   "RedHatOpenShift": {
@@ -1946,7 +1953,8 @@
     "Account": "2022-08-01"
   },
   "VirtualMachineImages": {
-    "VirtualMachineImageTemplate": "2022-02-14"
+    "Trigger": "2022-07-01",
+    "VirtualMachineImageTemplate": "2022-07-01"
   },
   "VisualStudio": {
     "Account": "2017-11-01-preview",

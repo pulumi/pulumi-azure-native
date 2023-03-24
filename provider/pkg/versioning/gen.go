@@ -1,7 +1,6 @@
 package versioning
 
 import (
-	"fmt"
 	"path"
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
@@ -47,19 +46,15 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 		return VersionMetadata{}, err
 	}
 
-	v2curations, err := ReadManualCurations(path.Join("versions", "config.yaml"))
+	curationsPath := path.Join("versions", "config.yaml")
+	v2curations, err := ReadManualCurations(curationsPath)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
 	v2Config = BuildDefaultConfig(specAfterRemovals, v2curations, v2Config)
 
 	violations := ValidateDefaultConfig(v2Config, v2curations)
-	if len(violations) > 0 {
-		fmt.Printf("Warning: %d curation violations found:\n", len(violations))
-		for _, v := range violations {
-			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
-		}
-	}
+	PrintViolationsAsWarnings(curationsPath, violations)
 	if err != nil {
 		return VersionMetadata{}, err
 	}

@@ -80,6 +80,19 @@ func ValidateDefaultConfig(config DefaultConfig, curations Curations) []Curation
 	return violations
 }
 
+func PrintViolationsAsWarnings(curationsPath string, violations []CurationViolation) {
+	if len(violations) > 0 {
+		// Set colour to yellow
+		fmt.Printf("\x1b[33m")
+		fmt.Printf("Warning: %d curation violations found in %s:\n", len(violations), curationsPath)
+		for _, v := range violations {
+			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
+		}
+		// Reset colour
+		fmt.Printf("\x1b[0m")
+	}
+}
+
 // ReadDefaultConfig parses a default config from a YAML file
 func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	jsonFile, err := os.Open(path)

@@ -133,6 +133,8 @@ ContainerService:
     This is actually known as AKS
     OpenShiftManagedCluster might be able to be excluded, but no obvious new version
     TODO: Is listManagedClusterAccessProfile replaced by listManagedClusterAdminCredentials and listManagedClusterUserCredentials?
+ContainerStorage:
+  expectTracking: preview
 CostManagement:
   expectAdditions: true
   notes: |

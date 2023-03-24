@@ -18,6 +18,7 @@ AgFoodPlatform:
 AlertsManagement:
     tracking: "2021-08-08"
     additions:
+        PrometheusRuleGroup: "2023-03-01"
         SmartDetectorAlertRule: "2021-04-01"
 AnalysisServices:
     tracking: "2017-08-01"
@@ -102,7 +103,7 @@ CognitiveServices:
     tracking: "2022-12-01"
 Commerce: {}
 Communication:
-    tracking: 2022-07-01-preview
+    tracking: 2023-03-01-preview
 Compute:
     additions:
         AvailabilitySet: "2022-11-01"
@@ -158,6 +159,8 @@ ContainerService:
     additions:
         OpenShiftManagedCluster: "2019-04-30"
         listManagedClusterAccessProfile: "2020-03-01"
+ContainerStorage:
+    tracking: 2023-03-01-preview
 CostManagement:
     tracking: "2022-10-01"
     additions:
@@ -648,7 +651,6 @@ RecommendationsService:
 RecoveryServices:
     tracking: "2023-02-01"
     additions:
-        Vault: "2023-01-01"
         getRecoveryPointAccessToken: "2021-11-15"
 RedHatOpenShift:
     tracking: "2022-09-04"
@@ -756,7 +758,7 @@ VideoAnalyzer:
 VideoIndexer:
     tracking: "2022-08-01"
 VirtualMachineImages:
-    tracking: "2022-02-14"
+    tracking: "2022-07-01"
 VisualStudio:
     tracking: 2017-11-01-preview
 VoiceServices:
