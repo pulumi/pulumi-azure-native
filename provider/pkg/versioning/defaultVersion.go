@@ -25,12 +25,59 @@ type ProviderSpec struct {
 type DefaultConfig map[openapi.ProviderName]ProviderSpec
 
 // BuildDefaultConfig calculates a config from available API versions
-func BuildDefaultConfig(spec SpecVersions) DefaultConfig {
+func BuildDefaultConfig(spec SpecVersions, curations Curations, existingConfig DefaultConfig) DefaultConfig {
 	specs := DefaultConfig{}
 	for providerName, versionResources := range spec {
-		specs[providerName] = buildSpec(versionResources)
+		existing := existingConfig[providerName]
+		specs[providerName] = buildSpec(providerName, versionResources, curations, existing)
 	}
 	return specs
+}
+
+type CurationViolation struct {
+	Provider openapi.ProviderName
+	Detail   string
+}
+
+func ValidateDefaultConfig(config DefaultConfig, curations Curations) []CurationViolation {
+	var violations []CurationViolation
+	for provider, providerSpec := range config {
+		providerCuration := curations[provider]
+		expectedTracking := providerCuration.ExpectTracking
+		if expectedTracking == "" {
+			expectedTracking = "stable"
+		}
+		var actualTracking string
+		if providerSpec.Tracking != nil && openapi.IsPreview(*providerSpec.Tracking) {
+			actualTracking = "preview"
+		} else {
+			actualTracking = "stable"
+		}
+		if expectedTracking != actualTracking {
+			violations = append(violations, CurationViolation{
+				Provider: provider,
+				Detail:   fmt.Sprintf("expected tracking %s but found %s", expectedTracking, actualTracking),
+			})
+		}
+		hasAdditions := providerSpec.Additions != nil && len(*providerSpec.Additions) > 0
+		if providerCuration.ExpectAdditions != hasAdditions && !providerCuration.Explicit {
+			var detail string
+			if providerCuration.ExpectAdditions {
+				detail = "expected additions but found none"
+			} else {
+				detail = "expected no additions but found some"
+			}
+			violations = append(violations, CurationViolation{
+				Provider: provider,
+				Detail:   detail,
+			})
+		}
+	}
+	// sort violations by provider name
+	sort.Slice(violations, func(i, j int) bool {
+		return strings.Compare(violations[i].Provider, violations[j].Provider) < 0
+	})
+	return violations
 }
 
 // ReadDefaultConfig parses a default config from a YAML file
@@ -51,7 +98,7 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	return curatedVersion, err
 }
 
-func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig, curation Curations) (openapi.CuratedVersion, error) {
+func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
 	var err error
 	curatedVersion := openapi.CuratedVersion{}
 	for providerName, versionResources := range spec {
@@ -74,16 +121,14 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 
 		if providerSpec.Tracking != nil {
 			for _, resourceName := range versionResources[*providerSpec.Tracking] {
-				if !curation.IsExcluded(providerName, resourceName) {
-					definitions[resourceName] = *providerSpec.Tracking
-				}
+				definitions[resourceName] = *providerSpec.Tracking
 			}
 		}
 		if providerSpec.Additions != nil {
 			for resourceName, apiVersion := range *providerSpec.Additions {
 				if existingVersion, ok := definitions[resourceName]; ok {
 					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", providerName, resourceName, apiVersion, existingVersion))
-				} else if !curation.IsExcluded(providerName, resourceName) {
+				} else {
 					definitions[resourceName] = apiVersion
 				}
 			}
@@ -93,44 +138,66 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 	return curatedVersion, multierror.Flatten(err)
 }
 
-func buildSpec(versions VersionResources) ProviderSpec {
-	latestVersions := findLatestVersions(versions)
-	switch len(latestVersions) {
-	case 0:
+func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {
+	var additionsPtr *map[string]string
+	var trackingPtr *string
+
+	providerCuration := curations[providerName]
+	latestVersions := findLatestVersions(versions, providerCuration)
+
+	if len(latestVersions) == 0 {
 		return ProviderSpec{}
-	case 1:
-		// If single apiVersion includes all resources, track it.
-		for apiVersion := range latestVersions {
-			return ProviderSpec{
-				Tracking: &apiVersion,
-			}
-		}
 	}
+
 	// If multiple versions required, track the latest and include additional resources from previous versions
-	additions := map[openapi.ResourceName]openapi.ApiVersion{}
-	maxVersion := ""
-	for apiVersion := range latestVersions {
-		if apiVersion > maxVersion {
-			maxVersion = apiVersion
+	var trackingResources codegen.StringSet
+	if existing.Tracking != nil {
+		trackingPtr = existing.Tracking
+		trackingResources = codegen.NewStringSet(versions[*trackingPtr]...)
+	} else if !providerCuration.Explicit {
+		maxVersion := maxKey(latestVersions)
+		if maxVersion != nil {
+			trackingPtr = maxVersion
+			trackingResources = codegen.NewStringSet(latestVersions[*trackingPtr]...)
 		}
 	}
+
+	existingAdditions := map[openapi.ResourceName]openapi.ApiVersion{}
+	if existing.Additions != nil {
+		existingAdditions = *existing.Additions
+	}
+	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for apiVersion, resources := range latestVersions {
-		if apiVersion == maxVersion {
+		if !providerCuration.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
 			continue
 		}
 		for _, resourceName := range resources {
-			additions[resourceName] = apiVersion
+			isExcluded, exclusionErr := providerCuration.IsExcluded(resourceName, apiVersion)
+			if exclusionErr != nil {
+				fmt.Printf("Error checking exclusion for %s/%s: %s", providerName, resourceName, exclusionErr)
+			}
+			if isExcluded {
+				continue
+			} else if version, ok := existingAdditions[resourceName]; ok {
+				additions[resourceName] = version
+			} else if !trackingResources.Has(resourceName) {
+				additions[resourceName] = apiVersion
+			}
 		}
 	}
 
+	if len(additions) > 0 {
+		additionsPtr = &additions
+	}
+
 	return ProviderSpec{
-		Tracking:  &maxVersion,
-		Additions: &additions,
+		Tracking:  trackingPtr,
+		Additions: additionsPtr,
 	}
 }
 
-func findLatestVersions(versions VersionResources) map[openapi.ApiVersion][]openapi.ResourceName {
-	latestResourceVersions := findLatestResourceVersions(versions)
+func findLatestVersions(versions VersionResources, curations providerCuration) map[openapi.ApiVersion][]openapi.ResourceName {
+	latestResourceVersions := findLatestResourceVersions(versions, curations)
 	latestVersions := map[openapi.ApiVersion][]openapi.ResourceName{}
 	for resourceName, version := range latestResourceVersions {
 		latestVersions[version] = append(latestVersions[version], resourceName)
@@ -141,8 +208,8 @@ func findLatestVersions(versions VersionResources) map[openapi.ApiVersion][]open
 	return latestVersions
 }
 
-func findLatestResourceVersions(versions VersionResources) map[openapi.ResourceName]openapi.ApiVersion {
-	candidateVersions := filterCandidateVersions(versions)
+func findLatestResourceVersions(versions VersionResources, curations providerCuration) map[openapi.ResourceName]openapi.ApiVersion {
+	candidateVersions := filterCandidateVersions(versions, curations.Preview)
 	candidates := filterVersionResources(versions, candidateVersions)
 	minimalVersionSet := findMinimalVersionSet(candidates)
 	minimalVersions := filterVersionResources(candidates, minimalVersionSet)
@@ -180,7 +247,7 @@ func filterVersionResources(versions VersionResources, filter []openapi.ApiVersi
 	return filtered
 }
 
-func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
+func filterCandidateVersions(versions VersionResources, previewPolicy string) []openapi.ApiVersion {
 	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
 	for version := range versions {
 		if version != "" {
@@ -197,7 +264,10 @@ func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
 		if openapi.IsPrivate(version) {
 			continue
 		}
-		if !openapi.IsPreview(version) {
+		if previewPolicy == PreviewExclude && openapi.IsPreview(version) {
+			continue
+		}
+		if !openapi.IsPreview(version) || previewPolicy == PreviewPrefer {
 			candidateVersions.Add(version)
 			hasFutureStableVersion = true
 			continue
@@ -205,6 +275,7 @@ func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
 		if hasFutureStableVersion {
 			continue
 		}
+
 		// If no more to iterate through, just add
 		if i == 0 || !containsRecentStable(orderedVersions[:i], version) {
 			candidateVersions.Add(version)
@@ -273,4 +344,21 @@ func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err e
 		return diff, err
 	}
 	return toTime.Sub(fromTime), err
+}
+
+func maxKey[K comparable, V any](m map[K]V) *K {
+	keys := keys(m)
+	if len(keys) == 0 {
+		return nil
+	}
+	last := keys[len(keys)-1]
+	return &last
+}
+
+func keys[K comparable, V any](m map[K]V) []K {
+	keys := make([]K, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	return keys
 }

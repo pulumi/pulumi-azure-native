@@ -70,12 +70,10 @@ func handleCommand(args []string, outputDir, versionFile string) error {
 	case "v2":
 		return v2(outputDir)
 	default:
-		matched, err := regexp.MatchString("^v\\d+-config$", target)
-		if err != nil {
-			return err
-		}
-		if matched {
-			return vnextConfig(outputDir, target)
+		re := regexp.MustCompile(`^(v\d+)-config$`)
+		matches := re.FindStringSubmatch(target)
+		if len(matches) == 2 {
+			return vnextConfig(outputDir, matches[1])
 		}
 		return fmt.Errorf("unknown target: %q", target)
 	}
@@ -100,9 +98,7 @@ func writeAll(outputDir string) error {
 	if err != nil {
 		return err
 	}
-	// No separate V1 curation yet
-	v1Curation := make(versioning.Curations)
-	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config, v1Curation)
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
 	if err != nil {
 		return err
 	}
@@ -113,11 +109,7 @@ func writeAll(outputDir string) error {
 	if err != nil {
 		return err
 	}
-	v2Curation, err := versioning.ReadManualCurations(path.Join(outputDir, "v2-curation.yaml"))
-	if err != nil {
-		return err
-	}
-	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config, v2Curation)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
 	if err != nil {
 		return err
 	}
@@ -208,9 +200,7 @@ func v1(outputDir string) error {
 		return err
 	}
 
-	// No separate V1 curation yet
-	v1Curation := make(versioning.Curations)
-	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config, v1Curation)
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
 	if err != nil {
 		return err
 	}
@@ -236,13 +226,8 @@ func v2(outputDir string) error {
 		return err
 	}
 
-	curations, err := versioning.ReadManualCurations(path.Join(outputDir, "v2-curation.yaml"))
-	if err != nil {
-		return err
-	}
-
 	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
-	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config, curations)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
 	if err != nil {
 		return err
 	}
@@ -252,7 +237,7 @@ func v2(outputDir string) error {
 	})
 }
 
-func vnextConfig(outputDir, target string) error {
+func vnextConfig(outputDir, version string) error {
 	specVersions, err := versioning.ReadSpecVersions(path.Join(outputDir, "spec.json"))
 	if err != nil {
 		return err
@@ -263,16 +248,30 @@ func vnextConfig(outputDir, target string) error {
 		return err
 	}
 
-	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
-	v2Config := versioning.BuildDefaultConfig(specAfterRemovals)
+	curations, err := versioning.ReadManualCurations(path.Join(outputDir, version+"-curation.yaml"))
 	if err != nil {
 		return err
 	}
 
-	filename := target + ".yaml"
+	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
+
+	vConfig := versioning.BuildDefaultConfig(specAfterRemovals, curations, versioning.DefaultConfig{})
+	if err != nil {
+		return err
+	}
+
+	violations := versioning.ValidateDefaultConfig(vConfig, curations)
+	if len(violations) > 0 {
+		fmt.Printf("Warning: %d curation violations found:\n", len(violations))
+		for _, v := range violations {
+			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
+		}
+	}
+
+	filename := version + "-config.yaml"
 
 	return emitFiles(outputDir, map[Filename]Data{
-		filename: v2Config,
+		filename: vConfig,
 	})
 }
 
