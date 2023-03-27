@@ -429,7 +429,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 	var variantNames []string
 	for _, d := range variants {
-		err = g.genResourceVariant(prov, d)
+		err = g.genResourceVariant(prov, resource, d)
 		if err != nil {
 			return err
 		}
@@ -447,7 +447,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		mainResource.deprecationMessage =
 			fmt.Sprintf("Please use one of the variants: %s.", strings.Join(variantNames, ", "))
 	}
-	return g.genResourceVariant(prov, mainResource)
+	return g.genResourceVariant(prov, resource, mainResource)
 }
 
 // resourceVariant points to request body's and response's schemas of a resource which is one of the variants
@@ -536,7 +536,7 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVariant) error {
+func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant) error {
 	module := g.providerToModule(prov)
 	swagger := resource.Swagger
 	path := resource.PathItem
@@ -595,7 +595,7 @@ func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVar
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse.description, swagger.Info),
+			Description: g.formatDescription(resourceResponse.description, swagger.Info, apiSpec),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
@@ -827,14 +827,18 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, respons
 	if op.Description != "" {
 		desc = op.Description
 	}
-	return g.formatDescription(desc, info)
+	return g.formatDescription(desc, info, nil)
 }
 
-func (g *packageGenerator) formatDescription(desc string, info *spec.Info) string {
+func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resourceSpec *openapi.ResourceSpec) string {
+	description := desc
 	if g.apiVersion == "" {
-		return fmt.Sprintf("%s\nAPI Version: %s.", desc, info.Version)
+		description = fmt.Sprintf("%s\nAPI Version: %s.", description, info.Version)
 	}
-	return desc
+	if resourceSpec != nil && resourceSpec.PreviousVersion != "" {
+		description = fmt.Sprintf("%s\nPrevious API Version: %s. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.", description, resourceSpec.PreviousVersion)
+	}
+	return description
 }
 
 func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {
