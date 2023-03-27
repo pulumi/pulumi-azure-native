@@ -95,8 +95,15 @@ func ReadAndApplyProvidersTransformations(providers AzureProviders) (AzureProvid
 
 // ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
 func ApplyProvidersTransformations(providers AzureProviders, defaultVersion DefaultVersionLock, deprecated, removed ProviderVersionList) AzureProviders {
+	ApplyRemovals(providers, removed)
+	AddDefaultVersion(providers, defaultVersion)
+	ApplyDeprecations(providers, deprecated)
+
+	return providers
+}
+
+func ApplyRemovals(providers map[string]map[string]VersionResources, removed map[string][]string) {
 	for providerName, versionMap := range providers {
-		// Remove all versions that are not in the curated list.
 		if removedVersion, ok := removed[providerName]; ok {
 			for _, versionToRemove := range removedVersion {
 				sdkVersionToRemove := ApiToSdkVersion(versionToRemove)
@@ -104,7 +111,9 @@ func ApplyProvidersTransformations(providers AzureProviders, defaultVersion Defa
 			}
 		}
 	}
+}
 
+func AddDefaultVersion(providers map[string]map[string]VersionResources, defaultVersion map[string]map[string]string) {
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := defaultVersion[providerName]
@@ -131,7 +140,11 @@ func ApplyProvidersTransformations(providers AzureProviders, defaultVersion Defa
 				r.CompatibleVersions = otherVersions
 			}
 		}
+	}
+}
 
+func ApplyDeprecations(providers AzureProviders, deprecated ProviderVersionList) AzureProviders {
+	for providerName, versionMap := range providers {
 		for _, apiVersion := range deprecated[providerName] {
 			sdkVersion := ApiToSdkVersion(apiVersion)
 			resources := versionMap[sdkVersion]
