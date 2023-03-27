@@ -117,7 +117,7 @@ func AddDefaultVersion(providers map[string]map[string]VersionResources, default
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := defaultVersion[providerName]
-		versionMap[""] = buildCuratedVersion(versionMap, defaultResourceVersions)
+		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions)
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
@@ -155,10 +155,10 @@ func ApplyDeprecations(providers AzureProviders, deprecated ProviderVersionList)
 	return providers
 }
 
-func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions map[ResourceName]ApiVersion) VersionResources {
+func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions map[ResourceName]ApiVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
-	for resourceName, apiVersion := range curatedResourceVersions {
+	for resourceName, apiVersion := range defaultResourceVersions {
 		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
 				resourceCopy := *resource
