@@ -11,12 +11,12 @@ import (
 type VersionMetadata struct {
 	Spec          SpecVersions
 	SpecResources ProviderResourceVersions
-	V1Lock        openapi.CuratedVersion
+	V1Lock        openapi.DefaultVersionLock
 	Deprecated    openapi.ProviderVersionList
 	Active        providerlist.ProviderPathVersionsJson
 	Pending       openapi.ProviderVersionList
 	V2Spec        DefaultConfig
-	V2Lock        openapi.CuratedVersion
+	V2Lock        openapi.DefaultVersionLock
 }
 
 func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata, error) {
@@ -33,12 +33,12 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	v1, err := DefaultConfigToCuratedVersion(specVersions, v1Spec)
+	v1Lock, err := DefaultConfigToDefaultVersionLock(specVersions, v1Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
 
-	deprecated := FindDeprecations(specVersions, v1)
+	deprecated := FindDeprecations(specVersions, v1Lock)
 	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
 
 	v2Spec, err := ReadDefaultConfig(path.Join("versions", "v2-spec.yaml"))
@@ -58,7 +58,7 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	v2, err := DefaultConfigToCuratedVersion(specAfterRemovals, v2Spec)
+	v2Lock, err := DefaultConfigToDefaultVersionLock(specAfterRemovals, v2Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -66,12 +66,12 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	return VersionMetadata{
 		Spec:          specVersions,
 		SpecResources: specResourceVersions,
-		V1Lock:        v1,
+		V1Lock:        v1Lock,
 		Deprecated:    deprecated,
 		Active:        activePathVersionsJson,
-		Pending:       FindNewerVersions(specVersions, v1),
+		Pending:       FindNewerVersions(specVersions, v1Lock),
 		V2Spec:        v2Spec,
-		V2Lock:        v2,
+		V2Lock:        v2Lock,
 	}, nil
 }
 

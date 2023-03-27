@@ -111,9 +111,9 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	return curatedVersion, err
 }
 
-func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
+func DefaultConfigToDefaultVersionLock(spec SpecVersions, defaultConfig DefaultConfig) (openapi.DefaultVersionLock, error) {
 	var err error
-	curatedVersion := openapi.CuratedVersion{}
+	defaultVersionLock := openapi.DefaultVersionLock{}
 	for providerName, versionResources := range spec {
 		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
 		providerSpec, ok := defaultConfig[providerName]
@@ -146,9 +146,9 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 				}
 			}
 		}
-		curatedVersion[providerName] = definitions
+		defaultVersionLock[providerName] = definitions
 	}
-	return curatedVersion, multierror.Flatten(err)
+	return defaultVersionLock, multierror.Flatten(err)
 }
 
 func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {

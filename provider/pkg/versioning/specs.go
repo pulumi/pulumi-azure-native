@@ -2,10 +2,11 @@ package versioning
 
 import (
 	"encoding/json"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"io/ioutil"
 	"os"
 	"sort"
+
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 )
 
 type VersionResources = map[openapi.ApiVersion][]openapi.ResourceName

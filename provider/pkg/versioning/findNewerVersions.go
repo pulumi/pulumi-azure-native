@@ -1,17 +1,18 @@
 package versioning
 
 import (
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"sort"
+
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 )
 
-func FindNewerVersions(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) openapi.ProviderVersionList {
+func FindNewerVersions(specVersions SpecVersions, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
 	olderProviderVersions := openapi.ProviderVersionList{}
 	for providerName, versions := range specVersions {
 		//goland:noinspection GoPreferNilSlice
 		newerVersions := []openapi.ApiVersion{}
-		curated := curatedVersion[providerName]
-		maxCuratedVersion := findMaxDefaultVersion(curated)
+		defaultResourceVersions := defaultVersion[providerName]
+		maxCuratedVersion := findMaxDefaultVersion(defaultResourceVersions)
 		for version, _ := range versions {
 			if version == "" || version <= maxCuratedVersion {
 				continue
@@ -24,9 +25,9 @@ func FindNewerVersions(specVersions SpecVersions, curatedVersion openapi.Curated
 	return olderProviderVersions
 }
 
-func findMaxDefaultVersion(versionResources map[openapi.DefinitionName]openapi.ApiVersion) openapi.ApiVersion {
+func findMaxDefaultVersion(resourceVersions map[openapi.DefinitionName]openapi.ApiVersion) openapi.ApiVersion {
 	minVersion := ""
-	for _, version := range versionResources {
+	for _, version := range resourceVersions {
 		if minVersion == "" || version < minVersion {
 			minVersion = version
 		}

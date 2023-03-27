@@ -12,13 +12,13 @@ import (
 	"github.com/segmentio/encoding/json"
 )
 
-func ReadV1Version() (CuratedVersion, error) {
+func ReadV1DefaultVersionLock() (DefaultVersionLock, error) {
 	dir, err := os.Getwd()
 	if err != nil {
 		return nil, err
 	}
 	v1Path := filepath.Join(dir, "versions", "v1-lock.json")
-	return ReadCuratedVersion(v1Path)
+	return ReadDefaultVersionLock(v1Path)
 }
 
 func ReadDeprecated() (ProviderVersionList, error) {
@@ -62,7 +62,7 @@ func readProviderVersionList(path string) (ProviderVersionList, error) {
 	return curatedVersion, nil
 }
 
-func ReadCuratedVersion(path string) (CuratedVersion, error) {
+func ReadDefaultVersionLock(path string) (DefaultVersionLock, error) {
 	jsonFile, err := os.Open(path)
 	if err != nil {
 		return nil, err
@@ -74,7 +74,7 @@ func ReadCuratedVersion(path string) (CuratedVersion, error) {
 		return nil, err
 	}
 
-	var curatedVersion CuratedVersion
+	var curatedVersion DefaultVersionLock
 	err = json.Unmarshal(byteValue, &curatedVersion)
 	if err != nil {
 		return nil, err

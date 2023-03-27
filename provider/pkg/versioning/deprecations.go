@@ -5,9 +5,9 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
-func FindDeprecations(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) openapi.ProviderVersionList {
+func FindDeprecations(specVersions SpecVersions, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
 	deprecationCutoff := "2021-01-01"
-	olderVersions := findOlderVersions(specVersions, curatedVersion)
+	olderVersions := findOlderVersions(specVersions, defaultVersion)
 	for name, versions := range olderVersions {
 		filteredVersions := []openapi.ApiVersion{}
 		for _, version := range versions {

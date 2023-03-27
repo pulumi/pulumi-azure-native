@@ -48,8 +48,8 @@ type VersionResources struct {
 
 type ProviderVersionList = map[ProviderName][]ApiVersion
 
-// CuratedVersion is an amalgamation of multiple API versions
-type CuratedVersion = map[ProviderName]map[DefinitionName]ApiVersion
+// DefaultVersionLock is an amalgamation of multiple API versions
+type DefaultVersionLock = map[ProviderName]map[DefinitionName]ApiVersion
 
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}
@@ -75,7 +75,7 @@ type ResourceSpec struct {
 
 // ReadAndApplyProvidersTransformations reads the curated versions, deprecated and removed versions and applies them to the providers.
 func ReadAndApplyProvidersTransformations(providers AzureProviders) (AzureProviders, error) {
-	defaultVersion, err := ReadV1Version()
+	defaultVersion, err := ReadV1DefaultVersionLock()
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func ReadAndApplyProvidersTransformations(providers AzureProviders) (AzureProvid
 }
 
 // ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
-func ApplyProvidersTransformations(providers AzureProviders, defaultVersion CuratedVersion, deprecated, removed ProviderVersionList) AzureProviders {
+func ApplyProvidersTransformations(providers AzureProviders, defaultVersion DefaultVersionLock, deprecated, removed ProviderVersionList) AzureProviders {
 	for providerName, versionMap := range providers {
 		// Remove all versions that are not in the curated list.
 		if removedVersion, ok := removed[providerName]; ok {
