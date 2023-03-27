@@ -29,11 +29,11 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	specResourceVersions := FormatResourceVersions(specVersions)
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
-	v1Config, err := ReadDefaultConfig(path.Join("versions", "v1-spec.yaml"))
+	v1Spec, err := ReadDefaultConfig(path.Join("versions", "v1-spec.yaml"))
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	v1, err := DefaultConfigToCuratedVersion(specVersions, v1Config)
+	v1, err := DefaultConfigToCuratedVersion(specVersions, v1Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -41,24 +41,24 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	deprecated := FindDeprecations(specVersions, v1)
 	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
 
-	v2Config, err := ReadDefaultConfig(path.Join("versions", "v2-spec.yaml"))
+	v2Spec, err := ReadDefaultConfig(path.Join("versions", "v2-spec.yaml"))
 	if err != nil {
 		return VersionMetadata{}, err
 	}
 
-	curationsPath := path.Join("versions", "config.yaml")
-	v2curations, err := ReadManualCurations(curationsPath)
+	v2ConfigPath := path.Join("versions", "v2-config.yaml")
+	v2Config, err := ReadManualCurations(v2ConfigPath)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	v2Config = BuildDefaultConfig(specAfterRemovals, v2curations, v2Config)
+	v2Spec = BuildDefaultConfig(specAfterRemovals, v2Config, v2Spec)
 
-	violations := ValidateDefaultConfig(v2Config, v2curations)
-	PrintViolationsAsWarnings(curationsPath, violations)
+	violations := ValidateDefaultConfig(v2Spec, v2Config)
+	PrintViolationsAsWarnings(v2ConfigPath, violations)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	v2, err := DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
+	v2, err := DefaultConfigToCuratedVersion(specAfterRemovals, v2Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -70,7 +70,7 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 		Deprecated:    deprecated,
 		Active:        activePathVersionsJson,
 		Pending:       FindNewerVersions(specVersions, v1),
-		V2Spec:        v2Config,
+		V2Spec:        v2Spec,
 		V2Lock:        v2,
 	}, nil
 }
