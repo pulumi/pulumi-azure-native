@@ -80,6 +80,19 @@ func ValidateDefaultConfig(config DefaultConfig, curations Curations) []Curation
 	return violations
 }
 
+func PrintViolationsAsWarnings(curationsPath string, violations []CurationViolation) {
+	if len(violations) > 0 {
+		// Set colour to yellow
+		fmt.Printf("\x1b[33m")
+		fmt.Printf("Warning: %d curation violations found in %s:\n", len(violations), curationsPath)
+		for _, v := range violations {
+			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
+		}
+		// Reset colour
+		fmt.Printf("\x1b[0m")
+	}
+}
+
 // ReadDefaultConfig parses a default config from a YAML file
 func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	jsonFile, err := os.Open(path)
@@ -98,9 +111,9 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	return curatedVersion, err
 }
 
-func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
+func DefaultConfigToDefaultVersionLock(spec SpecVersions, defaultConfig DefaultConfig) (openapi.DefaultVersionLock, error) {
 	var err error
-	curatedVersion := openapi.CuratedVersion{}
+	defaultVersionLock := openapi.DefaultVersionLock{}
 	for providerName, versionResources := range spec {
 		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
 		providerSpec, ok := defaultConfig[providerName]
@@ -133,9 +146,9 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 				}
 			}
 		}
-		curatedVersion[providerName] = definitions
+		defaultVersionLock[providerName] = definitions
 	}
-	return curatedVersion, multierror.Flatten(err)
+	return defaultVersionLock, multierror.Flatten(err)
 }
 
 func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {

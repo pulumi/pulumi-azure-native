@@ -1,5 +1,5 @@
 name: Prerequisites Artifact Capture
-description: Compress and upload prerequisites artifacts for versions, schema and binaries
+description: Compress and upload prerequisites artifacts for schema and binaries
 
 runs:
   using: "composite"
@@ -13,7 +13,6 @@ runs:
           tar -zcf bin/artifacts.tar.gz -C bin
           pulumi-resource-azure-native
           pulumi-gen-azure-native
-          pulumi-versioner-azure-native
           schema-full.json
           metadata-compact.json
 

@@ -21,13 +21,12 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pythongen "github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 func main() {
@@ -62,12 +61,30 @@ func main() {
 		supportedOutputs.Add(language)
 	}
 
-	if unsupported := supportedOutputs.Subtract(languageSet); len(unsupported) > 0 {
-		err = fmt.Errorf("unsupported outputs: %v", unsupported.SortedValues())
+	if unsupported := languageSet.Subtract(supportedOutputs); len(unsupported) > 0 {
+		panic(fmt.Errorf("unsupported outputs: %v", unsupported.SortedValues()))
 	}
 
 	if languageSet.Has("schema") {
-		versions := openapi.ReadVersions(namespaces)
+		providers, err := openapi.ReadAzureProviders(namespaces)
+		if err != nil {
+			panic(err)
+		}
+
+		versionMetadata, err := versioning.GenerateVersionMetadata(providers)
+		if err != nil {
+			panic(err)
+		}
+		if err := versionMetadata.WriteTo("versions"); err != nil {
+			panic(err)
+		}
+
+		removed, err := openapi.ReadRemoved()
+		if err != nil {
+			panic(err)
+		}
+
+		versions := openapi.ApplyProvidersTransformations(providers, versionMetadata.V1Lock, versionMetadata.Deprecated, removed)
 		azureProviders = &versions
 		pkgSpec, meta, _, err = gen.PulumiSchema(*azureProviders)
 		if err != nil {
@@ -77,7 +94,7 @@ func main() {
 		if err = emitSchema(*pkgSpec, version, "bin", "main", true); err != nil {
 			panic(err)
 		}
-		if languages == "schema" {
+		if !languageSet.Has("docs") {
 			// We can't generate schema.json every time because it's slow and isn't reproducible.
 			// So we warn in case someone's expecting to see changes to schema.json after running this.
 			fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
@@ -104,8 +121,15 @@ func main() {
 
 	if languageSet.Has("docs") {
 		if azureProviders == nil {
-			versions := openapi.ReadVersions(namespaces)
-			azureProviders = &versions
+			providers, err := openapi.ReadAzureProviders(namespaces)
+			if err != nil {
+				panic(err)
+			}
+			providers, err = openapi.ReadAndApplyProvidersTransformations(providers)
+			if err != nil {
+				panic(err)
+			}
+			azureProviders = &providers
 		}
 		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
 		docsProviders := openapi.SingleVersion(*azureProviders)
@@ -159,11 +183,7 @@ func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageNam
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
 
-	if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
-		return err
-	}
-
-	return nil
+	return gen.EmitFile(path.Join(outDir, "schema-full.json"), schemaJSON)
 }
 
 // emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
@@ -173,7 +193,7 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
 
-	return emitFile(outDir, "schema.json", schemaJSON)
+	return gen.EmitFile(path.Join(outDir, "schema.json"), schemaJSON)
 }
 
 func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackageName string) error {
@@ -183,12 +203,7 @@ func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackage
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	err = emitFile(outDir, "metadata-compact.json", meta.Bytes())
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return gen.EmitFile(path.Join(outDir, "metadata-compact.json"), meta.Bytes())
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
@@ -221,8 +236,8 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 	}
 
 	for f, contents := range files {
-		if err := emitFile(outDir, f, contents); err != nil {
-			return errors.Wrapf(err, "emitting file %v", f)
+		if err := gen.EmitFile(path.Join(outDir, f), contents); err != nil {
+			return err
 		}
 	}
 
@@ -247,8 +262,8 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 	files["pulumi-azure-native-sdk/go.mod"] = []byte(goModTemplate(GoMod{}))
 
 	for f, contents := range files {
-		if err := emitFile(outDir, f, contents); err != nil {
-			return errors.Wrapf(err, "emitting file %v", f)
+		if err := gen.EmitFile(path.Join(outDir, f), contents); err != nil {
+			return err
 		}
 
 		// Special case for identifying where we need modules in subdirectories.
@@ -265,14 +280,14 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 				SubmoduleName: module,
 			})
 
-			if err := emitFile(outDir, modPath, []byte(modContent)); err != nil {
-				return errors.Wrapf(err, "emitting file %v", modPath)
+			if err := gen.EmitFile(path.Join(outDir, modPath), []byte(modContent)); err != nil {
+				return err
 			}
 
 			pluginPath := filepath.Join(dir, "pulumi-plugin.json")
 			pluginContent := files["pulumi-azure-native-sdk/pulumi-plugin.json"]
-			if err := emitFile(outDir, pluginPath, pluginContent); err != nil {
-				return errors.Wrapf(err, "emitting file %v", modPath)
+			if err := gen.EmitFile(path.Join(outDir, pluginPath), pluginContent); err != nil {
+				return err
 			}
 		}
 	}
@@ -323,21 +338,4 @@ replace github.com/pulumi/pulumi-azure-native-sdk {{ .Version }} => ../
 		panic(err)
 	}
 	return result.String()
-}
-
-// emitFile creates a file in a given directory and writes the byte contents to it.
-func emitFile(outDir, relPath string, contents []byte) error {
-	p := path.Join(outDir, relPath)
-	if err := tools.EnsureDir(path.Dir(p)); err != nil {
-		return errors.Wrap(err, "creating directory")
-	}
-
-	f, err := os.Create(p)
-	if err != nil {
-		return errors.Wrap(err, "creating file")
-	}
-	defer contract.IgnoreClose(f)
-
-	_, err = f.Write(contents)
-	return err
 }

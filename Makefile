@@ -3,7 +3,6 @@ MAKEFLAGS    := --warn-undefined-variables
 PROJECT         := github.com/pulumi/pulumi-azure-native
 PROVIDER        := pulumi-resource-azure-native
 CODEGEN         := pulumi-gen-azure-native
-VERSIONER       := pulumi-versioner-azure-native
 
 PROVIDER_PKGS   := $(shell cd ./provider && go list ./pkg/...)
 WORKING_DIR     := $(shell pwd)
@@ -49,8 +48,7 @@ ensure: bin/pulumictl .make/provider_mod_download
 dist: dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt
 
 # Binaries
-.PHONY: versioner codegen provider arm2pulumi
-versioner: bin/pulumi-versioner-azure-native
+.PHONY: codegen provider arm2pulumi
 codegen: bin/$(CODEGEN)
 provider: bin/$(LOCAL_PROVIDER_FILENAME)
 arm2pulumi: bin/$(LOCAL_ARM2PULUMI_FILENAME)
@@ -63,13 +61,12 @@ provider_prebuild: .make/provider_prebuild
 arm2pulumi_prebuild: .make/arm2pulumi_prebuild
 
 # We don't include v2 here yet as this is executed on the nightly updates
-.PHONY: versions schema generate_schema generate_docs
-versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
+.PHONY: schema generate_schema generate_docs
 schema: bin/schema-full.json
 generate_schema: bin/schema-full.json
 generate_docs: provider/cmd/pulumi-resource-azure-native/schema.json
 
-.PHONY: versions generate_java generate_nodejs generate_python generate_dotnet generate_go
+.PHONY: generate_java generate_nodejs generate_python generate_dotnet generate_go
 generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
 generate_python: .make/generate_python
@@ -173,7 +170,7 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 LOCAL_ARM2PULUMI_PATH := bin/$(GOOS)-$(GOARCH)/$(LOCAL_ARM2PULUMI_FILENAME)
 
 bin/$(LOCAL_ARM2PULUMI_FILENAME): $(LOCAL_ARM2PULUMI_PATH)
-	rm $@
+	rm -f $@
 	cp $(LOCAL_ARM2PULUMI_PATH) bin
 
 bin/linux-amd64/arm2pulumi: TARGET := linux-amd64
@@ -188,11 +185,12 @@ bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 
 # Writes schema-full.json and metadata-compact.json to bin/
-bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
+# Also re-calculates files in versions/ at same time
+bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v2-config.yaml versions/v1-spec.yaml versions/v2-spec.yaml
 	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # Docs schema
-provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
+provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json
 	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 
 bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
@@ -229,9 +227,6 @@ dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(P
 dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
 	cd dist && shasum *.tar.gz > pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt
 
-bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
-	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
-
 # --------- Sentinel targets --------- #
 
 .make/provider_mod_download: provider/go.mod provider/go.sum
@@ -246,30 +241,6 @@ bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSI
 .make/provider_prebuild: bin/schema-full.json bin/metadata-compact.json
 	cp bin/schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
-	@touch $@
-
-.make/versions_spec: bin/pulumi-versioner-azure-native $(SPECS)
-	bin/pulumi-versioner-azure-native spec
-	@touch $@
-
-.make/versions_active: bin/pulumi-versioner-azure-native azure-provider-versions/provider_list.json
-	bin/pulumi-versioner-azure-native active
-	@touch $@
-
-.make/versions_v1: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1-config.yaml
-	bin/pulumi-versioner-azure-native v1
-	@touch $@
-
-.make/versions_deprecated: bin/pulumi-versioner-azure-native .make/versions_spec .make/versions_v1
-	bin/pulumi-versioner-azure-native deprecated -version=v1.json
-	@touch $@
-
-.make/versions_pending: bin/pulumi-versioner-azure-native .make/versions_spec .make/versions_v1
-	bin/pulumi-versioner-azure-native pending -version=v1.json
-	@touch $@
-
-.make/versions_v2: bin/pulumi-versioner-azure-native .make/versions_spec .make/versions_deprecated versions/v2-config.yaml
-	bin/pulumi-versioner-azure-native v2
 	@touch $@
 
 define FAKE_MODULE

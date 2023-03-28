@@ -1,782 +1,532 @@
-ADHybridHealthService: {}
-AVS:
-    tracking: "2022-05-01"
+META: # not great to be in same namespace than the RPs
+  AzureSpecVersion: 55dd4f72d2b2769c1e02f2b952e597f806d40f9a
+
+# Empty entries mean we've checked and these providers don't need curation.
+# Semantics are the same as if the entry was missing.
+
+# Properties:
+#   - "exclusions": ignore these resources
+#   - "explicit": (boolean) if true, don't use a tracking version, only explicit versions for each resource
+#   - "preview": (prefer|exclude) use the latest -preview version rather than latest stable
+#   - "folders": folder(s) of the Azure spec GH repo containing this RP, purely informational
+#   - "notes": misc. information for future readers
+#  - "expectTracking": Either "stable" or "preview" - defaults to "stable"
+
+# Auditing notes:
+# - Compare v1-config with v2-config and look for significant changes
+# - If no version listed, why?
+# - Has it gone from stable to preview?
+# - Does it have old additions? Could they be excluded if moved elsewhere?
+# - If it was previously explicit, does it still need to be?
+
 Aad:
-    tracking: "2022-12-01"
+  folders:
+    - domainservices
 AadIam:
-    tracking: "2020-03-01"
-    additions:
-        DiagnosticSetting: "2017-04-01"
+  expectAdditions: true
+  notes: DiagnosticSetting only in first version
+  folders:
+    - azureactivedirectory
+ADHybridHealthService:
+  notes: "POST-based"
 Addons:
-    tracking: "2018-03-01"
 Advisor:
-    tracking: "2022-10-01"
 AgFoodPlatform:
-    tracking: 2021-09-01-preview
+  expectTracking: preview
+  notes: Only preview versions
+  # TODO: Why are we missing PrometheusRuleGroup?
 AlertsManagement:
-    tracking: "2021-08-08"
-    additions:
-        SmartDetectorAlertRule: "2021-04-01"
+  expectAdditions: true
+  notes: Versions are partial
 AnalysisServices:
-    tracking: "2017-08-01"
 ApiManagement:
-    tracking: "2022-08-01"
-    additions:
-        listDelegationSettingSecrets: "2021-08-01"
+  expectAdditions: true
+  notes: Only listDelegationSettingSecrets seems to have no new name
+  exclusions:
+    ApiDiagnosticLogger: "2018-01-01" # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
+    ApiOperationsPolicy: "2016-10-10" # renamed to ApiOperationPolicy
+    DiagnosticLogger: "2018-01-01" # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
+    Property: "2019-01-01" # replaced by NamedValue
+    TagDescription: "2018-06-01-preview" # renamed to ApiTagDescription
+    TenantPolicy: "2016-10-10" # obsolete
+    listTenantAccessGitSecrets: "2019-12-01-preview" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
 App:
-    tracking: "2022-10-01"
 AppComplianceAutomation:
-    tracking: 2022-11-16-preview
+  expectTracking: preview
+  notes: Only one preview version
 AppConfiguration:
-    tracking: "2022-05-01"
+  exclusions:
+    listConfigurationStoreKeyValue: "2020-06-01" # was renamed to KeyValues_ListByConfigurationStore, endpoint from listKeyValue to keyValues
 AppPlatform:
-    tracking: "2022-12-01"
 Attestation:
-    tracking: "2020-10-01"
 Authorization:
-    tracking: "2022-06-01"
-    additions:
-        ManagementLockAtResourceGroupLevel: "2020-05-01"
-        ManagementLockAtResourceLevel: "2020-05-01"
-        ManagementLockAtSubscriptionLevel: "2020-05-01"
-        ManagementLockByScope: "2020-05-01"
-        PolicyDefinition: "2021-06-01"
-        PolicyDefinitionAtManagementGroup: "2021-06-01"
-        PolicySetDefinition: "2021-06-01"
-        PolicySetDefinitionAtManagementGroup: "2021-06-01"
-        PrivateLinkAssociation: "2020-05-01"
-        ResourceManagementPrivateLink: "2020-05-01"
-        RoleAssignment: "2022-04-01"
-        RoleDefinition: "2022-04-01"
-        RoleManagementPolicyAssignment: "2020-10-01"
+  expectAdditions: true
+  folders: ["authorization", "resources"]
+  notes: "For ManagementLocks, the docs say 2016-09-01 which is not the latest stable https://learn.microsoft.com/en-us/rest/api/resources/management-locks"
 Automanage:
-    tracking: "2022-05-04"
 Automation:
-    tracking: "2022-08-08"
-    additions:
-        SoftwareUpdateConfigurationByName: "2019-06-01"
-        Watcher: "2019-06-01"
-        Webhook: "2015-10-31"
+  expectAdditions: true
+  notes: |
+    Docs still list Webhook, Watcher and SoftwareUpdateConfigurationByName on old verisons only:
+    https://learn.microsoft.com/en-us/rest/api/automation/
 AutonomousDevelopmentPlatform:
-    tracking: 2021-11-01-preview
+  expectTracking: preview
+  notes: Only preview versions
+AVS:
+  folders: ["vmware"]
 AzureActiveDirectory:
-    tracking: "2021-04-01"
 AzureArcData:
-    tracking: 2023-03-15-preview
+  expectTracking: preview
+  notes: 4 previews since last stable in 2021
 AzureData:
-    tracking: 2019-07-24-preview
+  expectTracking: preview
+  notes: Only preview versions
 AzureStack:
-    tracking: "2022-06-01"
 AzureStackHCI:
-    tracking: "2023-02-01"
-BareMetalInfrastructure: {}
+BareMetalInfrastructure:
 Batch:
-    tracking: "2022-10-01"
+  exclusions:
+    Certificate: "2022-06-01" # deprecated
 Billing:
-    tracking: "2020-05-01"
-BillingBenefits: {}
+BillingBenefits:
 Blockchain:
-    tracking: 2018-06-01-preview
+  expectTracking: preview
+  notes: Only one preview version
 Blueprint:
-    tracking: 2018-11-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 BotService:
-    tracking: "2022-09-15"
+  exclusions:
+    EnterpriseChannel: "2018-07-12" # Deprecated https://learn.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.channels.enterprisechannel?view=botbuilder-dotnet-stable
 Cache:
-    tracking: "2022-06-01"
-    additions:
-        Database: "2022-01-01"
-        RedisEnterprise: "2022-01-01"
-        listDatabaseKeys: "2022-01-01"
-Capacity: {}
+  preview: exclude
+  expectAdditions: true
+  folders: ["redisenterprise", "redis", "eventgrid"]
+  notes: Resources split between services. Regular stable versions
+Capacity:
 Cdn:
-    tracking: "2021-06-01"
+  preview: exclude
+  notes: Regular stable versions, only 2 previews since last stable so let's wait for next stable
 CertificateRegistration:
-    tracking: "2022-09-01"
 ChangeAnalysis:
-    tracking: 2020-04-01-preview
+  expectTracking: preview
+  notes: Only one preview version
 Chaos:
-    tracking: 2022-10-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 CognitiveServices:
-    tracking: "2022-12-01"
-Commerce: {}
+Commerce:
 Communication:
-    tracking: 2022-07-01-preview
+  expectTracking: preview
+  notes: Only previews after initial 2020 stable release
 Compute:
-    additions:
-        AvailabilitySet: "2022-11-01"
-        CapacityReservation: "2022-11-01"
-        CapacityReservationGroup: "2022-11-01"
-        CloudService: "2022-09-04"
-        DedicatedHost: "2022-11-01"
-        DedicatedHostGroup: "2022-11-01"
-        Disk: "2022-07-02"
-        DiskAccess: "2022-07-02"
-        DiskAccessAPrivateEndpointConnection: "2022-07-02"
-        DiskEncryptionSet: "2022-07-02"
-        Gallery: "2022-03-03"
-        GalleryApplication: "2022-03-03"
-        GalleryApplicationVersion: "2022-03-03"
-        GalleryImage: "2022-03-03"
-        GalleryImageVersion: "2022-03-03"
-        Image: "2022-11-01"
-        ProximityPlacementGroup: "2022-11-01"
-        RestorePoint: "2022-11-01"
-        RestorePointCollection: "2022-11-01"
-        Snapshot: "2022-07-02"
-        SshPublicKey: "2022-11-01"
-        VirtualMachine: "2022-11-01"
-        VirtualMachineExtension: "2022-11-01"
-        VirtualMachineRunCommandByVirtualMachine: "2022-11-01"
-        VirtualMachineScaleSet: "2022-11-01"
-        VirtualMachineScaleSetExtension: "2022-11-01"
-        VirtualMachineScaleSetVM: "2022-11-01"
-        VirtualMachineScaleSetVMExtension: "2022-11-01"
-        VirtualMachineScaleSetVMRunCommand: "2022-11-01"
-        getLogAnalyticExportRequestRateByInterval: "2022-11-01"
-        getLogAnalyticExportThrottledRequests: "2022-11-01"
-ConfidentialLedger:
-    tracking: "2022-05-13"
-Confluent:
-    tracking: "2021-12-01"
+  explicit: true
 ConnectedVMwarevSphere:
-    tracking: 2022-07-15-preview
-Consumption:
-    tracking: "2021-10-01"
-ContainerInstance:
-    tracking: "2022-09-01"
+  expectTracking: preview
+  notes: Only preview versions
 ContainerRegistry:
-    tracking: "2022-12-01"
-    additions:
-        Task: "2019-04-01"
-        listRegistryBuildSourceUploadUrl: "2019-04-01"
-        listRunLogSasUrl: "2019-04-01"
-        listTaskDetails: "2019-04-01"
+  expectAdditions: true
+  notes: API versions only include updated resources
 ContainerService:
-    tracking: "2023-01-01"
-    additions:
-        OpenShiftManagedCluster: "2019-04-30"
-        listManagedClusterAccessProfile: "2020-03-01"
+  expectAdditions: true
+  notes: |
+    This is actually known as AKS
+    OpenShiftManagedCluster might be able to be excluded, but no obvious new version
+    TODO: Is listManagedClusterAccessProfile replaced by listManagedClusterAdminCredentials and listManagedClusterUserCredentials?
+ContainerStorage:
+  expectTracking: preview
 CostManagement:
-    tracking: "2022-10-01"
-    additions:
-        Setting: "2019-11-01"
+  expectAdditions: true
+  notes: |
+    Used to have overlapping resources between 2020-06-01 and 2019-11-01, seemingly resolved in 2022-10-01
+    API versions appear to be partial sometimes
 CustomProviders:
-    tracking: 2018-09-01-preview
+  expectTracking: preview
+  notes: Only one preview version so far
 CustomerInsights:
-    tracking: "2017-04-26"
-CustomerLockbox: {}
+CustomerLockbox:
+  notes: POST-based
 DBforMariaDB:
-    tracking: "2018-06-01"
 DBforMySQL:
-    tracking: "2021-05-01"
-    additions:
-        PrivateEndpointConnection: "2018-06-01"
-        ServerAdministrator: "2017-12-01"
-        ServerKey: "2020-01-01"
-        VirtualNetworkRule: "2017-12-01"
+  expectAdditions: true
+  notes: |
+    Additions seem to come from "Single Server" vs "Flexible Server"
+    PrivateEndpointConnection: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/private-endpoint-connections
+    ServerAdministrator: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/server-administrators
+    ServerKey: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/server-keys
+    VirtualNetworkRule: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/virtual-network-rules
 DBforPostgreSQL:
-    tracking: "2022-12-01"
-    additions:
-        Cluster: "2022-11-08"
-        PrivateEndpointConnection: "2022-11-08"
-        Role: "2022-11-08"
-        ServerAdministrator: "2017-12-01"
-        ServerKey: "2020-01-01"
-        ServerSecurityAlertPolicy: "2017-12-01"
-        VirtualNetworkRule: "2017-12-01"
-Dashboard:
-    tracking: "2022-08-01"
+  expectAdditions: true
+  notes: |
+    Additions seem to come from "Single Server" vs "Flexible Server"
+Dashboard: 
 DataBox:
-    tracking: "2022-12-01"
 DataBoxEdge:
-    tracking: "2022-03-01"
 DataCatalog:
-    tracking: "2016-03-30"
 DataFactory:
-    tracking: "2018-06-01"
 DataLakeAnalytics:
-    tracking: 2019-11-01-preview
+  expectTracking: preview
+  notes: Last stable was 2016, latest preview is 2019
 DataLakeStore:
-    tracking: "2016-11-01"
 DataMigration:
-    tracking: "2021-06-30"
 DataProtection:
-    tracking: "2023-01-01"
 DataShare:
-    tracking: "2021-08-01"
 Databricks:
-    tracking: "2023-02-01"
 Datadog:
-    tracking: "2022-06-01"
 DelegatedNetwork:
-    tracking: "2021-03-15"
 DeploymentManager:
-    tracking: 2019-11-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 DesktopVirtualization:
-    tracking: "2022-09-09"
 DevCenter:
-    tracking: 2022-11-11-preview
+  expectTracking: preview
+  notes: Only preview versions
 DevHub:
-    tracking: 2022-04-01-preview
-DevOps: {}
+  expectTracking: preview
+  notes: Depreated and no longer listed on https://learn.microsoft.com/en-us/rest/api/azure/
 DevSpaces:
-    tracking: "2019-04-01"
 DevTestLab:
-    tracking: "2018-09-15"
 DeviceUpdate:
-    tracking: "2022-10-01"
 Devices:
-    tracking: "2022-12-12"
-    additions:
-        Certificate: "2021-07-02"
-        IotHubResource: "2021-07-02"
-        IotHubResourceEventHubConsumerGroup: "2021-07-02"
-        PrivateEndpointConnection: "2021-07-02"
-        listIotHubResourceKeys: "2021-07-02"
-        listIotHubResourceKeysForKeyName: "2021-07-02"
+  expectAdditions: true
+  notes: |
+    Previously had overlapping resources between 2020-08-31 and 2020-03-01
+    Split between iothub, eventgrid and deviceprovisioningservices folders
 DigitalTwins:
-    tracking: "2023-01-31"
 DocumentDB:
-    tracking: "2022-11-15"
 DomainRegistration:
-    tracking: "2022-09-01"
 Dynamics365Fraudprotection:
-    tracking: 2021-02-01-preview
-DynamicsTelemetry: {}
+  expectTracking: preview
+  notes: Only single preview version
+DynamicsTelemetry:
+  notes: Only contains GETs
 Easm:
-    tracking: 2022-04-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 EdgeOrder:
-    tracking: "2021-12-01"
-EdgeOrderPartner: {}
+EdgeOrderPartner:
+  notes: POST based APIs
 Education:
-    tracking: 2021-12-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 Elastic:
-    tracking: 2023-02-01-preview
+  expectTracking: preview
+  notes: Only previews since original launch stable version in 2020
 ElasticSan:
-    tracking: 2021-11-20-preview
+  expectTracking: preview
+  notes: Only single preview version
 EngagementFabric:
-    tracking: 2018-09-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 EnterpriseKnowledgeGraph:
-    tracking: "2018-12-03"
 EventGrid:
-    tracking: "2022-06-15"
 EventHub:
-    tracking: "2021-11-01"
 ExtendedLocation:
-    tracking: "2021-08-15"
 Features:
-    tracking: "2021-07-01"
 FluidRelay:
-    tracking: "2022-06-01"
+  exclusions:
+    getFluidRelayServerKeys: "2022-05-26"
+  notes: getFluidRelayServerKeys seems to be replaced with listFluidRelayServerKeys
 GraphServices:
-    tracking: 2022-09-22-preview
+  expectTracking: preview
+  notes: Only single preview version
 GuestConfiguration:
-    tracking: "2022-01-25"
 HDInsight:
-    tracking: "2021-06-01"
 HanaOnAzure:
-    tracking: 2020-02-07-preview
+  expectTracking: preview
+  exclusions:
+    HanaInstance: 2017-11-03-preview
+  notes: |
+    In 2017 HanaInstance was the top level resource, in 2020 a monitor is created first then a provider instance is created within it
+    Only contains preview versions
 HardwareSecurityModules:
-    tracking: "2021-11-30"
 HealthBot:
-    tracking: "2022-08-08"
 HealthcareApis:
-    tracking: "2022-12-01"
 HybridCompute:
-    tracking: "2022-11-10"
 HybridConnectivity:
-    tracking: 2022-05-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 HybridContainerService:
-    tracking: 2022-09-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 HybridData:
-    tracking: "2019-06-01"
 HybridNetwork:
-    tracking: "2021-05-01"
 ImportExport:
-    tracking: "2021-01-01"
 Insights:
-    additions:
-        ActionGroup: "2023-01-01"
-        ActivityLogAlert: "2020-10-01"
-        AlertRule: "2016-03-01"
-        AnalyticsItem: "2015-05-01"
-        AutoscaleSetting: "2022-10-01"
-        Component: "2020-02-02"
-        ComponentCurrentBillingFeature: "2015-05-01"
-        DataCollectionEndpoint: "2022-06-01"
-        DataCollectionRule: "2022-06-01"
-        DataCollectionRuleAssociation: "2022-06-01"
-        ExportConfiguration: "2015-05-01"
-        Favorite: "2015-05-01"
-        LogProfile: "2016-03-01"
-        MetricAlert: "2018-03-01"
-        MyWorkbook: "2021-03-08"
-        ProactiveDetectionConfiguration: "2015-05-01"
-        ScheduledQueryRule: "2022-06-15"
-        WebTest: "2022-06-15"
-        Workbook: "2022-04-01"
-        WorkbookTemplate: "2020-11-20"
-        getLiveToken: "2021-10-14"
-        listEASubscriptionListMigrationDatePost: "2017-10-01"
+  explicit: true
+  notes: |
+    Each API version only includes changed resources so no benefit in tracking a version
+    Path: /azure-rest-api-specs/specification/applicationinsights/resource-manager/Microsoft.Insights
+    Docs: https://learn.microsoft.com/en-us/rest/api/application-insights/
+    - Components and Web Tests pinned on 2015-05-01
+    - Workbooks pinned on 2021-08-01
 Intune:
-    tracking: 2015-01-14-preview
+  expectTracking: preview
+  notes: Only preview versions
 IoTCentral:
-    tracking: "2021-06-01"
 IoTSecurity:
-    tracking: 2021-02-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 KeyVault:
-    tracking: "2023-02-01"
-Kubernetes:
-    tracking: "2021-10-01"
 KubernetesConfiguration:
-    tracking: "2022-11-01"
 Kusto:
-    tracking: "2022-12-29"
 LabServices:
-    tracking: "2022-08-01"
-    additions:
-        Environment: "2018-10-15"
-        EnvironmentSetting: "2018-10-15"
-        GalleryImage: "2018-10-15"
-        LabAccount: "2018-10-15"
-        getGlobalUserEnvironment: "2018-10-15"
-        getGlobalUserOperationBatchStatus: "2018-10-15"
-        getGlobalUserOperationStatus: "2018-10-15"
-        getGlobalUserPersonalPreferences: "2018-10-15"
-        getLabAccountRegionalAvailability: "2018-10-15"
-        listGlobalUserEnvironments: "2018-10-15"
-        listGlobalUserLabs: "2018-10-15"
+  expectAdditions: true
+  notes: get methods only available in older version
 LoadTestService:
-    tracking: "2022-12-01"
 Logic:
-    tracking: "2019-05-01"
-    additions:
-        RosettaNetProcessConfiguration: "2016-06-01"
-        listWorkflowVersionCallbackUrl: "2016-06-01"
+  expectAdditions: true
+  exclusions:
+    Agreement: "2016-06-01"
+    Certificate: "2016-06-01"
+    Map: "2016-06-01"
+    Partner: "2016-06-01"
+    Schema: "2016-06-01"
+    Session: "2016-06-01"
+    listAgreementContentCallbackUrl: "2016-06-01"
+    listMapContentCallbackUrl: "2016-06-01"
+    listPartnerContentCallbackUrl: "2016-06-01"
+    listSchemaContentCallbackUrl: "2016-06-01"
+  notes: |
+    Renames between versions:
+      Agreement -> IntegrationAccountAgreement
+      Certificate -> IntegrationAccountCertificate
+      Map -> IntegrationAccountMap
+      Partner -> IntegrationAccountPartner
+      Schema -> IntegrationAccountSchema
+      Session -> IntegrationAccountSession
+      listAgreementContentCallbackUrl -> listIntegrationAccountAgreementContentCallbackUrl
+      listMapContentCallbackUrl -> listIntegrationAccountMapContentCallbackUrl
+      listPartnerContentCallbackUrl -> listIntegrationAccountPartnerContentCallbackUrl
+      listSchemaContentCallbackUrl -> listIntegrationAccountSchemaContentCallbackUrl
 Logz:
-    tracking: 2022-01-01-preview
+  expectTracking: preview
+  notes: No stable version since 2020
 M365SecurityAndCompliance:
-    tracking: 2021-03-25-preview
+  expectTracking: preview
+  notes: Only single preview version
 MachineLearning:
-    tracking: "2019-10-01"
-    additions:
-        WebService: "2017-01-01"
+  expectAdditions: true
+  notes: Somewhat inconsistent which resources are in each version
 MachineLearningCompute:
-    tracking: 2017-08-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 MachineLearningExperimentation:
-    tracking: 2017-05-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 MachineLearningServices:
-    tracking: "2022-10-01"
+  exclusions:
+    LinkedWorkspace: "2020-03-01"
+    MachineLearningCompute: "2021-04-01"
+    MachineLearningService: "2021-04-01"
+    listMachineLearningComputeKeys: "2021-04-01"
+    listMachineLearningComputeNodes: "2021-04-01"
+    listNotebookKeys: "2021-04-01"
+    listStorageAccountKeys: "2021-04-01"
+  notes: |
+    The REST API docs only lists 2022-10-01 and 2022-12-01-preview
+    so can assume older additions aren't generally needed
+    https://learn.microsoft.com/en-us/rest/api/azureml/
 Maintenance:
-    tracking: 2022-11-01-preview
+  expectTracking: preview
+  notes: No stable version since 2021
 ManagedIdentity:
-    tracking: "2023-01-31"
 ManagedNetwork:
-    tracking: 2019-06-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 ManagedNetworkFabric:
-    tracking: 2023-02-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 ManagedServices:
-    tracking: "2022-10-01"
 Management:
-    tracking: "2021-04-01"
 ManagementPartner:
-    tracking: "2018-02-01"
 Maps:
-    tracking: "2021-02-01"
 Marketplace:
-    tracking: "2022-09-01"
-MarketplaceNotifications: {}
-MarketplaceOrdering: {}
+  exclusions:
+    PrivateStoreOffer: "2020-01-01"
+  notes: PrivateStoreOffer not included since very first issue
+MarketplaceNotifications:
+  notes: Only contains GETs
+MarketplaceOrdering:
+  notes: Might be able to support MarketplaceAgreements if we set a default
 Media:
-    additions:
-        AccountFilter: "2022-08-01"
-        Asset: "2022-08-01"
-        AssetFilter: "2022-08-01"
-        ContentKeyPolicy: "2022-08-01"
-        Job: "2022-07-01"
-        LiveEvent: "2022-11-01"
-        LiveOutput: "2022-11-01"
-        MediaService: "2023-01-01"
-        PrivateEndpointConnection: "2023-01-01"
-        StreamingEndpoint: "2022-11-01"
-        StreamingLocator: "2022-08-01"
-        StreamingPolicy: "2022-08-01"
-        Track: "2022-08-01"
-        Transform: "2022-07-01"
-        getAssetEncryptionKey: "2022-08-01"
-        getContentKeyPolicyPropertiesWithSecrets: "2022-08-01"
-        getLiveEventStatus: "2022-11-01"
-        getLiveEventStreamEvents: "2022-11-01"
-        getLiveEventTrackIngestHeartbeats: "2022-11-01"
-        listAssetContainerSas: "2022-08-01"
-        listAssetStreamingLocators: "2022-08-01"
-        listMediaServiceEdgePolicies: "2023-01-01"
-        listMediaServiceKeys: "2015-10-01"
-        listStreamingLocatorContentKeys: "2022-08-01"
-        listStreamingLocatorPaths: "2022-08-01"
+  explicit: true
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/media/
+    Each version contain just small bits of the API - better to be explicit
 Migrate:
-    additions:
-        Assessment: "2019-10-01"
-        Group: "2019-10-01"
-        HyperVCollector: "2019-10-01"
-        ImportCollector: "2019-10-01"
-        MigrateProjectsControllerMigrateProject: "2020-05-01"
-        MoveCollection: "2022-08-01"
-        MoveResource: "2022-08-01"
-        PrivateEndpointConnection: "2019-10-01"
-        PrivateEndpointConnectionControllerPrivateEndpointConnection: "2020-05-01"
-        Project: "2019-10-01"
-        ServerCollector: "2019-10-01"
-        VMwareCollector: "2019-10-01"
-        getProjectKeys: "2018-02-02"
+  explicit: true
+  notes: |
+    Each version contain just small bits of the API - better to be explicit
+    https://learn.microsoft.com/en-us/rest/api/migrate/
 MixedReality:
-    tracking: "2021-01-01"
 MobileNetwork:
-    tracking: "2022-11-01"
 Monitor:
-    tracking: 2021-06-03-preview
+  expectTracking: preview
+  notes: Only single preview version
 NetApp:
-    tracking: "2022-09-01"
 Network:
-    additions:
-        AdminRule: "2022-09-01"
-        AdminRuleCollection: "2022-09-01"
-        ApplicationGateway: "2022-09-01"
-        ApplicationGatewayPrivateEndpointConnection: "2022-09-01"
-        ApplicationSecurityGroup: "2022-09-01"
-        AzureFirewall: "2022-09-01"
-        BastionHost: "2022-09-01"
-        ConfigurationPolicyGroup: "2022-09-01"
-        ConnectionMonitor: "2022-09-01"
-        ConnectivityConfiguration: "2022-09-01"
-        CustomIPPrefix: "2022-09-01"
-        DdosCustomPolicy: "2022-09-01"
-        DdosProtectionPlan: "2022-09-01"
-        DnsForwardingRuleset: "2022-07-01"
-        DnsResolver: "2022-07-01"
-        DscpConfiguration: "2022-09-01"
-        Endpoint: "2018-08-01"
-        Experiment: "2019-11-01"
-        ExpressRouteCircuit: "2022-09-01"
-        ExpressRouteCircuitAuthorization: "2022-09-01"
-        ExpressRouteCircuitConnection: "2022-09-01"
-        ExpressRouteCircuitPeering: "2022-09-01"
-        ExpressRouteConnection: "2022-09-01"
-        ExpressRouteCrossConnectionPeering: "2022-09-01"
-        ExpressRouteGateway: "2022-09-01"
-        ExpressRoutePort: "2022-09-01"
-        ExpressRoutePortAuthorization: "2022-09-01"
-        FirewallPolicy: "2022-09-01"
-        FirewallPolicyRuleCollectionGroup: "2022-09-01"
-        FirewallPolicyRuleGroup: "2020-04-01"
-        FlowLog: "2022-09-01"
-        ForwardingRule: "2022-07-01"
-        FrontDoor: "2021-06-01"
-        HubRouteTable: "2022-09-01"
-        HubVirtualNetworkConnection: "2022-09-01"
-        InboundEndpoint: "2022-07-01"
-        InboundNatRule: "2022-09-01"
-        InterfaceEndpoint: "2019-02-01"
-        IpAllocation: "2022-09-01"
-        IpGroup: "2022-09-01"
-        LoadBalancer: "2022-09-01"
-        LoadBalancerBackendAddressPool: "2022-09-01"
-        LocalNetworkGateway: "2022-09-01"
-        ManagementGroupNetworkManagerConnection: "2022-09-01"
-        NatGateway: "2022-09-01"
-        NatRule: "2022-09-01"
-        NetworkExperimentProfile: "2019-11-01"
-        NetworkGroup: "2022-09-01"
-        NetworkInterface: "2022-09-01"
-        NetworkInterfaceTapConfiguration: "2022-09-01"
-        NetworkManager: "2022-09-01"
-        NetworkProfile: "2022-09-01"
-        NetworkSecurityGroup: "2022-09-01"
-        NetworkVirtualAppliance: "2022-09-01"
-        NetworkWatcher: "2022-09-01"
-        OutboundEndpoint: "2022-07-01"
-        P2sVpnGateway: "2022-09-01"
-        P2sVpnServerConfiguration: "2019-07-01"
-        PacketCapture: "2022-09-01"
-        Policy: "2022-05-01"
-        PrivateDnsZoneGroup: "2022-09-01"
-        PrivateEndpoint: "2022-09-01"
-        PrivateLinkService: "2022-09-01"
-        PrivateLinkServicePrivateEndpointConnection: "2022-09-01"
-        PrivateRecordSet: "2020-06-01"
-        PrivateZone: "2020-06-01"
-        Profile: "2018-08-01"
-        PublicIPAddress: "2022-09-01"
-        PublicIPPrefix: "2022-09-01"
-        RecordSet: "2018-05-01"
-        Route: "2022-09-01"
-        RouteFilter: "2022-09-01"
-        RouteFilterRule: "2022-09-01"
-        RouteMap: "2022-09-01"
-        RouteTable: "2022-09-01"
-        RoutingIntent: "2022-09-01"
-        RulesEngine: "2021-06-01"
-        ScopeConnection: "2022-09-01"
-        SecurityAdminConfiguration: "2022-09-01"
-        SecurityPartnerProvider: "2022-09-01"
-        SecurityRule: "2022-09-01"
-        ServiceEndpointPolicy: "2022-09-01"
-        ServiceEndpointPolicyDefinition: "2022-09-01"
-        StaticMember: "2022-09-01"
-        Subnet: "2022-09-01"
-        SubscriptionNetworkManagerConnection: "2022-09-01"
-        TrafficManagerUserMetricsKey: "2018-08-01"
-        VirtualApplianceSite: "2022-09-01"
-        VirtualHub: "2022-09-01"
-        VirtualHubBgpConnection: "2022-09-01"
-        VirtualHubIpConfiguration: "2022-09-01"
-        VirtualHubRouteTableV2: "2022-09-01"
-        VirtualNetwork: "2022-09-01"
-        VirtualNetworkGateway: "2022-09-01"
-        VirtualNetworkGatewayConnection: "2022-09-01"
-        VirtualNetworkGatewayNatRule: "2022-09-01"
-        VirtualNetworkLink: "2022-07-01"
-        VirtualNetworkPeering: "2022-09-01"
-        VirtualNetworkTap: "2022-09-01"
-        VirtualRouter: "2022-09-01"
-        VirtualRouterPeering: "2022-09-01"
-        VirtualWAN: "2018-07-01"
-        VirtualWan: "2022-09-01"
-        VpnConnection: "2022-09-01"
-        VpnGateway: "2022-09-01"
-        VpnServerConfiguration: "2022-09-01"
-        VpnSite: "2022-09-01"
-        WebApplicationFirewallPolicy: "2022-09-01"
-        Zone: "2018-05-01"
-        getActiveSessions: "2022-09-01"
-        getApplicationGatewayBackendHealthOnDemand: "2022-09-01"
-        getBastionShareableLink: "2022-09-01"
-        getDnsResourceReferenceByTarResources: "2018-05-01"
-        getP2sVpnGatewayP2sVpnConnectionHealth: "2022-09-01"
-        getP2sVpnGatewayP2sVpnConnectionHealthDetailed: "2022-09-01"
-        getVirtualNetworkGatewayAdvertisedRoutes: "2022-09-01"
-        getVirtualNetworkGatewayBgpPeerStatus: "2022-09-01"
-        getVirtualNetworkGatewayConnectionIkeSas: "2022-09-01"
-        getVirtualNetworkGatewayLearnedRoutes: "2022-09-01"
-        getVirtualNetworkGatewayVpnProfilePackageUrl: "2022-09-01"
-        getVirtualNetworkGatewayVpnclientConnectionHealth: "2022-09-01"
-        getVirtualNetworkGatewayVpnclientIpsecParameters: "2022-09-01"
-        getVpnLinkConnectionIkeSas: "2022-09-01"
-        listActiveConnectivityConfigurations: "2022-09-01"
-        listActiveSecurityAdminRules: "2022-09-01"
-        listDnsForwardingRulesetByVirtualNetwork: "2022-07-01"
-        listDnsResolverByVirtualNetwork: "2022-07-01"
-        listFirewallPolicyIdpsSignature: "2022-09-01"
-        listFirewallPolicyIdpsSignaturesFilterValue: "2022-09-01"
-        listNetworkManagerDeploymentStatus: "2022-09-01"
-        listNetworkManagerEffectiveConnectivityConfigurations: "2022-09-01"
-        listNetworkManagerEffectiveSecurityAdminRules: "2022-09-01"
+  explicit: true
+  notes: Large surface area that's likely to conflict as versions evolve
 NetworkCloud:
-    tracking: 2022-12-12-preview
+  expectTracking: preview
+  notes: Only single preview version
 NetworkFunction:
-    tracking: "2022-11-01"
 NotificationHubs:
-    tracking: "2017-04-01"
 OffAzure:
-    tracking: "2020-07-07"
+  notes: Part of migrate https://learn.microsoft.com/en-us/rest/api/migrate/
 OpenEnergyPlatform:
-    tracking: 2022-04-04-preview
+  expectTracking: preview
+  notes: Only preview versions
 OperationalInsights:
-    additions:
-        Cluster: "2021-06-01"
-        DataExport: "2020-08-01"
-        DataSource: "2020-08-01"
-        LinkedService: "2020-08-01"
-        LinkedStorageAccount: "2020-08-01"
-        Query: "2019-09-01"
-        QueryPack: "2019-09-01"
-        SavedSearch: "2020-08-01"
-        StorageInsightConfig: "2020-08-01"
-        Table: "2022-10-01"
-        Workspace: "2022-10-01"
-        getSharedKeys: "2020-08-01"
+  explicit: true
+  notes: |
+    Each version contain just small bits of the API - better to be explicit
 OperationsManagement:
-    tracking: 2015-11-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 Orbital:
-    tracking: "2022-11-01"
 Peering:
-    tracking: "2022-10-01"
 PolicyInsights:
-    additions:
-        AttestationAtResource: "2022-09-01"
-        AttestationAtResourceGroup: "2022-09-01"
-        AttestationAtSubscription: "2022-09-01"
-        RemediationAtManagementGroup: "2021-10-01"
-        RemediationAtResource: "2021-10-01"
-        RemediationAtResourceGroup: "2021-10-01"
-        RemediationAtSubscription: "2021-10-01"
-        listRemediationDeploymentsAtManagementGroup: "2021-10-01"
-        listRemediationDeploymentsAtResource: "2021-10-01"
-        listRemediationDeploymentsAtResourceGroup: "2021-10-01"
-        listRemediationDeploymentsAtSubscription: "2021-10-01"
+  explicit: true
+  notes: Each version appears to be partial
 Portal:
-    tracking: 2020-09-01-preview
-    additions:
-        Console: "2018-10-01"
-        ConsoleWithLocation: "2018-10-01"
-        UserSettings: "2018-10-01"
-        UserSettingsWithLocation: "2018-10-01"
-PortalServices: {}
+  preview: prefer
+  expectTracking: preview
+  expectAdditions: true
+  notes: Stable and preview versions don't currently overlap
+PortalServices:
+  notes: Only single POST operation
 PowerBI:
-    additions:
-        PowerBIResource: "2020-06-01"
-        PrivateEndpointConnection: "2020-06-01"
-        WorkspaceCollection: "2016-01-29"
-        listWorkspaceCollectionAccessKeys: "2016-01-29"
+  explicit: true
+  notes: |
+    Both versions are actively used
+    https://learn.microsoft.com/en-us/rest/api/power-bi-workspace-collections/
 PowerBIDedicated:
-    tracking: "2021-01-01"
 PowerPlatform:
-    tracking: 2020-10-30-preview
+  expectTracking: preview
+  notes: Only single preview version
 ProfessionalService:
-    tracking: 2023-07-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 ProviderHub:
-    tracking: "2020-11-20"
 Purview:
-    tracking: "2021-07-01"
 Quantum:
-    tracking: 2022-01-10-preview
-Quota: {}
+  expectTracking: preview
+  notes: All versions are previews
+Quota:
+  notes: quotaLimit has no delete - needs a default defined
 RecommendationsService:
-    tracking: "2022-02-01"
 RecoveryServices:
-    tracking: "2023-02-01"
-    additions:
-        Vault: "2023-01-01"
-        getRecoveryPointAccessToken: "2021-11-15"
+  expectAdditions: true
+  notes: odd that Vault is missing in latest - addition is sensible, might conflict if they add Vault later
 RedHatOpenShift:
-    tracking: "2022-09-04"
 Relay:
-    tracking: "2021-11-01"
 ResourceConnector:
-    tracking: "2022-10-27"
 ResourceGraph:
-    tracking: 2020-04-01-preview
+  expectTracking: preview
+  notes: All versions are previews
 ResourceHealth:
-    tracking: 2022-10-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 Resources:
-    additions:
-        Deployment: "2022-09-01"
-        DeploymentAtManagementGroupScope: "2022-09-01"
-        DeploymentAtScope: "2022-09-01"
-        DeploymentAtSubscriptionScope: "2022-09-01"
-        DeploymentAtTenantScope: "2022-09-01"
-        DeploymentScript: "2020-10-01"
-        Resource: "2022-09-01"
-        ResourceGroup: "2022-09-01"
-        TagAtScope: "2022-09-01"
-        TemplateSpec: "2022-02-01"
-        TemplateSpecVersion: "2022-02-01"
+  explicit: true
+  notes: Not all resources in each release
 SaaS:
-    tracking: 2018-03-01-beta
+  expectTracking: preview
+  notes: Only single *beta* version
 ScVmm:
-    tracking: 2020-06-05-preview
+  expectTracking: preview
+  notes: Only single preview version
 Scheduler:
-    tracking: "2016-03-01"
 Search:
-    tracking: "2022-09-01"
 Security:
-    additions:
-        APICollection: 2022-11-20-preview
-        AdaptiveApplicationControl: "2020-01-01"
-        AdvancedThreatProtection: "2019-01-01"
-        Application: 2022-07-01-preview
-        Assessment: "2021-06-01"
-        AssessmentMetadataInSubscription: "2021-06-01"
-        DeviceSecurityGroup: "2019-08-01"
-        IotSecuritySolution: "2019-08-01"
-        JitNetworkAccessPolicy: "2020-01-01"
-        SecurityConnector: 2022-08-01-preview
-        SecurityConnectorApplication: 2022-07-01-preview
-        ServerVulnerabilityAssessment: "2020-01-01"
-        SqlVulnerabilityAssessmentBaselineRule: 2023-02-01-preview
+  explicit: true
+  notes: Not all resources in each release
 SecurityAndCompliance:
-    tracking: "2021-03-08"
 SecurityDevOps:
-    tracking: 2022-09-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 SecurityInsights:
-    tracking: "2023-02-01"
 SerialConsole:
-    tracking: "2018-05-01"
 ServiceBus:
-    tracking: "2021-11-01"
 ServiceFabric:
-    tracking: 2023-02-01-preview
+  expectTracking: preview
+  exclusions:
+    Cluster: "2021-06-01"
+    listClusterUpgradableVersions: "2021-06-01"
+  notes: Cluster replaced with ManagedCluster after 2021-06-01
 ServiceFabricMesh:
-    tracking: 2018-09-01-preview
+  expectTracking: preview
+  notes: All versions are previews
 ServiceLinker:
-    tracking: "2022-05-01"
 ServiceNetworking:
-    tracking: 2022-10-01-preview
+  expectTracking: preview
+  notes: Only single preview version
 SignalRService:
-    tracking: "2023-02-01"
 SoftwarePlan:
-    tracking: "2019-12-01"
 Solutions:
-    tracking: "2021-07-01"
 Sql:
-    tracking: "2021-11-01"
+  exclusions:
+    DatabaseThreatDetectionPolicy: "2014-04-01"
+    DisasterRecoveryConfiguration: "2014-04-01"
+    ServerCommunicationLink: "2014-04-01"
+  preview: exclude
+  notes: Regular stable versions containing all resources
 SqlVirtualMachine:
-    tracking: "2022-02-01"
 StorSimple:
-    tracking: "2017-06-01"
 Storage:
-    tracking: "2022-09-01"
 StorageCache:
-    tracking: "2023-01-01"
 StorageMover:
-    tracking: "2023-03-01"
 StoragePool:
-    tracking: "2021-08-01"
 StorageSync:
-    tracking: "2022-06-01"
 StreamAnalytics:
-    tracking: "2020-03-01"
-Subscription:
-    tracking: "2021-10-01"
-Support: {}
+  preview: exclude
+  notes: Last stable version looks pretty complete, just not many updates since
+SubscriptionNetworkManagerConnection:
+Support:
 Synapse:
-    tracking: "2021-06-01"
 Syntex:
-    tracking: 2022-09-15-preview
+  expectTracking: preview
+  notes: Only single preview version
 TestBase:
-    tracking: 2022-04-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 TimeSeriesInsights:
-    tracking: "2020-05-15"
+  preview: exclude
+  notes: |
+    Docs only reference last stable version:
+    https://learn.microsoft.com/en-us/rest/api/time-series-insights/
 VMwareCloudSimple:
-    tracking: "2019-04-01"
 VideoAnalyzer:
-    tracking: 2021-11-01-preview
+  expectTracking: preview
+  exclusions:
+    listVideoStreamingToken: 2021-05-01-preview
+  notes: |
+    Only preview versions
+    listVideoStreamingToken replaced with listVideoContentToken
+    Documented as "Azure Video Analyzer"
+    https://learn.microsoft.com/en-us/rest/api/videoanalyzer/video-analyzers
 VideoIndexer:
-    tracking: "2022-08-01"
 VirtualMachineImages:
-    tracking: "2022-02-14"
 VisualStudio:
-    tracking: 2017-11-01-preview
+  expectTracking: preview
+  notes: Only preview versions
 VoiceServices:
-    tracking: "2023-01-31"
 Web:
-    tracking: "2022-09-01"
-    additions:
-        Connection: "2016-06-01"
-        ConnectionGateway: "2016-06-01"
-        CustomApi: "2016-06-01"
-        WebAppAuthSettingsV2: "2021-02-01"
-        WebAppAuthSettingsV2Slot: "2021-02-01"
-        listConnectionConsentLinks: "2016-06-01"
-        listCustomApiWsdlInterfaces: "2016-06-01"
-        listWebAppHybridConnectionKeys: "2018-11-01"
-        listWebAppHybridConnectionKeysSlot: "2018-11-01"
+  preview: exclude
+  expectAdditions: true
+  notes: |
+    Documented within "App Service"
+    https://learn.microsoft.com/en-us/rest/api/appservice/
+    Templates still list Connection, ConnectionGateway and CustomApis:
+    https://learn.microsoft.com/en-us/azure/templates/microsoft.web/connections?pivots=deployment-language-bicep
 WebPubSub:
-    tracking: "2023-02-01"
 WindowsESU:
-    tracking: 2019-09-16-preview
+  expectTracking: preview
+  notes: Only single preview version
 WindowsIoT:
-    tracking: "2019-06-01"
-WorkloadMonitor: {}
+WorkloadMonitor:
 Workloads:
-    tracking: "2023-04-01"
+
+---

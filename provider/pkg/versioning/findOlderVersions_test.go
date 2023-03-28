@@ -1,11 +1,12 @@
 package versioning
 
 import (
+	"testing"
+	"time"
+
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/stretchr/testify/assert"
-	"testing"
-	"time"
 )
 
 func TestFindOlderVersions(t *testing.T) {
@@ -19,17 +20,17 @@ func TestFindOlderVersions(t *testing.T) {
 	specVersions := SpecVersions{
 		providerA: {
 			olderVersion: []string{resourceA, resourceB},
-			versionA: []string{resourceA, resourceB},
-			versionB: []string{resourceA, resourceB},
+			versionA:     []string{resourceA, resourceB},
+			versionB:     []string{resourceA, resourceB},
 		},
 	}
-	curatedVersion := openapi.CuratedVersion{
+	defaultVersion := openapi.DefaultVersionLock{
 		providerA: {
 			resourceA: versionA,
 			resourceB: versionB,
 		},
 	}
-	olderVersions := findOlderVersions(specVersions, curatedVersion)
+	olderVersions := findOlderVersions(specVersions, defaultVersion)
 	expected := openapi.ProviderVersionList{
 		providerA: {
 			olderVersion,
@@ -39,7 +40,7 @@ func TestFindOlderVersions(t *testing.T) {
 }
 
 type FakeApiVersion struct {
-	LessThan openapi.ApiVersion
+	LessThan    openapi.ApiVersion
 	GreaterThan openapi.ApiVersion
 }
 
@@ -50,11 +51,11 @@ func fakeApiVersion(spec FakeApiVersion) openapi.ApiVersion {
 	max, _ := time.Parse(ApiVersionLayout, "2100-01-01")
 	if spec.GreaterThan != "" {
 		min, _ = time.Parse(ApiVersionLayout, spec.GreaterThan)
-		min = min.AddDate(0,0, 1)
+		min = min.AddDate(0, 0, 1)
 	}
 	if spec.LessThan != "" {
 		max, _ = time.Parse(ApiVersionLayout, spec.GreaterThan)
-		max = max.AddDate(0,0, -1)
+		max = max.AddDate(0, 0, -1)
 	}
 	return gofakeit.DateRange(min, max).Format(ApiVersionLayout)
 }
