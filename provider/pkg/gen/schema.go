@@ -1559,10 +1559,17 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			}
 
 			// https://github.com/Azure/azure-rest-api-specs/issues/21431
-			if tok == "azure-native:network/v20220701:SubResource" {
+			// incompatible type "azure-native:network:SubResource" for resource "DnsForwardingRuleset" ("azure-native:network:DnsForwardingRuleset"): required properties do not match: only required in A: id
+			if tok == "azure-native:network/v20220701:SubResource" || tok == "azure-native:network:SubResource" {
 				log.Printf("Removing required 'id' from %s of %s", propertyName, tok)
 				props.requiredProperties.Delete("id")
 				props.requiredSpecs.Delete("id")
+			}
+			// incompatible type "azure-native:network:SecurityRule" for resource "LoadBalancer" ("azure-native:network:LoadBalancer"): required properties do not match: only required in A: priority
+			if tok == "azure-native:network:SecurityRule" {
+				log.Printf("Removing required 'priority' from %s of %s", propertyName, tok)
+				props.requiredProperties.Delete("priority")
+				props.requiredSpecs.Delete("priority")
 			}
 
 			spec := pschema.ComplexTypeSpec{
