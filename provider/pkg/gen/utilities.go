@@ -7,10 +7,14 @@ import (
 	"unicode"
 )
 
+var legalIdentifierReplacer *strings.Replacer
+
 // MakeLegalIdentifier removes characters that are not allowed in identifiers.
 func MakeLegalIdentifier(s string) string {
-	replacer := strings.NewReplacer("-", "", "[", "", "]", "")
-	return replacer.Replace(s)
+	if legalIdentifierReplacer == nil {
+		legalIdentifierReplacer = strings.NewReplacer("-", "", "[", "", "]", "")
+	}
+	return legalIdentifierReplacer.Replace(s)
 }
 
 // firstToLower returns a string with the first character lowercased (`HelloWorld` => `helloWorld`).
