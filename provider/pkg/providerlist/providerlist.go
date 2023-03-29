@@ -2,32 +2,31 @@ package providerlist
 
 import (
 	"encoding/json"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"io/ioutil"
 	"os"
-	"path/filepath"
 	"strings"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
 // LoweredProviderName e.g. analysisservices
 type LoweredProviderName = string
+
 // ResourcePath is a lowered resource path e.g. locations or locations/checknameavailability
 type ResourcePath = string
+
 // ApiVersions StringSet of versions e.g. 2019-03-01-preview or 2018-05-05
 type ApiVersions = codegen.StringSet
+
 // ApiVersion e.g. 2020-01-02
 type ApiVersion = string
+
 // ProviderPathVersions is a map of lowered provider names to Api Versions e.g. `analysisservices -> "locations/checknameavailability" -> [2019-03-01-preview, 2018-05-05]`
 type ProviderPathVersions = map[LoweredProviderName]map[ResourcePath]ApiVersions
 
 // ReadProviderList reads provider_list.json, normalises casing and indexes for fast lookup
-func ReadProviderList() (ProviderPathVersions,error) {
-	dir, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
-
-	jsonFile, err := os.Open(filepath.Join(dir, "/azure-provider-versions/provider_list.json"))
+func ReadProviderList(providerListPath string) (ProviderPathVersions, error) {
+	jsonFile, err := os.Open(providerListPath)
 	if err != nil {
 		return nil, err
 	}

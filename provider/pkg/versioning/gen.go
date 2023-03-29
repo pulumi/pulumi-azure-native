@@ -2,6 +2,7 @@ package versioning
 
 import (
 	"path"
+	"path/filepath"
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
@@ -19,20 +20,22 @@ type VersionMetadata struct {
 	V2Lock        openapi.DefaultVersionLock
 }
 
-func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata, error) {
-	activePathVersions, err := providerlist.ReadProviderList()
+func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (VersionMetadata, error) {
+	versionSources, err := ReadVersionSources(rootDir)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
+	return calculateVersionMetadata(versionSources, providers)
+}
+
+func calculateVersionMetadata(versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
+	activePathVersions := versionSources.activePathVersions
 
 	specVersions := FindSpecVersions(providers)
 	specResourceVersions := FormatResourceVersions(specVersions)
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
-	v1Spec, err := ReadDefaultConfig(path.Join("versions", "v1-spec.yaml"))
-	if err != nil {
-		return VersionMetadata{}, err
-	}
+	v1Spec := versionSources.v1Spec
 	v1Lock, err := DefaultConfigToDefaultVersionLock(specVersions, v1Spec)
 	if err != nil {
 		return VersionMetadata{}, err
@@ -41,20 +44,13 @@ func GenerateVersionMetadata(providers openapi.AzureProviders) (VersionMetadata,
 	deprecated := FindDeprecations(specVersions, v1Lock)
 	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
 
-	v2Spec, err := ReadDefaultConfig(path.Join("versions", "v2-spec.yaml"))
-	if err != nil {
-		return VersionMetadata{}, err
-	}
+	v2Spec := versionSources.v2Spec
 
-	v2ConfigPath := path.Join("versions", "v2-config.yaml")
-	v2Config, err := ReadManualCurations(v2ConfigPath)
-	if err != nil {
-		return VersionMetadata{}, err
-	}
+	v2Config := versionSources.v2Config
 	v2Spec = BuildDefaultConfig(specAfterRemovals, v2Config, v2Spec)
 
 	violations := ValidateDefaultConfig(v2Spec, v2Config)
-	PrintViolationsAsWarnings(v2ConfigPath, violations)
+	PrintViolationsAsWarnings(versionSources.v2ConfigPath, violations)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -86,4 +82,43 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 		"v2-spec.yaml":        v.V2Spec,
 		"v2-lock.json":        v.V2Lock,
 	})
+}
+
+type VersionSources struct {
+	activePathVersions providerlist.ProviderPathVersions
+	v1Spec             DefaultConfig
+	v2Spec             DefaultConfig
+	v2Config           Curations
+	v2ConfigPath       string
+}
+
+func ReadVersionSources(rootDir string) (VersionSources, error) {
+	activePathVersions, err := providerlist.ReadProviderList(filepath.Join(rootDir, "azure-provider-versions", "provider_list.json"))
+	if err != nil {
+		return VersionSources{}, err
+	}
+
+	v1Spec, err := ReadDefaultConfig(path.Join(rootDir, "versions", "v1-spec.yaml"))
+	if err != nil {
+		return VersionSources{}, err
+	}
+
+	v2Spec, err := ReadDefaultConfig(path.Join(rootDir, "versions", "v2-spec.yaml"))
+	if err != nil {
+		return VersionSources{}, err
+	}
+
+	v2ConfigPath := path.Join(rootDir, "versions", "v2-config.yaml")
+	v2Config, err := ReadManualCurations(v2ConfigPath)
+	if err != nil {
+		return VersionSources{}, err
+	}
+
+	return VersionSources{
+		activePathVersions: activePathVersions,
+		v1Spec:             v1Spec,
+		v2Spec:             v2Spec,
+		v2Config:           v2Config,
+		v2ConfigPath:       v2ConfigPath,
+	}, nil
 }

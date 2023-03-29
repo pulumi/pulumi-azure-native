@@ -43,12 +43,13 @@ func main() {
 		version = os.Args[2]
 	}
 
+	wd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
 	specsDir, ok := os.LookupEnv("CODEGEN_SPECS_DIR")
 	if !ok {
-		wd, err := os.Getwd()
-		if err != nil {
-			panic(err)
-		}
 		specsDir = filepath.Join(wd, "azure-rest-api-specs")
 	}
 
@@ -61,7 +62,6 @@ func main() {
 	var azureProviders *openapi.AzureProviders
 	var pkgSpec *schema.PackageSpec
 	var meta *resources.AzureAPIMetadata
-	var err error
 
 	languageSet := codegen.NewStringSet(strings.Split(languages, ",")...)
 	basicLanguages := []string{"dotnet", "nodejs", "python"}
@@ -80,7 +80,7 @@ func main() {
 			panic(err)
 		}
 
-		versionMetadata, err := versioning.GenerateVersionMetadata(providers)
+		versionMetadata, err := versioning.GenerateVersionMetadata(wd, providers)
 		if err != nil {
 			panic(err)
 		}
@@ -110,7 +110,7 @@ func main() {
 			panic(err)
 		}
 
-		versionMetadata, err := versioning.GenerateVersionMetadata(providers)
+		versionMetadata, err := versioning.GenerateVersionMetadata(wd, providers)
 		if err != nil {
 			panic(err)
 		}
