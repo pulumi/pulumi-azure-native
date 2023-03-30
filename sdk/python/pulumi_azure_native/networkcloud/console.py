@@ -31,6 +31,7 @@ class ConsoleArgs:
         :param pulumi.Input[Union[str, 'ConsoleEnabled']] enabled: The indicator of whether the console access is enabled.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['SshPublicKeyArgs'] ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[str] console_name: The name of the virtual machine console.
         :param pulumi.Input[str] expiration: The date and time after which the key will be disallowed access.
@@ -90,6 +91,9 @@ class ConsoleArgs:
     @property
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> pulumi.Input['SshPublicKeyArgs']:
+        """
+        The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        """
         return pulumi.get(self, "ssh_public_key")
 
     @ssh_public_key.setter
@@ -183,6 +187,7 @@ class Console(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['SshPublicKeyArgs']] ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         """
@@ -370,6 +375,9 @@ class Console(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> pulumi.Output['outputs.SshPublicKeyResponse']:
+        """
+        The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        """
         return pulumi.get(self, "ssh_public_key")
 
     @property

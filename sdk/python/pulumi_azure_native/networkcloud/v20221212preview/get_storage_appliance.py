@@ -87,6 +87,9 @@ class GetStorageApplianceResult:
     @property
     @pulumi.getter(name="administratorCredentials")
     def administrator_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
+        """
+        The credentials of the administrative interface on this storage appliance.
+        """
         return pulumi.get(self, "administrator_credentials")
 
     @property

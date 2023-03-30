@@ -21,6 +21,7 @@ class EnterprisePolicyArgs:
                  resource_group_name: pulumi.Input[str],
                  encryption: Optional[pulumi.Input['PropertiesEncryptionArgs']] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[Union[str, 'HealthStatus']]] = None,
                  identity: Optional[pulumi.Input['EnterprisePolicyIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lockbox: Optional[pulumi.Input['PropertiesLockboxArgs']] = None,
@@ -32,6 +33,7 @@ class EnterprisePolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['PropertiesEncryptionArgs'] encryption: The encryption settings for a configuration store.
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
+        :param pulumi.Input[Union[str, 'HealthStatus']] health_status: The health status of the resource.
         :param pulumi.Input['EnterprisePolicyIdentityArgs'] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['PropertiesLockboxArgs'] lockbox: Settings concerning lockbox.
@@ -44,6 +46,8 @@ class EnterprisePolicyArgs:
             pulumi.set(__self__, "encryption", encryption)
         if enterprise_policy_name is not None:
             pulumi.set(__self__, "enterprise_policy_name", enterprise_policy_name)
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -102,6 +106,18 @@ class EnterprisePolicyArgs:
     @enterprise_policy_name.setter
     def enterprise_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enterprise_policy_name", value)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[Union[str, 'HealthStatus']]]:
+        """
+        The health status of the resource.
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[Union[str, 'HealthStatus']]]):
+        pulumi.set(self, "health_status", value)
 
     @property
     @pulumi.getter
@@ -171,6 +187,7 @@ class EnterprisePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']]] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[Union[str, 'HealthStatus']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'EnterprisePolicyKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -186,6 +203,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
+        :param pulumi.Input[Union[str, 'HealthStatus']] health_status: The health status of the resource.
         :param pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[Union[str, 'EnterprisePolicyKind']] kind: The kind (type) of Enterprise Policy.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -220,6 +238,7 @@ class EnterprisePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']]] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[Union[str, 'HealthStatus']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'EnterprisePolicyKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -238,6 +257,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["enterprise_policy_name"] = enterprise_policy_name
+            __props__.__dict__["health_status"] = health_status
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -278,6 +298,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         __props__ = EnterprisePolicyArgs.__new__(EnterprisePolicyArgs)
 
         __props__.__dict__["encryption"] = None
+        __props__.__dict__["health_status"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -297,6 +318,14 @@ class EnterprisePolicy(pulumi.CustomResource):
         The encryption settings for a configuration store.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        The health status of the resource.
+        """
+        return pulumi.get(self, "health_status")
 
     @property
     @pulumi.getter

@@ -1503,12 +1503,7 @@
     "ManagementConfiguration": "2015-11-01-preview",
     "Solution": "2015-11-01-preview"
   },
-  "Orbital": {
-    "Contact": "2021-04-04-preview",
-    "ContactProfile": "2021-04-04-preview",
-    "Spacecraft": "2021-04-04-preview",
-    "listSpacecraftAvailableContacts": "2021-04-04-preview"
-  },
+  "Orbital": {},
   "Peering": {
     "ConnectionMonitorTest": "2021-06-01",
     "PeerAsn": "2021-01-01",

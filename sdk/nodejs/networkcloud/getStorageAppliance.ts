@@ -32,6 +32,9 @@ export interface GetStorageApplianceArgs {
 }
 
 export interface GetStorageApplianceResult {
+    /**
+     * The credentials of the administrative interface on this storage appliance.
+     */
     readonly administratorCredentials: outputs.networkcloud.AdministrativeCredentialsResponse;
     /**
      * The total capacity of the storage appliance.

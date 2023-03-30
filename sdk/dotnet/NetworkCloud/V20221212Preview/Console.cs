@@ -66,6 +66,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
+        /// <summary>
+        /// The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        /// </summary>
         [Output("sshPublicKey")]
         public Output<Outputs.SshPublicKeyResponse> SshPublicKey { get; private set; } = null!;
 
@@ -178,6 +181,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        /// </summary>
         [Input("sshPublicKey", required: true)]
         public Input<Inputs.SshPublicKeyArgs> SshPublicKey { get; set; } = null!;
 

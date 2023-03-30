@@ -43,6 +43,10 @@ export class EnterprisePolicy extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.powerplatform.PropertiesResponseEncryption | undefined>;
     /**
+     * The health status of the resource.
+     */
+    public readonly healthStatus!: pulumi.Output<string | undefined>;
+    /**
      * The identity of the EnterprisePolicy.
      */
     public readonly identity!: pulumi.Output<outputs.powerplatform.EnterprisePolicyIdentityResponse | undefined>;
@@ -102,6 +106,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
             }
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["enterprisePolicyName"] = args ? args.enterprisePolicyName : undefined;
+            resourceInputs["healthStatus"] = args ? args.healthStatus : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -115,6 +120,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["healthStatus"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface EnterprisePolicyArgs {
      * Name of the EnterprisePolicy.
      */
     enterprisePolicyName?: pulumi.Input<string>;
+    /**
+     * The health status of the resource.
+     */
+    healthStatus?: pulumi.Input<string | enums.powerplatform.HealthStatus>;
     /**
      * The identity of the EnterprisePolicy.
      */

@@ -77,6 +77,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
         /// </summary>
         public readonly double CniAsNumber;
+        /// <summary>
+        /// The Calico BGP configuration.
+        /// </summary>
         public readonly Outputs.CniBgpConfigurationResponse? CniBgpConfiguration;
         /// <summary>
         /// The more detailed status of the default CNI network.

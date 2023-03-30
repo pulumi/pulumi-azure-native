@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'EnterprisePolicyKind',
+    'HealthStatus',
     'PrivateEndpointServiceConnectionStatus',
     'ResourceIdentityType',
     'State',
@@ -21,6 +22,15 @@ class EnterprisePolicyKind(str, Enum):
     ENCRYPTION = "Encryption"
     NETWORK_INJECTION = "NetworkInjection"
     IDENTITY = "Identity"
+
+
+class HealthStatus(str, Enum):
+    """
+    The health status of the resource.
+    """
+    UNDETERMINED = "Undetermined"
+    HEALTHY = "Healthy"
+    UNHEALTHY = "Unhealthy"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

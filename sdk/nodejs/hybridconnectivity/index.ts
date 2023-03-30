@@ -32,10 +32,12 @@ export * from "../types/enums/hybridconnectivity";
 // Export sub-modules:
 import * as v20211006preview from "./v20211006preview";
 import * as v20220501preview from "./v20220501preview";
+import * as v20230315 from "./v20230315";
 
 export {
     v20211006preview,
     v20220501preview,
+    v20230315,
 };
 
 const _module = {

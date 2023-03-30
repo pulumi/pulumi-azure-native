@@ -39,6 +39,9 @@ export interface GetDefaultCniNetworkResult {
      * The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
      */
     readonly cniAsNumber: number;
+    /**
+     * The Calico BGP configuration.
+     */
     readonly cniBgpConfiguration?: outputs.networkcloud.v20221212preview.CniBgpConfigurationResponse;
     /**
      * The more detailed status of the default CNI network.

@@ -119,6 +119,7 @@ class BareMetalMachineConfigurationDataResponse(dict):
                  machine_name: Optional[str] = None):
         """
         :param str bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
+        :param 'AdministrativeCredentialsResponse' bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
         :param str bmc_mac_address: The MAC address of the BMC for this machine.
         :param str boot_mac_address: The MAC address associated with the PXE NIC card.
         :param float rack_slot: The slot the physical machine is in the rack based on the BOM configuration.
@@ -149,6 +150,9 @@ class BareMetalMachineConfigurationDataResponse(dict):
     @property
     @pulumi.getter(name="bmcCredentials")
     def bmc_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
+        """
+        The credentials of the baseboard management controller on this bare metal machine.
+        """
         return pulumi.get(self, "bmc_credentials")
 
     @property
@@ -1023,6 +1027,7 @@ class KeySetUserResponse(dict):
                  description: Optional[str] = None):
         """
         :param str azure_user_name: The Azure Active Directory user name (email name).
+        :param 'SshPublicKeyResponse' ssh_public_key: The SSH public key for this user.
         :param str description: The free-form description for this user.
         """
         pulumi.set(__self__, "azure_user_name", azure_user_name)
@@ -1041,6 +1046,9 @@ class KeySetUserResponse(dict):
     @property
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> 'outputs.SshPublicKeyResponse':
+        """
+        The SSH public key for this user.
+        """
         return pulumi.get(self, "ssh_public_key")
 
     @property
@@ -1380,10 +1388,10 @@ class NicResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "macAddress":
-            suggest = "mac_address"
-        elif key == "lldpNeighbor":
+        if key == "lldpNeighbor":
             suggest = "lldp_neighbor"
+        elif key == "macAddress":
+            suggest = "mac_address"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NicResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1397,17 +1405,25 @@ class NicResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 lldp_neighbor: 'outputs.LldpNeighborResponse',
                  mac_address: str,
-                 name: str,
-                 lldp_neighbor: Optional['outputs.LldpNeighborResponse'] = None):
+                 name: str):
         """
+        :param 'LldpNeighborResponse' lldp_neighbor: The information about the device connected to this NIC.
         :param str mac_address: The MAC address associated with this NIC.
         :param str name: The name of the NIC/interface.
         """
+        pulumi.set(__self__, "lldp_neighbor", lldp_neighbor)
         pulumi.set(__self__, "mac_address", mac_address)
         pulumi.set(__self__, "name", name)
-        if lldp_neighbor is not None:
-            pulumi.set(__self__, "lldp_neighbor", lldp_neighbor)
+
+    @property
+    @pulumi.getter(name="lldpNeighbor")
+    def lldp_neighbor(self) -> 'outputs.LldpNeighborResponse':
+        """
+        The information about the device connected to this NIC.
+        """
+        return pulumi.get(self, "lldp_neighbor")
 
     @property
     @pulumi.getter(name="macAddress")
@@ -1424,11 +1440,6 @@ class NicResponse(dict):
         The name of the NIC/interface.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="lldpNeighbor")
-    def lldp_neighbor(self) -> Optional['outputs.LldpNeighborResponse']:
-        return pulumi.get(self, "lldp_neighbor")
 
 
 @pulumi.output_type
@@ -1977,6 +1988,7 @@ class StorageApplianceConfigurationDataResponse(dict):
                  serial_number: str,
                  storage_appliance_name: Optional[str] = None):
         """
+        :param 'AdministrativeCredentialsResponse' admin_credentials: The credentials of the administrative interface on this storage appliance.
         :param float rack_slot: The slot that storage appliance is in the rack based on the BOM configuration.
         :param str serial_number: The serial number of the appliance.
         :param str storage_appliance_name: The user-provided name for the storage appliance that will be created from this specification.
@@ -1990,6 +2002,9 @@ class StorageApplianceConfigurationDataResponse(dict):
     @property
     @pulumi.getter(name="adminCredentials")
     def admin_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
+        """
+        The credentials of the administrative interface on this storage appliance.
+        """
         return pulumi.get(self, "admin_credentials")
 
     @property
@@ -2042,6 +2057,7 @@ class StorageProfileResponse(dict):
                  os_disk: 'outputs.OsDiskResponse',
                  volume_attachments: Optional[Sequence[str]] = None):
         """
+        :param 'OsDiskResponse' os_disk: The disk to use with this virtual machine.
         :param Sequence[str] volume_attachments: The resource IDs of volumes that are requested to be attached to the virtual machine.
         """
         pulumi.set(__self__, "os_disk", os_disk)
@@ -2051,6 +2067,9 @@ class StorageProfileResponse(dict):
     @property
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> 'outputs.OsDiskResponse':
+        """
+        The disk to use with this virtual machine.
+        """
         return pulumi.get(self, "os_disk")
 
     @property

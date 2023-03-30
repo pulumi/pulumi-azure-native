@@ -4699,7 +4699,7 @@ class VnetConfigurationArgs:
         :param pulumi.Input['ManagedEnvironmentOutboundSettingsArgs'] outbound_settings: Configuration used to control the Environment Egress outbound traffic
         :param pulumi.Input[str] platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         :param pulumi.Input[str] platform_reserved_dns_ip:  An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
-        :param pulumi.Input[str] runtime_subnet_id: Resource ID of a subnet that Container App containers are injected into. This subnet must be in the same VNET as the subnet defined in infrastructureSubnetId. Must not overlap with any other provided IP ranges.
+        :param pulumi.Input[str] runtime_subnet_id: This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
         """
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
@@ -4792,7 +4792,7 @@ class VnetConfigurationArgs:
     @pulumi.getter(name="runtimeSubnetId")
     def runtime_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID of a subnet that Container App containers are injected into. This subnet must be in the same VNET as the subnet defined in infrastructureSubnetId. Must not overlap with any other provided IP ranges.
+        This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
         """
         return pulumi.get(self, "runtime_subnet_id")
 

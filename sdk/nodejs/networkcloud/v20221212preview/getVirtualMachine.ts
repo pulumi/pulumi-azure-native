@@ -43,6 +43,9 @@ export interface GetVirtualMachineResult {
      * Selects the boot method for the virtual machine.
      */
     readonly bootMethod?: string;
+    /**
+     * The cloud service network that provides platform-level services for the virtual machine.
+     */
     readonly cloudServicesNetworkAttachment: outputs.networkcloud.v20221212preview.NetworkAttachmentResponse;
     /**
      * The resource ID of the cluster the virtual machine is created for.
@@ -108,6 +111,9 @@ export interface GetVirtualMachineResult {
      * The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
      */
     readonly sshPublicKeys?: outputs.networkcloud.v20221212preview.SshPublicKeyResponse[];
+    /**
+     * The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+     */
     readonly storageProfile: outputs.networkcloud.v20221212preview.StorageProfileResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -137,6 +143,9 @@ export interface GetVirtualMachineResult {
      * The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
      */
     readonly vmImage: string;
+    /**
+     * The credentials used to login to the image repository that has access to the specified image.
+     */
     readonly vmImageRepositoryCredentials?: outputs.networkcloud.v20221212preview.ImageRepositoryCredentialsResponse;
     /**
      * The resource IDs of volumes that are attached to the virtual machine.

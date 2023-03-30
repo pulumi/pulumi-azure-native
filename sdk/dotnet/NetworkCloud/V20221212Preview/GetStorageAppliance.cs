@@ -69,6 +69,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     [OutputType]
     public sealed class GetStorageApplianceResult
     {
+        /// <summary>
+        /// The credentials of the administrative interface on this storage appliance.
+        /// </summary>
         public readonly Outputs.AdministrativeCredentialsResponse AdministratorCredentials;
         /// <summary>
         /// The total capacity of the storage appliance.

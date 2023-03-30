@@ -129,7 +129,7 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironment" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironment.__pulumiType, name, resourceInputs, opts);
     }

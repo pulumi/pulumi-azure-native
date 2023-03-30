@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? PlatformReservedDnsIP { get; set; }
 
         /// <summary>
-        /// Resource ID of a subnet that Container App containers are injected into. This subnet must be in the same VNET as the subnet defined in infrastructureSubnetId. Must not overlap with any other provided IP ranges.
+        /// This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
         /// </summary>
         [Input("runtimeSubnetId")]
         public Input<string>? RuntimeSubnetId { get; set; }

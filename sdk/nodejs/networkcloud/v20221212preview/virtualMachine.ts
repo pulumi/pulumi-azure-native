@@ -46,6 +46,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * Selects the boot method for the virtual machine.
      */
     public readonly bootMethod!: pulumi.Output<string | undefined>;
+    /**
+     * The cloud service network that provides platform-level services for the virtual machine.
+     */
     public readonly cloudServicesNetworkAttachment!: pulumi.Output<outputs.networkcloud.v20221212preview.NetworkAttachmentResponse>;
     /**
      * The resource ID of the cluster the virtual machine is created for.
@@ -107,6 +110,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
      */
     public readonly sshPublicKeys!: pulumi.Output<outputs.networkcloud.v20221212preview.SshPublicKeyResponse[] | undefined>;
+    /**
+     * The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+     */
     public readonly storageProfile!: pulumi.Output<outputs.networkcloud.v20221212preview.StorageProfileResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -136,6 +142,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
      */
     public readonly vmImage!: pulumi.Output<string>;
+    /**
+     * The credentials used to login to the image repository that has access to the specified image.
+     */
     public readonly vmImageRepositoryCredentials!: pulumi.Output<outputs.networkcloud.v20221212preview.ImageRepositoryCredentialsResponse | undefined>;
     /**
      * The resource IDs of volumes that are attached to the virtual machine.
@@ -258,6 +267,9 @@ export interface VirtualMachineArgs {
      * Selects the boot method for the virtual machine.
      */
     bootMethod?: pulumi.Input<string | enums.networkcloud.v20221212preview.VirtualMachineBootMethod>;
+    /**
+     * The cloud service network that provides platform-level services for the virtual machine.
+     */
     cloudServicesNetworkAttachment: pulumi.Input<inputs.networkcloud.v20221212preview.NetworkAttachmentArgs>;
     /**
      * The number of CPU cores in the virtual machine.
@@ -299,6 +311,9 @@ export interface VirtualMachineArgs {
      * The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
      */
     sshPublicKeys?: pulumi.Input<pulumi.Input<inputs.networkcloud.v20221212preview.SshPublicKeyArgs>[]>;
+    /**
+     * The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+     */
     storageProfile: pulumi.Input<inputs.networkcloud.v20221212preview.StorageProfileArgs>;
     /**
      * Resource tags.
@@ -324,5 +339,8 @@ export interface VirtualMachineArgs {
      * The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
      */
     vmImage: pulumi.Input<string>;
+    /**
+     * The credentials used to login to the image repository that has access to the specified image.
+     */
     vmImageRepositoryCredentials?: pulumi.Input<inputs.networkcloud.v20221212preview.ImageRepositoryCredentialsArgs>;
 }

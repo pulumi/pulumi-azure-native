@@ -12,6 +12,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview.Inputs
 
     public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The disk to use with this virtual machine.
+        /// </summary>
         [Input("osDisk", required: true)]
         public Input<Inputs.OsDiskArgs> OsDisk { get; set; } = null!;
 

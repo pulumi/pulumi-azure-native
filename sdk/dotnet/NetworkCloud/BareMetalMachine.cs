@@ -21,6 +21,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("bmcConnectionString")]
         public Output<string> BmcConnectionString { get; private set; } = null!;
 
+        /// <summary>
+        /// The credentials of the baseboard management controller on this bare metal machine.
+        /// </summary>
         [Output("bmcCredentials")]
         public Output<Outputs.AdministrativeCredentialsResponse> BmcCredentials { get; private set; } = null!;
 
@@ -66,11 +69,17 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// The hardware inventory, including information acquired from the model/sku information and from the ironic inspector.
+        /// </summary>
         [Output("hardwareInventory")]
-        public Output<Outputs.HardwareInventoryResponse?> HardwareInventory { get; private set; } = null!;
+        public Output<Outputs.HardwareInventoryResponse> HardwareInventory { get; private set; } = null!;
 
+        /// <summary>
+        /// The details of the latest hardware validation performed for this bare metal machine.
+        /// </summary>
         [Output("hardwareValidationStatus")]
-        public Output<Outputs.HardwareValidationStatusResponse?> HardwareValidationStatus { get; private set; } = null!;
+        public Output<Outputs.HardwareValidationStatusResponse> HardwareValidationStatus { get; private set; } = null!;
 
         /// <summary>
         /// The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
@@ -265,6 +274,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("bmcConnectionString", required: true)]
         public Input<string> BmcConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The credentials of the baseboard management controller on this bare metal machine.
+        /// </summary>
         [Input("bmcCredentials", required: true)]
         public Input<Inputs.AdministrativeCredentialsArgs> BmcCredentials { get; set; } = null!;
 

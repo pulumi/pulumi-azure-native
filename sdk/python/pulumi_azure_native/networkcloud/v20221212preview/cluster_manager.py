@@ -363,8 +363,7 @@ class ClusterManager(pulumi.CustomResource):
     @pulumi.getter(name="managerExtendedLocation")
     def manager_extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
         """
-        The extended location (custom location) that represents the cluster manager's control plane location.
-         This extended location is used when creating cluster and rack manifest resources.
+        The extended location (custom location) that represents the cluster manager's control plane location. This extended location is used when creating cluster and rack manifest resources.
         """
         return pulumi.get(self, "manager_extended_location")
 

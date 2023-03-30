@@ -13,7 +13,10 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     [OutputType]
     public sealed class NicResponse
     {
-        public readonly Outputs.LldpNeighborResponse? LldpNeighbor;
+        /// <summary>
+        /// The information about the device connected to this NIC.
+        /// </summary>
+        public readonly Outputs.LldpNeighborResponse LldpNeighbor;
         /// <summary>
         /// The MAC address associated with this NIC.
         /// </summary>
@@ -25,7 +28,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
 
         [OutputConstructor]
         private NicResponse(
-            Outputs.LldpNeighborResponse? lldpNeighbor,
+            Outputs.LldpNeighborResponse lldpNeighbor,
 
             string macAddress,
 

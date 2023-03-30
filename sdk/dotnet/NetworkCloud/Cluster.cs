@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.NetworkCloud
     [AzureNativeResourceType("azure-native:networkcloud:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+        /// </summary>
         [Output("aggregatorOrSingleRackDefinition")]
         public Output<Outputs.RackDefinitionResponse> AggregatorOrSingleRackDefinition { get; private set; } = null!;
 
@@ -30,8 +33,11 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("availableUpgradeVersions")]
         public Output<ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse>> AvailableUpgradeVersions { get; private set; } = null!;
 
+        /// <summary>
+        /// The capacity supported by this cluster.
+        /// </summary>
         [Output("clusterCapacity")]
-        public Output<Outputs.ClusterCapacityResponse?> ClusterCapacity { get; private set; } = null!;
+        public Output<Outputs.ClusterCapacityResponse> ClusterCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The latest heartbeat status between the cluster manager and the cluster.
@@ -40,8 +46,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> ClusterConnectionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The extended location (custom location) that represents the cluster's control plane location.
-        /// This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
+        /// The extended location (custom location) that represents the cluster's control plane location. This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
         /// </summary>
         [Output("clusterExtendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ClusterExtendedLocation { get; private set; } = null!;
@@ -64,6 +69,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("clusterManagerId")]
         public Output<string> ClusterManagerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The service principal to be used by the cluster during Arc Appliance installation.
+        /// </summary>
         [Output("clusterServicePrincipal")]
         public Output<Outputs.ServicePrincipalInformationResponse?> ClusterServicePrincipal { get; private set; } = null!;
 
@@ -79,6 +87,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("clusterVersion")]
         public Output<string> ClusterVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+        /// </summary>
         [Output("computeDeploymentThreshold")]
         public Output<Outputs.ValidationThresholdResponse?> ComputeDeploymentThreshold { get; private set; } = null!;
 
@@ -108,8 +119,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The extended location (custom location) that represents the Hybrid AKS control plane location.
-        /// This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        /// The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         /// </summary>
         [Output("hybridAksExtendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> HybridAksExtendedLocation { get; private set; } = null!;
@@ -229,6 +239,9 @@ namespace Pulumi.AzureNative.NetworkCloud
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+        /// </summary>
         [Input("aggregatorOrSingleRackDefinition", required: true)]
         public Input<Inputs.RackDefinitionArgs> AggregatorOrSingleRackDefinition { get; set; } = null!;
 
@@ -237,9 +250,6 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Input("analyticsWorkspaceId", required: true)]
         public Input<string> AnalyticsWorkspaceId { get; set; } = null!;
-
-        [Input("clusterCapacity")]
-        public Input<Inputs.ClusterCapacityArgs>? ClusterCapacity { get; set; }
 
         /// <summary>
         /// The customer-provided location information to identify where the cluster resides.
@@ -253,6 +263,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// The service principal to be used by the cluster during Arc Appliance installation.
+        /// </summary>
         [Input("clusterServicePrincipal")]
         public Input<Inputs.ServicePrincipalInformationArgs>? ClusterServicePrincipal { get; set; }
 
@@ -268,6 +281,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("clusterVersion", required: true)]
         public Input<string> ClusterVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+        /// </summary>
         [Input("computeDeploymentThreshold")]
         public Input<Inputs.ValidationThresholdArgs>? ComputeDeploymentThreshold { get; set; }
 

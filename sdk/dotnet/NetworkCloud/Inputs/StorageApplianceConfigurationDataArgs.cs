@@ -12,6 +12,9 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
 
     public sealed class StorageApplianceConfigurationDataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credentials of the administrative interface on this storage appliance.
+        /// </summary>
         [Input("adminCredentials", required: true)]
         public Input<Inputs.AdministrativeCredentialsArgs> AdminCredentials { get; set; } = null!;
 

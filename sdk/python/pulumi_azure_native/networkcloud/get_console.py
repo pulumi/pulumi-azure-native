@@ -149,6 +149,9 @@ class GetConsoleResult:
     @property
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> 'outputs.SshPublicKeyResponse':
+        """
+        The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        """
         return pulumi.get(self, "ssh_public_key")
 
     @property

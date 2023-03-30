@@ -103,6 +103,9 @@ class GetDefaultCniNetworkResult:
     @property
     @pulumi.getter(name="cniBgpConfiguration")
     def cni_bgp_configuration(self) -> Optional['outputs.CniBgpConfigurationResponse']:
+        """
+        The Calico BGP configuration.
+        """
         return pulumi.get(self, "cni_bgp_configuration")
 
     @property

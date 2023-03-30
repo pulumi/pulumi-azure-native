@@ -27,6 +27,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("cniAsNumber")]
         public Output<double> CniAsNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// The Calico BGP configuration.
+        /// </summary>
         [Output("cniBgpConfiguration")]
         public Output<Outputs.CniBgpConfigurationResponse?> CniBgpConfiguration { get; private set; } = null!;
 
@@ -183,6 +186,9 @@ namespace Pulumi.AzureNative.NetworkCloud
 
     public sealed class DefaultCniNetworkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Calico BGP configuration.
+        /// </summary>
         [Input("cniBgpConfiguration")]
         public Input<Inputs.CniBgpConfigurationArgs>? CniBgpConfiguration { get; set; }
 

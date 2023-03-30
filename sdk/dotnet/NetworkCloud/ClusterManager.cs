@@ -64,8 +64,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.ManagedResourceGroupConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The extended location (custom location) that represents the cluster manager's control plane location.
-        ///  This extended location is used when creating cluster and rack manifest resources.
+        /// The extended location (custom location) that represents the cluster manager's control plane location. This extended location is used when creating cluster and rack manifest resources.
         /// </summary>
         [Output("managerExtendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> ManagerExtendedLocation { get; private set; } = null!;

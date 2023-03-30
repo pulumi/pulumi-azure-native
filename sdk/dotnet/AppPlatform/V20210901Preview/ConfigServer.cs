@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ConfigServer"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:ConfigServer"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ConfigServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ConfigServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -114,6 +114,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="aggregatorOrSingleRackDefinition")
     def aggregator_or_single_rack_definition(self) -> 'outputs.RackDefinitionResponse':
+        """
+        The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+        """
         return pulumi.get(self, "aggregator_or_single_rack_definition")
 
     @property
@@ -134,7 +137,10 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterCapacity")
-    def cluster_capacity(self) -> Optional['outputs.ClusterCapacityResponse']:
+    def cluster_capacity(self) -> 'outputs.ClusterCapacityResponse':
+        """
+        The capacity supported by this cluster.
+        """
         return pulumi.get(self, "cluster_capacity")
 
     @property
@@ -149,8 +155,7 @@ class GetClusterResult:
     @pulumi.getter(name="clusterExtendedLocation")
     def cluster_extended_location(self) -> 'outputs.ExtendedLocationResponse':
         """
-        The extended location (custom location) that represents the cluster's control plane location.
-        This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
+        The extended location (custom location) that represents the cluster's control plane location. This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
         """
         return pulumi.get(self, "cluster_extended_location")
 
@@ -181,6 +186,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="clusterServicePrincipal")
     def cluster_service_principal(self) -> Optional['outputs.ServicePrincipalInformationResponse']:
+        """
+        The service principal to be used by the cluster during Arc Appliance installation.
+        """
         return pulumi.get(self, "cluster_service_principal")
 
     @property
@@ -202,6 +210,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="computeDeploymentThreshold")
     def compute_deployment_threshold(self) -> Optional['outputs.ValidationThresholdResponse']:
+        """
+        The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+        """
         return pulumi.get(self, "compute_deployment_threshold")
 
     @property
@@ -241,8 +252,7 @@ class GetClusterResult:
     @pulumi.getter(name="hybridAksExtendedLocation")
     def hybrid_aks_extended_location(self) -> 'outputs.ExtendedLocationResponse':
         """
-        The extended location (custom location) that represents the Hybrid AKS control plane location.
-        This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         """
         return pulumi.get(self, "hybrid_aks_extended_location")
 

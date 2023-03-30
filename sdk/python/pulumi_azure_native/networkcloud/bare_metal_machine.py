@@ -34,6 +34,7 @@ class BareMetalMachineArgs:
         """
         The set of arguments for constructing a BareMetalMachine resource.
         :param pulumi.Input[str] bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
+        :param pulumi.Input['AdministrativeCredentialsArgs'] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
         :param pulumi.Input[str] bmc_mac_address: The MAC address of the BMC device.
         :param pulumi.Input[str] boot_mac_address: The MAC address of a NIC connected to the PXE network.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
@@ -82,6 +83,9 @@ class BareMetalMachineArgs:
     @property
     @pulumi.getter(name="bmcCredentials")
     def bmc_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
+        """
+        The credentials of the baseboard management controller on this bare metal machine.
+        """
         return pulumi.get(self, "bmc_credentials")
 
     @bmc_credentials.setter
@@ -273,6 +277,7 @@ class BareMetalMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bare_metal_machine_name: The name of the bare metal machine.
         :param pulumi.Input[str] bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
+        :param pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
         :param pulumi.Input[str] bmc_mac_address: The MAC address of the BMC device.
         :param pulumi.Input[str] boot_mac_address: The MAC address of a NIC connected to the PXE network.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
@@ -463,6 +468,9 @@ class BareMetalMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bmcCredentials")
     def bmc_credentials(self) -> pulumi.Output['outputs.AdministrativeCredentialsResponse']:
+        """
+        The credentials of the baseboard management controller on this bare metal machine.
+        """
         return pulumi.get(self, "bmc_credentials")
 
     @property
@@ -523,12 +531,18 @@ class BareMetalMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hardwareInventory")
-    def hardware_inventory(self) -> pulumi.Output[Optional['outputs.HardwareInventoryResponse']]:
+    def hardware_inventory(self) -> pulumi.Output['outputs.HardwareInventoryResponse']:
+        """
+        The hardware inventory, including information acquired from the model/sku information and from the ironic inspector.
+        """
         return pulumi.get(self, "hardware_inventory")
 
     @property
     @pulumi.getter(name="hardwareValidationStatus")
-    def hardware_validation_status(self) -> pulumi.Output[Optional['outputs.HardwareValidationStatusResponse']]:
+    def hardware_validation_status(self) -> pulumi.Output['outputs.HardwareValidationStatusResponse']:
+        """
+        The details of the latest hardware validation performed for this bare metal machine.
+        """
         return pulumi.get(self, "hardware_validation_status")
 
     @property

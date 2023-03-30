@@ -222,6 +222,9 @@
     ],
     "2023-03-01": [
       "PrometheusRuleGroup"
+    ],
+    "2023-04-01-preview": [
+      "TenantActivityLogAlert"
     ]
   },
   "AnalysisServices": {
@@ -1104,6 +1107,28 @@
       "listContainerAppCustomHostNameAnalysis",
       "listContainerAppSecrets",
       "listDaprComponentSecrets"
+    ],
+    "2022-11-01-preview": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -1163,6 +1188,13 @@
       "ConfigurationStore",
       "KeyValue",
       "PrivateEndpointConnection",
+      "listConfigurationStoreKeys"
+    ],
+    "2023-03-01": [
+      "ConfigurationStore",
+      "KeyValue",
+      "PrivateEndpointConnection",
+      "Replica",
       "listConfigurationStoreKeys"
     ]
   },
@@ -1415,6 +1447,40 @@
       "ApplicationLiveView",
       "Binding",
       "BuildServiceAgentPool",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceTestKeys"
+    ],
+    "2023-03-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
       "BuildServiceBuilder",
       "BuildpackBinding",
       "Certificate",
@@ -1947,6 +2013,14 @@
       "UpdateSummary"
     ],
     "2023-02-01": [
+      "ArcSetting",
+      "Cluster",
+      "Extension",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
+    ],
+    "2023-03-01": [
       "ArcSetting",
       "Cluster",
       "Extension",
@@ -2605,6 +2679,14 @@
       "SenderUsername",
       "listCommunicationServiceKeys",
       "listEmailServiceVerifiedExchangeOnlineDomains"
+    ],
+    "2023-03-31": [
+      "CommunicationService",
+      "Domain",
+      "EmailService",
+      "SenderUsername",
+      "listCommunicationServiceKeys",
+      "listEmailServiceVerifiedExchangeOnlineDomains"
     ]
   },
   "Compute": {
@@ -3186,6 +3268,12 @@
     ],
     "2021-10-01": [
       "Budget"
+    ],
+    "2022-09-01": [
+      "Budget"
+    ],
+    "2023-03-01": [
+      "Budget"
     ]
   },
   "ContainerInstance": {
@@ -3235,6 +3323,9 @@
       "ContainerGroup"
     ],
     "2022-10-01-preview": [
+      "ContainerGroup"
+    ],
+    "2023-02-01-preview": [
       "ContainerGroup"
     ]
   },
@@ -3904,6 +3995,28 @@
       "listManagedClusterUserCredentials"
     ],
     "2023-01-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-02-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-02-02-preview": [
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -5140,6 +5253,19 @@
       "Schedule"
     ],
     "2022-11-11-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
+    ],
+    "2023-01-01-preview": [
       "AttachedNetworkByDevCenter",
       "Catalog",
       "DevBoxDefinition",
@@ -7034,7 +7160,20 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2023-02-28": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
+  },
+  "Help": {
+    "": []
   },
   "HybridCompute": {
     "2019-03-18-preview": [
@@ -7144,6 +7283,13 @@
     "2022-05-01-preview": [
       "Endpoint",
       "listEndpointCredentials",
+      "listEndpointManagedProxyDetails"
+    ],
+    "2023-03-15": [
+      "Endpoint",
+      "ServiceConfiguration",
+      "listEndpointCredentials",
+      "listEndpointIngressGatewayCredentials",
       "listEndpointManagedProxyDetails"
     ]
   },
@@ -9273,6 +9419,7 @@
     ]
   },
   "Network": {
+    "": [],
     "2015-05-01-preview": [
       "ApplicationGateway",
       "ExpressRouteCircuit",
@@ -12217,12 +12364,6 @@
     ]
   },
   "Orbital": {
-    "2021-04-04-preview": [
-      "Contact",
-      "ContactProfile",
-      "Spacecraft",
-      "listSpacecraftAvailableContacts"
-    ],
     "2022-03-01": [
       "Contact",
       "ContactProfile",
@@ -12940,6 +13081,9 @@
       "ResourceGuardProxy",
       "Vault"
     ],
+    "2023-01-15": [
+      "getRecoveryPointAccessToken"
+    ],
     "2023-02-01": [
       "PrivateEndpointConnection",
       "ProtectedItem",
@@ -13384,8 +13528,14 @@
     "2022-11-20-preview": [
       "APICollection"
     ],
+    "2023-01-01-preview": [
+      "SecurityOperator"
+    ],
     "2023-02-01-preview": [
       "SqlVulnerabilityAssessmentBaselineRule"
+    ],
+    "2023-03-01-preview": [
+      "SecurityConnector"
     ]
   },
   "SecurityAndCompliance": {
@@ -14285,6 +14435,15 @@
       "SignalRCustomCertificate",
       "SignalRCustomDomain",
       "SignalRPrivateEndpointConnection",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
+    ],
+    "2023-03-01-preview": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRReplica",
       "SignalRSharedPrivateLinkResource",
       "listSignalRKeys"
     ]
@@ -17356,6 +17515,16 @@
       "WebPubSubCustomDomain",
       "WebPubSubHub",
       "WebPubSubPrivateEndpointConnection",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
+    ],
+    "2023-03-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubReplica",
       "WebPubSubSharedPrivateLinkResource",
       "listWebPubSubKeys"
     ]

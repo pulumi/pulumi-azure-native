@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         public Output<Outputs.PropertiesResponseEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
+        /// The health status of the resource.
+        /// </summary>
+        [Output("healthStatus")]
+        public Output<string?> HealthStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the EnterprisePolicy.
         /// </summary>
         [Output("identity")]
@@ -141,6 +147,12 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         /// </summary>
         [Input("enterprisePolicyName")]
         public Input<string>? EnterprisePolicyName { get; set; }
+
+        /// <summary>
+        /// The health status of the resource.
+        /// </summary>
+        [Input("healthStatus")]
+        public InputUnion<string, Pulumi.AzureNative.PowerPlatform.V20201030Preview.HealthStatus>? HealthStatus { get; set; }
 
         /// <summary>
         /// The identity of the EnterprisePolicy.

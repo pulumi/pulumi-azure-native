@@ -12,6 +12,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview.Inputs
 
     public sealed class BareMetalMachineConfigurationDataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credentials of the baseboard management controller on this bare metal machine.
+        /// </summary>
         [Input("bmcCredentials", required: true)]
         public Input<Inputs.AdministrativeCredentialsArgs> BmcCredentials { get; set; } = null!;
 

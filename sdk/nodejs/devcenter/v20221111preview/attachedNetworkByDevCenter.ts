@@ -112,7 +112,7 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230101preview:AttachedNetworkByDevCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedNetworkByDevCenter.__pulumiType, name, resourceInputs, opts);
     }

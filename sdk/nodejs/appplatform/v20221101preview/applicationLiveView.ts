@@ -85,7 +85,7 @@ export class ApplicationLiveView extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230101preview:ApplicationLiveView" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230101preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230301preview:ApplicationLiveView" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationLiveView.__pulumiType, name, resourceInputs, opts);
     }

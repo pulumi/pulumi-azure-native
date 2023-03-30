@@ -28,6 +28,7 @@ class StorageApplianceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StorageAppliance resource.
+        :param pulumi.Input['AdministrativeCredentialsArgs'] administrator_credentials: The credentials of the administrative interface on this storage appliance.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] rack_id: The resource ID of the rack where this storage appliance resides.
         :param pulumi.Input[float] rack_slot: The slot the storage appliance is in the rack based on the BOM configuration.
@@ -55,6 +56,9 @@ class StorageApplianceArgs:
     @property
     @pulumi.getter(name="administratorCredentials")
     def administrator_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
+        """
+        The credentials of the administrative interface on this storage appliance.
+        """
         return pulumi.get(self, "administrator_credentials")
 
     @administrator_credentials.setter
@@ -191,6 +195,7 @@ class StorageAppliance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']] administrator_credentials: The credentials of the administrative interface on this storage appliance.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] rack_id: The resource ID of the rack where this storage appliance resides.
@@ -329,6 +334,9 @@ class StorageAppliance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="administratorCredentials")
     def administrator_credentials(self) -> pulumi.Output['outputs.AdministrativeCredentialsResponse']:
+        """
+        The credentials of the administrative interface on this storage appliance.
+        """
         return pulumi.get(self, "administrator_credentials")
 
     @property

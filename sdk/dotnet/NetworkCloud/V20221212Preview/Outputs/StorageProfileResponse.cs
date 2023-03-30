@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview.Outputs
     [OutputType]
     public sealed class StorageProfileResponse
     {
+        /// <summary>
+        /// The disk to use with this virtual machine.
+        /// </summary>
         public readonly Outputs.OsDiskResponse OsDisk;
         /// <summary>
         /// The resource IDs of volumes that are requested to be attached to the virtual machine.

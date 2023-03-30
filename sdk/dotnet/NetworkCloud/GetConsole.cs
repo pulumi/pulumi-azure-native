@@ -123,6 +123,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The provisioning state of the virtual machine console.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        /// </summary>
         public readonly Outputs.SshPublicKeyResponse SshPublicKey;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

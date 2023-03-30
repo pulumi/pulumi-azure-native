@@ -21,6 +21,17 @@ export const EnterprisePolicyKind = {
  */
 export type EnterprisePolicyKind = (typeof EnterprisePolicyKind)[keyof typeof EnterprisePolicyKind];
 
+export const HealthStatus = {
+    Undetermined: "Undetermined",
+    Healthy: "Healthy",
+    Unhealthy: "Unhealthy",
+} as const;
+
+/**
+ * The health status of the resource.
+ */
+export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",

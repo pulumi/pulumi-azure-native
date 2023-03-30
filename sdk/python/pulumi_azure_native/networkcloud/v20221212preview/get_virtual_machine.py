@@ -138,6 +138,9 @@ class GetVirtualMachineResult:
     @property
     @pulumi.getter(name="cloudServicesNetworkAttachment")
     def cloud_services_network_attachment(self) -> 'outputs.NetworkAttachmentResponse':
+        """
+        The cloud service network that provides platform-level services for the virtual machine.
+        """
         return pulumi.get(self, "cloud_services_network_attachment")
 
     @property
@@ -271,6 +274,9 @@ class GetVirtualMachineResult:
     @property
     @pulumi.getter(name="storageProfile")
     def storage_profile(self) -> 'outputs.StorageProfileResponse':
+        """
+        The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        """
         return pulumi.get(self, "storage_profile")
 
     @property
@@ -332,6 +338,9 @@ class GetVirtualMachineResult:
     @property
     @pulumi.getter(name="vmImageRepositoryCredentials")
     def vm_image_repository_credentials(self) -> Optional['outputs.ImageRepositoryCredentialsResponse']:
+        """
+        The credentials used to login to the image repository that has access to the specified image.
+        """
         return pulumi.get(self, "vm_image_repository_credentials")
 
     @property

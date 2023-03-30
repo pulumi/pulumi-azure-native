@@ -22,10 +22,13 @@ class GetEnterprisePolicyResult:
     """
     Definition of the EnterprisePolicy.
     """
-    def __init__(__self__, encryption=None, id=None, identity=None, kind=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, system_id=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, health_status=None, id=None, identity=None, kind=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, system_id=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if health_status and not isinstance(health_status, str):
+            raise TypeError("Expected argument 'health_status' to be a str")
+        pulumi.set(__self__, "health_status", health_status)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -67,6 +70,14 @@ class GetEnterprisePolicyResult:
         The encryption settings for a configuration store.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[str]:
+        """
+        The health status of the resource.
+        """
+        return pulumi.get(self, "health_status")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetEnterprisePolicyResult(GetEnterprisePolicyResult):
             yield self
         return GetEnterprisePolicyResult(
             encryption=self.encryption,
+            health_status=self.health_status,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
@@ -195,6 +207,7 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
 
     return AwaitableGetEnterprisePolicyResult(
         encryption=__ret__.encryption,
+        health_status=__ret__.health_status,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,

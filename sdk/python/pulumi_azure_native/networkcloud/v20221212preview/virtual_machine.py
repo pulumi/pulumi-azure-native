@@ -41,10 +41,12 @@ class VirtualMachineArgs:
         """
         The set of arguments for constructing a VirtualMachine resource.
         :param pulumi.Input[str] admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
+        :param pulumi.Input['NetworkAttachmentArgs'] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
         :param pulumi.Input[float] cpu_cores: The number of CPU cores in the virtual machine.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine in GB.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile that specifies size and other parameters about the disks related to the virtual machine.
         :param pulumi.Input[str] vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
         :param pulumi.Input[Union[str, 'VirtualMachineBootMethod']] boot_method: Selects the boot method for the virtual machine.
         :param pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']] isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
@@ -58,6 +60,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']] virtio_interface: Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']] vm_device_model: The type of the device model to use.
+        :param pulumi.Input['ImageRepositoryCredentialsArgs'] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "cloud_services_network_attachment", cloud_services_network_attachment)
@@ -117,6 +120,9 @@ class VirtualMachineArgs:
     @property
     @pulumi.getter(name="cloudServicesNetworkAttachment")
     def cloud_services_network_attachment(self) -> pulumi.Input['NetworkAttachmentArgs']:
+        """
+        The cloud service network that provides platform-level services for the virtual machine.
+        """
         return pulumi.get(self, "cloud_services_network_attachment")
 
     @cloud_services_network_attachment.setter
@@ -174,6 +180,9 @@ class VirtualMachineArgs:
     @property
     @pulumi.getter(name="storageProfile")
     def storage_profile(self) -> pulumi.Input['StorageProfileArgs']:
+        """
+        The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
@@ -339,6 +348,9 @@ class VirtualMachineArgs:
     @property
     @pulumi.getter(name="vmImageRepositoryCredentials")
     def vm_image_repository_credentials(self) -> Optional[pulumi.Input['ImageRepositoryCredentialsArgs']]:
+        """
+        The credentials used to login to the image repository that has access to the specified image.
+        """
         return pulumi.get(self, "vm_image_repository_credentials")
 
     @vm_image_repository_credentials.setter
@@ -379,6 +391,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
         :param pulumi.Input[Union[str, 'VirtualMachineBootMethod']] boot_method: Selects the boot method for the virtual machine.
+        :param pulumi.Input[pulumi.InputType['NetworkAttachmentArgs']] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
         :param pulumi.Input[float] cpu_cores: The number of CPU cores in the virtual machine.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']] isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
@@ -389,12 +402,14 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePlacementHintArgs']]]] placement_hints: The scheduling hints for the virtual machine.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]]] ssh_public_keys: The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
+        :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: The storage profile that specifies size and other parameters about the disks related to the virtual machine.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] user_data: The Base64 encoded cloud-init user data.
         :param pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']] virtio_interface: Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']] vm_device_model: The type of the device model to use.
         :param pulumi.Input[str] vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
+        :param pulumi.Input[pulumi.InputType['ImageRepositoryCredentialsArgs']] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image.
         """
         ...
     @overload
@@ -586,6 +601,9 @@ class VirtualMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cloudServicesNetworkAttachment")
     def cloud_services_network_attachment(self) -> pulumi.Output['outputs.NetworkAttachmentResponse']:
+        """
+        The cloud service network that provides platform-level services for the virtual machine.
+        """
         return pulumi.get(self, "cloud_services_network_attachment")
 
     @property
@@ -711,6 +729,9 @@ class VirtualMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageProfile")
     def storage_profile(self) -> pulumi.Output['outputs.StorageProfileResponse']:
+        """
+        The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        """
         return pulumi.get(self, "storage_profile")
 
     @property
@@ -772,6 +793,9 @@ class VirtualMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vmImageRepositoryCredentials")
     def vm_image_repository_credentials(self) -> pulumi.Output[Optional['outputs.ImageRepositoryCredentialsResponse']]:
+        """
+        The credentials used to login to the image repository that has access to the specified image.
+        """
         return pulumi.get(self, "vm_image_repository_credentials")
 
     @property

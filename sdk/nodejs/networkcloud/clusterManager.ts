@@ -70,8 +70,7 @@ export class ClusterManager extends pulumi.CustomResource {
      */
     public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.networkcloud.ManagedResourceGroupConfigurationResponse | undefined>;
     /**
-     * The extended location (custom location) that represents the cluster manager's control plane location.
-     *  This extended location is used when creating cluster and rack manifest resources.
+     * The extended location (custom location) that represents the cluster manager's control plane location. This extended location is used when creating cluster and rack manifest resources.
      */
     public /*out*/ readonly managerExtendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**

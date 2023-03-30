@@ -31,6 +31,9 @@ export interface GetClusterArgs {
 }
 
 export interface GetClusterResult {
+    /**
+     * The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+     */
     readonly aggregatorOrSingleRackDefinition: outputs.networkcloud.v20221212preview.RackDefinitionResponse;
     /**
      * The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
@@ -40,14 +43,16 @@ export interface GetClusterResult {
      * The list of cluster runtime version upgrades available for this cluster.
      */
     readonly availableUpgradeVersions: outputs.networkcloud.v20221212preview.ClusterAvailableUpgradeVersionResponse[];
-    readonly clusterCapacity?: outputs.networkcloud.v20221212preview.ClusterCapacityResponse;
+    /**
+     * The capacity supported by this cluster.
+     */
+    readonly clusterCapacity: outputs.networkcloud.v20221212preview.ClusterCapacityResponse;
     /**
      * The latest heartbeat status between the cluster manager and the cluster.
      */
     readonly clusterConnectionStatus: string;
     /**
-     * The extended location (custom location) that represents the cluster's control plane location.
-     * This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
+     * The extended location (custom location) that represents the cluster's control plane location. This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
      */
     readonly clusterExtendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
     /**
@@ -62,6 +67,9 @@ export interface GetClusterResult {
      * The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
      */
     readonly clusterManagerId: string;
+    /**
+     * The service principal to be used by the cluster during Arc Appliance installation.
+     */
     readonly clusterServicePrincipal?: outputs.networkcloud.v20221212preview.ServicePrincipalInformationResponse;
     /**
      * The type of rack configuration for the cluster.
@@ -71,6 +79,9 @@ export interface GetClusterResult {
      * The current runtime version of the cluster.
      */
     readonly clusterVersion: string;
+    /**
+     * The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+     */
     readonly computeDeploymentThreshold?: outputs.networkcloud.v20221212preview.ValidationThresholdResponse;
     /**
      * The list of rack definitions for the compute racks in a multi-rack
@@ -90,8 +101,7 @@ export interface GetClusterResult {
      */
     readonly extendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
     /**
-     * The extended location (custom location) that represents the Hybrid AKS control plane location.
-     * This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+     * The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
      */
     readonly hybridAksExtendedLocation: outputs.networkcloud.v20221212preview.ExtendedLocationResponse;
     /**

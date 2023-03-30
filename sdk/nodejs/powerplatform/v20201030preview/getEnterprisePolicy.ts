@@ -39,6 +39,10 @@ export interface GetEnterprisePolicyResult {
      */
     readonly encryption?: outputs.powerplatform.v20201030preview.PropertiesResponseEncryption;
     /**
+     * The health status of the resource.
+     */
+    readonly healthStatus?: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;

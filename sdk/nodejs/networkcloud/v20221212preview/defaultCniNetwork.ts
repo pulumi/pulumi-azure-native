@@ -42,6 +42,9 @@ export class DefaultCniNetwork extends pulumi.CustomResource {
      * The autonomous system number that the fabric expects to peer with, derived from the associated L3 isolation domain.
      */
     public /*out*/ readonly cniAsNumber!: pulumi.Output<number>;
+    /**
+     * The Calico BGP configuration.
+     */
     public readonly cniBgpConfiguration!: pulumi.Output<outputs.networkcloud.v20221212preview.CniBgpConfigurationResponse | undefined>;
     /**
      * The more detailed status of the default CNI network.
@@ -192,6 +195,9 @@ export class DefaultCniNetwork extends pulumi.CustomResource {
  * The set of arguments for constructing a DefaultCniNetwork resource.
  */
 export interface DefaultCniNetworkArgs {
+    /**
+     * The Calico BGP configuration.
+     */
     cniBgpConfiguration?: pulumi.Input<inputs.networkcloud.v20221212preview.CniBgpConfigurationArgs>;
     /**
      * The name of the default CNI network.

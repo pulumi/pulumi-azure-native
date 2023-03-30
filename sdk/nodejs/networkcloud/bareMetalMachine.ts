@@ -41,6 +41,9 @@ export class BareMetalMachine extends pulumi.CustomResource {
      * The connection string for the baseboard management controller including IP address and protocol.
      */
     public readonly bmcConnectionString!: pulumi.Output<string>;
+    /**
+     * The credentials of the baseboard management controller on this bare metal machine.
+     */
     public readonly bmcCredentials!: pulumi.Output<outputs.networkcloud.AdministrativeCredentialsResponse>;
     /**
      * The MAC address of the BMC device.
@@ -70,8 +73,14 @@ export class BareMetalMachine extends pulumi.CustomResource {
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
-    public /*out*/ readonly hardwareInventory!: pulumi.Output<outputs.networkcloud.HardwareInventoryResponse | undefined>;
-    public /*out*/ readonly hardwareValidationStatus!: pulumi.Output<outputs.networkcloud.HardwareValidationStatusResponse | undefined>;
+    /**
+     * The hardware inventory, including information acquired from the model/sku information and from the ironic inspector.
+     */
+    public /*out*/ readonly hardwareInventory!: pulumi.Output<outputs.networkcloud.HardwareInventoryResponse>;
+    /**
+     * The details of the latest hardware validation performed for this bare metal machine.
+     */
+    public /*out*/ readonly hardwareValidationStatus!: pulumi.Output<outputs.networkcloud.HardwareValidationStatusResponse>;
     /**
      * The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
      */
@@ -297,6 +306,9 @@ export interface BareMetalMachineArgs {
      * The connection string for the baseboard management controller including IP address and protocol.
      */
     bmcConnectionString: pulumi.Input<string>;
+    /**
+     * The credentials of the baseboard management controller on this bare metal machine.
+     */
     bmcCredentials: pulumi.Input<inputs.networkcloud.AdministrativeCredentialsArgs>;
     /**
      * The MAC address of the BMC device.

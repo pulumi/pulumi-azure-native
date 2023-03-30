@@ -42,6 +42,38 @@ namespace Pulumi.AzureNative.PowerPlatform
     }
 
     /// <summary>
+    /// The health status of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct HealthStatus : IEquatable<HealthStatus>
+    {
+        private readonly string _value;
+
+        private HealthStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HealthStatus Undetermined { get; } = new HealthStatus("Undetermined");
+        public static HealthStatus Healthy { get; } = new HealthStatus("Healthy");
+        public static HealthStatus Unhealthy { get; } = new HealthStatus("Unhealthy");
+
+        public static bool operator ==(HealthStatus left, HealthStatus right) => left.Equals(right);
+        public static bool operator !=(HealthStatus left, HealthStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HealthStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HealthStatus other && Equals(other);
+        public bool Equals(HealthStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]

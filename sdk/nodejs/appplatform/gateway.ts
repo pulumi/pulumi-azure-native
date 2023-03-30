@@ -92,7 +92,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:Gateway" }, { type: "azure-native:appplatform/v20220301preview:Gateway" }, { type: "azure-native:appplatform/v20220501preview:Gateway" }, { type: "azure-native:appplatform/v20220901preview:Gateway" }, { type: "azure-native:appplatform/v20221101preview:Gateway" }, { type: "azure-native:appplatform/v20221201:Gateway" }, { type: "azure-native:appplatform/v20230101preview:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:Gateway" }, { type: "azure-native:appplatform/v20220301preview:Gateway" }, { type: "azure-native:appplatform/v20220501preview:Gateway" }, { type: "azure-native:appplatform/v20220901preview:Gateway" }, { type: "azure-native:appplatform/v20221101preview:Gateway" }, { type: "azure-native:appplatform/v20221201:Gateway" }, { type: "azure-native:appplatform/v20230101preview:Gateway" }, { type: "azure-native:appplatform/v20230301preview:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }

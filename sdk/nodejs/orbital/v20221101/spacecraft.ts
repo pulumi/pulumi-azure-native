@@ -129,7 +129,7 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital:Spacecraft" }, { type: "azure-native:orbital/v20210404preview:Spacecraft" }, { type: "azure-native:orbital/v20220301:Spacecraft" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20220301:Spacecraft" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Spacecraft.__pulumiType, name, resourceInputs, opts);
     }

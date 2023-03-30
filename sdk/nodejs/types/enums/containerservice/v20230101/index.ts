@@ -178,11 +178,11 @@ export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancer
 
 export const ManagedClusterSKUName = {
     /**
-     * Basic will be removed in 07/01/2023 API version. Base will replace Basic, please switch to Base.
+     * Basic option for the AKS control plane.
      */
     Basic: "Basic",
     /**
-     * Base option for the AKS control plane.
+     * Not yet available in this version.
      */
     Base: "Base",
 } as const;
@@ -194,11 +194,11 @@ export type ManagedClusterSKUName = (typeof ManagedClusterSKUName)[keyof typeof 
 
 export const ManagedClusterSKUTier = {
     /**
-     * Paid tier will be removed in 07/01/2023 API version. Standard tier will replace Paid tier, please switch to Standard tier.
+     * Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
      */
     Paid: "Paid",
     /**
-     * Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
+     * Not yet available in this version.
      */
     Standard: "Standard",
     /**

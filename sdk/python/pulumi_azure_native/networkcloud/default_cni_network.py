@@ -34,6 +34,7 @@ class DefaultCniNetworkArgs:
         :param pulumi.Input[str] l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] vlan: The VLAN from the l3IsolationDomain that is used for this network.
+        :param pulumi.Input['CniBgpConfigurationArgs'] cni_bgp_configuration: The Calico BGP configuration.
         :param pulumi.Input[str] default_cni_network_name: The name of the default CNI network.
         :param pulumi.Input[Union[str, 'IpAllocationType']] ip_allocation_type: The type of the IP address allocation.
         :param pulumi.Input[str] ipv4_connected_prefix: The IPV4 prefix (CIDR) assigned to this default CNI network. It is required when the IP allocation type
@@ -115,6 +116,9 @@ class DefaultCniNetworkArgs:
     @property
     @pulumi.getter(name="cniBgpConfiguration")
     def cni_bgp_configuration(self) -> Optional[pulumi.Input['CniBgpConfigurationArgs']]:
+        """
+        The Calico BGP configuration.
+        """
         return pulumi.get(self, "cni_bgp_configuration")
 
     @cni_bgp_configuration.setter
@@ -218,6 +222,7 @@ class DefaultCniNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CniBgpConfigurationArgs']] cni_bgp_configuration: The Calico BGP configuration.
         :param pulumi.Input[str] default_cni_network_name: The name of the default CNI network.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Union[str, 'IpAllocationType']] ip_allocation_type: The type of the IP address allocation.
@@ -372,6 +377,9 @@ class DefaultCniNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cniBgpConfiguration")
     def cni_bgp_configuration(self) -> pulumi.Output[Optional['outputs.CniBgpConfigurationResponse']]:
+        """
+        The Calico BGP configuration.
+        """
         return pulumi.get(self, "cni_bgp_configuration")
 
     @property

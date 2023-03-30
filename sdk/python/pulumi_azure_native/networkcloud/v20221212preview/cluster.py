@@ -24,7 +24,6 @@ class ClusterArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  network_fabric_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 cluster_capacity: Optional[pulumi.Input['ClusterCapacityArgs']] = None,
                  cluster_location: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_service_principal: Optional[pulumi.Input['ServicePrincipalInformationArgs']] = None,
@@ -35,6 +34,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input['RackDefinitionArgs'] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
         :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         :param pulumi.Input[Union[str, 'ClusterType']] cluster_type: The type of rack configuration for the cluster.
         :param pulumi.Input[str] cluster_version: The current runtime version of the cluster.
@@ -43,6 +43,8 @@ class ClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] cluster_location: The customer-provided location information to identify where the cluster resides.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
+        :param pulumi.Input['ServicePrincipalInformationArgs'] cluster_service_principal: The service principal to be used by the cluster during Arc Appliance installation.
+        :param pulumi.Input['ValidationThresholdArgs'] compute_deployment_threshold: The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         :param pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
                cluster, or an empty list in a single-rack cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -56,8 +58,6 @@ class ClusterArgs:
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cluster_capacity is not None:
-            pulumi.set(__self__, "cluster_capacity", cluster_capacity)
         if cluster_location is not None:
             pulumi.set(__self__, "cluster_location", cluster_location)
         if cluster_name is not None:
@@ -78,6 +78,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="aggregatorOrSingleRackDefinition")
     def aggregator_or_single_rack_definition(self) -> pulumi.Input['RackDefinitionArgs']:
+        """
+        The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+        """
         return pulumi.get(self, "aggregator_or_single_rack_definition")
 
     @aggregator_or_single_rack_definition.setter
@@ -157,15 +160,6 @@ class ClusterArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="clusterCapacity")
-    def cluster_capacity(self) -> Optional[pulumi.Input['ClusterCapacityArgs']]:
-        return pulumi.get(self, "cluster_capacity")
-
-    @cluster_capacity.setter
-    def cluster_capacity(self, value: Optional[pulumi.Input['ClusterCapacityArgs']]):
-        pulumi.set(self, "cluster_capacity", value)
-
-    @property
     @pulumi.getter(name="clusterLocation")
     def cluster_location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -192,6 +186,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterServicePrincipal")
     def cluster_service_principal(self) -> Optional[pulumi.Input['ServicePrincipalInformationArgs']]:
+        """
+        The service principal to be used by the cluster during Arc Appliance installation.
+        """
         return pulumi.get(self, "cluster_service_principal")
 
     @cluster_service_principal.setter
@@ -201,6 +198,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="computeDeploymentThreshold")
     def compute_deployment_threshold(self) -> Optional[pulumi.Input['ValidationThresholdArgs']]:
+        """
+        The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+        """
         return pulumi.get(self, "compute_deployment_threshold")
 
     @compute_deployment_threshold.setter
@@ -264,7 +264,6 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregator_or_single_rack_definition: Optional[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]] = None,
                  analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 cluster_capacity: Optional[pulumi.Input[pulumi.InputType['ClusterCapacityArgs']]] = None,
                  cluster_location: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalInformationArgs']]] = None,
@@ -283,11 +282,14 @@ class Cluster(pulumi.CustomResource):
         Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['RackDefinitionArgs']] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
         :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         :param pulumi.Input[str] cluster_location: The customer-provided location information to identify where the cluster resides.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
+        :param pulumi.Input[pulumi.InputType['ServicePrincipalInformationArgs']] cluster_service_principal: The service principal to be used by the cluster during Arc Appliance installation.
         :param pulumi.Input[Union[str, 'ClusterType']] cluster_type: The type of rack configuration for the cluster.
         :param pulumi.Input[str] cluster_version: The current runtime version of the cluster.
+        :param pulumi.Input[pulumi.InputType['ValidationThresholdArgs']] compute_deployment_threshold: The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]]] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
                cluster, or an empty list in a single-rack cluster.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster manager associated with the cluster.
@@ -322,7 +324,6 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregator_or_single_rack_definition: Optional[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]] = None,
                  analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 cluster_capacity: Optional[pulumi.Input[pulumi.InputType['ClusterCapacityArgs']]] = None,
                  cluster_location: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalInformationArgs']]] = None,
@@ -351,7 +352,6 @@ class Cluster(pulumi.CustomResource):
             if analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'analytics_workspace_id'")
             __props__.__dict__["analytics_workspace_id"] = analytics_workspace_id
-            __props__.__dict__["cluster_capacity"] = cluster_capacity
             __props__.__dict__["cluster_location"] = cluster_location
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_service_principal"] = cluster_service_principal
@@ -376,6 +376,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["available_upgrade_versions"] = None
+            __props__.__dict__["cluster_capacity"] = None
             __props__.__dict__["cluster_connection_status"] = None
             __props__.__dict__["cluster_extended_location"] = None
             __props__.__dict__["cluster_manager_connection_status"] = None
@@ -448,6 +449,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aggregatorOrSingleRackDefinition")
     def aggregator_or_single_rack_definition(self) -> pulumi.Output['outputs.RackDefinitionResponse']:
+        """
+        The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+        """
         return pulumi.get(self, "aggregator_or_single_rack_definition")
 
     @property
@@ -468,7 +472,10 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterCapacity")
-    def cluster_capacity(self) -> pulumi.Output[Optional['outputs.ClusterCapacityResponse']]:
+    def cluster_capacity(self) -> pulumi.Output['outputs.ClusterCapacityResponse']:
+        """
+        The capacity supported by this cluster.
+        """
         return pulumi.get(self, "cluster_capacity")
 
     @property
@@ -483,8 +490,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterExtendedLocation")
     def cluster_extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
         """
-        The extended location (custom location) that represents the cluster's control plane location.
-        This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
+        The extended location (custom location) that represents the cluster's control plane location. This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
         """
         return pulumi.get(self, "cluster_extended_location")
 
@@ -515,6 +521,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterServicePrincipal")
     def cluster_service_principal(self) -> pulumi.Output[Optional['outputs.ServicePrincipalInformationResponse']]:
+        """
+        The service principal to be used by the cluster during Arc Appliance installation.
+        """
         return pulumi.get(self, "cluster_service_principal")
 
     @property
@@ -536,6 +545,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="computeDeploymentThreshold")
     def compute_deployment_threshold(self) -> pulumi.Output[Optional['outputs.ValidationThresholdResponse']]:
+        """
+        The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+        """
         return pulumi.get(self, "compute_deployment_threshold")
 
     @property
@@ -575,8 +587,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksExtendedLocation")
     def hybrid_aks_extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
         """
-        The extended location (custom location) that represents the Hybrid AKS control plane location.
-        This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         """
         return pulumi.get(self, "hybrid_aks_extended_location")
 

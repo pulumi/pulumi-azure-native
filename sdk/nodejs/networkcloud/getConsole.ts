@@ -77,6 +77,9 @@ export interface GetConsoleResult {
      * The provisioning state of the virtual machine console.
      */
     readonly provisioningState: string;
+    /**
+     * The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+     */
     readonly sshPublicKey: outputs.networkcloud.SshPublicKeyResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.

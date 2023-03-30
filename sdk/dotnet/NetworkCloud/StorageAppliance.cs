@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.NetworkCloud
     [AzureNativeResourceType("azure-native:networkcloud:StorageAppliance")]
     public partial class StorageAppliance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The credentials of the administrative interface on this storage appliance.
+        /// </summary>
         [Output("administratorCredentials")]
         public Output<Outputs.AdministrativeCredentialsResponse> AdministratorCredentials { get; private set; } = null!;
 
@@ -181,6 +184,9 @@ namespace Pulumi.AzureNative.NetworkCloud
 
     public sealed class StorageApplianceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credentials of the administrative interface on this storage appliance.
+        /// </summary>
         [Input("administratorCredentials", required: true)]
         public Input<Inputs.AdministrativeCredentialsArgs> AdministratorCredentials { get; set; } = null!;
 

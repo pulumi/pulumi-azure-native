@@ -33,6 +33,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("bootMethod")]
         public Output<string?> BootMethod { get; private set; } = null!;
 
+        /// <summary>
+        /// The cloud service network that provides platform-level services for the virtual machine.
+        /// </summary>
         [Output("cloudServicesNetworkAttachment")]
         public Output<Outputs.NetworkAttachmentResponse> CloudServicesNetworkAttachment { get; private set; } = null!;
 
@@ -126,6 +129,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("sshPublicKeys")]
         public Output<ImmutableArray<Outputs.SshPublicKeyResponse>> SshPublicKeys { get; private set; } = null!;
 
+        /// <summary>
+        /// The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        /// </summary>
         [Output("storageProfile")]
         public Output<Outputs.StorageProfileResponse> StorageProfile { get; private set; } = null!;
 
@@ -171,6 +177,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Output("vmImage")]
         public Output<string> VmImage { get; private set; } = null!;
 
+        /// <summary>
+        /// The credentials used to login to the image repository that has access to the specified image.
+        /// </summary>
         [Output("vmImageRepositoryCredentials")]
         public Output<Outputs.ImageRepositoryCredentialsResponse?> VmImageRepositoryCredentials { get; private set; } = null!;
 
@@ -241,6 +250,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("bootMethod")]
         public InputUnion<string, Pulumi.AzureNative.NetworkCloud.VirtualMachineBootMethod>? BootMethod { get; set; }
 
+        /// <summary>
+        /// The cloud service network that provides platform-level services for the virtual machine.
+        /// </summary>
         [Input("cloudServicesNetworkAttachment", required: true)]
         public Input<Inputs.NetworkAttachmentArgs> CloudServicesNetworkAttachment { get; set; } = null!;
 
@@ -322,6 +334,9 @@ namespace Pulumi.AzureNative.NetworkCloud
             set => _sshPublicKeys = value;
         }
 
+        /// <summary>
+        /// The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        /// </summary>
         [Input("storageProfile", required: true)]
         public Input<Inputs.StorageProfileArgs> StorageProfile { get; set; } = null!;
 
@@ -367,6 +382,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("vmImage", required: true)]
         public Input<string> VmImage { get; set; } = null!;
 
+        /// <summary>
+        /// The credentials used to login to the image repository that has access to the specified image.
+        /// </summary>
         [Input("vmImageRepositoryCredentials")]
         public Input<Inputs.ImageRepositoryCredentialsArgs>? VmImageRepositoryCredentials { get; set; }
 

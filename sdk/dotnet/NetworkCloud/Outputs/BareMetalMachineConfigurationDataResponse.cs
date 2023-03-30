@@ -17,6 +17,9 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// The connection string for the baseboard management controller including IP address and protocol.
         /// </summary>
         public readonly string BmcConnectionString;
+        /// <summary>
+        /// The credentials of the baseboard management controller on this bare metal machine.
+        /// </summary>
         public readonly Outputs.AdministrativeCredentialsResponse BmcCredentials;
         /// <summary>
         /// The MAC address of the BMC for this machine.

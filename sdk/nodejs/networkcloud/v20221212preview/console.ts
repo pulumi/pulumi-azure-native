@@ -70,6 +70,9 @@ export class Console extends pulumi.CustomResource {
      * The provisioning state of the virtual machine console.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+     */
     public readonly sshPublicKey!: pulumi.Output<outputs.networkcloud.v20221212preview.SshPublicKeyResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -182,6 +185,9 @@ export interface ConsoleArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+     */
     sshPublicKey: pulumi.Input<inputs.networkcloud.v20221212preview.SshPublicKeyArgs>;
     /**
      * Resource tags.

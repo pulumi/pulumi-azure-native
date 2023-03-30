@@ -69,6 +69,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+        /// </summary>
         public readonly Outputs.RackDefinitionResponse AggregatorOrSingleRackDefinition;
         /// <summary>
         /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
@@ -78,14 +81,16 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// The list of cluster runtime version upgrades available for this cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse> AvailableUpgradeVersions;
-        public readonly Outputs.ClusterCapacityResponse? ClusterCapacity;
+        /// <summary>
+        /// The capacity supported by this cluster.
+        /// </summary>
+        public readonly Outputs.ClusterCapacityResponse ClusterCapacity;
         /// <summary>
         /// The latest heartbeat status between the cluster manager and the cluster.
         /// </summary>
         public readonly string ClusterConnectionStatus;
         /// <summary>
-        /// The extended location (custom location) that represents the cluster's control plane location.
-        /// This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
+        /// The extended location (custom location) that represents the cluster's control plane location. This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ClusterExtendedLocation;
         /// <summary>
@@ -100,6 +105,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
         /// </summary>
         public readonly string ClusterManagerId;
+        /// <summary>
+        /// The service principal to be used by the cluster during Arc Appliance installation.
+        /// </summary>
         public readonly Outputs.ServicePrincipalInformationResponse? ClusterServicePrincipal;
         /// <summary>
         /// The type of rack configuration for the cluster.
@@ -109,6 +117,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// The current runtime version of the cluster.
         /// </summary>
         public readonly string ClusterVersion;
+        /// <summary>
+        /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+        /// </summary>
         public readonly Outputs.ValidationThresholdResponse? ComputeDeploymentThreshold;
         /// <summary>
         /// The list of rack definitions for the compute racks in a multi-rack
@@ -128,8 +139,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The extended location (custom location) that represents the Hybrid AKS control plane location.
-        /// This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        /// The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse HybridAksExtendedLocation;
         /// <summary>
@@ -189,7 +199,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 
             ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse> availableUpgradeVersions,
 
-            Outputs.ClusterCapacityResponse? clusterCapacity,
+            Outputs.ClusterCapacityResponse clusterCapacity,
 
             string clusterConnectionStatus,
 

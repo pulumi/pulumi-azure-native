@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly Outputs.PropertiesResponseEncryption? Encryption;
         /// <summary>
+        /// The health status of the resource.
+        /// </summary>
+        public readonly string? HealthStatus;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.PowerPlatform
         private GetEnterprisePolicyResult(
             Outputs.PropertiesResponseEncryption? encryption,
 
+            string? healthStatus,
+
             string id,
 
             Outputs.EnterprisePolicyIdentityResponse? identity,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.PowerPlatform
             string type)
         {
             Encryption = encryption;
+            HealthStatus = healthStatus;
             Id = id;
             Identity = identity;
             Kind = kind;

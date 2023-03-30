@@ -24,6 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The SSH public key for this user.
+        /// </summary>
         [Input("sshPublicKey", required: true)]
         public Input<Inputs.SshPublicKeyArgs> SshPublicKey { get; set; } = null!;
 

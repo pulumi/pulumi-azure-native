@@ -100,8 +100,6 @@ namespace Pulumi.AzureNative.Orbital.V20221101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital:Spacecraft"},
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Spacecraft"},
                     new global::Pulumi.Alias { Type = "azure-native:orbital/v20220301:Spacecraft"},
                 },
             };

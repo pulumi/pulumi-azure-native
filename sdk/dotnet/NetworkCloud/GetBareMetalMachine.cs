@@ -75,6 +75,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The connection string for the baseboard management controller including IP address and protocol.
         /// </summary>
         public readonly string BmcConnectionString;
+        /// <summary>
+        /// The credentials of the baseboard management controller on this bare metal machine.
+        /// </summary>
         public readonly Outputs.AdministrativeCredentialsResponse BmcCredentials;
         /// <summary>
         /// The MAC address of the BMC device.
@@ -104,8 +107,14 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
-        public readonly Outputs.HardwareInventoryResponse? HardwareInventory;
-        public readonly Outputs.HardwareValidationStatusResponse? HardwareValidationStatus;
+        /// <summary>
+        /// The hardware inventory, including information acquired from the model/sku information and from the ironic inspector.
+        /// </summary>
+        public readonly Outputs.HardwareInventoryResponse HardwareInventory;
+        /// <summary>
+        /// The details of the latest hardware validation performed for this bare metal machine.
+        /// </summary>
+        public readonly Outputs.HardwareValidationStatusResponse HardwareValidationStatus;
         /// <summary>
         /// The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
         /// </summary>
@@ -219,9 +228,9 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
-            Outputs.HardwareInventoryResponse? hardwareInventory,
+            Outputs.HardwareInventoryResponse hardwareInventory,
 
-            Outputs.HardwareValidationStatusResponse? hardwareValidationStatus,
+            Outputs.HardwareValidationStatusResponse hardwareValidationStatus,
 
             ImmutableArray<string> hybridAksClustersAssociatedIds,
 

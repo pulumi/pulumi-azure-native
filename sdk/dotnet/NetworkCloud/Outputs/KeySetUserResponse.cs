@@ -21,6 +21,9 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// The free-form description for this user.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The SSH public key for this user.
+        /// </summary>
         public readonly Outputs.SshPublicKeyResponse SshPublicKey;
 
         [OutputConstructor]

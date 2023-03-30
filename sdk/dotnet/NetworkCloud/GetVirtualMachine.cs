@@ -83,6 +83,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Selects the boot method for the virtual machine.
         /// </summary>
         public readonly string? BootMethod;
+        /// <summary>
+        /// The cloud service network that provides platform-level services for the virtual machine.
+        /// </summary>
         public readonly Outputs.NetworkAttachmentResponse CloudServicesNetworkAttachment;
         /// <summary>
         /// The resource ID of the cluster the virtual machine is created for.
@@ -148,6 +151,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
         /// </summary>
         public readonly ImmutableArray<Outputs.SshPublicKeyResponse> SshPublicKeys;
+        /// <summary>
+        /// The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        /// </summary>
         public readonly Outputs.StorageProfileResponse StorageProfile;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -177,6 +183,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
         /// </summary>
         public readonly string VmImage;
+        /// <summary>
+        /// The credentials used to login to the image repository that has access to the specified image.
+        /// </summary>
         public readonly Outputs.ImageRepositoryCredentialsResponse? VmImageRepositoryCredentials;
         /// <summary>
         /// The resource IDs of volumes that are attached to the virtual machine.

@@ -134,6 +134,9 @@ class GetBareMetalMachineResult:
     @property
     @pulumi.getter(name="bmcCredentials")
     def bmc_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
+        """
+        The credentials of the baseboard management controller on this bare metal machine.
+        """
         return pulumi.get(self, "bmc_credentials")
 
     @property
@@ -194,12 +197,18 @@ class GetBareMetalMachineResult:
 
     @property
     @pulumi.getter(name="hardwareInventory")
-    def hardware_inventory(self) -> Optional['outputs.HardwareInventoryResponse']:
+    def hardware_inventory(self) -> 'outputs.HardwareInventoryResponse':
+        """
+        The hardware inventory, including information acquired from the model/sku information and from the ironic inspector.
+        """
         return pulumi.get(self, "hardware_inventory")
 
     @property
     @pulumi.getter(name="hardwareValidationStatus")
-    def hardware_validation_status(self) -> Optional['outputs.HardwareValidationStatusResponse']:
+    def hardware_validation_status(self) -> 'outputs.HardwareValidationStatusResponse':
+        """
+        The details of the latest hardware validation performed for this bare metal machine.
+        """
         return pulumi.get(self, "hardware_validation_status")
 
     @property

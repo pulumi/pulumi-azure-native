@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview.Outputs
     [OutputType]
     public sealed class StorageApplianceConfigurationDataResponse
     {
+        /// <summary>
+        /// The credentials of the administrative interface on this storage appliance.
+        /// </summary>
         public readonly Outputs.AdministrativeCredentialsResponse AdminCredentials;
         /// <summary>
         /// The slot that storage appliance is in the rack based on the BOM configuration.

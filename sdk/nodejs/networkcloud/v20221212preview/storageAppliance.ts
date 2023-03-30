@@ -34,6 +34,9 @@ export class StorageAppliance extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageAppliance.__pulumiType;
     }
 
+    /**
+     * The credentials of the administrative interface on this storage appliance.
+     */
     public readonly administratorCredentials!: pulumi.Output<outputs.networkcloud.v20221212preview.AdministrativeCredentialsResponse>;
     /**
      * The total capacity of the storage appliance.
@@ -199,6 +202,9 @@ export class StorageAppliance extends pulumi.CustomResource {
  * The set of arguments for constructing a StorageAppliance resource.
  */
 export interface StorageApplianceArgs {
+    /**
+     * The credentials of the administrative interface on this storage appliance.
+     */
     administratorCredentials: pulumi.Input<inputs.networkcloud.v20221212preview.AdministrativeCredentialsArgs>;
     /**
      * The extended location of the cluster associated with the resource.

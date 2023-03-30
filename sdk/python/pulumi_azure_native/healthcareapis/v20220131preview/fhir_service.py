@@ -357,7 +357,7 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:FhirService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:FhirService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FhirService, __self__).__init__(
             'azure-native:healthcareapis/v20220131preview:FhirService',

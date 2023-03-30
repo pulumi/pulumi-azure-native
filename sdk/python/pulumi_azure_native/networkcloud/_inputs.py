@@ -14,7 +14,6 @@ __all__ = [
     'AdministrativeCredentialsArgs',
     'BareMetalMachineConfigurationDataArgs',
     'BgpPeerArgs',
-    'ClusterCapacityArgs',
     'CniBgpConfigurationArgs',
     'CommunityAdvertisementArgs',
     'EgressEndpointArgs',
@@ -82,6 +81,7 @@ class BareMetalMachineConfigurationDataArgs:
                  machine_details: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['AdministrativeCredentialsArgs'] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
         :param pulumi.Input[str] bmc_mac_address: The MAC address of the BMC for this machine.
         :param pulumi.Input[str] boot_mac_address: The MAC address associated with the PXE NIC card.
         :param pulumi.Input[float] rack_slot: The slot the physical machine is in the rack based on the BOM configuration.
@@ -103,6 +103,9 @@ class BareMetalMachineConfigurationDataArgs:
     @property
     @pulumi.getter(name="bmcCredentials")
     def bmc_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
+        """
+        The credentials of the baseboard management controller on this bare metal machine.
+        """
         return pulumi.get(self, "bmc_credentials")
 
     @bmc_credentials.setter
@@ -234,141 +237,6 @@ class BgpPeerArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
-
-
-@pulumi.input_type
-class ClusterCapacityArgs:
-    def __init__(__self__, *,
-                 available_appliance_storage_gb: Optional[pulumi.Input[float]] = None,
-                 available_core_count: Optional[pulumi.Input[float]] = None,
-                 available_host_storage_gb: Optional[pulumi.Input[float]] = None,
-                 available_memory_gb: Optional[pulumi.Input[float]] = None,
-                 total_appliance_storage_gb: Optional[pulumi.Input[float]] = None,
-                 total_core_count: Optional[pulumi.Input[float]] = None,
-                 total_host_storage_gb: Optional[pulumi.Input[float]] = None,
-                 total_memory_gb: Optional[pulumi.Input[float]] = None):
-        """
-        :param pulumi.Input[float] available_appliance_storage_gb: The remaining appliance-based storage in GB available for workload use.
-        :param pulumi.Input[float] available_core_count: The remaining number of cores that are available in this cluster for workload use.
-        :param pulumi.Input[float] available_host_storage_gb: The remaining machine or host-based storage in GB available for workload use.
-        :param pulumi.Input[float] available_memory_gb: The remaining memory in GB that are available in this cluster for workload use.
-        :param pulumi.Input[float] total_appliance_storage_gb: The total appliance-based storage in GB supported by this cluster for workload use.
-        :param pulumi.Input[float] total_core_count: The total number of cores that are supported by this cluster for workload use.
-        :param pulumi.Input[float] total_host_storage_gb: The total machine or host-based storage in GB supported by this cluster for workload use.
-        :param pulumi.Input[float] total_memory_gb: The total memory supported by this cluster for workload use.
-        """
-        if available_appliance_storage_gb is not None:
-            pulumi.set(__self__, "available_appliance_storage_gb", available_appliance_storage_gb)
-        if available_core_count is not None:
-            pulumi.set(__self__, "available_core_count", available_core_count)
-        if available_host_storage_gb is not None:
-            pulumi.set(__self__, "available_host_storage_gb", available_host_storage_gb)
-        if available_memory_gb is not None:
-            pulumi.set(__self__, "available_memory_gb", available_memory_gb)
-        if total_appliance_storage_gb is not None:
-            pulumi.set(__self__, "total_appliance_storage_gb", total_appliance_storage_gb)
-        if total_core_count is not None:
-            pulumi.set(__self__, "total_core_count", total_core_count)
-        if total_host_storage_gb is not None:
-            pulumi.set(__self__, "total_host_storage_gb", total_host_storage_gb)
-        if total_memory_gb is not None:
-            pulumi.set(__self__, "total_memory_gb", total_memory_gb)
-
-    @property
-    @pulumi.getter(name="availableApplianceStorageGB")
-    def available_appliance_storage_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        The remaining appliance-based storage in GB available for workload use.
-        """
-        return pulumi.get(self, "available_appliance_storage_gb")
-
-    @available_appliance_storage_gb.setter
-    def available_appliance_storage_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "available_appliance_storage_gb", value)
-
-    @property
-    @pulumi.getter(name="availableCoreCount")
-    def available_core_count(self) -> Optional[pulumi.Input[float]]:
-        """
-        The remaining number of cores that are available in this cluster for workload use.
-        """
-        return pulumi.get(self, "available_core_count")
-
-    @available_core_count.setter
-    def available_core_count(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "available_core_count", value)
-
-    @property
-    @pulumi.getter(name="availableHostStorageGB")
-    def available_host_storage_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        The remaining machine or host-based storage in GB available for workload use.
-        """
-        return pulumi.get(self, "available_host_storage_gb")
-
-    @available_host_storage_gb.setter
-    def available_host_storage_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "available_host_storage_gb", value)
-
-    @property
-    @pulumi.getter(name="availableMemoryGB")
-    def available_memory_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        The remaining memory in GB that are available in this cluster for workload use.
-        """
-        return pulumi.get(self, "available_memory_gb")
-
-    @available_memory_gb.setter
-    def available_memory_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "available_memory_gb", value)
-
-    @property
-    @pulumi.getter(name="totalApplianceStorageGB")
-    def total_appliance_storage_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        The total appliance-based storage in GB supported by this cluster for workload use.
-        """
-        return pulumi.get(self, "total_appliance_storage_gb")
-
-    @total_appliance_storage_gb.setter
-    def total_appliance_storage_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "total_appliance_storage_gb", value)
-
-    @property
-    @pulumi.getter(name="totalCoreCount")
-    def total_core_count(self) -> Optional[pulumi.Input[float]]:
-        """
-        The total number of cores that are supported by this cluster for workload use.
-        """
-        return pulumi.get(self, "total_core_count")
-
-    @total_core_count.setter
-    def total_core_count(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "total_core_count", value)
-
-    @property
-    @pulumi.getter(name="totalHostStorageGB")
-    def total_host_storage_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        The total machine or host-based storage in GB supported by this cluster for workload use.
-        """
-        return pulumi.get(self, "total_host_storage_gb")
-
-    @total_host_storage_gb.setter
-    def total_host_storage_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "total_host_storage_gb", value)
-
-    @property
-    @pulumi.getter(name="totalMemoryGB")
-    def total_memory_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        The total memory supported by this cluster for workload use.
-        """
-        return pulumi.get(self, "total_memory_gb")
-
-    @total_memory_gb.setter
-    def total_memory_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "total_memory_gb", value)
 
 
 @pulumi.input_type
@@ -671,6 +539,7 @@ class KeySetUserArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] azure_user_name: The Azure Active Directory user name (email name).
+        :param pulumi.Input['SshPublicKeyArgs'] ssh_public_key: The SSH public key for this user.
         :param pulumi.Input[str] description: The free-form description for this user.
         """
         pulumi.set(__self__, "azure_user_name", azure_user_name)
@@ -693,6 +562,9 @@ class KeySetUserArgs:
     @property
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> pulumi.Input['SshPublicKeyArgs']:
+        """
+        The SSH public key for this user.
+        """
         return pulumi.get(self, "ssh_public_key")
 
     @ssh_public_key.setter
@@ -1165,6 +1037,7 @@ class StorageApplianceConfigurationDataArgs:
                  serial_number: pulumi.Input[str],
                  storage_appliance_name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['AdministrativeCredentialsArgs'] admin_credentials: The credentials of the administrative interface on this storage appliance.
         :param pulumi.Input[float] rack_slot: The slot that storage appliance is in the rack based on the BOM configuration.
         :param pulumi.Input[str] serial_number: The serial number of the appliance.
         :param pulumi.Input[str] storage_appliance_name: The user-provided name for the storage appliance that will be created from this specification.
@@ -1178,6 +1051,9 @@ class StorageApplianceConfigurationDataArgs:
     @property
     @pulumi.getter(name="adminCredentials")
     def admin_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
+        """
+        The credentials of the administrative interface on this storage appliance.
+        """
         return pulumi.get(self, "admin_credentials")
 
     @admin_credentials.setter
@@ -1227,6 +1103,7 @@ class StorageProfileArgs:
                  os_disk: pulumi.Input['OsDiskArgs'],
                  volume_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input['OsDiskArgs'] os_disk: The disk to use with this virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_attachments: The resource IDs of volumes that are requested to be attached to the virtual machine.
         """
         pulumi.set(__self__, "os_disk", os_disk)
@@ -1236,6 +1113,9 @@ class StorageProfileArgs:
     @property
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> pulumi.Input['OsDiskArgs']:
+        """
+        The disk to use with this virtual machine.
+        """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter

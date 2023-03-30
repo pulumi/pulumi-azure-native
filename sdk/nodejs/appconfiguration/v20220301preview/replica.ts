@@ -97,6 +97,8 @@ export class Replica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20230301:Replica" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Replica.__pulumiType, name, resourceInputs, opts);
     }
 }
