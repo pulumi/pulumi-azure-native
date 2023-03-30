@@ -22,10 +22,6 @@ func BenchmarkGen(b *testing.B) {
 
 	// Test each provider
 	for k := range versionSources.v2Spec {
-		// These providers have specs with relative paths that fail to parse when not run from the root of the repo
-		if k == "ImportExport" || k == "ResourceHealth" {
-			continue
-		}
 		specs, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), k)
 		if err != nil {
 			b.Fatal(err)

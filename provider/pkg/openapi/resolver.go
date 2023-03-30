@@ -5,6 +5,7 @@ package openapi
 import (
 	"fmt"
 	"net/url"
+	"regexp"
 
 	"github.com/go-openapi/jsonreference"
 	"github.com/go-openapi/spec"
@@ -281,7 +282,17 @@ func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, e
 	referenceName := ptr.DecodedTokens()[len(ptr.DecodedTokens())-1]
 	relative, err := url.Parse(ref.RemoteURI())
 	if err == nil && ref.RemoteURI() != "" {
+		// HACK: url.ResolveReference drops leading "../" so we need to re-add these after resolving
+		urlPrefix := ""
+		if !ctx.url.IsAbs() {
+			re := regexp.MustCompile(`^(\.\./)+`)
+			matches := re.FindStringSubmatch(ctx.url.Path)
+			if len(matches) > 0 {
+				urlPrefix = matches[0]
+			}
+		}
 		finalURL := ctx.url.ResolveReference(relative)
+		finalURL.Path = urlPrefix + finalURL.Path
 		swagger, err := loadSwaggerSpec(finalURL.String())
 		if err != nil {
 			return nil, false, errors.Wrapf(err, "load Swagger spec")
