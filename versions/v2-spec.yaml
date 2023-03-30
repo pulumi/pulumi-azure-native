@@ -32,6 +32,8 @@ AppComplianceAutomation:
     tracking: 2022-11-16-preview
 AppConfiguration:
     tracking: "2022-05-01"
+    additions:
+        Replica: "2023-03-01"
 AppPlatform:
     tracking: "2022-12-01"
 Attestation:
@@ -287,10 +289,14 @@ HealthBot:
     tracking: "2022-08-08"
 HealthcareApis:
     tracking: "2022-12-01"
+Help: {}
 HybridCompute:
     tracking: "2022-11-10"
 HybridConnectivity:
     tracking: 2022-05-01-preview
+    additions:
+        ServiceConfiguration: "2023-03-15"
+        listEndpointIngressGatewayCredentials: "2023-03-15"
 HybridContainerService:
     tracking: 2022-09-01-preview
 HybridData:
@@ -696,6 +702,7 @@ Security:
         JitNetworkAccessPolicy: "2020-01-01"
         SecurityConnector: 2022-08-01-preview
         SecurityConnectorApplication: 2022-07-01-preview
+        SecurityOperator: 2023-01-01-preview
         ServerVulnerabilityAssessment: "2020-01-01"
         SqlVulnerabilityAssessmentBaselineRule: 2023-02-01-preview
 SecurityAndCompliance:

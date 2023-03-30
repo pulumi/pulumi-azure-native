@@ -149,6 +149,7 @@
     "ConfigurationStore": "2022-05-01",
     "KeyValue": "2022-05-01",
     "PrivateEndpointConnection": "2022-05-01",
+    "Replica": "2023-03-01",
     "listConfigurationStoreKeys": "2022-05-01"
   },
   "AppPlatform": {
@@ -896,6 +897,7 @@
     "Workspace": "2022-12-01",
     "WorkspacePrivateEndpointConnection": "2022-12-01"
   },
+  "Help": {},
   "HybridCompute": {
     "Machine": "2022-11-10",
     "MachineExtension": "2022-11-10",
@@ -904,7 +906,9 @@
   },
   "HybridConnectivity": {
     "Endpoint": "2022-05-01-preview",
+    "ServiceConfiguration": "2023-03-15",
     "listEndpointCredentials": "2022-05-01-preview",
+    "listEndpointIngressGatewayCredentials": "2023-03-15",
     "listEndpointManagedProxyDetails": "2022-05-01-preview"
   },
   "HybridContainerService": {
@@ -1646,6 +1650,7 @@
     "JitNetworkAccessPolicy": "2020-01-01",
     "SecurityConnector": "2022-08-01-preview",
     "SecurityConnectorApplication": "2022-07-01-preview",
+    "SecurityOperator": "2023-01-01-preview",
     "ServerVulnerabilityAssessment": "2020-01-01",
     "SqlVulnerabilityAssessmentBaselineRule": "2023-02-01-preview"
   },
