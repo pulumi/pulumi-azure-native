@@ -276,7 +276,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-native:devcenter/v20220901preview:Schedule',

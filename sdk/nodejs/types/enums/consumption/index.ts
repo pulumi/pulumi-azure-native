@@ -18,7 +18,6 @@ import * as v20191101 from "./v20191101";
 import * as v20210501 from "./v20210501";
 import * as v20211001 from "./v20211001";
 import * as v20220901 from "./v20220901";
-import * as v20230301 from "./v20230301";
 
 export {
     v20171230preview,
@@ -37,7 +36,6 @@ export {
     v20210501,
     v20211001,
     v20220901,
-    v20230301,
 };
 
 export const BudgetOperatorType = {

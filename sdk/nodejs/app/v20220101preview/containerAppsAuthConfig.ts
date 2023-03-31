@@ -108,7 +108,7 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220301:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220601preview:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20221001:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20221101preview:ContainerAppsAuthConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220301:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220601preview:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20221001:ContainerAppsAuthConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerAppsAuthConfig.__pulumiType, name, resourceInputs, opts);
     }

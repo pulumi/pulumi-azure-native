@@ -115,7 +115,7 @@ export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubSharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }

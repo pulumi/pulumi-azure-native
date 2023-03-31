@@ -171,7 +171,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Gateway"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:appplatform/v20220301preview:Gateway',

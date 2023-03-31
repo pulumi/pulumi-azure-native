@@ -14,7 +14,6 @@ import * as v20220901preview from "./v20220901preview";
 import * as v20221101preview from "./v20221101preview";
 import * as v20221201 from "./v20221201";
 import * as v20230101preview from "./v20230101preview";
-import * as v20230301preview from "./v20230301preview";
 
 export {
     v20200701,
@@ -29,7 +28,6 @@ export {
     v20221101preview,
     v20221201,
     v20230101preview,
-    v20230301preview,
 };
 
 export const BindingType = {
