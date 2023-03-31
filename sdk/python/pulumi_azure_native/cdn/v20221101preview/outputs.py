@@ -306,14 +306,96 @@ class AzureFirstPartyManagedCertificateParametersResponse(dict):
     """
     Azure FirstParty Managed Certificate provided by other first party resource providers to enable HTTPS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthority":
+            suggest = "certificate_authority"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "secretSource":
+            suggest = "secret_source"
+        elif key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirstPartyManagedCertificateParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirstPartyManagedCertificateParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirstPartyManagedCertificateParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: str):
+                 certificate_authority: str,
+                 expiration_date: str,
+                 secret_source: 'outputs.ResourceReferenceResponse',
+                 subject: str,
+                 thumbprint: str,
+                 type: str,
+                 subject_alternative_names: Optional[Sequence[str]] = None):
         """
         Azure FirstParty Managed Certificate provided by other first party resource providers to enable HTTPS.
+        :param str certificate_authority: Certificate issuing authority.
+        :param str expiration_date: Certificate expiration date.
+        :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        :param str subject: Subject name in the certificate.
+        :param str thumbprint: Certificate thumbprint.
         :param str type: The type of the secret resource.
                Expected value is 'AzureFirstPartyManagedCertificate'.
+        :param Sequence[str] subject_alternative_names: The list of SANs.
         """
+        pulumi.set(__self__, "certificate_authority", certificate_authority)
+        pulumi.set(__self__, "expiration_date", expiration_date)
+        pulumi.set(__self__, "secret_source", secret_source)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "thumbprint", thumbprint)
         pulumi.set(__self__, "type", 'AzureFirstPartyManagedCertificate')
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> str:
+        """
+        Certificate issuing authority.
+        """
+        return pulumi.get(self, "certificate_authority")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
+        """
+        Certificate expiration date.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="secretSource")
+    def secret_source(self) -> 'outputs.ResourceReferenceResponse':
+        """
+        Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        """
+        return pulumi.get(self, "secret_source")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        Subject name in the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        Certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
 
     @property
     @pulumi.getter
@@ -323,6 +405,14 @@ class AzureFirstPartyManagedCertificateParametersResponse(dict):
         Expected value is 'AzureFirstPartyManagedCertificate'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional[Sequence[str]]:
+        """
+        The list of SANs.
+        """
+        return pulumi.get(self, "subject_alternative_names")
 
 
 @pulumi.output_type
@@ -753,6 +843,8 @@ class ClientPortMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -895,6 +987,8 @@ class CookiesMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if selector is not None:
@@ -2817,6 +2911,8 @@ class HostNameMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -2938,6 +3034,8 @@ class HttpVersionMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -3024,6 +3122,8 @@ class IsDeviceMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -4115,6 +4215,8 @@ class PostArgsMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if selector is not None:
@@ -4211,6 +4313,8 @@ class QueryStringMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -4432,6 +4536,8 @@ class RemoteAddressMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -4518,6 +4624,8 @@ class RequestBodyMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -4606,6 +4714,8 @@ class RequestHeaderMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if selector is not None:
@@ -4702,6 +4812,8 @@ class RequestMethodMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -4788,6 +4900,8 @@ class RequestSchemeMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -4874,6 +4988,8 @@ class RequestUriMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -5231,6 +5347,8 @@ class ServerPortMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -5459,6 +5577,8 @@ class SocketAddrMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -5545,6 +5665,8 @@ class SslProtocolMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -5741,6 +5863,8 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -5827,6 +5951,8 @@ class UrlFileNameMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -5913,6 +6039,8 @@ class UrlPathMatchConditionParametersResponse(dict):
         pulumi.set(__self__, "type_name", type_name)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:

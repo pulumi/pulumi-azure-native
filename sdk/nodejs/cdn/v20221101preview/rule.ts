@@ -103,7 +103,7 @@ export class Rule extends pulumi.CustomResource {
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["matchProcessingBehavior"] = args ? args.matchProcessingBehavior : undefined;
+            resourceInputs["matchProcessingBehavior"] = (args ? args.matchProcessingBehavior : undefined) ?? "Continue";
             resourceInputs["order"] = args ? args.order : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

@@ -23954,6 +23954,16 @@
       "2018-01-01-preview",
       "2021-11-01"
     ],
+    "locations": [
+      "2017-04-01",
+      "2018-01-01-preview",
+      "2021-11-01"
+    ],
+    "locations/namespaceoperationresults": [
+      "2017-04-01",
+      "2018-01-01-preview",
+      "2021-11-01"
+    ],
     "namespaces": [
       "2016-07-01",
       "2017-04-01",
@@ -23972,6 +23982,10 @@
     ],
     "namespaces/hybridconnections/authorizationrules": [
       "2017-04-01",
+      "2018-01-01-preview",
+      "2021-11-01"
+    ],
+    "namespaces/privateendpointconnectionproxies": [
       "2018-01-01-preview",
       "2021-11-01"
     ],

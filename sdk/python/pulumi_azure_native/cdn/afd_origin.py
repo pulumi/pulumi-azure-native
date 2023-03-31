@@ -54,8 +54,12 @@ class AFDOriginArgs:
             pulumi.set(__self__, "azure_origin", azure_origin)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
+        if http_port is None:
+            http_port = 80
         if http_port is not None:
             pulumi.set(__self__, "http_port", http_port)
+        if https_port is None:
+            https_port = 443
         if https_port is not None:
             pulumi.set(__self__, "https_port", https_port)
         if origin_host_header is not None:
@@ -317,7 +321,11 @@ class AFDOrigin(pulumi.CustomResource):
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
+            if http_port is None:
+                http_port = 80
             __props__.__dict__["http_port"] = http_port
+            if https_port is None:
+                https_port = 443
             __props__.__dict__["https_port"] = https_port
             if origin_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group_name'")

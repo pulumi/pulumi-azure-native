@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview.Inputs
 
         public HostNameMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new HostNameMatchConditionParametersArgs Empty => new HostNameMatchConditionParametersArgs();
     }

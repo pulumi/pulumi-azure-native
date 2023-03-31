@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview.Inputs
     /// </summary>
     public sealed class AzureFirstPartyManagedCertificateParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("subjectAlternativeNames")]
+        private InputList<string>? _subjectAlternativeNames;
+
+        /// <summary>
+        /// The list of SANs.
+        /// </summary>
+        public InputList<string> SubjectAlternativeNames
+        {
+            get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
+            set => _subjectAlternativeNames = value;
+        }
+
         /// <summary>
         /// The type of the secret resource.
         /// Expected value is 'AzureFirstPartyManagedCertificate'.

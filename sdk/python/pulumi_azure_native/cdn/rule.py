@@ -43,6 +43,8 @@ class RuleArgs:
         pulumi.set(__self__, "rule_set_name", rule_set_name)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
+        if match_processing_behavior is None:
+            match_processing_behavior = 'Continue'
         if match_processing_behavior is not None:
             pulumi.set(__self__, "match_processing_behavior", match_processing_behavior)
         if rule_name is not None:
@@ -220,6 +222,8 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
             __props__.__dict__["conditions"] = conditions
+            if match_processing_behavior is None:
+                match_processing_behavior = 'Continue'
             __props__.__dict__["match_processing_behavior"] = match_processing_behavior
             if order is None and not opts.urn:
                 raise TypeError("Missing required property 'order'")

@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
         /// <summary>
         /// Key-Value pair representing additional properties for profiles.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? ExtendedProperties;
+        public readonly ImmutableDictionary<string, string> ExtendedProperties;
         /// <summary>
         /// The Id of the frontdoor.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 
         [OutputConstructor]
         private GetProfileResult(
-            ImmutableDictionary<string, string>? extendedProperties,
+            ImmutableDictionary<string, string> extendedProperties,
 
             string frontDoorId,
 

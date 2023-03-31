@@ -288,6 +288,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 
         public RouteArgs()
         {
+            HttpsRedirect = "Disabled";
         }
         public static new RouteArgs Empty => new RouteArgs();
     }

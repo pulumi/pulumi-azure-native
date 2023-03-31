@@ -68,7 +68,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[Mapping[str, str]]:
+    def extended_properties(self) -> Mapping[str, str]:
         """
         Key-Value pair representing additional properties for profiles.
         """

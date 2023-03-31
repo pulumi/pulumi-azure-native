@@ -64,6 +64,8 @@ class RouteArgs:
             pulumi.set(__self__, "enabled_state", enabled_state)
         if forwarding_protocol is not None:
             pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+        if https_redirect is None:
+            https_redirect = 'Disabled'
         if https_redirect is not None:
             pulumi.set(__self__, "https_redirect", https_redirect)
         if link_to_default_domain is not None:
@@ -376,6 +378,8 @@ class Route(pulumi.CustomResource):
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["forwarding_protocol"] = forwarding_protocol
+            if https_redirect is None:
+                https_redirect = 'Disabled'
             __props__.__dict__["https_redirect"] = https_redirect
             __props__.__dict__["link_to_default_domain"] = link_to_default_domain
             if origin_group is None and not opts.urn:
