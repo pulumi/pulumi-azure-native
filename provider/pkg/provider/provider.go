@@ -1292,7 +1292,7 @@ func (k *azureNativeProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*r
 // GetMapping eturns plugin specific mapping data for the given provider name. This implementation
 // is a stub to satisfy the new convert.Mapper interface from pulumi/pulumi#11510.
 func (k *azureNativeProvider) GetMapping(context.Context, *rpc.GetMappingRequest) (*rpc.GetMappingResponse, error) {
-	return nil, nil
+	return &rpc.GetMappingResponse{}, nil
 }
 
 // Cancel signals the provider to gracefully shut down and abort any ongoing resource operations.
