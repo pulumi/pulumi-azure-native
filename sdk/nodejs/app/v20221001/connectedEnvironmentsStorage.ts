@@ -85,7 +85,7 @@ export class ConnectedEnvironmentsStorage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsStorage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironmentsStorage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironmentsStorage.__pulumiType, name, resourceInputs, opts);
     }

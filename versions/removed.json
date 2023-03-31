@@ -1,17 +1,33 @@
 {
+  "AlertsManagement": ["2023-04-01-preview"],
+  "App": ["2022-11-01-preview"],
+  "AppPlatform": ["2023-03-01-preview"],
   "AzureArcData": ["2023-01-15-preview", "2023-03-15-preview"],
+  "AzureStackHCI": ["2023-03-01"],
   "Communication": ["2023-03-01-preview"],
+  "Consumption": ["2023-03-01"],
+  "ContainerInstance": ["2023-02-01-preview"],
+  "ContainerService": ["2023-02-01", "2023-02-02-preview"],
   "DBforMySQL": ["2018-06-01-privatepreview"],
   "DBforPostgreSQL": ["2022-05-01-preview"],
+  "DevCenter": ["2023-01-01-preview"],
   "Devices": ["2022-11-15-preview"],
   "DocumentDB": ["2022-11-15-preview", "2023-03-01-preview"],
   "Elastic": ["2023-02-01-preview"],
   "GraphServices": ["2022-09-22-preview"],
+  "HealthcareApis": ["2023-02-28"],
+  "HybridConnectivity": ["2023-03-15"],
   "HybridContainerService": ["2022-09-01-preview"],
   "MachineLearningServices": ["2023-02-01-preview"],
   "ManagedNetworkFabric": ["2023-02-01-preview"],
   "ProfessionalService": ["2023-07-01-preview"],
-  "Security": ["2023-02-01-preview"],
+  "Security": [
+    "2023-02-01-preview",
+    "2023-01-01-preview",
+    "2023-03-01-preview"
+  ],
   "SecurityFabric": ["2023-02-01-preview"],
-  "SecurityInsights": ["2023-03-01-preview"]
+  "SecurityInsights": ["2023-03-01-preview"],
+  "SignalRService": ["2023-03-01-preview"],
+  "WebPubSub": ["2023-03-01-preview"]
 }

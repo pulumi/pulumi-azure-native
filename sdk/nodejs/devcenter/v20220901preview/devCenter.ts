@@ -99,7 +99,7 @@ export class DevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:DevCenter" }, { type: "azure-native:devcenter/v20220801preview:DevCenter" }, { type: "azure-native:devcenter/v20221012preview:DevCenter" }, { type: "azure-native:devcenter/v20221111preview:DevCenter" }, { type: "azure-native:devcenter/v20230101preview:DevCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:DevCenter" }, { type: "azure-native:devcenter/v20220801preview:DevCenter" }, { type: "azure-native:devcenter/v20221012preview:DevCenter" }, { type: "azure-native:devcenter/v20221111preview:DevCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevCenter.__pulumiType, name, resourceInputs, opts);
     }

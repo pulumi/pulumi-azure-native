@@ -84,7 +84,7 @@ export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220301:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220601preview:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20221001:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20221101preview:ManagedEnvironmentsStorage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220301:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220601preview:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20221001:ManagedEnvironmentsStorage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedEnvironmentsStorage.__pulumiType, name, resourceInputs, opts);
     }
