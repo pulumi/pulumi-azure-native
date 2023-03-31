@@ -28882,6 +28882,22 @@
         ]
       },
       {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2021-11-01",
+          "2018-01-01-preview",
+          "2017-04-01"
+        ]
+      },
+      {
+        "resourceType": "locations/namespaceOperationResults",
+        "apiVersions": [
+          "2021-11-01",
+          "2018-01-01-preview",
+          "2017-04-01"
+        ]
+      },
+      {
         "resourceType": "namespaces",
         "apiVersions": [
           "2021-11-01",
@@ -28912,6 +28928,13 @@
           "2021-11-01",
           "2018-01-01-preview",
           "2017-04-01"
+        ]
+      },
+      {
+        "resourceType": "namespaces/privateEndpointConnectionProxies",
+        "apiVersions": [
+          "2021-11-01",
+          "2018-01-01-preview"
         ]
       },
       {
