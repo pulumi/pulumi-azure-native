@@ -1672,60 +1672,6 @@ func (m *moduleGenerator) inlineTypeName(ctx *openapi.ReferenceContext, property
 	return result
 }
 
-// mergeTypes checks that two type specs are allowed to be represented as a single schema type.
-// If you face an error coming from this function for a new API change, consider changing the typeNameOverride map
-// or adjusting the way the top-level resources are projected in versioner.go.
-func mergeTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput bool) (*schema.ComplexTypeSpec, error) {
-	if t1.Type != t2.Type {
-		return nil, errors.Errorf("types do not match: %s vs %s", t1.Type, t2.Type)
-	}
-
-	if !isOutput {
-		// Check that every required property of T1 and T2 exists in T1 and has the same type (for intputs only).
-		t1Required := codegen.NewStringSet(t1.Required...)
-		t2Required := codegen.NewStringSet(t2.Required...)
-		t1Only := t1Required.Subtract(t2Required)
-		t2Only := t2Required.Subtract(t1Required)
-		if len(t1Only) != 0 || len(t2Only) != 0 {
-			var requiredErrors []string
-			if len(t1Only) != 0 {
-				t1Fmt := strings.Join(t1Only.SortedValues(), ",")
-				requiredErrors = append(requiredErrors, fmt.Sprintf("only required in A: %s", t1Fmt))
-			}
-			if len(t2Only) != 0 {
-				t2Fmt := strings.Join(t2Only.SortedValues(), ",")
-				requiredErrors = append(requiredErrors, fmt.Sprintf("only required in B: %s", t2Fmt))
-			}
-			return nil, errors.Errorf("required properties do not match: %s", strings.Join(requiredErrors, "; "))
-		}
-	}
-
-	if t1.Properties == nil && t2.Properties == nil {
-		return &t1, nil
-	}
-	mergedProperties := map[string]pschema.PropertySpec{}
-	for name, p := range t1.Properties {
-		mergedProperties[name] = p
-	}
-	for name, p2 := range t2.Properties {
-		p1, found := mergedProperties[name]
-		if !found {
-			mergedProperties[name] = p2
-			continue
-		}
-		if p1.Type != p2.Type {
-			return nil, errors.Errorf("property %q types do not match: %s vs %s", name, p1.Type, p2.Type)
-		}
-		if p1.Ref != p2.Ref {
-			return nil, errors.Errorf("property %q refs do not match: %s vs %s", name, p1.Ref, p2.Ref)
-		}
-	}
-
-	merged := t1
-	merged.Properties = mergedProperties
-	return &merged, nil
-}
-
 // genEnumType generates the enum type.
 func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.ReferenceContext, enumExtension map[string]interface{}) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
