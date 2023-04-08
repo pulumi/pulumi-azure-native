@@ -4,12 +4,13 @@ package gen
 
 import (
 	"fmt"
-	"github.com/segmentio/encoding/json"
 	"log"
 	"os"
 	"strings"
 	"text/template"
 	"time"
+
+	"github.com/segmentio/encoding/json"
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
@@ -129,15 +130,16 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 
 				// Fill in sample name and ID for the import section.
 				if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
-					for _, response := range exampleResponses {
-						if responseMap, ok := response.(map[string]interface{}); ok {
-							if body, ok := responseMap["body"].(map[string]interface{}); ok {
-								if exampleID, ok := body["id"].(string); ok {
-									importRenderData.SampleResID = exampleID
-								}
-								if exampleName, ok := body["name"].(string); ok {
-									importRenderData.SampleResName = exampleName
-								}
+					// Deterministically pick the first response for reproducable schemas.
+					for _, statusCode := range codegen.SortedKeys(exampleResponses) {
+						responseMap := exampleResponses[statusCode].(map[string]interface{})
+						if body, ok := responseMap["body"].(map[string]interface{}); ok {
+							exampleID, hasId := body["id"].(string)
+							exampleName, hasName := body["name"].(string)
+							if hasId && hasName {
+								importRenderData.SampleResID = exampleID
+								importRenderData.SampleResName = exampleName
+								break
 							}
 						}
 					}
@@ -145,7 +147,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 
 				flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
 				if err != nil {
-					fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
+					fmt.Printf("transforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
 					continue
 				}
 
