@@ -1107,7 +1107,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			// TODO: Get rid of this in https://github.com/pulumi/pulumi-azure-native/issues/331
 			continue
 		}
-		// TODO: Workaround for https://github.com/pulumi/pulumi/issues/9883 - remove once merged
+		// TODO: Workaround for https://github.com/pulumi/pulumi/issues/12629 - remove once merged
 		if (name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/GovernanceRuleConditionSets") ||
 			(name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/ApplicationConditionSets") {
 			continue
@@ -1571,7 +1571,11 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			}
 
 			if v, has := m.pkg.Types[tok]; has {
-				// TODO: @stack72 handle this as part of https://github.com/pulumi/pulumi-azure-native/issues/1606
+				// Work around error
+				//     incompatible type "azure-native:netapp:ReplicationObject" for resource "VolumeGroup"
+				//     ("azure-native:netapp:VolumeGroup"): required properties do not match: only required in B:
+				//     replicationSchedule"
+				// Originally tracked by https://github.com/pulumi/pulumi-azure-native/issues/1606 but still happening.
 				if tok == "azure-native:netapp:ReplicationObject" && len(v.Properties) == 5 {
 					v = spec
 				}
