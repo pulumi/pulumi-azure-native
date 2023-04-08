@@ -180,9 +180,10 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 
 // ReadAzureProviders finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Provider and API Version - for all API versions.
-// Use the namespace "*" to load all available namespaces, or a specific namespace to filter e.g. "Compute"
-func ReadAzureProviders(specsDir, namespace string) (AzureProviders, error) {
-	swaggerSpecLocations, err := swaggerLocations(specsDir, namespace)
+// Use the namespace "*" to load all available namespaces, or a specific namespace to filter, e.g. "Compute".
+// Use apiVersions with a wildcard to filter versions, e.g. "2022*preview", or leave it blank to use the default of "20*".
+func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders, error) {
+	swaggerSpecLocations, err := swaggerLocations(specsDir, namespace, apiVersions)
 	if err != nil {
 		return nil, err
 	}
@@ -240,18 +241,22 @@ func IsPrivate(apiVersion string) bool {
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
-func swaggerLocations(specsDir, namespace string) ([]string, error) {
+// namespace and apiVersion can be blank to return all files, or can be used to filter the results.
+func swaggerLocations(specsDir, namespace, apiVersions string) ([]string, error) {
 	if namespace == "" {
 		namespace = "*"
 	}
+	if apiVersions == "" {
+		apiVersions = "20*"
+	}
 
-	pattern := filepath.Join(specsDir, "specification", "*", "resource-manager", "Microsoft."+namespace, "*", "20*", "*.json")
+	pattern := filepath.Join(specsDir, "specification", "*", "resource-manager", "Microsoft."+namespace, "*", apiVersions, "*.json")
 	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err
 	}
 
-	pattern2 := filepath.Join(specsDir, "specification", "*", "resource-manager", "Microsoft."+namespace, "*", "*", "20*", "*.json")
+	pattern2 := filepath.Join(specsDir, "specification", "*", "resource-manager", "Microsoft."+namespace, "*", "*", apiVersions, "*.json")
 	files2, err := filepath.Glob(pattern2)
 	if err != nil {
 		return nil, err
