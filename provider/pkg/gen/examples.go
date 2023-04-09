@@ -129,20 +129,8 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
 				// Fill in sample name and ID for the import section.
-				if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
-					// Deterministically pick the first response for reproducable schemas.
-					for _, statusCode := range codegen.SortedKeys(exampleResponses) {
-						responseMap := exampleResponses[statusCode].(map[string]interface{})
-						if body, ok := responseMap["body"].(map[string]interface{}); ok {
-							exampleID, hasId := body["id"].(string)
-							exampleName, hasName := body["name"].(string)
-							if hasId && hasName {
-								importRenderData.SampleResID = exampleID
-								importRenderData.SampleResName = exampleName
-								break
-							}
-						}
-					}
+				if ok, responseId, responseName := extractExampleResponseNameId(exampleJSON); ok {
+					importRenderData.SampleResID, importRenderData.SampleResName = responseId, responseName
 				}
 
 				flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
@@ -199,6 +187,23 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 	}
 
 	return nil
+}
+
+func extractExampleResponseNameId(exampleJSON map[string]interface{}) (bool, string, string) {
+	if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
+		// Deterministically pick the first response for reproducable schemas.
+		for _, statusCode := range codegen.SortedKeys(exampleResponses) {
+			responseMap := exampleResponses[statusCode].(map[string]interface{})
+			if body, ok := responseMap["body"].(map[string]interface{}); ok {
+				exampleID, hasId := body["id"].(string)
+				exampleName, hasName := body["name"].(string)
+				if hasId && hasName {
+					return true, exampleID, exampleName
+				}
+			}
+		}
+	}
+	return false, "", ""
 }
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
