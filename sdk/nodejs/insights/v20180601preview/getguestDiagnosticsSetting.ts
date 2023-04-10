@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets guest diagnostics settings.
  */
-export function getguestDiagnosticsSetting(args: GetguestDiagnosticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetguestDiagnosticsSettingResult> {
+export function getGuestDiagnosticsSetting(args: GetGuestDiagnosticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:insights/v20180601preview:getguestDiagnosticsSetting", {
+    return pulumi.runtime.invoke("azure-native:insights/v20180601preview:getGuestDiagnosticsSetting", {
         "diagnosticSettingsName": args.diagnosticSettingsName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetguestDiagnosticsSettingArgs {
+export interface GetGuestDiagnosticsSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
@@ -33,7 +33,7 @@ export interface GetguestDiagnosticsSettingArgs {
 /**
  * Virtual machine guest diagnostics settings resource.
  */
-export interface GetguestDiagnosticsSettingResult {
+export interface GetGuestDiagnosticsSettingResult {
     /**
      * the array of data source object which are configured to collect and send data
      */
@@ -67,11 +67,11 @@ export interface GetguestDiagnosticsSettingResult {
 /**
  * Gets guest diagnostics settings.
  */
-export function getguestDiagnosticsSettingOutput(args: GetguestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetguestDiagnosticsSettingResult> {
-    return pulumi.output(args).apply((a: any) => getguestDiagnosticsSetting(a, opts))
+export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
+    return pulumi.output(args).apply((a: any) => getGuestDiagnosticsSetting(a, opts))
 }
 
-export interface GetguestDiagnosticsSettingOutputArgs {
+export interface GetGuestDiagnosticsSettingOutputArgs {
     /**
      * The name of the diagnostic setting.
      */

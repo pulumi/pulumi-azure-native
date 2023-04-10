@@ -11,16 +11,16 @@ import * as utilities from "../utilities";
  * Get the metadata of a privateLinkServicesForMIPPolicySync resource.
  * API Version: 2021-03-25-preview.
  */
-export function getprivateLinkServicesForMIPPolicySync(args: GetprivateLinkServicesForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForMIPPolicySyncResult> {
+export function getPrivateLinkServicesForMIPPolicySync(args: GetPrivateLinkServicesForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForMIPPolicySyncResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getprivateLinkServicesForMIPPolicySync", {
+    return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getPrivateLinkServicesForMIPPolicySync", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
 }
 
-export interface GetprivateLinkServicesForMIPPolicySyncArgs {
+export interface GetPrivateLinkServicesForMIPPolicySyncArgs {
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -34,7 +34,7 @@ export interface GetprivateLinkServicesForMIPPolicySyncArgs {
 /**
  * The description of the service.
  */
-export interface GetprivateLinkServicesForMIPPolicySyncResult {
+export interface GetPrivateLinkServicesForMIPPolicySyncResult {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -80,11 +80,11 @@ export interface GetprivateLinkServicesForMIPPolicySyncResult {
  * Get the metadata of a privateLinkServicesForMIPPolicySync resource.
  * API Version: 2021-03-25-preview.
  */
-export function getprivateLinkServicesForMIPPolicySyncOutput(args: GetprivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForMIPPolicySyncResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForMIPPolicySync(a, opts))
+export function getPrivateLinkServicesForMIPPolicySyncOutput(args: GetPrivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForMIPPolicySyncResult> {
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForMIPPolicySync(a, opts))
 }
 
-export interface GetprivateLinkServicesForMIPPolicySyncOutputArgs {
+export interface GetPrivateLinkServicesForMIPPolicySyncOutputArgs {
     /**
      * The name of the resource group that contains the service instance.
      */

@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetGetbotArgs, GetGetbotResult, GetGetbotOutputArgs } from "./getGetbot";
+export const getGetbot: typeof import("./getGetbot").getGetbot = null as any;
+export const getGetbotOutput: typeof import("./getGetbot").getGetbotOutput = null as any;
+utilities.lazyLoad(exports, ["getGetbot","getGetbotOutput"], () => require("./getGetbot"));
+
 export { GetbotArgs } from "./getbot";
 export type Getbot = import("./getbot").Getbot;
 export const Getbot: typeof import("./getbot").Getbot = null as any;
 utilities.lazyLoad(exports, ["Getbot"], () => require("./getbot"));
-
-export { GetgetbotArgs, GetgetbotResult, GetgetbotOutputArgs } from "./getgetbot";
-export const getgetbot: typeof import("./getgetbot").getgetbot = null as any;
-export const getgetbotOutput: typeof import("./getgetbot").getgetbotOutput = null as any;
-utilities.lazyLoad(exports, ["getgetbot","getgetbotOutput"], () => require("./getgetbot"));
 
 
 // Export enums:
@@ -23,7 +23,7 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:healthbot/v20201020preview:getbot":
+            case "azure-native:healthbot/v20201020preview:Getbot":
                 return new Getbot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);

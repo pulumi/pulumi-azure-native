@@ -24,7 +24,7 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:workloads/v20230401:monitor';
+    public static readonly __pulumiType = 'azure-native:workloads/v20230401:Monitor';
 
     /**
      * Returns true if the given object is an instance of Monitor.  This is designed to work even
@@ -153,7 +153,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["zoneRedundancyPreference"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads:monitor" }, { type: "azure-native:workloads/v20211201preview:monitor" }, { type: "azure-native:workloads/v20221101preview:monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads:Monitor" }, { type: "azure-native:workloads/v20211201preview:Monitor" }, { type: "azure-native:workloads/v20221101preview:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }

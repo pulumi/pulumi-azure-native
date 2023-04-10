@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [AzureNativeResourceType("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForSCCPowershell")]
+    [AzureNativeResourceType("azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForSCCPowershell")]
     public partial class PrivateLinkServicesForSCCPowershell : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkServicesForSCCPowershell(string name, PrivateLinkServicesForSCCPowershellArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForSCCPowershell", name, args ?? new PrivateLinkServicesForSCCPowershellArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForSCCPowershell", name, args ?? new PrivateLinkServicesForSCCPowershellArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkServicesForSCCPowershell(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForSCCPowershell", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForSCCPowershell", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForSCCPowershell"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateLinkServicesForSCCPowershell"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

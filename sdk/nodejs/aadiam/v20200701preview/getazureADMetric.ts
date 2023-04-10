@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets a azureADMetrics instance with a given name.
  */
-export function getazureADMetric(args: GetazureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetazureADMetricResult> {
+export function getAzureADMetric(args: GetAzureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADMetricResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:aadiam/v20200701preview:getazureADMetric", {
+    return pulumi.runtime.invoke("azure-native:aadiam/v20200701preview:getAzureADMetric", {
         "azureADMetricsName": args.azureADMetricsName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetazureADMetricArgs {
+export interface GetAzureADMetricArgs {
     /**
      * Name of the azureADMetrics instance.
      */
@@ -33,7 +33,7 @@ export interface GetazureADMetricArgs {
 /**
  * AzureADMetrics resource.
  */
-export interface GetazureADMetricResult {
+export interface GetAzureADMetricResult {
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -59,11 +59,11 @@ export interface GetazureADMetricResult {
 /**
  * Gets a azureADMetrics instance with a given name.
  */
-export function getazureADMetricOutput(args: GetazureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetazureADMetricResult> {
-    return pulumi.output(args).apply((a: any) => getazureADMetric(a, opts))
+export function getAzureADMetricOutput(args: GetAzureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADMetricResult> {
+    return pulumi.output(args).apply((a: any) => getAzureADMetric(a, opts))
 }
 
-export interface GetazureADMetricOutputArgs {
+export interface GetAzureADMetricOutputArgs {
     /**
      * Name of the azureADMetrics instance.
      */

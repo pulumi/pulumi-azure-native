@@ -155,6 +155,11 @@ export const getFavorite: typeof import("./getFavorite").getFavorite = null as a
 export const getFavoriteOutput: typeof import("./getFavorite").getFavoriteOutput = null as any;
 utilities.lazyLoad(exports, ["getFavorite","getFavoriteOutput"], () => require("./getFavorite"));
 
+export { GetGuestDiagnosticsSettingArgs, GetGuestDiagnosticsSettingResult, GetGuestDiagnosticsSettingOutputArgs } from "./getGuestDiagnosticsSetting";
+export const getGuestDiagnosticsSetting: typeof import("./getGuestDiagnosticsSetting").getGuestDiagnosticsSetting = null as any;
+export const getGuestDiagnosticsSettingOutput: typeof import("./getGuestDiagnosticsSetting").getGuestDiagnosticsSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestDiagnosticsSetting","getGuestDiagnosticsSettingOutput"], () => require("./getGuestDiagnosticsSetting"));
+
 export { GetGuestDiagnosticsSettingsAssociationArgs, GetGuestDiagnosticsSettingsAssociationResult, GetGuestDiagnosticsSettingsAssociationOutputArgs } from "./getGuestDiagnosticsSettingsAssociation";
 export const getGuestDiagnosticsSettingsAssociation: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociation = null as any;
 export const getGuestDiagnosticsSettingsAssociationOutput: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociationOutput = null as any;
@@ -234,11 +239,6 @@ export { GetWorkbookTemplateArgs, GetWorkbookTemplateResult, GetWorkbookTemplate
 export const getWorkbookTemplate: typeof import("./getWorkbookTemplate").getWorkbookTemplate = null as any;
 export const getWorkbookTemplateOutput: typeof import("./getWorkbookTemplate").getWorkbookTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkbookTemplate","getWorkbookTemplateOutput"], () => require("./getWorkbookTemplate"));
-
-export { GetguestDiagnosticsSettingArgs, GetguestDiagnosticsSettingResult, GetguestDiagnosticsSettingOutputArgs } from "./getguestDiagnosticsSetting";
-export const getguestDiagnosticsSetting: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSetting = null as any;
-export const getguestDiagnosticsSettingOutput: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getguestDiagnosticsSetting","getguestDiagnosticsSettingOutput"], () => require("./getguestDiagnosticsSetting"));
 
 export { GuestDiagnosticsSettingArgs } from "./guestDiagnosticsSetting";
 export type GuestDiagnosticsSetting = import("./guestDiagnosticsSetting").GuestDiagnosticsSetting;
@@ -452,6 +452,8 @@ const _module = {
                 return new ExportConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
+            case "azure-native:insights:GuestDiagnosticsSetting":
+                return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             case "azure-native:insights:GuestDiagnosticsSettingsAssociation":
                 return new GuestDiagnosticsSettingsAssociation(name, <any>undefined, { urn })
             case "azure-native:insights:LogProfile":
@@ -480,8 +482,6 @@ const _module = {
                 return new Workbook(name, <any>undefined, { urn })
             case "azure-native:insights:WorkbookTemplate":
                 return new WorkbookTemplate(name, <any>undefined, { urn })
-            case "azure-native:insights:guestDiagnosticsSetting":
-                return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

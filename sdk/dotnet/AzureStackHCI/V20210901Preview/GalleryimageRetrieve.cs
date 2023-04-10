@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// The gallery image resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:galleryimageRetrieve")]
+    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve")]
     public partial class GalleryimageRetrieve : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryimageRetrieve(string name, GalleryimageRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:galleryimageRetrieve", name, args ?? new GalleryimageRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve", name, args ?? new GalleryimageRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryimageRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:galleryimageRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:galleryimageRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

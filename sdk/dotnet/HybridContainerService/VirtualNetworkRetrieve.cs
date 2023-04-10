@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// The virtualNetworks resource definition.
     /// API Version: 2022-05-01-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:hybridcontainerservice:virtualNetworkRetrieve")]
+    [AzureNativeResourceType("azure-native:hybridcontainerservice:VirtualNetworkRetrieve")]
     public partial class VirtualNetworkRetrieve : global::Pulumi.CustomResource
     {
         [Output("extendedLocation")]
@@ -64,12 +64,12 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRetrieve(string name, VirtualNetworkRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice:virtualNetworkRetrieve", name, args ?? new VirtualNetworkRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcontainerservice:VirtualNetworkRetrieve", name, args ?? new VirtualNetworkRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice:virtualNetworkRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcontainerservice:VirtualNetworkRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

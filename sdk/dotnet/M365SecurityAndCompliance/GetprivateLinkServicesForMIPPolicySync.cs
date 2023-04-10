@@ -9,25 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance
 {
-    public static class GetprivateLinkServicesForMIPPolicySync
+    public static class GetPrivateLinkServicesForMIPPolicySync
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
         /// API Version: 2021-03-25-preview.
         /// </summary>
-        public static Task<GetprivateLinkServicesForMIPPolicySyncResult> InvokeAsync(GetprivateLinkServicesForMIPPolicySyncArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:m365securityandcompliance:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncArgs(), options.WithDefaults());
+        public static Task<GetPrivateLinkServicesForMIPPolicySyncResult> InvokeAsync(GetPrivateLinkServicesForMIPPolicySyncArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForMIPPolicySyncResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForMIPPolicySync", args ?? new GetPrivateLinkServicesForMIPPolicySyncArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
         /// API Version: 2021-03-25-preview.
         /// </summary>
-        public static Output<GetprivateLinkServicesForMIPPolicySyncResult> Invoke(GetprivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:m365securityandcompliance:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());
+        public static Output<GetPrivateLinkServicesForMIPPolicySyncResult> Invoke(GetPrivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForMIPPolicySyncResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForMIPPolicySync", args ?? new GetPrivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetprivateLinkServicesForMIPPolicySyncArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForMIPPolicySyncArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForMIPPolicySyncArgs()
+        public GetPrivateLinkServicesForMIPPolicySyncArgs()
         {
         }
-        public static new GetprivateLinkServicesForMIPPolicySyncArgs Empty => new GetprivateLinkServicesForMIPPolicySyncArgs();
+        public static new GetPrivateLinkServicesForMIPPolicySyncArgs Empty => new GetPrivateLinkServicesForMIPPolicySyncArgs();
     }
 
-    public sealed class GetprivateLinkServicesForMIPPolicySyncInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForMIPPolicySyncInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -61,15 +61,15 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForMIPPolicySyncInvokeArgs()
+        public GetPrivateLinkServicesForMIPPolicySyncInvokeArgs()
         {
         }
-        public static new GetprivateLinkServicesForMIPPolicySyncInvokeArgs Empty => new GetprivateLinkServicesForMIPPolicySyncInvokeArgs();
+        public static new GetPrivateLinkServicesForMIPPolicySyncInvokeArgs Empty => new GetPrivateLinkServicesForMIPPolicySyncInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetprivateLinkServicesForMIPPolicySyncResult
+    public sealed class GetPrivateLinkServicesForMIPPolicySyncResult
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         public readonly string Type;
 
         [OutputConstructor]
-        private GetprivateLinkServicesForMIPPolicySyncResult(
+        private GetPrivateLinkServicesForMIPPolicySyncResult(
             string? etag,
 
             string id,

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// </summary>
-    [AzureNativeResourceType("azure-native:workloads/v20221101preview:monitor")]
+    [AzureNativeResourceType("azure-native:workloads/v20221101preview:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Monitor(string name, MonitorArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:workloads/v20221101preview:monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:workloads/v20221101preview:Monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Monitor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:workloads/v20221101preview:monitor", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:workloads/v20221101preview:Monitor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:Monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:Monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

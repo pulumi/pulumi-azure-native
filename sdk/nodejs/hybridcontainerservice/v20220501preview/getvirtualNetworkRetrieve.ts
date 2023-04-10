@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Hybrid AKS virtual network
  */
-export function getvirtualNetworkRetrieve(args: GetvirtualNetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualNetworkRetrieveResult> {
+export function getVirtualNetworkRetrieve(args: GetVirtualNetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20220501preview:getvirtualNetworkRetrieve", {
+    return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20220501preview:getVirtualNetworkRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworksName": args.virtualNetworksName,
     }, opts);
 }
 
-export interface GetvirtualNetworkRetrieveArgs {
+export interface GetVirtualNetworkRetrieveArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -33,7 +33,7 @@ export interface GetvirtualNetworkRetrieveArgs {
 /**
  * The virtualNetworks resource definition.
  */
-export interface GetvirtualNetworkRetrieveResult {
+export interface GetVirtualNetworkRetrieveResult {
     readonly extendedLocation?: outputs.hybridcontainerservice.v20220501preview.VirtualNetworksResponseExtendedLocation;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -67,11 +67,11 @@ export interface GetvirtualNetworkRetrieveResult {
 /**
  * Gets the Hybrid AKS virtual network
  */
-export function getvirtualNetworkRetrieveOutput(args: GetvirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualNetworkRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getvirtualNetworkRetrieve(a, opts))
+export function getVirtualNetworkRetrieveOutput(args: GetVirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkRetrieve(a, opts))
 }
 
-export interface GetvirtualNetworkRetrieveOutputArgs {
+export interface GetVirtualNetworkRetrieveOutputArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */

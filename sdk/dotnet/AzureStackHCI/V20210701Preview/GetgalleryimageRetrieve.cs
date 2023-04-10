@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
 {
-    public static class GetgalleryimageRetrieve
+    public static class GetGalleryimageRetrieve
     {
         /// <summary>
         /// Lists all galleryimages under the resource group.
         /// </summary>
-        public static Task<GetgalleryimageRetrieveResult> InvokeAsync(GetgalleryimageRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetgalleryimageRetrieveResult>("azure-native:azurestackhci/v20210701preview:getgalleryimageRetrieve", args ?? new GetgalleryimageRetrieveArgs(), options.WithDefaults());
+        public static Task<GetGalleryimageRetrieveResult> InvokeAsync(GetGalleryimageRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryimageRetrieveResult>("azure-native:azurestackhci/v20210701preview:getGalleryimageRetrieve", args ?? new GetGalleryimageRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists all galleryimages under the resource group.
         /// </summary>
-        public static Output<GetgalleryimageRetrieveResult> Invoke(GetgalleryimageRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetgalleryimageRetrieveResult>("azure-native:azurestackhci/v20210701preview:getgalleryimageRetrieve", args ?? new GetgalleryimageRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetGalleryimageRetrieveResult> Invoke(GetGalleryimageRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryimageRetrieveResult>("azure-native:azurestackhci/v20210701preview:getGalleryimageRetrieve", args ?? new GetGalleryimageRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetgalleryimageRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGalleryimageRetrieveArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the gallery image
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetgalleryimageRetrieveArgs()
+        public GetGalleryimageRetrieveArgs()
         {
         }
-        public static new GetgalleryimageRetrieveArgs Empty => new GetgalleryimageRetrieveArgs();
+        public static new GetGalleryimageRetrieveArgs Empty => new GetGalleryimageRetrieveArgs();
     }
 
-    public sealed class GetgalleryimageRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGalleryimageRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the gallery image
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetgalleryimageRetrieveInvokeArgs()
+        public GetGalleryimageRetrieveInvokeArgs()
         {
         }
-        public static new GetgalleryimageRetrieveInvokeArgs Empty => new GetgalleryimageRetrieveInvokeArgs();
+        public static new GetGalleryimageRetrieveInvokeArgs Empty => new GetGalleryimageRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetgalleryimageRetrieveResult
+    public sealed class GetGalleryimageRetrieveResult
     {
         /// <summary>
         /// Container Name for storage container
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetgalleryimageRetrieveResult(
+        private GetGalleryimageRetrieveResult(
             string? containerName,
 
             Outputs.ExtendedLocationResponse? extendedLocation,

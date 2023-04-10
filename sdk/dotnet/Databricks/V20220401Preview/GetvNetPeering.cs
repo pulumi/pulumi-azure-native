@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Databricks.V20220401Preview
 {
-    public static class GetvNetPeering
+    public static class GetVNetPeering
     {
         /// <summary>
         /// Gets the workspace vNet Peering.
         /// </summary>
-        public static Task<GetvNetPeeringResult> InvokeAsync(GetvNetPeeringArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-native:databricks/v20220401preview:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithDefaults());
+        public static Task<GetVNetPeeringResult> InvokeAsync(GetVNetPeeringArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVNetPeeringResult>("azure-native:databricks/v20220401preview:getVNetPeering", args ?? new GetVNetPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the workspace vNet Peering.
         /// </summary>
-        public static Output<GetvNetPeeringResult> Invoke(GetvNetPeeringInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetvNetPeeringResult>("azure-native:databricks/v20220401preview:getvNetPeering", args ?? new GetvNetPeeringInvokeArgs(), options.WithDefaults());
+        public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks/v20220401preview:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetvNetPeeringArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVNetPeeringArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the workspace vNet peering.
@@ -45,13 +45,13 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
 
-        public GetvNetPeeringArgs()
+        public GetVNetPeeringArgs()
         {
         }
-        public static new GetvNetPeeringArgs Empty => new GetvNetPeeringArgs();
+        public static new GetVNetPeeringArgs Empty => new GetVNetPeeringArgs();
     }
 
-    public sealed class GetvNetPeeringInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVNetPeeringInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the workspace vNet peering.
@@ -71,15 +71,15 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
 
-        public GetvNetPeeringInvokeArgs()
+        public GetVNetPeeringInvokeArgs()
         {
         }
-        public static new GetvNetPeeringInvokeArgs Empty => new GetvNetPeeringInvokeArgs();
+        public static new GetVNetPeeringInvokeArgs Empty => new GetVNetPeeringInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetvNetPeeringResult
+    public sealed class GetVNetPeeringResult
     {
         /// <summary>
         /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         public readonly bool? UseRemoteGateways;
 
         [OutputConstructor]
-        private GetvNetPeeringResult(
+        private GetVNetPeeringResult(
             bool? allowForwardedTraffic,
 
             bool? allowGatewayTransit,

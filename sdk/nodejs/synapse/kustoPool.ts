@@ -25,7 +25,7 @@ export class KustoPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:synapse:kustoPool';
+    public static readonly __pulumiType = 'azure-native:synapse:KustoPool';
 
     /**
      * Returns true if the given object is an instance of KustoPool.  This is designed to work even
@@ -149,7 +149,7 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["workspaceUid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:kustoPool" }, { type: "azure-native:synapse/v20210601preview:kustoPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:KustoPool" }, { type: "azure-native:synapse/v20210601preview:KustoPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoPool.__pulumiType, name, resourceInputs, opts);
     }

@@ -27,7 +27,7 @@ export class Getbot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:healthbot/v20201020preview:getbot';
+    public static readonly __pulumiType = 'azure-native:healthbot/v20201020preview:Getbot';
 
     /**
      * Returns true if the given object is an instance of Getbot.  This is designed to work even
@@ -104,7 +104,7 @@ export class Getbot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthbot:getbot" }, { type: "azure-native:healthbot/v20201020:getbot" }, { type: "azure-native:healthbot/v20201208:getbot" }, { type: "azure-native:healthbot/v20201208preview:getbot" }, { type: "azure-native:healthbot/v20210610:getbot" }, { type: "azure-native:healthbot/v20210824:getbot" }, { type: "azure-native:healthbot/v20220808:getbot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthbot:Getbot" }, { type: "azure-native:healthbot/v20201020:Getbot" }, { type: "azure-native:healthbot/v20201208:Getbot" }, { type: "azure-native:healthbot/v20201208preview:Getbot" }, { type: "azure-native:healthbot/v20210610:Getbot" }, { type: "azure-native:healthbot/v20210824:Getbot" }, { type: "azure-native:healthbot/v20220808:Getbot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Getbot.__pulumiType, name, resourceInputs, opts);
     }

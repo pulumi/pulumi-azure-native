@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets virtual machines by resource name
  */
-export function getvirtualmachineRetrieve(args: GetvirtualmachineRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualmachineRetrieveResult> {
+export function getVirtualmachineRetrieve(args: GetVirtualmachineRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualmachineRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getvirtualmachineRetrieve", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getVirtualmachineRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "virtualmachinesName": args.virtualmachinesName,
     }, opts);
 }
 
-export interface GetvirtualmachineRetrieveArgs {
+export interface GetVirtualmachineRetrieveArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -30,7 +30,7 @@ export interface GetvirtualmachineRetrieveArgs {
 /**
  * The virtual machine resource definition.
  */
-export interface GetvirtualmachineRetrieveResult {
+export interface GetVirtualmachineRetrieveResult {
     /**
      * The extendedLocation of the resource.
      */
@@ -104,11 +104,11 @@ export interface GetvirtualmachineRetrieveResult {
 /**
  * Gets virtual machines by resource name
  */
-export function getvirtualmachineRetrieveOutput(args: GetvirtualmachineRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualmachineRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getvirtualmachineRetrieve(a, opts))
+export function getVirtualmachineRetrieveOutput(args: GetVirtualmachineRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualmachineRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getVirtualmachineRetrieve(a, opts))
 }
 
-export interface GetvirtualmachineRetrieveOutputArgs {
+export interface GetVirtualmachineRetrieveOutputArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */

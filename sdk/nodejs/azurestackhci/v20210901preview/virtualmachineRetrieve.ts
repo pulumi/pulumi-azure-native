@@ -24,7 +24,7 @@ export class VirtualmachineRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:VirtualmachineRetrieve';
 
     /**
      * Returns true if the given object is an instance of VirtualmachineRetrieve.  This is designed to work even
@@ -156,7 +156,7 @@ export class VirtualmachineRetrieve extends pulumi.CustomResource {
             resourceInputs["vmId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualmachineRetrieve.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * The virtualharddisks resource definition.
  */
-export function getvirtualharddiskRetrieve(args: GetvirtualharddiskRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualharddiskRetrieveResult> {
+export function getVirtualharddiskRetrieve(args: GetVirtualharddiskRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualharddiskRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getvirtualharddiskRetrieve", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getVirtualharddiskRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "virtualharddisksName": args.virtualharddisksName,
     }, opts);
 }
 
-export interface GetvirtualharddiskRetrieveArgs {
+export interface GetVirtualharddiskRetrieveArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -30,7 +30,7 @@ export interface GetvirtualharddiskRetrieveArgs {
 /**
  * The virtualharddisks resource definition.
  */
-export interface GetvirtualharddiskRetrieveResult {
+export interface GetVirtualharddiskRetrieveResult {
     readonly blockSizeBytes?: number;
     /**
      * diskSizeBytes - size of the disk in GB
@@ -83,11 +83,11 @@ export interface GetvirtualharddiskRetrieveResult {
 /**
  * The virtualharddisks resource definition.
  */
-export function getvirtualharddiskRetrieveOutput(args: GetvirtualharddiskRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualharddiskRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getvirtualharddiskRetrieve(a, opts))
+export function getVirtualharddiskRetrieveOutput(args: GetVirtualharddiskRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualharddiskRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getVirtualharddiskRetrieve(a, opts))
 }
 
-export interface GetvirtualharddiskRetrieveOutputArgs {
+export interface GetVirtualharddiskRetrieveOutputArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */

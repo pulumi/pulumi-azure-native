@@ -36,6 +36,7 @@ from .get_diagnostic_service_token_read_write import *
 from .get_diagnostic_setting import *
 from .get_export_configuration import *
 from .get_favorite import *
+from .get_guest_diagnostics_setting import *
 from .get_guest_diagnostics_settings_association import *
 from .get_live_token import *
 from .get_log_profile import *
@@ -52,7 +53,6 @@ from .get_test_result_file import *
 from .get_web_test import *
 from .get_workbook import *
 from .get_workbook_template import *
-from .getguest_diagnostics_setting import *
 from .guest_diagnostics_setting import *
 from .guest_diagnostics_settings_association import *
 from .list_ea_subscription_list_migration_date_post import *

@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  */
-export function getmonitor(args: GetmonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetmonitorResult> {
+export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:workloads/v20230401:getmonitor", {
+    return pulumi.runtime.invoke("azure-native:workloads/v20230401:getMonitor", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmonitorArgs {
+export interface GetMonitorArgs {
     /**
      * Name of the SAP monitor resource.
      */
@@ -33,7 +33,7 @@ export interface GetmonitorArgs {
 /**
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
  */
-export interface GetmonitorResult {
+export interface GetMonitorResult {
     /**
      * The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
      */
@@ -106,11 +106,11 @@ export interface GetmonitorResult {
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  */
-export function getmonitorOutput(args: GetmonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmonitorResult> {
-    return pulumi.output(args).apply((a: any) => getmonitor(a, opts))
+export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
+    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
 }
 
-export interface GetmonitorOutputArgs {
+export interface GetMonitorOutputArgs {
     /**
      * Name of the SAP monitor resource.
      */

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
     /// Bot resource definition
     /// </summary>
     [Obsolete(@"Version 2020-10-20 will be removed in v2 of the provider.")]
-    [AzureNativeResourceType("azure-native:healthbot/v20201020:getbot")]
+    [AzureNativeResourceType("azure-native:healthbot/v20201020:Getbot")]
     public partial class Getbot : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Getbot(string name, GetbotArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:healthbot/v20201020:getbot", name, args ?? new GetbotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:healthbot/v20201020:Getbot", name, args ?? new GetbotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Getbot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:healthbot/v20201020:getbot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:healthbot/v20201020:Getbot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,13 +83,13 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:getbot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20220808:getbot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot:Getbot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:Getbot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208:Getbot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:Getbot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:Getbot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Getbot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20220808:Getbot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

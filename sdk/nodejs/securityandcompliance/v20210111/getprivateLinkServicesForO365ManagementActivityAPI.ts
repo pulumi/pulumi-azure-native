@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
  */
-export function getprivateLinkServicesForO365ManagementActivityAPI(args: GetprivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
+export function getPrivateLinkServicesForO365ManagementActivityAPI(args: GetPrivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForO365ManagementActivityAPI", {
+    return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getPrivateLinkServicesForO365ManagementActivityAPI", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
 }
 
-export interface GetprivateLinkServicesForO365ManagementActivityAPIArgs {
+export interface GetPrivateLinkServicesForO365ManagementActivityAPIArgs {
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -33,7 +33,7 @@ export interface GetprivateLinkServicesForO365ManagementActivityAPIArgs {
 /**
  * The description of the service.
  */
-export interface GetprivateLinkServicesForO365ManagementActivityAPIResult {
+export interface GetPrivateLinkServicesForO365ManagementActivityAPIResult {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -78,11 +78,11 @@ export interface GetprivateLinkServicesForO365ManagementActivityAPIResult {
 /**
  * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
  */
-export function getprivateLinkServicesForO365ManagementActivityAPIOutput(args: GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForO365ManagementActivityAPI(a, opts))
+export function getPrivateLinkServicesForO365ManagementActivityAPIOutput(args: GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForO365ManagementActivityAPI(a, opts))
 }
 
-export interface GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs {
+export interface GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs {
     /**
      * The name of the resource group that contains the service instance.
      */

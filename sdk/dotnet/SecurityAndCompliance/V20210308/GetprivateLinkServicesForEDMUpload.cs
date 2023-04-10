@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
 {
-    public static class GetprivateLinkServicesForEDMUpload
+    public static class GetPrivateLinkServicesForEDMUpload
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForEDMUpload resource.
         /// </summary>
-        public static Task<GetprivateLinkServicesForEDMUploadResult> InvokeAsync(GetprivateLinkServicesForEDMUploadArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadArgs(), options.WithDefaults());
+        public static Task<GetPrivateLinkServicesForEDMUploadResult> InvokeAsync(GetPrivateLinkServicesForEDMUploadArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForEDMUpload", args ?? new GetPrivateLinkServicesForEDMUploadArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForEDMUpload resource.
         /// </summary>
-        public static Output<GetprivateLinkServicesForEDMUploadResult> Invoke(GetprivateLinkServicesForEDMUploadInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
+        public static Output<GetPrivateLinkServicesForEDMUploadResult> Invoke(GetPrivateLinkServicesForEDMUploadInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForEDMUpload", args ?? new GetPrivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetprivateLinkServicesForEDMUploadArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForEDMUploadArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForEDMUploadArgs()
+        public GetPrivateLinkServicesForEDMUploadArgs()
         {
         }
-        public static new GetprivateLinkServicesForEDMUploadArgs Empty => new GetprivateLinkServicesForEDMUploadArgs();
+        public static new GetPrivateLinkServicesForEDMUploadArgs Empty => new GetPrivateLinkServicesForEDMUploadArgs();
     }
 
-    public sealed class GetprivateLinkServicesForEDMUploadInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForEDMUploadInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForEDMUploadInvokeArgs()
+        public GetPrivateLinkServicesForEDMUploadInvokeArgs()
         {
         }
-        public static new GetprivateLinkServicesForEDMUploadInvokeArgs Empty => new GetprivateLinkServicesForEDMUploadInvokeArgs();
+        public static new GetPrivateLinkServicesForEDMUploadInvokeArgs Empty => new GetPrivateLinkServicesForEDMUploadInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetprivateLinkServicesForEDMUploadResult
+    public sealed class GetPrivateLinkServicesForEDMUploadResult
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public readonly string Type;
 
         [OutputConstructor]
-        private GetprivateLinkServicesForEDMUploadResult(
+        private GetPrivateLinkServicesForEDMUploadResult(
             string? etag,
 
             string id,

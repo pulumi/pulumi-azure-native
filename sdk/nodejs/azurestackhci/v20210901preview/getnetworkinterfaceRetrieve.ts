@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets network interfaces by resource name
  */
-export function getnetworkinterfaceRetrieve(args: GetnetworkinterfaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetnetworkinterfaceRetrieveResult> {
+export function getNetworkinterfaceRetrieve(args: GetNetworkinterfaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkinterfaceRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getnetworkinterfaceRetrieve", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getNetworkinterfaceRetrieve", {
         "networkinterfacesName": args.networkinterfacesName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetnetworkinterfaceRetrieveArgs {
+export interface GetNetworkinterfaceRetrieveArgs {
     networkinterfacesName: string;
     /**
      * The name of the resource group. The name is case insensitive.
@@ -30,7 +30,7 @@ export interface GetnetworkinterfaceRetrieveArgs {
 /**
  * The network interface resource definition.
  */
-export interface GetnetworkinterfaceRetrieveResult {
+export interface GetNetworkinterfaceRetrieveResult {
     /**
      * DNS Settings for the interface
      */
@@ -84,11 +84,11 @@ export interface GetnetworkinterfaceRetrieveResult {
 /**
  * Gets network interfaces by resource name
  */
-export function getnetworkinterfaceRetrieveOutput(args: GetnetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetnetworkinterfaceRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getnetworkinterfaceRetrieve(a, opts))
+export function getNetworkinterfaceRetrieveOutput(args: GetNetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkinterfaceRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getNetworkinterfaceRetrieve(a, opts))
 }
 
-export interface GetnetworkinterfaceRetrieveOutputArgs {
+export interface GetNetworkinterfaceRetrieveOutputArgs {
     networkinterfacesName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.

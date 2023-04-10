@@ -11,16 +11,16 @@ import * as utilities from "../utilities";
  * Get the metadata of a privateLinkServicesForEDMUpload resource.
  * API Version: 2021-03-25-preview.
  */
-export function getprivateLinkServicesForEDMUpload(args: GetprivateLinkServicesForEDMUploadArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForEDMUploadResult> {
+export function getPrivateLinkServicesForEDMUpload(args: GetPrivateLinkServicesForEDMUploadArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForEDMUploadResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getprivateLinkServicesForEDMUpload", {
+    return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getPrivateLinkServicesForEDMUpload", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
 }
 
-export interface GetprivateLinkServicesForEDMUploadArgs {
+export interface GetPrivateLinkServicesForEDMUploadArgs {
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -34,7 +34,7 @@ export interface GetprivateLinkServicesForEDMUploadArgs {
 /**
  * The description of the service.
  */
-export interface GetprivateLinkServicesForEDMUploadResult {
+export interface GetPrivateLinkServicesForEDMUploadResult {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -80,11 +80,11 @@ export interface GetprivateLinkServicesForEDMUploadResult {
  * Get the metadata of a privateLinkServicesForEDMUpload resource.
  * API Version: 2021-03-25-preview.
  */
-export function getprivateLinkServicesForEDMUploadOutput(args: GetprivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForEDMUploadResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForEDMUpload(a, opts))
+export function getPrivateLinkServicesForEDMUploadOutput(args: GetPrivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForEDMUploadResult> {
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForEDMUpload(a, opts))
 }
 
-export interface GetprivateLinkServicesForEDMUploadOutputArgs {
+export interface GetPrivateLinkServicesForEDMUploadOutputArgs {
     /**
      * The name of the resource group that contains the service instance.
      */

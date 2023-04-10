@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
     /// <summary>
     /// The virtualNetworks resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve")]
+    [AzureNativeResourceType("azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve")]
     public partial class VirtualNetworkRetrieve : global::Pulumi.CustomResource
     {
         [Output("extendedLocation")]
@@ -63,12 +63,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRetrieve(string name, VirtualNetworkRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve", name, args ?? new VirtualNetworkRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve", name, args ?? new VirtualNetworkRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:virtualNetworkRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:VirtualNetworkRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

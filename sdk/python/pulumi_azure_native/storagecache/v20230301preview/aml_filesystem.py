@@ -321,7 +321,7 @@ class AmlFilesystem(pulumi.CustomResource):
             __props__.__dict__["throughput_provisioned_m_bps"] = None
             __props__.__dict__["type"] = None
         super(AmlFilesystem, __self__).__init__(
-            'azure-native:storagecache/v20230301preview:amlFilesystem',
+            'azure-native:storagecache/v20230301preview:AmlFilesystem',
             resource_name,
             __props__,
             opts)

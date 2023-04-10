@@ -10,10 +10,10 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { GetprivateLinkForAzureAdArgs, GetprivateLinkForAzureAdResult, GetprivateLinkForAzureAdOutputArgs } from "./getprivateLinkForAzureAd";
-export const getprivateLinkForAzureAd: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAd = null as any;
-export const getprivateLinkForAzureAdOutput: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAdOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkForAzureAd","getprivateLinkForAzureAdOutput"], () => require("./getprivateLinkForAzureAd"));
+export { GetPrivateLinkForAzureAdArgs, GetPrivateLinkForAzureAdResult, GetPrivateLinkForAzureAdOutputArgs } from "./getPrivateLinkForAzureAd";
+export const getPrivateLinkForAzureAd: typeof import("./getPrivateLinkForAzureAd").getPrivateLinkForAzureAd = null as any;
+export const getPrivateLinkForAzureAdOutput: typeof import("./getPrivateLinkForAzureAd").getPrivateLinkForAzureAdOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkForAzureAd","getPrivateLinkForAzureAdOutput"], () => require("./getPrivateLinkForAzureAd"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -35,7 +35,7 @@ const _module = {
         switch (type) {
             case "azure-native:aadiam/v20200301:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:aadiam/v20200301:privateLinkForAzureAd":
+            case "azure-native:aadiam/v20200301:PrivateLinkForAzureAd":
                 return new PrivateLinkForAzureAd(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);

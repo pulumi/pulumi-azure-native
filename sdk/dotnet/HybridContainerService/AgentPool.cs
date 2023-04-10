@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// The agentPool resource definition
     /// API Version: 2022-05-01-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:hybridcontainerservice:agentPool")]
+    [AzureNativeResourceType("azure-native:hybridcontainerservice:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -139,12 +139,12 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AgentPool(string name, AgentPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice:agentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcontainerservice:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AgentPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice:agentPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcontainerservice:AgentPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:agentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

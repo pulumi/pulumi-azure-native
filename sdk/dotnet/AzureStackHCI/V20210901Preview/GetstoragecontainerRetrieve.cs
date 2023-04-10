@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
-    public static class GetstoragecontainerRetrieve
+    public static class GetStoragecontainerRetrieve
     {
         /// <summary>
         /// Gets storagecontainers by resource name
         /// </summary>
-        public static Task<GetstoragecontainerRetrieveResult> InvokeAsync(GetstoragecontainerRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetstoragecontainerRetrieveResult>("azure-native:azurestackhci/v20210901preview:getstoragecontainerRetrieve", args ?? new GetstoragecontainerRetrieveArgs(), options.WithDefaults());
+        public static Task<GetStoragecontainerRetrieveResult> InvokeAsync(GetStoragecontainerRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStoragecontainerRetrieveResult>("azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve", args ?? new GetStoragecontainerRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets storagecontainers by resource name
         /// </summary>
-        public static Output<GetstoragecontainerRetrieveResult> Invoke(GetstoragecontainerRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetstoragecontainerRetrieveResult>("azure-native:azurestackhci/v20210901preview:getstoragecontainerRetrieve", args ?? new GetstoragecontainerRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetStoragecontainerRetrieveResult> Invoke(GetStoragecontainerRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStoragecontainerRetrieveResult>("azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve", args ?? new GetStoragecontainerRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetstoragecontainerRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStoragecontainerRetrieveArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         [Input("storagecontainersName", required: true)]
         public string StoragecontainersName { get; set; } = null!;
 
-        public GetstoragecontainerRetrieveArgs()
+        public GetStoragecontainerRetrieveArgs()
         {
         }
-        public static new GetstoragecontainerRetrieveArgs Empty => new GetstoragecontainerRetrieveArgs();
+        public static new GetStoragecontainerRetrieveArgs Empty => new GetStoragecontainerRetrieveArgs();
     }
 
-    public sealed class GetstoragecontainerRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStoragecontainerRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -53,15 +53,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         [Input("storagecontainersName", required: true)]
         public Input<string> StoragecontainersName { get; set; } = null!;
 
-        public GetstoragecontainerRetrieveInvokeArgs()
+        public GetStoragecontainerRetrieveInvokeArgs()
         {
         }
-        public static new GetstoragecontainerRetrieveInvokeArgs Empty => new GetstoragecontainerRetrieveInvokeArgs();
+        public static new GetStoragecontainerRetrieveInvokeArgs Empty => new GetStoragecontainerRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetstoragecontainerRetrieveResult
+    public sealed class GetStoragecontainerRetrieveResult
     {
         /// <summary>
         /// Amount of space available on the disk in MB
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetstoragecontainerRetrieveResult(
+        private GetStoragecontainerRetrieveResult(
             double availableSizeMB,
 
             double containerSizeMB,

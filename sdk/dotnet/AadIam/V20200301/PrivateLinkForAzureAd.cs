@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AadIam.V20200301
     /// <summary>
     /// PrivateLink Policy configuration object.
     /// </summary>
-    [AzureNativeResourceType("azure-native:aadiam/v20200301:privateLinkForAzureAd")]
+    [AzureNativeResourceType("azure-native:aadiam/v20200301:PrivateLinkForAzureAd")]
     public partial class PrivateLinkForAzureAd : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNative.AadIam.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkForAzureAd(string name, PrivateLinkForAzureAdArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:aadiam/v20200301:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam/v20200301:PrivateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkForAzureAd(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:aadiam/v20200301:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam/v20200301:PrivateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.AadIam.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam:privateLinkForAzureAd"},
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam:PrivateLinkForAzureAd"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

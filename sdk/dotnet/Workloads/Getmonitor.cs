@@ -9,25 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Workloads
 {
-    public static class Getmonitor
+    public static class GetMonitor
     {
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
         /// API Version: 2021-12-01-preview.
         /// </summary>
-        public static Task<GetmonitorResult> InvokeAsync(GetmonitorArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorArgs(), options.WithDefaults());
+        public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
         /// API Version: 2021-12-01-preview.
         /// </summary>
-        public static Output<GetmonitorResult> Invoke(GetmonitorInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorInvokeArgs(), options.WithDefaults());
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetmonitorArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMonitorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP monitor resource.
@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.Workloads
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetmonitorArgs()
+        public GetMonitorArgs()
         {
         }
-        public static new GetmonitorArgs Empty => new GetmonitorArgs();
+        public static new GetMonitorArgs Empty => new GetMonitorArgs();
     }
 
-    public sealed class GetmonitorInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the SAP monitor resource.
@@ -61,15 +61,15 @@ namespace Pulumi.AzureNative.Workloads
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetmonitorInvokeArgs()
+        public GetMonitorInvokeArgs()
         {
         }
-        public static new GetmonitorInvokeArgs Empty => new GetmonitorInvokeArgs();
+        public static new GetMonitorInvokeArgs Empty => new GetMonitorInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetmonitorResult
+    public sealed class GetMonitorResult
     {
         /// <summary>
         /// The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Workloads
         public readonly string? ZoneRedundancyPreference;
 
         [OutputConstructor]
-        private GetmonitorResult(
+        private GetMonitorResult(
             string? appLocation,
 
             Outputs.MonitorPropertiesResponseErrors errors,

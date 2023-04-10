@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
 {
-    public static class GetvirtualharddiskRetrieve
+    public static class GetVirtualharddiskRetrieve
     {
         /// <summary>
         /// The virtualharddisks resource definition.
         /// </summary>
-        public static Task<GetvirtualharddiskRetrieveResult> InvokeAsync(GetvirtualharddiskRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualharddiskRetrieveResult>("azure-native:azurestackhci/v20210701preview:getvirtualharddiskRetrieve", args ?? new GetvirtualharddiskRetrieveArgs(), options.WithDefaults());
+        public static Task<GetVirtualharddiskRetrieveResult> InvokeAsync(GetVirtualharddiskRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualharddiskRetrieveResult>("azure-native:azurestackhci/v20210701preview:getVirtualharddiskRetrieve", args ?? new GetVirtualharddiskRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtualharddisks resource definition.
         /// </summary>
-        public static Output<GetvirtualharddiskRetrieveResult> Invoke(GetvirtualharddiskRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetvirtualharddiskRetrieveResult>("azure-native:azurestackhci/v20210701preview:getvirtualharddiskRetrieve", args ?? new GetvirtualharddiskRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetVirtualharddiskRetrieveResult> Invoke(GetVirtualharddiskRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualharddiskRetrieveResult>("azure-native:azurestackhci/v20210701preview:getVirtualharddiskRetrieve", args ?? new GetVirtualharddiskRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetvirtualharddiskRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualharddiskRetrieveArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("virtualharddisksName", required: true)]
         public string VirtualharddisksName { get; set; } = null!;
 
-        public GetvirtualharddiskRetrieveArgs()
+        public GetVirtualharddiskRetrieveArgs()
         {
         }
-        public static new GetvirtualharddiskRetrieveArgs Empty => new GetvirtualharddiskRetrieveArgs();
+        public static new GetVirtualharddiskRetrieveArgs Empty => new GetVirtualharddiskRetrieveArgs();
     }
 
-    public sealed class GetvirtualharddiskRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualharddiskRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -53,15 +53,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("virtualharddisksName", required: true)]
         public Input<string> VirtualharddisksName { get; set; } = null!;
 
-        public GetvirtualharddiskRetrieveInvokeArgs()
+        public GetVirtualharddiskRetrieveInvokeArgs()
         {
         }
-        public static new GetvirtualharddiskRetrieveInvokeArgs Empty => new GetvirtualharddiskRetrieveInvokeArgs();
+        public static new GetVirtualharddiskRetrieveInvokeArgs Empty => new GetVirtualharddiskRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetvirtualharddiskRetrieveResult
+    public sealed class GetVirtualharddiskRetrieveResult
     {
         public readonly int? BlockSizeBytes;
         /// <summary>
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetvirtualharddiskRetrieveResult(
+        private GetVirtualharddiskRetrieveResult(
             int? blockSizeBytes,
 
             double? diskSizeBytes,

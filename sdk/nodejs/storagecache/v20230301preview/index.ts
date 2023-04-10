@@ -15,6 +15,11 @@ export type Cache = import("./cache").Cache;
 export const Cache: typeof import("./cache").Cache = null as any;
 utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
 
+export { GetAmlFilesystemArgs, GetAmlFilesystemResult, GetAmlFilesystemOutputArgs } from "./getAmlFilesystem";
+export const getAmlFilesystem: typeof import("./getAmlFilesystem").getAmlFilesystem = null as any;
+export const getAmlFilesystemOutput: typeof import("./getAmlFilesystem").getAmlFilesystemOutput = null as any;
+utilities.lazyLoad(exports, ["getAmlFilesystem","getAmlFilesystemOutput"], () => require("./getAmlFilesystem"));
+
 export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
 export const getCache: typeof import("./getCache").getCache = null as any;
 export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
@@ -30,11 +35,6 @@ export const getStorageTarget: typeof import("./getStorageTarget").getStorageTar
 export const getStorageTargetOutput: typeof import("./getStorageTarget").getStorageTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageTarget","getStorageTargetOutput"], () => require("./getStorageTarget"));
 
-export { GetamlFilesystemArgs, GetamlFilesystemResult, GetamlFilesystemOutputArgs } from "./getamlFilesystem";
-export const getamlFilesystem: typeof import("./getamlFilesystem").getamlFilesystem = null as any;
-export const getamlFilesystemOutput: typeof import("./getamlFilesystem").getamlFilesystemOutput = null as any;
-utilities.lazyLoad(exports, ["getamlFilesystem","getamlFilesystemOutput"], () => require("./getamlFilesystem"));
-
 export { StorageTargetArgs } from "./storageTarget";
 export type StorageTarget = import("./storageTarget").StorageTarget;
 export const StorageTarget: typeof import("./storageTarget").StorageTarget = null as any;
@@ -48,12 +48,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:storagecache/v20230301preview:AmlFilesystem":
+                return new AmlFilesystem(name, <any>undefined, { urn })
             case "azure-native:storagecache/v20230301preview:Cache":
                 return new Cache(name, <any>undefined, { urn })
             case "azure-native:storagecache/v20230301preview:StorageTarget":
                 return new StorageTarget(name, <any>undefined, { urn })
-            case "azure-native:storagecache/v20230301preview:amlFilesystem":
-                return new AmlFilesystem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

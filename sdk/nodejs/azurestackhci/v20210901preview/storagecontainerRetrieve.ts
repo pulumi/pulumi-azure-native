@@ -24,7 +24,7 @@ export class StoragecontainerRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve';
 
     /**
      * Returns true if the given object is an instance of StoragecontainerRetrieve.  This is designed to work even

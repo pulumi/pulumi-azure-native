@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
  * Gets a private link policy with a given name.
  * API Version: 2020-03-01.
  */
-export function getprivateLinkForAzureAd(args: GetprivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkForAzureAdResult> {
+export function getPrivateLinkForAzureAd(args: GetPrivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkForAzureAdResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:aadiam:getprivateLinkForAzureAd", {
+    return pulumi.runtime.invoke("azure-native:aadiam:getPrivateLinkForAzureAd", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetprivateLinkForAzureAdArgs {
+export interface GetPrivateLinkForAzureAdArgs {
     /**
      * The name of the private link policy in Azure AD.
      */
@@ -31,7 +31,7 @@ export interface GetprivateLinkForAzureAdArgs {
 /**
  * PrivateLink Policy configuration object.
  */
-export interface GetprivateLinkForAzureAdResult {
+export interface GetPrivateLinkForAzureAdResult {
     /**
      * Flag indicating whether all tenants are allowed
      */
@@ -77,11 +77,11 @@ export interface GetprivateLinkForAzureAdResult {
  * Gets a private link policy with a given name.
  * API Version: 2020-03-01.
  */
-export function getprivateLinkForAzureAdOutput(args: GetprivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkForAzureAdResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkForAzureAd(a, opts))
+export function getPrivateLinkForAzureAdOutput(args: GetPrivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkForAzureAdResult> {
+    return pulumi.output(args).apply((a: any) => getPrivateLinkForAzureAd(a, opts))
 }
 
-export interface GetprivateLinkForAzureAdOutputArgs {
+export interface GetPrivateLinkForAzureAdOutputArgs {
     /**
      * The name of the private link policy in Azure AD.
      */

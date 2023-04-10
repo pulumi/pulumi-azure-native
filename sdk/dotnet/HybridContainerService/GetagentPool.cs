@@ -9,25 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridContainerService
 {
-    public static class GetagentPool
+    public static class GetAgentPool
     {
         /// <summary>
         /// Gets the agent pool in the Hybrid AKS provisioned cluster
         /// API Version: 2022-05-01-preview.
         /// </summary>
-        public static Task<GetagentPoolResult> InvokeAsync(GetagentPoolArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetagentPoolResult>("azure-native:hybridcontainerservice:getagentPool", args ?? new GetagentPoolArgs(), options.WithDefaults());
+        public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:hybridcontainerservice:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the agent pool in the Hybrid AKS provisioned cluster
         /// API Version: 2022-05-01-preview.
         /// </summary>
-        public static Output<GetagentPoolResult> Invoke(GetagentPoolInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetagentPoolResult>("azure-native:hybridcontainerservice:getagentPool", args ?? new GetagentPoolInvokeArgs(), options.WithDefaults());
+        public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:hybridcontainerservice:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetagentPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAgentPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Parameter for the name of the agent pool in the provisioned cluster
@@ -47,13 +47,13 @@ namespace Pulumi.AzureNative.HybridContainerService
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetagentPoolArgs()
+        public GetAgentPoolArgs()
         {
         }
-        public static new GetagentPoolArgs Empty => new GetagentPoolArgs();
+        public static new GetAgentPoolArgs Empty => new GetAgentPoolArgs();
     }
 
-    public sealed class GetagentPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAgentPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Parameter for the name of the agent pool in the provisioned cluster
@@ -73,15 +73,15 @@ namespace Pulumi.AzureNative.HybridContainerService
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetagentPoolInvokeArgs()
+        public GetAgentPoolInvokeArgs()
         {
         }
-        public static new GetagentPoolInvokeArgs Empty => new GetagentPoolInvokeArgs();
+        public static new GetAgentPoolInvokeArgs Empty => new GetAgentPoolInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetagentPoolResult
+    public sealed class GetAgentPoolResult
     {
         /// <summary>
         /// AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         public readonly string? VmSize;
 
         [OutputConstructor]
-        private GetagentPoolResult(
+        private GetAgentPoolResult(
             ImmutableArray<string> availabilityZones,
 
             Outputs.CloudProviderProfileResponse? cloudProviderProfile,

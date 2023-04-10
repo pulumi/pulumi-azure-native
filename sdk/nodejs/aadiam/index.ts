@@ -15,6 +15,11 @@ export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
 export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
 utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
 
+export { GetAzureADMetricArgs, GetAzureADMetricResult, GetAzureADMetricOutputArgs } from "./getAzureADMetric";
+export const getAzureADMetric: typeof import("./getAzureADMetric").getAzureADMetric = null as any;
+export const getAzureADMetricOutput: typeof import("./getAzureADMetric").getAzureADMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureADMetric","getAzureADMetricOutput"], () => require("./getAzureADMetric"));
+
 export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
 export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
 export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
@@ -25,15 +30,10 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { GetazureADMetricArgs, GetazureADMetricResult, GetazureADMetricOutputArgs } from "./getazureADMetric";
-export const getazureADMetric: typeof import("./getazureADMetric").getazureADMetric = null as any;
-export const getazureADMetricOutput: typeof import("./getazureADMetric").getazureADMetricOutput = null as any;
-utilities.lazyLoad(exports, ["getazureADMetric","getazureADMetricOutput"], () => require("./getazureADMetric"));
-
-export { GetprivateLinkForAzureAdArgs, GetprivateLinkForAzureAdResult, GetprivateLinkForAzureAdOutputArgs } from "./getprivateLinkForAzureAd";
-export const getprivateLinkForAzureAd: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAd = null as any;
-export const getprivateLinkForAzureAdOutput: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAdOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkForAzureAd","getprivateLinkForAzureAdOutput"], () => require("./getprivateLinkForAzureAd"));
+export { GetPrivateLinkForAzureAdArgs, GetPrivateLinkForAzureAdResult, GetPrivateLinkForAzureAdOutputArgs } from "./getPrivateLinkForAzureAd";
+export const getPrivateLinkForAzureAd: typeof import("./getPrivateLinkForAzureAd").getPrivateLinkForAzureAd = null as any;
+export const getPrivateLinkForAzureAdOutput: typeof import("./getPrivateLinkForAzureAd").getPrivateLinkForAzureAdOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkForAzureAd","getPrivateLinkForAzureAdOutput"], () => require("./getPrivateLinkForAzureAd"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -68,13 +68,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:aadiam:AzureADMetric":
+                return new AzureADMetric(name, <any>undefined, { urn })
             case "azure-native:aadiam:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:aadiam:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:aadiam:azureADMetric":
-                return new AzureADMetric(name, <any>undefined, { urn })
-            case "azure-native:aadiam:privateLinkForAzureAd":
+            case "azure-native:aadiam:PrivateLinkForAzureAd":
                 return new PrivateLinkForAzureAd(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);

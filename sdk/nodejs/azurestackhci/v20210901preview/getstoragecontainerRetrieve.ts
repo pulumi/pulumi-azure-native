@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets storagecontainers by resource name
  */
-export function getstoragecontainerRetrieve(args: GetstoragecontainerRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetstoragecontainerRetrieveResult> {
+export function getStoragecontainerRetrieve(args: GetStoragecontainerRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetStoragecontainerRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getstoragecontainerRetrieve", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "storagecontainersName": args.storagecontainersName,
     }, opts);
 }
 
-export interface GetstoragecontainerRetrieveArgs {
+export interface GetStoragecontainerRetrieveArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -30,7 +30,7 @@ export interface GetstoragecontainerRetrieveArgs {
 /**
  * The storage container resource definition.
  */
-export interface GetstoragecontainerRetrieveResult {
+export interface GetStoragecontainerRetrieveResult {
     /**
      * Amount of space available on the disk in MB
      */
@@ -81,11 +81,11 @@ export interface GetstoragecontainerRetrieveResult {
 /**
  * Gets storagecontainers by resource name
  */
-export function getstoragecontainerRetrieveOutput(args: GetstoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetstoragecontainerRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getstoragecontainerRetrieve(a, opts))
+export function getStoragecontainerRetrieveOutput(args: GetStoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoragecontainerRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getStoragecontainerRetrieve(a, opts))
 }
 
-export interface GetstoragecontainerRetrieveOutputArgs {
+export interface GetStoragecontainerRetrieveOutputArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */

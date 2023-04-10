@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
     /// <summary>
     /// The virtualmachines resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve")]
+    [AzureNativeResourceType("azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve")]
     public partial class VirtualmachineRetrieve : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -105,12 +105,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualmachineRetrieve(string name, VirtualmachineRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve", name, args ?? new VirtualmachineRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve", name, args ?? new VirtualmachineRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualmachineRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualmachineRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

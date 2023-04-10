@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// The virtual network resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve")]
+    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve")]
     public partial class VirtualnetworkRetrieve : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -87,12 +87,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualnetworkRetrieve(string name, VirtualnetworkRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve", name, args ?? new VirtualnetworkRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve", name, args ?? new VirtualnetworkRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualnetworkRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualnetworkRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

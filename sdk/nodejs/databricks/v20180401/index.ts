@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetVNetPeeringArgs, GetVNetPeeringResult, GetVNetPeeringOutputArgs } from "./getVNetPeering";
+export const getVNetPeering: typeof import("./getVNetPeering").getVNetPeering = null as any;
+export const getVNetPeeringOutput: typeof import("./getVNetPeering").getVNetPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getVNetPeering","getVNetPeeringOutput"], () => require("./getVNetPeering"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-
-export { GetvNetPeeringArgs, GetvNetPeeringResult, GetvNetPeeringOutputArgs } from "./getvNetPeering";
-export const getvNetPeering: typeof import("./getvNetPeering").getvNetPeering = null as any;
-export const getvNetPeeringOutput: typeof import("./getvNetPeering").getvNetPeeringOutput = null as any;
-utilities.lazyLoad(exports, ["getvNetPeering","getvNetPeeringOutput"], () => require("./getvNetPeering"));
 
 export { VNetPeeringArgs } from "./vnetPeering";
 export type VNetPeering = import("./vnetPeering").VNetPeering;
@@ -33,10 +33,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:databricks/v20180401:VNetPeering":
+                return new VNetPeering(name, <any>undefined, { urn })
             case "azure-native:databricks/v20180401:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-native:databricks/v20180401:vNetPeering":
-                return new VNetPeering(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

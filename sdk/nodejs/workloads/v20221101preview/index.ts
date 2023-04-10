@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
 export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
 export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
 export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
@@ -55,11 +60,6 @@ export const getSapLandscapeMonitor: typeof import("./getSapLandscapeMonitor").g
 export const getSapLandscapeMonitorOutput: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getSapLandscapeMonitor","getSapLandscapeMonitorOutput"], () => require("./getSapLandscapeMonitor"));
 
-export { GetmonitorArgs, GetmonitorResult, GetmonitorOutputArgs } from "./getmonitor";
-export const getmonitor: typeof import("./getmonitor").getmonitor = null as any;
-export const getmonitorOutput: typeof import("./getmonitor").getmonitorOutput = null as any;
-utilities.lazyLoad(exports, ["getmonitor","getmonitorOutput"], () => require("./getmonitor"));
-
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
@@ -103,6 +103,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:workloads/v20221101preview:Monitor":
+                return new Monitor(name, <any>undefined, { urn })
             case "azure-native:workloads/v20221101preview:ProviderInstance":
                 return new ProviderInstance(name, <any>undefined, { urn })
             case "azure-native:workloads/v20221101preview:SAPApplicationServerInstance":
@@ -115,8 +117,6 @@ const _module = {
                 return new SAPVirtualInstance(name, <any>undefined, { urn })
             case "azure-native:workloads/v20221101preview:SapLandscapeMonitor":
                 return new SapLandscapeMonitor(name, <any>undefined, { urn })
-            case "azure-native:workloads/v20221101preview:monitor":
-                return new Monitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

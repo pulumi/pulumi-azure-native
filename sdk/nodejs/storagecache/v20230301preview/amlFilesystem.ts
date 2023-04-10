@@ -24,7 +24,7 @@ export class AmlFilesystem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:storagecache/v20230301preview:amlFilesystem';
+    public static readonly __pulumiType = 'azure-native:storagecache/v20230301preview:AmlFilesystem';
 
     /**
      * Returns true if the given object is an instance of AmlFilesystem.  This is designed to work even

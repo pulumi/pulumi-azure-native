@@ -80,6 +80,11 @@ export const getKey: typeof import("./getKey").getKey = null as any;
 export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
 
+export { GetKustoPoolArgs, GetKustoPoolResult, GetKustoPoolOutputArgs } from "./getKustoPool";
+export const getKustoPool: typeof import("./getKustoPool").getKustoPool = null as any;
+export const getKustoPoolOutput: typeof import("./getKustoPool").getKustoPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoPool","getKustoPoolOutput"], () => require("./getKustoPool"));
+
 export { GetKustoPoolAttachedDatabaseConfigurationArgs, GetKustoPoolAttachedDatabaseConfigurationResult, GetKustoPoolAttachedDatabaseConfigurationOutputArgs } from "./getKustoPoolAttachedDatabaseConfiguration";
 export const getKustoPoolAttachedDatabaseConfiguration: typeof import("./getKustoPoolAttachedDatabaseConfiguration").getKustoPoolAttachedDatabaseConfiguration = null as any;
 export const getKustoPoolAttachedDatabaseConfigurationOutput: typeof import("./getKustoPoolAttachedDatabaseConfiguration").getKustoPoolAttachedDatabaseConfigurationOutput = null as any;
@@ -159,11 +164,6 @@ export { GetWorkspaceSqlAadAdminArgs, GetWorkspaceSqlAadAdminResult, GetWorkspac
 export const getWorkspaceSqlAadAdmin: typeof import("./getWorkspaceSqlAadAdmin").getWorkspaceSqlAadAdmin = null as any;
 export const getWorkspaceSqlAadAdminOutput: typeof import("./getWorkspaceSqlAadAdmin").getWorkspaceSqlAadAdminOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceSqlAadAdmin","getWorkspaceSqlAadAdminOutput"], () => require("./getWorkspaceSqlAadAdmin"));
-
-export { GetkustoPoolArgs, GetkustoPoolResult, GetkustoPoolOutputArgs } from "./getkustoPool";
-export const getkustoPool: typeof import("./getkustoPool").getkustoPool = null as any;
-export const getkustoPoolOutput: typeof import("./getkustoPool").getkustoPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getkustoPool","getkustoPoolOutput"], () => require("./getkustoPool"));
 
 export { IntegrationRuntimeArgs } from "./integrationRuntime";
 export type IntegrationRuntime = import("./integrationRuntime").IntegrationRuntime;
@@ -330,6 +330,8 @@ const _module = {
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPool":
+                return new KustoPool(name, <any>undefined, { urn })
             case "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration":
                 return new KustoPoolAttachedDatabaseConfiguration(name, <any>undefined, { urn })
             case "azure-native:synapse:KustoPoolPrincipalAssignment":
@@ -362,8 +364,6 @@ const _module = {
                 return new WorkspaceManagedSqlServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:synapse:WorkspaceSqlAadAdmin":
                 return new WorkspaceSqlAadAdmin(name, <any>undefined, { urn })
-            case "azure-native:synapse:kustoPool":
-                return new KustoPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -11,16 +11,16 @@ import * as utilities from "../utilities";
  * Gets the Hybrid AKS storage space object
  * API Version: 2022-05-01-preview.
  */
-export function getstorageSpaceRetrieve(args: GetstorageSpaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetstorageSpaceRetrieveResult> {
+export function getStorageSpaceRetrieve(args: GetStorageSpaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSpaceRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getstorageSpaceRetrieve", {
+    return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getStorageSpaceRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "storageSpacesName": args.storageSpacesName,
     }, opts);
 }
 
-export interface GetstorageSpaceRetrieveArgs {
+export interface GetStorageSpaceRetrieveArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -34,7 +34,7 @@ export interface GetstorageSpaceRetrieveArgs {
 /**
  * The storageSpaces resource definition.
  */
-export interface GetstorageSpaceRetrieveResult {
+export interface GetStorageSpaceRetrieveResult {
     readonly extendedLocation?: outputs.hybridcontainerservice.StorageSpacesResponseExtendedLocation;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -69,11 +69,11 @@ export interface GetstorageSpaceRetrieveResult {
  * Gets the Hybrid AKS storage space object
  * API Version: 2022-05-01-preview.
  */
-export function getstorageSpaceRetrieveOutput(args: GetstorageSpaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetstorageSpaceRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getstorageSpaceRetrieve(a, opts))
+export function getStorageSpaceRetrieveOutput(args: GetStorageSpaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSpaceRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getStorageSpaceRetrieve(a, opts))
 }
 
-export interface GetstorageSpaceRetrieveOutputArgs {
+export interface GetStorageSpaceRetrieveOutputArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */

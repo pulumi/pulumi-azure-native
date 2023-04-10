@@ -10,23 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthBot.V20201020Preview
 {
     [Obsolete(@"Version 2020-10-20-preview will be removed in v2 of the provider.")]
-    public static class Getgetbot
+    public static class GetGetbot
     {
         /// <summary>
         /// Get a Healthcare Bot.
         /// </summary>
-        public static Task<GetgetbotResult> InvokeAsync(GetgetbotArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetgetbotResult>("azure-native:healthbot/v20201020preview:getgetbot", args ?? new GetgetbotArgs(), options.WithDefaults());
+        public static Task<GetGetbotResult> InvokeAsync(GetGetbotArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGetbotResult>("azure-native:healthbot/v20201020preview:getGetbot", args ?? new GetGetbotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Healthcare Bot.
         /// </summary>
-        public static Output<GetgetbotResult> Invoke(GetgetbotInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetgetbotResult>("azure-native:healthbot/v20201020preview:getgetbot", args ?? new GetgetbotInvokeArgs(), options.WithDefaults());
+        public static Output<GetGetbotResult> Invoke(GetGetbotInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGetbotResult>("azure-native:healthbot/v20201020preview:getGetbot", args ?? new GetGetbotInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetgetbotArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGetbotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot resource group in the user subscription.
@@ -40,13 +40,13 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
-        public GetgetbotArgs()
+        public GetGetbotArgs()
         {
         }
-        public static new GetgetbotArgs Empty => new GetgetbotArgs();
+        public static new GetGetbotArgs Empty => new GetGetbotArgs();
     }
 
-    public sealed class GetgetbotInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGetbotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Bot resource group in the user subscription.
@@ -60,15 +60,15 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
-        public GetgetbotInvokeArgs()
+        public GetGetbotInvokeArgs()
         {
         }
-        public static new GetgetbotInvokeArgs Empty => new GetgetbotInvokeArgs();
+        public static new GetGetbotInvokeArgs Empty => new GetGetbotInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetgetbotResult
+    public sealed class GetGetbotResult
     {
         /// <summary>
         /// Fully qualified resource Id for the resource.
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetgetbotResult(
+        private GetGetbotResult(
             string id,
 
             string location,

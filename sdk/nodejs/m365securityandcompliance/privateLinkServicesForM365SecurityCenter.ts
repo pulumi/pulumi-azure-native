@@ -25,7 +25,7 @@ export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResou
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:m365securityandcompliance:privateLinkServicesForM365SecurityCenter';
+    public static readonly __pulumiType = 'azure-native:m365securityandcompliance:PrivateLinkServicesForM365SecurityCenter';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicesForM365SecurityCenter.  This is designed to work even
@@ -115,7 +115,7 @@ export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365SecurityCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365SecurityCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForM365SecurityCenter.__pulumiType, name, resourceInputs, opts);
     }

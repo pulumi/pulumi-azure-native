@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
 {
-    public static class GetnetworkinterfaceRetrieve
+    public static class GetNetworkinterfaceRetrieve
     {
         /// <summary>
         /// The networkinterfaces resource definition.
         /// </summary>
-        public static Task<GetnetworkinterfaceRetrieveResult> InvokeAsync(GetnetworkinterfaceRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetnetworkinterfaceRetrieveResult>("azure-native:azurestackhci/v20210701preview:getnetworkinterfaceRetrieve", args ?? new GetnetworkinterfaceRetrieveArgs(), options.WithDefaults());
+        public static Task<GetNetworkinterfaceRetrieveResult> InvokeAsync(GetNetworkinterfaceRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkinterfaceRetrieveResult>("azure-native:azurestackhci/v20210701preview:getNetworkinterfaceRetrieve", args ?? new GetNetworkinterfaceRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// The networkinterfaces resource definition.
         /// </summary>
-        public static Output<GetnetworkinterfaceRetrieveResult> Invoke(GetnetworkinterfaceRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetnetworkinterfaceRetrieveResult>("azure-native:azurestackhci/v20210701preview:getnetworkinterfaceRetrieve", args ?? new GetnetworkinterfaceRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetNetworkinterfaceRetrieveResult> Invoke(GetNetworkinterfaceRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkinterfaceRetrieveResult>("azure-native:azurestackhci/v20210701preview:getNetworkinterfaceRetrieve", args ?? new GetNetworkinterfaceRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetnetworkinterfaceRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkinterfaceRetrieveArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkinterfacesName", required: true)]
         public string NetworkinterfacesName { get; set; } = null!;
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetnetworkinterfaceRetrieveArgs()
+        public GetNetworkinterfaceRetrieveArgs()
         {
         }
-        public static new GetnetworkinterfaceRetrieveArgs Empty => new GetnetworkinterfaceRetrieveArgs();
+        public static new GetNetworkinterfaceRetrieveArgs Empty => new GetNetworkinterfaceRetrieveArgs();
     }
 
-    public sealed class GetnetworkinterfaceRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetNetworkinterfaceRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkinterfacesName", required: true)]
         public Input<string> NetworkinterfacesName { get; set; } = null!;
@@ -53,15 +53,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetnetworkinterfaceRetrieveInvokeArgs()
+        public GetNetworkinterfaceRetrieveInvokeArgs()
         {
         }
-        public static new GetnetworkinterfaceRetrieveInvokeArgs Empty => new GetnetworkinterfaceRetrieveInvokeArgs();
+        public static new GetNetworkinterfaceRetrieveInvokeArgs Empty => new GetNetworkinterfaceRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetnetworkinterfaceRetrieveResult
+    public sealed class GetNetworkinterfaceRetrieveResult
     {
         /// <summary>
         /// DNS Settings for the interface
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetnetworkinterfaceRetrieveResult(
+        private GetNetworkinterfaceRetrieveResult(
             Outputs.InterfaceDNSSettingsResponse? dnsSettings,
 
             Outputs.ExtendedLocationResponse? extendedLocation,

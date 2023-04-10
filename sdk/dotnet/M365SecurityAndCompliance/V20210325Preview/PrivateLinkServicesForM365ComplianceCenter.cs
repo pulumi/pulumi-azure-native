@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [AzureNativeResourceType("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365ComplianceCenter")]
+    [AzureNativeResourceType("azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365ComplianceCenter")]
     public partial class PrivateLinkServicesForM365ComplianceCenter : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkServicesForM365ComplianceCenter(string name, PrivateLinkServicesForM365ComplianceCenterArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365ComplianceCenter", name, args ?? new PrivateLinkServicesForM365ComplianceCenterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365ComplianceCenter", name, args ?? new PrivateLinkServicesForM365ComplianceCenterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkServicesForM365ComplianceCenter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365ComplianceCenter", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365ComplianceCenter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateLinkServicesForM365ComplianceCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
