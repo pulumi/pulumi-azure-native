@@ -10,17 +10,17 @@ export type AzureADMetric = import("./azureADMetric").AzureADMetric;
 export const AzureADMetric: typeof import("./azureADMetric").AzureADMetric = null as any;
 utilities.lazyLoad(exports, ["AzureADMetric"], () => require("./azureADMetric"));
 
-export { GetazureADMetricArgs, GetazureADMetricResult, GetazureADMetricOutputArgs } from "./getazureADMetric";
-export const getazureADMetric: typeof import("./getazureADMetric").getazureADMetric = null as any;
-export const getazureADMetricOutput: typeof import("./getazureADMetric").getazureADMetricOutput = null as any;
-utilities.lazyLoad(exports, ["getazureADMetric","getazureADMetricOutput"], () => require("./getazureADMetric"));
+export { GetAzureADMetricArgs, GetAzureADMetricResult, GetAzureADMetricOutputArgs } from "./getAzureADMetric";
+export const getAzureADMetric: typeof import("./getAzureADMetric").getAzureADMetric = null as any;
+export const getAzureADMetricOutput: typeof import("./getAzureADMetric").getAzureADMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureADMetric","getAzureADMetricOutput"], () => require("./getAzureADMetric"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:aadiam/v20200701preview:azureADMetric":
+            case "azure-native:aadiam/v20200701preview:AzureADMetric":
                 return new AzureADMetric(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);

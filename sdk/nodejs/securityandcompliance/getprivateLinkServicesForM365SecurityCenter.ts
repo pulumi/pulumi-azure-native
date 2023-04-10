@@ -11,16 +11,16 @@ import * as utilities from "../utilities";
  * Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
  * API Version: 2021-03-08.
  */
-export function getprivateLinkServicesForM365SecurityCenter(args: GetprivateLinkServicesForM365SecurityCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForM365SecurityCenterResult> {
+export function getPrivateLinkServicesForM365SecurityCenter(args: GetPrivateLinkServicesForM365SecurityCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForM365SecurityCenterResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:securityandcompliance:getprivateLinkServicesForM365SecurityCenter", {
+    return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateLinkServicesForM365SecurityCenter", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
 }
 
-export interface GetprivateLinkServicesForM365SecurityCenterArgs {
+export interface GetPrivateLinkServicesForM365SecurityCenterArgs {
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -34,7 +34,7 @@ export interface GetprivateLinkServicesForM365SecurityCenterArgs {
 /**
  * The description of the service.
  */
-export interface GetprivateLinkServicesForM365SecurityCenterResult {
+export interface GetPrivateLinkServicesForM365SecurityCenterResult {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -80,11 +80,11 @@ export interface GetprivateLinkServicesForM365SecurityCenterResult {
  * Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
  * API Version: 2021-03-08.
  */
-export function getprivateLinkServicesForM365SecurityCenterOutput(args: GetprivateLinkServicesForM365SecurityCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForM365SecurityCenterResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForM365SecurityCenter(a, opts))
+export function getPrivateLinkServicesForM365SecurityCenterOutput(args: GetPrivateLinkServicesForM365SecurityCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForM365SecurityCenterResult> {
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForM365SecurityCenter(a, opts))
 }
 
-export interface GetprivateLinkServicesForM365SecurityCenterOutputArgs {
+export interface GetPrivateLinkServicesForM365SecurityCenterOutputArgs {
     /**
      * The name of the resource group that contains the service instance.
      */

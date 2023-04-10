@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     /// The description of the service.
     /// API Version: 2021-03-25-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:m365securityandcompliance:privateLinkServicesForEDMUpload")]
+    [AzureNativeResourceType("azure-native:m365securityandcompliance:PrivateLinkServicesForEDMUpload")]
     public partial class PrivateLinkServicesForEDMUpload : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkServicesForEDMUpload(string name, PrivateLinkServicesForEDMUploadArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance:privateLinkServicesForEDMUpload", name, args ?? new PrivateLinkServicesForEDMUploadArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:m365securityandcompliance:PrivateLinkServicesForEDMUpload", name, args ?? new PrivateLinkServicesForEDMUploadArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkServicesForEDMUpload(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance:privateLinkServicesForEDMUpload", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:m365securityandcompliance:PrivateLinkServicesForEDMUpload", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForEDMUpload"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForEDMUpload"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

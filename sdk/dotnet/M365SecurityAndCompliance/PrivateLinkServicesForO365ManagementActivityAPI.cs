@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     /// The description of the service.
     /// API Version: 2021-03-25-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI")]
+    [AzureNativeResourceType("azure-native:m365securityandcompliance:PrivateLinkServicesForO365ManagementActivityAPI")]
     public partial class PrivateLinkServicesForO365ManagementActivityAPI : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkServicesForO365ManagementActivityAPI(string name, PrivateLinkServicesForO365ManagementActivityAPIArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI", name, args ?? new PrivateLinkServicesForO365ManagementActivityAPIArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:m365securityandcompliance:PrivateLinkServicesForO365ManagementActivityAPI", name, args ?? new PrivateLinkServicesForO365ManagementActivityAPIArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkServicesForO365ManagementActivityAPI(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:m365securityandcompliance:PrivateLinkServicesForO365ManagementActivityAPI", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForO365ManagementActivityAPI"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForO365ManagementActivityAPI"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

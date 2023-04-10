@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
 {
-    public static class GetprivateLinkServicesForSCCPowershell
+    public static class GetPrivateLinkServicesForSCCPowershell
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForSCCPowershell resource.
         /// </summary>
-        public static Task<GetprivateLinkServicesForSCCPowershellResult> InvokeAsync(GetprivateLinkServicesForSCCPowershellArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellArgs(), options.WithDefaults());
+        public static Task<GetPrivateLinkServicesForSCCPowershellResult> InvokeAsync(GetPrivateLinkServicesForSCCPowershellArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateLinkServicesForSCCPowershell", args ?? new GetPrivateLinkServicesForSCCPowershellArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForSCCPowershell resource.
         /// </summary>
-        public static Output<GetprivateLinkServicesForSCCPowershellResult> Invoke(GetprivateLinkServicesForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellInvokeArgs(), options.WithDefaults());
+        public static Output<GetPrivateLinkServicesForSCCPowershellResult> Invoke(GetPrivateLinkServicesForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateLinkServicesForSCCPowershell", args ?? new GetPrivateLinkServicesForSCCPowershellInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetprivateLinkServicesForSCCPowershellArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForSCCPowershellArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForSCCPowershellArgs()
+        public GetPrivateLinkServicesForSCCPowershellArgs()
         {
         }
-        public static new GetprivateLinkServicesForSCCPowershellArgs Empty => new GetprivateLinkServicesForSCCPowershellArgs();
+        public static new GetPrivateLinkServicesForSCCPowershellArgs Empty => new GetPrivateLinkServicesForSCCPowershellArgs();
     }
 
-    public sealed class GetprivateLinkServicesForSCCPowershellInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForSCCPowershellInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForSCCPowershellInvokeArgs()
+        public GetPrivateLinkServicesForSCCPowershellInvokeArgs()
         {
         }
-        public static new GetprivateLinkServicesForSCCPowershellInvokeArgs Empty => new GetprivateLinkServicesForSCCPowershellInvokeArgs();
+        public static new GetPrivateLinkServicesForSCCPowershellInvokeArgs Empty => new GetPrivateLinkServicesForSCCPowershellInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetprivateLinkServicesForSCCPowershellResult
+    public sealed class GetPrivateLinkServicesForSCCPowershellResult
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetprivateLinkServicesForSCCPowershellResult(
+        private GetPrivateLinkServicesForSCCPowershellResult(
             string? etag,
 
             string id,

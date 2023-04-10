@@ -25,7 +25,7 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:hybridcontainerservice:virtualNetworkRetrieve';
+    public static readonly __pulumiType = 'azure-native:hybridcontainerservice:VirtualNetworkRetrieve';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkRetrieve.  This is designed to work even
@@ -97,7 +97,7 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRetrieve.__pulumiType, name, resourceInputs, opts);
     }

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
 export { GetPhpWorkloadArgs, GetPhpWorkloadResult, GetPhpWorkloadOutputArgs } from "./getPhpWorkload";
 export const getPhpWorkload: typeof import("./getPhpWorkload").getPhpWorkload = null as any;
 export const getPhpWorkloadOutput: typeof import("./getPhpWorkload").getPhpWorkloadOutput = null as any;
@@ -59,11 +64,6 @@ export { GetWordpressInstanceArgs, GetWordpressInstanceResult, GetWordpressInsta
 export const getWordpressInstance: typeof import("./getWordpressInstance").getWordpressInstance = null as any;
 export const getWordpressInstanceOutput: typeof import("./getWordpressInstance").getWordpressInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getWordpressInstance","getWordpressInstanceOutput"], () => require("./getWordpressInstance"));
-
-export { GetmonitorArgs, GetmonitorResult, GetmonitorOutputArgs } from "./getmonitor";
-export const getmonitor: typeof import("./getmonitor").getmonitor = null as any;
-export const getmonitorOutput: typeof import("./getmonitor").getmonitorOutput = null as any;
-utilities.lazyLoad(exports, ["getmonitor","getmonitorOutput"], () => require("./getmonitor"));
 
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
@@ -124,6 +124,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:workloads:Monitor":
+                return new Monitor(name, <any>undefined, { urn })
             case "azure-native:workloads:PhpWorkload":
                 return new PhpWorkload(name, <any>undefined, { urn })
             case "azure-native:workloads:ProviderInstance":
@@ -138,8 +140,6 @@ const _module = {
                 return new SAPVirtualInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:WordpressInstance":
                 return new WordpressInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads:monitor":
-                return new Monitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
 {
-    public static class GetstorageSpaceRetrieve
+    public static class GetStorageSpaceRetrieve
     {
         /// <summary>
         /// Gets the Hybrid AKS storage space object
         /// </summary>
-        public static Task<GetstorageSpaceRetrieveResult> InvokeAsync(GetstorageSpaceRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetstorageSpaceRetrieveResult>("azure-native:hybridcontainerservice/v20220501preview:getstorageSpaceRetrieve", args ?? new GetstorageSpaceRetrieveArgs(), options.WithDefaults());
+        public static Task<GetStorageSpaceRetrieveResult> InvokeAsync(GetStorageSpaceRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageSpaceRetrieveResult>("azure-native:hybridcontainerservice/v20220501preview:getStorageSpaceRetrieve", args ?? new GetStorageSpaceRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Hybrid AKS storage space object
         /// </summary>
-        public static Output<GetstorageSpaceRetrieveResult> Invoke(GetstorageSpaceRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetstorageSpaceRetrieveResult>("azure-native:hybridcontainerservice/v20220501preview:getstorageSpaceRetrieve", args ?? new GetstorageSpaceRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetStorageSpaceRetrieveResult> Invoke(GetStorageSpaceRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageSpaceRetrieveResult>("azure-native:hybridcontainerservice/v20220501preview:getStorageSpaceRetrieve", args ?? new GetStorageSpaceRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetstorageSpaceRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageSpaceRetrieveArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
         [Input("storageSpacesName", required: true)]
         public string StorageSpacesName { get; set; } = null!;
 
-        public GetstorageSpaceRetrieveArgs()
+        public GetStorageSpaceRetrieveArgs()
         {
         }
-        public static new GetstorageSpaceRetrieveArgs Empty => new GetstorageSpaceRetrieveArgs();
+        public static new GetStorageSpaceRetrieveArgs Empty => new GetStorageSpaceRetrieveArgs();
     }
 
-    public sealed class GetstorageSpaceRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetStorageSpaceRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
         [Input("storageSpacesName", required: true)]
         public Input<string> StorageSpacesName { get; set; } = null!;
 
-        public GetstorageSpaceRetrieveInvokeArgs()
+        public GetStorageSpaceRetrieveInvokeArgs()
         {
         }
-        public static new GetstorageSpaceRetrieveInvokeArgs Empty => new GetstorageSpaceRetrieveInvokeArgs();
+        public static new GetStorageSpaceRetrieveInvokeArgs Empty => new GetStorageSpaceRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetstorageSpaceRetrieveResult
+    public sealed class GetStorageSpaceRetrieveResult
     {
         public readonly Outputs.StorageSpacesResponseExtendedLocation? ExtendedLocation;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetstorageSpaceRetrieveResult(
+        private GetStorageSpaceRetrieveResult(
             Outputs.StorageSpacesResponseExtendedLocation? extendedLocation,
 
             string id,

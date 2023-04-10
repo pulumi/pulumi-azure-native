@@ -314,7 +314,7 @@ class Marketplacegalleryimage(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         super(Marketplacegalleryimage, __self__).__init__(
-            'azure-native:azurestackhci/v20210901preview:marketplacegalleryimage',
+            'azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage',
             resource_name,
             __props__,
             opts)

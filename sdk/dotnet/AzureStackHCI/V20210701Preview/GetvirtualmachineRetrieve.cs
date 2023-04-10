@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
 {
-    public static class GetvirtualmachineRetrieve
+    public static class GetVirtualmachineRetrieve
     {
         /// <summary>
         /// The virtualmachines resource definition.
         /// </summary>
-        public static Task<GetvirtualmachineRetrieveResult> InvokeAsync(GetvirtualmachineRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210701preview:getvirtualmachineRetrieve", args ?? new GetvirtualmachineRetrieveArgs(), options.WithDefaults());
+        public static Task<GetVirtualmachineRetrieveResult> InvokeAsync(GetVirtualmachineRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210701preview:getVirtualmachineRetrieve", args ?? new GetVirtualmachineRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtualmachines resource definition.
         /// </summary>
-        public static Output<GetvirtualmachineRetrieveResult> Invoke(GetvirtualmachineRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetvirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210701preview:getvirtualmachineRetrieve", args ?? new GetvirtualmachineRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetVirtualmachineRetrieveResult> Invoke(GetVirtualmachineRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210701preview:getVirtualmachineRetrieve", args ?? new GetVirtualmachineRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetvirtualmachineRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualmachineRetrieveArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("virtualmachinesName", required: true)]
         public string VirtualmachinesName { get; set; } = null!;
 
-        public GetvirtualmachineRetrieveArgs()
+        public GetVirtualmachineRetrieveArgs()
         {
         }
-        public static new GetvirtualmachineRetrieveArgs Empty => new GetvirtualmachineRetrieveArgs();
+        public static new GetVirtualmachineRetrieveArgs Empty => new GetVirtualmachineRetrieveArgs();
     }
 
-    public sealed class GetvirtualmachineRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualmachineRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -53,15 +53,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("virtualmachinesName", required: true)]
         public Input<string> VirtualmachinesName { get; set; } = null!;
 
-        public GetvirtualmachineRetrieveInvokeArgs()
+        public GetVirtualmachineRetrieveInvokeArgs()
         {
         }
-        public static new GetvirtualmachineRetrieveInvokeArgs Empty => new GetvirtualmachineRetrieveInvokeArgs();
+        public static new GetVirtualmachineRetrieveInvokeArgs Empty => new GetVirtualmachineRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetvirtualmachineRetrieveResult
+    public sealed class GetVirtualmachineRetrieveResult
     {
         /// <summary>
         /// The extendedLocation of the resource.
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetvirtualmachineRetrieveResult(
+        private GetVirtualmachineRetrieveResult(
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             Outputs.VirtualmachinesPropertiesResponseHardwareProfile? hardwareProfile,

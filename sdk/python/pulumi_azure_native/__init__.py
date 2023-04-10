@@ -693,10 +693,10 @@ _utilities.register(
   "mod": "aadiam",
   "fqn": "pulumi_azure_native.aadiam",
   "classes": {
+   "azure-native:aadiam:AzureADMetric": "AzureADMetric",
    "azure-native:aadiam:DiagnosticSetting": "DiagnosticSetting",
    "azure-native:aadiam:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:aadiam:azureADMetric": "AzureADMetric",
-   "azure-native:aadiam:privateLinkForAzureAd": "PrivateLinkForAzureAd"
+   "azure-native:aadiam:PrivateLinkForAzureAd": "PrivateLinkForAzureAd"
   }
  },
  {
@@ -721,7 +721,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.aadiam.v20200301",
   "classes": {
    "azure-native:aadiam/v20200301:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:aadiam/v20200301:privateLinkForAzureAd": "PrivateLinkForAzureAd"
+   "azure-native:aadiam/v20200301:PrivateLinkForAzureAd": "PrivateLinkForAzureAd"
   }
  },
  {
@@ -729,7 +729,7 @@ _utilities.register(
   "mod": "aadiam/v20200301preview",
   "fqn": "pulumi_azure_native.aadiam.v20200301preview",
   "classes": {
-   "azure-native:aadiam/v20200301preview:privateLinkForAzureAd": "PrivateLinkForAzureAd"
+   "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd": "PrivateLinkForAzureAd"
   }
  },
  {
@@ -737,7 +737,7 @@ _utilities.register(
   "mod": "aadiam/v20200701preview",
   "fqn": "pulumi_azure_native.aadiam.v20200701preview",
   "classes": {
-   "azure-native:aadiam/v20200701preview:azureADMetric": "AzureADMetric"
+   "azure-native:aadiam/v20200701preview:AzureADMetric": "AzureADMetric"
   }
  },
  {
@@ -3301,11 +3301,11 @@ _utilities.register(
   "mod": "azurestackhci/v20210701preview",
   "fqn": "pulumi_azure_native.azurestackhci.v20210701preview",
   "classes": {
-   "azure-native:azurestackhci/v20210701preview:galleryimageRetrieve": "GalleryimageRetrieve",
-   "azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve": "NetworkinterfaceRetrieve",
-   "azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve": "VirtualharddiskRetrieve",
-   "azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve": "VirtualmachineRetrieve",
-   "azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve": "VirtualnetworkRetrieve"
+   "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve": "GalleryimageRetrieve",
+   "azure-native:azurestackhci/v20210701preview:NetworkinterfaceRetrieve": "NetworkinterfaceRetrieve",
+   "azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve": "VirtualharddiskRetrieve",
+   "azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve": "VirtualmachineRetrieve",
+   "azure-native:azurestackhci/v20210701preview:VirtualnetworkRetrieve": "VirtualnetworkRetrieve"
   }
  },
  {
@@ -3326,16 +3326,16 @@ _utilities.register(
    "azure-native:azurestackhci/v20210901preview:ArcSetting": "ArcSetting",
    "azure-native:azurestackhci/v20210901preview:Cluster": "Cluster",
    "azure-native:azurestackhci/v20210901preview:Extension": "Extension",
+   "azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve": "GalleryimageRetrieve",
    "azure-native:azurestackhci/v20210901preview:GuestAgent": "GuestAgent",
    "azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum": "HybridIdentityMetadatum",
    "azure-native:azurestackhci/v20210901preview:MachineExtension": "MachineExtension",
-   "azure-native:azurestackhci/v20210901preview:galleryimageRetrieve": "GalleryimageRetrieve",
-   "azure-native:azurestackhci/v20210901preview:marketplacegalleryimage": "Marketplacegalleryimage",
-   "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve": "NetworkinterfaceRetrieve",
-   "azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve": "StoragecontainerRetrieve",
-   "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve": "VirtualharddiskRetrieve",
-   "azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve": "VirtualmachineRetrieve",
-   "azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve": "VirtualnetworkRetrieve"
+   "azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage": "Marketplacegalleryimage",
+   "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve": "NetworkinterfaceRetrieve",
+   "azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve": "StoragecontainerRetrieve",
+   "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve": "VirtualharddiskRetrieve",
+   "azure-native:azurestackhci/v20210901preview:VirtualmachineRetrieve": "VirtualmachineRetrieve",
+   "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve": "VirtualnetworkRetrieve"
   }
  },
  {
@@ -7306,8 +7306,8 @@ _utilities.register(
   "classes": {
    "azure-native:databricks:AccessConnector": "AccessConnector",
    "azure-native:databricks:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:databricks:Workspace": "Workspace",
-   "azure-native:databricks:vNetPeering": "VNetPeering"
+   "azure-native:databricks:VNetPeering": "VNetPeering",
+   "azure-native:databricks:Workspace": "Workspace"
   }
  },
  {
@@ -7315,8 +7315,8 @@ _utilities.register(
   "mod": "databricks/v20180401",
   "fqn": "pulumi_azure_native.databricks.v20180401",
   "classes": {
-   "azure-native:databricks/v20180401:Workspace": "Workspace",
-   "azure-native:databricks/v20180401:vNetPeering": "VNetPeering"
+   "azure-native:databricks/v20180401:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20180401:Workspace": "Workspace"
   }
  },
  {
@@ -7325,8 +7325,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.databricks.v20210401preview",
   "classes": {
    "azure-native:databricks/v20210401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:databricks/v20210401preview:Workspace": "Workspace",
-   "azure-native:databricks/v20210401preview:vNetPeering": "VNetPeering"
+   "azure-native:databricks/v20210401preview:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20210401preview:Workspace": "Workspace"
   }
  },
  {
@@ -7336,8 +7336,8 @@ _utilities.register(
   "classes": {
    "azure-native:databricks/v20220401preview:AccessConnector": "AccessConnector",
    "azure-native:databricks/v20220401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:databricks/v20220401preview:Workspace": "Workspace",
-   "azure-native:databricks/v20220401preview:vNetPeering": "VNetPeering"
+   "azure-native:databricks/v20220401preview:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20220401preview:Workspace": "Workspace"
   }
  },
  {
@@ -7354,8 +7354,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.databricks.v20230201",
   "classes": {
    "azure-native:databricks/v20230201:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:databricks/v20230201:Workspace": "Workspace",
-   "azure-native:databricks/v20230201:vNetPeering": "VNetPeering"
+   "azure-native:databricks/v20230201:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20230201:Workspace": "Workspace"
   }
  },
  {
@@ -11258,7 +11258,7 @@ _utilities.register(
   "mod": "healthbot/v20201020",
   "fqn": "pulumi_azure_native.healthbot.v20201020",
   "classes": {
-   "azure-native:healthbot/v20201020:getbot": "Getbot"
+   "azure-native:healthbot/v20201020:Getbot": "Getbot"
   }
  },
  {
@@ -11266,7 +11266,7 @@ _utilities.register(
   "mod": "healthbot/v20201020preview",
   "fqn": "pulumi_azure_native.healthbot.v20201020preview",
   "classes": {
-   "azure-native:healthbot/v20201020preview:getbot": "Getbot"
+   "azure-native:healthbot/v20201020preview:Getbot": "Getbot"
   }
  },
  {
@@ -11729,11 +11729,11 @@ _utilities.register(
   "mod": "hybridcontainerservice",
   "fqn": "pulumi_azure_native.hybridcontainerservice",
   "classes": {
+   "azure-native:hybridcontainerservice:AgentPool": "AgentPool",
    "azure-native:hybridcontainerservice:HybridIdentityMetadatum": "HybridIdentityMetadatum",
    "azure-native:hybridcontainerservice:ProvisionedCluster": "ProvisionedCluster",
-   "azure-native:hybridcontainerservice:agentPool": "AgentPool",
-   "azure-native:hybridcontainerservice:storageSpaceRetrieve": "StorageSpaceRetrieve",
-   "azure-native:hybridcontainerservice:virtualNetworkRetrieve": "VirtualNetworkRetrieve"
+   "azure-native:hybridcontainerservice:StorageSpaceRetrieve": "StorageSpaceRetrieve",
+   "azure-native:hybridcontainerservice:VirtualNetworkRetrieve": "VirtualNetworkRetrieve"
   }
  },
  {
@@ -11741,11 +11741,11 @@ _utilities.register(
   "mod": "hybridcontainerservice/v20220501preview",
   "fqn": "pulumi_azure_native.hybridcontainerservice.v20220501preview",
   "classes": {
+   "azure-native:hybridcontainerservice/v20220501preview:AgentPool": "AgentPool",
    "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum": "HybridIdentityMetadatum",
    "azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster": "ProvisionedCluster",
-   "azure-native:hybridcontainerservice/v20220501preview:agentPool": "AgentPool",
-   "azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve": "StorageSpaceRetrieve",
-   "azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve": "VirtualNetworkRetrieve"
+   "azure-native:hybridcontainerservice/v20220501preview:StorageSpaceRetrieve": "StorageSpaceRetrieve",
+   "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve": "VirtualNetworkRetrieve"
   }
  },
  {
@@ -11877,6 +11877,7 @@ _utilities.register(
    "azure-native:insights:DiagnosticSetting": "DiagnosticSetting",
    "azure-native:insights:ExportConfiguration": "ExportConfiguration",
    "azure-native:insights:Favorite": "Favorite",
+   "azure-native:insights:GuestDiagnosticsSetting": "GuestDiagnosticsSetting",
    "azure-native:insights:GuestDiagnosticsSettingsAssociation": "GuestDiagnosticsSettingsAssociation",
    "azure-native:insights:LogProfile": "LogProfile",
    "azure-native:insights:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
@@ -11890,8 +11891,7 @@ _utilities.register(
    "azure-native:insights:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting",
    "azure-native:insights:WebTest": "WebTest",
    "azure-native:insights:Workbook": "Workbook",
-   "azure-native:insights:WorkbookTemplate": "WorkbookTemplate",
-   "azure-native:insights:guestDiagnosticsSetting": "GuestDiagnosticsSetting"
+   "azure-native:insights:WorkbookTemplate": "WorkbookTemplate"
   }
  },
  {
@@ -11986,8 +11986,8 @@ _utilities.register(
   "mod": "insights/v20180601preview",
   "fqn": "pulumi_azure_native.insights.v20180601preview",
   "classes": {
-   "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation": "GuestDiagnosticsSettingsAssociation",
-   "azure-native:insights/v20180601preview:guestDiagnosticsSetting": "GuestDiagnosticsSetting"
+   "azure-native:insights/v20180601preview:GuestDiagnosticsSetting": "GuestDiagnosticsSetting",
+   "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation": "GuestDiagnosticsSettingsAssociation"
   }
  },
  {
@@ -13202,12 +13202,12 @@ _utilities.register(
    "azure-native:m365securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync": "PrivateEndpointConnectionsForMIPPolicySync",
    "azure-native:m365securityandcompliance:PrivateEndpointConnectionsForSCCPowershell": "PrivateEndpointConnectionsForSCCPowershell",
    "azure-native:m365securityandcompliance:PrivateEndpointConnectionsSec": "PrivateEndpointConnectionsSec",
-   "azure-native:m365securityandcompliance:privateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
-   "azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
-   "azure-native:m365securityandcompliance:privateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
-   "azure-native:m365securityandcompliance:privateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
-   "azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
-   "azure-native:m365securityandcompliance:privateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
+   "azure-native:m365securityandcompliance:PrivateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
+   "azure-native:m365securityandcompliance:PrivateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
+   "azure-native:m365securityandcompliance:PrivateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
+   "azure-native:m365securityandcompliance:PrivateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
+   "azure-native:m365securityandcompliance:PrivateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
+   "azure-native:m365securityandcompliance:PrivateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
   }
  },
  {
@@ -13221,12 +13221,12 @@ _utilities.register(
    "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForMIPPolicySync": "PrivateEndpointConnectionsForMIPPolicySync",
    "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForSCCPowershell": "PrivateEndpointConnectionsForSCCPowershell",
    "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsSec": "PrivateEndpointConnectionsSec",
-   "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
-   "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
-   "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
-   "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
-   "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
-   "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
+   "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
+   "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
+   "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
+   "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
+   "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
+   "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
   }
  },
  {
@@ -20351,12 +20351,12 @@ _utilities.register(
    "azure-native:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync": "PrivateEndpointConnectionsForMIPPolicySync",
    "azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell": "PrivateEndpointConnectionsForSCCPowershell",
    "azure-native:securityandcompliance:PrivateEndpointConnectionsSec": "PrivateEndpointConnectionsSec",
-   "azure-native:securityandcompliance:privateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
-   "azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
-   "azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
-   "azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
-   "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
-   "azure-native:securityandcompliance:privateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
+   "azure-native:securityandcompliance:PrivateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
+   "azure-native:securityandcompliance:PrivateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
+   "azure-native:securityandcompliance:PrivateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
+   "azure-native:securityandcompliance:PrivateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
+   "azure-native:securityandcompliance:PrivateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
+   "azure-native:securityandcompliance:PrivateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
   }
  },
  {
@@ -20369,11 +20369,11 @@ _utilities.register(
    "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM": "PrivateEndpointConnectionsForEDM",
    "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell": "PrivateEndpointConnectionsForSCCPowershell",
    "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec": "PrivateEndpointConnectionsSec",
-   "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
-   "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
-   "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
-   "azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
-   "azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
   }
  },
  {
@@ -20387,12 +20387,12 @@ _utilities.register(
    "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync": "PrivateEndpointConnectionsForMIPPolicySync",
    "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell": "PrivateEndpointConnectionsForSCCPowershell",
    "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec": "PrivateEndpointConnectionsSec",
-   "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
-   "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
-   "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
-   "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
-   "azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
-   "azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
+   "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
+   "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
+   "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
+   "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForMIPPolicySync": "PrivateLinkServicesForMIPPolicySync",
+   "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
+   "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
   }
  },
  {
@@ -23652,9 +23652,9 @@ _utilities.register(
   "mod": "storagecache/v20230301preview",
   "fqn": "pulumi_azure_native.storagecache.v20230301preview",
   "classes": {
+   "azure-native:storagecache/v20230301preview:AmlFilesystem": "AmlFilesystem",
    "azure-native:storagecache/v20230301preview:Cache": "Cache",
-   "azure-native:storagecache/v20230301preview:StorageTarget": "StorageTarget",
-   "azure-native:storagecache/v20230301preview:amlFilesystem": "AmlFilesystem"
+   "azure-native:storagecache/v20230301preview:StorageTarget": "StorageTarget"
   }
  },
  {
@@ -24040,6 +24040,7 @@ _utilities.register(
    "azure-native:synapse:IotHubDataConnection": "IotHubDataConnection",
    "azure-native:synapse:IpFirewallRule": "IpFirewallRule",
    "azure-native:synapse:Key": "Key",
+   "azure-native:synapse:KustoPool": "KustoPool",
    "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration": "KustoPoolAttachedDatabaseConfiguration",
    "azure-native:synapse:KustoPoolPrincipalAssignment": "KustoPoolPrincipalAssignment",
    "azure-native:synapse:PrivateEndpointConnection": "PrivateEndpointConnection",
@@ -24055,8 +24056,7 @@ _utilities.register(
    "azure-native:synapse:Workspace": "Workspace",
    "azure-native:synapse:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
-   "azure-native:synapse:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin",
-   "azure-native:synapse:kustoPool": "KustoPool"
+   "azure-native:synapse:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
   }
  },
  {
@@ -24153,6 +24153,7 @@ _utilities.register(
    "azure-native:synapse/v20210401preview:IotHubDataConnection": "IotHubDataConnection",
    "azure-native:synapse/v20210401preview:IpFirewallRule": "IpFirewallRule",
    "azure-native:synapse/v20210401preview:Key": "Key",
+   "azure-native:synapse/v20210401preview:KustoPool": "KustoPool",
    "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment": "KustoPoolPrincipalAssignment",
    "azure-native:synapse/v20210401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:synapse/v20210401preview:PrivateLinkHub": "PrivateLinkHub",
@@ -24167,8 +24168,7 @@ _utilities.register(
    "azure-native:synapse/v20210401preview:Workspace": "Workspace",
    "azure-native:synapse/v20210401preview:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse/v20210401preview:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
-   "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin",
-   "azure-native:synapse/v20210401preview:kustoPool": "KustoPool"
+   "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
   }
  },
  {
@@ -25722,14 +25722,14 @@ _utilities.register(
   "mod": "workloads",
   "fqn": "pulumi_azure_native.workloads",
   "classes": {
+   "azure-native:workloads:Monitor": "Monitor",
    "azure-native:workloads:PhpWorkload": "PhpWorkload",
    "azure-native:workloads:ProviderInstance": "ProviderInstance",
    "azure-native:workloads:SAPApplicationServerInstance": "SAPApplicationServerInstance",
    "azure-native:workloads:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads:WordpressInstance": "WordpressInstance",
-   "azure-native:workloads:monitor": "Monitor"
+   "azure-native:workloads:WordpressInstance": "WordpressInstance"
   }
  },
  {
@@ -25737,14 +25737,14 @@ _utilities.register(
   "mod": "workloads/v20211201preview",
   "fqn": "pulumi_azure_native.workloads.v20211201preview",
   "classes": {
+   "azure-native:workloads/v20211201preview:Monitor": "Monitor",
    "azure-native:workloads/v20211201preview:PhpWorkload": "PhpWorkload",
    "azure-native:workloads/v20211201preview:ProviderInstance": "ProviderInstance",
    "azure-native:workloads/v20211201preview:SAPApplicationServerInstance": "SAPApplicationServerInstance",
    "azure-native:workloads/v20211201preview:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads/v20211201preview:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads/v20211201preview:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads/v20211201preview:WordpressInstance": "WordpressInstance",
-   "azure-native:workloads/v20211201preview:monitor": "Monitor"
+   "azure-native:workloads/v20211201preview:WordpressInstance": "WordpressInstance"
   }
  },
  {
@@ -25752,13 +25752,13 @@ _utilities.register(
   "mod": "workloads/v20221101preview",
   "fqn": "pulumi_azure_native.workloads.v20221101preview",
   "classes": {
+   "azure-native:workloads/v20221101preview:Monitor": "Monitor",
    "azure-native:workloads/v20221101preview:ProviderInstance": "ProviderInstance",
    "azure-native:workloads/v20221101preview:SAPApplicationServerInstance": "SAPApplicationServerInstance",
    "azure-native:workloads/v20221101preview:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads/v20221101preview:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads/v20221101preview:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads/v20221101preview:SapLandscapeMonitor": "SapLandscapeMonitor",
-   "azure-native:workloads/v20221101preview:monitor": "Monitor"
+   "azure-native:workloads/v20221101preview:SapLandscapeMonitor": "SapLandscapeMonitor"
   }
  },
  {
@@ -25766,13 +25766,13 @@ _utilities.register(
   "mod": "workloads/v20230401",
   "fqn": "pulumi_azure_native.workloads.v20230401",
   "classes": {
+   "azure-native:workloads/v20230401:Monitor": "Monitor",
    "azure-native:workloads/v20230401:ProviderInstance": "ProviderInstance",
    "azure-native:workloads/v20230401:SAPApplicationServerInstance": "SAPApplicationServerInstance",
    "azure-native:workloads/v20230401:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads/v20230401:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads/v20230401:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads/v20230401:SapLandscapeMonitor": "SapLandscapeMonitor",
-   "azure-native:workloads/v20230401:monitor": "Monitor"
+   "azure-native:workloads/v20230401:SapLandscapeMonitor": "SapLandscapeMonitor"
   }
  }
 ]

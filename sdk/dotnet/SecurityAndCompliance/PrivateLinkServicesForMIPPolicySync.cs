@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     /// The description of the service.
     /// API Version: 2021-03-08.
     /// </summary>
-    [AzureNativeResourceType("azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync")]
+    [AzureNativeResourceType("azure-native:securityandcompliance:PrivateLinkServicesForMIPPolicySync")]
     public partial class PrivateLinkServicesForMIPPolicySync : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkServicesForMIPPolicySync(string name, PrivateLinkServicesForMIPPolicySyncArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync", name, args ?? new PrivateLinkServicesForMIPPolicySyncArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityandcompliance:PrivateLinkServicesForMIPPolicySync", name, args ?? new PrivateLinkServicesForMIPPolicySyncArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkServicesForMIPPolicySync(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityandcompliance:PrivateLinkServicesForMIPPolicySync", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForMIPPolicySync"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

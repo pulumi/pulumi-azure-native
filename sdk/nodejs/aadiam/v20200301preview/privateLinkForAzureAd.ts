@@ -21,7 +21,7 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:aadiam/v20200301preview:privateLinkForAzureAd';
+    public static readonly __pulumiType = 'azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkForAzureAd.  This is designed to work even
@@ -108,7 +108,7 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:aadiam:privateLinkForAzureAd" }, { type: "azure-native:aadiam/v20200301:privateLinkForAzureAd" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aadiam:PrivateLinkForAzureAd" }, { type: "azure-native:aadiam/v20200301:PrivateLinkForAzureAd" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkForAzureAd.__pulumiType, name, resourceInputs, opts);
     }

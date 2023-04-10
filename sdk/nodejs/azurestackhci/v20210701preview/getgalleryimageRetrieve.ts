@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Lists all galleryimages under the resource group.
  */
-export function getgalleryimageRetrieve(args: GetgalleryimageRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetgalleryimageRetrieveResult> {
+export function getGalleryimageRetrieve(args: GetGalleryimageRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryimageRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getgalleryimageRetrieve", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getGalleryimageRetrieve", {
         "galleryimagesName": args.galleryimagesName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetgalleryimageRetrieveArgs {
+export interface GetGalleryimageRetrieveArgs {
     /**
      * Name of the gallery image
      */
@@ -33,7 +33,7 @@ export interface GetgalleryimageRetrieveArgs {
 /**
  * The galleryimages resource definition.
  */
-export interface GetgalleryimageRetrieveResult {
+export interface GetGalleryimageRetrieveResult {
     /**
      * Container Name for storage container
      */
@@ -90,11 +90,11 @@ export interface GetgalleryimageRetrieveResult {
 /**
  * Lists all galleryimages under the resource group.
  */
-export function getgalleryimageRetrieveOutput(args: GetgalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgalleryimageRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getgalleryimageRetrieve(a, opts))
+export function getGalleryimageRetrieveOutput(args: GetGalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryimageRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getGalleryimageRetrieve(a, opts))
 }
 
-export interface GetgalleryimageRetrieveOutputArgs {
+export interface GetGalleryimageRetrieveOutputArgs {
     /**
      * Name of the gallery image
      */

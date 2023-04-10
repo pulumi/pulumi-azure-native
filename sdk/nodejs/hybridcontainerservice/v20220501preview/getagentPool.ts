@@ -10,17 +10,17 @@ import * as utilities from "../../utilities";
 /**
  * Gets the agent pool in the Hybrid AKS provisioned cluster
  */
-export function getagentPool(args: GetagentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetagentPoolResult> {
+export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20220501preview:getagentPool", {
+    return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20220501preview:getAgentPool", {
         "agentPoolName": args.agentPoolName,
         "provisionedClustersName": args.provisionedClustersName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetagentPoolArgs {
+export interface GetAgentPoolArgs {
     /**
      * Parameter for the name of the agent pool in the provisioned cluster
      */
@@ -38,7 +38,7 @@ export interface GetagentPoolArgs {
 /**
  * The agentPool resource definition
  */
-export interface GetagentPoolResult {
+export interface GetAgentPoolResult {
     /**
      * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
      */
@@ -121,11 +121,11 @@ export interface GetagentPoolResult {
 /**
  * Gets the agent pool in the Hybrid AKS provisioned cluster
  */
-export function getagentPoolOutput(args: GetagentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetagentPoolResult> {
-    return pulumi.output(args).apply((a: any) => getagentPool(a, opts))
+export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
+    return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }
 
-export interface GetagentPoolOutputArgs {
+export interface GetAgentPoolOutputArgs {
     /**
      * Parameter for the name of the agent pool in the provisioned cluster
      */

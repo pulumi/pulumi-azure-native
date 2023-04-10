@@ -11,16 +11,16 @@ import * as utilities from "../utilities";
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  * API Version: 2021-03-08.
  */
-export function getprivateLinkServicesForSCCPowershell(args: GetprivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForSCCPowershellResult> {
+export function getPrivateLinkServicesForSCCPowershell(args: GetPrivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForSCCPowershellResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:securityandcompliance:getprivateLinkServicesForSCCPowershell", {
+    return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateLinkServicesForSCCPowershell", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
 }
 
-export interface GetprivateLinkServicesForSCCPowershellArgs {
+export interface GetPrivateLinkServicesForSCCPowershellArgs {
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -34,7 +34,7 @@ export interface GetprivateLinkServicesForSCCPowershellArgs {
 /**
  * The description of the service.
  */
-export interface GetprivateLinkServicesForSCCPowershellResult {
+export interface GetPrivateLinkServicesForSCCPowershellResult {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -80,11 +80,11 @@ export interface GetprivateLinkServicesForSCCPowershellResult {
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  * API Version: 2021-03-08.
  */
-export function getprivateLinkServicesForSCCPowershellOutput(args: GetprivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForSCCPowershellResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForSCCPowershell(a, opts))
+export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForSCCPowershell(a, opts))
 }
 
-export interface GetprivateLinkServicesForSCCPowershellOutputArgs {
+export interface GetPrivateLinkServicesForSCCPowershellOutputArgs {
     /**
      * The name of the resource group that contains the service instance.
      */

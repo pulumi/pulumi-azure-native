@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20180601Preview
 {
-    public static class GetguestDiagnosticsSetting
+    public static class GetGuestDiagnosticsSetting
     {
         /// <summary>
         /// Gets guest diagnostics settings.
         /// </summary>
-        public static Task<GetguestDiagnosticsSettingResult> InvokeAsync(GetguestDiagnosticsSettingArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-native:insights/v20180601preview:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithDefaults());
+        public static Task<GetGuestDiagnosticsSettingResult> InvokeAsync(GetGuestDiagnosticsSettingArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestDiagnosticsSettingResult>("azure-native:insights/v20180601preview:getGuestDiagnosticsSetting", args ?? new GetGuestDiagnosticsSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets guest diagnostics settings.
         /// </summary>
-        public static Output<GetguestDiagnosticsSettingResult> Invoke(GetguestDiagnosticsSettingInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetguestDiagnosticsSettingResult>("azure-native:insights/v20180601preview:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingInvokeArgs(), options.WithDefaults());
+        public static Output<GetGuestDiagnosticsSettingResult> Invoke(GetGuestDiagnosticsSettingInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestDiagnosticsSettingResult>("azure-native:insights/v20180601preview:getGuestDiagnosticsSetting", args ?? new GetGuestDiagnosticsSettingInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetguestDiagnosticsSettingArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestDiagnosticsSettingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the diagnostic setting.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetguestDiagnosticsSettingArgs()
+        public GetGuestDiagnosticsSettingArgs()
         {
         }
-        public static new GetguestDiagnosticsSettingArgs Empty => new GetguestDiagnosticsSettingArgs();
+        public static new GetGuestDiagnosticsSettingArgs Empty => new GetGuestDiagnosticsSettingArgs();
     }
 
-    public sealed class GetguestDiagnosticsSettingInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetGuestDiagnosticsSettingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the diagnostic setting.
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetguestDiagnosticsSettingInvokeArgs()
+        public GetGuestDiagnosticsSettingInvokeArgs()
         {
         }
-        public static new GetguestDiagnosticsSettingInvokeArgs Empty => new GetguestDiagnosticsSettingInvokeArgs();
+        public static new GetGuestDiagnosticsSettingInvokeArgs Empty => new GetGuestDiagnosticsSettingInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetguestDiagnosticsSettingResult
+    public sealed class GetGuestDiagnosticsSettingResult
     {
         /// <summary>
         /// the array of data source object which are configured to collect and send data
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetguestDiagnosticsSettingResult(
+        private GetGuestDiagnosticsSettingResult(
             ImmutableArray<Outputs.DataSourceResponse> dataSources,
 
             string id,

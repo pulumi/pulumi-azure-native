@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse.V20210401Preview
 {
-    public static class GetkustoPool
+    public static class GetKustoPool
     {
         /// <summary>
         /// Gets a Kusto pool.
         /// </summary>
-        public static Task<GetkustoPoolResult> InvokeAsync(GetkustoPoolArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetkustoPoolResult>("azure-native:synapse/v20210401preview:getkustoPool", args ?? new GetkustoPoolArgs(), options.WithDefaults());
+        public static Task<GetKustoPoolResult> InvokeAsync(GetKustoPoolArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolResult>("azure-native:synapse/v20210401preview:getKustoPool", args ?? new GetKustoPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto pool.
         /// </summary>
-        public static Output<GetkustoPoolResult> Invoke(GetkustoPoolInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetkustoPoolResult>("azure-native:synapse/v20210401preview:getkustoPool", args ?? new GetkustoPoolInvokeArgs(), options.WithDefaults());
+        public static Output<GetKustoPoolResult> Invoke(GetKustoPoolInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolResult>("azure-native:synapse/v20210401preview:getKustoPool", args ?? new GetKustoPoolInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetkustoPoolArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKustoPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -45,13 +45,13 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
 
-        public GetkustoPoolArgs()
+        public GetKustoPoolArgs()
         {
         }
-        public static new GetkustoPoolArgs Empty => new GetkustoPoolArgs();
+        public static new GetKustoPoolArgs Empty => new GetKustoPoolArgs();
     }
 
-    public sealed class GetkustoPoolInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetKustoPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -71,15 +71,15 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
 
-        public GetkustoPoolInvokeArgs()
+        public GetKustoPoolInvokeArgs()
         {
         }
-        public static new GetkustoPoolInvokeArgs Empty => new GetkustoPoolInvokeArgs();
+        public static new GetKustoPoolInvokeArgs Empty => new GetKustoPoolInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetkustoPoolResult
+    public sealed class GetKustoPoolResult
     {
         /// <summary>
         /// The Kusto Pool data ingestion URI.
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         public readonly string? WorkspaceUid;
 
         [OutputConstructor]
-        private GetkustoPoolResult(
+        private GetKustoPoolResult(
             string dataIngestionUri,
 
             string? engineType,

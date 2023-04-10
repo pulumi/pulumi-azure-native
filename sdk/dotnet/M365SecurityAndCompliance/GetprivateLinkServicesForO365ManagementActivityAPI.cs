@@ -9,25 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance
 {
-    public static class GetprivateLinkServicesForO365ManagementActivityAPI
+    public static class GetPrivateLinkServicesForO365ManagementActivityAPI
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
         /// API Version: 2021-03-25-preview.
         /// </summary>
-        public static Task<GetprivateLinkServicesForO365ManagementActivityAPIResult> InvokeAsync(GetprivateLinkServicesForO365ManagementActivityAPIArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getprivateLinkServicesForO365ManagementActivityAPI", args ?? new GetprivateLinkServicesForO365ManagementActivityAPIArgs(), options.WithDefaults());
+        public static Task<GetPrivateLinkServicesForO365ManagementActivityAPIResult> InvokeAsync(GetPrivateLinkServicesForO365ManagementActivityAPIArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForO365ManagementActivityAPI", args ?? new GetPrivateLinkServicesForO365ManagementActivityAPIArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
         /// API Version: 2021-03-25-preview.
         /// </summary>
-        public static Output<GetprivateLinkServicesForO365ManagementActivityAPIResult> Invoke(GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getprivateLinkServicesForO365ManagementActivityAPI", args ?? new GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs(), options.WithDefaults());
+        public static Output<GetPrivateLinkServicesForO365ManagementActivityAPIResult> Invoke(GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForO365ManagementActivityAPI", args ?? new GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForO365ManagementActivityAPIArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForO365ManagementActivityAPIArgs()
+        public GetPrivateLinkServicesForO365ManagementActivityAPIArgs()
         {
         }
-        public static new GetprivateLinkServicesForO365ManagementActivityAPIArgs Empty => new GetprivateLinkServicesForO365ManagementActivityAPIArgs();
+        public static new GetPrivateLinkServicesForO365ManagementActivityAPIArgs Empty => new GetPrivateLinkServicesForO365ManagementActivityAPIArgs();
     }
 
-    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -61,15 +61,15 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs()
+        public GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs()
         {
         }
-        public static new GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs Empty => new GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs();
+        public static new GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs Empty => new GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIResult
+    public sealed class GetPrivateLinkServicesForO365ManagementActivityAPIResult
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         public readonly string Type;
 
         [OutputConstructor]
-        private GetprivateLinkServicesForO365ManagementActivityAPIResult(
+        private GetPrivateLinkServicesForO365ManagementActivityAPIResult(
             string? etag,
 
             string id,

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// The virtual hard disk resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve")]
+    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve")]
     public partial class VirtualharddiskRetrieve : global::Pulumi.CustomResource
     {
         [Output("blockSizeBytes")]
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualharddiskRetrieve(string name, VirtualharddiskRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve", name, args ?? new VirtualharddiskRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve", name, args ?? new VirtualharddiskRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualharddiskRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

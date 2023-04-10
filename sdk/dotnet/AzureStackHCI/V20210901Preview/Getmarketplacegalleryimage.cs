@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
-    public static class Getmarketplacegalleryimage
+    public static class GetMarketplacegalleryimage
     {
         /// <summary>
         /// Gets marketplacegalleryimages by resource name
         /// </summary>
-        public static Task<GetmarketplacegalleryimageResult> InvokeAsync(GetmarketplacegalleryimageArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetmarketplacegalleryimageResult>("azure-native:azurestackhci/v20210901preview:getmarketplacegalleryimage", args ?? new GetmarketplacegalleryimageArgs(), options.WithDefaults());
+        public static Task<GetMarketplacegalleryimageResult> InvokeAsync(GetMarketplacegalleryimageArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMarketplacegalleryimageResult>("azure-native:azurestackhci/v20210901preview:getMarketplacegalleryimage", args ?? new GetMarketplacegalleryimageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets marketplacegalleryimages by resource name
         /// </summary>
-        public static Output<GetmarketplacegalleryimageResult> Invoke(GetmarketplacegalleryimageInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetmarketplacegalleryimageResult>("azure-native:azurestackhci/v20210901preview:getmarketplacegalleryimage", args ?? new GetmarketplacegalleryimageInvokeArgs(), options.WithDefaults());
+        public static Output<GetMarketplacegalleryimageResult> Invoke(GetMarketplacegalleryimageInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMarketplacegalleryimageResult>("azure-native:azurestackhci/v20210901preview:getMarketplacegalleryimage", args ?? new GetMarketplacegalleryimageInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetmarketplacegalleryimageArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMarketplacegalleryimageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the marketplace gallery image
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetmarketplacegalleryimageArgs()
+        public GetMarketplacegalleryimageArgs()
         {
         }
-        public static new GetmarketplacegalleryimageArgs Empty => new GetmarketplacegalleryimageArgs();
+        public static new GetMarketplacegalleryimageArgs Empty => new GetMarketplacegalleryimageArgs();
     }
 
-    public sealed class GetmarketplacegalleryimageInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetMarketplacegalleryimageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the marketplace gallery image
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetmarketplacegalleryimageInvokeArgs()
+        public GetMarketplacegalleryimageInvokeArgs()
         {
         }
-        public static new GetmarketplacegalleryimageInvokeArgs Empty => new GetmarketplacegalleryimageInvokeArgs();
+        public static new GetMarketplacegalleryimageInvokeArgs Empty => new GetMarketplacegalleryimageInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetmarketplacegalleryimageResult
+    public sealed class GetMarketplacegalleryimageResult
     {
         /// <summary>
         /// Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         public readonly Outputs.GalleryImageVersionResponse? Version;
 
         [OutputConstructor]
-        private GetmarketplacegalleryimageResult(
+        private GetMarketplacegalleryimageResult(
             string? cloudInitDataSource,
 
             string? containerName,

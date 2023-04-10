@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetGuestDiagnosticsSettingArgs, GetGuestDiagnosticsSettingResult, GetGuestDiagnosticsSettingOutputArgs } from "./getGuestDiagnosticsSetting";
+export const getGuestDiagnosticsSetting: typeof import("./getGuestDiagnosticsSetting").getGuestDiagnosticsSetting = null as any;
+export const getGuestDiagnosticsSettingOutput: typeof import("./getGuestDiagnosticsSetting").getGuestDiagnosticsSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestDiagnosticsSetting","getGuestDiagnosticsSettingOutput"], () => require("./getGuestDiagnosticsSetting"));
+
 export { GetGuestDiagnosticsSettingsAssociationArgs, GetGuestDiagnosticsSettingsAssociationResult, GetGuestDiagnosticsSettingsAssociationOutputArgs } from "./getGuestDiagnosticsSettingsAssociation";
 export const getGuestDiagnosticsSettingsAssociation: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociation = null as any;
 export const getGuestDiagnosticsSettingsAssociationOutput: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getGuestDiagnosticsSettingsAssociation","getGuestDiagnosticsSettingsAssociationOutput"], () => require("./getGuestDiagnosticsSettingsAssociation"));
-
-export { GetguestDiagnosticsSettingArgs, GetguestDiagnosticsSettingResult, GetguestDiagnosticsSettingOutputArgs } from "./getguestDiagnosticsSetting";
-export const getguestDiagnosticsSetting: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSetting = null as any;
-export const getguestDiagnosticsSettingOutput: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getguestDiagnosticsSetting","getguestDiagnosticsSettingOutput"], () => require("./getguestDiagnosticsSetting"));
 
 export { GuestDiagnosticsSettingArgs } from "./guestDiagnosticsSetting";
 export type GuestDiagnosticsSetting = import("./guestDiagnosticsSetting").GuestDiagnosticsSetting;
@@ -30,10 +30,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:insights/v20180601preview:GuestDiagnosticsSetting":
+                return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             case "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation":
                 return new GuestDiagnosticsSettingsAssociation(name, <any>undefined, { urn })
-            case "azure-native:insights/v20180601preview:guestDiagnosticsSetting":
-                return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

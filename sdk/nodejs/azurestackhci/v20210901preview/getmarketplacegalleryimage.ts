@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Gets marketplacegalleryimages by resource name
  */
-export function getmarketplacegalleryimage(args: GetmarketplacegalleryimageArgs, opts?: pulumi.InvokeOptions): Promise<GetmarketplacegalleryimageResult> {
+export function getMarketplacegalleryimage(args: GetMarketplacegalleryimageArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplacegalleryimageResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getmarketplacegalleryimage", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getMarketplacegalleryimage", {
         "marketplacegalleryimagesName": args.marketplacegalleryimagesName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmarketplacegalleryimageArgs {
+export interface GetMarketplacegalleryimageArgs {
     /**
      * Name of the marketplace gallery image
      */
@@ -33,7 +33,7 @@ export interface GetmarketplacegalleryimageArgs {
 /**
  * The marketplace gallery image resource definition.
  */
-export interface GetmarketplacegalleryimageResult {
+export interface GetMarketplacegalleryimageResult {
     /**
      * Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
      */
@@ -102,11 +102,11 @@ export interface GetmarketplacegalleryimageResult {
 /**
  * Gets marketplacegalleryimages by resource name
  */
-export function getmarketplacegalleryimageOutput(args: GetmarketplacegalleryimageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmarketplacegalleryimageResult> {
-    return pulumi.output(args).apply((a: any) => getmarketplacegalleryimage(a, opts))
+export function getMarketplacegalleryimageOutput(args: GetMarketplacegalleryimageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplacegalleryimageResult> {
+    return pulumi.output(args).apply((a: any) => getMarketplacegalleryimage(a, opts))
 }
 
-export interface GetmarketplacegalleryimageOutputArgs {
+export interface GetMarketplacegalleryimageOutputArgs {
     /**
      * Name of the marketplace gallery image
      */

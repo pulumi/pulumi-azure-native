@@ -20,15 +20,15 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetVNetPeeringArgs, GetVNetPeeringResult, GetVNetPeeringOutputArgs } from "./getVNetPeering";
+export const getVNetPeering: typeof import("./getVNetPeering").getVNetPeering = null as any;
+export const getVNetPeeringOutput: typeof import("./getVNetPeering").getVNetPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getVNetPeering","getVNetPeeringOutput"], () => require("./getVNetPeering"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-
-export { GetvNetPeeringArgs, GetvNetPeeringResult, GetvNetPeeringOutputArgs } from "./getvNetPeering";
-export const getvNetPeering: typeof import("./getvNetPeering").getvNetPeering = null as any;
-export const getvNetPeeringOutput: typeof import("./getvNetPeering").getvNetPeeringOutput = null as any;
-utilities.lazyLoad(exports, ["getvNetPeering","getvNetPeeringOutput"], () => require("./getvNetPeering"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -57,10 +57,10 @@ const _module = {
                 return new AccessConnector(name, <any>undefined, { urn })
             case "azure-native:databricks/v20220401preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:databricks/v20220401preview:VNetPeering":
+                return new VNetPeering(name, <any>undefined, { urn })
             case "azure-native:databricks/v20220401preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-native:databricks/v20220401preview:vNetPeering":
-                return new VNetPeering(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

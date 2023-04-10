@@ -24,7 +24,7 @@ export class PrivateLinkServicesForSCCPowershell extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell';
+    public static readonly __pulumiType = 'azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicesForSCCPowershell.  This is designed to work even
@@ -114,7 +114,7 @@ export class PrivateLinkServicesForSCCPowershell extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:privateLinkServicesForSCCPowershell" }, { type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:PrivateLinkServicesForSCCPowershell" }, { type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForSCCPowershell.__pulumiType, name, resourceInputs, opts);
     }

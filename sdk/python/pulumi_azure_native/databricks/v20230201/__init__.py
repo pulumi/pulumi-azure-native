@@ -7,8 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_private_endpoint_connection import *
+from .get_v_net_peering import *
 from .get_workspace import *
-from .getv_net_peering import *
 from .private_endpoint_connection import *
 from .v_net_peering import *
 from .workspace import *

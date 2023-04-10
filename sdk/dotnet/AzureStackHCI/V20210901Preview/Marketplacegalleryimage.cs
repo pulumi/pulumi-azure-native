@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// The marketplace gallery image resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:marketplacegalleryimage")]
+    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage")]
     public partial class Marketplacegalleryimage : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Marketplacegalleryimage(string name, MarketplacegalleryimageArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:marketplacegalleryimage", name, args ?? new MarketplacegalleryimageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage", name, args ?? new MarketplacegalleryimageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Marketplacegalleryimage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:marketplacegalleryimage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage", name, null, MakeResourceOptions(options, id))
         {
         }
 

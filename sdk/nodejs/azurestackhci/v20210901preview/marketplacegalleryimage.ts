@@ -24,7 +24,7 @@ export class Marketplacegalleryimage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:marketplacegalleryimage';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage';
 
     /**
      * Returns true if the given object is an instance of Marketplacegalleryimage.  This is designed to work even

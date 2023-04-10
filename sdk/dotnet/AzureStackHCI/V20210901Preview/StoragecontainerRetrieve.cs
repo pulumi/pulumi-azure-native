@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// The storage container resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve")]
+    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve")]
     public partial class StoragecontainerRetrieve : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StoragecontainerRetrieve(string name, StoragecontainerRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve", name, args ?? new StoragecontainerRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve", name, args ?? new StoragecontainerRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StoragecontainerRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 

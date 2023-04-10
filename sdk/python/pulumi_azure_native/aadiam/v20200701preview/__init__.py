@@ -6,5 +6,5 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from .azure_ad_metric import *
-from .getazure_ad_metric import *
+from .get_azure_ad_metric import *
 from . import outputs

@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
 {
-    public static class GetvirtualnetworkRetrieve
+    public static class GetVirtualnetworkRetrieve
     {
         /// <summary>
         /// The virtualnetworks resource definition.
         /// </summary>
-        public static Task<GetvirtualnetworkRetrieveResult> InvokeAsync(GetvirtualnetworkRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualnetworkRetrieveResult>("azure-native:azurestackhci/v20210701preview:getvirtualnetworkRetrieve", args ?? new GetvirtualnetworkRetrieveArgs(), options.WithDefaults());
+        public static Task<GetVirtualnetworkRetrieveResult> InvokeAsync(GetVirtualnetworkRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualnetworkRetrieveResult>("azure-native:azurestackhci/v20210701preview:getVirtualnetworkRetrieve", args ?? new GetVirtualnetworkRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtualnetworks resource definition.
         /// </summary>
-        public static Output<GetvirtualnetworkRetrieveResult> Invoke(GetvirtualnetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetvirtualnetworkRetrieveResult>("azure-native:azurestackhci/v20210701preview:getvirtualnetworkRetrieve", args ?? new GetvirtualnetworkRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetVirtualnetworkRetrieveResult> Invoke(GetVirtualnetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualnetworkRetrieveResult>("azure-native:azurestackhci/v20210701preview:getVirtualnetworkRetrieve", args ?? new GetVirtualnetworkRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetvirtualnetworkRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualnetworkRetrieveArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("virtualnetworksName", required: true)]
         public string VirtualnetworksName { get; set; } = null!;
 
-        public GetvirtualnetworkRetrieveArgs()
+        public GetVirtualnetworkRetrieveArgs()
         {
         }
-        public static new GetvirtualnetworkRetrieveArgs Empty => new GetvirtualnetworkRetrieveArgs();
+        public static new GetVirtualnetworkRetrieveArgs Empty => new GetVirtualnetworkRetrieveArgs();
     }
 
-    public sealed class GetvirtualnetworkRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualnetworkRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -53,15 +53,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         [Input("virtualnetworksName", required: true)]
         public Input<string> VirtualnetworksName { get; set; } = null!;
 
-        public GetvirtualnetworkRetrieveInvokeArgs()
+        public GetVirtualnetworkRetrieveInvokeArgs()
         {
         }
-        public static new GetvirtualnetworkRetrieveInvokeArgs Empty => new GetvirtualnetworkRetrieveInvokeArgs();
+        public static new GetVirtualnetworkRetrieveInvokeArgs Empty => new GetVirtualnetworkRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetvirtualnetworkRetrieveResult
+    public sealed class GetVirtualnetworkRetrieveResult
     {
         /// <summary>
         /// The extendedLocation of the resource.
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetvirtualnetworkRetrieveResult(
+        private GetVirtualnetworkRetrieveResult(
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,

@@ -24,7 +24,7 @@ export class VirtualharddiskRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve';
 
     /**
      * Returns true if the given object is an instance of VirtualharddiskRetrieve.  This is designed to work even
@@ -129,7 +129,7 @@ export class VirtualharddiskRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualharddiskRetrieve.__pulumiType, name, resourceInputs, opts);
     }

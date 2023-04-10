@@ -24,7 +24,7 @@ export class NetworkinterfaceRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210701preview:NetworkinterfaceRetrieve';
 
     /**
      * Returns true if the given object is an instance of NetworkinterfaceRetrieve.  This is designed to work even
@@ -126,7 +126,7 @@ export class NetworkinterfaceRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkinterfaceRetrieve.__pulumiType, name, resourceInputs, opts);
     }

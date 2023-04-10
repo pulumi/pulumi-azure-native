@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AadIam
     /// PrivateLink Policy configuration object.
     /// API Version: 2020-03-01.
     /// </summary>
-    [AzureNativeResourceType("azure-native:aadiam:privateLinkForAzureAd")]
+    [AzureNativeResourceType("azure-native:aadiam:PrivateLinkForAzureAd")]
     public partial class PrivateLinkForAzureAd : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNative.AadIam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkForAzureAd(string name, PrivateLinkForAzureAdArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:aadiam:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam:PrivateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkForAzureAd(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:aadiam:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam:PrivateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:privateLinkForAzureAd"},
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateLinkForAzureAd"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

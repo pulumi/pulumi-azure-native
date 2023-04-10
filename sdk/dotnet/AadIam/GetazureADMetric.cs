@@ -9,25 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AadIam
 {
-    public static class GetazureADMetric
+    public static class GetAzureADMetric
     {
         /// <summary>
         /// Gets a azureADMetrics instance with a given name.
         /// API Version: 2020-07-01-preview.
         /// </summary>
-        public static Task<GetazureADMetricResult> InvokeAsync(GetazureADMetricArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithDefaults());
+        public static Task<GetAzureADMetricResult> InvokeAsync(GetAzureADMetricArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureADMetricResult>("azure-native:aadiam:getAzureADMetric", args ?? new GetAzureADMetricArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a azureADMetrics instance with a given name.
         /// API Version: 2020-07-01-preview.
         /// </summary>
-        public static Output<GetazureADMetricResult> Invoke(GetazureADMetricInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricInvokeArgs(), options.WithDefaults());
+        public static Output<GetAzureADMetricResult> Invoke(GetAzureADMetricInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureADMetricResult>("azure-native:aadiam:getAzureADMetric", args ?? new GetAzureADMetricInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetazureADMetricArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAzureADMetricArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the azureADMetrics instance.
@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.AadIam
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetazureADMetricArgs()
+        public GetAzureADMetricArgs()
         {
         }
-        public static new GetazureADMetricArgs Empty => new GetazureADMetricArgs();
+        public static new GetAzureADMetricArgs Empty => new GetAzureADMetricArgs();
     }
 
-    public sealed class GetazureADMetricInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAzureADMetricInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the azureADMetrics instance.
@@ -61,15 +61,15 @@ namespace Pulumi.AzureNative.AadIam
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetazureADMetricInvokeArgs()
+        public GetAzureADMetricInvokeArgs()
         {
         }
-        public static new GetazureADMetricInvokeArgs Empty => new GetazureADMetricInvokeArgs();
+        public static new GetAzureADMetricInvokeArgs Empty => new GetAzureADMetricInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetazureADMetricResult
+    public sealed class GetAzureADMetricResult
     {
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.AadIam
         public readonly string Type;
 
         [OutputConstructor]
-        private GetazureADMetricResult(
+        private GetAzureADMetricResult(
             string id,
 
             string location,

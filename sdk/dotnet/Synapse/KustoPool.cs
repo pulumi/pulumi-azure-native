@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse
     /// Class representing a Kusto kusto pool.
     /// API Version: 2021-04-01-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:synapse:kustoPool")]
+    [AzureNativeResourceType("azure-native:synapse:KustoPool")]
     public partial class KustoPool : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNative.Synapse
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KustoPool(string name, KustoPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:synapse:kustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse:KustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KustoPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:synapse:kustoPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse:KustoPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:kustoPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:kustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

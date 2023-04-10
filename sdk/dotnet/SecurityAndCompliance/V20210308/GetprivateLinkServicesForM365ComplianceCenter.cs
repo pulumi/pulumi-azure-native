@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
 {
-    public static class GetprivateLinkServicesForM365ComplianceCenter
+    public static class GetPrivateLinkServicesForM365ComplianceCenter
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
         /// </summary>
-        public static Task<GetprivateLinkServicesForM365ComplianceCenterResult> InvokeAsync(GetprivateLinkServicesForM365ComplianceCenterArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForM365ComplianceCenter", args ?? new GetprivateLinkServicesForM365ComplianceCenterArgs(), options.WithDefaults());
+        public static Task<GetPrivateLinkServicesForM365ComplianceCenterResult> InvokeAsync(GetPrivateLinkServicesForM365ComplianceCenterArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForM365ComplianceCenter", args ?? new GetPrivateLinkServicesForM365ComplianceCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
         /// </summary>
-        public static Output<GetprivateLinkServicesForM365ComplianceCenterResult> Invoke(GetprivateLinkServicesForM365ComplianceCenterInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForM365ComplianceCenter", args ?? new GetprivateLinkServicesForM365ComplianceCenterInvokeArgs(), options.WithDefaults());
+        public static Output<GetPrivateLinkServicesForM365ComplianceCenterResult> Invoke(GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForM365ComplianceCenter", args ?? new GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetprivateLinkServicesForM365ComplianceCenterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForM365ComplianceCenterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForM365ComplianceCenterArgs()
+        public GetPrivateLinkServicesForM365ComplianceCenterArgs()
         {
         }
-        public static new GetprivateLinkServicesForM365ComplianceCenterArgs Empty => new GetprivateLinkServicesForM365ComplianceCenterArgs();
+        public static new GetPrivateLinkServicesForM365ComplianceCenterArgs Empty => new GetPrivateLinkServicesForM365ComplianceCenterArgs();
     }
 
-    public sealed class GetprivateLinkServicesForM365ComplianceCenterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group that contains the service instance.
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
-        public GetprivateLinkServicesForM365ComplianceCenterInvokeArgs()
+        public GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs()
         {
         }
-        public static new GetprivateLinkServicesForM365ComplianceCenterInvokeArgs Empty => new GetprivateLinkServicesForM365ComplianceCenterInvokeArgs();
+        public static new GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs Empty => new GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetprivateLinkServicesForM365ComplianceCenterResult
+    public sealed class GetPrivateLinkServicesForM365ComplianceCenterResult
     {
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public readonly string Type;
 
         [OutputConstructor]
-        private GetprivateLinkServicesForM365ComplianceCenterResult(
+        private GetPrivateLinkServicesForM365ComplianceCenterResult(
             string? etag,
 
             string id,

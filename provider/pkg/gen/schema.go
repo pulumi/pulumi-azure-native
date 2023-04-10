@@ -419,6 +419,9 @@ type packageGenerator struct {
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
+	// Resource names should consistently start with upper case.
+	typeName = strings.Title(typeName)
+
 	// A single API path can be modelled as several resources if it accepts a polymorphic payload:
 	// i.e., when the request body is a discriminated union type of several object types. Pulumi
 	// schema doesn't support polymorphic (OneOf) resources, so the provider creates a separate resource

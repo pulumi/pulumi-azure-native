@@ -24,7 +24,7 @@ export class GalleryimageRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210701preview:galleryimageRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve';
 
     /**
      * Returns true if the given object is an instance of GalleryimageRetrieve.  This is designed to work even
@@ -129,7 +129,7 @@ export class GalleryimageRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:galleryimageRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryimageRetrieve.__pulumiType, name, resourceInputs, opts);
     }

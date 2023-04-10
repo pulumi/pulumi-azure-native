@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageCache.V20230301Preview
 {
-    public static class GetamlFilesystem
+    public static class GetAmlFilesystem
     {
         /// <summary>
         /// Returns an AML file system.
         /// </summary>
-        public static Task<GetamlFilesystemResult> InvokeAsync(GetamlFilesystemArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetamlFilesystemResult>("azure-native:storagecache/v20230301preview:getamlFilesystem", args ?? new GetamlFilesystemArgs(), options.WithDefaults());
+        public static Task<GetAmlFilesystemResult> InvokeAsync(GetAmlFilesystemArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmlFilesystemResult>("azure-native:storagecache/v20230301preview:getAmlFilesystem", args ?? new GetAmlFilesystemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an AML file system.
         /// </summary>
-        public static Output<GetamlFilesystemResult> Invoke(GetamlFilesystemInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetamlFilesystemResult>("azure-native:storagecache/v20230301preview:getamlFilesystem", args ?? new GetamlFilesystemInvokeArgs(), options.WithDefaults());
+        public static Output<GetAmlFilesystemResult> Invoke(GetAmlFilesystemInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAmlFilesystemResult>("azure-native:storagecache/v20230301preview:getAmlFilesystem", args ?? new GetAmlFilesystemInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetamlFilesystemArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAmlFilesystemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetamlFilesystemArgs()
+        public GetAmlFilesystemArgs()
         {
         }
-        public static new GetamlFilesystemArgs Empty => new GetamlFilesystemArgs();
+        public static new GetAmlFilesystemArgs Empty => new GetAmlFilesystemArgs();
     }
 
-    public sealed class GetamlFilesystemInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetAmlFilesystemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetamlFilesystemInvokeArgs()
+        public GetAmlFilesystemInvokeArgs()
         {
         }
-        public static new GetamlFilesystemInvokeArgs Empty => new GetamlFilesystemInvokeArgs();
+        public static new GetAmlFilesystemInvokeArgs Empty => new GetAmlFilesystemInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetamlFilesystemResult
+    public sealed class GetAmlFilesystemResult
     {
         /// <summary>
         /// Specifies encryption settings of the AML file system.
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
-        private GetamlFilesystemResult(
+        private GetAmlFilesystemResult(
             Outputs.AmlFilesystemEncryptionSettingsResponse? encryptionSettings,
 
             string filesystemSubnet,

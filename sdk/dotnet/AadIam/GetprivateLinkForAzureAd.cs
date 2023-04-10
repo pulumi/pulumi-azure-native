@@ -9,25 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AadIam
 {
-    public static class GetprivateLinkForAzureAd
+    public static class GetPrivateLinkForAzureAd
     {
         /// <summary>
         /// Gets a private link policy with a given name.
         /// API Version: 2020-03-01.
         /// </summary>
-        public static Task<GetprivateLinkForAzureAdResult> InvokeAsync(GetprivateLinkForAzureAdArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkForAzureAdResult>("azure-native:aadiam:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdArgs(), options.WithDefaults());
+        public static Task<GetPrivateLinkForAzureAdResult> InvokeAsync(GetPrivateLinkForAzureAdArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkForAzureAdResult>("azure-native:aadiam:getPrivateLinkForAzureAd", args ?? new GetPrivateLinkForAzureAdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private link policy with a given name.
         /// API Version: 2020-03-01.
         /// </summary>
-        public static Output<GetprivateLinkForAzureAdResult> Invoke(GetprivateLinkForAzureAdInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkForAzureAdResult>("azure-native:aadiam:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdInvokeArgs(), options.WithDefaults());
+        public static Output<GetPrivateLinkForAzureAdResult> Invoke(GetPrivateLinkForAzureAdInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkForAzureAdResult>("azure-native:aadiam:getPrivateLinkForAzureAd", args ?? new GetPrivateLinkForAzureAdInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetprivateLinkForAzureAdArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkForAzureAdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private link policy in Azure AD.
@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.AadIam
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetprivateLinkForAzureAdArgs()
+        public GetPrivateLinkForAzureAdArgs()
         {
         }
-        public static new GetprivateLinkForAzureAdArgs Empty => new GetprivateLinkForAzureAdArgs();
+        public static new GetPrivateLinkForAzureAdArgs Empty => new GetPrivateLinkForAzureAdArgs();
     }
 
-    public sealed class GetprivateLinkForAzureAdInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkForAzureAdInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private link policy in Azure AD.
@@ -61,15 +61,15 @@ namespace Pulumi.AzureNative.AadIam
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetprivateLinkForAzureAdInvokeArgs()
+        public GetPrivateLinkForAzureAdInvokeArgs()
         {
         }
-        public static new GetprivateLinkForAzureAdInvokeArgs Empty => new GetprivateLinkForAzureAdInvokeArgs();
+        public static new GetPrivateLinkForAzureAdInvokeArgs Empty => new GetPrivateLinkForAzureAdInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetprivateLinkForAzureAdResult
+    public sealed class GetPrivateLinkForAzureAdResult
     {
         /// <summary>
         /// Flag indicating whether all tenants are allowed
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.AadIam
         public readonly string Type;
 
         [OutputConstructor]
-        private GetprivateLinkForAzureAdResult(
+        private GetPrivateLinkForAzureAdResult(
             bool? allTenants,
 
             string id,

@@ -24,7 +24,7 @@ export class StorageSpaceRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve';
+    public static readonly __pulumiType = 'azure-native:hybridcontainerservice/v20220501preview:StorageSpaceRetrieve';
 
     /**
      * Returns true if the given object is an instance of StorageSpaceRetrieve.  This is designed to work even
@@ -96,7 +96,7 @@ export class StorageSpaceRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:storageSpaceRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:StorageSpaceRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageSpaceRetrieve.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * The virtualnetworks resource definition.
  */
-export function getvirtualnetworkRetrieve(args: GetvirtualnetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualnetworkRetrieveResult> {
+export function getVirtualnetworkRetrieve(args: GetVirtualnetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualnetworkRetrieveResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getvirtualnetworkRetrieve", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getVirtualnetworkRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "virtualnetworksName": args.virtualnetworksName,
     }, opts);
 }
 
-export interface GetvirtualnetworkRetrieveArgs {
+export interface GetVirtualnetworkRetrieveArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -30,7 +30,7 @@ export interface GetvirtualnetworkRetrieveArgs {
 /**
  * The virtualnetworks resource definition.
  */
-export interface GetvirtualnetworkRetrieveResult {
+export interface GetVirtualnetworkRetrieveResult {
     /**
      * The extendedLocation of the resource.
      */
@@ -80,11 +80,11 @@ export interface GetvirtualnetworkRetrieveResult {
 /**
  * The virtualnetworks resource definition.
  */
-export function getvirtualnetworkRetrieveOutput(args: GetvirtualnetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualnetworkRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getvirtualnetworkRetrieve(a, opts))
+export function getVirtualnetworkRetrieveOutput(args: GetVirtualnetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualnetworkRetrieveResult> {
+    return pulumi.output(args).apply((a: any) => getVirtualnetworkRetrieve(a, opts))
 }
 
-export interface GetvirtualnetworkRetrieveOutputArgs {
+export interface GetVirtualnetworkRetrieveOutputArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */

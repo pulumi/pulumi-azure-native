@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Returns an AML file system.
  */
-export function getamlFilesystem(args: GetamlFilesystemArgs, opts?: pulumi.InvokeOptions): Promise<GetamlFilesystemResult> {
+export function getAmlFilesystem(args: GetAmlFilesystemArgs, opts?: pulumi.InvokeOptions): Promise<GetAmlFilesystemResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:storagecache/v20230301preview:getamlFilesystem", {
+    return pulumi.runtime.invoke("azure-native:storagecache/v20230301preview:getAmlFilesystem", {
         "amlFilesystemName": args.amlFilesystemName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetamlFilesystemArgs {
+export interface GetAmlFilesystemArgs {
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
@@ -33,7 +33,7 @@ export interface GetamlFilesystemArgs {
 /**
  * An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  */
-export interface GetamlFilesystemResult {
+export interface GetAmlFilesystemResult {
     /**
      * Specifies encryption settings of the AML file system.
      */
@@ -118,11 +118,11 @@ export interface GetamlFilesystemResult {
 /**
  * Returns an AML file system.
  */
-export function getamlFilesystemOutput(args: GetamlFilesystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetamlFilesystemResult> {
-    return pulumi.output(args).apply((a: any) => getamlFilesystem(a, opts))
+export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmlFilesystemResult> {
+    return pulumi.output(args).apply((a: any) => getAmlFilesystem(a, opts))
 }
 
-export interface GetamlFilesystemOutputArgs {
+export interface GetAmlFilesystemOutputArgs {
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */

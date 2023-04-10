@@ -219,7 +219,7 @@ class StoragecontainerRetrieve(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         super(StoragecontainerRetrieve, __self__).__init__(
-            'azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve',
+            'azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve',
             resource_name,
             __props__,
             opts)

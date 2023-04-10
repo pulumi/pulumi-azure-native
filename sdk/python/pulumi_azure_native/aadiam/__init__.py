@@ -8,10 +8,10 @@ import typing
 from ._enums import *
 from .azure_ad_metric import *
 from .diagnostic_setting import *
+from .get_azure_ad_metric import *
 from .get_diagnostic_setting import *
 from .get_private_endpoint_connection import *
-from .getazure_ad_metric import *
-from .getprivate_link_for_azure_ad import *
+from .get_private_link_for_azure_ad import *
 from .private_endpoint_connection import *
 from .private_link_for_azure_ad import *
 from ._inputs import *

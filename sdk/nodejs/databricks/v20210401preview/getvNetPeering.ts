@@ -10,17 +10,17 @@ import * as utilities from "../../utilities";
 /**
  * Gets the workspace vNet Peering.
  */
-export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetvNetPeeringResult> {
+export function getVNetPeering(args: GetVNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVNetPeeringResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:databricks/v20210401preview:getvNetPeering", {
+    return pulumi.runtime.invoke("azure-native:databricks/v20210401preview:getVNetPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
 }
 
-export interface GetvNetPeeringArgs {
+export interface GetVNetPeeringArgs {
     /**
      * The name of the workspace vNet peering.
      */
@@ -38,7 +38,7 @@ export interface GetvNetPeeringArgs {
 /**
  * Peerings in a VirtualNetwork resource
  */
-export interface GetvNetPeeringResult {
+export interface GetVNetPeeringResult {
     /**
      * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
      */
@@ -95,11 +95,11 @@ export interface GetvNetPeeringResult {
 /**
  * Gets the workspace vNet Peering.
  */
-export function getvNetPeeringOutput(args: GetvNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvNetPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getvNetPeering(a, opts))
+export function getVNetPeeringOutput(args: GetVNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVNetPeeringResult> {
+    return pulumi.output(args).apply((a: any) => getVNetPeering(a, opts))
 }
 
-export interface GetvNetPeeringOutputArgs {
+export interface GetVNetPeeringOutputArgs {
     /**
      * The name of the workspace vNet peering.
      */

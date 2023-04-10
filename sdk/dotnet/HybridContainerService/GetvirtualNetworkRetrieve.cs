@@ -9,25 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridContainerService
 {
-    public static class GetvirtualNetworkRetrieve
+    public static class GetVirtualNetworkRetrieve
     {
         /// <summary>
         /// Gets the Hybrid AKS virtual network
         /// API Version: 2022-05-01-preview.
         /// </summary>
-        public static Task<GetvirtualNetworkRetrieveResult> InvokeAsync(GetvirtualNetworkRetrieveArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveArgs(), options.WithDefaults());
+        public static Task<GetVirtualNetworkRetrieveResult> InvokeAsync(GetVirtualNetworkRetrieveArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Hybrid AKS virtual network
         /// API Version: 2022-05-01-preview.
         /// </summary>
-        public static Output<GetvirtualNetworkRetrieveResult> Invoke(GetvirtualNetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
+        public static Output<GetVirtualNetworkRetrieveResult> Invoke(GetVirtualNetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetvirtualNetworkRetrieveArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRetrieveArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.HybridContainerService
         [Input("virtualNetworksName", required: true)]
         public string VirtualNetworksName { get; set; } = null!;
 
-        public GetvirtualNetworkRetrieveArgs()
+        public GetVirtualNetworkRetrieveArgs()
         {
         }
-        public static new GetvirtualNetworkRetrieveArgs Empty => new GetvirtualNetworkRetrieveArgs();
+        public static new GetVirtualNetworkRetrieveArgs Empty => new GetVirtualNetworkRetrieveArgs();
     }
 
-    public sealed class GetvirtualNetworkRetrieveInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkRetrieveInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -61,15 +61,15 @@ namespace Pulumi.AzureNative.HybridContainerService
         [Input("virtualNetworksName", required: true)]
         public Input<string> VirtualNetworksName { get; set; } = null!;
 
-        public GetvirtualNetworkRetrieveInvokeArgs()
+        public GetVirtualNetworkRetrieveInvokeArgs()
         {
         }
-        public static new GetvirtualNetworkRetrieveInvokeArgs Empty => new GetvirtualNetworkRetrieveInvokeArgs();
+        public static new GetVirtualNetworkRetrieveInvokeArgs Empty => new GetVirtualNetworkRetrieveInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetvirtualNetworkRetrieveResult
+    public sealed class GetVirtualNetworkRetrieveResult
     {
         public readonly Outputs.VirtualNetworksResponseExtendedLocation? ExtendedLocation;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         public readonly string Type;
 
         [OutputConstructor]
-        private GetvirtualNetworkRetrieveResult(
+        private GetVirtualNetworkRetrieveResult(
             Outputs.VirtualNetworksResponseExtendedLocation? extendedLocation,
 
             string id,

@@ -35,35 +35,35 @@ export const getPrivateEndpointConnectionsSec: typeof import("./getPrivateEndpoi
 export const getPrivateEndpointConnectionsSecOutput: typeof import("./getPrivateEndpointConnectionsSec").getPrivateEndpointConnectionsSecOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnectionsSec","getPrivateEndpointConnectionsSecOutput"], () => require("./getPrivateEndpointConnectionsSec"));
 
-export { GetprivateLinkServicesForEDMUploadArgs, GetprivateLinkServicesForEDMUploadResult, GetprivateLinkServicesForEDMUploadOutputArgs } from "./getprivateLinkServicesForEDMUpload";
-export const getprivateLinkServicesForEDMUpload: typeof import("./getprivateLinkServicesForEDMUpload").getprivateLinkServicesForEDMUpload = null as any;
-export const getprivateLinkServicesForEDMUploadOutput: typeof import("./getprivateLinkServicesForEDMUpload").getprivateLinkServicesForEDMUploadOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkServicesForEDMUpload","getprivateLinkServicesForEDMUploadOutput"], () => require("./getprivateLinkServicesForEDMUpload"));
+export { GetPrivateLinkServicesForEDMUploadArgs, GetPrivateLinkServicesForEDMUploadResult, GetPrivateLinkServicesForEDMUploadOutputArgs } from "./getPrivateLinkServicesForEDMUpload";
+export const getPrivateLinkServicesForEDMUpload: typeof import("./getPrivateLinkServicesForEDMUpload").getPrivateLinkServicesForEDMUpload = null as any;
+export const getPrivateLinkServicesForEDMUploadOutput: typeof import("./getPrivateLinkServicesForEDMUpload").getPrivateLinkServicesForEDMUploadOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkServicesForEDMUpload","getPrivateLinkServicesForEDMUploadOutput"], () => require("./getPrivateLinkServicesForEDMUpload"));
 
-export { GetprivateLinkServicesForM365ComplianceCenterArgs, GetprivateLinkServicesForM365ComplianceCenterResult, GetprivateLinkServicesForM365ComplianceCenterOutputArgs } from "./getprivateLinkServicesForM365ComplianceCenter";
-export const getprivateLinkServicesForM365ComplianceCenter: typeof import("./getprivateLinkServicesForM365ComplianceCenter").getprivateLinkServicesForM365ComplianceCenter = null as any;
-export const getprivateLinkServicesForM365ComplianceCenterOutput: typeof import("./getprivateLinkServicesForM365ComplianceCenter").getprivateLinkServicesForM365ComplianceCenterOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkServicesForM365ComplianceCenter","getprivateLinkServicesForM365ComplianceCenterOutput"], () => require("./getprivateLinkServicesForM365ComplianceCenter"));
+export { GetPrivateLinkServicesForM365ComplianceCenterArgs, GetPrivateLinkServicesForM365ComplianceCenterResult, GetPrivateLinkServicesForM365ComplianceCenterOutputArgs } from "./getPrivateLinkServicesForM365ComplianceCenter";
+export const getPrivateLinkServicesForM365ComplianceCenter: typeof import("./getPrivateLinkServicesForM365ComplianceCenter").getPrivateLinkServicesForM365ComplianceCenter = null as any;
+export const getPrivateLinkServicesForM365ComplianceCenterOutput: typeof import("./getPrivateLinkServicesForM365ComplianceCenter").getPrivateLinkServicesForM365ComplianceCenterOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkServicesForM365ComplianceCenter","getPrivateLinkServicesForM365ComplianceCenterOutput"], () => require("./getPrivateLinkServicesForM365ComplianceCenter"));
 
-export { GetprivateLinkServicesForM365SecurityCenterArgs, GetprivateLinkServicesForM365SecurityCenterResult, GetprivateLinkServicesForM365SecurityCenterOutputArgs } from "./getprivateLinkServicesForM365SecurityCenter";
-export const getprivateLinkServicesForM365SecurityCenter: typeof import("./getprivateLinkServicesForM365SecurityCenter").getprivateLinkServicesForM365SecurityCenter = null as any;
-export const getprivateLinkServicesForM365SecurityCenterOutput: typeof import("./getprivateLinkServicesForM365SecurityCenter").getprivateLinkServicesForM365SecurityCenterOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkServicesForM365SecurityCenter","getprivateLinkServicesForM365SecurityCenterOutput"], () => require("./getprivateLinkServicesForM365SecurityCenter"));
+export { GetPrivateLinkServicesForM365SecurityCenterArgs, GetPrivateLinkServicesForM365SecurityCenterResult, GetPrivateLinkServicesForM365SecurityCenterOutputArgs } from "./getPrivateLinkServicesForM365SecurityCenter";
+export const getPrivateLinkServicesForM365SecurityCenter: typeof import("./getPrivateLinkServicesForM365SecurityCenter").getPrivateLinkServicesForM365SecurityCenter = null as any;
+export const getPrivateLinkServicesForM365SecurityCenterOutput: typeof import("./getPrivateLinkServicesForM365SecurityCenter").getPrivateLinkServicesForM365SecurityCenterOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkServicesForM365SecurityCenter","getPrivateLinkServicesForM365SecurityCenterOutput"], () => require("./getPrivateLinkServicesForM365SecurityCenter"));
 
-export { GetprivateLinkServicesForMIPPolicySyncArgs, GetprivateLinkServicesForMIPPolicySyncResult, GetprivateLinkServicesForMIPPolicySyncOutputArgs } from "./getprivateLinkServicesForMIPPolicySync";
-export const getprivateLinkServicesForMIPPolicySync: typeof import("./getprivateLinkServicesForMIPPolicySync").getprivateLinkServicesForMIPPolicySync = null as any;
-export const getprivateLinkServicesForMIPPolicySyncOutput: typeof import("./getprivateLinkServicesForMIPPolicySync").getprivateLinkServicesForMIPPolicySyncOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkServicesForMIPPolicySync","getprivateLinkServicesForMIPPolicySyncOutput"], () => require("./getprivateLinkServicesForMIPPolicySync"));
+export { GetPrivateLinkServicesForMIPPolicySyncArgs, GetPrivateLinkServicesForMIPPolicySyncResult, GetPrivateLinkServicesForMIPPolicySyncOutputArgs } from "./getPrivateLinkServicesForMIPPolicySync";
+export const getPrivateLinkServicesForMIPPolicySync: typeof import("./getPrivateLinkServicesForMIPPolicySync").getPrivateLinkServicesForMIPPolicySync = null as any;
+export const getPrivateLinkServicesForMIPPolicySyncOutput: typeof import("./getPrivateLinkServicesForMIPPolicySync").getPrivateLinkServicesForMIPPolicySyncOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkServicesForMIPPolicySync","getPrivateLinkServicesForMIPPolicySyncOutput"], () => require("./getPrivateLinkServicesForMIPPolicySync"));
 
-export { GetprivateLinkServicesForO365ManagementActivityAPIArgs, GetprivateLinkServicesForO365ManagementActivityAPIResult, GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs } from "./getprivateLinkServicesForO365ManagementActivityAPI";
-export const getprivateLinkServicesForO365ManagementActivityAPI: typeof import("./getprivateLinkServicesForO365ManagementActivityAPI").getprivateLinkServicesForO365ManagementActivityAPI = null as any;
-export const getprivateLinkServicesForO365ManagementActivityAPIOutput: typeof import("./getprivateLinkServicesForO365ManagementActivityAPI").getprivateLinkServicesForO365ManagementActivityAPIOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkServicesForO365ManagementActivityAPI","getprivateLinkServicesForO365ManagementActivityAPIOutput"], () => require("./getprivateLinkServicesForO365ManagementActivityAPI"));
+export { GetPrivateLinkServicesForO365ManagementActivityAPIArgs, GetPrivateLinkServicesForO365ManagementActivityAPIResult, GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs } from "./getPrivateLinkServicesForO365ManagementActivityAPI";
+export const getPrivateLinkServicesForO365ManagementActivityAPI: typeof import("./getPrivateLinkServicesForO365ManagementActivityAPI").getPrivateLinkServicesForO365ManagementActivityAPI = null as any;
+export const getPrivateLinkServicesForO365ManagementActivityAPIOutput: typeof import("./getPrivateLinkServicesForO365ManagementActivityAPI").getPrivateLinkServicesForO365ManagementActivityAPIOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkServicesForO365ManagementActivityAPI","getPrivateLinkServicesForO365ManagementActivityAPIOutput"], () => require("./getPrivateLinkServicesForO365ManagementActivityAPI"));
 
-export { GetprivateLinkServicesForSCCPowershellArgs, GetprivateLinkServicesForSCCPowershellResult, GetprivateLinkServicesForSCCPowershellOutputArgs } from "./getprivateLinkServicesForSCCPowershell";
-export const getprivateLinkServicesForSCCPowershell: typeof import("./getprivateLinkServicesForSCCPowershell").getprivateLinkServicesForSCCPowershell = null as any;
-export const getprivateLinkServicesForSCCPowershellOutput: typeof import("./getprivateLinkServicesForSCCPowershell").getprivateLinkServicesForSCCPowershellOutput = null as any;
-utilities.lazyLoad(exports, ["getprivateLinkServicesForSCCPowershell","getprivateLinkServicesForSCCPowershellOutput"], () => require("./getprivateLinkServicesForSCCPowershell"));
+export { GetPrivateLinkServicesForSCCPowershellArgs, GetPrivateLinkServicesForSCCPowershellResult, GetPrivateLinkServicesForSCCPowershellOutputArgs } from "./getPrivateLinkServicesForSCCPowershell";
+export const getPrivateLinkServicesForSCCPowershell: typeof import("./getPrivateLinkServicesForSCCPowershell").getPrivateLinkServicesForSCCPowershell = null as any;
+export const getPrivateLinkServicesForSCCPowershellOutput: typeof import("./getPrivateLinkServicesForSCCPowershell").getPrivateLinkServicesForSCCPowershellOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkServicesForSCCPowershell","getPrivateLinkServicesForSCCPowershellOutput"], () => require("./getPrivateLinkServicesForSCCPowershell"));
 
 export { PrivateEndpointConnectionsAdtAPIArgs } from "./privateEndpointConnectionsAdtAPI";
 export type PrivateEndpointConnectionsAdtAPI = import("./privateEndpointConnectionsAdtAPI").PrivateEndpointConnectionsAdtAPI;
@@ -152,17 +152,17 @@ const _module = {
                 return new PrivateEndpointConnectionsForSCCPowershell(name, <any>undefined, { urn })
             case "azure-native:m365securityandcompliance:PrivateEndpointConnectionsSec":
                 return new PrivateEndpointConnectionsSec(name, <any>undefined, { urn })
-            case "azure-native:m365securityandcompliance:privateLinkServicesForEDMUpload":
+            case "azure-native:m365securityandcompliance:PrivateLinkServicesForEDMUpload":
                 return new PrivateLinkServicesForEDMUpload(name, <any>undefined, { urn })
-            case "azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter":
+            case "azure-native:m365securityandcompliance:PrivateLinkServicesForM365ComplianceCenter":
                 return new PrivateLinkServicesForM365ComplianceCenter(name, <any>undefined, { urn })
-            case "azure-native:m365securityandcompliance:privateLinkServicesForM365SecurityCenter":
+            case "azure-native:m365securityandcompliance:PrivateLinkServicesForM365SecurityCenter":
                 return new PrivateLinkServicesForM365SecurityCenter(name, <any>undefined, { urn })
-            case "azure-native:m365securityandcompliance:privateLinkServicesForMIPPolicySync":
+            case "azure-native:m365securityandcompliance:PrivateLinkServicesForMIPPolicySync":
                 return new PrivateLinkServicesForMIPPolicySync(name, <any>undefined, { urn })
-            case "azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI":
+            case "azure-native:m365securityandcompliance:PrivateLinkServicesForO365ManagementActivityAPI":
                 return new PrivateLinkServicesForO365ManagementActivityAPI(name, <any>undefined, { urn })
-            case "azure-native:m365securityandcompliance:privateLinkServicesForSCCPowershell":
+            case "azure-native:m365securityandcompliance:PrivateLinkServicesForSCCPowershell":
                 return new PrivateLinkServicesForSCCPowershell(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);

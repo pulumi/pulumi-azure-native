@@ -7,11 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .galleryimage_retrieve import *
-from .getgalleryimage_retrieve import *
-from .getnetworkinterface_retrieve import *
-from .getvirtualharddisk_retrieve import *
-from .getvirtualmachine_retrieve import *
-from .getvirtualnetwork_retrieve import *
+from .get_galleryimage_retrieve import *
+from .get_networkinterface_retrieve import *
+from .get_virtualharddisk_retrieve import *
+from .get_virtualmachine_retrieve import *
+from .get_virtualnetwork_retrieve import *
 from .networkinterface_retrieve import *
 from .virtualharddisk_retrieve import *
 from .virtualmachine_retrieve import *
