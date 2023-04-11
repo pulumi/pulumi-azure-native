@@ -15,7 +15,7 @@ runs:
         go-version: "1.19.x"
 
     - name: Install Pulumi CLI
-      uses: pulumi/setup-pulumi@v2
+      uses: pulumi/actions@v4
 
     - name: Setup Node
       uses: actions/setup-node@v3
