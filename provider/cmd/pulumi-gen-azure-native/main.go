@@ -53,11 +53,15 @@ func main() {
 		specsDir = filepath.Join(wd, "azure-rest-api-specs")
 	}
 
-	// Use DEBUG_CODEGEN to just generate a single namespace (e.g. "Compute") for quick testing
+	// Use DEBUG_CODEGEN_NAMESPACES to just generate a single namespace (e.g. "Compute") for quick testing
 	namespaces := os.Getenv("DEBUG_CODEGEN_NAMESPACES")
 	if namespaces == "" {
 		namespaces = "*"
 	}
+
+	// Use DEBUG_CODEGEN_APIVERSIONS to just generate certain versions (e.g. "2019-09-01", "2019*") for quick testing,
+	// likely in combination with DEBUG_CODEGEN_NAMESPACES
+	apiVersions := os.Getenv("DEBUG_CODEGEN_APIVERSIONS")
 
 	var azureProviders *openapi.AzureProviders
 	var pkgSpec *schema.PackageSpec
@@ -75,7 +79,7 @@ func main() {
 	}
 
 	if languageSet.Has("schema-v2") {
-		providers, err := openapi.ReadAzureProviders(specsDir, namespaces)
+		providers, err := openapi.ReadAzureProviders(specsDir, namespaces, apiVersions)
 		if err != nil {
 			panic(err)
 		}
@@ -105,7 +109,7 @@ func main() {
 		fmt.Println("Emitted `bin/v2/schema-full.json`")
 	}
 	if languageSet.Has("schema") {
-		providers, err := openapi.ReadAzureProviders(specsDir, namespaces)
+		providers, err := openapi.ReadAzureProviders(specsDir, namespaces, apiVersions)
 		if err != nil {
 			panic(err)
 		}
@@ -163,7 +167,7 @@ func main() {
 
 	if languageSet.Has("docs") {
 		if azureProviders == nil {
-			providers, err := openapi.ReadAzureProviders(specsDir, namespaces)
+			providers, err := openapi.ReadAzureProviders(specsDir, namespaces, apiVersions)
 			if err != nil {
 				panic(err)
 			}
