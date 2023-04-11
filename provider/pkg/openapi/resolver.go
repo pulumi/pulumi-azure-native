@@ -273,6 +273,8 @@ type reference struct {
 	value interface{}
 }
 
+var leadingDotDot = regexp.MustCompile(`^(\.\./)+`)
+
 func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, error) {
 	ptr := ref.GetPointer()
 	if ptr == nil || ptr.IsEmpty() {
@@ -285,8 +287,7 @@ func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, e
 		// HACK: url.ResolveReference drops leading "../" so we need to re-add these after resolving
 		urlPrefix := ""
 		if !ctx.url.IsAbs() {
-			re := regexp.MustCompile(`^(\.\./)+`)
-			matches := re.FindStringSubmatch(ctx.url.Path)
+			matches := leadingDotDot.FindStringSubmatch(ctx.url.Path)
 			if len(matches) > 0 {
 				urlPrefix = matches[0]
 			}
