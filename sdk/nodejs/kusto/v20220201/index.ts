@@ -20,16 +20,6 @@ export type ClusterPrincipalAssignment = import("./clusterPrincipalAssignment").
 export const ClusterPrincipalAssignment: typeof import("./clusterPrincipalAssignment").ClusterPrincipalAssignment = null as any;
 utilities.lazyLoad(exports, ["ClusterPrincipalAssignment"], () => require("./clusterPrincipalAssignment"));
 
-export { DataConnectionArgs } from "./dataConnection";
-export type DataConnection = import("./dataConnection").DataConnection;
-export const DataConnection: typeof import("./dataConnection").DataConnection = null as any;
-utilities.lazyLoad(exports, ["DataConnection"], () => require("./dataConnection"));
-
-export { DatabaseArgs } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-
 export { DatabasePrincipalAssignmentArgs } from "./databasePrincipalAssignment";
 export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment").DatabasePrincipalAssignment;
 export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
@@ -59,16 +49,6 @@ export { GetClusterPrincipalAssignmentArgs, GetClusterPrincipalAssignmentResult,
 export const getClusterPrincipalAssignment: typeof import("./getClusterPrincipalAssignment").getClusterPrincipalAssignment = null as any;
 export const getClusterPrincipalAssignmentOutput: typeof import("./getClusterPrincipalAssignment").getClusterPrincipalAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterPrincipalAssignment","getClusterPrincipalAssignmentOutput"], () => require("./getClusterPrincipalAssignment"));
-
-export { GetDataConnectionArgs, GetDataConnectionResult, GetDataConnectionOutputArgs } from "./getDataConnection";
-export const getDataConnection: typeof import("./getDataConnection").getDataConnection = null as any;
-export const getDataConnectionOutput: typeof import("./getDataConnection").getDataConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getDataConnection","getDataConnectionOutput"], () => require("./getDataConnection"));
-
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
-export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
-export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetDatabasePrincipalAssignmentArgs, GetDatabasePrincipalAssignmentResult, GetDatabasePrincipalAssignmentOutputArgs } from "./getDatabasePrincipalAssignment";
 export const getDatabasePrincipalAssignment: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignment = null as any;
@@ -174,10 +154,6 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:kusto/v20220201:ClusterPrincipalAssignment":
                 return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20220201:DataConnection":
-                return new DataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20220201:Database":
-                return new Database(name, <any>undefined, { urn })
             case "azure-native:kusto/v20220201:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:kusto/v20220201:EventGridDataConnection":

@@ -427,25 +427,25 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	if err != nil {
 		return errors.Wrapf(err, "resource %s.%s", prov, typeName)
 	}
-	var variantNames []string
+
 	for _, d := range variants {
 		err = g.genResourceVariant(prov, resource, d)
 		if err != nil {
 			return err
 		}
-		variantNames = append(variantNames, d.typeName)
 	}
+
+	// If variants are found, we don't need the main or base resource.
+	if len(variants) > 0 {
+		return nil
+	}
+
 	mainResource := &resourceVariant{
 		ResourceSpec: resource,
 		typeName:     typeName,
 	}
 	if resource.DeprecationMessage != "" {
 		mainResource.deprecationMessage = resource.DeprecationMessage
-	} else if len(variants) > 0 {
-		// If variants are found, we still want to generate the "base" resource but only for compatibility
-		// reason. We should remove those resources in 2.0, as most of them simply don't work.
-		mainResource.deprecationMessage =
-			fmt.Sprintf("Please use one of the variants: %s.", strings.Join(variantNames, ", "))
 	}
 	return g.genResourceVariant(prov, resource, mainResource)
 }

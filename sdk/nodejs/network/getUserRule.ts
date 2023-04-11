@@ -11,9 +11,7 @@ import * as utilities from "../utilities";
  * Gets a user rule.
  * API Version: 2021-02-01-preview.
  */
-/** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
-    pulumi.log.warn("getUserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getUserRule", {
@@ -49,9 +47,29 @@ export interface GetUserRuleArgs {
 }
 
 /**
- * Network base rule.
+ * Network security user rule.
  */
 export interface GetUserRuleResult {
+    /**
+     * A description for this rule.
+     */
+    readonly description?: string;
+    /**
+     * The destination port ranges.
+     */
+    readonly destinationPortRanges?: string[];
+    /**
+     * The destination address prefixes. CIDR or destination IP ranges.
+     */
+    readonly destinations?: outputs.network.AddressPrefixItemResponse[];
+    /**
+     * Indicates if the traffic matched against the rule in inbound or outbound.
+     */
+    readonly direction: string;
+    /**
+     * A friendly name for the rule.
+     */
+    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -62,12 +80,29 @@ export interface GetUserRuleResult {
     readonly id: string;
     /**
      * Whether the rule is custom or default.
+     * Expected value is 'Custom'.
      */
-    readonly kind: string;
+    readonly kind: "Custom";
     /**
      * Resource name.
      */
     readonly name: string;
+    /**
+     * Network protocol this rule applies to.
+     */
+    readonly protocol: string;
+    /**
+     * The provisioning state of the security configuration user rule resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The source port ranges.
+     */
+    readonly sourcePortRanges?: string[];
+    /**
+     * The CIDR or source IP ranges.
+     */
+    readonly sources?: outputs.network.AddressPrefixItemResponse[];
     /**
      * The system metadata related to this resource.
      */
@@ -81,7 +116,6 @@ export interface GetUserRuleResult {
  * Gets a user rule.
  * API Version: 2021-02-01-preview.
  */
-/** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
 export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleResult> {
     return pulumi.output(args).apply((a: any) => getUserRule(a, opts))
 }

@@ -39,7 +39,6 @@ from .get_linked_workspace import *
 from .get_machine_learning_compute import *
 from .get_machine_learning_dataset import *
 from .get_machine_learning_datastore import *
-from .get_machine_learning_service import *
 from .get_model_container import *
 from .get_model_version import *
 from .get_online_deployment import *
@@ -65,7 +64,6 @@ from .list_workspace_notebook_access_token import *
 from .machine_learning_compute import *
 from .machine_learning_dataset import *
 from .machine_learning_datastore import *
-from .machine_learning_service import *
 from .model_container import *
 from .model_version import *
 from .online_deployment import *

@@ -55,11 +55,6 @@ export const getMachineLearningDatastore: typeof import("./getMachineLearningDat
 export const getMachineLearningDatastoreOutput: typeof import("./getMachineLearningDatastore").getMachineLearningDatastoreOutput = null as any;
 utilities.lazyLoad(exports, ["getMachineLearningDatastore","getMachineLearningDatastoreOutput"], () => require("./getMachineLearningDatastore"));
 
-export { GetMachineLearningServiceArgs, GetMachineLearningServiceResult, GetMachineLearningServiceOutputArgs } from "./getMachineLearningService";
-export const getMachineLearningService: typeof import("./getMachineLearningService").getMachineLearningService = null as any;
-export const getMachineLearningServiceOutput: typeof import("./getMachineLearningService").getMachineLearningServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningService","getMachineLearningServiceOutput"], () => require("./getMachineLearningService"));
-
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -105,11 +100,6 @@ export type MachineLearningDatastore = import("./machineLearningDatastore").Mach
 export const MachineLearningDatastore: typeof import("./machineLearningDatastore").MachineLearningDatastore = null as any;
 utilities.lazyLoad(exports, ["MachineLearningDatastore"], () => require("./machineLearningDatastore"));
 
-export { MachineLearningServiceArgs } from "./machineLearningService";
-export type MachineLearningService = import("./machineLearningService").MachineLearningService;
-export const MachineLearningService: typeof import("./machineLearningService").MachineLearningService = null as any;
-utilities.lazyLoad(exports, ["MachineLearningService"], () => require("./machineLearningService"));
-
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -142,8 +132,6 @@ const _module = {
                 return new MachineLearningDataset(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore":
                 return new MachineLearningDatastore(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200501preview:MachineLearningService":
-                return new MachineLearningService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:Workspace":

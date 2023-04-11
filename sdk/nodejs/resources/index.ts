@@ -40,11 +40,6 @@ export type DeploymentAtTenantScope = import("./deploymentAtTenantScope").Deploy
 export const DeploymentAtTenantScope: typeof import("./deploymentAtTenantScope").DeploymentAtTenantScope = null as any;
 utilities.lazyLoad(exports, ["DeploymentAtTenantScope"], () => require("./deploymentAtTenantScope"));
 
-export { DeploymentScriptArgs } from "./deploymentScript";
-export type DeploymentScript = import("./deploymentScript").DeploymentScript;
-export const DeploymentScript: typeof import("./deploymentScript").DeploymentScript = null as any;
-utilities.lazyLoad(exports, ["DeploymentScript"], () => require("./deploymentScript"));
-
 export { GetAzureCliScriptArgs, GetAzureCliScriptResult, GetAzureCliScriptOutputArgs } from "./getAzureCliScript";
 export const getAzureCliScript: typeof import("./getAzureCliScript").getAzureCliScript = null as any;
 export const getAzureCliScriptOutput: typeof import("./getAzureCliScript").getAzureCliScriptOutput = null as any;
@@ -79,11 +74,6 @@ export { GetDeploymentAtTenantScopeArgs, GetDeploymentAtTenantScopeResult, GetDe
 export const getDeploymentAtTenantScope: typeof import("./getDeploymentAtTenantScope").getDeploymentAtTenantScope = null as any;
 export const getDeploymentAtTenantScopeOutput: typeof import("./getDeploymentAtTenantScope").getDeploymentAtTenantScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentAtTenantScope","getDeploymentAtTenantScopeOutput"], () => require("./getDeploymentAtTenantScope"));
-
-export { GetDeploymentScriptArgs, GetDeploymentScriptResult, GetDeploymentScriptOutputArgs } from "./getDeploymentScript";
-export const getDeploymentScript: typeof import("./getDeploymentScript").getDeploymentScript = null as any;
-export const getDeploymentScriptOutput: typeof import("./getDeploymentScript").getDeploymentScriptOutput = null as any;
-utilities.lazyLoad(exports, ["getDeploymentScript","getDeploymentScriptOutput"], () => require("./getDeploymentScript"));
 
 export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
 export const getResource: typeof import("./getResource").getResource = null as any;
@@ -210,8 +200,6 @@ const _module = {
                 return new DeploymentAtSubscriptionScope(name, <any>undefined, { urn })
             case "azure-native:resources:DeploymentAtTenantScope":
                 return new DeploymentAtTenantScope(name, <any>undefined, { urn })
-            case "azure-native:resources:DeploymentScript":
-                return new DeploymentScript(name, <any>undefined, { urn })
             case "azure-native:resources:Resource":
                 return new Resource(name, <any>undefined, { urn })
             case "azure-native:resources:ResourceGroup":

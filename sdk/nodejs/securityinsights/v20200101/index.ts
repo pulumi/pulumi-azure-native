@@ -20,11 +20,6 @@ export type Action = import("./action").Action;
 export const Action: typeof import("./action").Action = null as any;
 utilities.lazyLoad(exports, ["Action"], () => require("./action"));
 
-export { AlertRuleArgs } from "./alertRule";
-export type AlertRule = import("./alertRule").AlertRule;
-export const AlertRule: typeof import("./alertRule").AlertRule = null as any;
-utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
-
 export { ASCDataConnectorArgs } from "./ascdataConnector";
 export type ASCDataConnector = import("./ascdataConnector").ASCDataConnector;
 export const ASCDataConnector: typeof import("./ascdataConnector").ASCDataConnector = null as any;
@@ -39,11 +34,6 @@ export { BookmarkArgs } from "./bookmark";
 export type Bookmark = import("./bookmark").Bookmark;
 export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
 utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
-
-export { DataConnectorArgs } from "./dataConnector";
-export type DataConnector = import("./dataConnector").DataConnector;
-export const DataConnector: typeof import("./dataConnector").DataConnector = null as any;
-utilities.lazyLoad(exports, ["DataConnector"], () => require("./dataConnector"));
 
 export { FusionAlertRuleArgs } from "./fusionAlertRule";
 export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
@@ -70,11 +60,6 @@ export const getAction: typeof import("./getAction").getAction = null as any;
 export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
 utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
 
-export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
-export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
-export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
-
 export { GetAwsCloudTrailDataConnectorArgs, GetAwsCloudTrailDataConnectorResult, GetAwsCloudTrailDataConnectorOutputArgs } from "./getAwsCloudTrailDataConnector";
 export const getAwsCloudTrailDataConnector: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnector = null as any;
 export const getAwsCloudTrailDataConnectorOutput: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnectorOutput = null as any;
@@ -84,11 +69,6 @@ export { GetBookmarkArgs, GetBookmarkResult, GetBookmarkOutputArgs } from "./get
 export const getBookmark: typeof import("./getBookmark").getBookmark = null as any;
 export const getBookmarkOutput: typeof import("./getBookmark").getBookmarkOutput = null as any;
 utilities.lazyLoad(exports, ["getBookmark","getBookmarkOutput"], () => require("./getBookmark"));
-
-export { GetDataConnectorArgs, GetDataConnectorResult, GetDataConnectorOutputArgs } from "./getDataConnector";
-export const getDataConnector: typeof import("./getDataConnector").getDataConnector = null as any;
-export const getDataConnectorOutput: typeof import("./getDataConnector").getDataConnectorOutput = null as any;
-utilities.lazyLoad(exports, ["getDataConnector","getDataConnectorOutput"], () => require("./getDataConnector"));
 
 export { GetFusionAlertRuleArgs, GetFusionAlertRuleResult, GetFusionAlertRuleOutputArgs } from "./getFusionAlertRule";
 export const getFusionAlertRule: typeof import("./getFusionAlertRule").getFusionAlertRule = null as any;
@@ -181,14 +161,10 @@ const _module = {
                 return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Action":
                 return new Action(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:AlertRule":
-                return new AlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector":
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:DataConnector":
-                return new DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:FusionAlertRule":
                 return new FusionAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Incident":

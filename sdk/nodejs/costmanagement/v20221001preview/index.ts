@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetSettingByScopeArgs, GetSettingByScopeResult, GetSettingByScopeOutputArgs } from "./getSettingByScope";
-export const getSettingByScope: typeof import("./getSettingByScope").getSettingByScope = null as any;
-export const getSettingByScopeOutput: typeof import("./getSettingByScope").getSettingByScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getSettingByScope","getSettingByScopeOutput"], () => require("./getSettingByScope"));
-
 export { GetTagInheritanceSettingArgs, GetTagInheritanceSettingResult, GetTagInheritanceSettingOutputArgs } from "./getTagInheritanceSetting";
 export const getTagInheritanceSetting: typeof import("./getTagInheritanceSetting").getTagInheritanceSetting = null as any;
 export const getTagInheritanceSettingOutput: typeof import("./getTagInheritanceSetting").getTagInheritanceSettingOutput = null as any;
@@ -24,11 +19,6 @@ export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } fr
 export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
 export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
-
-export { SettingByScopeArgs } from "./settingByScope";
-export type SettingByScope = import("./settingByScope").SettingByScope;
-export const SettingByScope: typeof import("./settingByScope").SettingByScope = null as any;
-utilities.lazyLoad(exports, ["SettingByScope"], () => require("./settingByScope"));
 
 export { TagInheritanceSettingArgs } from "./tagInheritanceSetting";
 export type TagInheritanceSetting = import("./tagInheritanceSetting").TagInheritanceSetting;
@@ -53,8 +43,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:costmanagement/v20221001preview:SettingByScope":
-                return new SettingByScope(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20221001preview:TagInheritanceSetting":
                 return new TagInheritanceSetting(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20221001preview:View":

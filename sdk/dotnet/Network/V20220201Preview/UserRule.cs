@@ -10,12 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20220201Preview
 {
     /// <summary>
-    /// Network base rule.
+    /// Network security user rule.
     /// </summary>
-    [Obsolete(@"Please use one of the variants: DefaultUserRule, UserRule.")]
     [AzureNativeResourceType("azure-native:network/v20220201preview:UserRule")]
     public partial class UserRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A description for this rule.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The destination port ranges.
+        /// </summary>
+        [Output("destinationPortRanges")]
+        public Output<ImmutableArray<string>> DestinationPortRanges { get; private set; } = null!;
+
+        /// <summary>
+        /// The destination address prefixes. CIDR or destination IP ranges.
+        /// </summary>
+        [Output("destinations")]
+        public Output<ImmutableArray<Outputs.AddressPrefixItemResponse>> Destinations { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if the traffic matched against the rule in inbound or outbound.
+        /// </summary>
+        [Output("direction")]
+        public Output<string> Direction { get; private set; } = null!;
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -24,6 +47,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
 
         /// <summary>
         /// Whether the rule is custom or default.
+        /// Expected value is 'Custom'.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -33,6 +57,30 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network protocol this rule applies to.
+        /// </summary>
+        [Output("protocol")]
+        public Output<string> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the security configuration user rule resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The source port ranges.
+        /// </summary>
+        [Output("sourcePortRanges")]
+        public Output<ImmutableArray<string>> SourcePortRanges { get; private set; } = null!;
+
+        /// <summary>
+        /// The CIDR or source IP ranges.
+        /// </summary>
+        [Output("sources")]
+        public Output<ImmutableArray<Outputs.AddressPrefixItemResponse>> Sources { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -55,13 +103,20 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserRule(string name, UserRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:network/v20220201preview:UserRule", name, args ?? new UserRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20220201preview:UserRule", name, MakeArgs(args), MakeResourceOptions(options, ""))
         {
         }
 
         private UserRule(string name, Input<string> id, CustomResourceOptions? options = null)
             : base("azure-native:network/v20220201preview:UserRule", name, null, MakeResourceOptions(options, id))
         {
+        }
+
+        private static UserRuleArgs MakeArgs(UserRuleArgs args)
+        {
+            args ??= new UserRuleArgs();
+            args.Kind = "Custom";
+            return args;
         }
 
         private static CustomResourceOptions MakeResourceOptions(CustomResourceOptions? options, Input<string>? id)
@@ -105,16 +160,59 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
+        /// A description for this rule.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("destinationPortRanges")]
+        private InputList<string>? _destinationPortRanges;
+
+        /// <summary>
+        /// The destination port ranges.
+        /// </summary>
+        public InputList<string> DestinationPortRanges
+        {
+            get => _destinationPortRanges ?? (_destinationPortRanges = new InputList<string>());
+            set => _destinationPortRanges = value;
+        }
+
+        [Input("destinations")]
+        private InputList<Inputs.AddressPrefixItemArgs>? _destinations;
+
+        /// <summary>
+        /// The destination address prefixes. CIDR or destination IP ranges.
+        /// </summary>
+        public InputList<Inputs.AddressPrefixItemArgs> Destinations
+        {
+            get => _destinations ?? (_destinations = new InputList<Inputs.AddressPrefixItemArgs>());
+            set => _destinations = value;
+        }
+
+        /// <summary>
+        /// Indicates if the traffic matched against the rule in inbound or outbound.
+        /// </summary>
+        [Input("direction", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20220201Preview.SecurityConfigurationRuleDirection> Direction { get; set; } = null!;
+
+        /// <summary>
         /// Whether the rule is custom or default.
+        /// Expected value is 'Custom'.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20220201Preview.UserRuleKind> Kind { get; set; } = null!;
+        public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
         /// The name of the network manager.
         /// </summary>
         [Input("networkManagerName", required: true)]
         public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// Network protocol this rule applies to.
+        /// </summary>
+        [Input("protocol", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20220201Preview.SecurityConfigurationRuleProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -133,6 +231,30 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
+
+        [Input("sourcePortRanges")]
+        private InputList<string>? _sourcePortRanges;
+
+        /// <summary>
+        /// The source port ranges.
+        /// </summary>
+        public InputList<string> SourcePortRanges
+        {
+            get => _sourcePortRanges ?? (_sourcePortRanges = new InputList<string>());
+            set => _sourcePortRanges = value;
+        }
+
+        [Input("sources")]
+        private InputList<Inputs.AddressPrefixItemArgs>? _sources;
+
+        /// <summary>
+        /// The CIDR or source IP ranges.
+        /// </summary>
+        public InputList<Inputs.AddressPrefixItemArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.AddressPrefixItemArgs>());
+            set => _sources = value;
+        }
 
         public UserRuleArgs()
         {

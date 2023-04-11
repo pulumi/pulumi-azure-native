@@ -20,11 +20,6 @@ export type EventHubEventSource = import("./eventHubEventSource").EventHubEventS
 export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
 utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
 
-export { EventSourceArgs } from "./eventSource";
-export type EventSource = import("./eventSource").EventSource;
-export const EventSource: typeof import("./eventSource").EventSource = null as any;
-utilities.lazyLoad(exports, ["EventSource"], () => require("./eventSource"));
-
 export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
 export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
 export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
@@ -39,11 +34,6 @@ export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEv
 export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
 export const getEventHubEventSourceOutput: typeof import("./getEventHubEventSource").getEventHubEventSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getEventHubEventSource","getEventHubEventSourceOutput"], () => require("./getEventHubEventSource"));
-
-export { GetEventSourceArgs, GetEventSourceResult, GetEventSourceOutputArgs } from "./getEventSource";
-export const getEventSource: typeof import("./getEventSource").getEventSource = null as any;
-export const getEventSourceOutput: typeof import("./getEventSource").getEventSourceOutput = null as any;
-utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
 
 export { GetIoTHubEventSourceArgs, GetIoTHubEventSourceResult, GetIoTHubEventSourceOutputArgs } from "./getIoTHubEventSource";
 export const getIoTHubEventSource: typeof import("./getIoTHubEventSource").getIoTHubEventSource = null as any;
@@ -79,8 +69,6 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource":
                 return new EventHubEventSource(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20170228preview:EventSource":
-                return new EventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource":
                 return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet":

@@ -17,14 +17,30 @@ __all__ = [
     'get_admin_rule_output',
 ]
 
-warnings.warn("""Please use one of the variants: AdminRule, DefaultAdminRule.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetAdminRuleResult:
     """
-    Network base admin rule.
+    Network admin rule.
     """
-    def __init__(__self__, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, access=None, description=None, destination_port_ranges=None, destinations=None, direction=None, display_name=None, etag=None, id=None, kind=None, name=None, priority=None, protocol=None, provisioning_state=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+        if access and not isinstance(access, str):
+            raise TypeError("Expected argument 'access' to be a str")
+        pulumi.set(__self__, "access", access)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if destination_port_ranges and not isinstance(destination_port_ranges, list):
+            raise TypeError("Expected argument 'destination_port_ranges' to be a list")
+        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if destinations and not isinstance(destinations, list):
+            raise TypeError("Expected argument 'destinations' to be a list")
+        pulumi.set(__self__, "destinations", destinations)
+        if direction and not isinstance(direction, str):
+            raise TypeError("Expected argument 'direction' to be a str")
+        pulumi.set(__self__, "direction", direction)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -37,12 +53,75 @@ class GetAdminRuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
+        pulumi.set(__self__, "priority", priority)
+        if protocol and not isinstance(protocol, str):
+            raise TypeError("Expected argument 'protocol' to be a str")
+        pulumi.set(__self__, "protocol", protocol)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if source_port_ranges and not isinstance(source_port_ranges, list):
+            raise TypeError("Expected argument 'source_port_ranges' to be a list")
+        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if sources and not isinstance(sources, list):
+            raise TypeError("Expected argument 'sources' to be a list")
+        pulumi.set(__self__, "sources", sources)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        Indicates the access allowed for this particular rule
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Indicates if the traffic matched against the rule in inbound or outbound.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        A friendly name for the rule.
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -65,6 +144,7 @@ class GetAdminRuleResult:
     def kind(self) -> str:
         """
         Whether the rule is custom or default.
+        Expected value is 'Custom'.
         """
         return pulumi.get(self, "kind")
 
@@ -75,6 +155,46 @@ class GetAdminRuleResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter(name="systemData")
@@ -99,10 +219,21 @@ class AwaitableGetAdminRuleResult(GetAdminRuleResult):
         if False:
             yield self
         return GetAdminRuleResult(
+            access=self.access,
+            description=self.description,
+            destination_port_ranges=self.destination_port_ranges,
+            destinations=self.destinations,
+            direction=self.direction,
+            display_name=self.display_name,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
             name=self.name,
+            priority=self.priority,
+            protocol=self.protocol,
+            provisioning_state=self.provisioning_state,
+            source_port_ranges=self.source_port_ranges,
+            sources=self.sources,
             system_data=self.system_data,
             type=self.type)
 
@@ -124,7 +255,6 @@ def get_admin_rule(configuration_name: Optional[str] = None,
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_admin_rule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.""")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name
@@ -135,10 +265,21 @@ def get_admin_rule(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getAdminRule', __args__, opts=opts, typ=GetAdminRuleResult).value
 
     return AwaitableGetAdminRuleResult(
+        access=__ret__.access,
+        description=__ret__.description,
+        destination_port_ranges=__ret__.destination_port_ranges,
+        destinations=__ret__.destinations,
+        direction=__ret__.direction,
+        display_name=__ret__.display_name,
         etag=__ret__.etag,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
+        priority=__ret__.priority,
+        protocol=__ret__.protocol,
+        provisioning_state=__ret__.provisioning_state,
+        source_port_ranges=__ret__.source_port_ranges,
+        sources=__ret__.sources,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -161,5 +302,4 @@ def get_admin_rule_output(configuration_name: Optional[pulumi.Input[str]] = None
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_admin_rule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.""")
     ...
