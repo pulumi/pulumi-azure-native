@@ -1,0 +1,10 @@
+{
+  "name": "pulumi-azure-native",
+  "private": "true",
+  "scripts": {
+    "explode": "pulumi-schema explode"
+  },
+  "devDependencies": {
+    "schema-explode": "github:pulumi/pulumi-schema-explode#1.0.0"
+  }
+}

@@ -92,7 +92,7 @@ func main() {
 			panic(err)
 		}
 
-		removed, err := openapi.ReadRemoved()
+		removed, err := openapi.ReadProviderVersionList(filepath.Join(wd, "versions", "v2-removed.json"))
 		if err != nil {
 			panic(err)
 		}
