@@ -58,7 +58,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 		}
 
 		if oidcRequestToken == "" || oidcRequestUrl == "" {
-			return nil, fmt.Errorf(`OIDC authentication is requested via useMsi/ARM_USE_MSI but no token and/or
+			return nil, fmt.Errorf(`OIDC authentication was requested via useOidc/ARM_USE_OIDC but no token and/or
 request URL were configured. See
 https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials for more information.`)
 		}
