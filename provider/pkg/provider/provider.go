@@ -198,9 +198,9 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
 	}
 
-	keyVaultBearerAuth, err := tokenAuth(hamiltonEnv.KeyVault)
+	keyVaultBearerAuth, err := bearerAuth(hamiltonEnv.KeyVault)
 	if err != nil {
-		return nil, fmt.Errorf("building authorizer for %s: %w", hamiltonEnv.KeyVault.Endpoint, err)
+		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.KeyVault.Endpoint, err)
 	}
 
 	k.subscriptionID = authConfig.SubscriptionID
