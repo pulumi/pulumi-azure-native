@@ -1,16 +1,8 @@
 # CHANGELOG
 
-## HEAD (Unreleased)
+## Notice (2023-04-12)
 
-### Enhancements
-
-- Treat location as case- and spacing-insensitive while calculating resource diffs
-  [#2281](https://github.com/pulumi/pulumi-azure-native/pull/2281)
-
-### Bug fixes
-
-- Support importing storage blobs
-  [#2280](https://github.com/pulumi/pulumi-azure-native/pull/2280)
+*As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-aws/releases) for this repository.*
 
 ## 1.96.0 (2023-02-24)
 
