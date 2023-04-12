@@ -31,8 +31,7 @@ func TestExtractResponseNameId(t *testing.T) {
 
 	exampleJSON := parse(createExample, t)
 
-	ok, responseId, responseName := extractExampleResponseNameId(exampleJSON)
-	assert.True(t, ok)
+	responseId, responseName := extractExampleResponseNameId(exampleJSON)
 	assert.Equal(t, "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool", responseId)
 	assert.Equal(t, "HRPool", responseName)
 }
@@ -59,13 +58,12 @@ func TestExtractResponseNameIdInOrder(t *testing.T) {
 
 	exampleJSON := parse(createExample, t)
 
-	ok, responseId, responseName := extractExampleResponseNameId(exampleJSON)
-	assert.True(t, ok)
+	responseId, responseName := extractExampleResponseNameId(exampleJSON)
 	assert.Equal(t, "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool", responseId)
 	assert.Equal(t, "HRPool", responseName)
 }
 
-func TestMustHaveNameAndId(t *testing.T) {
+func TestCanHaveOnlyId(t *testing.T) {
 	var createExample = []byte(`{
 		"parameters": {},
 		"responses": {
@@ -84,10 +82,40 @@ func TestMustHaveNameAndId(t *testing.T) {
 
 	exampleJSON := parse(createExample, t)
 
-	ok, responseId, responseName := extractExampleResponseNameId(exampleJSON)
-	assert.False(t, ok)
-	assert.Empty(t, responseId)
+	responseId, responseName := extractExampleResponseNameId(exampleJSON)
+	assert.Equal(t, "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool", responseId)
 	assert.Empty(t, responseName)
+}
+
+func TestPicksNameIdPairIfPresent(t *testing.T) {
+	// lowest status code first regardless of order in the example
+	var createExample = []byte(`{
+		"parameters": {},
+		"responses": {
+		  "200": {
+		    "body": {
+			  "id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/ContosoAgent"
+			}
+		  },
+		  "201": {
+		    "body": {
+			  "name": "ContosoAgent"
+			}
+		  },
+		  "202": {
+			"body": {
+			  "id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool",
+			  "name": "HRPool"
+			}
+		  }
+		}
+	  }`)
+
+	exampleJSON := parse(createExample, t)
+
+	responseId, responseName := extractExampleResponseNameId(exampleJSON)
+	assert.Equal(t, "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool", responseId)
+	assert.Equal(t, "HRPool", responseName)
 }
 
 func parse(jsonStr []byte, t *testing.T) map[string]interface{} {

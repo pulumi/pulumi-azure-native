@@ -129,8 +129,12 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
 				// Fill in sample name and ID for the import section.
-				if ok, responseId, responseName := extractExampleResponseNameId(exampleJSON); ok {
-					importRenderData.SampleResID, importRenderData.SampleResName = responseId, responseName
+				responseId, responseName := extractExampleResponseNameId(exampleJSON)
+				if responseName != "" {
+					importRenderData.SampleResName = responseName
+				}
+				if responseId != "" {
+					importRenderData.SampleResID = responseId
 				}
 
 				flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
@@ -189,21 +193,41 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 	return nil
 }
 
-func extractExampleResponseNameId(exampleJSON map[string]interface{}) (bool, string, string) {
+// extractExampleResponseNameId extracts ID, name from the first example response that has both.
+// If no response has both but one has either, it returns that ID or name, with the other one being empty.
+// Else, it returns empty id and name.
+func extractExampleResponseNameId(exampleJSON map[string]interface{}) (string, string) {
 	if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
-		// Deterministically pick the first response for reproducable schemas.
-		for _, statusCode := range codegen.SortedKeys(exampleResponses) {
+		responseBodies := make([]map[string]interface{}, len(exampleResponses))
+		// Sort to deterministically pick the same response for reproducable schemas.
+		statusCodes := codegen.SortedKeys(exampleResponses)
+		for _, statusCode := range statusCodes {
 			responseMap := exampleResponses[statusCode].(map[string]interface{})
 			if body, ok := responseMap["body"].(map[string]interface{}); ok {
-				exampleID, hasId := body["id"].(string)
-				exampleName, hasName := body["name"].(string)
-				if hasId && hasName {
-					return true, exampleID, exampleName
-				}
+				responseBodies = append(responseBodies, body)
+			}
+		}
+
+		for _, body := range responseBodies {
+			exampleID, hasId := body["id"].(string)
+			exampleName, hasName := body["name"].(string)
+			if hasId && hasName {
+				return exampleID, exampleName
+			}
+		}
+
+		for _, body := range responseBodies {
+			exampleName, hasName := body["name"].(string)
+			if hasName {
+				return "", exampleName
+			}
+			exampleID, hasId := body["id"].(string)
+			if hasId {
+				return exampleID, ""
 			}
 		}
 	}
-	return false, "", ""
+	return "", ""
 }
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
