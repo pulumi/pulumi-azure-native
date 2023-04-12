@@ -153,6 +153,12 @@ test: build install_sdks
 schema_squeeze: bin/schema-tools bin/schema-full.json
 	./bin/schema-tools squeeze -s bin/schema-full.json --out bin/v1-squeeze.json
 
+.PHONY: explode_schema_v2
+explode_schema_v2: bin/v2/schema-full.json
+	rm -rf bin/schema_v2
+	mkdir -p bin/schema_v2
+	yarn && yarn explode --schema bin/v2/schema-full.json --outDir bin/schema_v2
+
 # --------- File-based targets --------- #
 
 # Download local copy of pulumictl based on the version in .pulumictl.version
