@@ -4,12 +4,13 @@ package gen
 
 import (
 	"fmt"
-	"github.com/segmentio/encoding/json"
 	"log"
 	"os"
 	"strings"
 	"text/template"
 	"time"
+
+	"github.com/segmentio/encoding/json"
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
@@ -128,24 +129,17 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
 				// Fill in sample name and ID for the import section.
-				if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
-					for _, response := range exampleResponses {
-						if responseMap, ok := response.(map[string]interface{}); ok {
-							if body, ok := responseMap["body"].(map[string]interface{}); ok {
-								if exampleID, ok := body["id"].(string); ok {
-									importRenderData.SampleResID = exampleID
-								}
-								if exampleName, ok := body["name"].(string); ok {
-									importRenderData.SampleResName = exampleName
-								}
-							}
-						}
-					}
+				responseId, responseName := extractExampleResponseNameId(exampleJSON)
+				if responseName != "" {
+					importRenderData.SampleResName = responseName
+				}
+				if responseId != "" {
+					importRenderData.SampleResID = responseId
 				}
 
 				flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
 				if err != nil {
-					fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
+					fmt.Printf("transforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
 					continue
 				}
 
@@ -197,6 +191,43 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 	}
 
 	return nil
+}
+
+// extractExampleResponseNameId extracts ID, name from the first example response that has both.
+// If no response has both but one has either, it returns that ID or name, with the other one being empty.
+// Else, it returns empty id and name.
+func extractExampleResponseNameId(exampleJSON map[string]interface{}) (string, string) {
+	if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
+		responseBodies := make([]map[string]interface{}, len(exampleResponses))
+		// Sort to deterministically pick the same response for reproducable schemas.
+		statusCodes := codegen.SortedKeys(exampleResponses)
+		for _, statusCode := range statusCodes {
+			responseMap := exampleResponses[statusCode].(map[string]interface{})
+			if body, ok := responseMap["body"].(map[string]interface{}); ok {
+				responseBodies = append(responseBodies, body)
+			}
+		}
+
+		for _, body := range responseBodies {
+			exampleID, hasId := body["id"].(string)
+			exampleName, hasName := body["name"].(string)
+			if hasId && hasName {
+				return exampleID, exampleName
+			}
+		}
+
+		for _, body := range responseBodies {
+			exampleName, hasName := body["name"].(string)
+			if hasName {
+				return "", exampleName
+			}
+			exampleID, hasId := body["id"].(string)
+			if hasId {
+				return exampleID, ""
+			}
+		}
+	}
+	return "", ""
 }
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
