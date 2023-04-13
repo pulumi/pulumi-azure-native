@@ -303,10 +303,33 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 }
 
 func TestApplyDiff(t *testing.T) {
-	state := resource.PropertyMap{
+	// Inputs are the base to apply to.
+	inputs := resource.PropertyMap{
 		"p1": {V: "oldvalue"},
 		"p2": {V: "iamdeleted"},
+		"p4": {
+			V: resource.PropertyMap{
+				"p4.1": {V: "oldervalue"},
+				"p4.3": {V: "willbedeleted"},
+			},
+		},
+		"p5": {
+			V: []resource.PropertyValue{
+				{
+					V: resource.PropertyMap{
+						"p5.1": {V: "nochange1"},
+						"p5.2": {
+							V: resource.PropertyMap{
+								"p5.2.1": {V: "oldestvalue"},
+								"p5.2.2": {V: "nochange2"},
+							},
+						},
+					},
+				},
+			},
+		},
 	}
+	// Diff represents a difference between old outputs and new outputs.
 	diff := resource.ObjectDiff{
 		Adds: resource.PropertyMap{
 			"p3": {V: "newkey"},
@@ -319,12 +342,105 @@ func TestApplyDiff(t *testing.T) {
 				Old: resource.PropertyValue{V: "oldvalue"},
 				New: resource.PropertyValue{V: "newvalue"},
 			},
+			"p4": {
+				Old: resource.PropertyValue{
+					V: resource.PropertyMap{
+						"p4.1": {V: "oldervalue"},
+						"p4.2": {V: "same"},
+						"p4.3": {V: "willbedeleted"},
+					},
+				},
+				New: resource.PropertyValue{
+					V: resource.PropertyMap{
+						"p4.1": {V: "newervalue"},
+						"p4.2": {V: "same"},
+						"p4.4": {V: "thiswasadded"},
+					},
+				},
+			},
+			"p5": {
+				Old: resource.PropertyValue{
+					V: []resource.PropertyValue{
+						{
+							V: resource.PropertyMap{
+								"p5.1": {V: "nochange1"},
+								"p5.2": {
+									V: resource.PropertyMap{
+										"p5.2.1": {V: "oldestvalue"},
+										"p5.2.2": {V: "nochange2"},
+										"p5.2.3": {V: "nochange3"},
+									},
+								},
+								"p5.3": {V: "nochange4"},
+							},
+						},
+					},
+				},
+				New: resource.PropertyValue{
+					V: []resource.PropertyValue{
+						{
+							V: resource.PropertyMap{
+								"p5.1": {V: "nochange1"},
+								"p5.2": {
+									V: resource.PropertyMap{
+										"p5.2.1": {V: "newestvalue"},
+										"p5.2.2": {V: "nochange2"},
+										"p5.2.3": {V: "nochange3"},
+									},
+								},
+								"p5.3": {V: "nochange4"},
+							},
+						},
+						{
+							V: resource.PropertyMap{
+								"p6.1": {V: "new1"},
+								"p6.2": {
+									V: resource.PropertyMap{
+										"p6.2.1": {V: "new2"},
+									},
+								},
+								"p6.3": {V: "new3"},
+							},
+						},
+					},
+				},
+			},
 		},
 	}
-	actual := applyDiff(state, &diff)
+	actual := applyDiff(inputs, &diff)
 	expected := resource.PropertyMap{
 		"p1": {V: "newvalue"},
 		"p3": {V: "newkey"},
+		"p4": {V: resource.PropertyMap{
+			"p4.1": {V: "newervalue"},
+			"p4.4": {V: "thiswasadded"},
+		}},
+		"p5": {
+			V: []resource.PropertyValue{
+				{
+					V: resource.PropertyMap{
+						"p5.1": {V: "nochange1"},
+						"p5.2": {
+							V: resource.PropertyMap{
+								"p5.2.1": {V: "newestvalue"},
+								"p5.2.2": {V: "nochange2"},
+							},
+						},
+					},
+				},
+				{
+					V: resource.PropertyMap{
+						"p6.1": {V: "new1"},
+						"p6.2": {
+							V: resource.PropertyMap{
+								"p6.2.1": {V: "new2"},
+							},
+						},
+						"p6.3": {V: "new3"},
+					},
+				},
+			},
+		},
 	}
 	assert.Equal(t, expected, actual)
 }

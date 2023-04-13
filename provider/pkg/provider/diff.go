@@ -145,6 +145,12 @@ func (d *differ) calculateValueDiff(v *resource.ValueDiff, diffBase, replaceBase
 }
 
 // applyDiff produces a new map as a merge of a calculated diff into an existing map of values.
+// Note that the use case for it is rather specific to the particular Read implementation:
+// - values are inputs currently stored in state before Read was called
+// - diff is a calculated difference between old and new _outputs_
+// So, diff values are independent of the values map. Practically, diff values may contain
+// more properties in object maps, and that doesn't necessarily mean we need to copy all of
+// them. Instead, we want to copy only the changed properties, and do so recursively.
 func applyDiff(values resource.PropertyMap, diff *resource.ObjectDiff) resource.PropertyMap {
 	if diff == nil {
 		return values
@@ -159,10 +165,48 @@ func applyDiff(values resource.PropertyMap, diff *resource.ObjectDiff) resource.
 	for key, value := range diff.Adds {
 		result[key] = value
 	}
-	for key, value := range diff.Updates {
-		result[key] = value.New
+	for key, update := range diff.Updates {
+		if value, has := values[key]; has {
+			result[key] = applyValueDiff(value, update.Old, update.New)
+		} else {
+			result[key] = update.New
+		}
 	}
 	return result
+}
+
+func applyValueDiff(baseValue resource.PropertyValue, oldValue resource.PropertyValue,
+	newValue resource.PropertyValue) resource.PropertyValue {
+
+	// Objects are compared property-by-property recursively and we only copy the changed sub-properties back.
+	if baseValue.IsObject() && oldValue.IsObject() && newValue.IsObject() {
+		subDiff := oldValue.ObjectValue().Diff(newValue.ObjectValue())
+		result := applyDiff(baseValue.ObjectValue(), subDiff)
+		return resource.NewObjectProperty(result)
+	}
+
+	// Arrays are compared element-by-element recursively.
+	if baseValue.IsArray() && oldValue.IsArray() && newValue.IsArray() {
+		baseValueArray := baseValue.ArrayValue()
+		oldValueArray := oldValue.ArrayValue()
+		newValueArray := newValue.ArrayValue()
+		length := len(newValueArray)
+		result := make([]resource.PropertyValue, length)
+
+		for i, el := range newValueArray {
+			if i >= len(baseValueArray) || i >= len(oldValueArray) {
+				// A new element was added, copy as-is.
+				result[i] = el
+				continue
+			}
+			// Calculate the diff recursively for each element.
+			result[i] = applyValueDiff(baseValueArray[i], oldValueArray[i], newValueArray[i])
+		}
+		return resource.NewArrayProperty(result)
+	}
+
+	// For plain values, just use the new baseValue.
+	return newValue
 }
 
 // applyAzureSpecificDiff modifies a generic diff calculated by the Platform with any
