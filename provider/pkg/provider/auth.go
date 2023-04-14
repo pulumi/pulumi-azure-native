@@ -162,10 +162,13 @@ for more information.`
 	return nil
 }
 
-// Run `az` with the given args and unmarshal the output (must be JSON) into the given target struct
+// Run `az` with the given args and unmarshal the output into the given target struct.
+// The `az` output is always in JSON, requested via `--output json`.
 func runAzCmd(target interface{}, arg ...string) error {
 	var stderr bytes.Buffer
 	var stdout bytes.Buffer
+
+	arg = append(arg, "--output", "json")
 
 	cmd := exec.Command("az", arg...)
 
